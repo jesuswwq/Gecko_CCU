@@ -1,0 +1,29 @@
+send_char.pbi: \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\mcal\Lib_TS_T01D20M1I4R0\src\send_char.c \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\driver\uart\uart.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\soc\soc_def.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include\Mcu_Modules.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_GeneralTypes.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Std_Types.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Platform_Types.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Compiler.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Compiler_Cfg.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/CompilerDefinition.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\RegHelper.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Std_Types.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include\Mcu_Delay.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Soc.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Mcal.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/OsIf.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\stdalign.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\ycheck.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\yvals.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\DLib_Defaults.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\DLib_Config_Normal.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\DLib_Product.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Modules.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\Mcal_Cfg\E3_ref_gateway_E3420\output\include\Mcu_Cfg.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include\Mcu_GeneralTypes.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Lib_TS_T01D20M1I4R0\include\ring.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include\Mcu_Soc.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Lib_MemMap.h

@@ -1,0 +1,48 @@
+{
+	"description": "e3 pac information file",
+	"board": "e3_gateway",
+	"project": "xip",
+	"bootload_path": "tools\IAR_Ddf\flashloader\SemiDrive\3420\bootloader_hyperflash.bin",
+	"downloader_path": "tools\IAR_Ddf\flashloader\SemiDrive\3420\3420_dloader_hyperflash.bin",
+	"pac": [
+		{
+			"flash_type": "hyperflash",
+			"downloader_type": "both",			
+			"type": "ospi",
+			"boot_package_num": "1",
+			"key": "TestRSA2048_ossl.pem",
+			"ctl": "none",
+			"uuid": "none",
+			"core": {
+				"sf_mode": "lockstep",
+				"sp_mode": "none",
+				"sx_mode": "none",
+				"sf_entry": "0x404000",
+
+				"sf_pad_size": "0x1000"
+			},
+			"sfs": {
+				"name": "s26h-hyperflash.json",
+				"boot0_addr": "0xc0000",
+				"boot1_addr": "0x4c0000",
+				"boot2_addr": "0x8c0000"
+			},
+			"encryption": {
+				"encryption_on": "false",
+				"rfd": [
+					{
+						"pvk3": "112233445566778899aabbccddeeff00",
+						"iv": "0d090d09",
+						"start": "0xc0000",
+						"end": "0x4c0000",
+						"boot":"true"
+					}
+				]
+			},
+			"rfd": "xspi_wrap_rfd_blk_pvk1_ks.rfd",
+			"other_file": {
+				"0x140000": "iar\iar_v850\E3_ref_gateway_E3420_xip\Release\Exe\E3_ref_gateway_E3420_xip.bin"
+			}
+		}
+	]
+}

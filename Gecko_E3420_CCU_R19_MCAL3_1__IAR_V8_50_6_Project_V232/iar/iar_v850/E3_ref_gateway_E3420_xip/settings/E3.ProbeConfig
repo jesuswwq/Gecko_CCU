@@ -1,0 +1,8 @@
+ "SF"   "Cortex-R5:0@0xF2081000"
+;+"SP0"  "Cortex-R5:0@0xF2082000"
+;+"SP1"  "Cortex-R5:0@0xF2083000"
++"SX0"  "Cortex-R5:0@0xF2084000"
++"SX1"  "Cortex-R5:0@0xF2085000"
+
+; End of file
+

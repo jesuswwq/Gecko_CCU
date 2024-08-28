@@ -1,0 +1,380 @@
+<?xml version="1.0"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00044.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="e337d7e0-2d15-4273-bf92-0c9bf5d39d66">
+      <SHORT-NAME>TS_T01D20M1I4R0</SHORT-NAME>
+      <ELEMENTS>
+        <ECUC-MODULE-DEF UUID="ECUC:865c8c0e-f964-4d70-92a9-ff60c9da4cee">
+          <SHORT-NAME>ResourceManager</SHORT-NAME>
+          <DESC>
+            <L-2 L="EN">.</L-2>
+          </DESC>
+          <ADMIN-DATA>
+            <DOC-REVISIONS>
+              <DOC-REVISION>
+                <REVISION-LABEL>4.3.1</REVISION-LABEL>
+                <ISSUED-BY>AUTOSAR</ISSUED-BY>
+              </DOC-REVISION>
+            </DOC-REVISIONS>
+          </ADMIN-DATA>
+          <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+          <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+          <POST-BUILD-VARIANT-SUPPORT>true</POST-BUILD-VARIANT-SUPPORT>
+          <SUPPORTED-CONFIG-VARIANTS>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-POST-BUILD</SUPPORTED-CONFIG-VARIANT>
+            <SUPPORTED-CONFIG-VARIANT>VARIANT-PRE-COMPILE</SUPPORTED-CONFIG-VARIANT>
+          </SUPPORTED-CONFIG-VARIANTS>
+          <CONTAINERS>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="a7eb554c-4764-4c25-82d9-d611a0260887">
+              <SHORT-NAME>ChipInfo</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">Display the chip's main feature.</L-2>
+              </DESC>
+              <PARAMETERS>
+                <ECUC-STRING-PARAM-DEF UUID="ECUC:31505abb-2290-4c99-bdb7-d0959f0440f2">
+                  <SHORT-NAME>PartNum</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Current chip part num.</L-2>
+                  </DESC>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>SEMIDRIVE</ORIGIN>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <ECUC-STRING-PARAM-DEF-VARIANTS>
+                    <ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                      <DEFAULT-VALUE>E3420</DEFAULT-VALUE>
+                      <!-- @Calculated /TS_T01D20M1I4R0/ResourceManager/ChipInfo/PartNum: DEFAULT(XPath: ecu:get(&apos;Chip.SubDerivate&apos;))-->
+                    </ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                  </ECUC-STRING-PARAM-DEF-VARIANTS>
+                </ECUC-STRING-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="10129851-2286-466a-bfc8-45bc511c1730">
+                  <SHORT-NAME>CpuMaxFrequency</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Cpu maximum frequency.</L-2>
+                  </DESC>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>SEMIDRIVE</ORIGIN>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <ECUC-STRING-PARAM-DEF-VARIANTS>
+                    <ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                      <DEFAULT-VALUE>600MHz</DEFAULT-VALUE>
+                      <!-- @Calculated /TS_T01D20M1I4R0/ResourceManager/ChipInfo/CpuMaxFrequency: DEFAULT(XPath: ecu:get(&apos;Chip.Core.MaxFrequency&apos;))-->
+                    </ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                  </ECUC-STRING-PARAM-DEF-VARIANTS>
+                </ECUC-STRING-PARAM-DEF>
+              </PARAMETERS>
+              <SUB-CONTAINERS>
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="d82af310-c6a3-47af-9d65-58b188daf203">
+                  <SHORT-NAME>CoreList</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Display the core matrix.</L-2>
+                  </DESC>
+                  <PARAMETERS>
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="1fea7232-414c-43fe-bfea-380d2d805a87">
+                      <SHORT-NAME>CR5_SF</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Display if the SF core exist.</L-2>
+                      </DESC>
+                      <!-- @Calculated /TS_T01D20M1I4R0/ResourceManager/ChipInfo/CoreList/CR5_SF: ENABLE(XPath: text:contains(ecu:get(&apos;Chip.Core&apos;), &apos;CR5_SF&apos;))-->
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <!-- @CalculatedEnd -->
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="b1b2dd48-61e3-47f2-9641-995686c34dd3">
+                      <SHORT-NAME>CR5_SX</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Display if the SX core exist.</L-2>
+                      </DESC>
+                      <!-- @Calculated /TS_T01D20M1I4R0/ResourceManager/ChipInfo/CoreList/CR5_SX: ENABLE(XPath: text:contains(ecu:get(&apos;Chip.Core&apos;), &apos;CR5_SX&apos;))-->
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <!-- @CalculatedEnd -->
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <DEFAULT-VALUE>true</DEFAULT-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                    <ECUC-BOOLEAN-PARAM-DEF UUID="880c402b-8538-4591-914c-bcc70d0ce28a">
+                      <SHORT-NAME>CR5_SP</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Display if the SP core exist.</L-2>
+                      </DESC>
+                      <!-- @Calculated /TS_T01D20M1I4R0/ResourceManager/ChipInfo/CoreList/CR5_SP: ENABLE(XPath: text:contains(ecu:get(&apos;Chip.Core&apos;), &apos;CR5_SP&apos;))-->
+                      <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+                      <!-- @CalculatedEnd -->
+                      <UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <DEFAULT-VALUE>false</DEFAULT-VALUE>
+                    </ECUC-BOOLEAN-PARAM-DEF>
+                  </PARAMETERS>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+              </SUB-CONTAINERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="1e8fa384-7d16-4314-87e8-f02b6abeeefc">
+              <SHORT-NAME>LinkerFileConfig</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">Used for generating linker file.</L-2>
+              </DESC>
+              <PARAMETERS>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="3f4c09da-736f-432c-9604-7a1fb8c40ca3">
+                  <SHORT-NAME>ROM_LOCATION</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Select the rom location iram/flash.</L-2>
+                  </DESC>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>SEMIDRIVE</ORIGIN>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>IRAM</DEFAULT-VALUE>
+                  <LITERALS>
+                    <ECUC-ENUMERATION-LITERAL-DEF>
+                      <SHORT-NAME>IRAM</SHORT-NAME>
+                      <ORIGIN>SEMIDRIVE</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF>
+                      <SHORT-NAME>FLASH</SHORT-NAME>
+                      <ORIGIN>SEMIDRIVE</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+                <ECUC-INTEGER-PARAM-DEF UUID="ee946159-23be-4db7-8ec9-8843e98841e7">
+                  <SHORT-NAME>StackSize</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Select the rom location iram/flash.</L-2>
+                  </DESC>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>SEMIDRIVE</ORIGIN>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>81920</DEFAULT-VALUE>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-INTEGER-PARAM-DEF UUID="cbcf9988-e654-459d-9efb-07de3faec40f">
+                  <SHORT-NAME>FlashBase</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Define the Flash Start Address of Linker file.</L-2>
+                  </DESC>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>SEMIDRIVE</ORIGIN>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>268468224</DEFAULT-VALUE>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-INTEGER-PARAM-DEF UUID="9d4ddfe8-119e-4e89-951b-ea2c45b1aa26">
+                  <SHORT-NAME>FlashSize</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Define the Flash Size of Linker file.</L-2>
+                  </DESC>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>SEMIDRIVE</ORIGIN>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>5210112</DEFAULT-VALUE>
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-INTEGER-PARAM-DEF UUID="d68de2ce-aa30-4f38-bc15-83493a9e9094">
+                  <SHORT-NAME>IramBase</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Define the Iram Start Address of Linker file.</L-2>
+                  </DESC>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>SEMIDRIVE</ORIGIN>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <!-- @Calculated /TS_T01D20M1I4R0/ResourceManager/LinkerFileConfig/IramBase: DEFAULT(XPath: num:inttohex(num:hextoint(ecu:get(&apos;Chip.Memory.IRAM.Base&apos;)) + 16384))-->
+                  <!-- @Calculated /TS_T01D20M1I4R0/ResourceManager/LinkerFileConfig/IramBase: INVALID(XPath: num:inttohex(node:value(.)) = num:inttohex(num:hextoint(ecu:get(&apos;Chip.Memory.IRAM.Base&apos;)) + 16384))-->
+                  <MAX>9223372036854775807</MAX>
+                  <MIN>-9223372036854775808</MIN>
+                  <!-- @CalculatedEnd -->
+                </ECUC-INTEGER-PARAM-DEF>
+                <ECUC-STRING-PARAM-DEF UUID="bd30da7b-8354-46e1-8f84-5d306b835e00">
+                  <SHORT-NAME>IramSize</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Define the IRAM Size of Linker file.</L-2>
+                  </DESC>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>SEMIDRIVE</ORIGIN>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <ECUC-STRING-PARAM-DEF-VARIANTS>
+                    <ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                      <!-- @Calculated /TS_T01D20M1I4R0/ResourceManager/LinkerFileConfig/IramSize: DEFAULT(XPath: ecu:get(&apos;Chip.Memory.IRAM.Size&apos;))-->
+                    </ECUC-STRING-PARAM-DEF-CONDITIONAL>
+                  </ECUC-STRING-PARAM-DEF-VARIANTS>
+                </ECUC-STRING-PARAM-DEF>
+              </PARAMETERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+            <ECUC-PARAM-CONF-CONTAINER-DEF UUID="c03229fe-4dca-445e-a47c-1ae21e6c1832">
+              <SHORT-NAME>ResMMcalCore</SHORT-NAME>
+              <DESC>
+                <L-2 L="EN">General container to allocate Mcal resources to cores</L-2>
+              </DESC>
+              <LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+              <UPPER-MULTIPLICITY>5</UPPER-MULTIPLICITY>
+              <MULTIPLICITY-CONFIG-CLASSES>
+                <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                  <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                  <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+              </MULTIPLICITY-CONFIG-CLASSES>
+              <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+              <PARAMETERS>
+                <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:c67e7cf8-3daf-455b-a213-95ae94b248d8">
+                  <SHORT-NAME>ResMCoreID</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Select Master core.</L-2>
+                  </DESC>
+                  <SCOPE>LOCAL</SCOPE>
+                  <ORIGIN>SEMIDRIVE</ORIGIN>
+                  <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                  <VALUE-CONFIG-CLASSES>
+                    <ECUC-VALUE-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-VALUE-CONFIGURATION-CLASS>
+                  </VALUE-CONFIG-CLASSES>
+                  <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                  <DEFAULT-VALUE>CR5_SF</DEFAULT-VALUE>
+                  <LITERALS>
+                    <!-- @Calculated /TS_T01D20M1I4R0/ResourceManager/ResMMcalCore/ResMCoreID: RANGE(XPath: ecu:list(&apos;Chip.Core&apos;))-->
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="28e64649-fb3f-4d70-8ba4-824d01ff9cc1">
+                      <SHORT-NAME>CR5_SF</SHORT-NAME>
+                      <ORIGIN>SEMIDRIVE</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="cd80bffa-61c0-4afa-9f61-9b55e9302b2e">
+                      <SHORT-NAME>CR5_SX0</SHORT-NAME>
+                      <ORIGIN>SEMIDRIVE</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <ECUC-ENUMERATION-LITERAL-DEF UUID="39fb2dd2-c4f8-4847-9862-aa16525e3fec">
+                      <SHORT-NAME>CR5_SX1</SHORT-NAME>
+                      <ORIGIN>SEMIDRIVE</ORIGIN>
+                    </ECUC-ENUMERATION-LITERAL-DEF>
+                    <!-- @CalculatedEnd -->
+                  </LITERALS>
+                </ECUC-ENUMERATION-PARAM-DEF>
+              </PARAMETERS>
+              <SUB-CONTAINERS>
+                <ECUC-PARAM-CONF-CONTAINER-DEF UUID="08f7956c-d857-438f-9504-12df1ba10e73">
+                  <SHORT-NAME>ResMAllocation</SHORT-NAME>
+                  <DESC>
+                    <L-2 L="EN">Container to allocate module resources.</L-2>
+                  </DESC>
+                  <LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+                  <UPPER-MULTIPLICITY-INFINITE>1</UPPER-MULTIPLICITY-INFINITE>
+                  <MULTIPLICITY-CONFIG-CLASSES>
+                    <ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                      <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                      <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                    </ECUC-MULTIPLICITY-CONFIGURATION-CLASS>
+                  </MULTIPLICITY-CONFIG-CLASSES>
+                  <POST-BUILD-VARIANT-MULTIPLICITY>false</POST-BUILD-VARIANT-MULTIPLICITY>
+                  <PARAMETERS>
+                    <ECUC-ENUMERATION-PARAM-DEF UUID="ECUC:7aa61340-e385-4037-b899-40ce3e5957544">
+                      <SHORT-NAME>ResMModuleName</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">Module name.</L-2>
+                      </DESC>
+                      <SCOPE>LOCAL</SCOPE>
+                      <ORIGIN>SEMIDRIVE</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+                      <DEFAULT-VALUE>ADC</DEFAULT-VALUE>
+                      <LITERALS>
+                        <!-- @Calculated /TS_T01D20M1I4R0/ResourceManager/ResMMcalCore/ResMAllocation/ResMModuleName: RANGE(XPath: ecu:list(&apos;Chip.Module&apos;))-->
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="7a374237-7f35-4b3f-b8ba-57e7ff3d43ac">
+                          <SHORT-NAME>ADC</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="c72fb90e-04f4-4fb9-89b1-fbf2989bdb3c">
+                          <SHORT-NAME>PWM</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="fd0ac820-a0c8-4d3d-a0c7-302b8a177ce5">
+                          <SHORT-NAME>ICU</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="eeca1c86-44bb-4d9d-94ec-3094321173e7">
+                          <SHORT-NAME>GPT</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="dd5a3b65-267c-4c37-933a-2eaa5a7f1756">
+                          <SHORT-NAME>CAN</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="c18fd84e-862e-43e9-8e57-178ce53cb9ad">
+                          <SHORT-NAME>SPI</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="d488ce49-a524-47db-80cf-713daed3db29">
+                          <SHORT-NAME>SENT</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="ba2daab5-a136-446f-8b84-fc9af9e79588">
+                          <SHORT-NAME>ETH</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="565bdffe-256d-4c62-a281-7d6b5ecb86d6">
+                          <SHORT-NAME>LIN</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="a03937bb-9b79-494d-b22c-adc00c6624ac">
+                          <SHORT-NAME>ETHTRCV</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="4aa3780e-a87e-4f87-bb97-73a33e9713a4">
+                          <SHORT-NAME>WDG</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <ECUC-ENUMERATION-LITERAL-DEF UUID="af91e331-3711-4108-9ee3-8d7de1dbdf23">
+                          <SHORT-NAME>DMA</SHORT-NAME>
+                          <ORIGIN>SEMIDRIVE</ORIGIN>
+                        </ECUC-ENUMERATION-LITERAL-DEF>
+                        <!-- @CalculatedEnd -->
+                      </LITERALS>
+                    </ECUC-ENUMERATION-PARAM-DEF>
+                  </PARAMETERS>
+                  <REFERENCES>
+                    <ECUC-CHOICE-REFERENCE-DEF UUID="ECUC:ea7f8f6d-5d98-4bc4-808e-dc02c4c233ea">
+                      <SHORT-NAME>ResMResourceRef</SHORT-NAME>
+                      <DESC>
+                        <L-2 L="EN">This parameter contains reference to resource</L-2>
+                      </DESC>
+                      <SCOPE>ECU</SCOPE>
+                      <ORIGIN>SEMIDRIVE</ORIGIN>
+                      <POST-BUILD-VARIANT-VALUE>false</POST-BUILD-VARIANT-VALUE>
+                      <VALUE-CONFIG-CLASSES>
+                        <ECUC-VALUE-CONFIGURATION-CLASS>
+                          <CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+                          <CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+                        </ECUC-VALUE-CONFIGURATION-CLASS>
+                      </VALUE-CONFIG-CLASSES>
+                      <DESTINATION-REFS>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Pwm/PwmChannelConfigSet/PwmController</DESTINATION-REF>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Icu/IcuConfigSet/IcuChannel</DESTINATION-REF>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Gpt/GptChannelConfigSet/GptChannelConfiguration</DESTINATION-REF>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Adc/AdcConfigSet/AdcHwUnit</DESTINATION-REF>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Eth/EthConfigSet/EthCtrlConfig</DESTINATION-REF>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Wdg/WdgSettingsConfig</DESTINATION-REF>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/EthTrcv/EthTrcvConfigSet/EthTrcvConfig</DESTINATION-REF>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiHwUnit</DESTINATION-REF>
+                        <DESTINATION-REF DEST="ECUC-PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcucDefs/Dma/DmaConfigSet/DmaHwUnit</DESTINATION-REF>
+                      </DESTINATION-REFS>
+                    </ECUC-CHOICE-REFERENCE-DEF>
+                  </REFERENCES>
+                </ECUC-PARAM-CONF-CONTAINER-DEF>
+              </SUB-CONTAINERS>
+            </ECUC-PARAM-CONF-CONTAINER-DEF>
+          </CONTAINERS>
+        </ECUC-MODULE-DEF>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

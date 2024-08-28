@@ -1,0 +1,11 @@
+XcpData.pbi: \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\AUTOSAR_STACK\ASW\XcpDataTest\XcpData.c \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\AUTOSAR_STACK\ASW\XcpDataTest/Xcprtwtypes.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\limits.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\ycheck.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\yvals.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\DLib_Defaults.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\DLib_Config_Normal.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\DLib_Product.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Platform_Types.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\AUTOSAR_STACK\ASW\XcpDataTest/XcpTest_types.h

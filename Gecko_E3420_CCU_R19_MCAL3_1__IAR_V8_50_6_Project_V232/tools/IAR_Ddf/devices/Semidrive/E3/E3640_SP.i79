@@ -1,0 +1,30 @@
+[FILEFORMAT]
+rev=1.6
+
+[CHIP]
+name=E3640_SP
+endiansupport=le
+thumbsupport=true
+armsupport=true
+fpu=VFPv3
+SIMD=false
+
+DeviceMacros=$TOOLKIT_DIR$/config/debugger/SemiDrive/E3xxx.dmac
+ProbeConfigFile=$TOOLKIT_DIR$/config/debugger/SemiDrive/E3xxx_SP.ProbeConfig
+
+JTAG=true
+RTCK=false
+SWD=true
+SWO_TraceD0=false
+
+[CORE]
+name=Cortex-R5
+
+[DDF FILE]
+name=SemiDrive/E3640_SP.ddf
+
+[LINKER FILE]
+name=$TOOLKIT_DIR$/config/linker/SemiDrive/E3640.icf
+
+[FLASH LOADER]
+little=$TOOLKIT_DIR$/config/flashloader/SemiDrive/FlashE3640GatewaySP.board

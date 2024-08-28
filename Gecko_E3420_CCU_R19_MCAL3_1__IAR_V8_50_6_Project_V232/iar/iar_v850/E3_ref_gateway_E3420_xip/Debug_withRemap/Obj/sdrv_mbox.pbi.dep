@@ -1,0 +1,12 @@
+sdrv_mbox.pbi: \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\mcal\Mailbox_TS_T01D20M1I4R0\src\sdrv_mbox.c \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\cdefs.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\RegHelper.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Std_Types.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Platform_Types.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Compiler.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Compiler_Cfg.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/CompilerDefinition.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mailbox_TS_T01D20M1I4R0\include\sdrv_mbox.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Compiler.h \
+  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Mailbox_MemMap.h
