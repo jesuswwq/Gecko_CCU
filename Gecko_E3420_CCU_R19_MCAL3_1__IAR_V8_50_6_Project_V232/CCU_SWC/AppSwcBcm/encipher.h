@@ -1,0 +1,1 @@
+extern void encipher(unsigned int num_rounds,unsigned long* v,unsigned long* k);

@@ -1,0 +1,190 @@
+<?xml version="1.0"?>
+<settings>
+    <Stack>
+        <FillEnabled>0</FillEnabled>
+        <OverflowWarningsEnabled>1</OverflowWarningsEnabled>
+        <WarningThreshold>90</WarningThreshold>
+        <SpWarningsEnabled>0</SpWarningsEnabled>
+        <WarnLogOnly>1</WarnLogOnly>
+        <UseTrigger>0</UseTrigger>
+        <TriggerName>main</TriggerName>
+        <LimitSize>0</LimitSize>
+        <ByteLimit>50</ByteLimit>
+    </Stack>
+    <JLinkDriver>
+        <WatchCond>_ 0</WatchCond>
+        <Watch0>_ 0 "0x00000000" 4294967295 "0xFFFFFFFF" 0 "0x00000000" 4294967295 "0xFFFFFFFF" 3 4 0 0</Watch0>
+        <Watch1>_ 0 "0x00000000" 4294967295 "0xFFFFFFFF" 0 "0x00000000" 4294967295 "0xFFFFFFFF" 3 4 0 0</Watch1>
+        <CStepIntDis>_ 0</CStepIntDis>
+        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
+        <jlinkResetStyle>12</jlinkResetStyle>
+        <jlinkResetStrategy>0</jlinkResetStrategy>
+    </JLinkDriver>
+    <DebugChecksum>
+        <Checksum>528524437</Checksum>
+    </DebugChecksum>
+    <Exceptions>
+        <StopOnUncaught>_ 0</StopOnUncaught>
+        <StopOnThrow>_ 0</StopOnThrow>
+    </Exceptions>
+    <CallStack>
+        <ShowArgs>0</ShowArgs>
+    </CallStack>
+    <Disassembly>
+        <MixedMode>0</MixedMode>
+    </Disassembly>
+    <PlDriver>
+        <FirstRun>0</FirstRun>
+        <MemConfigValue />
+    </PlDriver>
+    <Jet>
+        <JetConnSerialNo>95929</JetConnSerialNo>
+        <JetConnFoundProbes />
+        <PrevWtdReset>Hardware</PrevWtdReset>
+        <OnlineReset>Software</OnlineReset>
+        <DisableInterrupts>0</DisableInterrupts>
+        <LeaveRunning>0</LeaveRunning>
+        <MultiCoreRunAll>0</MultiCoreRunAll>
+    </Jet>
+    <ArmDriver>
+        <EnableCache>1</EnableCache>
+    </ArmDriver>
+    <PlCacheRanges>
+        <CustomRanges0>0 0 4294967296 2 0</CustomRanges0>
+        <CustomRangesText0>All of memory</CustomRangesText0>
+    </PlCacheRanges>
+    <SWOManager>
+        <SamplingDivider>8192</SamplingDivider>
+        <OverrideClock>0</OverrideClock>
+        <CpuClock>1</CpuClock>
+        <SwoClock>1009836876</SwoClock>
+        <DataLogMode>0</DataLogMode>
+        <ItmPortsEnabled>63</ItmPortsEnabled>
+        <ItmTermIOPorts>1</ItmTermIOPorts>
+        <ItmLogPorts>0</ItmLogPorts>
+        <ItmLogFile>$PROJ_DIR$\ITM.log</ItmLogFile>
+        <PowerForcePC>1</PowerForcePC>
+        <PowerConnectPC>1</PowerConnectPC>
+    </SWOManager>
+    <Trace1>
+        <Enabled>0</Enabled>
+        <ShowSource>1</ShowSource>
+        <Enabled1>0</Enabled1>
+        <ShowSource1>1</ShowSource1>
+        <Enabled2>0</Enabled2>
+        <ShowSource2>1</ShowSource2>
+    </Trace1>
+    <Trace2>
+        <Enabled>0</Enabled>
+        <ShowSource>0</ShowSource>
+        <Enabled1>0</Enabled1>
+        <ShowSource1>0</ShowSource1>
+        <Enabled2>0</Enabled2>
+        <ShowSource2>0</ShowSource2>
+    </Trace2>
+    <ETMTraceWindow>
+        <PortWidth>4</PortWidth>
+        <PortMode>0</PortMode>
+        <CaptureDataValues>0</CaptureDataValues>
+        <CaptureDataAddresses>0</CaptureDataAddresses>
+        <CaptureDataRange>0</CaptureDataRange>
+        <DataFirst>0</DataFirst>
+        <DataLast>4294967295</DataLast>
+        <StopWhen>0</StopWhen>
+        <StallCPU>0</StallCPU>
+        <NoPCCapture>0</NoPCCapture>
+    </ETMTraceWindow>
+    <SWOTraceWindow>
+        <ForcedPcSampling>0</ForcedPcSampling>
+        <ForcedInterruptLogs>0</ForcedInterruptLogs>
+        <ForcedItmLogs>0</ForcedItmLogs>
+        <EventCPI>0</EventCPI>
+        <EventEXC>0</EventEXC>
+        <EventFOLD>0</EventFOLD>
+        <EventLSU>0</EventLSU>
+        <EventSLEEP>0</EventSLEEP>
+    </SWOTraceWindow>
+    <PowerLog>
+        <Title_0>ITrgPwr</Title_0>
+        <Symbol_0>0 4 0</Symbol_0>
+        <LogEnabled>0</LogEnabled>
+        <GraphEnabled>0</GraphEnabled>
+        <ShowTimeLog>1</ShowTimeLog>
+        <LiveEnabled>0</LiveEnabled>
+        <LiveFile>PowerLogLive.log</LiveFile>
+    </PowerLog>
+    <PowerProbe>
+        <Frequency>10000</Frequency>
+        <Probe0>ITrgPwr</Probe0>
+        <ProbeSetup0>2 1 1 2 0 0</ProbeSetup0>
+    </PowerProbe>
+    <struct_types>
+        <Fmt0>DT_Bcm2VcuTms_outputs-AppSwcBcmVersion	4	0</Fmt0>
+        <Fmt1>DT_Bcm2VcuTms_outputs-BCM_DoorAiarSta_RR	4	0</Fmt1>
+        <Fmt2>DT_Bcm2VcuTms_outputs-BCM_DoorAjarSta_FL	4	0</Fmt2>
+        <Fmt3>DT_Bcm2VcuTms_outputs-BCM_DoorAjarSta_FR	4	0</Fmt3>
+        <Fmt4>DT_Bcm2VcuTms_outputs-BCM_DoorAjarSta_RL	4	0</Fmt4>
+        <Fmt5>DT_Bcm2VcuTms_outputs-BCM_NMReq_flg	4	0</Fmt5>
+        <Fmt6>DT_Bcm2VcuTms_outputs-BCM_SleepAllwd_flg	4	0</Fmt6>
+        <Fmt7>DT_Bcm2VcuTms_outputs-BCM_StartReq	4	0</Fmt7>
+        <Fmt8>DT_Bcm2VcuTms_outputs-BCM_SysPowerSts	4	0</Fmt8>
+        <Fmt9>DT_Bcm2VcuTms_outputs-BCM_SysPwrMode	4	0</Fmt9>
+        <Fmt10>DT_Bcm2VcuTms_outputs-BCM_SysPwrModeV	4	0</Fmt10>
+        <Fmt11>NvM_BlockDescriptorType-NvMMaxNumOfWriteRetries	4	0</Fmt11>
+        <Fmt12>NvM_BlockDescriptorType-NvmRamBlockDataAddress	4	0</Fmt12>
+        <Fmt13>struct &lt;Unnamed 1413&gt;-lr	4	0</Fmt13>
+        <Fmt14>struct &lt;Unnamed 1413&gt;-lr_saved	4	0</Fmt14>
+        <Fmt15>struct &lt;Unnamed 1413&gt;-r0	4	0</Fmt15>
+        <Fmt16>struct &lt;Unnamed 1413&gt;-r1	4	0</Fmt16>
+        <Fmt17>struct &lt;Unnamed 1413&gt;-r11	4	0</Fmt17>
+        <Fmt18>struct &lt;Unnamed 1413&gt;-r12	4	0</Fmt18>
+        <Fmt19>struct &lt;Unnamed 1413&gt;-r2	4	0</Fmt19>
+        <Fmt20>struct &lt;Unnamed 1413&gt;-r3	4	0</Fmt20>
+        <Fmt21>struct &lt;Unnamed 1413&gt;-r4	4	0</Fmt21>
+        <Fmt22>struct &lt;Unnamed 1413&gt;-r5	4	0</Fmt22>
+        <Fmt23>struct &lt;Unnamed 1413&gt;-spsr	4	0</Fmt23>
+    </struct_types>
+    <array_types>
+        <Fmt0>uint32[4]	4	0</Fmt0>
+    </array_types>
+    <watch_formats>
+        <Fmt0>{W}1:BSW_WakeupReas	4	0</Fmt0>
+        <Fmt1>{W}1:TCA9539ReadAll	4	0</Fmt1>
+        <Fmt2>{W}1:TCA9539SumTriger	4	0</Fmt2>
+        <Fmt3>{W}1:WakeUpCtl_NMReq	4	0</Fmt3>
+        <Fmt4>{W}1:WakeUpCtl_SleepAllwd	4	0</Fmt4>
+        <Fmt5>{W}1:dfar	4	0</Fmt5>
+        <Fmt6>{W}1:iolevel	3	0</Fmt6>
+        <Fmt7>{W}1:tmpchannel	3	0</Fmt7>
+    </watch_formats>
+    <DisassembleMode>
+        <mode>0</mode>
+    </DisassembleMode>
+    <Breakpoints2>
+        <Bp0>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\AUTOSAR_STACK\BSW\Communication\Common\Xcp\Xcp_Daq.c}.284.5" 0 0 1 "" 0 "" 0</Bp0>
+        <Bp1>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\AUTOSAR_STACK\BSW\Communication\Common\Xcp\Xcp_Daq.c}.421.12" 0 0 1 "" 0 "" 0</Bp1>
+        <Bp2>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\AUTOSAR_STACK\BSW\Communication\Common\Xcp\Xcp_Daq.c}.481.48" 0 0 1 "" 0 "" 0</Bp2>
+        <Bp3>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\AUTOSAR_STACK\BSW\Communication\Common\Xcp\Xcp_Daq.c}.364.5" 0 0 1 "" 0 "" 0</Bp3>
+        <Count>4</Count>
+    </Breakpoints2>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+        <Category>_ 0</Category>
+    </LogFile>
+    <Aliases>
+        <A0>_ "C:\Users\Lenovo\Desktop\BiHu_E3420_FBL_IAR_8_50_6_Project\src\mcal\Can_TS_T01D20M1I4R0\src\Can_IP.c" ""</A0>
+        <Count>1</Count>
+        <SuppressDialog>0</SuppressDialog>
+    </Aliases>
+    <CallStackLog>
+        <Enabled>0</Enabled>
+    </CallStackLog>
+    <CallStackStripe>
+        <ShowTiming>1</ShowTiming>
+    </CallStackStripe>
+</settings>

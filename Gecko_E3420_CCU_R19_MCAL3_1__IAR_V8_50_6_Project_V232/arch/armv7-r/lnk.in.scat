@@ -1,0 +1,65 @@
+
+LOAD_ROM1 %ROM_BASE% +0 (%ROM_SIZE% - 0x20)
+{
+    vector +0
+    {
+       vector.o (.text.vector, +FIRST)
+    }
+
+    ;text.mcal.mcu.code +0  ; an example to locate a specified section
+    ;{
+    ;   * (.text.mcal.mcu.code)
+    ;}
+
+    text +0 
+    {
+       * (+RO)
+    }
+
+    TEST_SECTION  +0 ALIGN(8) {
+        *(TEST_SECTION)
+    }
+
+    shell_cmd +0 ALIGN(8) {
+        *(shell_cmd)
+    }
+
+    data %RAM_BASE% ALIGN(32)
+    {
+        * (+RW)
+    }
+
+    bss +0 ALIGN(32)
+    {
+        * (+ZI)
+    }
+
+    ram_func +0 ALIGN(32)
+    {
+        *(.ram_func)
+    }
+
+    heap +0 ALIGN(4) EMPTY 4
+    {
+    }
+
+    stack (%RAM_BASE% + %RAM_SIZE%) EMPTY -%STACK_SZ%
+    {
+    }
+}
+
+LOAD_ROM2 (%ROM_BASE% + %ROM_SIZE% - 32) 32
+{
+    checksum (%ROM_BASE% + %ROM_SIZE% - 32) ALIGN(4)
+    {
+        *(.checksum)
+    }
+}
+
+LOAD_MB_MEM %MBOX_BASE%  %MBOX_SIZE%
+{
+    .sdpe_rpc_buf %MBOX_BASE% ALIGN(4)
+    {
+        *(.sdpe_rpc_buf)
+    }
+}

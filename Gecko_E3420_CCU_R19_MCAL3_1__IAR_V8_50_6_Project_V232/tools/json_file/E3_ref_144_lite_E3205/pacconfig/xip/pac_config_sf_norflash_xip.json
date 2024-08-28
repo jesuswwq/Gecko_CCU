@@ -1,0 +1,49 @@
+{
+	"description": "e3 pac information file",
+	"board": "e3_144_ref",
+	"project": "xip",
+	"bootload_path": "tools\IAR_Ddf\flashloader\SemiDrive\3205\bootloader.bin",
+	"downloader_path": "tools\IAR_Ddf\flashloader\SemiDrive\3205\3205_dloader_norflash.bin",
+	"pac": [
+		{
+			"flash_type": "norflash",
+			"downloader_type": "both",
+			"type": "ospi",
+			"boot_package_num": "1",
+			"key": "TestRSA2048_ossl.pem",
+			"ctl": "none",
+			"uuid": "none",
+			"dloader_entry": "0x504000",
+			"core": {
+				"sf_mode": "lockstep",
+				"sp_mode": "none",
+				"sx_mode": "none",
+				"sf_entry": "0x504000",
+
+				"sf_pad_size": "0x1000"
+			},
+			"sfs": {
+				"name": "is25-1-1-4.json",
+				"boot0_addr": "0x7000",
+				"boot1_addr": "0x207000",
+				"boot2_addr": "0x407000"
+			},
+			"encryption": {
+				"encryption_on": "false",
+				"rfd": [
+					{
+						"pvk3": "112233445566778899aabbccddeeff00",
+						"iv": "0d090d09",
+						"start": "0x7000",
+						"end": "0x207000",
+						"boot":"true"
+					}
+				]
+			},
+			"rfd": "xspi_wrap_rfd_blk_pvk1_ks.rfd",
+			"other_file": {
+				"0x140000": "iar\iar_v850\E3_ref_144_lite_E3205_xip\Release\Exe\E3_ref_144_lite_E3205_xip.bin"
+			}
+		}
+	]
+}

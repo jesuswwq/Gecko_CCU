@@ -1,0 +1,8 @@
+
+Name: config/ResM.xdm
+SignatureKeyID: Semidrive
+SignatureKeyProviderID: dreisoft.tresos.launcher2.CryptoKeyProvider
+SignatureAlgorithmID: DSA
+Signature: 28964594741781597239269842804762882820741441441693906098661
+ 558372516354856069133023145671456497126668156636713659
+
