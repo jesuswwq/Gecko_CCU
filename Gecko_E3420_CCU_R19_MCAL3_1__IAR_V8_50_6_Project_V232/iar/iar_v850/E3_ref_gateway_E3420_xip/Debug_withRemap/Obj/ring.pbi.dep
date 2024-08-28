@@ -1,7 +1,0 @@
-ring.pbi: \
-  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\mcal\Lib_TS_T01D20M1I4R0\src\ring.c \
-  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Lib_TS_T01D20M1I4R0\include\ring.h \
-  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Lib_TS_T01D20M1I4R0\include\mini_libc.h \
-  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Platform_Types.h \
-  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Lib_MemMap.h \
-  D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/CompilerDefinition.h
