@@ -220,4 +220,8 @@ extern void App_Call_Event_IODID_0x3234_GetEventStatus(uint8 *data);
 extern void App_Call_Event_IODID_0x3235_GetEventStatus(uint8 *data);
 extern void App_Call_Event_IODID_0x3236_GetEventStatus(uint8 *data);
 
+/* CRC校验 */
+extern Std_ReturnType Com_RxChksumAliveCnt_Check(uint16 MsgID, uint8 *MsgDataPtr, uint32 MsgDataLen, uint8 *ChksumByte, uint8 ChksumNum, uint8 *LastAliveCnt);
+extern Std_ReturnType Com_TxChksumAliveCnt_Calc(uint16 MsgID, uint8 *MsgDataPtr, uint32 MsgDataLen, uint8 *ChksumByte, uint8 ChksumNum, uint8 *LastAliveCnt);
+
 #endif

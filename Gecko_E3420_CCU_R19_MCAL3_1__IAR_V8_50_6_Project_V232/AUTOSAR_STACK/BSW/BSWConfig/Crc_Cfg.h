@@ -39,7 +39,7 @@
 #define CRC8_ALGORITHM              STD_ON
 
 /* CRC8 (2Fh polynomial) algorithm calculation switch */
-#define CRC8H2F_ALGORITHM           STD_OFF
+#define CRC8H2F_ALGORITHM           STD_ON
 
 /* CRC16 (CCITT) algorithm calculation switch */
 #define CRC16_ALGORITHM             STD_ON
@@ -56,6 +56,7 @@
 /* Switch to select one of the available CRC 8-bit (SAE J1850) calculation methods
  * req<ecuc_crc_00030></ecuc_crc_00030> */     
 #define CRC8_MODE CRC_TABLE
+#define CRC8H2F_MODE CRC_TABLE
 
 /* Switch to select one of the available CRC 8-bit (2Fh polynomial) calculation methods
  * req<ecuc_crc_00031>*/     

@@ -3,6 +3,9 @@
 **                      Include Section                                       **
 *******************************************************************************/
 #include "DIAG_ABI.h"
+#include "Crc.h"
+
+boolean VBSW_CANComCRCInstFlt_flg[100] = {0};
 
 
 /* DTC 状态设置 */
@@ -1645,3 +1648,77 @@ void App_Call_Event_IODID_0x3236_GetEventStatus(uint8 *data)
  //Rte_Call_Dcm_CSDataServices_DcmDspData_3236_ReadData(0,data,0);
  *data = 0;
 }
+
+
+/* CRC校验 */
+Std_ReturnType Com_RxChksumAliveCnt_Check(uint16 MsgID, uint8 *MsgDataPtr, uint32 MsgDataLen, uint8 *ChksumByte, uint8 ChksumNum, uint8 *LastAliveCnt)
+{
+	if (255 == ChksumByte[0])
+	{
+		return E_NOT_OK;
+	}
+
+    uint8 RxChksum;
+    uint8 RxAliveCnt;
+    uint8 CalcChksum;
+    uint8 ChksumBegin;
+	uint8 AliveCntErr;
+    boolean CrcFlt = FALSE;
+    boolean CntFlt = FALSE;
+    for (uint8 k = 0; k < ChksumNum; k++)
+    {
+        ChksumBegin = ChksumByte[k];
+		if ((ChksumBegin+7) < MsgDataLen)
+		{
+			RxChksum = MsgDataPtr[ChksumBegin];
+            RxAliveCnt = MsgDataPtr[ChksumBegin + 1] & 0x0F;
+            CalcChksum = Crc_CalculateCRC8H2F(&MsgDataPtr[ChksumBegin + 1], 7, 0xFF, TRUE);
+            CrcFlt |= (CalcChksum != RxChksum);
+			if (RxAliveCnt >= LastAliveCnt[k])
+			{
+				AliveCntErr = RxAliveCnt - LastAliveCnt[k];
+			}
+			else
+			{
+				AliveCntErr = RxAliveCnt + 16 - LastAliveCnt[k];
+			}
+            CntFlt |= ((AliveCntErr != 1) && (AliveCntErr != 2));
+            LastAliveCnt[k] = RxAliveCnt;
+		}
+    }
+	if(MsgID < sizeof(VBSW_CANComCRCInstFlt_flg))
+	{
+		VBSW_CANComCRCInstFlt_flg[MsgID] = CrcFlt || CntFlt;
+	}
+
+	return E_OK;
+}
+
+
+Std_ReturnType Com_TxChksumAliveCnt_Calc(uint16 MsgID, uint8 *MsgDataPtr, uint32 MsgDataLen, uint8 *ChksumByte, uint8 ChksumNum, uint8 *LastAliveCnt)
+{
+	if (255 == ChksumByte[0])
+	{
+		return E_NOT_OK;
+	}
+
+    uint8 TxChksum;
+	uint8 TxAliveCnt;
+    uint8 ChksumBegin;
+    for (uint8 k = 0; k < ChksumNum; k++)
+    {
+        ChksumBegin = ChksumByte[k];
+		if ((ChksumBegin+7) < MsgDataLen)
+		{
+			TxAliveCnt = (LastAliveCnt[k] + 1) & 0x0F;
+			MsgDataPtr[ChksumBegin + 1] = (MsgDataPtr[ChksumBegin + 1] & 0xF0) + (TxAliveCnt & 0x0F);
+			TxChksum = Crc_CalculateCRC8H2F(&MsgDataPtr[ChksumBegin + 1], 7, 0xFF, TRUE);
+			MsgDataPtr[ChksumBegin] = TxChksum;
+			LastAliveCnt[k] = TxAliveCnt;
+		}
+    }
+
+	return E_OK;
+}
+
+

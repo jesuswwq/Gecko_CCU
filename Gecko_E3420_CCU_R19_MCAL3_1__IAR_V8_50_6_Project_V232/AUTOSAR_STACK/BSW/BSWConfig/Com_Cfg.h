@@ -2851,6 +2851,113 @@ boolean IPDU_COM_RX_SRS_1_Status_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, 
 
 boolean IPDU_COM_RX_PP_InformAndStatus_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
+/* *************************************************************************************** */
+//#define HU_A_BAC_ChksumByte    {0,8,16,24,32,40,48}
+#define HU_B_BAC_ChksumByte    {0,8}
+//#define HU_C_BAC_ChksumByte    {0}
+//#define ICU_2_Odo_BAC_ChksumByte    {255}
+#define ICU_Info_BAC_ChksumByte    {0}
+#define TBOX_BJS_Time_BAC_ChksumByte    {0}
+
+//#define ACCM_Version_BOD_ChksumByte    {255}
+//#define AVAS_State_BOD_ChksumByte    {0}
+#define CCP_PanelStatus_BOD_ChksumByte    {0}
+#define COMP_AC_BOD_ChksumByte    {0}
+//#define ESCL_ESCLStatus_BOD_ChksumByte    {255}
+#define HVCH_Status1_BOD_ChksumByte    {0}
+//#define HVCH_Status2_BOD_ChksumByte    {0}
+//#define SCS_LeSwitchSts_BOD_ChksumByte    {0}
+#define SCS_RiSwitchSts_BOD_ChksumByte    {0}
+//#define TPMS_Info_BOD_ChksumByte    {255}
+
+//#define CRRR_10_Posn_CHA_ChksumByte    {0,8}
+#define CRRR_A_CHA_ChksumByte    {0}
+//#define EHB_A_CHA_ChksumByte    {0}
+#define EHB_B_CHA_ChksumByte    {0,8,16}
+//#define EPS_1_Status_CHA_ChksumByte    {0}
+#define EPS_2_StrWhlAng_CHA_ChksumByte    {0}
+//#define EPS_3_LatDrvAndEPSSts_CHA_ChksumByte    {0,8}
+#define ESC_7_FuncStatus_CHA_ChksumByte    {0}
+//#define ESC_A_CHA_ChksumByte    {0,8,16,24,32,40,48}
+//#define ESC_WheelPulseTime_CHA_ChksumByte    {255}
+//#define FCM_23_Obj0109_CHA_ChksumByte    {0,8,16,24,32,40,48,56}
+//#define FCM_24_Obj1018_CHA_ChksumByte    {0,8,16,24,32,40,48,56}
+//#define FCM_25_Line123_CHA_ChksumByte    {0,8,16,24,32,40,48,56}
+//#define FCM_A_CHA_ChksumByte    {0,8,16,24,32,40}
+#define FCM_B_CHA_ChksumByte    {0,8,16,24,32,40,48}
+//#define FCM_D_CHA_ChksumByte    {0,8}
+//#define FCM_ObjTrackID_CHA_ChksumByte    {0,8,16,24}
+#define PP_InformAndStatus_CHA_ChksumByte    {0,8,16,24,32}
+#define SRS_1_Status_CHA_ChksumByte    {0}
+//#define SRS_2_YRSOriginalSts_CHA_ChksumByte    {0}
+//#define SRS_3_YRSActualSts_CHA_ChksumByte    {0}
+
+//#define BMS_1_MainState_EPT_ChksumByte    {0}
+//#define BMS_10_DC_ChargeStates_EPT_ChksumByte    {0}
+#define BMS_2_BatState_EPT_ChksumByte    {0}
+//#define BMS_3_DC_ChargeState_EPT_ChksumByte    {0}
+//#define BMS_4_AC_ChargeState_EPT_ChksumByte    {0}
+//#define BMS_5_BatTemp_EPT_ChksumByte    {0}
+//#define BMS_6_DischrgRecup_EPT_ChksumByte    {255}
+//#define BMS_7_CellVolt_EPT_ChksumByte    {255}
+//#define BMS_8_TempVoltLimit_EPT_ChksumByte    {255}
+//#define BMS_9_BattInfo_EPT_ChksumByte    {255}
+//#define BMS_A_GB_EPT_ChksumByte    {255}
+//#define BMS_B_GB_EPT_ChksumByte    {255}
+//#define BMS_C_GB_EPT_ChksumByte    {255}
+//#define BMS_D_GB_EPT_ChksumByte    {255}
+#define INV_1_Value_EPT_ChksumByte    {0}
+//#define INV_2_Value_EPT_ChksumByte    {0}
+//#define INV_3_Value_EPT_ChksumByte    {0}
+//#define INV_4_Value_EPT_ChksumByte    {0}
+//#define INV_5_Values_EPT_ChksumByte    {0}
+//#define INV_IMMO_Req_EPT_ChksumByte    {255}
+#define IPU_DCC_1_State_EPT_ChksumByte    {0}
+//#define IPU_DCC_2_ChrgInValue_EPT_ChksumByte    {0}
+//#define IPU_OBC_1_State_EPT_ChksumByte    {0}
+//#define IPU_OBC_2_Inlet_EPT_ChksumByte    {0}
+//#define IPU_OBC_3_CP_CC_EPT_ChksumByte    {0}
+//#define IPU_OBC_4_state_EPT_ChksumByte    {255}
+/* *************************************************************************************** */
+#define AC_3_State_BAC_ChksumByte    {0}
+#define AC_ACStatuts_BAC_ChksumByte    {0}
+#define BCM_B_Package_BAC_ChksumByte    {0,8,16,24,32,40,48}
+#define BCM_HFSData_BAC_ChksumByte    {255}
+#define CCU_VehInfo_BAC_ChksumByte    {0}
+#define VCU_D_Status_BAC_ChksumByte    {0,8,16,24}
+#define VCU_DispInfo_BAC_ChksumByte    {0,8,16}
+
+#define AC_1_Command_BOD_ChksumByte    {0}
+#define AC_2_State_BOD_ChksumByte    {0}
+#define AC_3_State_BOD_ChksumByte    {0}
+#define AC_8_status_BOD_ChksumByte    {0}
+#define AC_ACStatuts_BOD_ChksumByte    {0}
+#define AC_COMP_BOD_ChksumByte    {0}
+#define BCM_ESCLCommand_BOD_ChksumByte    {255}
+#define CCU_VehInfo_BOD_ChksumByte    {0}
+#define HVCH_Command_BOD_ChksumByte    {0}
+#define TMS_LINTestData1_BOD_ChksumByte    {255}
+#define TMS_LINTestData2_BOD_ChksumByte    {255}
+#define TMS_LINTestData3_BOD_ChksumByte    {255}
+#define VCU_7_DrvRange_BOD_ChksumByte    {0}
+
+#define AC_3_State_CHA_ChksumByte    {0}
+#define BCM_4_CruiseSw_PM_CHA_ChksumByte    {0}
+#define BCM_B_Package_CHA_ChksumByte    {0,8,16,24,32,40,48}
+#define CCU_VehInfo_CHA_ChksumByte    {0}
+#define VCU_10_Torque_CHA_ChksumByte    {0,8,16,24}
+#define VCU_D_Status_CHA_ChksumByte    {0,8,16,24}
+
+#define BCM_IMMOAuthResp1_EPT_ChksumByte    {255}
+#define CCU_VehInfo_EPT_ChksumByte    {0}
+#define VCU_0_Value_EPT_ChksumByte    {0}
+#define VCU_1_InvCmd_EPT_ChksumByte    {0}
+#define VCU_3_OprtCmd_EPT_ChksumByte    {0}
+#define VCU_4_ChrgCmd_EPT_ChksumByte    {0}
+#define VCU_B_AcclPedal_EPT_ChksumByte    {0}
+#define VCU_C_OprtCmd_EPT_ChksumByte    {0}
+/* *************************************************************************************** */
+
 /* Macro for Optimize */
 #define COM_SIGNAL_GW_ENABLE    STD_OFF
 
