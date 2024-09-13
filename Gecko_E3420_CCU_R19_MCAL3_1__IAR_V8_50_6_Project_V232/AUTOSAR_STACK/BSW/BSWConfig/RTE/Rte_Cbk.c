@@ -36,6 +36,7 @@
 #include "Rte_ME11.h"
 #include "Rte_AppSwcVcu.h"
 #include "Dem.h"
+#include "IoExp_TCA9539_Api.h"
 
 /*******************************************************************************
  **                        Global Function                                    **
@@ -62,6 +63,8 @@ void Rte_COMCbkRxTOut_BMS_2_BatState_EPT_IPDU_COM_BMS_2_BatState_EPT(void)
     {
         Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT->status |= RTE_E_TIMEOUT;
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC11287, &tmp))
 	{
@@ -70,6 +73,9 @@ void Rte_COMCbkRxTOut_BMS_2_BatState_EPT_IPDU_COM_BMS_2_BatState_EPT(void)
 			Dem_SetEventStatus(DemEventParameter_0xC11287, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+
+    }
+    
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -95,6 +101,8 @@ void Rte_COMCbkRxTOut_COMP_AC_BOD_IPDU_COM_COMP_AC_BOD(void)
     {
         Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD->status |= RTE_E_TIMEOUT;
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC10F87, &tmp))
 	{
@@ -103,6 +111,7 @@ void Rte_COMCbkRxTOut_COMP_AC_BOD_IPDU_COM_COMP_AC_BOD(void)
 			Dem_SetEventStatus(DemEventParameter_0xC10F87, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -127,6 +136,8 @@ void Rte_COMCbkRxTOut_CRRR_A_CHA_IPDU_COM_CRRR_A_CHA(void)
     if (RteInitState == RTE_INITED)
     {
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11287, &tmp))
 	{
@@ -135,6 +146,7 @@ void Rte_COMCbkRxTOut_CRRR_A_CHA_IPDU_COM_CRRR_A_CHA(void)
 			Dem_SetEventStatus(DemEventParameter_0xD11287, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -160,6 +172,8 @@ void Rte_COMCbkRxTOut_EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA(void)
     {
         Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_10ms_EPS_2_StrWhlAng_CHA_EPS_2_StrWhlAng_CHA->status |= RTE_E_TIMEOUT;
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC13087, &tmp))
 	{
@@ -168,6 +182,7 @@ void Rte_COMCbkRxTOut_EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA(void)
 			Dem_SetEventStatus(DemEventParameter_0xC13087, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -189,6 +204,8 @@ void Rte_COMCbkRxTOut_EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANFD3_CHA_CAN5(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC12287, &tmp))
 	{
@@ -197,6 +214,7 @@ void Rte_COMCbkRxTOut_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANF
 			Dem_SetEventStatus(DemEventParameter_0xC12287, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
         Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_10ms_ESC_7_FuncStatus_CHA_ESC_7_FuncStatus_CHA->status |= RTE_E_TIMEOUT;
@@ -222,6 +240,8 @@ void Rte_COMCbkRxTOut_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANF
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_FCM_D_CHA_IPDU_COM_RX_FCM_D_CHA_CANFD3_CHA_CAN5(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD10287, &tmp))
 	{
@@ -230,6 +250,7 @@ void Rte_COMCbkRxTOut_FCM_D_CHA_IPDU_COM_RX_FCM_D_CHA_CANFD3_CHA_CAN5(void)
 			Dem_SetEventStatus(DemEventParameter_0xD10287, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
     }
@@ -258,6 +279,8 @@ void Rte_COMCbkRxTOut_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1(void)
     {
         Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC->status |= RTE_E_TIMEOUT;
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
      Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11D87, &tmp))
 	{
@@ -266,6 +289,7 @@ void Rte_COMCbkRxTOut_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1(void)
 			Dem_SetEventStatus(DemEventParameter_0xD11D87, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -291,6 +315,8 @@ void Rte_COMCbkRxTOut_HVCH_Status1_BOD_IPDU_COM_HVCH_Status1_BOD(void)
     {
         Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD->status |= RTE_E_TIMEOUT;
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC23087, &tmp))
 	{
@@ -299,6 +325,7 @@ void Rte_COMCbkRxTOut_HVCH_Status1_BOD_IPDU_COM_HVCH_Status1_BOD(void)
 			Dem_SetEventStatus(DemEventParameter_0xC23087, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -323,6 +350,8 @@ void Rte_COMCbkRxTOut_ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC(void)
     if (RteInitState == RTE_INITED)
     {
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11687, &tmp))
 	{
@@ -331,6 +360,7 @@ void Rte_COMCbkRxTOut_ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC(void)
 			Dem_SetEventStatus(DemEventParameter_0xD11687, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -356,6 +386,8 @@ void Rte_COMCbkRxTOut_IPU_OBC_1_State_EPT_IPDU_COM_IPU_OBC_1_State_EPT(void)
     {
         Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT->status |= RTE_E_TIMEOUT;
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC14687, &tmp))
 	{
@@ -364,6 +396,7 @@ void Rte_COMCbkRxTOut_IPU_OBC_1_State_EPT_IPDU_COM_IPU_OBC_1_State_EPT(void)
 			Dem_SetEventStatus(DemEventParameter_0xC14687, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -385,6 +418,8 @@ void Rte_COMCbkRxTOut_IPU_OBC_1_State_EPT_IPDU_COM_IPU_OBC_1_State_EPT(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_PP_InformAndStatus_CHA_IPDU_COM_RX_PP_InformAndStatus_CHA_CANFD3_CHA_CAN5(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD10E87, &tmp))
 	{
@@ -393,6 +428,7 @@ void Rte_COMCbkRxTOut_PP_InformAndStatus_CHA_IPDU_COM_RX_PP_InformAndStatus_CHA_
 			Dem_SetEventStatus(DemEventParameter_0xD10E87, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
     }
@@ -420,6 +456,8 @@ void Rte_COMCbkRxTOut_SRS_2_YRSOriginalSts_CHA_IPDU_COM_SRS_2_YRSOriginalSts_CHA
     if (RteInitState == RTE_INITED)
     {
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
      Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC15187, &tmp))
 	{
@@ -428,6 +466,7 @@ void Rte_COMCbkRxTOut_SRS_2_YRSOriginalSts_CHA_IPDU_COM_SRS_2_YRSOriginalSts_CHA
 			Dem_SetEventStatus(DemEventParameter_0xC15187, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -453,6 +492,8 @@ void Rte_COMCbkRxTOut_TBOX_BJS_Time_BAC_IPDU_COM_TBOX_BJS_Time_BAC(void)
     {
         Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_TBOX_BJS_Time_BAC_TBOX_BJS_Time_BAC->status |= RTE_E_TIMEOUT;
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC19887, &tmp))
 	{
@@ -461,6 +502,7 @@ void Rte_COMCbkRxTOut_TBOX_BJS_Time_BAC_IPDU_COM_TBOX_BJS_Time_BAC(void)
 			Dem_SetEventStatus(DemEventParameter_0xC19887, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -486,6 +528,8 @@ void Rte_COMCbkTxTOut_VCU_1_InvCmd_EPT_IPDU_COM_VCU_1_InvCmd_EPT(void)
     {
         Rte_Inst_AppSwcOpm.Runbl_OpmCanTx_10ms_VCU_1_InvCmd_EPT_VCU_1_InvCmd_EPT->status |= RTE_E_TIMEOUT;
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD10887, &tmp))
 	{
@@ -494,6 +538,7 @@ void Rte_COMCbkTxTOut_VCU_1_InvCmd_EPT_IPDU_COM_VCU_1_InvCmd_EPT(void)
 			Dem_SetEventStatus(DemEventParameter_0xD10887, DEM_EVENT_STATUS_FAILED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -2610,6 +2655,8 @@ void Rte_COMCbk_BMS_1_MainState_EPT_IPDU_COM_BMS_1_MainState_EPT(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_BMS_2_BatState_EPT_IPDU_COM_BMS_2_BatState_EPT(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC11287, &tmp))
 	{
@@ -2618,6 +2665,7 @@ void Rte_COMCbk_BMS_2_BatState_EPT_IPDU_COM_BMS_2_BatState_EPT(void)
 			Dem_SetEventStatus(DemEventParameter_0xC11287, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
         BMS_2_BatState_EPT data;
@@ -5078,6 +5126,8 @@ void Rte_COMCbk_CCP_PanelStatus_BOD_IPDU_COM_CCP_PanelStatus_BOD(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_COMP_AC_BOD_IPDU_COM_COMP_AC_BOD(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC10F87, &tmp))
 	{
@@ -5086,6 +5136,7 @@ void Rte_COMCbk_COMP_AC_BOD_IPDU_COM_COMP_AC_BOD(void)
 			Dem_SetEventStatus(DemEventParameter_0xC10F87, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
         COMP_AC_BOD data;
@@ -5206,6 +5257,8 @@ void Rte_COMCbk_CRRR_A_CHA_IPDU_COM_CRRR_A_CHA(void)
     if (RteInitState == RTE_INITED)
     {
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
      Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11287, &tmp))
 	{
@@ -5214,6 +5267,7 @@ void Rte_COMCbk_CRRR_A_CHA_IPDU_COM_CRRR_A_CHA(void)
 			Dem_SetEventStatus(DemEventParameter_0xD11287, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -5235,10 +5289,8 @@ void Rte_COMCbk_CRRR_A_CHA_IPDU_COM_CRRR_A_CHA(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA(void)
 {
-    if (RteInitState == RTE_INITED)
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
     {
-        EPS_2_StrWhlAng_CHA data;
-        boolean isSuccess = TRUE;
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC13087, &tmp))
 	{
@@ -5247,6 +5299,11 @@ void Rte_COMCbk_EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA(void)
 			Dem_SetEventStatus(DemEventParameter_0xC13087, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
+    if (RteInitState == RTE_INITED)
+    {
+        EPS_2_StrWhlAng_CHA data;
+        boolean isSuccess = TRUE;
         if (E_OK == Com_ReceiveSignalGroup(EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA))
         {
             if (E_NOT_OK == Com_ReceiveSignal(EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA_EPS_2_Chksum_IPDU_COM_EPS_2_StrWhlAng_CHA, &data.EPS_2_Chksum))
@@ -5353,6 +5410,8 @@ void Rte_COMCbk_ESCL_ESCLStatus_BOD_IPDU_COM_ESCL_ESCLStatus_BOD(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANFD3_CHA_CAN5(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC12287, &tmp))
 	{
@@ -5361,6 +5420,7 @@ void Rte_COMCbk_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANFD3_CHA
 			Dem_SetEventStatus(DemEventParameter_0xC12287, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
         ESC_7_FuncStatus_CHA data;
@@ -6207,6 +6267,8 @@ void Rte_COMCbk_FCM_D_CHA_IPDU_COM_RX_FCM_D_CHA_CANFD3_CHA_CAN5(void)
     if (RteInitState == RTE_INITED)
     {
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD10287, &tmp))
 	{
@@ -6215,6 +6277,7 @@ void Rte_COMCbk_FCM_D_CHA_IPDU_COM_RX_FCM_D_CHA_CANFD3_CHA_CAN5(void)
 			Dem_SetEventStatus(DemEventParameter_0xD10287, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -7580,6 +7643,8 @@ void Rte_COMCbk_HP_EXV_initialize_status_HP_EXV__Rsp_LIN1(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11D87, &tmp))
 	{
@@ -7588,6 +7653,7 @@ void Rte_COMCbk_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1(void)
 			Dem_SetEventStatus(DemEventParameter_0xD11D87, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
         HU_B_BAC data;
@@ -7757,6 +7823,8 @@ void Rte_COMCbk_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_HVCH_Status1_BOD_IPDU_COM_HVCH_Status1_BOD(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC23087, &tmp))
 	{
@@ -7765,6 +7833,7 @@ void Rte_COMCbk_HVCH_Status1_BOD_IPDU_COM_HVCH_Status1_BOD(void)
 			Dem_SetEventStatus(DemEventParameter_0xC23087, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
         HVCH_Status1_BOD data;
@@ -7902,6 +7971,8 @@ void Rte_COMCbk_ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC(void)
     if (RteInitState == RTE_INITED)
     {
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11687, &tmp))
 	{
@@ -7910,6 +7981,7 @@ void Rte_COMCbk_ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC(void)
 			Dem_SetEventStatus(DemEventParameter_0xD11687, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -8410,6 +8482,8 @@ void Rte_COMCbk_IPU_DCC_2_ChrgInValue_EPT_IPDU_COM_IPU_DCC_2_ChrgInValue_EPT(voi
 #include "Rte_MemMap.h"
 void Rte_COMCbk_IPU_OBC_1_State_EPT_IPDU_COM_IPU_OBC_1_State_EPT(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC14687, &tmp))
 	{
@@ -8418,6 +8492,7 @@ void Rte_COMCbk_IPU_OBC_1_State_EPT_IPDU_COM_IPU_OBC_1_State_EPT(void)
 			Dem_SetEventStatus(DemEventParameter_0xC14687, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
         IPU_OBC_1_State_EPT data;
@@ -9168,6 +9243,8 @@ void Rte_COMCbk_MotPMP_RealRPM_MotPMP_Sts_LIN2(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_PP_InformAndStatus_CHA_IPDU_COM_RX_PP_InformAndStatus_CHA_CANFD3_CHA_CAN5(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD10E87, &tmp))
 	{
@@ -9176,6 +9253,7 @@ void Rte_COMCbk_PP_InformAndStatus_CHA_IPDU_COM_RX_PP_InformAndStatus_CHA_CANFD3
 			Dem_SetEventStatus(DemEventParameter_0xD10E87, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
     }
@@ -9344,6 +9422,8 @@ void Rte_COMCbk_SRS_2_YRSOriginalSts_CHA_IPDU_COM_SRS_2_YRSOriginalSts_CHA(void)
     if (RteInitState == RTE_INITED)
     {
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC15187, &tmp))
 	{
@@ -9352,6 +9432,7 @@ void Rte_COMCbk_SRS_2_YRSOriginalSts_CHA_IPDU_COM_SRS_2_YRSOriginalSts_CHA(void)
 			Dem_SetEventStatus(DemEventParameter_0xC15187, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -9373,6 +9454,8 @@ void Rte_COMCbk_SRS_2_YRSOriginalSts_CHA_IPDU_COM_SRS_2_YRSOriginalSts_CHA(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_TBOX_BJS_Time_BAC_IPDU_COM_TBOX_BJS_Time_BAC(void)
 {
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC19887, &tmp))
 	{
@@ -9381,6 +9464,7 @@ void Rte_COMCbk_TBOX_BJS_Time_BAC_IPDU_COM_TBOX_BJS_Time_BAC(void)
 			Dem_SetEventStatus(DemEventParameter_0xC19887, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
     if (RteInitState == RTE_INITED)
     {
         TBOX_BJS_Time_BAC data;
@@ -9453,6 +9537,8 @@ void Rte_COMCbk_VCU_1_InvCmd_EPT_IPDU_COM_VCU_1_InvCmd_EPT(void)
     if (RteInitState == RTE_INITED)
     {
     }
+    if((IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P10) == 1) || (IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,IOEXP_TCA9539_P11) == 1))
+    {
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD10887, &tmp))
 	{
@@ -9461,6 +9547,7 @@ void Rte_COMCbk_VCU_1_InvCmd_EPT_IPDU_COM_VCU_1_InvCmd_EPT(void)
 			Dem_SetEventStatus(DemEventParameter_0xD10887, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+    }
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"

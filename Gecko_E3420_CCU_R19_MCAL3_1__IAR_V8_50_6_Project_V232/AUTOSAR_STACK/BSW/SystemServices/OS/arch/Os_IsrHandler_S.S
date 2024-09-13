@@ -64,11 +64,11 @@ SWI_Handler:
     b Os_SWI_Handler
     
 /**********************************************************************/
-#if defined(CFG_INT_NEST_S_ENABLE)
     PUBWEAK AutosarOsIrqHandler
     SECTION .text:CODE:ROOT(2)
 AutosarOsIrqHandler: 
     DSB
+#if defined(CFG_INT_NEST_S_ENABLE)
     STMFD   SP,{R0}
     SUB SP,SP,#4
     LDR  R0,=Os_IntNestISR1
@@ -88,6 +88,7 @@ GOTO_ISR_1
     
 GOTO_TASK_SAVE_CONTEXT
     LDMFD   SP!, {R0}
+#endif
     STMDB   SP!, {R0}
     STMFD   SP,{SP}^
     DSB
@@ -103,7 +104,9 @@ GOTO_TASK_SAVE_CONTEXT
     MRS R0, SPSR
     STMFD   LR!, {R0}
 #ifdef CFG_ARCH_FPU
-    VSTMDB   LR!,{S0-S31}
+    FMRX    R1,  FPSCR
+    STMDB   LR!, {R1}
+    VSTMDB  LR!,{S0-S31}
 #endif
     LDR R0, =Os_RunningTCB
     LDR R0, [R0]
@@ -128,6 +131,8 @@ GOTO_ISR_SAVE_CONTEXT
     LDR  R0,[R1]
     STMFD   SP!, {R0}
 #ifdef CFG_ARCH_FPU
+    FMRX    R1,  FPSCR
+    STMDB   SP!, {R1}
     VSTMDB  SP!,{S0-S31}
 #endif
     CPS #0X12
@@ -161,6 +166,8 @@ GOTO_ISR_2
     LDR  R0,[R1]
     STMFD   SP!, {R0}
 #ifdef CFG_ARCH_FPU
+    FMRX    R1,  FPSCR
+    STMDB   SP!, {R1}
     VSTMDB  SP!,{S0-S31}
 #endif
     CPS #0X12
@@ -179,87 +186,7 @@ GOTO_ISR_2
     DSB
 
     b VIC_IsrEntry
-#else
-    PUBWEAK AutosarOsIrqHandler
-    SECTION .text:CODE:ROOT(2)
-AutosarOsIrqHandler:
-    DSB
-    STMFD   SP,{R0}
-    SUB SP,SP,#4
-    LDR  R0,=Os_IntNestISR1
-    LDRB  R0,[R0]
-    
-    CMP R0 ,#0
-    BEQ GOTO_ISR_1
-    BNE GOTO_ISR_2
-    
-GOTO_ISR_1
-    LDMFD   SP!, {R0}
-    STMFD   SP,{R0}
-    SUB SP,SP,#4
-    LDR  R0,=Os_IntNestISR2
-    LDRB  R0, [R0]
-    CMP R0 ,#0
-    BEQ GOTO_TASK_SAVE_CONTEXT
-    BNE GOTO_ISR_SAVE_CONTEXT
 
-
-GOTO_TASK_SAVE_CONTEXT
-    LDMFD   SP!, {R0}
-
-    STMDB   SP!, {R0}
-    STMFD   SP,{SP}^
-
-    SUB SP, SP, #4
-    LDMFD   SP!,{R0}
-    STMFD   R0!, {LR}
-    MOV LR, R0
-    LDMFD   SP!, {R0}
-    STMFD   LR,{R0-LR}^
-    DSB
-
-    SUB LR, LR, #60
-    MRS R0, SPSR
-    STMFD   LR!, {R0}
-#ifdef CFG_ARCH_FPU
-    VSTMDB   LR!,{S0-S31}
-#endif
-    LDR R0, =Os_RunningTCB
-    LDR R0, [R0]
-    LDR R1, [R0]
-    STR LR, [R1]
-    DSB
-    b VIC_IsrEntry
-
-GOTO_ISR_SAVE_CONTEXT
-    LDMFD   SP!, {R0}
-
-    LDMFD   SP!, {R0}
-    STMFD   SP,{R0-LR}
-    SUB  SP,SP,#60
-    MRS R0, SPSR
-    STMFD   SP!, {R0}
-    STMFD   SP!, {R0}
-    LDR  R1,=Os_ArchSp
-    STR    SP,[R1]
-    DSB
-    b VIC_IsrEntry
-  
-GOTO_ISR_2
-    LDMFD   SP!, {R0}
-
-    LDMFD   SP!, {R0}
-    STMFD   SP,{R0-LR}
-    SUB  SP,SP,#60
-    MRS R0, SPSR
-    STMFD   SP!, {R0}
-    STMFD   SP!, {R0}
-    LDR  R1,=Os_ArchSp
-    STR    SP,[R1]
-    DSB
-    b VIC_IsrEntry
-
-#endif
 
  /**********************************************************************/
     PUBWEAK SVC_Entry

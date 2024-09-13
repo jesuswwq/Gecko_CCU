@@ -42,9 +42,11 @@ Os_StartUpResumeContext:
     LDR     R2, [R1]
     LDR     LR, [R2]
 #ifdef CFG_ARCH_FPU
-    add     R4, LR,#196
+    add     R4, LR,#200
     STR     R4, [R2]
     VLDM    LR!, {S0-S31}
+    LDM     LR!, {R1}
+    VMSR    FPSCR, R1
 #else
     add     R4, LR,#68
     STR     R4, [R2]
@@ -77,9 +79,11 @@ Os_ArchResumeContext:
     LDR     R2, [R1]
     LDR     LR, [R2]
 #ifdef CFG_ARCH_FPU
-    add     R4, LR,#196
+    add     R4, LR,#200
     STR     R4, [R2]
     VLDM    LR!, {S0-S31}
+    LDM     LR!, {R1}
+    VMSR    FPSCR, R1
 #else
     add     R4, LR,#68
     STR     R4, [R2]
@@ -123,6 +127,8 @@ Os_ISR2ResumeIsrContext:
     MOV LR, R0  
 #ifdef CFG_ARCH_FPU
     VLDM    SP!, {S0-S31}
+    LDM     SP!, {R1}
+    VMSR    FPSCR, R1
 #endif
     LDMFD   SP!, {R0}   
     MSR     SPSR_CSXF, R0  
@@ -156,6 +162,8 @@ Os_ArchDispatch:
     MRS R0, CPSR
     STMFD   SP!, {R0}
 #ifdef CFG_ARCH_FPU
+    FMRX    R1,  FPSCR
+    PUSH    {R1}
     VPUSH {S0-S31}
 #endif
      

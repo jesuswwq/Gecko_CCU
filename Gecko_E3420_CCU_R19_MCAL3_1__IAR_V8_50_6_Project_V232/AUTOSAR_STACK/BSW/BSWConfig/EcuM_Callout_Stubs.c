@@ -230,6 +230,7 @@ EcuM_AL_DriverInitOne(
     // IoExp_TCA9539_SetAllPortHigh(TCA9539_CHIP_A);
     // IoExp_TCA9539_SetChannelOutLevel(TCA9539_CHIP_A,IOEXP_TCA9539_P06,STD_LOW);
     IoExp_TCA9539_GetPortInputValue(TCA9539_CHIP_B, TCA9539_PORTGROUP0, &portvalue);
+    Gpio_TCA9539_ReadValue();
 
     TLE75004_Init();
     // TLE75004_Output(0X3);

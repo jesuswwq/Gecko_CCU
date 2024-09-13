@@ -445,6 +445,7 @@ FUNC(void, OS_CODE) Os_ArchFirstEnterTask(void)
     *--Os_SCB.sysRunningTCB->taskTop  = (uint32)0x4000001f;//0x600001f3
 
 #ifdef CFG_ARCH_FPU
+    *(--Os_SCB.sysRunningTCB->taskTop)  = (uint32)0x0;
     Os_SCB.sysRunningTCB->taskTop-=32;
 #endif
 }
@@ -474,6 +475,7 @@ FUNC(void, OS_CODE) Os_ArchFirstEnterTask(void)
 #endif
 
 #ifdef CFG_ARCH_FPU
+    *(--Os_SCB.sysRunningTCB->taskTop)  = (uint32)0x0;
     Os_SCB.sysRunningTCB->taskTop-=32;
 #endif
 }

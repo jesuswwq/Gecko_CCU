@@ -6036,7 +6036,7 @@ static CONST(BswM_ActionTimerCtrlLCfgType, BSWM_CONST) BswM_TimerActionLCfg_Core
         /* BswMTimerAction */
         BSWM_TIMER_START,
         /* BswMTimerValue */        
-        300,
+        500,/*change timeout*/
         /* BswMTimerRef */
         2
     },
