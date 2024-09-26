@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-08-17 16:04:29>
+ *  @date       <2024-09-19 16:43:49>
  */
 /*============================================================================*/
 
@@ -90,6 +90,12 @@ static Rte_DE_DT_IPM_CRRR_A_CHA_status Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_CRRR_A_C
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 static Rte_DE_DT_IPM_EHB_A_CHA_status Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA_ibuffer = {.value = {0,0,0,0,0,0,0,0,0,0,0,0}, .status = RTE_E_OK};
+#define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+
+#define RTE_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+static Rte_DE_DT_IPM_EHB_B_CHA_status Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA_ibuffer = {.value = {0,0,0,0,0,0,0,0,0,0,0,0,0,0}, .status = RTE_E_OK};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -199,6 +205,7 @@ CONST(Rte_CDS_AppSwcBcm, RTE_CONST) Rte_Inst_AppSwcBcm =
     .Runbl_AppSwcBcm_20ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD = &Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD_ibuffer,
     .Runbl_AppSwcBcm_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA = &Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA_ibuffer,
     .Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA = &Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA_ibuffer,
+    .Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA = &Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA_ibuffer,
     .Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA = &Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA_ibuffer,
     .Runbl_AppSwcBcm_20ms_IPM_HU_B_BAC_IPM_HU_B_BAC = &Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_HU_B_BAC_IPM_HU_B_BAC_ibuffer,
     .Runbl_AppSwcBcm_20ms_IPM_SCS_LeSwitchSts_BOD_IPM_SCS_LeSwitchSts_BOD = &Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_SCS_LeSwitchSts_BOD_IPM_SCS_LeSwitchSts_BOD_ibuffer,
@@ -2309,8 +2316,6 @@ void Os_TaskEntry_Rte_OsTask__Core0_20ms(void)
     Rte_Runbl_EMS_20ms();
     Rte_Runbl_AppSwcBcm_20ms();
     Rte_Runbl_OpmCanTx_20ms();
-
-
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -2322,8 +2327,6 @@ void Os_TaskEntry_Rte_OsTask__Core0_50ms(void)
     Rte_Runbl_IpmCanRx_50ms();
     Rte_Runbl_AppSwcBcm_50ms();
     Rte_Runbl_OpmCanTx_50ms();
-    
-
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -2345,18 +2348,16 @@ void Os_TaskEntry_Rte_OsTask_Core0_Init(void)
 #include "Rte_MemMap.h"
 void Os_TaskEntry_Rte_OsTask__Core0_10ms(void)
 {
-
     Rte_Runbl_IpmMsgActv_10ms();
     Rte_Runbl_IpmCanRx_10ms();
     Rte_Runbl_VcuRx_10ms();
-     Rte_Runbl_IPC_10ms();
-    Rte_Runbl_VTM_10ms();  
+    Rte_Runbl_IPC_10ms();
+    Rte_Runbl_VTM_10ms();
     Rte_Runbl_VSO_10ms();
     Rte_Runbl_VcuTx_10ms();
-    Rte_Runbl_AppSwcBcm_10ms();  
+    Rte_Runbl_AppSwcBcm_10ms();
     Rte_Runbl_OpmRx_10ms();
     Rte_Runbl_OpmCanTx_10ms();
-    
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"

@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'ME11'.
  *
- * Model version                  : 1.1928
+ * Model version                  : 1.2111
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Fri Aug 23 09:40:10 2024
+ * C/C++ source code generated on : Thu Sep 19 15:03:10 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -62,6 +62,7 @@ extern MONPRM volatile uint8 ACCtl_rPsMixDoorDes;/* '<S413>/Data Type Conversion
 extern MONPRM volatile float32 ACCtl_rPsSetMixDoorICor;/* '<S421>/Merge1' */
 extern MONPRM volatile float32 ACCtl_rPsSetMixDoorISum;/* '<S417>/Switch1' */
 extern MONPRM volatile float32 ACCtl_rPsSetMixDoorPCor;/* '<S420>/Merge' */
+extern MONPRM volatile float32 ACCtl_sECOEvaDesValLL;/* '<S175>/cal_ECOEvaDesValLL_MAP' */
 extern MONPRM volatile float32 ACCtl_sMixDoorClsFF;/* '<S387>/Switch' */
 extern MONPRM volatile boolean ACCtl_stACPTCHeated;/* '<S176>/PTCHeatedCheck' */
 extern MONPRM volatile boolean ACCtl_stCabinCoolingEn;/* '<S41>/Merge' */
@@ -155,42 +156,42 @@ extern MONPRM volatile float32 ACPTC_HeatedCond1;/* '<S176>/Add3' */
 extern MONPRM volatile float32 ACPTC_HeatingCond1;/* '<S176>/Add' */
 extern MONPRM volatile float32 ACPTC_HeatingCond2;/* '<S176>/Add1' */
 extern MONPRM volatile float32 ACPtc_CloseCond1;/* '<S176>/Add2' */
-extern MONPRM volatile FaultStatus ACSen_eACCMHTSenSts;/* '<S1868>/Data Type Conversion' */
-extern MONPRM volatile uint8 ACSen_eAirInletPer;/* '<S1788>/Switch' */
-extern MONPRM volatile FaultStatus ACSen_eCabinSenSts;/* '<S1724>/Data Type Conversion' */
-extern MONPRM volatile FaultStatus ACSen_eChillerTSenSts;/* '<S1797>/Data Type Conversion' */
-extern MONPRM volatile FaultStatus ACSen_eEVAPSurfTSenSts;/* '<S1827>/Data Type Conversion' */
-extern MONPRM volatile FaultStatus ACSen_eEVAPTSenSts;/* '<S1817>/Data Type Conversion' */
-extern MONPRM volatile FaultStatus ACSen_eEnvSenSts;/* '<S1808>/Data Type Conversion' */
-extern MONPRM volatile FaultStatus ACSen_eFaceDuctSenSts;/* '<S1747>/Data Type Conversion' */
-extern MONPRM volatile FaultStatus ACSen_eFootDuctSenSts;/* '<S1757>/Data Type Conversion' */
-extern MONPRM volatile FaultStatus ACSen_eLPSenSts;/* '<S1710>/Data Type Conversion3' */
-extern MONPRM volatile FaultStatus ACSen_eMOTORTSenSts;/* '<S1836>/Data Type Conversion' */
-extern MONPRM volatile FaultStatus ACSen_eMixDoorSenSts;/* '<S1711>/Data Type Conversion3' */
-extern MONPRM volatile FaultStatus ACSen_eModeSenSts;/* '<S1712>/Data Type Conversion3' */
-extern MONPRM volatile FaultStatus ACSen_eOHXTSenSts;/* '<S1843>/Data Type Conversion' */
-extern MONPRM volatile FaultStatus ACSen_eRecircSenSts;/* '<S1713>/Data Type Conversion3' */
-extern MONPRM volatile FaultStatus ACSen_eSOLARSenSts;/* '<S1714>/Data Type Conversion3' */
-extern MONPRM volatile FaultStatus ACSen_eWCCHPSenSts;/* '<S1722>/Data Type Conversion3' */
-extern MONPRM volatile FaultStatus ACSen_eWCCHTSenSts;/* '<S1852>/Data Type Conversion' */
-extern MONPRM volatile float32 ACSen_sACCMHiTempFilter;/* '<S1869>/Switch' */
-extern MONPRM volatile float32 ACSen_sCabinTempFilter;/* '<S1725>/Switch' */
-extern MONPRM volatile float32 ACSen_sChiTempFilter;/* '<S1796>/Switch' */
-extern MONPRM volatile float32 ACSen_sEnvTAme;/* '<S1707>/cal_EnvTAme_CUR' */
-extern MONPRM volatile float32 ACSen_sEnvTempCor;/* '<S1743>/Switch' */
-extern MONPRM volatile float32 ACSen_sEnvTempFilter;/* '<S1814>/Switch' */
-extern MONPRM volatile float32 ACSen_sEvapSurTemp;/* '<S1828>/Switch' */
-extern MONPRM volatile float32 ACSen_sEvapTempFilter;/* '<S1818>/Switch' */
-extern MONPRM volatile float32 ACSen_sFaceDuctTempFilter;/* '<S1748>/Switch' */
-extern MONPRM volatile float32 ACSen_sFootDuctTempFilter;/* '<S1758>/Switch' */
-extern MONPRM volatile float32 ACSen_sHiPressFilter;/* '<S1862>/Switch' */
-extern MONPRM volatile float32 ACSen_sLoPressFilter;/* '<S1767>/Switch' */
-extern MONPRM volatile float32 ACSen_sMixDoorPerc;/* '<S1774>/Switch' */
-extern MONPRM volatile float32 ACSen_sModeMotorVol;/* '<S1781>/Switch' */
-extern MONPRM volatile float32 ACSen_sMotTempFilter;/* '<S1834>/Switch' */
-extern MONPRM volatile float32 ACSen_sOHXTempFilter;/* '<S1844>/Switch' */
+extern MONPRM volatile FaultStatus ACSen_eACCMHTSenSts;/* '<S1865>/Data Type Conversion' */
+extern MONPRM volatile uint8 ACSen_eAirInletPer;/* '<S1785>/Switch' */
+extern MONPRM volatile FaultStatus ACSen_eCabinSenSts;/* '<S1721>/Data Type Conversion' */
+extern MONPRM volatile FaultStatus ACSen_eChillerTSenSts;/* '<S1794>/Data Type Conversion' */
+extern MONPRM volatile FaultStatus ACSen_eEVAPSurfTSenSts;/* '<S1824>/Data Type Conversion' */
+extern MONPRM volatile FaultStatus ACSen_eEVAPTSenSts;/* '<S1814>/Data Type Conversion' */
+extern MONPRM volatile FaultStatus ACSen_eEnvSenSts;/* '<S1805>/Data Type Conversion' */
+extern MONPRM volatile FaultStatus ACSen_eFaceDuctSenSts;/* '<S1744>/Data Type Conversion' */
+extern MONPRM volatile FaultStatus ACSen_eFootDuctSenSts;/* '<S1754>/Data Type Conversion' */
+extern MONPRM volatile FaultStatus ACSen_eLPSenSts;/* '<S1707>/Data Type Conversion3' */
+extern MONPRM volatile FaultStatus ACSen_eMOTORTSenSts;/* '<S1833>/Data Type Conversion' */
+extern MONPRM volatile FaultStatus ACSen_eMixDoorSenSts;/* '<S1708>/Data Type Conversion3' */
+extern MONPRM volatile FaultStatus ACSen_eModeSenSts;/* '<S1709>/Data Type Conversion3' */
+extern MONPRM volatile FaultStatus ACSen_eOHXTSenSts;/* '<S1840>/Data Type Conversion' */
+extern MONPRM volatile FaultStatus ACSen_eRecircSenSts;/* '<S1710>/Data Type Conversion3' */
+extern MONPRM volatile FaultStatus ACSen_eSOLARSenSts;/* '<S1711>/Data Type Conversion3' */
+extern MONPRM volatile FaultStatus ACSen_eWCCHPSenSts;/* '<S1719>/Data Type Conversion3' */
+extern MONPRM volatile FaultStatus ACSen_eWCCHTSenSts;/* '<S1849>/Data Type Conversion' */
+extern MONPRM volatile float32 ACSen_sACCMHiTempFilter;/* '<S1866>/Switch' */
+extern MONPRM volatile float32 ACSen_sCabinTempFilter;/* '<S1722>/Switch' */
+extern MONPRM volatile float32 ACSen_sChiTempFilter;/* '<S1793>/Switch' */
+extern MONPRM volatile float32 ACSen_sEnvTAme;/* '<S1704>/cal_EnvTAme_CUR' */
+extern MONPRM volatile float32 ACSen_sEnvTempCor;/* '<S1740>/Switch' */
+extern MONPRM volatile float32 ACSen_sEnvTempFilter;/* '<S1811>/Switch' */
+extern MONPRM volatile float32 ACSen_sEvapSurTemp;/* '<S1825>/Switch' */
+extern MONPRM volatile float32 ACSen_sEvapTempFilter;/* '<S1815>/Switch' */
+extern MONPRM volatile float32 ACSen_sFaceDuctTempFilter;/* '<S1745>/Switch' */
+extern MONPRM volatile float32 ACSen_sFootDuctTempFilter;/* '<S1755>/Switch' */
+extern MONPRM volatile float32 ACSen_sHiPressFilter;/* '<S1859>/Switch' */
+extern MONPRM volatile float32 ACSen_sLoPressFilter;/* '<S1764>/Switch' */
+extern MONPRM volatile float32 ACSen_sMixDoorPerc;/* '<S1771>/Switch' */
+extern MONPRM volatile float32 ACSen_sModeMotorVol;/* '<S1778>/Switch' */
+extern MONPRM volatile float32 ACSen_sMotTempFilter;/* '<S1831>/Switch' */
+extern MONPRM volatile float32 ACSen_sOHXTempFilter;/* '<S1841>/Switch' */
 extern MONPRM volatile float32 ACSen_sPressRateVal;/* '<S502>/Switch' */
-extern MONPRM volatile float32 ACSen_sWCCHiTempFilter;/* '<S1854>/Switch' */
+extern MONPRM volatile float32 ACSen_sWCCHiTempFilter;/* '<S1851>/Switch' */
 extern MONPRM volatile boolean ACTCrl_bEnvCOMPLmt;/* '<S498>/Switch1' */
 extern MONPRM volatile boolean ACTCtl_bACCMCtlEnb;/* '<S457>/Switch' */
 extern MONPRM volatile boolean ACTCtl_bAEXVDvtFlg;/* '<S680>/NOT' */
@@ -199,8 +200,8 @@ extern MONPRM volatile boolean ACTCtl_bAEXVFaultFlg;/* '<S676>/OR' */
 extern MONPRM volatile boolean ACTCtl_bAEXVInitFinishFlg;/* '<S693>/Compare' */
 extern MONPRM volatile uint8 ACTCtl_bAEXVInitReq;/* '<S694>/Switch' */
 extern MONPRM volatile boolean ACTCtl_bAEXVPIEnble;/* '<S671>/AND' */
-extern MONPRM volatile boolean ACTCtl_bAcPMPFaultFlg;/* '<S1033>/Switch' */
-extern MONPRM volatile boolean ACTCtl_bAcPMPSpdFlt;/* '<S1019>/Switch1' */
+extern MONPRM volatile boolean ACTCtl_bAcPMPFaultFlg;/* '<S1034>/Switch' */
+extern MONPRM volatile boolean ACTCtl_bAcPMPSpdFlt;/* '<S1020>/Switch1' */
 extern MONPRM volatile boolean ACTCtl_bBCVlearnFlg;/* '<S662>/AND2' */
 extern MONPRM volatile boolean ACTCtl_bBEXVDvtFlg;/* '<S751>/NOT' */
 extern MONPRM volatile boolean ACTCtl_bBEXVEnb;/* '<S803>/Switch' */
@@ -208,8 +209,8 @@ extern MONPRM volatile boolean ACTCtl_bBEXVFaultFlg;/* '<S746>/OR' */
 extern MONPRM volatile boolean ACTCtl_bBEXVInitFinishFlg;/* '<S761>/Compare' */
 extern MONPRM volatile uint8 ACTCtl_bBEXVInitReq;/* '<S762>/Switch' */
 extern MONPRM volatile boolean ACTCtl_bBEXVPIEnble;/* '<S672>/AND' */
-extern MONPRM volatile boolean ACTCtl_bBatPMPFaultFlg;/* '<S1049>/Switch' */
-extern MONPRM volatile boolean ACTCtl_bBatPMPSpdFlt;/* '<S1020>/Switch1' */
+extern MONPRM volatile boolean ACTCtl_bBatPMPFaultFlg;/* '<S1050>/Switch' */
+extern MONPRM volatile boolean ACTCtl_bBatPMPSpdFlt;/* '<S1021>/Switch1' */
 extern MONPRM volatile uint8 ACTCtl_bBatTempDiff;/* '<S649>/Switch' */
 extern MONPRM volatile boolean ACTCtl_bCOMPDvtFlg;/* '<S450>/Relational Operator' */
 extern MONPRM volatile boolean ACTCtl_bCOMPEnbDelay;/* '<S501>/Chart' */
@@ -224,6 +225,7 @@ extern MONPRM volatile boolean ACTCtl_bCOMPLPLmtFlg;/* '<S452>/Signal Copy' */
 extern MONPRM volatile boolean ACTCtl_bCOMPPIEnble;/* '<S453>/FFCal' */
 extern MONPRM volatile boolean ACTCtl_bCOMPRealFault;/* '<S495>/OR1' */
 extern MONPRM volatile boolean ACTCtl_bCOMPSpdDiffFlt;/* '<S448>/Chart' */
+extern MONPRM volatile boolean ACTCtl_bCabinFltFlg;/* '<S1701>/Signal Copy1' */
 extern MONPRM volatile boolean ACTCtl_bCtrlFPTCOnOrOffPwrDiff;/* '<S607>/Switch' */
 extern MONPRM volatile boolean ACTCtl_bHPEXVDvtFlg;/* '<S822>/NOT' */
 extern MONPRM volatile boolean ACTCtl_bHPEXVEnb;/* '<S834>/Switch' */
@@ -234,17 +236,17 @@ extern MONPRM volatile boolean ACTCtl_bHPEXVPIEnble;/* '<S673>/AND' */
 extern MONPRM volatile boolean ACTCtl_bHiPressProFlg;/* '<S823>/Switch4' */
 extern MONPRM volatile boolean ACTCtl_bLowPressProFlg;/* '<S823>/Switch5' */
 extern MONPRM volatile boolean ACTCtl_bMCVlearnFlg;/* '<S640>/AND2' */
-extern MONPRM volatile boolean ACTCtl_bMotPMPFaultFlg;/* '<S1062>/Switch' */
-extern MONPRM volatile boolean ACTCtl_bMotPMPSpdFlt;/* '<S1021>/Chart' */
+extern MONPRM volatile boolean ACTCtl_bMotPMPFaultFlg;/* '<S1063>/Switch' */
+extern MONPRM volatile boolean ACTCtl_bMotPMPSpdFlt;/* '<S1022>/Chart' */
 extern MONPRM volatile boolean ACTCtl_bOCOLmtFlg;/* '<S501>/AND1' */
 extern MONPRM volatile boolean ACTCtl_bPTCOnOrOffPwrDiff;/* '<S590>/Switch' */
 extern MONPRM volatile boolean ACTCtl_bPressProtectFlg;/* '<S502>/Multiport Switch' */
 extern MONPRM volatile boolean ACTCtl_bPressRateFlg;/* '<S502>/Multiport Switch1' */
 extern MONPRM volatile boolean ACTCtl_bSOVCmd;/* '<S443>/Multiport Switch' */
-extern MONPRM volatile uint8 ACTCtl_eACPumpRefSpd;/* '<S1019>/Multiport Switch' */
-extern MONPRM volatile uint8 ACTCtl_eAcPMPSpdPerc;/* '<S1032>/Switch' */
-extern MONPRM volatile uint8 ACTCtl_eAcPMPSpdSet;/* '<S1019>/Divide' */
-extern MONPRM volatile uint8 ACTCtl_eBatPMPSpdSet;/* '<S1020>/Divide' */
+extern MONPRM volatile uint8 ACTCtl_eACPumpRefSpd;/* '<S1020>/Multiport Switch' */
+extern MONPRM volatile uint8 ACTCtl_eAcPMPSpdPerc;/* '<S1033>/Switch' */
+extern MONPRM volatile uint8 ACTCtl_eAcPMPSpdSet;/* '<S1020>/Divide' */
+extern MONPRM volatile uint8 ACTCtl_eBatPMPSpdSet;/* '<S1021>/Divide' */
 extern MONPRM volatile uint8 ACTCtl_eC3WVSLSts;/* '<S658>/Switch' */
 extern MONPRM volatile uint8 ACTCtl_eC3WVValue;/* '<S637>/Switch' */
 extern MONPRM volatile uint8 ACTCtl_eC5WVSLSts;/* '<S668>/Switch' */
@@ -258,7 +260,7 @@ extern MONPRM volatile uint8 ACTCtl_eEvapProSts;/* '<S681>/EvapTemperature' */
 extern MONPRM volatile uint8 ACTCtl_eFanPerc;/* '<S919>/Switch' */
 extern MONPRM volatile uint8 ACTCtl_eHeatFanCtrl;/* '<S916>/cal_HeatFanCtrl_MAP' */
 extern MONPRM volatile uint8 ACTCtl_eLessThanT1Sts;/* '<S654>/Switch' */
-extern MONPRM volatile uint8 ACTCtl_eMotPMPSpdSet;/* '<S1021>/Divide' */
+extern MONPRM volatile uint8 ACTCtl_eMotPMPSpdSet;/* '<S1022>/Divide' */
 extern MONPRM volatile float32 ACTCtl_sACCMCtlFF;/* '<S453>/FFCal' */
 extern MONPRM volatile float32 ACTCtl_sACCMCtlSpd;/* '<S448>/Switch2' */
 extern MONPRM volatile float32 ACTCtl_sACCMI_Cor;/* '<S481>/Merge1' */
@@ -342,11 +344,11 @@ extern MONPRM volatile float32 ACTCtl_sHPEXVPos;/* '<S825>/Switch2' */
 extern MONPRM volatile float32 ACTCtl_sHPEXVSetPoint;/* '<S820>/Switch' */
 extern MONPRM volatile float32 ACTCtl_sHPEXVStepLmt;/* '<S826>/Switch' */
 extern MONPRM volatile float32 ACTCtl_sPTCAuxHeatPwr;/* '<S580>/cal_PTCAuxHeatPwrLmt_MAP' */
-extern MONPRM volatile float32 ACTCtl_sPTCBatHeatPwrLmt;/* '<S944>/cal_PTCBatHeatPwrLmt_CUR' */
-extern MONPRM volatile uint8 ACTCtl_sPTCEnable;/* '<S1010>/Switch' */
-extern MONPRM volatile float32 ACTCtl_sPTCReqPower;/* '<S1017>/Switch' */
-extern MONPRM volatile float32 ACTCtl_sPTCRequestTemp;/* '<S941>/Switch' */
-extern MONPRM volatile float32 ACTCtl_sSOCHighPTCPwrLmt;/* '<S944>/cal_SOCHighPTCPwrLmt_CUR' */
+extern MONPRM volatile float32 ACTCtl_sPTCBatHeatPwrLmt;/* '<S945>/cal_PTCBatHeatPwrLmt_CUR' */
+extern MONPRM volatile uint8 ACTCtl_sPTCEnable;/* '<S1011>/Switch' */
+extern MONPRM volatile float32 ACTCtl_sPTCReqPower;/* '<S1018>/Switch' */
+extern MONPRM volatile float32 ACTCtl_sPTCRequestTemp;/* '<S942>/Switch' */
+extern MONPRM volatile float32 ACTCtl_sSOCHighPTCPwrLmt;/* '<S945>/cal_SOCHighPTCPwrLmt_CUR' */
 extern MONPRM volatile float32 ACTCtl_sSuperHeat;/* '<S674>/Add1' */
 extern MONPRM volatile float32 ACTCtl_sSuperHeatAvg;/* '<S898>/Divide' */
 extern MONPRM volatile float32 ACTCtl_sSuperHeatAvg1;/* '<S909>/Sum1' */
@@ -367,12 +369,12 @@ extern MONPRM volatile float32 AC_Ps2DrSetTempDvt;/* '<S179>/Sum2' */
 extern MONPRM volatile float32 AC_PsEvapDesFilter;
                                      /* '<S303>/cal_PsEvapDesFilterByDvt_CUR' */
 extern MONPRM volatile uint8 AC_rRecircInc;/* '<S53>/Data Type Conversion' */
-extern MONPRM volatile uint16 AC_rSolarRight;/* '<S1791>/Switch' */
+extern MONPRM volatile uint16 AC_rSolarRight;/* '<S1788>/Switch' */
 extern MONPRM volatile uint16 AC_rSunloadFlt;/* '<S207>/Saturation' */
 extern MONPRM volatile boolean AC_stExhaust;/* '<S4>/stExhaustFunCheck' */
-extern MONPRM volatile boolean AC_stIGNON;/* '<S1255>/Switch1' */
+extern MONPRM volatile boolean AC_stIGNON;/* '<S1253>/Switch1' */
 extern MONPRM volatile float32 AC_tEnvInvent;/* '<S183>/TempRampBaseTimeAndStep' */
-extern MONPRM volatile uint16 AC_tiAfterRun;/* '<S1267>/Switch' */
+extern MONPRM volatile uint16 AC_tiAfterRun;/* '<S1265>/Switch' */
 extern MONPRM volatile uint8 AcPMP_HWVersion;/* '<S14>/Signal Copy114' */
 extern MONPRM volatile uint8 AcPMP_PartNumber;/* '<S14>/Signal Copy113' */
 extern MONPRM volatile uint8 AcPMP_ProjectCode1;/* '<S14>/Signal Copy110' */
@@ -383,18 +385,18 @@ extern MONPRM volatile uint8 AcPMP_PumpMotorSta;/* '<S14>/Signal Copy104' */
 extern MONPRM volatile uint8 AcPMP_PumpPowerSta;/* '<S14>/Signal Copy106' */
 extern MONPRM volatile uint8 AcPMP_PumpTempSta;/* '<S14>/Signal Copy107' */
 extern MONPRM volatile boolean AcPMP_RESP_ERROR;/* '<S14>/Signal Copy103' */
-extern MONPRM volatile float32 AcPMP_RealRPM;/* '<S1245>/Gain' */
+extern MONPRM volatile float32 AcPMP_RealRPM;/* '<S1243>/Gain' */
 extern MONPRM volatile uint8 AcPMP_SWVersion_Main;/* '<S14>/Signal Copy115' */
 extern MONPRM volatile uint8 AcPMP_SWVersion_Patch;/* '<S14>/Signal Copy117' */
 extern MONPRM volatile uint8 AcPMP_SWVersion_Sub;/* '<S14>/Signal Copy116' */
 extern MONPRM volatile uint8 AcPMP_SupplierNumber;/* '<S14>/Signal Copy112' */
 extern MONPRM volatile uint8 BAT_EXV_CurrentInitState_B;/* '<S16>/Signal Copy35' */
-extern MONPRM volatile float32 BAT_EXV_CurrentPosition_B;/* '<S1247>/Gain' */
+extern MONPRM volatile float32 BAT_EXV_CurrentPosition_B;/* '<S1245>/Gain' */
 extern MONPRM volatile uint8 BAT_EXV_FaultState_B;/* '<S16>/Signal Copy37' */
 extern MONPRM volatile boolean BAT_EXV_ResponseError_B;/* '<S16>/Signal Copy34' */
 extern MONPRM volatile boolean BAT_EXV_RunState_B;/* '<S16>/Signal Copy36' */
 extern MONPRM volatile boolean BAT_EXV_SupplierLabel;/* '<S16>/Signal Copy40' */
-extern MONPRM volatile uint8 BAT_EXV_TemperatureWarn_B;/* '<S1247>/Data Type Conversion' */
+extern MONPRM volatile uint8 BAT_EXV_TemperatureWarn_B;/* '<S1245>/Data Type Conversion' */
 extern MONPRM volatile uint8 BAT_EXV_VoltageState_B;/* '<S16>/Signal Copy38' */
 extern MONPRM volatile boolean BCV_ErrResp;/* '<S15>/Signal Copy73' */
 extern MONPRM volatile uint8 BCV_FltSts;/* '<S15>/Signal Copy66' */
@@ -415,7 +417,7 @@ extern MONPRM volatile uint8 BatPMP_PumpMotorSta;/* '<S18>/Signal Copy90' */
 extern MONPRM volatile uint8 BatPMP_PumpPowerSta;/* '<S18>/Signal Copy92' */
 extern MONPRM volatile uint8 BatPMP_PumpTempSta;/* '<S18>/Signal Copy93' */
 extern MONPRM volatile boolean BatPMP_RESP_ERROR;/* '<S18>/Signal Copy89' */
-extern MONPRM volatile float32 BatPMP_RealRPM;/* '<S1248>/Gain' */
+extern MONPRM volatile float32 BatPMP_RealRPM;/* '<S1246>/Gain' */
 extern MONPRM volatile uint8 Bat_EXV_HWVersion;/* '<S16>/Signal Copy46' */
 extern MONPRM volatile uint8 Bat_EXV_PartNumber;/* '<S16>/Signal Copy45' */
 extern MONPRM volatile uint8 Bat_EXV_ProjectCode1;/* '<S16>/Signal Copy42' */
@@ -445,20 +447,20 @@ extern MONPRM volatile float32 CabinDesTempSolarCor;
                                      /* '<S182>/cal_CabinDesTempSolarCor_MAP' */
 extern MONPRM volatile float32 CabinDesTempSolarCorECO;
                                   /* '<S182>/cal_CabinDesTempSolarCorECO_MAP' */
-extern MONPRM volatile boolean CoAC_stColdStart;/* '<S1256>/Switch3' */
+extern MONPRM volatile boolean CoAC_stColdStart;/* '<S1254>/Switch3' */
 extern MONPRM volatile uint8 CoAC_stwork;/* '<S28>/Switch1' */
 extern MONPRM volatile float32 ColdPCUTempMinByEnv;
-                                     /* '<S1706>/cal_ColdPCUTempMinByEnv_CUR' */
+                                     /* '<S1703>/cal_ColdPCUTempMinByEnv_CUR' */
 extern MONPRM volatile float32 ColdStartPCUTempMinByEnv;
-                                /* '<S1263>/cal_ColdStartPCUTempMinByEnv_CUR' */
+                                /* '<S1261>/cal_ColdStartPCUTempMinByEnv_CUR' */
 extern MONPRM volatile boolean ECUHighVoltInterlockSignal;/* '<S2>/Signal Copy137' */
-extern MONPRM volatile float32 EE_PCUInletTemp;/* '<S1263>/Data Store Read1' */
-extern MONPRM volatile uint8 EE_TimeDay;/* '<S1264>/Data Store Read3' */
-extern MONPRM volatile uint8 EE_TimeHour;/* '<S1264>/Data Store Read' */
-extern MONPRM volatile uint8 EE_TimeMin;/* '<S1264>/Data Store Read2' */
-extern MONPRM volatile float32 EE_tEnv;/* '<S1263>/Data Store Read' */
+extern MONPRM volatile float32 EE_PCUInletTemp;/* '<S1261>/Data Store Read1' */
+extern MONPRM volatile uint8 EE_TimeDay;/* '<S1262>/Data Store Read3' */
+extern MONPRM volatile uint8 EE_TimeHour;/* '<S1262>/Data Store Read' */
+extern MONPRM volatile uint8 EE_TimeMin;/* '<S1262>/Data Store Read2' */
+extern MONPRM volatile float32 EE_tEnv;/* '<S1261>/Data Store Read' */
 extern MONPRM volatile uint8 EXV_CurrentInitState;/* '<S13>/Signal Copy97' */
-extern MONPRM volatile float32 EXV_CurrentPosition;/* '<S1244>/Gain' */
+extern MONPRM volatile float32 EXV_CurrentPosition;/* '<S1242>/Gain' */
 extern MONPRM volatile uint8 EXV_FaultState;/* '<S13>/Signal Copy99' */
 extern MONPRM volatile boolean EXV_ResponseError;/* '<S13>/Signal Copy96' */
 extern MONPRM volatile boolean EXV_RunState;/* '<S13>/Signal Copy98' */
@@ -484,18 +486,18 @@ extern MONPRM volatile uint16 GlbDa_RightSolar;/* '<S179>/Data Type Conversion' 
 extern MONPRM volatile uint16 GlbDa_Solar;/* '<S276>/Max1' */
 extern MONPRM volatile float32 GlbDa_tCabinInvent;/* '<S173>/Switch2' */
 extern MONPRM volatile uint16 GlbDa_uBat;/* '<S2>/Constant2' */
-extern MONPRM volatile boolean HMICtl_bACAuto;/* '<S1146>/Switch' */
-extern MONPRM volatile boolean HMICtl_bACDefrost;/* '<S1161>/Switch' */
-extern MONPRM volatile boolean HMICtl_bACOnOff;/* '<S1173>/Switch' */
-extern MONPRM volatile boolean HMICtl_bLeftSetHigh;/* '<S1125>/Switch' */
-extern MONPRM volatile boolean HMICtl_bLeftSetLow;/* '<S1126>/Switch' */
-extern MONPRM volatile uint8 HMICtl_eACSts;/* '<S1185>/Switch' */
+extern MONPRM volatile boolean HMICtl_bACAuto;/* '<S1145>/Switch' */
+extern MONPRM volatile boolean HMICtl_bACDefrost;/* '<S1159>/Switch' */
+extern MONPRM volatile boolean HMICtl_bACOnOff;/* '<S1171>/Switch' */
+extern MONPRM volatile boolean HMICtl_bLeftSetHigh;/* '<S1126>/Switch' */
+extern MONPRM volatile boolean HMICtl_bLeftSetLow;/* '<S1127>/Switch' */
+extern MONPRM volatile uint8 HMICtl_eACSts;/* '<S1183>/Switch' */
 extern MONPRM volatile uint8 HMICtl_eBlwSts;/* '<S1092>/Switch' */
-extern MONPRM volatile uint8 HMICtl_eInner;/* '<S1107>/Switch' */
-extern MONPRM volatile uint8 HMICtl_eModeMotor;/* '<S1114>/Switch' */
-extern MONPRM volatile float32 HMICtl_sLeftSetPoint;/* '<S1127>/Switch' */
-extern MONPRM volatile float32 HMICtl_sMixDoor;/* '<S1109>/Switch' */
-extern MONPRM volatile float32 HP_EXV_CurrentPosition_B;/* '<S1249>/Gain' */
+extern MONPRM volatile uint8 HMICtl_eInner;/* '<S1108>/Switch' */
+extern MONPRM volatile uint8 HMICtl_eModeMotor;/* '<S1115>/Switch' */
+extern MONPRM volatile float32 HMICtl_sLeftSetPoint;/* '<S1128>/Switch' */
+extern MONPRM volatile float32 HMICtl_sMixDoor;/* '<S1110>/Switch' */
+extern MONPRM volatile float32 HP_EXV_CurrentPosition_B;/* '<S1247>/Gain' */
 extern MONPRM volatile uint8 HP_EXV_FaultState_B;/* '<S20>/Signal Copy23' */
 extern MONPRM volatile uint8 HP_EXV_HWVersion;/* '<S20>/Signal Copy30' */
 extern MONPRM volatile uint8 HP_EXV_PartNumber;/* '<S20>/Signal Copy29' */
@@ -512,10 +514,12 @@ extern MONPRM volatile uint8 HP_EXV_VoltageState_B;/* '<S20>/Signal Copy24' */
 extern MONPRM volatile boolean HP_EXV_Warning_OverTemp;/* '<S20>/Signal Copy20' */
 extern MONPRM volatile uint8 HP_EXV_initialize_status;/* '<S20>/Signal Copy18' */
 extern MONPRM volatile uint8 HU_LeftTempSet;/* '<S2>/Signal Copy200' */
-extern MONPRM volatile uint8 IOCtl_BloweFanSpeed;/* '<S1206>/Switch' */
-extern MONPRM volatile uint8 IOCtl_RecircTrgPos;/* '<S1225>/Switch' */
-extern MONPRM volatile float32 IOCtl_sMixDoorTrgPos;/* '<S1232>/Switch' */
-extern MONPRM volatile float32 IOCtl_sModeMotorTrgPos;/* '<S1237>/Switch' */
+extern MONPRM volatile uint8 IOCtl_BloweFanSpeed;/* '<S1204>/Switch' */
+extern MONPRM volatile boolean IOCtl_PwrNmReqFlg;/* '<S1190>/Relational Operator' */
+extern MONPRM volatile uint8 IOCtl_RecircTrgPos;/* '<S1223>/Switch' */
+extern MONPRM volatile boolean IOCtl_bModeMoveSts;/* '<S1196>/Signal Copy' */
+extern MONPRM volatile float32 IOCtl_sMixDoorTrgPos;/* '<S1230>/Switch' */
+extern MONPRM volatile float32 IOCtl_sModeMotorTrgPos;/* '<S1235>/Switch' */
 extern MONPRM volatile boolean MCV_ErrResp;/* '<S22>/Signal Copy57' */
 extern MONPRM volatile uint8 MCV_FltSts;/* '<S22>/Signal Copy50' */
 extern MONPRM volatile uint8 MCV_Mode; /* '<S22>/Signal Copy51' */
@@ -530,145 +534,146 @@ extern MONPRM volatile uint8 MotPMP_PumpMotorSta;/* '<S23>/Signal Copy83' */
 extern MONPRM volatile uint8 MotPMP_PumpPowerSta;/* '<S23>/Signal Copy85' */
 extern MONPRM volatile uint8 MotPMP_PumpTempSta;/* '<S23>/Signal Copy86' */
 extern MONPRM volatile boolean MotPMP_RESP_ERROR;/* '<S23>/Signal Copy82' */
-extern MONPRM volatile float32 MotPMP_RealRPM;/* '<S1251>/Gain' */
-extern MONPRM volatile float32 PCU_StartClntTemp;/* '<S1263>/Data Type Conversion' */
+extern MONPRM volatile float32 MotPMP_RealRPM;/* '<S1249>/Gain' */
+extern MONPRM volatile float32 PCU_StartClntTemp;/* '<S1261>/Data Type Conversion' */
 extern MONPRM volatile float32 PCUtempOffset2ShutByEnv;
-                                 /* '<S1263>/cal_PCUtempOffset2ShutByEnv_CUR' */
+                                 /* '<S1261>/cal_PCUtempOffset2ShutByEnv_CUR' */
 extern MONPRM volatile boolean PWRCtl_bKL15swtSt;/* '<S2>/OR' */
 extern MONPRM volatile uint8 PWRCtl_eBatChargSts;/* '<S28>/CoBatCharg' */
-extern MONPRM volatile PwrModes PWRCtl_eTMSStatus;/* '<S1260>/Switch' */
+extern MONPRM volatile PwrModes PWRCtl_eTMSStatus;/* '<S1258>/Switch' */
 extern MONPRM volatile uint8 PWRCtl_eVCUPTSts;/* '<S2>/Signal Copy183' */
 extern MONPRM volatile float32 PWRCtl_sCOMPActlPwr;/* '<S29>/Divide1' */
 extern MONPRM volatile uint32 PWRCtl_uTMSRunTimer;/* '<S28>/Cal_RunTime' */
+extern MONPRM volatile uint32 PWRCtl_uTMSRunTimer20ms;/* '<S31>/Cal_RunTime_20ms' */
 extern MONPRM volatile float32 PidCabinX_IsumMax;
                                    /* '<S184>/cal_PidCabinX_IsumMaxByDVT_CUR' */
 extern MONPRM volatile float32 PidCabinX_IsumMin;
                                    /* '<S184>/cal_PidCabinX_IsumMinByDVT_CUR' */
-extern MONPRM volatile uint16 SENCtl_uACCMHighTempVol;/* '<S1723>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uCabinVoltage;/* '<S1705>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uChillTempVol;/* '<S1715>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uEVAPSurfTempVol;/* '<S1718>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uEVAPXTempVol;/* '<S1717>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uEnvVoltage;/* '<S1716>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uFaceDuctVal;/* '<S1708>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uFootDuctVal;/* '<S1709>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uMixDoorVol;/* '<S1711>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uModeDoorVol;/* '<S1712>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uMotInletTempVol;/* '<S1719>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uOHXTempVol;/* '<S1720>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uRecircDoorVol;/* '<S1713>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uSolorVol;/* '<S1714>/C_Caller' */
-extern MONPRM volatile uint16 SENCtl_uWCCHPVol;/* '<S1722>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uWCCHighTempVol;/* '<S1721>/C Caller' */
-extern MONPRM volatile uint16 SENCtl_uWCCLPVol;/* '<S1710>/C Caller' */
-extern MONPRM volatile float32 SEN_ACCMTHiRaw;/* '<S1723>/cal_ACCMTHi_CUR' */
-extern MONPRM volatile float32 SEN_ChiTRaw;/* '<S1715>/cal_TChillOutRaw_CUR' */
-extern MONPRM volatile float32 SEN_EvapTRaw;/* '<S1717>/cal_TEvapOutRaw_CUR' */
-extern MONPRM volatile float32 SEN_LoPressRaw;/* '<S1710>/cal_LoPress_CUR' */
-extern MONPRM volatile float32 SEN_MixDoorRaw;/* '<S1711>/cal_MixDoorPerc_CUR' */
-extern MONPRM volatile float32 SEN_OHXTRaw;/* '<S1720>/cal_OHXTRaw_CUR' */
-extern MONPRM volatile uint16 SEN_SolarRaw;/* '<S1714>/cal_SolarValRaw_CUR' */
-extern MONPRM volatile float32 SEN_TCabinRaw;/* '<S1705>/cal_TCabinRaw_CUR' */
-extern MONPRM volatile float32 SEN_TDuctRaw;/* '<S1708>/cal_TDuctRaw_CUR' */
-extern MONPRM volatile float32 SEN_TEnvRaw;/* '<S1716>/cal_TEnvRaw_CUR' */
-extern MONPRM volatile float32 SEN_TEvapSurRaw;/* '<S1718>/cal_TEvapSur_CUR' */
-extern MONPRM volatile float32 SEN_TFootDuctRaw;/* '<S1709>/cal_TDuctRaw_CUR' */
-extern MONPRM volatile float32 SEN_TMotRaw;/* '<S1719>/cal_TMot_CUR' */
-extern MONPRM volatile float32 SEN_WCCHiPressRaw;/* '<S1722>/cal_LCCOutHiPressRaw_CUR' */
-extern MONPRM volatile float32 SEN_WCCTHiRaw;/* '<S1721>/cal_WCCTHiRaw_CUR' */
-extern MONPRM volatile boolean SOMCtl_bB1toB31;/* '<S1289>/Switch1' */
-extern MONPRM volatile boolean SOMCtl_bBatB1TB41Flg;/* '<S1450>/OR2' */
-extern MONPRM volatile boolean SOMCtl_bBatB1TB42Flg;/* '<S1463>/OR2' */
-extern MONPRM volatile boolean SOMCtl_bBatBalEntBFlg;/* '<S1601>/AND1' */
-extern MONPRM volatile boolean SOMCtl_bBatBalFlg;/* '<S1282>/Judge' */
-extern MONPRM volatile boolean SOMCtl_bBatCoolFlg;/* '<S1361>/Switch' */
-extern MONPRM volatile boolean SOMCtl_bBatHStrFlg;/* '<S1541>/Chart' */
-extern MONPRM volatile boolean SOMCtl_bBatHeatB31tB1Flg;/* '<S1544>/AND3' */
-extern MONPRM volatile boolean SOMCtl_bBatHeatB3tB1Flg;/* '<S1289>/Switch' */
-extern MONPRM volatile boolean SOMCtl_bBatHeatChrgFlgAB;/* '<S1446>/AND2' */
-extern MONPRM volatile boolean SOMCtl_bBatHeatChrgFlgCD;/* '<S1447>/NOT' */
-extern MONPRM volatile boolean SOMCtl_bBatHeatFlg;/* '<S1444>/Switch' */
-extern MONPRM volatile boolean SOMCtl_bBatHeatOffFlg;/* '<S1474>/Relational Operator' */
-extern MONPRM volatile boolean SOMCtl_bBatHeatPwrLmtF;/* '<S1449>/Relational Operator' */
-extern MONPRM volatile boolean SOMCtl_bBatHeatTempDiffE;/* '<S1456>/Compare' */
-extern MONPRM volatile boolean SOMCtl_bBatLTRFlg;/* '<S1284>/Switch' */
-extern MONPRM volatile boolean SOMCtl_bBatLTROffFlg;/* '<S1404>/AND7' */
-extern MONPRM volatile boolean SOMCtl_bBatTSEntAFlg;/* '<S1322>/AND1' */
-extern MONPRM volatile boolean SOMCtl_bBatTSEntBFlg;/* '<S1323>/AND1' */
-extern MONPRM volatile boolean SOMCtl_bBatTSExitFlg;/* '<S1302>/AND1' */
-extern MONPRM volatile boolean SOMCtl_bCalTempBatHeatFlg;/* '<S1445>/Merge' */
-extern MONPRM volatile boolean SOMCtl_bDBatLTROffFlg;/* '<S1506>/AND7' */
-extern MONPRM volatile boolean SOMCtl_bDCBatLTROnFlg;/* '<S1403>/AND1' */
-extern MONPRM volatile boolean SOMCtl_bEntExtDefFlg;/* '<S1694>/AND' */
-extern MONPRM volatile boolean SOMCtl_bExitExtDefTempFlg;/* '<S1699>/Compare' */
-extern MONPRM volatile boolean SOMCtl_bExtDefFlg;/* '<S1697>/Switch' */
-extern MONPRM volatile boolean SOMCtl_bMD1CLMSts;/* '<S1643>/Chart' */
-extern MONPRM volatile boolean SOMCtl_bMD1ToMD2Flg;/* '<S1642>/C' */
-extern MONPRM volatile boolean SOMCtl_bMD2DHMD1Flg;/* '<S1644>/MD2_DHMD1' */
-extern MONPRM volatile boolean SOMCtl_bMD2ToMD1Flg;/* '<S1642>/OR7' */
-extern MONPRM volatile boolean SOMCtl_bMD2ToMD3Flg;/* '<S1645>/B' */
-extern MONPRM volatile boolean SOMCtl_bMD3DHMD2Flg;/* '<S1646>/MD3_DHMD2' */
-extern MONPRM volatile boolean SOMCtl_bMD3ToMD2Flg;/* '<S1645>/A' */
-extern MONPRM volatile boolean SOMCtl_bMD3ToMD4Flg;/* '<S1647>/B' */
-extern MONPRM volatile boolean SOMCtl_bMD4ToMD3Flg;/* '<S1647>/A' */
-extern MONPRM volatile boolean SOMCtl_bMotAndBatLTRFlg;/* '<S1288>/Switch' */
-extern MONPRM volatile boolean SOMCtl_bMotHeatBatFlg;/* '<S1290>/Switch' */
-extern MONPRM volatile boolean SOMCtl_bMotLTRAndBatBalOffFlg;/* '<S1600>/Relational Operator' */
-extern MONPRM volatile boolean SOMCtl_bMotLTRAndBatBalOn1Flg;/* '<S1505>/Relational Operator' */
-extern MONPRM volatile boolean SOMCtl_bMotLTRAndBatBalOn2Flg;/* '<S1505>/Relational Operator1' */
-extern MONPRM volatile boolean SOMCtl_bMotorHeatBatOffFlg;/* '<S1580>/Relational Operator' */
-extern MONPRM volatile boolean SOMCtl_bMotorHeatBatOnFlg;/* '<S1290>/Switch1' */
-extern MONPRM volatile boolean SOMCtl_bMotorLTRAndBatBalFlg;/* '<S1291>/Switch' */
-extern MONPRM volatile boolean SOMCtl_bNmlBatLTROnFlg;/* '<S1403>/Relational Operator' */
-extern MONPRM volatile uint8 SOMCtl_eBatBalEntBFlg;/* '<S1601>/Add' */
-extern MONPRM volatile uint8 SOMCtl_eBatCoolB1tB21;/* '<S1366>/Add' */
-extern MONPRM volatile uint8 SOMCtl_eBatCoolB1tB22;/* '<S1377>/Add' */
-extern MONPRM volatile uint8 SOMCtl_eBatCoolB2tB1;/* '<S1387>/Add' */
-extern MONPRM volatile uint8 SOMCtl_eBatHeatOffVal;/* '<S1474>/Add' */
-extern MONPRM volatile uint8 SOMCtl_eBatLTROnFlg;/* '<S1604>/Add' */
-extern MONPRM volatile BatModes SOMCtl_eBatMode;/* '<S1439>/Switch' */
-extern MONPRM volatile CabinMode SOMCtl_eCabinMode;/* '<S1692>/Switch' */
-extern MONPRM volatile CabinMode SOMCtl_eCabinModePre;/* '<S1649>/Data Type Conversion2' */
-extern MONPRM volatile uint8 SOMCtl_eHVPartMode;/* '<S1700>/Switch' */
-extern MONPRM volatile uint8 SOMCtl_eMotLTRAndBatBalOffFlg;/* '<S1600>/Add' */
-extern MONPRM volatile uint8 SOMCtl_eMotLTRAndBatBalOn1Flg;/* '<S1505>/Add' */
-extern MONPRM volatile uint8 SOMCtl_eMotLTRAndBatBalOn2Flg;/* '<S1505>/Add1' */
-extern MONPRM volatile uint8 SOMCtl_eMotorHeatBat2Flg;/* '<S1578>/Add' */
-extern MONPRM volatile uint8 SOMCtl_eMotorHeatBatFlg;/* '<S1579>/Add' */
-extern MONPRM volatile uint16 SOMCtl_eMotorHeatBatOffFlg;/* '<S1580>/Add' */
-extern MONPRM volatile uint8 SOMCtl_eNmlBatLTROnFlg;/* '<S1403>/Add' */
-extern MONPRM volatile RefModes SOMCtl_eRefModes;/* '<S1701>/Switch' */
-extern MONPRM volatile WaterModes SOMCtl_eWaterMode;/* '<S1693>/Switch' */
-extern MONPRM volatile float32 SOMCtl_sBatHeatPTCTrgT;/* '<S1497>/Switch' */
-extern MONPRM volatile float32 SOMCtl_sBatHeatT1;/* '<S1445>/Merge' */
-extern MONPRM volatile float32 SOMCtl_sBatHeatT2;/* '<S1445>/Merge' */
+extern MONPRM volatile uint16 SENCtl_uACCMHighTempVol;/* '<S1720>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uCabinVoltage;/* '<S1701>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uChillTempVol;/* '<S1712>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uEVAPSurfTempVol;/* '<S1715>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uEVAPXTempVol;/* '<S1714>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uEnvVoltage;/* '<S1713>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uFaceDuctVal;/* '<S1705>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uFootDuctVal;/* '<S1706>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uMixDoorVol;/* '<S1708>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uModeDoorVol;/* '<S1709>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uMotInletTempVol;/* '<S1716>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uOHXTempVol;/* '<S1717>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uRecircDoorVol;/* '<S1710>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uSolorVol;/* '<S1711>/C_Caller' */
+extern MONPRM volatile uint16 SENCtl_uWCCHPVol;/* '<S1719>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uWCCHighTempVol;/* '<S1718>/C Caller' */
+extern MONPRM volatile uint16 SENCtl_uWCCLPVol;/* '<S1707>/C Caller' */
+extern MONPRM volatile float32 SEN_ACCMTHiRaw;/* '<S1720>/cal_ACCMTHi_CUR' */
+extern MONPRM volatile float32 SEN_ChiTRaw;/* '<S1712>/cal_TChillOutRaw_CUR' */
+extern MONPRM volatile float32 SEN_EvapTRaw;/* '<S1714>/cal_TEvapOutRaw_CUR' */
+extern MONPRM volatile float32 SEN_LoPressRaw;/* '<S1707>/cal_LoPress_CUR' */
+extern MONPRM volatile float32 SEN_MixDoorRaw;/* '<S1708>/cal_MixDoorPerc_CUR' */
+extern MONPRM volatile float32 SEN_OHXTRaw;/* '<S1717>/cal_OHXTRaw_CUR' */
+extern MONPRM volatile uint16 SEN_SolarRaw;/* '<S1711>/cal_SolarValRaw_CUR' */
+extern MONPRM volatile float32 SEN_TCabinRaw;/* '<S1701>/cal_TCabinRaw_CUR' */
+extern MONPRM volatile float32 SEN_TDuctRaw;/* '<S1705>/cal_TDuctRaw_CUR' */
+extern MONPRM volatile float32 SEN_TEnvRaw;/* '<S1713>/cal_TEnvRaw_CUR' */
+extern MONPRM volatile float32 SEN_TEvapSurRaw;/* '<S1715>/cal_TEvapSur_CUR' */
+extern MONPRM volatile float32 SEN_TFootDuctRaw;/* '<S1706>/cal_TDuctRaw_CUR' */
+extern MONPRM volatile float32 SEN_TMotRaw;/* '<S1716>/cal_TMot_CUR' */
+extern MONPRM volatile float32 SEN_WCCHiPressRaw;/* '<S1719>/cal_LCCOutHiPressRaw_CUR' */
+extern MONPRM volatile float32 SEN_WCCTHiRaw;/* '<S1718>/cal_WCCTHiRaw_CUR' */
+extern MONPRM volatile boolean SOMCtl_bB1toB31;/* '<S1287>/Switch1' */
+extern MONPRM volatile boolean SOMCtl_bBatB1TB41Flg;/* '<S1446>/OR2' */
+extern MONPRM volatile boolean SOMCtl_bBatB1TB42Flg;/* '<S1459>/OR2' */
+extern MONPRM volatile boolean SOMCtl_bBatBalEntBFlg;/* '<S1595>/AND1' */
+extern MONPRM volatile boolean SOMCtl_bBatBalFlg;/* '<S1280>/Judge' */
+extern MONPRM volatile boolean SOMCtl_bBatCoolFlg;/* '<S1357>/Switch' */
+extern MONPRM volatile boolean SOMCtl_bBatHStrFlg;/* '<S1535>/Chart' */
+extern MONPRM volatile boolean SOMCtl_bBatHeatB31tB1Flg;/* '<S1538>/AND3' */
+extern MONPRM volatile boolean SOMCtl_bBatHeatB3tB1Flg;/* '<S1287>/Switch' */
+extern MONPRM volatile boolean SOMCtl_bBatHeatChrgFlgAB;/* '<S1442>/AND2' */
+extern MONPRM volatile boolean SOMCtl_bBatHeatChrgFlgCD;/* '<S1443>/NOT' */
+extern MONPRM volatile boolean SOMCtl_bBatHeatFlg;/* '<S1440>/Switch' */
+extern MONPRM volatile boolean SOMCtl_bBatHeatOffFlg;/* '<S1470>/Relational Operator' */
+extern MONPRM volatile boolean SOMCtl_bBatHeatPwrLmtF;/* '<S1445>/Relational Operator' */
+extern MONPRM volatile boolean SOMCtl_bBatHeatTempDiffE;/* '<S1452>/Compare' */
+extern MONPRM volatile boolean SOMCtl_bBatLTRFlg;/* '<S1282>/Switch' */
+extern MONPRM volatile boolean SOMCtl_bBatLTROffFlg;/* '<S1400>/AND7' */
+extern MONPRM volatile boolean SOMCtl_bBatTSEntAFlg;/* '<S1320>/AND1' */
+extern MONPRM volatile boolean SOMCtl_bBatTSEntBFlg;/* '<S1321>/AND1' */
+extern MONPRM volatile boolean SOMCtl_bBatTSExitFlg;/* '<S1300>/AND1' */
+extern MONPRM volatile boolean SOMCtl_bCalTempBatHeatFlg;/* '<S1441>/Merge' */
+extern MONPRM volatile boolean SOMCtl_bDBatLTROffFlg;/* '<S1502>/AND7' */
+extern MONPRM volatile boolean SOMCtl_bDCBatLTROnFlg;/* '<S1399>/AND1' */
+extern MONPRM volatile boolean SOMCtl_bEntExtDefFlg;/* '<S1690>/AND' */
+extern MONPRM volatile boolean SOMCtl_bExitExtDefTempFlg;/* '<S1695>/Compare' */
+extern MONPRM volatile boolean SOMCtl_bExtDefFlg;/* '<S1693>/Switch' */
+extern MONPRM volatile boolean SOMCtl_bMD1CLMSts;/* '<S1639>/Chart' */
+extern MONPRM volatile boolean SOMCtl_bMD1ToMD2Flg;/* '<S1638>/C' */
+extern MONPRM volatile boolean SOMCtl_bMD2DHMD1Flg;/* '<S1640>/MD2_DHMD1' */
+extern MONPRM volatile boolean SOMCtl_bMD2ToMD1Flg;/* '<S1638>/OR7' */
+extern MONPRM volatile boolean SOMCtl_bMD2ToMD3Flg;/* '<S1641>/B' */
+extern MONPRM volatile boolean SOMCtl_bMD3DHMD2Flg;/* '<S1642>/MD3_DHMD2' */
+extern MONPRM volatile boolean SOMCtl_bMD3ToMD2Flg;/* '<S1641>/A' */
+extern MONPRM volatile boolean SOMCtl_bMD3ToMD4Flg;/* '<S1643>/B' */
+extern MONPRM volatile boolean SOMCtl_bMD4ToMD3Flg;/* '<S1643>/A' */
+extern MONPRM volatile boolean SOMCtl_bMotAndBatLTRFlg;/* '<S1286>/Switch' */
+extern MONPRM volatile boolean SOMCtl_bMotHeatBatFlg;/* '<S1288>/Switch' */
+extern MONPRM volatile boolean SOMCtl_bMotLTRAndBatBalOffFlg;/* '<S1594>/Relational Operator' */
+extern MONPRM volatile boolean SOMCtl_bMotLTRAndBatBalOn1Flg;/* '<S1501>/Relational Operator' */
+extern MONPRM volatile boolean SOMCtl_bMotLTRAndBatBalOn2Flg;/* '<S1501>/Relational Operator1' */
+extern MONPRM volatile boolean SOMCtl_bMotorHeatBatOffFlg;/* '<S1574>/Relational Operator' */
+extern MONPRM volatile boolean SOMCtl_bMotorHeatBatOnFlg;/* '<S1288>/Switch1' */
+extern MONPRM volatile boolean SOMCtl_bMotorLTRAndBatBalFlg;/* '<S1289>/Switch' */
+extern MONPRM volatile boolean SOMCtl_bNmlBatLTROnFlg;/* '<S1399>/Relational Operator' */
+extern MONPRM volatile uint8 SOMCtl_eBatBalEntBFlg;/* '<S1595>/Add' */
+extern MONPRM volatile uint8 SOMCtl_eBatCoolB1tB21;/* '<S1362>/Add' */
+extern MONPRM volatile uint8 SOMCtl_eBatCoolB1tB22;/* '<S1373>/Add' */
+extern MONPRM volatile uint8 SOMCtl_eBatCoolB2tB1;/* '<S1383>/Add' */
+extern MONPRM volatile uint8 SOMCtl_eBatHeatOffVal;/* '<S1470>/Add' */
+extern MONPRM volatile uint8 SOMCtl_eBatLTROnFlg;/* '<S1598>/Add' */
+extern MONPRM volatile BatModes SOMCtl_eBatMode;/* '<S1435>/Switch' */
+extern MONPRM volatile CabinMode SOMCtl_eCabinMode;/* '<S1688>/Switch' */
+extern MONPRM volatile CabinMode SOMCtl_eCabinModePre;/* '<S1645>/Data Type Conversion2' */
+extern MONPRM volatile uint8 SOMCtl_eHVPartMode;/* '<S1696>/Switch' */
+extern MONPRM volatile uint8 SOMCtl_eMotLTRAndBatBalOffFlg;/* '<S1594>/Add' */
+extern MONPRM volatile uint8 SOMCtl_eMotLTRAndBatBalOn1Flg;/* '<S1501>/Add' */
+extern MONPRM volatile uint8 SOMCtl_eMotLTRAndBatBalOn2Flg;/* '<S1501>/Add1' */
+extern MONPRM volatile uint8 SOMCtl_eMotorHeatBat2Flg;/* '<S1572>/Add' */
+extern MONPRM volatile uint8 SOMCtl_eMotorHeatBatFlg;/* '<S1573>/Add' */
+extern MONPRM volatile uint16 SOMCtl_eMotorHeatBatOffFlg;/* '<S1574>/Add' */
+extern MONPRM volatile uint8 SOMCtl_eNmlBatLTROnFlg;/* '<S1399>/Add' */
+extern MONPRM volatile RefModes SOMCtl_eRefModes;/* '<S1697>/Switch' */
+extern MONPRM volatile WaterModes SOMCtl_eWaterMode;/* '<S1689>/Switch' */
+extern MONPRM volatile float32 SOMCtl_sBatHeatPTCTrgT;/* '<S1493>/Switch' */
+extern MONPRM volatile float32 SOMCtl_sBatHeatT1;/* '<S1441>/Merge' */
+extern MONPRM volatile float32 SOMCtl_sBatHeatT2;/* '<S1441>/Merge' */
 extern MONPRM volatile float32 SOMCtl_sBatHeatTrgTempComp;
-                                      /* '<S1497>/cal_BatHeatTrgTempComp_CUR' */
-extern MONPRM volatile float32 SOMCtl_sBatTrgTemp;/* '<S1294>/Switch' */
-extern MONPRM volatile float32 SOMCtl_sF1Value;/* '<S1641>/Add' */
-extern MONPRM volatile float32 SOMCtl_sF2Value;/* '<S1641>/Add1' */
-extern MONPRM volatile boolean SOMCtrl_bBatLTRDelayFlg;/* '<S1404>/Delay' */
+                                      /* '<S1493>/cal_BatHeatTrgTempComp_CUR' */
+extern MONPRM volatile float32 SOMCtl_sBatTrgTemp;/* '<S1292>/Switch' */
+extern MONPRM volatile float32 SOMCtl_sF1Value;/* '<S1637>/Add' */
+extern MONPRM volatile float32 SOMCtl_sF2Value;/* '<S1637>/Add1' */
+extern MONPRM volatile boolean SOMCtrl_bBatLTRDelayFlg;/* '<S1400>/Delay' */
 extern MONPRM volatile uint8 TMS_VersionNumber;/* '<S7>/Constant1' */
 extern MONPRM volatile float32 ThCo_rSetLeftMixDoor;/* '<S385>/Switch3' */
 extern MONPRM volatile float32 ThCo_rSetRightMixDoor;/* '<S385>/Switch2' */
-extern MONPRM volatile uint16 adc2_group0_0;/* '<S1704>/Signal Copy' */
-extern MONPRM volatile uint16 adc2_group0_1;/* '<S1704>/Signal Copy1' */
-extern MONPRM volatile uint16 adc2_group0_2;/* '<S1704>/Signal Copy2' */
-extern MONPRM volatile uint16 adc2_group1_0;/* '<S1704>/Signal Copy3' */
-extern MONPRM volatile uint16 adc2_group1_1;/* '<S1704>/Signal Copy4' */
-extern MONPRM volatile uint16 adc2_group1_2;/* '<S1704>/Signal Copy5' */
-extern MONPRM volatile uint16 adc2_group1_3;/* '<S1704>/Signal Copy6' */
-extern MONPRM volatile uint16 adc2_group1_4;/* '<S1704>/Signal Copy7' */
-extern MONPRM volatile uint16 adc2_group1_5;/* '<S1704>/Signal Copy8' */
-extern MONPRM volatile uint16 adc2_group1_6;/* '<S1704>/Signal Copy9' */
-extern MONPRM volatile uint16 adc2_group1_7;/* '<S1704>/Signal Copy10' */
-extern MONPRM volatile uint16 adc2_group1_8;/* '<S1704>/Signal Copy11' */
-extern MONPRM volatile uint16 adc2_group1_9;/* '<S1704>/Signal Copy12' */
-extern MONPRM volatile uint16 adc2_group2_0;/* '<S1704>/Signal Copy17' */
-extern MONPRM volatile uint16 adc2_group2_1;/* '<S1704>/Signal Copy18' */
-extern MONPRM volatile uint16 adc2_group2_2;/* '<S1704>/Signal Copy19' */
-extern MONPRM volatile uint16 adc2_group2_3;/* '<S1704>/Signal Copy13' */
-extern MONPRM volatile uint16 adc2_group2_4;/* '<S1704>/Signal Copy14' */
+extern MONPRM volatile uint16 adc2_group0_0;/* '<S1700>/Signal Copy' */
+extern MONPRM volatile uint16 adc2_group0_1;/* '<S1700>/Signal Copy1' */
+extern MONPRM volatile uint16 adc2_group0_2;/* '<S1700>/Signal Copy2' */
+extern MONPRM volatile uint16 adc2_group1_0;/* '<S1700>/Signal Copy3' */
+extern MONPRM volatile uint16 adc2_group1_1;/* '<S1700>/Signal Copy4' */
+extern MONPRM volatile uint16 adc2_group1_2;/* '<S1700>/Signal Copy5' */
+extern MONPRM volatile uint16 adc2_group1_3;/* '<S1700>/Signal Copy6' */
+extern MONPRM volatile uint16 adc2_group1_4;/* '<S1700>/Signal Copy7' */
+extern MONPRM volatile uint16 adc2_group1_5;/* '<S1700>/Signal Copy8' */
+extern MONPRM volatile uint16 adc2_group1_6;/* '<S1700>/Signal Copy9' */
+extern MONPRM volatile uint16 adc2_group1_7;/* '<S1700>/Signal Copy10' */
+extern MONPRM volatile uint16 adc2_group1_8;/* '<S1700>/Signal Copy11' */
+extern MONPRM volatile uint16 adc2_group1_9;/* '<S1700>/Signal Copy12' */
+extern MONPRM volatile uint16 adc2_group2_0;/* '<S1700>/Signal Copy17' */
+extern MONPRM volatile uint16 adc2_group2_1;/* '<S1700>/Signal Copy18' */
+extern MONPRM volatile uint16 adc2_group2_2;/* '<S1700>/Signal Copy19' */
+extern MONPRM volatile uint16 adc2_group2_3;/* '<S1700>/Signal Copy13' */
+extern MONPRM volatile uint16 adc2_group2_4;/* '<S1700>/Signal Copy14' */
 
 #endif                                 /* RTW_HEADER_TMS_MonitorData_h_ */
 

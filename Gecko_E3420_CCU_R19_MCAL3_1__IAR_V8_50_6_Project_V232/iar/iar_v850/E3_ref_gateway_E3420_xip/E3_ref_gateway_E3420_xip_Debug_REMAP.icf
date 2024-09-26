@@ -1,4 +1,4 @@
-define symbol intvec_start__ = 0;
+define symbol intvec_start__ = 0x0;
 
 define symbol STACK_SZ = 0x14000;
 define symbol HEAP_SZ = 0x4000;

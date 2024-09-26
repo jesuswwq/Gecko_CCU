@@ -60,66 +60,62 @@ void ADC2_ReadGroup2_4067(void)
 
     Adc_StartGroupConversion(2);
 
-        EXECUTE_WAIT();
         ResumeAllInterrupts();
 
-        if (ADC_STREAM_COMPLETED == Adc_GetGroupStatus(2))
-        {
-                Adc_ReadGroup(2, adc2_group2_resultbuffer);
-        }
+        while(ADC_STREAM_COMPLETED != Adc_GetGroupStatus(2));
+        Adc_ReadGroup(2, adc2_group2_resultbuffer);  
+        if (AD4067Acount < (adsize_4067A - 1))
+                {
+                        AD4067Avalue[AD4067Acount] = adc2_group2_resultbuffer[0];
+                        AD4067Acount++;
+                 }
+                else
+                {
+                        AD4067Avalue[AD4067Acount] = adc2_group2_resultbuffer[0];
+                        AD4067Acount = 0;
+                }
 
-      if (AD4067Acount < (adsize_4067A - 1))
-      {
-              AD4067Avalue[AD4067Acount] = adc2_group2_resultbuffer[0];
-              AD4067Acount++;
-      }
-      else
-      {
-              AD4067Avalue[AD4067Acount] = adc2_group2_resultbuffer[0];
-              AD4067Acount = 0;
-      }
+                //B
+                if (AD4067Bcount < (adsize_4067B - 1))
+                {
+                        AD4067Bvalue[AD4067Bcount] = adc2_group2_resultbuffer[1];
+                        AD4067Bcount++;
+                }
+                else
+                {
+                        AD4067Bvalue[AD4067Bcount] = adc2_group2_resultbuffer[1];
+                        AD4067Bcount = 0;
+                }
 
-      //B
-      if (AD4067Bcount < (adsize_4067B - 1))
-      {
-              AD4067Bvalue[AD4067Bcount] = adc2_group2_resultbuffer[1];
-              AD4067Bcount++;
-      }
-      else
-      {
-              AD4067Bvalue[AD4067Bcount] = adc2_group2_resultbuffer[1];
-              AD4067Bcount = 0;
-      }
+                //C
+                AD4067Cvalue[0] = adc2_group2_resultbuffer[2];
 
-      //C
-      AD4067Cvalue[0] = adc2_group2_resultbuffer[2];
+                
+                // D      
+                if (AD4067Dcount < (adsize_4067D - 1))
+                {
+                        AD4067Dvalue[AD4067Dcount] = adc2_group2_resultbuffer[3];
+                        AD4067Dcount++;
+                }
+                else
+                {
+                        AD4067Dvalue[AD4067Dcount] = adc2_group2_resultbuffer[3];
+                        AD4067Dcount = 0;
+                }
 
-	
-        // D      
-	if (AD4067Dcount < (adsize_4067D - 1))
-	{
-		AD4067Dvalue[AD4067Dcount] = adc2_group2_resultbuffer[3];
-		AD4067Dcount++;
-	}
-	else
-	{
-		AD4067Dvalue[AD4067Dcount] = adc2_group2_resultbuffer[3];
-		AD4067Dcount = 0;
-	}
+                //E
+                if (AD4067Ecount < (adsize_4067E - 1))
+                {
+                        AD4067Evalue[AD4067Ecount] = adc2_group2_resultbuffer[4];
+                        AD4067Ecount++;
+                }
+                else
+                {
+                        AD4067Evalue[AD4067Ecount] = adc2_group2_resultbuffer[4];
+                        AD4067Ecount = 0;
+                }
 
-        //E
-	if (AD4067Ecount < (adsize_4067E - 1))
-	{
-		AD4067Evalue[AD4067Ecount] = adc2_group2_resultbuffer[4];
-		AD4067Ecount++;
-	}
-	else
-	{
-		AD4067Evalue[AD4067Ecount] = adc2_group2_resultbuffer[4];
-		AD4067Ecount = 0;
-	}
-
-        ADGroup2_Select_Channel();
+                ADGroup2_Select_Channel();
 }
 
 
@@ -129,8 +125,7 @@ void ADC2_ReadGroup0(void)
         irq_enable(SADC2_O_SADC_INTR_NUM);
 
 	Adc_StartGroupConversion(0);
-
-        EXECUTE_WAIT();
+        
         ResumeAllInterrupts();
 
         if (ADC_STREAM_COMPLETED == Adc_GetGroupStatus(0))
@@ -147,7 +142,6 @@ void ADC2_ReadGroup1(void)
 
 	Adc_StartGroupConversion(1);
 
-        EXECUTE_WAIT();
         ResumeAllInterrupts();
 
         if (ADC_STREAM_COMPLETED == Adc_GetGroupStatus(1))

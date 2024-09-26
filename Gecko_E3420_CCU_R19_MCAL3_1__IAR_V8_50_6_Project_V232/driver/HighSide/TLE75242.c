@@ -100,8 +100,8 @@ void TLE75242_ModeCtrl(TLE75242_Chip_e_ ChipID, TLE75242_Mode_e_ OpMode)
 
        case TLE75242_MODE_IDLE:
             IdleCtrl = STD_HIGH;
-            In0Ctrl  = STD_HIGH;
-            In1Ctrl  = STD_HIGH;
+            In0Ctrl  = STD_LOW;
+            In1Ctrl  = STD_LOW;
          break;
 
        case TLE75242_MODE_SLEEP:
@@ -790,4 +790,33 @@ void TLE75242_DataWrite(TLE75242_Chip_e_ chip, uint8 CmdData)
 	{
 		TLE75242_8bitDataWrite(chip, TLE75242_REG_OUT, CmdData);
 	}
+}
+void TLE75242_OUT2_3_Switch(TLE75242_Chip_e_ chip, Dio_LevelType level,TLE75242_Channel_e_ channel)
+{
+	if(level == STD_LOW)
+	{
+		if(channel == TLE75242_CH_OUT2)
+		{
+			TLE75242_PinOutputCtrl(chip,TLE75252_CtrlPin_List[chip].IN0_Pin,STD_LOW);
+		}
+		if(channel == TLE75242_CH_OUT3)
+		{
+			TLE75242_PinOutputCtrl(chip,TLE75252_CtrlPin_List[chip].IN1_Pin,STD_LOW);
+		}
+		
+		
+	}
+	else{
+		if(channel == TLE75242_CH_OUT2)
+		{
+			TLE75242_PinOutputCtrl(chip,TLE75252_CtrlPin_List[chip].IN0_Pin,STD_HIGH);
+		}
+		if(channel == TLE75242_CH_OUT3)
+		{
+			TLE75242_PinOutputCtrl(chip,TLE75252_CtrlPin_List[chip].IN1_Pin,STD_HIGH);
+		}
+		
+	}
+		
+
 }

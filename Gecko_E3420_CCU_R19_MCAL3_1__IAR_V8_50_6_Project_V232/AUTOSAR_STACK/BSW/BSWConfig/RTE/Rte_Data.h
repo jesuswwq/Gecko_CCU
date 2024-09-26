@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-08-17 16:07:03>
+ *  @date       <2024-09-19 16:46:33>
  */
 /*============================================================================*/
 
@@ -40,6 +40,8 @@
 extern ACCM_Version_BOD Rte_Buf_Runbl_IpmCanRx_100ms_ACCM_Version_BOD_ACCM_Version_BOD;
 
 extern AlmSysCtl Irv_AppSwcBcm_AlmSysCtl_Bus;
+
+extern AlmSysCtl Irv_AppSwcBcm_AppSwcBcm_Init_AlmSysCtl_Bus;
 
 extern AlmSysCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_AlmSysCtl_Bus;
 
@@ -405,6 +407,8 @@ extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_EHB_A_CHA;
 
 extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_EHB_A_CHA;
 
+extern DT_IPM_EHB_B_CHA Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA;
+
 extern DT_IPM_EHB_B_CHA Rte_Buf_Runbl_VcuRx_10ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA;
 
 extern DT_IPM_EHB_B_CHA Irv_AppSwcVcu_IPM_EHB_B_CHA;
@@ -721,11 +725,19 @@ extern DT_Vcu2OpmEPT_outputs Irv_AppSwcOpm_Runbl_OpmRx_10ms_Vcu2OpmEPT_outputs;
 
 extern DoorLckCtl Irv_AppSwcBcm_DoorLckCtl_Bus;
 
+extern DoorLckCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_DoorLckCtl_Bus;
+
 extern DoorLckCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_DoorLckCtl_Bus;
 
 extern DoorLckCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_DoorLckCtl_Bus;
 
 extern DoorLckCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus;
+
+extern DynDID Irv_AppSwcBcm_DynDID_Bus;
+
+extern DynDID Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_DynDID_Bus;
+
+extern DynDID Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_DynDID_Bus;
 
 extern EEReadCtl Irv_AppSwcBcm_EEReadCtl_Bus;
 
@@ -824,6 +836,8 @@ extern HVM_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_HVM_outputs;
 extern HVM_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_HVM_outputs;
 
 extern HornCtl Irv_AppSwcBcm_HornCtl_Bus;
+
+extern HornCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_HornCtl_Bus;
 
 extern HornCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_HornCtl_Bus;
 
@@ -966,6 +980,8 @@ extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_CCP_PanelStatus_BOD_IPM_C
 extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_EHB_A_CHA_IPM_EHB_A_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_EHB_B_CHA_IPM_EHB_B_CHA_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA_ibuffer_status;
 
@@ -1601,9 +1617,15 @@ extern WinCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_WinCtl_Bus;
 
 extern WinCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_WinCtl_Bus;
 
+extern WinCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_WinCtl_Bus;
+
 extern WiperCtl Irv_AppSwcBcm_Wiper_Bus;
 
+extern WiperCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_Wiper_Bus;
+
 extern WiperCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_Wiper_Bus;
+
+extern WiperCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_Wiper_Bus;
 
 /*******************************************************************************
  **                        Global Function Declarations                       **

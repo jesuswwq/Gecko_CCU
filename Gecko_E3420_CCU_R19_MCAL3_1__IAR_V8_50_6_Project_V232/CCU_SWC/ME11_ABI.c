@@ -5,9 +5,10 @@
 #include "ME11_ABI.h"
 #include <__regs_base_E3.h>
 #include "IoExp_TCA6408_Api.h"
+#include "TLE75242_Api.h"
 
 #define VCC 2600.0
-#define  DataLength_BCM_IMM_NVMData 20u
+#define  DataLength_BCM_IMM_NVMData 128u
 #define  DataLength_BCM_PD_NVMData  10u
 #define  DataLength_TMS_NVMData 256u
 #define  DataLength_VCU_NVMData 64u
@@ -46,7 +47,7 @@ uint8 key_word[256] = {0};
 boolean INV_IMMO_Req_EPT_RevFlag =0;
 //================BSWversion============================
 uint8  VBSW_BswVer0_cnt = 23;
-uint8  VBSW_BswVer1_cnt = 3;
+uint8  VBSW_BswVer1_cnt = 7;
 //======================================================
 
 
@@ -1036,14 +1037,8 @@ uint8 Get_RKEReq(void)
 }
 uint16 GetHw_TurnIndcrVol(uint8 Sts)
 {
-	if (Sts < 1)
-	{
-		tca6424E[1] = (1 << 7) | tca6424E[1];
-	}
-	else
-	{
-		tca6424E[1] = ((1 << 7) ^ 0xFF) & tca6424E[1];
-	}
+
+	tca6424E[1] = (1 << 7) | tca6424E[1];
 	if (Sts == 1)
 	{
 		tca6424E[2] = (1) | tca6424E[2];
@@ -1052,7 +1047,7 @@ uint16 GetHw_TurnIndcrVol(uint8 Sts)
 	{
 		tca6424E[2] = (1 ^ 0xFF) & tca6424E[2];
 	}
-	return (uint16)(((float)AD4067Bvalue[0]/4095.0 * 3300.0)* 4800.0/1500);
+	return (uint16)(((float)AD4067Bvalue[0] / 4095.0 * 3300.0)* 4800.0 /1500);
 }
 
 uint16 GetHw_RLTurnIndcrVol(void)//判断左转向灯故障
@@ -1539,13 +1534,15 @@ void SetHw_PwrBlower(uint8 state)//blower
 {
 	if (state == 1)
 	{
-		tle75242B = (1 << 2) | tle75242B;
-		tca6424E[3]=(1 << 4) | tca6424E[3];
+		/*pwr on*/
+		TLE75242_OUT2_3_Switch(TLE75242_CHIP_B,STD_HIGH,TLE75242_CH_OUT2);
+		tca6424E[3] = (1 << 4) | tca6424E[3];
 	}
 	else
 	{
-		tle75242B = ((1 << 2) ^ 0xFF) & tle75242B;
-		tca6424E[3] = ((1 << 4) ^ 0xFF) & tca6424E[3];
+		/*off*/
+		TLE75242_OUT2_3_Switch(TLE75242_CHIP_B,STD_LOW,TLE75242_CH_OUT2);
+		tca6424E[3] = ((1 << 4) ^ 0xff) & tca6424E[3];
 	}
 }
 
@@ -1695,3 +1692,14 @@ uint8 GetHw_CreepModeSw(void) // 蠕行
 
 	return (uint8)IDX_Sta;
 }
+#if 1
+uint8 GetHw_HiBeamDigSts(void)
+{
+	return 0;
+}
+
+uint8 GetHw_LoBeamDigSts(void)
+{
+	return 0;
+}
+#endif

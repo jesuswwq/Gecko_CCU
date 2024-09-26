@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcIpm'.
  *
- * Model version                  : 9.172
+ * Model version                  : 9.184
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jul 16 10:34:34 2024
+ * C/C++ source code generated on : Thu Sep 19 15:53:21 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -14,10 +14,13 @@
  */
 
 #include "AppSwcIpm.h"
-//#include "rtwtypes.h"
-//#include "calPrmsIpm.h"
-//#include "monPrmsIpm.h"
+#include "rtwtypes.h"
+#include "Rte_Type.h"
+#include "monPrmsIpm.h"
+#include "calPrmsIpm.h"
+#include "AppSwcIpm_types.h"
 
+boolean CANCommCRCFlt_outputs[17] = {0};
 
 /* PublicStructure Variables for Internal Data */
 ARID_DEF_AppSwcIpm_T AppSwcIpm_ARID_DEF;/* '<S21>/BusCreator' */
@@ -1362,52 +1365,6 @@ static void Runbl_Ipm100ms(void)
   AppSwcIpm_ARID_DEF.IPM_COMP_AC_BOD.VIPM_COMPEcompActSpdVld_flg =
     VIPM_COMPEcompActSpdVld_flg;
 
-  /* Outputs for Atomic SubSystem: '<S22>/Subsys_VIPM_HVCHWorkMode_enum' */
-  /* Logic: '<S51>/Logical Operator3' incorporates:
-   *  Constant: '<S51>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_HVCHWorkModeVld_flg = (KIPM_HVCHWorkMode_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_PTCMsgActv_flg);
-
-  /* Switch: '<S51>/Switch' incorporates:
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-      ->VIPM_PTCMsgActv_flg) {
-    /* Switch: '<S51>/Switch' incorporates:
-     *  Inport: '<Root>/HVCH_Status1_BOD'
-     *  Switch: '<S51>/Switch3'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_h2 =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD())
-      ->HVCH_State;
-  } else {
-    /* Switch: '<S51>/Switch' incorporates:
-     *  Constant: '<S51>/sat5'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_h2 = KIPM_HVCHWorkModeDflt_enum;
-  }
-
-  /* End of Switch: '<S51>/Switch' */
-
-  /* Switch: '<S51>/Switch4' incorporates:
-   *  Constant: '<S51>/sat3'
-   */
-  if (KIPM_HVCHWorkMode_enum_ovrdflg) {
-    /* Switch: '<S51>/Switch4' incorporates:
-     *  Constant: '<S51>/sat4'
-     */
-    VIPM_HVCHWorkMode_enum = KIPM_HVCHWorkMode_enum_ovrdval;
-  } else {
-    /* Switch: '<S51>/Switch4' */
-    VIPM_HVCHWorkMode_enum = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_h2;
-  }
-
-  /* End of Switch: '<S51>/Switch4' */
-  /* End of Outputs for SubSystem: '<S22>/Subsys_VIPM_HVCHWorkMode_enum' */
-
   /* Outputs for Atomic SubSystem: '<S22>/Subsys_VIPM_HVCHInletTemp_C' */
   /* Logic: '<S47>/Logical Operator3' incorporates:
    *  Constant: '<S47>/sat3'
@@ -1621,6 +1578,52 @@ static void Runbl_Ipm100ms(void)
   /* End of MinMax: '<S49>/MinMax1' */
   /* End of Outputs for SubSystem: '<S22>/Subsys_VIPM_HVCHPCBTemp_C' */
 
+  /* Outputs for Atomic SubSystem: '<S22>/Subsys_VIPM_HVCHWorkMode_enum' */
+  /* Logic: '<S51>/Logical Operator3' incorporates:
+   *  Constant: '<S51>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_HVCHWorkModeVld_flg = (KIPM_HVCHWorkMode_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_PTCMsgActv_flg);
+
+  /* Switch: '<S51>/Switch' incorporates:
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+      ->VIPM_PTCMsgActv_flg) {
+    /* Switch: '<S51>/Switch' incorporates:
+     *  Inport: '<Root>/HVCH_Status1_BOD'
+     *  Switch: '<S51>/Switch3'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_h2 =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD())
+      ->HVCH_State;
+  } else {
+    /* Switch: '<S51>/Switch' incorporates:
+     *  Constant: '<S51>/sat5'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_h2 = KIPM_HVCHWorkModeDflt_enum;
+  }
+
+  /* End of Switch: '<S51>/Switch' */
+
+  /* Switch: '<S51>/Switch4' incorporates:
+   *  Constant: '<S51>/sat3'
+   */
+  if (KIPM_HVCHWorkMode_enum_ovrdflg) {
+    /* Switch: '<S51>/Switch4' incorporates:
+     *  Constant: '<S51>/sat4'
+     */
+    VIPM_HVCHWorkMode_enum = KIPM_HVCHWorkMode_enum_ovrdval;
+  } else {
+    /* Switch: '<S51>/Switch4' */
+    VIPM_HVCHWorkMode_enum = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_h2;
+  }
+
+  /* End of Switch: '<S51>/Switch4' */
+  /* End of Outputs for SubSystem: '<S22>/Subsys_VIPM_HVCHWorkMode_enum' */
+
   /* Outputs for Atomic SubSystem: '<S22>/Subsys_VIPM_HVCHHVSt_flg' */
   /* Logic: '<S46>/Logical Operator3' incorporates:
    *  Constant: '<S46>/sat3'
@@ -1668,6 +1671,14 @@ static void Runbl_Ipm100ms(void)
   /* End of Outputs for SubSystem: '<S22>/Subsys_VIPM_HVCHHVSt_flg' */
 
   /* Outputs for Atomic SubSystem: '<S22>/Subsys_VIPM_HVCHSt_enum' */
+  /* Logic: '<S50>/Logical Operator3' incorporates:
+   *  Constant: '<S50>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_HVCHStVld_flg = (KIPM_HVCHSt_enum_ovrdflg ||
+                        (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV()
+                        )->VIPM_PTCMsgActv_flg);
+
   /* Switch: '<S50>/Switch4' incorporates:
    *  Constant: '<S50>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -1697,15 +1708,6 @@ static void Runbl_Ipm100ms(void)
   }
 
   /* End of Switch: '<S50>/Switch4' */
-
-  /* Logic: '<S50>/Logical Operator3' incorporates:
-   *  Constant: '<S50>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_HVCHStVld_flg = (KIPM_HVCHSt_enum_ovrdflg ||
-                        (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV()
-                        )->VIPM_PTCMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S22>/Subsys_VIPM_HVCHSt_enum' */
 
   /* BusCreator: '<S22>/BusCreator' incorporates:
@@ -1746,6 +1748,14 @@ static void Runbl_Ipm100ms(void)
     VIPM_HVCHStVld_flg;
 
   /* Outputs for Atomic SubSystem: '<S23>/Subsys_VIPM_HVCHFltCod_enum' */
+  /* Logic: '<S56>/Logical Operator3' incorporates:
+   *  Constant: '<S56>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_HVCHFltCodVld_flg = (KIPM_HVCHFltCod_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_PTCMsgActv_flg);
+
   /* Switch: '<S56>/Switch4' incorporates:
    *  Constant: '<S56>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -1775,15 +1785,6 @@ static void Runbl_Ipm100ms(void)
   }
 
   /* End of Switch: '<S56>/Switch4' */
-
-  /* Logic: '<S56>/Logical Operator3' incorporates:
-   *  Constant: '<S56>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_HVCHFltCodVld_flg = (KIPM_HVCHFltCod_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_PTCMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S23>/Subsys_VIPM_HVCHFltCod_enum' */
 
   /* Outputs for Atomic SubSystem: '<S23>/Subsys_VIPM_HVCHHVVolts_V' */
@@ -2069,6 +2070,53 @@ static void Runbl_Ipm100ms(void)
   AppSwcIpm_ARID_DEF.IPM_HVCH_Status2_BOD.VIPM_HVCHWorkStVld_flg =
     VIPM_HVCHWorkStVld_flg;
 
+  /* Outputs for Atomic SubSystem: '<S63>/Subsys_VIPM_TBOXBJSTimeYear_nu' */
+  /* Logic: '<S69>/Logical Operator3' incorporates:
+   *  Constant: '<S69>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_TBOXBJSTimeYearVld_flg = (KIPM_TBOXBJSTimeYear_nu_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_TBOXMsgActv_flg);
+
+  /* Switch: '<S69>/Switch4' incorporates:
+   *  Constant: '<S69>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S69>/Switch'
+   */
+  if (KIPM_TBOXBJSTimeYear_nu_ovrdflg) {
+    /* Switch: '<S69>/Switch4' incorporates:
+     *  Constant: '<S69>/sat4'
+     */
+    VIPM_TBOXBJSTimeYear_nu = KIPM_TBOXBJSTimeYear_nu_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+             ->VIPM_TBOXMsgActv_flg) {
+    /* Sum: '<S70>/Add' incorporates:
+     *  Inport: '<Root>/TBOX_BJS_Time_BAC'
+     *  Product: '<S70>/Product'
+     *  Switch: '<S69>/Switch'
+     */
+    rtb_Product_mh =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_TBOX_BJS_Time_BAC_TBOX_BJS_Time_BAC())
+      ->TBOX_BJS_Time_Year;
+
+    /* Switch: '<S69>/Switch4' incorporates:
+     *  Constant: '<S70>/Constant1'
+     *  Sum: '<S70>/Add'
+     *  Switch: '<S69>/Switch'
+     */
+    VIPM_TBOXBJSTimeYear_nu = (uint16)(rtb_Product_mh + 2000);
+  } else {
+    /* Switch: '<S69>/Switch4' incorporates:
+     *  Constant: '<S69>/sat5'
+     *  Switch: '<S69>/Switch'
+     */
+    VIPM_TBOXBJSTimeYear_nu = KIPM_TBOXBJSTimeYearDflt_nu;
+  }
+
+  /* End of Switch: '<S69>/Switch4' */
+  /* End of Outputs for SubSystem: '<S63>/Subsys_VIPM_TBOXBJSTimeYear_nu' */
+
   /* Outputs for Atomic SubSystem: '<S63>/Subsys_VIPM_TBOXBJSTimeMonth_nu' */
   /* Logic: '<S67>/Logical Operator3' incorporates:
    *  Constant: '<S67>/sat3'
@@ -2114,54 +2162,6 @@ static void Runbl_Ipm100ms(void)
 
   /* End of Switch: '<S67>/Switch4' */
   /* End of Outputs for SubSystem: '<S63>/Subsys_VIPM_TBOXBJSTimeMonth_nu' */
-
-  /* Outputs for Atomic SubSystem: '<S63>/Subsys_VIPM_TBOXBJSTimeYear_nu' */
-  /* Switch: '<S69>/Switch4' incorporates:
-   *  Constant: '<S69>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S69>/Switch'
-   */
-  if (KIPM_TBOXBJSTimeYear_nu_ovrdflg) {
-    /* Switch: '<S69>/Switch4' incorporates:
-     *  Constant: '<S69>/sat4'
-     */
-    VIPM_TBOXBJSTimeYear_nu = KIPM_TBOXBJSTimeYear_nu_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-             ->VIPM_TBOXMsgActv_flg) {
-    /* Sum: '<S70>/Add' incorporates:
-     *  Inport: '<Root>/TBOX_BJS_Time_BAC'
-     *  Product: '<S70>/Product'
-     *  Switch: '<S69>/Switch'
-     */
-    rtb_Product_mh =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_TBOX_BJS_Time_BAC_TBOX_BJS_Time_BAC())
-      ->TBOX_BJS_Time_Year;
-
-    /* Switch: '<S69>/Switch4' incorporates:
-     *  Constant: '<S70>/Constant1'
-     *  Sum: '<S70>/Add'
-     *  Switch: '<S69>/Switch'
-     */
-    VIPM_TBOXBJSTimeYear_nu = (uint16)(rtb_Product_mh + 2000);
-  } else {
-    /* Switch: '<S69>/Switch4' incorporates:
-     *  Constant: '<S69>/sat5'
-     *  Switch: '<S69>/Switch'
-     */
-    VIPM_TBOXBJSTimeYear_nu = KIPM_TBOXBJSTimeYearDflt_nu;
-  }
-
-  /* End of Switch: '<S69>/Switch4' */
-
-  /* Logic: '<S69>/Logical Operator3' incorporates:
-   *  Constant: '<S69>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_TBOXBJSTimeYearVld_flg = (KIPM_TBOXBJSTimeYear_nu_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_TBOXMsgActv_flg);
-
-  /* End of Outputs for SubSystem: '<S63>/Subsys_VIPM_TBOXBJSTimeYear_nu' */
 
   /* Outputs for Atomic SubSystem: '<S63>/Subsys_VIPM_TBOXBJSTimeDay_nu' */
   /* Logic: '<S64>/Logical Operator3' incorporates:
@@ -3356,6 +3356,13 @@ static void Runbl_Ipm100ms(void)
   /* End of Outputs for SubSystem: '<S71>/Subsys_VIPM_HUSteerWhlHeat_enum' */
 
   /* Outputs for Atomic SubSystem: '<S71>/Subsys_VIPM_HUCstRecupModeSel_enum' */
+  /* Logic: '<S78>/Logical Operator3' incorporates:
+   *  Constant: '<S78>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_HUCstRecupModeSelVld_flg = (KIPM_HUCstRecupModeSel_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())->VIPM_HUMsgActv_flg);
+
   /* Switch: '<S78>/Switch4' incorporates:
    *  Constant: '<S78>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -3385,17 +3392,16 @@ static void Runbl_Ipm100ms(void)
   }
 
   /* End of Switch: '<S78>/Switch4' */
-
-  /* Logic: '<S78>/Logical Operator3' incorporates:
-   *  Constant: '<S78>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_HUCstRecupModeSelVld_flg = (KIPM_HUCstRecupModeSel_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())->VIPM_HUMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S71>/Subsys_VIPM_HUCstRecupModeSel_enum' */
 
   /* Outputs for Atomic SubSystem: '<S71>/Subsys_VIPM_HUPeristalsisModeEnbl_enum' */
+  /* Logic: '<S93>/Logical Operator3' incorporates:
+   *  Constant: '<S93>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_HUPeristalsisModeEnblVld_flg = (KIPM_HUPeristalsisModeEnbl_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())->VIPM_HUMsgActv_flg);
+
   /* Switch: '<S93>/Switch4' incorporates:
    *  Constant: '<S93>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -3425,14 +3431,6 @@ static void Runbl_Ipm100ms(void)
   }
 
   /* End of Switch: '<S93>/Switch4' */
-
-  /* Logic: '<S93>/Logical Operator3' incorporates:
-   *  Constant: '<S93>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_HUPeristalsisModeEnblVld_flg = (KIPM_HUPeristalsisModeEnbl_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())->VIPM_HUMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S71>/Subsys_VIPM_HUPeristalsisModeEnbl_enum' */
 
   /* Outputs for Atomic SubSystem: '<S71>/Subsys_VIPM_HUIllmndUnlckSts_enum' */
@@ -3524,6 +3522,13 @@ static void Runbl_Ipm100ms(void)
   /* End of Outputs for SubSystem: '<S71>/Subsys_VIPM_HUIllmndLckSts_enum' */
 
   /* Outputs for Atomic SubSystem: '<S71>/Subsys_VIPM_HUDrvModeSel_enum' */
+  /* Logic: '<S79>/Logical Operator3' incorporates:
+   *  Constant: '<S79>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_HUDrvModeSelVld_flg = (KIPM_HUDrvModeSel_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())->VIPM_HUMsgActv_flg);
+
   /* Switch: '<S79>/Switch4' incorporates:
    *  Constant: '<S79>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -3552,14 +3557,6 @@ static void Runbl_Ipm100ms(void)
   }
 
   /* End of Switch: '<S79>/Switch4' */
-
-  /* Logic: '<S79>/Logical Operator3' incorporates:
-   *  Constant: '<S79>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_HUDrvModeSelVld_flg = (KIPM_HUDrvModeSel_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())->VIPM_HUMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S71>/Subsys_VIPM_HUDrvModeSel_enum' */
 
   /* Outputs for Atomic SubSystem: '<S71>/Subsys_VIPM_HURecupPwrSet_pct' */
@@ -3825,6 +3822,258 @@ static void Runbl_Ipm100ms(void)
   AppSwcIpm_ARID_DEF.IPM_HU_B_BAC.VIPM_HUDrvPwrSet_cnt = VIPM_HUDrvPwrSet_cnt;
   AppSwcIpm_ARID_DEF.IPM_HU_B_BAC.VIPM_HUDrvPwrSetVld_flg =
     VIPM_HUDrvPwrSetVld_flg;
+
+  /* Outputs for Atomic SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempAve_C' */
+  /* Logic: '<S106>/Logical Operator2' incorporates:
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Inport: '<Root>/BMS_5_BatTemp_EPT'
+   */
+  rtb_LogicalOperator2_b =
+    ((Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
+     ->BMS_HVBatCellTempValid &&
+     (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+     ->VIPM_BMSMsgActv_flg);
+
+  /* Logic: '<S106>/Logical Operator3' incorporates:
+   *  Constant: '<S106>/sat3'
+   */
+  VIPM_BMSHVBatCellTempAveVld_flg = (KIPM_BMSHVBatCellTempAve_C_ovrdflg ||
+    rtb_LogicalOperator2_b);
+
+  /* Switch: '<S106>/Switch4' incorporates:
+   *  Constant: '<S106>/sat3'
+   *  Switch: '<S106>/Switch'
+   */
+  if (KIPM_BMSHVBatCellTempAve_C_ovrdflg) {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S106>/sat4'
+     *  MinMax: '<S144>/MinMax'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempAve_C_ovrdval;
+  } else if (rtb_LogicalOperator2_b) {
+    /* Product: '<S109>/Product' incorporates:
+     *  Inport: '<Root>/BMS_5_BatTemp_EPT'
+     *  Switch: '<S106>/Switch'
+     */
+    rtb_Product_mh =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
+      ->BMS_HVBatCellTempAve;
+
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  MinMax: '<S144>/MinMax'
+     *  Sum: '<S109>/Add'
+     *  Switch: '<S106>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = (float32)rtb_Product_mh - 40.0F;
+  } else {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S106>/sat5'
+     *  MinMax: '<S144>/MinMax'
+     *  Switch: '<S106>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempAveDflt_C;
+  }
+
+  /* End of Switch: '<S106>/Switch4' */
+
+  /* MinMax: '<S106>/MinMax' incorporates:
+   *  Constant: '<S106>/sat6'
+   */
+  if (VIPM_IPUOBCTempInt_C > KIPM_BMSHVBatCellTempAveHi_C) {
+    /* MinMax: '<S40>/MinMax' */
+    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempAveHi_C;
+  }
+
+  /* End of MinMax: '<S106>/MinMax' */
+
+  /* MinMax: '<S106>/MinMax1' incorporates:
+   *  Constant: '<S106>/sat7'
+   */
+  if (VIPM_IPUOBCTempInt_C >= KIPM_BMSHVBatCellTempAveLo_C) {
+    /* MinMax: '<S106>/MinMax1' */
+    VIPM_BMSHVBatCellTempAve_C = VIPM_IPUOBCTempInt_C;
+  } else {
+    /* MinMax: '<S106>/MinMax1' */
+    VIPM_BMSHVBatCellTempAve_C = KIPM_BMSHVBatCellTempAveLo_C;
+  }
+
+  /* End of MinMax: '<S106>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempAve_C' */
+
+  /* Outputs for Atomic SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempMax_C' */
+  /* Logic: '<S107>/Logical Operator2' incorporates:
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Inport: '<Root>/BMS_5_BatTemp_EPT'
+   */
+  rtb_LogicalOperator2_b =
+    ((Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
+     ->BMS_HVBatCellTempValid &&
+     (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+     ->VIPM_BMSMsgActv_flg);
+
+  /* Logic: '<S107>/Logical Operator3' incorporates:
+   *  Constant: '<S107>/sat3'
+   */
+  VIPM_BMSHVBatCellTempMaxVld_flg = (KIPM_BMSHVBatCellTempMax_C_ovrdflg ||
+    rtb_LogicalOperator2_b);
+
+  /* Switch: '<S107>/Switch4' incorporates:
+   *  Constant: '<S107>/sat3'
+   *  Switch: '<S107>/Switch'
+   */
+  if (KIPM_BMSHVBatCellTempMax_C_ovrdflg) {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S107>/sat4'
+     *  MinMax: '<S144>/MinMax'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMax_C_ovrdval;
+  } else if (rtb_LogicalOperator2_b) {
+    /* Product: '<S110>/Product' incorporates:
+     *  Inport: '<Root>/BMS_5_BatTemp_EPT'
+     *  Switch: '<S107>/Switch'
+     */
+    rtb_Product_mh =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
+      ->BMS_HVBatCellTempMax;
+
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  MinMax: '<S144>/MinMax'
+     *  Sum: '<S110>/Add'
+     *  Switch: '<S107>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = (float32)rtb_Product_mh - 40.0F;
+  } else {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S107>/sat5'
+     *  MinMax: '<S144>/MinMax'
+     *  Switch: '<S107>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMaxDflt_C;
+  }
+
+  /* End of Switch: '<S107>/Switch4' */
+
+  /* MinMax: '<S107>/MinMax' incorporates:
+   *  Constant: '<S107>/sat6'
+   */
+  if (VIPM_IPUOBCTempInt_C > KIPM_BMSHVBatCellTempMaxHi_C) {
+    /* MinMax: '<S40>/MinMax' */
+    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMaxHi_C;
+  }
+
+  /* End of MinMax: '<S107>/MinMax' */
+
+  /* MinMax: '<S107>/MinMax1' incorporates:
+   *  Constant: '<S107>/sat7'
+   */
+  if (VIPM_IPUOBCTempInt_C >= KIPM_BMSHVBatCellTempMaxLo_C) {
+    /* MinMax: '<S107>/MinMax1' */
+    VIPM_BMSHVBatCellTempMax_C = VIPM_IPUOBCTempInt_C;
+  } else {
+    /* MinMax: '<S107>/MinMax1' */
+    VIPM_BMSHVBatCellTempMax_C = KIPM_BMSHVBatCellTempMaxLo_C;
+  }
+
+  /* End of MinMax: '<S107>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempMax_C' */
+
+  /* Outputs for Atomic SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempMin_C' */
+  /* Logic: '<S108>/Logical Operator2' incorporates:
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Inport: '<Root>/BMS_5_BatTemp_EPT'
+   */
+  rtb_LogicalOperator2_b =
+    ((Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
+     ->BMS_HVBatCellTempValid &&
+     (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+     ->VIPM_BMSMsgActv_flg);
+
+  /* Logic: '<S108>/Logical Operator3' incorporates:
+   *  Constant: '<S108>/sat3'
+   */
+  VIPM_BMSHVBatCellTempMinVld_flg = (KIPM_BMSHVBatCellTempMin_C_ovrdflg ||
+    rtb_LogicalOperator2_b);
+
+  /* Switch: '<S108>/Switch4' incorporates:
+   *  Constant: '<S108>/sat3'
+   *  Switch: '<S108>/Switch'
+   */
+  if (KIPM_BMSHVBatCellTempMin_C_ovrdflg) {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S108>/sat4'
+     *  MinMax: '<S144>/MinMax'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMin_C_ovrdval;
+  } else if (rtb_LogicalOperator2_b) {
+    /* Product: '<S111>/Product' incorporates:
+     *  Inport: '<Root>/BMS_5_BatTemp_EPT'
+     *  Switch: '<S108>/Switch'
+     */
+    rtb_Product_mh =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
+      ->BMS_HVBatCellTempMin;
+
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  MinMax: '<S144>/MinMax'
+     *  Sum: '<S111>/Add'
+     *  Switch: '<S108>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = (float32)rtb_Product_mh - 40.0F;
+  } else {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S108>/sat5'
+     *  MinMax: '<S144>/MinMax'
+     *  Switch: '<S108>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMinDflt_C;
+  }
+
+  /* End of Switch: '<S108>/Switch4' */
+
+  /* MinMax: '<S108>/MinMax' incorporates:
+   *  Constant: '<S108>/sat6'
+   */
+  if (VIPM_IPUOBCTempInt_C > KIPM_BMSHVBatCellTempMinHi_C) {
+    /* MinMax: '<S40>/MinMax' */
+    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMinHi_C;
+  }
+
+  /* End of MinMax: '<S108>/MinMax' */
+
+  /* MinMax: '<S108>/MinMax1' incorporates:
+   *  Constant: '<S108>/sat7'
+   */
+  if (VIPM_IPUOBCTempInt_C >= KIPM_BMSHVBatCellTempMinLo_C) {
+    /* MinMax: '<S108>/MinMax1' */
+    VIPM_BMSHVBatCellTempMin_C = VIPM_IPUOBCTempInt_C;
+  } else {
+    /* MinMax: '<S108>/MinMax1' */
+    VIPM_BMSHVBatCellTempMin_C = KIPM_BMSHVBatCellTempMinLo_C;
+  }
+
+  /* End of MinMax: '<S108>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempMin_C' */
+
+  /* BusCreator: '<S101>/BusCreator' incorporates:
+   *  Logic: '<S106>/Logical Operator3'
+   *  Logic: '<S107>/Logical Operator3'
+   *  Logic: '<S108>/Logical Operator3'
+   *  MinMax: '<S106>/MinMax1'
+   *  MinMax: '<S107>/MinMax1'
+   *  MinMax: '<S108>/MinMax1'
+   */
+  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempAve_C =
+    VIPM_BMSHVBatCellTempAve_C;
+  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempAveVld_flg =
+    VIPM_BMSHVBatCellTempAveVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempMax_C =
+    VIPM_BMSHVBatCellTempMax_C;
+  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempMaxVld_flg =
+    VIPM_BMSHVBatCellTempMaxVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempMin_C =
+    VIPM_BMSHVBatCellTempMin_C;
+  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempMinVld_flg =
+    VIPM_BMSHVBatCellTempMinVld_flg;
 
   /* Outputs for Atomic SubSystem: '<S102>/Subsys_VIPM_INVLrngSubID_cnt' */
   /* Logic: '<S119>/Logical Operator3' incorporates:
@@ -4246,6 +4495,14 @@ static void Runbl_Ipm100ms(void)
     VIPM_INVLrngData07Vld_flg;
 
   /* Outputs for Atomic SubSystem: '<S103>/Subsys_VIPM_IPUDCCActOprtMode_enum' */
+  /* Logic: '<S120>/Logical Operator3' incorporates:
+   *  Constant: '<S120>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_IPUDCCActOprtModeVld_flg = (KIPM_IPUDCCActOprtMode_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_DCDCMsgActv_flg);
+
   /* Switch: '<S120>/Switch4' incorporates:
    *  Constant: '<S120>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -4275,15 +4532,6 @@ static void Runbl_Ipm100ms(void)
   }
 
   /* End of Switch: '<S120>/Switch4' */
-
-  /* Logic: '<S120>/Logical Operator3' incorporates:
-   *  Constant: '<S120>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_IPUDCCActOprtModeVld_flg = (KIPM_IPUDCCActOprtMode_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_DCDCMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S103>/Subsys_VIPM_IPUDCCActOprtMode_enum' */
 
   /* Outputs for Atomic SubSystem: '<S103>/Subsys_VIPM_IPUDCCLoVoltActVolt_V' */
@@ -4499,737 +4747,6 @@ static void Runbl_Ipm100ms(void)
   AppSwcIpm_ARID_DEF.IPM_IPU_DCC_1_State_EPT.VIPM_IPUDCCSysFailStaVld_flg =
     VIPM_IPUDCCSysFailStaVld_flg;
 
-  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCReq_enum' */
-  /* Switch: '<S136>/Switch4' incorporates:
-   *  Constant: '<S136>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S136>/Switch'
-   */
-  if (KIPM_IPUOBCReq_enum_ovrdflg) {
-    /* Switch: '<S136>/Switch4' incorporates:
-     *  Constant: '<S136>/sat4'
-     */
-    VIPM_IPUOBCReq_enum = KIPM_IPUOBCReq_enum_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-             ->VIPM_OBCMsgActv_flg) {
-    /* Switch: '<S136>/Switch4' incorporates:
-     *  DataTypeConversion: '<S136>/Data Type Conversion2'
-     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
-     *  Switch: '<S136>/Switch'
-     */
-    VIPM_IPUOBCReq_enum =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
-      )->IPU_OBC_Request;
-  } else {
-    /* Switch: '<S136>/Switch4' incorporates:
-     *  Constant: '<S136>/sat5'
-     *  Switch: '<S136>/Switch'
-     */
-    VIPM_IPUOBCReq_enum = KIPM_IPUOBCReqDflt_enum;
-  }
-
-  /* End of Switch: '<S136>/Switch4' */
-
-  /* Logic: '<S136>/Logical Operator3' incorporates:
-   *  Constant: '<S136>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_IPUOBCReqVld_flg = (KIPM_IPUOBCReq_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_OBCMsgActv_flg);
-
-  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCReq_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCSysFailSta_enum' */
-  /* Logic: '<S137>/Logical Operator3' incorporates:
-   *  Constant: '<S137>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_IPUOBCSysFailStaVld_flg = (KIPM_IPUOBCSysFailSta_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_OBCMsgActv_flg);
-
-  /* Switch: '<S137>/Switch' incorporates:
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-      ->VIPM_OBCMsgActv_flg) {
-    /* Switch: '<S137>/Switch' incorporates:
-     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
-     *  Switch: '<S137>/Switch3'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_mu =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
-      )->IPU_OBC_SysFailSta;
-  } else {
-    /* Switch: '<S137>/Switch' incorporates:
-     *  Constant: '<S137>/sat5'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_mu = KIPM_IPUOBCSysFailStaDflt_enum;
-  }
-
-  /* End of Switch: '<S137>/Switch' */
-
-  /* Switch: '<S137>/Switch4' incorporates:
-   *  Constant: '<S137>/sat3'
-   */
-  if (KIPM_IPUOBCSysFailSta_enum_ovrdflg) {
-    /* Switch: '<S137>/Switch4' incorporates:
-     *  Constant: '<S137>/sat4'
-     */
-    VIPM_IPUOBCSysFailSta_enum = KIPM_IPUOBCSysFailSta_enum_ovrdval;
-  } else {
-    /* Switch: '<S137>/Switch4' */
-    VIPM_IPUOBCSysFailSta_enum = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_mu;
-  }
-
-  /* End of Switch: '<S137>/Switch4' */
-  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCSysFailSta_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCConnectMainSta_flg' */
-  /* Logic: '<S131>/Logical Operator3' incorporates:
-   *  Constant: '<S131>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_IPUOBCConnectMainStaVld_flg = (KIPM_IPUOBCConnectMainSta_flg_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_OBCMsgActv_flg);
-
-  /* Switch: '<S131>/Switch' incorporates:
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-      ->VIPM_OBCMsgActv_flg) {
-    /* Switch: '<S131>/Switch' incorporates:
-     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
-     *  Switch: '<S131>/Switch3'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_f1x =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
-      )->IPU_OBC_ConnectMainSta;
-  } else {
-    /* Switch: '<S131>/Switch' incorporates:
-     *  Constant: '<S131>/sat5'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_f1x = KIPM_IPUOBCConnectMainStaDflt_flg;
-  }
-
-  /* End of Switch: '<S131>/Switch' */
-
-  /* Switch: '<S131>/Switch4' incorporates:
-   *  Constant: '<S131>/sat3'
-   */
-  if (KIPM_IPUOBCConnectMainSta_flg_ovrdflg) {
-    /* Switch: '<S131>/Switch4' incorporates:
-     *  Constant: '<S131>/sat4'
-     */
-    VIPM_IPUOBCConnectMainSta_flg = KIPM_IPUOBCConnectMainSta_flg_ovrdval;
-  } else {
-    /* Switch: '<S131>/Switch4' */
-    VIPM_IPUOBCConnectMainSta_flg = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_f1x;
-  }
-
-  /* End of Switch: '<S131>/Switch4' */
-  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCConnectMainSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCActOprtMode_enum' */
-  /* Switch: '<S130>/Switch4' incorporates:
-   *  Constant: '<S130>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S130>/Switch'
-   */
-  if (KIPM_IPUOBCActOprtMode_enum_ovrdflg) {
-    /* Switch: '<S130>/Switch4' incorporates:
-     *  Constant: '<S130>/sat4'
-     */
-    VIPM_IPUOBCActOprtMode_enum = KIPM_IPUOBCActOprtMode_enum_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-             ->VIPM_OBCMsgActv_flg) {
-    /* Switch: '<S130>/Switch4' incorporates:
-     *  DataTypeConversion: '<S130>/Data Type Conversion2'
-     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
-     *  Switch: '<S130>/Switch'
-     */
-    VIPM_IPUOBCActOprtMode_enum =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
-      )->IPU_OBC_ActlOprtMode;
-  } else {
-    /* Switch: '<S130>/Switch4' incorporates:
-     *  Constant: '<S130>/sat5'
-     *  Switch: '<S130>/Switch'
-     */
-    VIPM_IPUOBCActOprtMode_enum = KIPM_IPUOBCActOprtModeDflt_enum;
-  }
-
-  /* End of Switch: '<S130>/Switch4' */
-
-  /* Logic: '<S130>/Logical Operator3' incorporates:
-   *  Constant: '<S130>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_IPUOBCActOprtModeVld_flg = (KIPM_IPUOBCActOprtMode_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_OBCMsgActv_flg);
-
-  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCActOprtMode_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCInletConnectSta_enum' */
-  /* Switch: '<S135>/Switch4' incorporates:
-   *  Constant: '<S135>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S135>/Switch'
-   */
-  if (KIPM_IPUOBCInletConnectSta_enum_ovrdflg) {
-    /* Switch: '<S135>/Switch4' incorporates:
-     *  Constant: '<S135>/sat4'
-     */
-    VIPM_IPUOBCInletConnectSta_enum = KIPM_IPUOBCInletConnectSta_enum_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-             ->VIPM_OBCMsgActv_flg) {
-    /* Switch: '<S135>/Switch4' incorporates:
-     *  DataTypeConversion: '<S135>/Data Type Conversion2'
-     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
-     *  Switch: '<S135>/Switch'
-     */
-    VIPM_IPUOBCInletConnectSta_enum =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
-      )->IPU_OBC_InletConnctSta;
-  } else {
-    /* Switch: '<S135>/Switch4' incorporates:
-     *  Constant: '<S135>/sat5'
-     *  Switch: '<S135>/Switch'
-     */
-    VIPM_IPUOBCInletConnectSta_enum = KIPM_IPUOBCInletConnectStaDflt_enum;
-  }
-
-  /* End of Switch: '<S135>/Switch4' */
-
-  /* Logic: '<S135>/Logical Operator3' incorporates:
-   *  Constant: '<S135>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_IPUOBCInletConnectStaVld_flg = (KIPM_IPUOBCInletConnectSta_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_OBCMsgActv_flg);
-
-  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCInletConnectSta_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCHVDCActCur_A' */
-  /* Logic: '<S132>/Logical Operator3' incorporates:
-   *  Constant: '<S132>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_IPUOBCHVDCActCurVld_flg = (KIPM_IPUOBCHVDCActCur_A_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_OBCMsgActv_flg);
-
-  /* Switch: '<S132>/Switch4' incorporates:
-   *  Constant: '<S132>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S132>/Switch'
-   */
-  if (KIPM_IPUOBCHVDCActCur_A_ovrdflg) {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S132>/sat4'
-     *  MinMax: '<S144>/MinMax'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActCur_A_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-             ->VIPM_OBCMsgActv_flg) {
-    /* Product: '<S138>/Product' incorporates:
-     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
-     *  Switch: '<S132>/Switch'
-     */
-    rtb_Product_mh =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
-      )->IPU_OBC_HVDC_ActlCur;
-
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  MinMax: '<S144>/MinMax'
-     *  Sum: '<S138>/Add'
-     *  Switch: '<S132>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = (float32)rtb_Product_mh - 64.0F;
-  } else {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S132>/sat5'
-     *  MinMax: '<S144>/MinMax'
-     *  Switch: '<S132>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActCurDflt_A;
-  }
-
-  /* End of Switch: '<S132>/Switch4' */
-
-  /* MinMax: '<S132>/MinMax' incorporates:
-   *  Constant: '<S132>/sat6'
-   */
-  if (VIPM_IPUOBCTempInt_C > KIPM_IPUOBCHVDCActCurHi_A) {
-    /* MinMax: '<S40>/MinMax' */
-    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActCurHi_A;
-  }
-
-  /* End of MinMax: '<S132>/MinMax' */
-
-  /* MinMax: '<S132>/MinMax1' incorporates:
-   *  Constant: '<S132>/sat7'
-   */
-  if (VIPM_IPUOBCTempInt_C >= KIPM_IPUOBCHVDCActCurLo_A) {
-    /* MinMax: '<S132>/MinMax1' */
-    VIPM_IPUOBCHVDCActCur_A = VIPM_IPUOBCTempInt_C;
-  } else {
-    /* MinMax: '<S132>/MinMax1' */
-    VIPM_IPUOBCHVDCActCur_A = KIPM_IPUOBCHVDCActCurLo_A;
-  }
-
-  /* End of MinMax: '<S132>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCHVDCActCur_A' */
-
-  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCHVDCActVol_V' */
-  /* Switch: '<S133>/Switch4' incorporates:
-   *  Constant: '<S133>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S133>/Switch'
-   */
-  if (KIPM_IPUOBCHVDCActVol_V_ovrdflg) {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S133>/sat4'
-     *  MinMax: '<S144>/MinMax'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActVol_V_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-             ->VIPM_OBCMsgActv_flg) {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  DataTypeConversion: '<S133>/Data Type Conversion2'
-     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
-     *  MinMax: '<S144>/MinMax'
-     *  Switch: '<S133>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = (float32)
-      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
-      )->IPU_OBC_HVDC_ActlVol;
-  } else {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S133>/sat5'
-     *  MinMax: '<S144>/MinMax'
-     *  Switch: '<S133>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActVolDflt_V;
-  }
-
-  /* End of Switch: '<S133>/Switch4' */
-
-  /* MinMax: '<S133>/MinMax' incorporates:
-   *  Constant: '<S133>/sat6'
-   */
-  if (VIPM_IPUOBCTempInt_C > KIPM_IPUOBCHVDCActVolHi_V) {
-    /* MinMax: '<S40>/MinMax' */
-    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActVolHi_V;
-  }
-
-  /* End of MinMax: '<S133>/MinMax' */
-
-  /* MinMax: '<S133>/MinMax1' incorporates:
-   *  Constant: '<S133>/sat7'
-   */
-  if (VIPM_IPUOBCTempInt_C >= KIPM_IPUOBCHVDCActVolLo_V) {
-    /* MinMax: '<S133>/MinMax1' */
-    VIPM_IPUOBCHVDCActVol_V = VIPM_IPUOBCTempInt_C;
-  } else {
-    /* MinMax: '<S133>/MinMax1' */
-    VIPM_IPUOBCHVDCActVol_V = KIPM_IPUOBCHVDCActVolLo_V;
-  }
-
-  /* End of MinMax: '<S133>/MinMax1' */
-
-  /* Logic: '<S133>/Logical Operator3' incorporates:
-   *  Constant: '<S133>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_IPUOBCHVDCActVolVld_flg = (KIPM_IPUOBCHVDCActVol_V_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_OBCMsgActv_flg);
-
-  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCHVDCActVol_V' */
-
-  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCInletActPwr_kW' */
-  /* Logic: '<S134>/Logical Operator3' incorporates:
-   *  Constant: '<S134>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_IPUOBCInletActPwrVld_flg = (KIPM_IPUOBCInletActPwr_kW_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_OBCMsgActv_flg);
-
-  /* Switch: '<S134>/Switch4' incorporates:
-   *  Constant: '<S134>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S134>/Switch'
-   */
-  if (KIPM_IPUOBCInletActPwr_kW_ovrdflg) {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S134>/sat4'
-     *  MinMax: '<S144>/MinMax'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCInletActPwr_kW_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-             ->VIPM_OBCMsgActv_flg) {
-    /* Product: '<S139>/Product' incorporates:
-     *  Constant: '<S139>/Constant'
-     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
-     *  Switch: '<S134>/Switch'
-     */
-    rtb_Product_h1 = (float32)
-      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
-      )->IPU_OBC_InleltActlPower * 0.1F;
-
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  MinMax: '<S144>/MinMax'
-     *  Sum: '<S139>/Add'
-     *  Switch: '<S134>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = rtb_Product_h1 - 25.6F;
-  } else {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S134>/sat5'
-     *  MinMax: '<S144>/MinMax'
-     *  Switch: '<S134>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCInletActPwrDflt_kW;
-  }
-
-  /* End of Switch: '<S134>/Switch4' */
-
-  /* MinMax: '<S134>/MinMax' incorporates:
-   *  Constant: '<S134>/sat6'
-   */
-  if (VIPM_IPUOBCTempInt_C > KIPM_IPUOBCInletActPwrHi_kW) {
-    /* MinMax: '<S40>/MinMax' */
-    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCInletActPwrHi_kW;
-  }
-
-  /* End of MinMax: '<S134>/MinMax' */
-
-  /* MinMax: '<S134>/MinMax1' incorporates:
-   *  Constant: '<S134>/sat7'
-   */
-  if (VIPM_IPUOBCTempInt_C >= KIPM_IPUOBCInletActPwrLo_kW) {
-    /* MinMax: '<S134>/MinMax1' */
-    VIPM_IPUOBCInletActPwr_kW = VIPM_IPUOBCTempInt_C;
-  } else {
-    /* MinMax: '<S134>/MinMax1' */
-    VIPM_IPUOBCInletActPwr_kW = KIPM_IPUOBCInletActPwrLo_kW;
-  }
-
-  /* End of MinMax: '<S134>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCInletActPwr_kW' */
-
-  /* BusCreator: '<S105>/BusCreator' incorporates:
-   *  DataTypeConversion: '<S105>/Data Type Conversion'
-   *  DataTypeConversion: '<S105>/Data Type Conversion1'
-   *  DataTypeConversion: '<S105>/Data Type Conversion2'
-   *  Logic: '<S130>/Logical Operator3'
-   *  Logic: '<S131>/Logical Operator3'
-   *  Logic: '<S132>/Logical Operator3'
-   *  Logic: '<S133>/Logical Operator3'
-   *  Logic: '<S134>/Logical Operator3'
-   *  Logic: '<S135>/Logical Operator3'
-   *  Logic: '<S136>/Logical Operator3'
-   *  Logic: '<S137>/Logical Operator3'
-   *  MinMax: '<S132>/MinMax1'
-   *  MinMax: '<S133>/MinMax1'
-   *  MinMax: '<S134>/MinMax1'
-   *  Switch: '<S130>/Switch4'
-   *  Switch: '<S131>/Switch4'
-   *  Switch: '<S135>/Switch4'
-   *  Switch: '<S136>/Switch4'
-   *  Switch: '<S137>/Switch4'
-   */
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCReq_enum =
-    VIPM_IPUOBCReq_enum;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCReqVld_flg =
-    VIPM_IPUOBCReqVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCSysFailSta_enum =
-    VIPM_IPUOBCSysFailSta_enum;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCSysFailStaVld_flg =
-    VIPM_IPUOBCSysFailStaVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCConnectMainSta_flg =
-    VIPM_IPUOBCConnectMainSta_flg;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCConnectMainStaVld_flg =
-    VIPM_IPUOBCConnectMainStaVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCActOprtMode_enum =
-    VIPM_IPUOBCActOprtMode_enum;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCActOprtModeVld_flg =
-    VIPM_IPUOBCActOprtModeVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCInletConnectSta_enum =
-    VIPM_IPUOBCInletConnectSta_enum;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCInletConnectStaVld_flg =
-    VIPM_IPUOBCInletConnectStaVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCHVDCActCur_A =
-    VIPM_IPUOBCHVDCActCur_A;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCHVDCActCurVld_flg =
-    VIPM_IPUOBCHVDCActCurVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCHVDCActVol_V =
-    VIPM_IPUOBCHVDCActVol_V;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCHVDCActVolVld_flg =
-    VIPM_IPUOBCHVDCActVolVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCInletActPwr_kW =
-    VIPM_IPUOBCInletActPwr_kW;
-  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCInletActPwrVld_flg =
-    VIPM_IPUOBCInletActPwrVld_flg;
-
-  /* Outputs for Atomic SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempAve_C' */
-  /* Logic: '<S106>/Logical Operator2' incorporates:
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Inport: '<Root>/BMS_5_BatTemp_EPT'
-   */
-  rtb_LogicalOperator2_b =
-    ((Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
-     ->BMS_HVBatCellTempValid &&
-     (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-     ->VIPM_BMSMsgActv_flg);
-
-  /* Logic: '<S106>/Logical Operator3' incorporates:
-   *  Constant: '<S106>/sat3'
-   */
-  VIPM_BMSHVBatCellTempAveVld_flg = (KIPM_BMSHVBatCellTempAve_C_ovrdflg ||
-    rtb_LogicalOperator2_b);
-
-  /* Switch: '<S106>/Switch4' incorporates:
-   *  Constant: '<S106>/sat3'
-   *  Switch: '<S106>/Switch'
-   */
-  if (KIPM_BMSHVBatCellTempAve_C_ovrdflg) {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S106>/sat4'
-     *  MinMax: '<S144>/MinMax'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempAve_C_ovrdval;
-  } else if (rtb_LogicalOperator2_b) {
-    /* Product: '<S109>/Product' incorporates:
-     *  Inport: '<Root>/BMS_5_BatTemp_EPT'
-     *  Switch: '<S106>/Switch'
-     */
-    rtb_Product_mh =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
-      ->BMS_HVBatCellTempAve;
-
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  MinMax: '<S144>/MinMax'
-     *  Sum: '<S109>/Add'
-     *  Switch: '<S106>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = (float32)rtb_Product_mh - 40.0F;
-  } else {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S106>/sat5'
-     *  MinMax: '<S144>/MinMax'
-     *  Switch: '<S106>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempAveDflt_C;
-  }
-
-  /* End of Switch: '<S106>/Switch4' */
-
-  /* MinMax: '<S106>/MinMax' incorporates:
-   *  Constant: '<S106>/sat6'
-   */
-  if (VIPM_IPUOBCTempInt_C > KIPM_BMSHVBatCellTempAveHi_C) {
-    /* MinMax: '<S40>/MinMax' */
-    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempAveHi_C;
-  }
-
-  /* End of MinMax: '<S106>/MinMax' */
-
-  /* MinMax: '<S106>/MinMax1' incorporates:
-   *  Constant: '<S106>/sat7'
-   */
-  if (VIPM_IPUOBCTempInt_C >= KIPM_BMSHVBatCellTempAveLo_C) {
-    /* MinMax: '<S106>/MinMax1' */
-    VIPM_BMSHVBatCellTempAve_C = VIPM_IPUOBCTempInt_C;
-  } else {
-    /* MinMax: '<S106>/MinMax1' */
-    VIPM_BMSHVBatCellTempAve_C = KIPM_BMSHVBatCellTempAveLo_C;
-  }
-
-  /* End of MinMax: '<S106>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempAve_C' */
-
-  /* Outputs for Atomic SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempMax_C' */
-  /* Logic: '<S107>/Logical Operator2' incorporates:
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Inport: '<Root>/BMS_5_BatTemp_EPT'
-   */
-  rtb_LogicalOperator2_b =
-    ((Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
-     ->BMS_HVBatCellTempValid &&
-     (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-     ->VIPM_BMSMsgActv_flg);
-
-  /* Logic: '<S107>/Logical Operator3' incorporates:
-   *  Constant: '<S107>/sat3'
-   */
-  VIPM_BMSHVBatCellTempMaxVld_flg = (KIPM_BMSHVBatCellTempMax_C_ovrdflg ||
-    rtb_LogicalOperator2_b);
-
-  /* Switch: '<S107>/Switch4' incorporates:
-   *  Constant: '<S107>/sat3'
-   *  Switch: '<S107>/Switch'
-   */
-  if (KIPM_BMSHVBatCellTempMax_C_ovrdflg) {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S107>/sat4'
-     *  MinMax: '<S144>/MinMax'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMax_C_ovrdval;
-  } else if (rtb_LogicalOperator2_b) {
-    /* Product: '<S110>/Product' incorporates:
-     *  Inport: '<Root>/BMS_5_BatTemp_EPT'
-     *  Switch: '<S107>/Switch'
-     */
-    rtb_Product_mh =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
-      ->BMS_HVBatCellTempMax;
-
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  MinMax: '<S144>/MinMax'
-     *  Sum: '<S110>/Add'
-     *  Switch: '<S107>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = (float32)rtb_Product_mh - 40.0F;
-  } else {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S107>/sat5'
-     *  MinMax: '<S144>/MinMax'
-     *  Switch: '<S107>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMaxDflt_C;
-  }
-
-  /* End of Switch: '<S107>/Switch4' */
-
-  /* MinMax: '<S107>/MinMax' incorporates:
-   *  Constant: '<S107>/sat6'
-   */
-  if (VIPM_IPUOBCTempInt_C > KIPM_BMSHVBatCellTempMaxHi_C) {
-    /* MinMax: '<S40>/MinMax' */
-    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMaxHi_C;
-  }
-
-  /* End of MinMax: '<S107>/MinMax' */
-
-  /* MinMax: '<S107>/MinMax1' incorporates:
-   *  Constant: '<S107>/sat7'
-   */
-  if (VIPM_IPUOBCTempInt_C >= KIPM_BMSHVBatCellTempMaxLo_C) {
-    /* MinMax: '<S107>/MinMax1' */
-    VIPM_BMSHVBatCellTempMax_C = VIPM_IPUOBCTempInt_C;
-  } else {
-    /* MinMax: '<S107>/MinMax1' */
-    VIPM_BMSHVBatCellTempMax_C = KIPM_BMSHVBatCellTempMaxLo_C;
-  }
-
-  /* End of MinMax: '<S107>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempMax_C' */
-
-  /* Outputs for Atomic SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempMin_C' */
-  /* Logic: '<S108>/Logical Operator2' incorporates:
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Inport: '<Root>/BMS_5_BatTemp_EPT'
-   */
-  rtb_LogicalOperator2_b =
-    ((Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
-     ->BMS_HVBatCellTempValid &&
-     (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-     ->VIPM_BMSMsgActv_flg);
-
-  /* Logic: '<S108>/Logical Operator3' incorporates:
-   *  Constant: '<S108>/sat3'
-   */
-  VIPM_BMSHVBatCellTempMinVld_flg = (KIPM_BMSHVBatCellTempMin_C_ovrdflg ||
-    rtb_LogicalOperator2_b);
-
-  /* Switch: '<S108>/Switch4' incorporates:
-   *  Constant: '<S108>/sat3'
-   *  Switch: '<S108>/Switch'
-   */
-  if (KIPM_BMSHVBatCellTempMin_C_ovrdflg) {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S108>/sat4'
-     *  MinMax: '<S144>/MinMax'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMin_C_ovrdval;
-  } else if (rtb_LogicalOperator2_b) {
-    /* Product: '<S111>/Product' incorporates:
-     *  Inport: '<Root>/BMS_5_BatTemp_EPT'
-     *  Switch: '<S108>/Switch'
-     */
-    rtb_Product_mh =
-      (Rte_IRead_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT())
-      ->BMS_HVBatCellTempMin;
-
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  MinMax: '<S144>/MinMax'
-     *  Sum: '<S111>/Add'
-     *  Switch: '<S108>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = (float32)rtb_Product_mh - 40.0F;
-  } else {
-    /* MinMax: '<S40>/MinMax' incorporates:
-     *  Constant: '<S108>/sat5'
-     *  MinMax: '<S144>/MinMax'
-     *  Switch: '<S108>/Switch'
-     */
-    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMinDflt_C;
-  }
-
-  /* End of Switch: '<S108>/Switch4' */
-
-  /* MinMax: '<S108>/MinMax' incorporates:
-   *  Constant: '<S108>/sat6'
-   */
-  if (VIPM_IPUOBCTempInt_C > KIPM_BMSHVBatCellTempMinHi_C) {
-    /* MinMax: '<S40>/MinMax' */
-    VIPM_IPUOBCTempInt_C = KIPM_BMSHVBatCellTempMinHi_C;
-  }
-
-  /* End of MinMax: '<S108>/MinMax' */
-
-  /* MinMax: '<S108>/MinMax1' incorporates:
-   *  Constant: '<S108>/sat7'
-   */
-  if (VIPM_IPUOBCTempInt_C >= KIPM_BMSHVBatCellTempMinLo_C) {
-    /* MinMax: '<S108>/MinMax1' */
-    VIPM_BMSHVBatCellTempMin_C = VIPM_IPUOBCTempInt_C;
-  } else {
-    /* MinMax: '<S108>/MinMax1' */
-    VIPM_BMSHVBatCellTempMin_C = KIPM_BMSHVBatCellTempMinLo_C;
-  }
-
-  /* End of MinMax: '<S108>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S101>/Subsys_VIPM_BMSHVBatCellTempMin_C' */
-
-  /* BusCreator: '<S101>/BusCreator' incorporates:
-   *  Logic: '<S106>/Logical Operator3'
-   *  Logic: '<S107>/Logical Operator3'
-   *  Logic: '<S108>/Logical Operator3'
-   *  MinMax: '<S106>/MinMax1'
-   *  MinMax: '<S107>/MinMax1'
-   *  MinMax: '<S108>/MinMax1'
-   */
-  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempAve_C =
-    VIPM_BMSHVBatCellTempAve_C;
-  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempAveVld_flg =
-    VIPM_BMSHVBatCellTempAveVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempMax_C =
-    VIPM_BMSHVBatCellTempMax_C;
-  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempMaxVld_flg =
-    VIPM_BMSHVBatCellTempMaxVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempMin_C =
-    VIPM_BMSHVBatCellTempMin_C;
-  AppSwcIpm_ARID_DEF.IPM_BMS_5_BatTemp_EPT.VIPM_BMSHVBatCellTempMinVld_flg =
-    VIPM_BMSHVBatCellTempMinVld_flg;
-
   /* Outputs for Atomic SubSystem: '<S104>/Subsys_VIPM_IPUDCCHiVoltActCurnt_A' */
   /* Logic: '<S126>/Logical Operator3' incorporates:
    *  Constant: '<S126>/sat3'
@@ -5384,7 +4901,490 @@ static void Runbl_Ipm100ms(void)
   AppSwcIpm_ARID_DEF.IPM_IPU_DCC_2_ChrgInValue_EPT.VIPM_IPUDCCHiVoltActVoltVld_flg
     = VIPM_IPUDCCHiVoltActVoltVld_flg;
 
+  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCReq_enum' */
+  /* Logic: '<S136>/Logical Operator3' incorporates:
+   *  Constant: '<S136>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_IPUOBCReqVld_flg = (KIPM_IPUOBCReq_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_OBCMsgActv_flg);
+
+  /* Switch: '<S136>/Switch4' incorporates:
+   *  Constant: '<S136>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S136>/Switch'
+   */
+  if (KIPM_IPUOBCReq_enum_ovrdflg) {
+    /* Switch: '<S136>/Switch4' incorporates:
+     *  Constant: '<S136>/sat4'
+     */
+    VIPM_IPUOBCReq_enum = KIPM_IPUOBCReq_enum_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+             ->VIPM_OBCMsgActv_flg) {
+    /* Switch: '<S136>/Switch4' incorporates:
+     *  DataTypeConversion: '<S136>/Data Type Conversion2'
+     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
+     *  Switch: '<S136>/Switch'
+     */
+    VIPM_IPUOBCReq_enum =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
+      )->IPU_OBC_Request;
+  } else {
+    /* Switch: '<S136>/Switch4' incorporates:
+     *  Constant: '<S136>/sat5'
+     *  Switch: '<S136>/Switch'
+     */
+    VIPM_IPUOBCReq_enum = KIPM_IPUOBCReqDflt_enum;
+  }
+
+  /* End of Switch: '<S136>/Switch4' */
+  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCReq_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCSysFailSta_enum' */
+  /* Logic: '<S137>/Logical Operator3' incorporates:
+   *  Constant: '<S137>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_IPUOBCSysFailStaVld_flg = (KIPM_IPUOBCSysFailSta_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_OBCMsgActv_flg);
+
+  /* Switch: '<S137>/Switch' incorporates:
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+      ->VIPM_OBCMsgActv_flg) {
+    /* Switch: '<S137>/Switch' incorporates:
+     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
+     *  Switch: '<S137>/Switch3'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_mu =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
+      )->IPU_OBC_SysFailSta;
+  } else {
+    /* Switch: '<S137>/Switch' incorporates:
+     *  Constant: '<S137>/sat5'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_mu = KIPM_IPUOBCSysFailStaDflt_enum;
+  }
+
+  /* End of Switch: '<S137>/Switch' */
+
+  /* Switch: '<S137>/Switch4' incorporates:
+   *  Constant: '<S137>/sat3'
+   */
+  if (KIPM_IPUOBCSysFailSta_enum_ovrdflg) {
+    /* Switch: '<S137>/Switch4' incorporates:
+     *  Constant: '<S137>/sat4'
+     */
+    VIPM_IPUOBCSysFailSta_enum = KIPM_IPUOBCSysFailSta_enum_ovrdval;
+  } else {
+    /* Switch: '<S137>/Switch4' */
+    VIPM_IPUOBCSysFailSta_enum = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_mu;
+  }
+
+  /* End of Switch: '<S137>/Switch4' */
+  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCSysFailSta_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCConnectMainSta_flg' */
+  /* Logic: '<S131>/Logical Operator3' incorporates:
+   *  Constant: '<S131>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_IPUOBCConnectMainStaVld_flg = (KIPM_IPUOBCConnectMainSta_flg_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_OBCMsgActv_flg);
+
+  /* Switch: '<S131>/Switch' incorporates:
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+      ->VIPM_OBCMsgActv_flg) {
+    /* Switch: '<S131>/Switch' incorporates:
+     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
+     *  Switch: '<S131>/Switch3'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_f1x =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
+      )->IPU_OBC_ConnectMainSta;
+  } else {
+    /* Switch: '<S131>/Switch' incorporates:
+     *  Constant: '<S131>/sat5'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_f1x = KIPM_IPUOBCConnectMainStaDflt_flg;
+  }
+
+  /* End of Switch: '<S131>/Switch' */
+
+  /* Switch: '<S131>/Switch4' incorporates:
+   *  Constant: '<S131>/sat3'
+   */
+  if (KIPM_IPUOBCConnectMainSta_flg_ovrdflg) {
+    /* Switch: '<S131>/Switch4' incorporates:
+     *  Constant: '<S131>/sat4'
+     */
+    VIPM_IPUOBCConnectMainSta_flg = KIPM_IPUOBCConnectMainSta_flg_ovrdval;
+  } else {
+    /* Switch: '<S131>/Switch4' */
+    VIPM_IPUOBCConnectMainSta_flg = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_f1x;
+  }
+
+  /* End of Switch: '<S131>/Switch4' */
+  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCConnectMainSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCActOprtMode_enum' */
+  /* Logic: '<S130>/Logical Operator3' incorporates:
+   *  Constant: '<S130>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_IPUOBCActOprtModeVld_flg = (KIPM_IPUOBCActOprtMode_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_OBCMsgActv_flg);
+
+  /* Switch: '<S130>/Switch4' incorporates:
+   *  Constant: '<S130>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S130>/Switch'
+   */
+  if (KIPM_IPUOBCActOprtMode_enum_ovrdflg) {
+    /* Switch: '<S130>/Switch4' incorporates:
+     *  Constant: '<S130>/sat4'
+     */
+    VIPM_IPUOBCActOprtMode_enum = KIPM_IPUOBCActOprtMode_enum_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+             ->VIPM_OBCMsgActv_flg) {
+    /* Switch: '<S130>/Switch4' incorporates:
+     *  DataTypeConversion: '<S130>/Data Type Conversion2'
+     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
+     *  Switch: '<S130>/Switch'
+     */
+    VIPM_IPUOBCActOprtMode_enum =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
+      )->IPU_OBC_ActlOprtMode;
+  } else {
+    /* Switch: '<S130>/Switch4' incorporates:
+     *  Constant: '<S130>/sat5'
+     *  Switch: '<S130>/Switch'
+     */
+    VIPM_IPUOBCActOprtMode_enum = KIPM_IPUOBCActOprtModeDflt_enum;
+  }
+
+  /* End of Switch: '<S130>/Switch4' */
+  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCActOprtMode_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCInletConnectSta_enum' */
+  /* Logic: '<S135>/Logical Operator3' incorporates:
+   *  Constant: '<S135>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_IPUOBCInletConnectStaVld_flg = (KIPM_IPUOBCInletConnectSta_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_OBCMsgActv_flg);
+
+  /* Switch: '<S135>/Switch4' incorporates:
+   *  Constant: '<S135>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S135>/Switch'
+   */
+  if (KIPM_IPUOBCInletConnectSta_enum_ovrdflg) {
+    /* Switch: '<S135>/Switch4' incorporates:
+     *  Constant: '<S135>/sat4'
+     */
+    VIPM_IPUOBCInletConnectSta_enum = KIPM_IPUOBCInletConnectSta_enum_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+             ->VIPM_OBCMsgActv_flg) {
+    /* Switch: '<S135>/Switch4' incorporates:
+     *  DataTypeConversion: '<S135>/Data Type Conversion2'
+     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
+     *  Switch: '<S135>/Switch'
+     */
+    VIPM_IPUOBCInletConnectSta_enum =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
+      )->IPU_OBC_InletConnctSta;
+  } else {
+    /* Switch: '<S135>/Switch4' incorporates:
+     *  Constant: '<S135>/sat5'
+     *  Switch: '<S135>/Switch'
+     */
+    VIPM_IPUOBCInletConnectSta_enum = KIPM_IPUOBCInletConnectStaDflt_enum;
+  }
+
+  /* End of Switch: '<S135>/Switch4' */
+  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCInletConnectSta_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCHVDCActCur_A' */
+  /* Logic: '<S132>/Logical Operator3' incorporates:
+   *  Constant: '<S132>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_IPUOBCHVDCActCurVld_flg = (KIPM_IPUOBCHVDCActCur_A_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_OBCMsgActv_flg);
+
+  /* Switch: '<S132>/Switch4' incorporates:
+   *  Constant: '<S132>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S132>/Switch'
+   */
+  if (KIPM_IPUOBCHVDCActCur_A_ovrdflg) {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S132>/sat4'
+     *  MinMax: '<S144>/MinMax'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActCur_A_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+             ->VIPM_OBCMsgActv_flg) {
+    /* Product: '<S138>/Product' incorporates:
+     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
+     *  Switch: '<S132>/Switch'
+     */
+    rtb_Product_mh =
+      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
+      )->IPU_OBC_HVDC_ActlCur;
+
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  MinMax: '<S144>/MinMax'
+     *  Sum: '<S138>/Add'
+     *  Switch: '<S132>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = (float32)rtb_Product_mh - 64.0F;
+  } else {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S132>/sat5'
+     *  MinMax: '<S144>/MinMax'
+     *  Switch: '<S132>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActCurDflt_A;
+  }
+
+  /* End of Switch: '<S132>/Switch4' */
+
+  /* MinMax: '<S132>/MinMax' incorporates:
+   *  Constant: '<S132>/sat6'
+   */
+  if (VIPM_IPUOBCTempInt_C > KIPM_IPUOBCHVDCActCurHi_A) {
+    /* MinMax: '<S40>/MinMax' */
+    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActCurHi_A;
+  }
+
+  /* End of MinMax: '<S132>/MinMax' */
+
+  /* MinMax: '<S132>/MinMax1' incorporates:
+   *  Constant: '<S132>/sat7'
+   */
+  if (VIPM_IPUOBCTempInt_C >= KIPM_IPUOBCHVDCActCurLo_A) {
+    /* MinMax: '<S132>/MinMax1' */
+    VIPM_IPUOBCHVDCActCur_A = VIPM_IPUOBCTempInt_C;
+  } else {
+    /* MinMax: '<S132>/MinMax1' */
+    VIPM_IPUOBCHVDCActCur_A = KIPM_IPUOBCHVDCActCurLo_A;
+  }
+
+  /* End of MinMax: '<S132>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCHVDCActCur_A' */
+
+  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCHVDCActVol_V' */
+  /* Logic: '<S133>/Logical Operator3' incorporates:
+   *  Constant: '<S133>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_IPUOBCHVDCActVolVld_flg = (KIPM_IPUOBCHVDCActVol_V_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_OBCMsgActv_flg);
+
+  /* Switch: '<S133>/Switch4' incorporates:
+   *  Constant: '<S133>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S133>/Switch'
+   */
+  if (KIPM_IPUOBCHVDCActVol_V_ovrdflg) {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S133>/sat4'
+     *  MinMax: '<S144>/MinMax'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActVol_V_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+             ->VIPM_OBCMsgActv_flg) {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  DataTypeConversion: '<S133>/Data Type Conversion2'
+     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
+     *  MinMax: '<S144>/MinMax'
+     *  Switch: '<S133>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = (float32)
+      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
+      )->IPU_OBC_HVDC_ActlVol;
+  } else {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S133>/sat5'
+     *  MinMax: '<S144>/MinMax'
+     *  Switch: '<S133>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActVolDflt_V;
+  }
+
+  /* End of Switch: '<S133>/Switch4' */
+
+  /* MinMax: '<S133>/MinMax' incorporates:
+   *  Constant: '<S133>/sat6'
+   */
+  if (VIPM_IPUOBCTempInt_C > KIPM_IPUOBCHVDCActVolHi_V) {
+    /* MinMax: '<S40>/MinMax' */
+    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCHVDCActVolHi_V;
+  }
+
+  /* End of MinMax: '<S133>/MinMax' */
+
+  /* MinMax: '<S133>/MinMax1' incorporates:
+   *  Constant: '<S133>/sat7'
+   */
+  if (VIPM_IPUOBCTempInt_C >= KIPM_IPUOBCHVDCActVolLo_V) {
+    /* MinMax: '<S133>/MinMax1' */
+    VIPM_IPUOBCHVDCActVol_V = VIPM_IPUOBCTempInt_C;
+  } else {
+    /* MinMax: '<S133>/MinMax1' */
+    VIPM_IPUOBCHVDCActVol_V = KIPM_IPUOBCHVDCActVolLo_V;
+  }
+
+  /* End of MinMax: '<S133>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCHVDCActVol_V' */
+
+  /* Outputs for Atomic SubSystem: '<S105>/Subsys_VIPM_IPUOBCInletActPwr_kW' */
+  /* Logic: '<S134>/Logical Operator3' incorporates:
+   *  Constant: '<S134>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_IPUOBCInletActPwrVld_flg = (KIPM_IPUOBCInletActPwr_kW_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_OBCMsgActv_flg);
+
+  /* Switch: '<S134>/Switch4' incorporates:
+   *  Constant: '<S134>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S134>/Switch'
+   */
+  if (KIPM_IPUOBCInletActPwr_kW_ovrdflg) {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S134>/sat4'
+     *  MinMax: '<S144>/MinMax'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCInletActPwr_kW_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+             ->VIPM_OBCMsgActv_flg) {
+    /* Product: '<S139>/Product' incorporates:
+     *  Constant: '<S139>/Constant'
+     *  Inport: '<Root>/IPU_OBC_1_State_EPT'
+     *  Switch: '<S134>/Switch'
+     */
+    rtb_Product_h1 = (float32)
+      (Rte_IRead_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT()
+      )->IPU_OBC_InleltActlPower * 0.1F;
+
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  MinMax: '<S144>/MinMax'
+     *  Sum: '<S139>/Add'
+     *  Switch: '<S134>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = rtb_Product_h1 - 25.6F;
+  } else {
+    /* MinMax: '<S40>/MinMax' incorporates:
+     *  Constant: '<S134>/sat5'
+     *  MinMax: '<S144>/MinMax'
+     *  Switch: '<S134>/Switch'
+     */
+    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCInletActPwrDflt_kW;
+  }
+
+  /* End of Switch: '<S134>/Switch4' */
+
+  /* MinMax: '<S134>/MinMax' incorporates:
+   *  Constant: '<S134>/sat6'
+   */
+  if (VIPM_IPUOBCTempInt_C > KIPM_IPUOBCInletActPwrHi_kW) {
+    /* MinMax: '<S40>/MinMax' */
+    VIPM_IPUOBCTempInt_C = KIPM_IPUOBCInletActPwrHi_kW;
+  }
+
+  /* End of MinMax: '<S134>/MinMax' */
+
+  /* MinMax: '<S134>/MinMax1' incorporates:
+   *  Constant: '<S134>/sat7'
+   */
+  if (VIPM_IPUOBCTempInt_C >= KIPM_IPUOBCInletActPwrLo_kW) {
+    /* MinMax: '<S134>/MinMax1' */
+    VIPM_IPUOBCInletActPwr_kW = VIPM_IPUOBCTempInt_C;
+  } else {
+    /* MinMax: '<S134>/MinMax1' */
+    VIPM_IPUOBCInletActPwr_kW = KIPM_IPUOBCInletActPwrLo_kW;
+  }
+
+  /* End of MinMax: '<S134>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S105>/Subsys_VIPM_IPUOBCInletActPwr_kW' */
+
+  /* BusCreator: '<S105>/BusCreator' incorporates:
+   *  DataTypeConversion: '<S105>/Data Type Conversion'
+   *  DataTypeConversion: '<S105>/Data Type Conversion1'
+   *  DataTypeConversion: '<S105>/Data Type Conversion2'
+   *  Logic: '<S130>/Logical Operator3'
+   *  Logic: '<S131>/Logical Operator3'
+   *  Logic: '<S132>/Logical Operator3'
+   *  Logic: '<S133>/Logical Operator3'
+   *  Logic: '<S134>/Logical Operator3'
+   *  Logic: '<S135>/Logical Operator3'
+   *  Logic: '<S136>/Logical Operator3'
+   *  Logic: '<S137>/Logical Operator3'
+   *  MinMax: '<S132>/MinMax1'
+   *  MinMax: '<S133>/MinMax1'
+   *  MinMax: '<S134>/MinMax1'
+   *  Switch: '<S130>/Switch4'
+   *  Switch: '<S131>/Switch4'
+   *  Switch: '<S135>/Switch4'
+   *  Switch: '<S136>/Switch4'
+   *  Switch: '<S137>/Switch4'
+   */
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCReq_enum =
+    VIPM_IPUOBCReq_enum;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCReqVld_flg =
+    VIPM_IPUOBCReqVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCSysFailSta_enum =
+    VIPM_IPUOBCSysFailSta_enum;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCSysFailStaVld_flg =
+    VIPM_IPUOBCSysFailStaVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCConnectMainSta_flg =
+    VIPM_IPUOBCConnectMainSta_flg;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCConnectMainStaVld_flg =
+    VIPM_IPUOBCConnectMainStaVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCActOprtMode_enum =
+    VIPM_IPUOBCActOprtMode_enum;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCActOprtModeVld_flg =
+    VIPM_IPUOBCActOprtModeVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCInletConnectSta_enum =
+    VIPM_IPUOBCInletConnectSta_enum;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCInletConnectStaVld_flg =
+    VIPM_IPUOBCInletConnectStaVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCHVDCActCur_A =
+    VIPM_IPUOBCHVDCActCur_A;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCHVDCActCurVld_flg =
+    VIPM_IPUOBCHVDCActCurVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCHVDCActVol_V =
+    VIPM_IPUOBCHVDCActVol_V;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCHVDCActVolVld_flg =
+    VIPM_IPUOBCHVDCActVolVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCInletActPwr_kW =
+    VIPM_IPUOBCInletActPwr_kW;
+  AppSwcIpm_ARID_DEF.IPM_IPU_OBC_1_State_EPT.VIPM_IPUOBCInletActPwrVld_flg =
+    VIPM_IPUOBCInletActPwrVld_flg;
+
   /* Outputs for Atomic SubSystem: '<S140>/Subsys_VIPM_IPUOBCWakeUpMode_enum' */
+  /* Logic: '<S145>/Logical Operator3' incorporates:
+   *  Constant: '<S145>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_IPUOBCWakeUpModeVld_flg = (KIPM_IPUOBCWakeUpMode_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
+    ->VIPM_OBCMsgActv_flg);
+
   /* Switch: '<S145>/Switch4' incorporates:
    *  Constant: '<S145>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -5414,15 +5414,6 @@ static void Runbl_Ipm100ms(void)
   }
 
   /* End of Switch: '<S145>/Switch4' */
-
-  /* Logic: '<S145>/Logical Operator3' incorporates:
-   *  Constant: '<S145>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_IPUOBCWakeUpModeVld_flg = (KIPM_IPUOBCWakeUpMode_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV())
-    ->VIPM_OBCMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S140>/Subsys_VIPM_IPUOBCWakeUpMode_enum' */
 
   /* Outputs for Atomic SubSystem: '<S140>/Subsys_VIPM_IPUOBCS2State_flg' */
@@ -5842,6 +5833,12 @@ static void Runbl_Ipm10ms(void)
     ->EHB_BrkPedlValPercVld &&
     (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
 
+  /* Logic: '<S158>/Logical Operator3' incorporates:
+   *  Constant: '<S158>/sat3'
+   */
+  VIPM_EHBBrkPedlValPercVld_flg = (KIPM_EHBBrkPedlValPerc_pct_ovrdflg ||
+    rtb_LogicalOperator2_h);
+
   /* Switch: '<S158>/Switch4' incorporates:
    *  Constant: '<S158>/sat3'
    *  Switch: '<S158>/Switch'
@@ -5891,13 +5888,6 @@ static void Runbl_Ipm10ms(void)
   }
 
   /* End of MinMax: '<S158>/MinMax1' */
-
-  /* Logic: '<S158>/Logical Operator3' incorporates:
-   *  Constant: '<S158>/sat3'
-   */
-  VIPM_EHBBrkPedlValPercVld_flg = (KIPM_EHBBrkPedlValPerc_pct_ovrdflg ||
-    rtb_LogicalOperator2_h);
-
   /* End of Outputs for SubSystem: '<S154>/Subsys_VIPM_EHBBrkPedlValPerc_pct' */
 
   /* Outputs for Atomic SubSystem: '<S154>/Subsys_VIPM_EHBReqBrkLiOn_flg' */
@@ -6014,6 +6004,15 @@ static void Runbl_Ipm10ms(void)
   /* End of Outputs for SubSystem: '<S154>/Subsys_VIPM_EHBBrkPwrRecupTarWhlTq_Nm' */
 
   /* Outputs for Atomic SubSystem: '<S154>/Subsys_VIPM_EHBBrkPwrRecupTarWhlTqSts_enum' */
+  /* Logic: '<S159>/Logical Operator3' incorporates:
+   *  Constant: '<S159>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_EHBBrkPwrRecupTarWhlTqStsVld_flg =
+    (KIPM_EHBBrkPwrRecupTarWhlTqSts_enum_ovrdflg ||
+     (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())
+     ->VIPM_EHBMsgActv_flg);
+
   /* Switch: '<S159>/Switch4' incorporates:
    *  Constant: '<S159>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -6045,16 +6044,6 @@ static void Runbl_Ipm10ms(void)
   }
 
   /* End of Switch: '<S159>/Switch4' */
-
-  /* Logic: '<S159>/Logical Operator3' incorporates:
-   *  Constant: '<S159>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_EHBBrkPwrRecupTarWhlTqStsVld_flg =
-    (KIPM_EHBBrkPwrRecupTarWhlTqSts_enum_ovrdflg ||
-     (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())
-     ->VIPM_EHBMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S154>/Subsys_VIPM_EHBBrkPwrRecupTarWhlTqSts_enum' */
 
   /* DataTypeConversion: '<S154>/Data Type Conversion1' incorporates:
@@ -6064,6 +6053,13 @@ static void Runbl_Ipm10ms(void)
     VIPM_EHBBrkPwrRecupTarWhlTqSts_enum;
 
   /* Outputs for Atomic SubSystem: '<S154>/Subsys_VIPM_EHBEPBActuatorStR_enum' */
+  /* Logic: '<S162>/Logical Operator3' incorporates:
+   *  Constant: '<S162>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_EHBEPBActuatorStRVld_flg = (KIPM_EHBEPBActuatorStR_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
+
   /* Switch: '<S162>/Switch4' incorporates:
    *  Constant: '<S162>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -6093,14 +6089,6 @@ static void Runbl_Ipm10ms(void)
   }
 
   /* End of Switch: '<S162>/Switch4' */
-
-  /* Logic: '<S162>/Logical Operator3' incorporates:
-   *  Constant: '<S162>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_EHBEPBActuatorStRVld_flg = (KIPM_EHBEPBActuatorStR_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S154>/Subsys_VIPM_EHBEPBActuatorStR_enum' */
 
   /* Outputs for Atomic SubSystem: '<S154>/Subsys_VIPM_EHBCDDActv_flg' */
@@ -6230,51 +6218,6 @@ static void Runbl_Ipm10ms(void)
     VIPM_EHBCDDActvVld_flg;
   AppSwcIpm_ARID_DEF.IPM_EHB_B_CHA.VIPM_EHBFltLvl_enum = VIPM_EHBFltLvl_enum;
   AppSwcIpm_ARID_DEF.IPM_EHB_B_CHA.VIPM_EHBFltLvlVld_flg = VIPM_EHBFltLvlVld_flg;
-
-  /* Outputs for Atomic SubSystem: '<S155>/Subsys_VIPM_EPSSteerWhlAngCald_flg' */
-  /* Logic: '<S167>/Logical Operator3' incorporates:
-   *  Constant: '<S167>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_EPSSteerWhlAngCaldVld_flg = (KIPM_EPSSteerWhlAngCald_flg_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_EPSMsgActv_flg);
-
-  /* Switch: '<S167>/Switch' incorporates:
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  if ((Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())
-      ->VIPM_EPSMsgActv_flg) {
-    /* Switch: '<S167>/Switch' incorporates:
-     *  Inport: '<Root>/EPS_2_StrWhlAng_CHA'
-     *  Switch: '<S167>/Switch3'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ls =
-      (Rte_IRead_Runbl_IpmCanRx_10ms_EPS_2_StrWhlAng_CHA_EPS_2_StrWhlAng_CHA()
-      )->EPS_SteerWheelAngleCalibrated;
-  } else {
-    /* Switch: '<S167>/Switch' incorporates:
-     *  Constant: '<S167>/sat5'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ls = KIPM_EPSSteerWhlAngCaldDflt_flg;
-  }
-
-  /* End of Switch: '<S167>/Switch' */
-
-  /* Switch: '<S167>/Switch4' incorporates:
-   *  Constant: '<S167>/sat3'
-   */
-  if (KIPM_EPSSteerWhlAngCald_flg_ovrdflg) {
-    /* Switch: '<S167>/Switch4' incorporates:
-     *  Constant: '<S167>/sat4'
-     */
-    VIPM_EPSSteerWhlAngCald_flg = KIPM_EPSSteerWhlAngCald_flg_ovrdval;
-  } else {
-    /* Switch: '<S167>/Switch4' */
-    VIPM_EPSSteerWhlAngCald_flg = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ls;
-  }
-
-  /* End of Switch: '<S167>/Switch4' */
-  /* End of Outputs for SubSystem: '<S155>/Subsys_VIPM_EPSSteerWhlAngCald_flg' */
 
   /* Outputs for Atomic SubSystem: '<S155>/Subsys_VIPM_EPSSteerWhlAng_deg' */
   /* Logic: '<S169>/Logical Operator2' incorporates:
@@ -6424,6 +6367,51 @@ static void Runbl_Ipm10ms(void)
 
   /* End of MinMax: '<S166>/MinMax1' */
   /* End of Outputs for SubSystem: '<S155>/Subsys_VIPM_EPSRotSpd_degps' */
+
+  /* Outputs for Atomic SubSystem: '<S155>/Subsys_VIPM_EPSSteerWhlAngCald_flg' */
+  /* Logic: '<S167>/Logical Operator3' incorporates:
+   *  Constant: '<S167>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_EPSSteerWhlAngCaldVld_flg = (KIPM_EPSSteerWhlAngCald_flg_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_EPSMsgActv_flg);
+
+  /* Switch: '<S167>/Switch' incorporates:
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  if ((Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())
+      ->VIPM_EPSMsgActv_flg) {
+    /* Switch: '<S167>/Switch' incorporates:
+     *  Inport: '<Root>/EPS_2_StrWhlAng_CHA'
+     *  Switch: '<S167>/Switch3'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ls =
+      (Rte_IRead_Runbl_IpmCanRx_10ms_EPS_2_StrWhlAng_CHA_EPS_2_StrWhlAng_CHA()
+      )->EPS_SteerWheelAngleCalibrated;
+  } else {
+    /* Switch: '<S167>/Switch' incorporates:
+     *  Constant: '<S167>/sat5'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ls = KIPM_EPSSteerWhlAngCaldDflt_flg;
+  }
+
+  /* End of Switch: '<S167>/Switch' */
+
+  /* Switch: '<S167>/Switch4' incorporates:
+   *  Constant: '<S167>/sat3'
+   */
+  if (KIPM_EPSSteerWhlAngCald_flg_ovrdflg) {
+    /* Switch: '<S167>/Switch4' incorporates:
+     *  Constant: '<S167>/sat4'
+     */
+    VIPM_EPSSteerWhlAngCald_flg = KIPM_EPSSteerWhlAngCald_flg_ovrdval;
+  } else {
+    /* Switch: '<S167>/Switch4' */
+    VIPM_EPSSteerWhlAngCald_flg = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ls;
+  }
+
+  /* End of Switch: '<S167>/Switch4' */
+  /* End of Outputs for SubSystem: '<S155>/Subsys_VIPM_EPSSteerWhlAngCald_flg' */
 
   /* Outputs for Atomic SubSystem: '<S155>/Subsys_VIPM_EPSSteerWhlAngFailr_flg' */
   /* Logic: '<S168>/Logical Operator3' incorporates:
@@ -7170,6 +7158,12 @@ static void Runbl_Ipm10ms(void)
     ->ESC_MasterCylinderPresrV &&
     (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_ESCMsgActv_flg);
 
+  /* Logic: '<S180>/Logical Operator3' incorporates:
+   *  Constant: '<S180>/sat3'
+   */
+  VIPM_ESCMstrCylPresrVld_flg = (KIPM_ESCMstrCylPresr_bar_ovrdflg ||
+    rtb_LogicalOperator2_h);
+
   /* Switch: '<S180>/Switch4' incorporates:
    *  Constant: '<S180>/sat3'
    *  Switch: '<S180>/Switch'
@@ -7223,13 +7217,6 @@ static void Runbl_Ipm10ms(void)
   }
 
   /* End of MinMax: '<S180>/MinMax1' */
-
-  /* Logic: '<S180>/Logical Operator3' incorporates:
-   *  Constant: '<S180>/sat3'
-   */
-  VIPM_ESCMstrCylPresrVld_flg = (KIPM_ESCMstrCylPresr_bar_ovrdflg ||
-    rtb_LogicalOperator2_h);
-
   /* End of Outputs for SubSystem: '<S157>/Subsys_VIPM_ESCMstrCylPresr_bar' */
 
   /* Outputs for Atomic SubSystem: '<S157>/Subsys_VIPM_ESCWhlDirctnRL_enum' */
@@ -7779,51 +7766,6 @@ static void Runbl_Ipm10ms(void)
   AppSwcIpm_ARID_DEF.IPM_ESC_A_CHA.VIPM_ESCWhlTqIncReqValVld_flg =
     VIPM_ESCWhlTqIncReqValVld_flg;
 
-  /* Outputs for Atomic SubSystem: '<S200>/Subsys_VIPM_INV1PreChrgAllwd_enum' */
-  /* Logic: '<S208>/Logical Operator3' incorporates:
-   *  Constant: '<S208>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_INV1PreChrgAllwdVld_flg = (KIPM_INV1PreChrgAllwd_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_INVMsgActv_flg);
-
-  /* Switch: '<S208>/Switch' incorporates:
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  if ((Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())
-      ->VIPM_INVMsgActv_flg) {
-    /* Switch: '<S208>/Switch' incorporates:
-     *  Inport: '<Root>/INV_1_Value_EPT'
-     *  Switch: '<S208>/Switch3'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_gn =
-      (Rte_IRead_Runbl_IpmCanRx_10ms_INV_1_Value_EPT_INV_1_Value_EPT())
-      ->INV_1_PreChargeAllowed;
-  } else {
-    /* Switch: '<S208>/Switch' incorporates:
-     *  Constant: '<S208>/sat5'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_gn = KIPM_INV1PreChrgAllwdDflt_enum;
-  }
-
-  /* End of Switch: '<S208>/Switch' */
-
-  /* Switch: '<S208>/Switch4' incorporates:
-   *  Constant: '<S208>/sat3'
-   */
-  if (KIPM_INV1PreChrgAllwd_enum_ovrdflg) {
-    /* Switch: '<S208>/Switch4' incorporates:
-     *  Constant: '<S208>/sat4'
-     */
-    VIPM_INV1PreChrgAllwd_enum = KIPM_INV1PreChrgAllwd_enum_ovrdval;
-  } else {
-    /* Switch: '<S208>/Switch4' */
-    VIPM_INV1PreChrgAllwd_enum = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_gn;
-  }
-
-  /* End of Switch: '<S208>/Switch4' */
-  /* End of Outputs for SubSystem: '<S200>/Subsys_VIPM_INV1PreChrgAllwd_enum' */
-
   /* Outputs for Atomic SubSystem: '<S200>/Subsys_VIPM_INV1MotSpd_rpm' */
   /* Logic: '<S207>/Logical Operator3' incorporates:
    *  Constant: '<S207>/sat3'
@@ -7965,6 +7907,51 @@ static void Runbl_Ipm10ms(void)
   /* End of MinMax: '<S205>/MinMax1' */
   /* End of Outputs for SubSystem: '<S200>/Subsys_VIPM_INV1ActTorq_Nm' */
 
+  /* Outputs for Atomic SubSystem: '<S200>/Subsys_VIPM_INV1PreChrgAllwd_enum' */
+  /* Logic: '<S208>/Logical Operator3' incorporates:
+   *  Constant: '<S208>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_INV1PreChrgAllwdVld_flg = (KIPM_INV1PreChrgAllwd_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_INVMsgActv_flg);
+
+  /* Switch: '<S208>/Switch' incorporates:
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  if ((Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())
+      ->VIPM_INVMsgActv_flg) {
+    /* Switch: '<S208>/Switch' incorporates:
+     *  Inport: '<Root>/INV_1_Value_EPT'
+     *  Switch: '<S208>/Switch3'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_gn =
+      (Rte_IRead_Runbl_IpmCanRx_10ms_INV_1_Value_EPT_INV_1_Value_EPT())
+      ->INV_1_PreChargeAllowed;
+  } else {
+    /* Switch: '<S208>/Switch' incorporates:
+     *  Constant: '<S208>/sat5'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_gn = KIPM_INV1PreChrgAllwdDflt_enum;
+  }
+
+  /* End of Switch: '<S208>/Switch' */
+
+  /* Switch: '<S208>/Switch4' incorporates:
+   *  Constant: '<S208>/sat3'
+   */
+  if (KIPM_INV1PreChrgAllwd_enum_ovrdflg) {
+    /* Switch: '<S208>/Switch4' incorporates:
+     *  Constant: '<S208>/sat4'
+     */
+    VIPM_INV1PreChrgAllwd_enum = KIPM_INV1PreChrgAllwd_enum_ovrdval;
+  } else {
+    /* Switch: '<S208>/Switch4' */
+    VIPM_INV1PreChrgAllwd_enum = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_gn;
+  }
+
+  /* End of Switch: '<S208>/Switch4' */
+  /* End of Outputs for SubSystem: '<S200>/Subsys_VIPM_INV1PreChrgAllwd_enum' */
+
   /* Outputs for Atomic SubSystem: '<S200>/Subsys_VIPM_INV1ShutdownAllwd_enum' */
   /* Logic: '<S210>/Logical Operator3' incorporates:
    *  Constant: '<S210>/sat3'
@@ -8011,6 +7998,13 @@ static void Runbl_Ipm10ms(void)
   /* End of Outputs for SubSystem: '<S200>/Subsys_VIPM_INV1ShutdownAllwd_enum' */
 
   /* Outputs for Atomic SubSystem: '<S200>/Subsys_VIPM_INV1ActMode_enum' */
+  /* Logic: '<S204>/Logical Operator3' incorporates:
+   *  Constant: '<S204>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_INV1ActModeVld_flg = (KIPM_INV1ActMode_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_INVMsgActv_flg);
+
   /* Switch: '<S204>/Switch4' incorporates:
    *  Constant: '<S204>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -8040,14 +8034,6 @@ static void Runbl_Ipm10ms(void)
   }
 
   /* End of Switch: '<S204>/Switch4' */
-
-  /* Logic: '<S204>/Logical Operator3' incorporates:
-   *  Constant: '<S204>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_INV1ActModeVld_flg = (KIPM_INV1ActMode_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_INVMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S200>/Subsys_VIPM_INV1ActMode_enum' */
 
   /* Outputs for Atomic SubSystem: '<S200>/Subsys_VIPM_INV1PreprogmFlg_flg' */
@@ -8185,72 +8171,6 @@ static void Runbl_Ipm10ms(void)
     VIPM_INV1AntithftAuthRslt_enum;
   AppSwcIpm_ARID_DEF.IPM_INV_1_Value_EPT.VIPM_INV1AntithftAuthRsltVld_flg =
     VIPM_INV1AntithftAuthRsltVld_flg;
-
-  /* Outputs for Atomic SubSystem: '<S201>/Subsys_VIPM_INV2InpVolt_V' */
-  /* Switch: '<S215>/Switch4' incorporates:
-   *  Constant: '<S215>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S215>/Switch'
-   */
-  if (KIPM_INV2InpVolt_V_ovrdflg) {
-    /* MinMax: '<S158>/MinMax' incorporates:
-     *  Constant: '<S215>/sat4'
-     *  MinMax: '<S221>/MinMax'
-     */
-    VIPM_INV3RecupTqAllwdMax_Nm = KIPM_INV2InpVolt_V_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())
-             ->VIPM_INVMsgActv_flg) {
-    /* MinMax: '<S158>/MinMax' incorporates:
-     *  DataTypeConversion: '<S215>/Data Type Conversion2'
-     *  Inport: '<Root>/INV_2_Value_EPT'
-     *  MinMax: '<S221>/MinMax'
-     *  Switch: '<S215>/Switch'
-     */
-    VIPM_INV3RecupTqAllwdMax_Nm = (float32)
-      (Rte_IRead_Runbl_IpmCanRx_10ms_INV_2_Value_EPT_INV_2_Value_EPT())
-      ->INV_2_InpVoltage;
-  } else {
-    /* MinMax: '<S158>/MinMax' incorporates:
-     *  Constant: '<S215>/sat5'
-     *  MinMax: '<S221>/MinMax'
-     *  Switch: '<S215>/Switch'
-     */
-    VIPM_INV3RecupTqAllwdMax_Nm = KIPM_INV2InpVoltDflt_V;
-  }
-
-  /* End of Switch: '<S215>/Switch4' */
-
-  /* MinMax: '<S215>/MinMax' incorporates:
-   *  Constant: '<S215>/sat6'
-   */
-  if (VIPM_INV3RecupTqAllwdMax_Nm > KIPM_INV2InpVoltHi_V) {
-    /* MinMax: '<S158>/MinMax' */
-    VIPM_INV3RecupTqAllwdMax_Nm = KIPM_INV2InpVoltHi_V;
-  }
-
-  /* End of MinMax: '<S215>/MinMax' */
-
-  /* MinMax: '<S215>/MinMax1' incorporates:
-   *  Constant: '<S215>/sat7'
-   */
-  if (VIPM_INV3RecupTqAllwdMax_Nm >= KIPM_INV2InpVoltLo_V) {
-    /* MinMax: '<S215>/MinMax1' */
-    VIPM_INV2InpVolt_V = VIPM_INV3RecupTqAllwdMax_Nm;
-  } else {
-    /* MinMax: '<S215>/MinMax1' */
-    VIPM_INV2InpVolt_V = KIPM_INV2InpVoltLo_V;
-  }
-
-  /* End of MinMax: '<S215>/MinMax1' */
-
-  /* Logic: '<S215>/Logical Operator3' incorporates:
-   *  Constant: '<S215>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_INV2InpVoltVld_flg = (KIPM_INV2InpVolt_V_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_INVMsgActv_flg);
-
-  /* End of Outputs for SubSystem: '<S201>/Subsys_VIPM_INV2InpVolt_V' */
 
   /* Outputs for Atomic SubSystem: '<S201>/Subsys_VIPM_INV2MotorMaxTemp_C' */
   /* Logic: '<S216>/Logical Operator3' incorporates:
@@ -8463,6 +8383,71 @@ static void Runbl_Ipm10ms(void)
   /* End of MinMax: '<S214>/MinMax1' */
   /* End of Outputs for SubSystem: '<S201>/Subsys_VIPM_INV2InpCurnt_A' */
 
+  /* Outputs for Atomic SubSystem: '<S201>/Subsys_VIPM_INV2InpVolt_V' */
+  /* Logic: '<S215>/Logical Operator3' incorporates:
+   *  Constant: '<S215>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_INV2InpVoltVld_flg = (KIPM_INV2InpVolt_V_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_INVMsgActv_flg);
+
+  /* Switch: '<S215>/Switch4' incorporates:
+   *  Constant: '<S215>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S215>/Switch'
+   */
+  if (KIPM_INV2InpVolt_V_ovrdflg) {
+    /* MinMax: '<S158>/MinMax' incorporates:
+     *  Constant: '<S215>/sat4'
+     *  MinMax: '<S221>/MinMax'
+     */
+    VIPM_INV3RecupTqAllwdMax_Nm = KIPM_INV2InpVolt_V_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())
+             ->VIPM_INVMsgActv_flg) {
+    /* MinMax: '<S158>/MinMax' incorporates:
+     *  DataTypeConversion: '<S215>/Data Type Conversion2'
+     *  Inport: '<Root>/INV_2_Value_EPT'
+     *  MinMax: '<S221>/MinMax'
+     *  Switch: '<S215>/Switch'
+     */
+    VIPM_INV3RecupTqAllwdMax_Nm = (float32)
+      (Rte_IRead_Runbl_IpmCanRx_10ms_INV_2_Value_EPT_INV_2_Value_EPT())
+      ->INV_2_InpVoltage;
+  } else {
+    /* MinMax: '<S158>/MinMax' incorporates:
+     *  Constant: '<S215>/sat5'
+     *  MinMax: '<S221>/MinMax'
+     *  Switch: '<S215>/Switch'
+     */
+    VIPM_INV3RecupTqAllwdMax_Nm = KIPM_INV2InpVoltDflt_V;
+  }
+
+  /* End of Switch: '<S215>/Switch4' */
+
+  /* MinMax: '<S215>/MinMax' incorporates:
+   *  Constant: '<S215>/sat6'
+   */
+  if (VIPM_INV3RecupTqAllwdMax_Nm > KIPM_INV2InpVoltHi_V) {
+    /* MinMax: '<S158>/MinMax' */
+    VIPM_INV3RecupTqAllwdMax_Nm = KIPM_INV2InpVoltHi_V;
+  }
+
+  /* End of MinMax: '<S215>/MinMax' */
+
+  /* MinMax: '<S215>/MinMax1' incorporates:
+   *  Constant: '<S215>/sat7'
+   */
+  if (VIPM_INV3RecupTqAllwdMax_Nm >= KIPM_INV2InpVoltLo_V) {
+    /* MinMax: '<S215>/MinMax1' */
+    VIPM_INV2InpVolt_V = VIPM_INV3RecupTqAllwdMax_Nm;
+  } else {
+    /* MinMax: '<S215>/MinMax1' */
+    VIPM_INV2InpVolt_V = KIPM_INV2InpVoltLo_V;
+  }
+
+  /* End of MinMax: '<S215>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S201>/Subsys_VIPM_INV2InpVolt_V' */
+
   /* BusCreator: '<S201>/BusCreator' incorporates:
    *  Logic: '<S213>/Logical Operator3'
    *  Logic: '<S214>/Logical Operator3'
@@ -8488,60 +8473,6 @@ static void Runbl_Ipm10ms(void)
   AppSwcIpm_ARID_DEF.IPM_INV_2_Value_EPT.VIPM_INV2InpVolt_V = VIPM_INV2InpVolt_V;
   AppSwcIpm_ARID_DEF.IPM_INV_2_Value_EPT.VIPM_INV2InpVoltVld_flg =
     VIPM_INV2InpVoltVld_flg;
-
-  /* Outputs for Atomic SubSystem: '<S203>/Subsys_VIPM_INV4FltLvl_enum' */
-  /* Logic: '<S224>/Logical Operator3' incorporates:
-   *  Constant: '<S224>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_INV4FltLvlVld_flg = (KIPM_INV4FltLvl_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_INVMsgActv_flg);
-
-  /* Switch: '<S224>/Switch' incorporates:
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  if ((Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())
-      ->VIPM_INVMsgActv_flg) {
-    /* Switch: '<S224>/Switch' incorporates:
-     *  Inport: '<Root>/INV_4_Value_EPT'
-     *  Switch: '<S224>/Switch3'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ga =
-      (Rte_IRead_Runbl_IpmCanRx_10ms_INV_4_Value_EPT_INV_4_Value_EPT())
-      ->INV_4_FaultLevl;
-  } else {
-    /* Switch: '<S224>/Switch' incorporates:
-     *  Constant: '<S224>/sat5'
-     */
-    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ga = KIPM_INV4FltLvlDflt_enum;
-  }
-
-  /* End of Switch: '<S224>/Switch' */
-
-  /* Switch: '<S224>/Switch4' incorporates:
-   *  Constant: '<S224>/sat3'
-   */
-  if (KIPM_INV4FltLvl_enum_ovrdflg) {
-    /* Switch: '<S224>/Switch4' incorporates:
-     *  Constant: '<S224>/sat4'
-     */
-    VIPM_INV4FltLvl_enum = KIPM_INV4FltLvl_enum_ovrdval;
-  } else {
-    /* Switch: '<S224>/Switch4' */
-    VIPM_INV4FltLvl_enum = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ga;
-  }
-
-  /* End of Switch: '<S224>/Switch4' */
-  /* End of Outputs for SubSystem: '<S203>/Subsys_VIPM_INV4FltLvl_enum' */
-
-  /* BusCreator: '<S203>/BusCreator' incorporates:
-   *  Logic: '<S224>/Logical Operator3'
-   *  Switch: '<S224>/Switch4'
-   */
-  AppSwcIpm_ARID_DEF.IPM_INV_4_Value_EPT.VIPM_INV4FltLvl_enum =
-    VIPM_INV4FltLvl_enum;
-  AppSwcIpm_ARID_DEF.IPM_INV_4_Value_EPT.VIPM_INV4FltLvlVld_flg =
-    VIPM_INV4FltLvlVld_flg;
 
   /* Outputs for Atomic SubSystem: '<S202>/Subsys_VIPM_INV3DrvTqAllwdMax_Nm' */
   /* Logic: '<S220>/Logical Operator3' incorporates:
@@ -8693,6 +8624,60 @@ static void Runbl_Ipm10ms(void)
     VIPM_INV3RecupTqAllwdMax_Nm;
   AppSwcIpm_ARID_DEF.IPM_INV_3_Value_EPT.VIPM_INV3RecupTqAllwdMaxVld_flg =
     VIPM_INV3RecupTqAllwdMaxVld_flg;
+
+  /* Outputs for Atomic SubSystem: '<S203>/Subsys_VIPM_INV4FltLvl_enum' */
+  /* Logic: '<S224>/Logical Operator3' incorporates:
+   *  Constant: '<S224>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_INV4FltLvlVld_flg = (KIPM_INV4FltLvl_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())->VIPM_INVMsgActv_flg);
+
+  /* Switch: '<S224>/Switch' incorporates:
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  if ((Rte_IrvIRead_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV())
+      ->VIPM_INVMsgActv_flg) {
+    /* Switch: '<S224>/Switch' incorporates:
+     *  Inport: '<Root>/INV_4_Value_EPT'
+     *  Switch: '<S224>/Switch3'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ga =
+      (Rte_IRead_Runbl_IpmCanRx_10ms_INV_4_Value_EPT_INV_4_Value_EPT())
+      ->INV_4_FaultLevl;
+  } else {
+    /* Switch: '<S224>/Switch' incorporates:
+     *  Constant: '<S224>/sat5'
+     */
+    AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ga = KIPM_INV4FltLvlDflt_enum;
+  }
+
+  /* End of Switch: '<S224>/Switch' */
+
+  /* Switch: '<S224>/Switch4' incorporates:
+   *  Constant: '<S224>/sat3'
+   */
+  if (KIPM_INV4FltLvl_enum_ovrdflg) {
+    /* Switch: '<S224>/Switch4' incorporates:
+     *  Constant: '<S224>/sat4'
+     */
+    VIPM_INV4FltLvl_enum = KIPM_INV4FltLvl_enum_ovrdval;
+  } else {
+    /* Switch: '<S224>/Switch4' */
+    VIPM_INV4FltLvl_enum = AppSwcIpm_ARID_DEF.UnitDelay_DSTATE_ga;
+  }
+
+  /* End of Switch: '<S224>/Switch4' */
+  /* End of Outputs for SubSystem: '<S203>/Subsys_VIPM_INV4FltLvl_enum' */
+
+  /* BusCreator: '<S203>/BusCreator' incorporates:
+   *  Logic: '<S224>/Logical Operator3'
+   *  Switch: '<S224>/Switch4'
+   */
+  AppSwcIpm_ARID_DEF.IPM_INV_4_Value_EPT.VIPM_INV4FltLvl_enum =
+    VIPM_INV4FltLvl_enum;
+  AppSwcIpm_ARID_DEF.IPM_INV_4_Value_EPT.VIPM_INV4FltLvlVld_flg =
+    VIPM_INV4FltLvlVld_flg;
 }
 
 /* Output and update for function-call system: '<Root>/Ipm20ms' */
@@ -8712,6 +8697,12 @@ static void Runbl_Ipm20ms(void)
      ->SCS_GearShiftLeverPstReqVD &&
      (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
      ->VIPM_SCSMsgActv_flg);
+
+  /* Logic: '<S229>/Logical Operator3' incorporates:
+   *  Constant: '<S229>/sat3'
+   */
+  VIPM_SCSGrShftLvrPstnReqVld_flg = (KIPM_SCSGrShftLvrPstnReq_enum_ovrdflg ||
+    rtb_LogicalOperator2_e);
 
   /* Switch: '<S229>/Switch4' incorporates:
    *  Constant: '<S229>/sat3'
@@ -8740,13 +8731,6 @@ static void Runbl_Ipm20ms(void)
   }
 
   /* End of Switch: '<S229>/Switch4' */
-
-  /* Logic: '<S229>/Logical Operator3' incorporates:
-   *  Constant: '<S229>/sat3'
-   */
-  VIPM_SCSGrShftLvrPstnReqVld_flg = (KIPM_SCSGrShftLvrPstnReq_enum_ovrdflg ||
-    rtb_LogicalOperator2_e);
-
   /* End of Outputs for SubSystem: '<S228>/Subsys_VIPM_SCSGrShftLvrPstnReq_enum' */
 
   /* Outputs for Atomic SubSystem: '<S228>/Subsys_VIPM_SCSRghtSwVldty_flg' */
@@ -9279,6 +9263,13 @@ static void Runbl_Ipm20ms(void)
     VIPM_CRRRRCTAWarnRtVld_flg;
 
   /* Outputs for Atomic SubSystem: '<S235>/Subsys_VIPM_EHBEPBActuatorStL_enum' */
+  /* Logic: '<S245>/Logical Operator3' incorporates:
+   *  Constant: '<S245>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_EHBEPBActuatorStLVld_flg = (KIPM_EHBEPBActuatorStL_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
+
   /* Switch: '<S245>/Switch4' incorporates:
    *  Constant: '<S245>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -9308,17 +9299,16 @@ static void Runbl_Ipm20ms(void)
   }
 
   /* End of Switch: '<S245>/Switch4' */
-
-  /* Logic: '<S245>/Logical Operator3' incorporates:
-   *  Constant: '<S245>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_EHBEPBActuatorStLVld_flg = (KIPM_EHBEPBActuatorStL_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S235>/Subsys_VIPM_EHBEPBActuatorStL_enum' */
 
   /* Outputs for Atomic SubSystem: '<S235>/Subsys_VIPM_EHBEPBSwitchSts_enum' */
+  /* Logic: '<S246>/Logical Operator3' incorporates:
+   *  Constant: '<S246>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_EHBEPBSwitchStsVld_flg = (KIPM_EHBEPBSwitchSts_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
+
   /* Switch: '<S246>/Switch4' incorporates:
    *  Constant: '<S246>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -9347,14 +9337,6 @@ static void Runbl_Ipm20ms(void)
   }
 
   /* End of Switch: '<S246>/Switch4' */
-
-  /* Logic: '<S246>/Logical Operator3' incorporates:
-   *  Constant: '<S246>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_EHBEPBSwitchStsVld_flg = (KIPM_EHBEPBSwitchSts_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S235>/Subsys_VIPM_EHBEPBSwitchSts_enum' */
 
   /* DataTypeConversion: '<S235>/Data Type Conversion1' incorporates:
@@ -9364,6 +9346,13 @@ static void Runbl_Ipm20ms(void)
     VIPM_EHBEPBSwitchSts_enum;
 
   /* Outputs for Atomic SubSystem: '<S235>/Subsys_VIPM_EHBEPBSysSt_enum' */
+  /* Logic: '<S247>/Logical Operator3' incorporates:
+   *  Constant: '<S247>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_EHBEPBSysStVld_flg = (KIPM_EHBEPBSysSt_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
+
   /* Switch: '<S247>/Switch4' incorporates:
    *  Constant: '<S247>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -9392,14 +9381,6 @@ static void Runbl_Ipm20ms(void)
   }
 
   /* End of Switch: '<S247>/Switch4' */
-
-  /* Logic: '<S247>/Logical Operator3' incorporates:
-   *  Constant: '<S247>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_EHBEPBSysStVld_flg = (KIPM_EHBEPBSysSt_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S235>/Subsys_VIPM_EHBEPBSysSt_enum' */
 
   /* DataTypeConversion: '<S235>/Data Type Conversion2' incorporates:
@@ -9452,6 +9433,13 @@ static void Runbl_Ipm20ms(void)
   /* End of Outputs for SubSystem: '<S235>/Subsys_VIPM_EHBHDCFucFault_flg' */
 
   /* Outputs for Atomic SubSystem: '<S235>/Subsys_VIPM_EHBAVHAppldSt_enum' */
+  /* Logic: '<S243>/Logical Operator3' incorporates:
+   *  Constant: '<S243>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_EHBAVHAppldStVld_flg = (KIPM_EHBAVHAppldSt_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
+
   /* Switch: '<S243>/Switch4' incorporates:
    *  Constant: '<S243>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -9480,14 +9468,6 @@ static void Runbl_Ipm20ms(void)
   }
 
   /* End of Switch: '<S243>/Switch4' */
-
-  /* Logic: '<S243>/Logical Operator3' incorporates:
-   *  Constant: '<S243>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_EHBAVHAppldStVld_flg = (KIPM_EHBAVHAppldSt_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_EHBMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S235>/Subsys_VIPM_EHBAVHAppldSt_enum' */
 
   /* Outputs for Atomic SubSystem: '<S235>/Subsys_VIPM_EHBBLA_flg' */
@@ -9628,9 +9608,9 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_FCMACCWhlTqReqVal_Nm_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S251>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMACCWhlTqReqVal_Nm_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMACCWhlTqReqVal_Nm_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_FCMMsgActv_flg) {
     /* Product: '<S262>/Product' incorporates:
@@ -9643,18 +9623,18 @@ static void Runbl_Ipm20ms(void)
       0.5F;
 
     /* MinMax: '<S251>/MinMax' incorporates:
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Sum: '<S262>/Add'
      *  Switch: '<S251>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = rtb_Product_jkd - 6200.0F;
+    VIPM_BMSCellVoltMin_mV = rtb_Product_jkd - 6200.0F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S251>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S251>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMACCWhlTqReqValDflt_Nm;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMACCWhlTqReqValDflt_Nm;
   }
 
   /* End of Switch: '<S251>/Switch4' */
@@ -9662,16 +9642,16 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S251>/MinMax' incorporates:
    *  Constant: '<S251>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_FCMACCWhlTqReqValHi_Nm) {
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMACCWhlTqReqValHi_Nm;
+  if (VIPM_BMSCellVoltMin_mV > KIPM_FCMACCWhlTqReqValHi_Nm) {
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMACCWhlTqReqValHi_Nm;
   }
 
   /* MinMax: '<S251>/MinMax1' incorporates:
    *  Constant: '<S251>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_FCMACCWhlTqReqValLo_Nm) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_FCMACCWhlTqReqValLo_Nm) {
     /* MinMax: '<S251>/MinMax1' */
-    VIPM_FCMACCWhlTqReqVal_Nm = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_FCMACCWhlTqReqVal_Nm = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S251>/MinMax1' */
     VIPM_FCMACCWhlTqReqVal_Nm = KIPM_FCMACCWhlTqReqValLo_Nm;
@@ -9696,9 +9676,9 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_FCMACCWhlDece_mps2_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S249>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMACCWhlDece_mps2_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMACCWhlDece_mps2_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_FCMMsgActv_flg) {
     /* Product: '<S263>/Product' incorporates:
@@ -9711,18 +9691,18 @@ static void Runbl_Ipm20ms(void)
       0.05F;
 
     /* MinMax: '<S251>/MinMax' incorporates:
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Sum: '<S263>/Add'
      *  Switch: '<S249>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = rtb_Product_jkd - 9.5F;
+    VIPM_BMSCellVoltMin_mV = rtb_Product_jkd - 9.5F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S249>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S249>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMACCWhlDeceDflt_mps2;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMACCWhlDeceDflt_mps2;
   }
 
   /* End of Switch: '<S249>/Switch4' */
@@ -9730,9 +9710,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S249>/MinMax' incorporates:
    *  Constant: '<S249>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_FCMACCWhlDeceHi_mps2) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_FCMACCWhlDeceHi_mps2) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMACCWhlDeceHi_mps2;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMACCWhlDeceHi_mps2;
   }
 
   /* End of MinMax: '<S249>/MinMax' */
@@ -9740,9 +9720,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S249>/MinMax1' incorporates:
    *  Constant: '<S249>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_FCMACCWhlDeceLo_mps2) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_FCMACCWhlDeceLo_mps2) {
     /* MinMax: '<S249>/MinMax1' */
-    VIPM_FCMACCWhlDece_mps2 = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_FCMACCWhlDece_mps2 = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S249>/MinMax1' */
     VIPM_FCMACCWhlDece_mps2 = KIPM_FCMACCWhlDeceLo_mps2;
@@ -9812,9 +9792,9 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_FCMAccTarAccrn_mps2_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S257>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMAccTarAccrn_mps2_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMAccTarAccrn_mps2_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_FCMMsgActv_flg) {
     /* Product: '<S264>/Product' incorporates:
@@ -9827,18 +9807,18 @@ static void Runbl_Ipm20ms(void)
       0.05F;
 
     /* MinMax: '<S251>/MinMax' incorporates:
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Sum: '<S264>/Add'
      *  Switch: '<S257>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = rtb_Product_jkd - 5.0F;
+    VIPM_BMSCellVoltMin_mV = rtb_Product_jkd - 5.0F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S257>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S257>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMAccTarAccrnDflt_mps2;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMAccTarAccrnDflt_mps2;
   }
 
   /* End of Switch: '<S257>/Switch4' */
@@ -9846,9 +9826,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S257>/MinMax' incorporates:
    *  Constant: '<S257>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_FCMAccTarAccrnHi_mps2) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_FCMAccTarAccrnHi_mps2) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMAccTarAccrnHi_mps2;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMAccTarAccrnHi_mps2;
   }
 
   /* End of MinMax: '<S257>/MinMax' */
@@ -9856,9 +9836,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S257>/MinMax1' incorporates:
    *  Constant: '<S257>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_FCMAccTarAccrnLo_mps2) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_FCMAccTarAccrnLo_mps2) {
     /* MinMax: '<S257>/MinMax1' */
-    VIPM_FCMAccTarAccrn_mps2 = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_FCMAccTarAccrn_mps2 = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S257>/MinMax1' */
     VIPM_FCMAccTarAccrn_mps2 = KIPM_FCMAccTarAccrnLo_mps2;
@@ -9974,9 +9954,9 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_FCMAccTgtAx_mps2_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S259>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMAccTgtAx_mps2_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMAccTgtAx_mps2_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_FCMMsgActv_flg) {
     /* Product: '<S265>/Product' incorporates:
@@ -9989,18 +9969,18 @@ static void Runbl_Ipm20ms(void)
       0.05F;
 
     /* MinMax: '<S251>/MinMax' incorporates:
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Sum: '<S265>/Add'
      *  Switch: '<S259>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = rtb_Product_jkd - 9.5F;
+    VIPM_BMSCellVoltMin_mV = rtb_Product_jkd - 9.5F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S259>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S259>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMAccTgtAxDflt_mps2;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMAccTgtAxDflt_mps2;
   }
 
   /* End of Switch: '<S259>/Switch4' */
@@ -10008,9 +9988,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S259>/MinMax' incorporates:
    *  Constant: '<S259>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_FCMAccTgtAxHi_mps2) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_FCMAccTgtAxHi_mps2) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_FCMAccTgtAxHi_mps2;
+    VIPM_BMSCellVoltMin_mV = KIPM_FCMAccTgtAxHi_mps2;
   }
 
   /* End of MinMax: '<S259>/MinMax' */
@@ -10018,9 +9998,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S259>/MinMax1' incorporates:
    *  Constant: '<S259>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_FCMAccTgtAxLo_mps2) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_FCMAccTgtAxLo_mps2) {
     /* MinMax: '<S259>/MinMax1' */
-    VIPM_FCMAccTgtAx_mps2 = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_FCMAccTgtAx_mps2 = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S259>/MinMax1' */
     VIPM_FCMAccTgtAx_mps2 = KIPM_FCMAccTgtAxLo_mps2;
@@ -10119,6 +10099,13 @@ static void Runbl_Ipm20ms(void)
   /* End of Outputs for SubSystem: '<S236>/Subsys_VIPM_FCMAccReqDriveOff_flg' */
 
   /* Outputs for Atomic SubSystem: '<S236>/Subsys_VIPM_FCMAccMode_enum' */
+  /* Logic: '<S253>/Logical Operator3' incorporates:
+   *  Constant: '<S253>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_FCMAccModeVld_flg = (KIPM_FCMAccMode_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_FCMMsgActv_flg);
+
   /* Switch: '<S253>/Switch4' incorporates:
    *  Constant: '<S253>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -10147,14 +10134,6 @@ static void Runbl_Ipm20ms(void)
   }
 
   /* End of Switch: '<S253>/Switch4' */
-
-  /* Logic: '<S253>/Logical Operator3' incorporates:
-   *  Constant: '<S253>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_FCMAccModeVld_flg = (KIPM_FCMAccMode_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_FCMMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S236>/Subsys_VIPM_FCMAccMode_enum' */
 
   /* Outputs for Atomic SubSystem: '<S236>/Subsys_VIPM_FCMAEBReq_flg' */
@@ -10367,6 +10346,13 @@ static void Runbl_Ipm20ms(void)
   /* End of Outputs for SubSystem: '<S266>/Subsys_VIPM_BMSDCSInletConnectSta_flg' */
 
   /* Outputs for Atomic SubSystem: '<S266>/Subsys_VIPM_BMSDCSActOprtMode_enum' */
+  /* Logic: '<S273>/Logical Operator3' incorporates:
+   *  Constant: '<S273>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_BMSDCSActOprtModeVld_flg = (KIPM_BMSDCSActOprtMode_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
+
   /* Switch: '<S273>/Switch4' incorporates:
    *  Constant: '<S273>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -10396,14 +10382,6 @@ static void Runbl_Ipm20ms(void)
   }
 
   /* End of Switch: '<S273>/Switch4' */
-
-  /* Logic: '<S273>/Logical Operator3' incorporates:
-   *  Constant: '<S273>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_BMSDCSActOprtModeVld_flg = (KIPM_BMSDCSActOprtMode_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S266>/Subsys_VIPM_BMSDCSActOprtMode_enum' */
 
   /* BusCreator: '<S266>/BusCreator' incorporates:
@@ -10573,9 +10551,9 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_BMSActExchgCurnt_A_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S275>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSActExchgCurnt_A_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSActExchgCurnt_A_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_BMSMsgActv_flg) {
     /* Product: '<S283>/Product' incorporates:
@@ -10588,18 +10566,18 @@ static void Runbl_Ipm20ms(void)
       )->BMS_ActlExchgCurnt * 0.1F;
 
     /* MinMax: '<S251>/MinMax' incorporates:
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Sum: '<S283>/Add'
      *  Switch: '<S275>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = rtb_Product_jkd - 1000.0F;
+    VIPM_BMSCellVoltMin_mV = rtb_Product_jkd - 1000.0F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S275>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S275>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSActExchgCurntDflt_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSActExchgCurntDflt_A;
   }
 
   /* End of Switch: '<S275>/Switch4' */
@@ -10607,9 +10585,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S275>/MinMax' incorporates:
    *  Constant: '<S275>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSActExchgCurntHi_A) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSActExchgCurntHi_A) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSActExchgCurntHi_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSActExchgCurntHi_A;
   }
 
   /* End of MinMax: '<S275>/MinMax' */
@@ -10617,9 +10595,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S275>/MinMax1' incorporates:
    *  Constant: '<S275>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSActExchgCurntLo_A) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSActExchgCurntLo_A) {
     /* MinMax: '<S275>/MinMax1' */
-    VIPM_BMSActExchgCurnt_A = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_BMSActExchgCurnt_A = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S275>/MinMax1' */
     VIPM_BMSActExchgCurnt_A = KIPM_BMSActExchgCurntLo_A;
@@ -10764,6 +10742,13 @@ static void Runbl_Ipm20ms(void)
   /* End of Outputs for SubSystem: '<S267>/Subsys_VIPM_BMSPwrTrainConnectSta_enum' */
 
   /* Outputs for Atomic SubSystem: '<S267>/Subsys_VIPM_BMSRunSta_enum' */
+  /* Logic: '<S280>/Logical Operator3' incorporates:
+   *  Constant: '<S280>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_BMSRunStaVld_flg = (KIPM_BMSRunSta_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
+
   /* Switch: '<S280>/Switch4' incorporates:
    *  Constant: '<S280>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -10793,14 +10778,6 @@ static void Runbl_Ipm20ms(void)
   }
 
   /* End of Switch: '<S280>/Switch4' */
-
-  /* Logic: '<S280>/Logical Operator3' incorporates:
-   *  Constant: '<S280>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_BMSRunStaVld_flg = (KIPM_BMSRunSta_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S267>/Subsys_VIPM_BMSRunSta_enum' */
 
   /* BusCreator: '<S267>/BusCreator' incorporates:
@@ -10852,6 +10829,304 @@ static void Runbl_Ipm20ms(void)
     VIPM_BMSPwrTrainConnectStaVld_flg;
   AppSwcIpm_ARID_DEF.BusCreator.VIPM_BMSRunSta_enum = VIPM_BMSRunSta_enum;
   AppSwcIpm_ARID_DEF.BusCreator.VIPM_BMSRunStaVld_flg = VIPM_BMSRunStaVld_flg;
+
+  /* Outputs for Atomic SubSystem: '<S268>/Subsys_VIPM_BMSBatSOCRpt_pct' */
+  /* Logic: '<S285>/Logical Operator3' incorporates:
+   *  Constant: '<S285>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_BMSBatSOCRptVld_flg = (KIPM_BMSBatSOCRpt_pct_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
+
+  /* Switch: '<S285>/Switch4' incorporates:
+   *  Constant: '<S285>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S285>/Switch'
+   */
+  if (KIPM_BMSBatSOCRpt_pct_ovrdflg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S285>/sat4'
+     *  MinMax: '<S313>/MinMax'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSBatSOCRpt_pct_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
+             ->VIPM_BMSMsgActv_flg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S288>/Constant'
+     *  Inport: '<Root>/BMS_2_BatState_EPT'
+     *  MinMax: '<S313>/MinMax'
+     *  Product: '<S288>/Product'
+     *  Switch: '<S285>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = (float32)
+      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT())
+      ->BMS_BatSOC_Rpt * 0.1F;
+  } else {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S285>/sat5'
+     *  MinMax: '<S313>/MinMax'
+     *  Switch: '<S285>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSBatSOCRptDflt_pct;
+  }
+
+  /* End of Switch: '<S285>/Switch4' */
+
+  /* MinMax: '<S285>/MinMax' incorporates:
+   *  Constant: '<S285>/sat6'
+   */
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSBatSOCRptHi_pct) {
+    /* MinMax: '<S251>/MinMax' */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSBatSOCRptHi_pct;
+  }
+
+  /* End of MinMax: '<S285>/MinMax' */
+
+  /* MinMax: '<S285>/MinMax1' incorporates:
+   *  Constant: '<S285>/sat7'
+   */
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSBatSOCRptLo_pct) {
+    /* MinMax: '<S285>/MinMax1' */
+    VIPM_BMSBatSOCRpt_pct = VIPM_BMSCellVoltMin_mV;
+  } else {
+    /* MinMax: '<S285>/MinMax1' */
+    VIPM_BMSBatSOCRpt_pct = KIPM_BMSBatSOCRptLo_pct;
+  }
+
+  /* End of MinMax: '<S285>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S268>/Subsys_VIPM_BMSBatSOCRpt_pct' */
+
+  /* Outputs for Atomic SubSystem: '<S268>/Subsys_VIPM_BMSBatSOH_pct' */
+  /* Logic: '<S286>/Logical Operator3' incorporates:
+   *  Constant: '<S286>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_BMSBatSOHVld_flg = (KIPM_BMSBatSOH_pct_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
+
+  /* Switch: '<S286>/Switch4' incorporates:
+   *  Constant: '<S286>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S286>/Switch'
+   */
+  if (KIPM_BMSBatSOH_pct_ovrdflg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S286>/sat4'
+     *  MinMax: '<S313>/MinMax'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSBatSOH_pct_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
+             ->VIPM_BMSMsgActv_flg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S289>/Constant'
+     *  Inport: '<Root>/BMS_2_BatState_EPT'
+     *  MinMax: '<S313>/MinMax'
+     *  Product: '<S289>/Product'
+     *  Switch: '<S286>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = (float32)
+      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT())
+      ->BMS_BatSOH * 0.1F;
+  } else {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S286>/sat5'
+     *  MinMax: '<S313>/MinMax'
+     *  Switch: '<S286>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSBatSOHDflt_pct;
+  }
+
+  /* End of Switch: '<S286>/Switch4' */
+
+  /* MinMax: '<S286>/MinMax' incorporates:
+   *  Constant: '<S286>/sat6'
+   */
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSBatSOHHi_pct) {
+    /* MinMax: '<S251>/MinMax' */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSBatSOHHi_pct;
+  }
+
+  /* End of MinMax: '<S286>/MinMax' */
+
+  /* MinMax: '<S286>/MinMax1' incorporates:
+   *  Constant: '<S286>/sat7'
+   */
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSBatSOHLo_pct) {
+    /* MinMax: '<S286>/MinMax1' */
+    VIPM_BMSBatSOH_pct = VIPM_BMSCellVoltMin_mV;
+  } else {
+    /* MinMax: '<S286>/MinMax1' */
+    VIPM_BMSBatSOH_pct = KIPM_BMSBatSOHLo_pct;
+  }
+
+  /* End of MinMax: '<S286>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S268>/Subsys_VIPM_BMSBatSOH_pct' */
+
+  /* Outputs for Atomic SubSystem: '<S268>/Subsys_VIPM_BMSHVBatActVolt_V' */
+  /* Logic: '<S287>/Logical Operator2' incorporates:
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Inport: '<Root>/BMS_2_BatState_EPT'
+   */
+  rtb_LogicalOperator2_e =
+    ((Rte_IRead_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT())
+     ->BMS_HVBatActlVoltageV &&
+     (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
+     ->VIPM_BMSMsgActv_flg);
+
+  /* Logic: '<S287>/Logical Operator3' incorporates:
+   *  Constant: '<S287>/sat3'
+   */
+  VIPM_BMSHVBatActVoltVld_flg = (KIPM_BMSHVBatActVolt_V_ovrdflg ||
+    rtb_LogicalOperator2_e);
+
+  /* Switch: '<S287>/Switch4' incorporates:
+   *  Constant: '<S287>/sat3'
+   *  Switch: '<S287>/Switch'
+   */
+  if (KIPM_BMSHVBatActVolt_V_ovrdflg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S287>/sat4'
+     *  MinMax: '<S313>/MinMax'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSHVBatActVolt_V_ovrdval;
+  } else if (rtb_LogicalOperator2_e) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S290>/Constant'
+     *  Inport: '<Root>/BMS_2_BatState_EPT'
+     *  MinMax: '<S313>/MinMax'
+     *  Product: '<S290>/Product'
+     *  Switch: '<S287>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = (float32)
+      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT())
+      ->BMS_HVBatActlVoltage * 0.1F;
+  } else {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S287>/sat5'
+     *  MinMax: '<S313>/MinMax'
+     *  Switch: '<S287>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSHVBatActVoltDflt_V;
+  }
+
+  /* End of Switch: '<S287>/Switch4' */
+
+  /* MinMax: '<S287>/MinMax' incorporates:
+   *  Constant: '<S287>/sat6'
+   */
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSHVBatActVoltHi_V) {
+    /* MinMax: '<S251>/MinMax' */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSHVBatActVoltHi_V;
+  }
+
+  /* End of MinMax: '<S287>/MinMax' */
+
+  /* MinMax: '<S287>/MinMax1' incorporates:
+   *  Constant: '<S287>/sat7'
+   */
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSHVBatActVoltLo_V) {
+    /* MinMax: '<S287>/MinMax1' */
+    VIPM_BMSHVBatActVolt_V = VIPM_BMSCellVoltMin_mV;
+  } else {
+    /* MinMax: '<S287>/MinMax1' */
+    VIPM_BMSHVBatActVolt_V = KIPM_BMSHVBatActVoltLo_V;
+  }
+
+  /* End of MinMax: '<S287>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S268>/Subsys_VIPM_BMSHVBatActVolt_V' */
+
+  /* Outputs for Atomic SubSystem: '<S268>/Subsys_VIPM_BMSBatSOCAct_pct' */
+  /* Logic: '<S284>/Logical Operator3' incorporates:
+   *  Constant: '<S284>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_BMSBatSOCActVld_flg = (KIPM_BMSBatSOCAct_pct_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
+
+  /* Switch: '<S284>/Switch4' incorporates:
+   *  Constant: '<S284>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S284>/Switch'
+   */
+  if (KIPM_BMSBatSOCAct_pct_ovrdflg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S284>/sat4'
+     *  MinMax: '<S313>/MinMax'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSBatSOCAct_pct_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
+             ->VIPM_BMSMsgActv_flg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S291>/Constant'
+     *  Inport: '<Root>/BMS_2_BatState_EPT'
+     *  MinMax: '<S313>/MinMax'
+     *  Product: '<S291>/Product'
+     *  Switch: '<S284>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = (float32)
+      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT())
+      ->BMS_BatSOC_Actl * 0.1F;
+  } else {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S284>/sat5'
+     *  MinMax: '<S313>/MinMax'
+     *  Switch: '<S284>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSBatSOCActDflt_pct;
+  }
+
+  /* End of Switch: '<S284>/Switch4' */
+
+  /* MinMax: '<S284>/MinMax' incorporates:
+   *  Constant: '<S284>/sat6'
+   */
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSBatSOCActHi_pct) {
+    /* MinMax: '<S251>/MinMax' */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSBatSOCActHi_pct;
+  }
+
+  /* End of MinMax: '<S284>/MinMax' */
+
+  /* MinMax: '<S284>/MinMax1' incorporates:
+   *  Constant: '<S284>/sat7'
+   */
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSBatSOCActLo_pct) {
+    /* MinMax: '<S284>/MinMax1' */
+    VIPM_BMSBatSOCAct_pct = VIPM_BMSCellVoltMin_mV;
+  } else {
+    /* MinMax: '<S284>/MinMax1' */
+    VIPM_BMSBatSOCAct_pct = KIPM_BMSBatSOCActLo_pct;
+  }
+
+  /* End of MinMax: '<S284>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S268>/Subsys_VIPM_BMSBatSOCAct_pct' */
+
+  /* BusCreator: '<S268>/BusCreator' incorporates:
+   *  Logic: '<S284>/Logical Operator3'
+   *  Logic: '<S285>/Logical Operator3'
+   *  Logic: '<S286>/Logical Operator3'
+   *  Logic: '<S287>/Logical Operator3'
+   *  MinMax: '<S284>/MinMax1'
+   *  MinMax: '<S285>/MinMax1'
+   *  MinMax: '<S286>/MinMax1'
+   *  MinMax: '<S287>/MinMax1'
+   */
+  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOCRpt_pct =
+    VIPM_BMSBatSOCRpt_pct;
+  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOCRptVld_flg =
+    VIPM_BMSBatSOCRptVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOH_pct =
+    VIPM_BMSBatSOH_pct;
+  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOHVld_flg =
+    VIPM_BMSBatSOHVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSHVBatActVolt_V =
+    VIPM_BMSHVBatActVolt_V;
+  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSHVBatActVoltVld_flg =
+    VIPM_BMSHVBatActVoltVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOCAct_pct =
+    VIPM_BMSBatSOCAct_pct;
+  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOCActVld_flg =
+    VIPM_BMSBatSOCActVld_flg;
 
   /* Outputs for Atomic SubSystem: '<S269>/Subsys_VIPM_BMSDCSChrgReq_flg' */
   /* Logic: '<S292>/Logical Operator3' incorporates:
@@ -10908,6 +11183,13 @@ static void Runbl_Ipm20ms(void)
     VIPM_BMSDCSChrgReqVld_flg;
 
   /* Outputs for Atomic SubSystem: '<S270>/Subsys_VIPM_BMSACChrgAtclSta_enum' */
+  /* Logic: '<S293>/Logical Operator3' incorporates:
+   *  Constant: '<S293>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_BMSACChrgAtclStaVld_flg = (KIPM_BMSACChrgAtclSta_enum_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
+
   /* Switch: '<S293>/Switch4' incorporates:
    *  Constant: '<S293>/sat3'
    *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
@@ -10937,14 +11219,6 @@ static void Runbl_Ipm20ms(void)
   }
 
   /* End of Switch: '<S293>/Switch4' */
-
-  /* Logic: '<S293>/Logical Operator3' incorporates:
-   *  Constant: '<S293>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_BMSACChrgAtclStaVld_flg = (KIPM_BMSACChrgAtclSta_enum_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
-
   /* End of Outputs for SubSystem: '<S270>/Subsys_VIPM_BMSACChrgAtclSta_enum' */
 
   /* Outputs for Atomic SubSystem: '<S270>/Subsys_VIPM_BMSOutlCooltActlTemp_C' */
@@ -10971,9 +11245,9 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_BMSOutlCooltActlTemp_C_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S298>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSOutlCooltActlTemp_C_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSOutlCooltActlTemp_C_ovrdval;
   } else if (rtb_LogicalOperator2_e) {
     /* Product: '<S299>/Product' incorporates:
      *  Inport: '<Root>/BMS_4_AC_ChargeState_EPT'
@@ -10984,18 +11258,18 @@ static void Runbl_Ipm20ms(void)
        ())->BMS_OutletCoolantActlTemp;
 
     /* MinMax: '<S251>/MinMax' incorporates:
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Sum: '<S299>/Add'
      *  Switch: '<S298>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)rtb_Product_a - 40.0F;
+    VIPM_BMSCellVoltMin_mV = (float32)rtb_Product_a - 40.0F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S298>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S298>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSOutlCooltActlTempDflt_C;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSOutlCooltActlTempDflt_C;
   }
 
   /* End of Switch: '<S298>/Switch4' */
@@ -11003,9 +11277,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S298>/MinMax' incorporates:
    *  Constant: '<S298>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSOutlCooltActlTempHi_C) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSOutlCooltActlTempHi_C) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSOutlCooltActlTempHi_C;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSOutlCooltActlTempHi_C;
   }
 
   /* End of MinMax: '<S298>/MinMax' */
@@ -11013,9 +11287,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S298>/MinMax1' incorporates:
    *  Constant: '<S298>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSOutlCooltActlTempLo_C) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSOutlCooltActlTempLo_C) {
     /* MinMax: '<S298>/MinMax1' */
-    VIPM_BMSOutlCooltActlTemp_C = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_BMSOutlCooltActlTemp_C = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S298>/MinMax1' */
     VIPM_BMSOutlCooltActlTemp_C = KIPM_BMSOutlCooltActlTempLo_C;
@@ -11048,9 +11322,9 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_BMSInletCooltActlTemp_C_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S294>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSInletCooltActlTemp_C_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSInletCooltActlTemp_C_ovrdval;
   } else if (rtb_LogicalOperator2_e) {
     /* Product: '<S300>/Product' incorporates:
      *  Inport: '<Root>/BMS_4_AC_ChargeState_EPT'
@@ -11061,18 +11335,18 @@ static void Runbl_Ipm20ms(void)
        ())->BMS_InletCoolantActlTemp;
 
     /* MinMax: '<S251>/MinMax' incorporates:
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Sum: '<S300>/Add'
      *  Switch: '<S294>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)rtb_Product_a - 40.0F;
+    VIPM_BMSCellVoltMin_mV = (float32)rtb_Product_a - 40.0F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S294>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S294>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSInletCooltActlTempDflt_C;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSInletCooltActlTempDflt_C;
   }
 
   /* End of Switch: '<S294>/Switch4' */
@@ -11080,9 +11354,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S294>/MinMax' incorporates:
    *  Constant: '<S294>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSInletCooltActlTempHi_C) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSInletCooltActlTempHi_C) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSInletCooltActlTempHi_C;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSInletCooltActlTempHi_C;
   }
 
   /* End of MinMax: '<S294>/MinMax' */
@@ -11090,9 +11364,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S294>/MinMax1' incorporates:
    *  Constant: '<S294>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSInletCooltActlTempLo_C) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSInletCooltActlTempLo_C) {
     /* MinMax: '<S294>/MinMax1' */
-    VIPM_BMSInletCooltActlTemp_C = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_BMSInletCooltActlTemp_C = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S294>/MinMax1' */
     VIPM_BMSInletCooltActlTemp_C = KIPM_BMSInletCooltActlTempLo_C;
@@ -11117,28 +11391,28 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_BMSIsoResist_MOhm_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S295>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSIsoResist_MOhm_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSIsoResist_MOhm_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_BMSMsgActv_flg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S301>/Constant'
      *  Inport: '<Root>/BMS_4_AC_ChargeState_EPT'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Product: '<S301>/Product'
      *  Switch: '<S295>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
+    VIPM_BMSCellVoltMin_mV = (float32)
       (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_4_AC_ChargeState_EPT_BMS_4_AC_ChargeState_EPT
        ())->BMS_IsoResistance * 0.02F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S295>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S295>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSIsoResistDflt_MOhm;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSIsoResistDflt_MOhm;
   }
 
   /* End of Switch: '<S295>/Switch4' */
@@ -11146,9 +11420,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S295>/MinMax' incorporates:
    *  Constant: '<S295>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSIsoResistHi_MOhm) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSIsoResistHi_MOhm) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSIsoResistHi_MOhm;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSIsoResistHi_MOhm;
   }
 
   /* End of MinMax: '<S295>/MinMax' */
@@ -11156,9 +11430,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S295>/MinMax1' incorporates:
    *  Constant: '<S295>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSIsoResistLo_MOhm) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSIsoResistLo_MOhm) {
     /* MinMax: '<S295>/MinMax1' */
-    VIPM_BMSIsoResist_MOhm = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_BMSIsoResist_MOhm = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S295>/MinMax1' */
     VIPM_BMSIsoResist_MOhm = KIPM_BMSIsoResistLo_MOhm;
@@ -11183,28 +11457,28 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_BMSMaxChrgVoltAC_V_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S297>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxChrgVoltAC_V_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxChrgVoltAC_V_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_BMSMsgActv_flg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S302>/Constant'
      *  Inport: '<Root>/BMS_4_AC_ChargeState_EPT'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Product: '<S302>/Product'
      *  Switch: '<S297>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
+    VIPM_BMSCellVoltMin_mV = (float32)
       (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_4_AC_ChargeState_EPT_BMS_4_AC_ChargeState_EPT
        ())->BMS_MaxChrgVoltage_AC * 0.5F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S297>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S297>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxChrgVoltACDflt_V;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxChrgVoltACDflt_V;
   }
 
   /* End of Switch: '<S297>/Switch4' */
@@ -11212,9 +11486,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S297>/MinMax' incorporates:
    *  Constant: '<S297>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSMaxChrgVoltACHi_V) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSMaxChrgVoltACHi_V) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxChrgVoltACHi_V;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxChrgVoltACHi_V;
   }
 
   /* End of MinMax: '<S297>/MinMax' */
@@ -11222,9 +11496,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S297>/MinMax1' incorporates:
    *  Constant: '<S297>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSMaxChrgVoltACLo_V) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSMaxChrgVoltACLo_V) {
     /* MinMax: '<S297>/MinMax1' */
-    VIPM_BMSMaxChrgVoltAC_V = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_BMSMaxChrgVoltAC_V = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S297>/MinMax1' */
     VIPM_BMSMaxChrgVoltAC_V = KIPM_BMSMaxChrgVoltACLo_V;
@@ -11249,28 +11523,28 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_BMSMaxChrgCurntAC_A_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S296>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxChrgCurntAC_A_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxChrgCurntAC_A_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_BMSMsgActv_flg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S303>/Constant'
      *  Inport: '<Root>/BMS_4_AC_ChargeState_EPT'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Product: '<S303>/Product'
      *  Switch: '<S296>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
+    VIPM_BMSCellVoltMin_mV = (float32)
       (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_4_AC_ChargeState_EPT_BMS_4_AC_ChargeState_EPT
        ())->BMS_MaxChrgCurrent_AC * 0.1F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S296>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S296>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxChrgCurntACDflt_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxChrgCurntACDflt_A;
   }
 
   /* End of Switch: '<S296>/Switch4' */
@@ -11278,9 +11552,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S296>/MinMax' incorporates:
    *  Constant: '<S296>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSMaxChrgCurntACHi_A) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSMaxChrgCurntACHi_A) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxChrgCurntACHi_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxChrgCurntACHi_A;
   }
 
   /* End of MinMax: '<S296>/MinMax' */
@@ -11288,9 +11562,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S296>/MinMax1' incorporates:
    *  Constant: '<S296>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSMaxChrgCurntACLo_A) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSMaxChrgCurntACLo_A) {
     /* MinMax: '<S296>/MinMax1' */
-    VIPM_BMSMaxChrgCurntAC_A = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_BMSMaxChrgCurntAC_A = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S296>/MinMax1' */
     VIPM_BMSMaxChrgCurntAC_A = KIPM_BMSMaxChrgCurntACLo_A;
@@ -11339,451 +11613,6 @@ static void Runbl_Ipm20ms(void)
   AppSwcIpm_ARID_DEF.IPM_BMS_4_AC_ChargeState_EPT.VIPM_BMSMaxChrgCurntACVld_flg =
     VIPM_BMSMaxChrgCurntACVld_flg;
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VIPM_BMSCellVoltMax_mV' */
-  /* Switch: '<S312>/Switch4' incorporates:
-   *  Constant: '<S312>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S312>/Switch'
-   */
-  if (KIPM_BMSCellVoltMax_mV_ovrdflg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S312>/sat4'
-     *  MinMax: '<S306>/MinMax'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSCellVoltMax_mV_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
-             ->VIPM_BMSMsgActv_flg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  DataTypeConversion: '<S312>/Data Type Conversion2'
-     *  Inport: '<Root>/BMS_7_CellVolt_EPT'
-     *  MinMax: '<S306>/MinMax'
-     *  Switch: '<S312>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
-      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_7_CellVolt_EPT_BMS_7_CellVolt_EPT())
-      ->BMS_CellVolMax;
-  } else {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S312>/sat5'
-     *  MinMax: '<S306>/MinMax'
-     *  Switch: '<S312>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSCellVoltMaxDflt_mV;
-  }
-
-  /* End of Switch: '<S312>/Switch4' */
-
-  /* MinMax: '<S312>/MinMax' incorporates:
-   *  Constant: '<S312>/sat6'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSCellVoltMaxHi_mV) {
-    /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSCellVoltMaxHi_mV;
-  }
-
-  /* End of MinMax: '<S312>/MinMax' */
-
-  /* MinMax: '<S312>/MinMax1' incorporates:
-   *  Constant: '<S312>/sat7'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSCellVoltMaxLo_mV) {
-    /* MinMax: '<S312>/MinMax1' */
-    VIPM_BMSCellVoltMax_mV = VIPM_BMSMaxInsChrgCurnt_A;
-  } else {
-    /* MinMax: '<S312>/MinMax1' */
-    VIPM_BMSCellVoltMax_mV = KIPM_BMSCellVoltMaxLo_mV;
-  }
-
-  /* End of MinMax: '<S312>/MinMax1' */
-
-  /* Logic: '<S312>/Logical Operator3' incorporates:
-   *  Constant: '<S312>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_BMSCellVoltMaxVld_flg = (KIPM_BMSCellVoltMax_mV_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
-
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VIPM_BMSCellVoltMax_mV' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VIPM_BMSCellVoltMin_mV' */
-  /* Switch: '<S313>/Switch4' incorporates:
-   *  Constant: '<S313>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S313>/Switch'
-   */
-  if (KIPM_BMSCellVoltMin_mV_ovrdflg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S313>/sat4'
-     *  MinMax: '<S306>/MinMax'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSCellVoltMin_mV_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
-             ->VIPM_BMSMsgActv_flg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  DataTypeConversion: '<S313>/Data Type Conversion2'
-     *  Inport: '<Root>/BMS_7_CellVolt_EPT'
-     *  MinMax: '<S306>/MinMax'
-     *  Switch: '<S313>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
-      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_7_CellVolt_EPT_BMS_7_CellVolt_EPT())
-      ->BMS_CellVolMin;
-  } else {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S313>/sat5'
-     *  MinMax: '<S306>/MinMax'
-     *  Switch: '<S313>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSCellVoltMinDflt_mV;
-  }
-
-  /* End of Switch: '<S313>/Switch4' */
-
-  /* MinMax: '<S313>/MinMax' incorporates:
-   *  Constant: '<S313>/sat6'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSCellVoltMinHi_mV) {
-    /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSCellVoltMinHi_mV;
-  }
-
-  /* End of MinMax: '<S313>/MinMax' */
-
-  /* MinMax: '<S313>/MinMax1' incorporates:
-   *  Constant: '<S313>/sat7'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSCellVoltMinLo_mV) {
-    /* MinMax: '<S313>/MinMax1' */
-    VIPM_BMSCellVoltMin_mV = VIPM_BMSMaxInsChrgCurnt_A;
-  } else {
-    /* MinMax: '<S313>/MinMax1' */
-    VIPM_BMSCellVoltMin_mV = KIPM_BMSCellVoltMinLo_mV;
-  }
-
-  /* End of MinMax: '<S313>/MinMax1' */
-
-  /* Logic: '<S313>/Logical Operator3' incorporates:
-   *  Constant: '<S313>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_BMSCellVoltMinVld_flg = (KIPM_BMSCellVoltMin_mV_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
-
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VIPM_BMSCellVoltMin_mV' */
-
-  /* BusCreator: '<S272>/BusCreator' incorporates:
-   *  Logic: '<S312>/Logical Operator3'
-   *  Logic: '<S313>/Logical Operator3'
-   *  MinMax: '<S312>/MinMax1'
-   *  MinMax: '<S313>/MinMax1'
-   */
-  AppSwcIpm_ARID_DEF.IPM_BMS_7_CellVolt_EPT.VIPM_BMSCellVoltMax_mV =
-    VIPM_BMSCellVoltMax_mV;
-  AppSwcIpm_ARID_DEF.IPM_BMS_7_CellVolt_EPT.VIPM_BMSCellVoltMaxVld_flg =
-    VIPM_BMSCellVoltMaxVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_BMS_7_CellVolt_EPT.VIPM_BMSCellVoltMin_mV =
-    VIPM_BMSCellVoltMin_mV;
-  AppSwcIpm_ARID_DEF.IPM_BMS_7_CellVolt_EPT.VIPM_BMSCellVoltMinVld_flg =
-    VIPM_BMSCellVoltMinVld_flg;
-
-  /* Outputs for Atomic SubSystem: '<S268>/Subsys_VIPM_BMSBatSOCRpt_pct' */
-  /* Logic: '<S285>/Logical Operator3' incorporates:
-   *  Constant: '<S285>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_BMSBatSOCRptVld_flg = (KIPM_BMSBatSOCRpt_pct_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
-
-  /* Switch: '<S285>/Switch4' incorporates:
-   *  Constant: '<S285>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S285>/Switch'
-   */
-  if (KIPM_BMSBatSOCRpt_pct_ovrdflg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S285>/sat4'
-     *  MinMax: '<S306>/MinMax'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSBatSOCRpt_pct_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
-             ->VIPM_BMSMsgActv_flg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S288>/Constant'
-     *  Inport: '<Root>/BMS_2_BatState_EPT'
-     *  MinMax: '<S306>/MinMax'
-     *  Product: '<S288>/Product'
-     *  Switch: '<S285>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
-      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT())
-      ->BMS_BatSOC_Rpt * 0.1F;
-  } else {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S285>/sat5'
-     *  MinMax: '<S306>/MinMax'
-     *  Switch: '<S285>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSBatSOCRptDflt_pct;
-  }
-
-  /* End of Switch: '<S285>/Switch4' */
-
-  /* MinMax: '<S285>/MinMax' incorporates:
-   *  Constant: '<S285>/sat6'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSBatSOCRptHi_pct) {
-    /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSBatSOCRptHi_pct;
-  }
-
-  /* End of MinMax: '<S285>/MinMax' */
-
-  /* MinMax: '<S285>/MinMax1' incorporates:
-   *  Constant: '<S285>/sat7'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSBatSOCRptLo_pct) {
-    /* MinMax: '<S285>/MinMax1' */
-    VIPM_BMSBatSOCRpt_pct = VIPM_BMSMaxInsChrgCurnt_A;
-  } else {
-    /* MinMax: '<S285>/MinMax1' */
-    VIPM_BMSBatSOCRpt_pct = KIPM_BMSBatSOCRptLo_pct;
-  }
-
-  /* End of MinMax: '<S285>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S268>/Subsys_VIPM_BMSBatSOCRpt_pct' */
-
-  /* Outputs for Atomic SubSystem: '<S268>/Subsys_VIPM_BMSBatSOH_pct' */
-  /* Logic: '<S286>/Logical Operator3' incorporates:
-   *  Constant: '<S286>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_BMSBatSOHVld_flg = (KIPM_BMSBatSOH_pct_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
-
-  /* Switch: '<S286>/Switch4' incorporates:
-   *  Constant: '<S286>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S286>/Switch'
-   */
-  if (KIPM_BMSBatSOH_pct_ovrdflg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S286>/sat4'
-     *  MinMax: '<S306>/MinMax'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSBatSOH_pct_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
-             ->VIPM_BMSMsgActv_flg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S289>/Constant'
-     *  Inport: '<Root>/BMS_2_BatState_EPT'
-     *  MinMax: '<S306>/MinMax'
-     *  Product: '<S289>/Product'
-     *  Switch: '<S286>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
-      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT())
-      ->BMS_BatSOH * 0.1F;
-  } else {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S286>/sat5'
-     *  MinMax: '<S306>/MinMax'
-     *  Switch: '<S286>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSBatSOHDflt_pct;
-  }
-
-  /* End of Switch: '<S286>/Switch4' */
-
-  /* MinMax: '<S286>/MinMax' incorporates:
-   *  Constant: '<S286>/sat6'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSBatSOHHi_pct) {
-    /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSBatSOHHi_pct;
-  }
-
-  /* End of MinMax: '<S286>/MinMax' */
-
-  /* MinMax: '<S286>/MinMax1' incorporates:
-   *  Constant: '<S286>/sat7'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSBatSOHLo_pct) {
-    /* MinMax: '<S286>/MinMax1' */
-    VIPM_BMSBatSOH_pct = VIPM_BMSMaxInsChrgCurnt_A;
-  } else {
-    /* MinMax: '<S286>/MinMax1' */
-    VIPM_BMSBatSOH_pct = KIPM_BMSBatSOHLo_pct;
-  }
-
-  /* End of MinMax: '<S286>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S268>/Subsys_VIPM_BMSBatSOH_pct' */
-
-  /* Outputs for Atomic SubSystem: '<S268>/Subsys_VIPM_BMSHVBatActVolt_V' */
-  /* Logic: '<S287>/Logical Operator2' incorporates:
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Inport: '<Root>/BMS_2_BatState_EPT'
-   */
-  rtb_LogicalOperator2_e =
-    ((Rte_IRead_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT())
-     ->BMS_HVBatActlVoltageV &&
-     (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
-     ->VIPM_BMSMsgActv_flg);
-
-  /* Logic: '<S287>/Logical Operator3' incorporates:
-   *  Constant: '<S287>/sat3'
-   */
-  VIPM_BMSHVBatActVoltVld_flg = (KIPM_BMSHVBatActVolt_V_ovrdflg ||
-    rtb_LogicalOperator2_e);
-
-  /* Switch: '<S287>/Switch4' incorporates:
-   *  Constant: '<S287>/sat3'
-   *  Switch: '<S287>/Switch'
-   */
-  if (KIPM_BMSHVBatActVolt_V_ovrdflg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S287>/sat4'
-     *  MinMax: '<S306>/MinMax'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSHVBatActVolt_V_ovrdval;
-  } else if (rtb_LogicalOperator2_e) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S290>/Constant'
-     *  Inport: '<Root>/BMS_2_BatState_EPT'
-     *  MinMax: '<S306>/MinMax'
-     *  Product: '<S290>/Product'
-     *  Switch: '<S287>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
-      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT())
-      ->BMS_HVBatActlVoltage * 0.1F;
-  } else {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S287>/sat5'
-     *  MinMax: '<S306>/MinMax'
-     *  Switch: '<S287>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSHVBatActVoltDflt_V;
-  }
-
-  /* End of Switch: '<S287>/Switch4' */
-
-  /* MinMax: '<S287>/MinMax' incorporates:
-   *  Constant: '<S287>/sat6'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSHVBatActVoltHi_V) {
-    /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSHVBatActVoltHi_V;
-  }
-
-  /* End of MinMax: '<S287>/MinMax' */
-
-  /* MinMax: '<S287>/MinMax1' incorporates:
-   *  Constant: '<S287>/sat7'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSHVBatActVoltLo_V) {
-    /* MinMax: '<S287>/MinMax1' */
-    VIPM_BMSHVBatActVolt_V = VIPM_BMSMaxInsChrgCurnt_A;
-  } else {
-    /* MinMax: '<S287>/MinMax1' */
-    VIPM_BMSHVBatActVolt_V = KIPM_BMSHVBatActVoltLo_V;
-  }
-
-  /* End of MinMax: '<S287>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S268>/Subsys_VIPM_BMSHVBatActVolt_V' */
-
-  /* Outputs for Atomic SubSystem: '<S268>/Subsys_VIPM_BMSBatSOCAct_pct' */
-  /* Logic: '<S284>/Logical Operator3' incorporates:
-   *  Constant: '<S284>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   */
-  VIPM_BMSBatSOCActVld_flg = (KIPM_BMSBatSOCAct_pct_ovrdflg ||
-    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
-
-  /* Switch: '<S284>/Switch4' incorporates:
-   *  Constant: '<S284>/sat3'
-   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
-   *  Switch: '<S284>/Switch'
-   */
-  if (KIPM_BMSBatSOCAct_pct_ovrdflg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S284>/sat4'
-     *  MinMax: '<S306>/MinMax'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSBatSOCAct_pct_ovrdval;
-  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
-             ->VIPM_BMSMsgActv_flg) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S291>/Constant'
-     *  Inport: '<Root>/BMS_2_BatState_EPT'
-     *  MinMax: '<S306>/MinMax'
-     *  Product: '<S291>/Product'
-     *  Switch: '<S284>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
-      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT())
-      ->BMS_BatSOC_Actl * 0.1F;
-  } else {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  Constant: '<S284>/sat5'
-     *  MinMax: '<S306>/MinMax'
-     *  Switch: '<S284>/Switch'
-     */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSBatSOCActDflt_pct;
-  }
-
-  /* End of Switch: '<S284>/Switch4' */
-
-  /* MinMax: '<S284>/MinMax' incorporates:
-   *  Constant: '<S284>/sat6'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSBatSOCActHi_pct) {
-    /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSBatSOCActHi_pct;
-  }
-
-  /* End of MinMax: '<S284>/MinMax' */
-
-  /* MinMax: '<S284>/MinMax1' incorporates:
-   *  Constant: '<S284>/sat7'
-   */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSBatSOCActLo_pct) {
-    /* MinMax: '<S284>/MinMax1' */
-    VIPM_BMSBatSOCAct_pct = VIPM_BMSMaxInsChrgCurnt_A;
-  } else {
-    /* MinMax: '<S284>/MinMax1' */
-    VIPM_BMSBatSOCAct_pct = KIPM_BMSBatSOCActLo_pct;
-  }
-
-  /* End of MinMax: '<S284>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S268>/Subsys_VIPM_BMSBatSOCAct_pct' */
-
-  /* BusCreator: '<S268>/BusCreator' incorporates:
-   *  Logic: '<S284>/Logical Operator3'
-   *  Logic: '<S285>/Logical Operator3'
-   *  Logic: '<S286>/Logical Operator3'
-   *  Logic: '<S287>/Logical Operator3'
-   *  MinMax: '<S284>/MinMax1'
-   *  MinMax: '<S285>/MinMax1'
-   *  MinMax: '<S286>/MinMax1'
-   *  MinMax: '<S287>/MinMax1'
-   */
-  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOCRpt_pct =
-    VIPM_BMSBatSOCRpt_pct;
-  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOCRptVld_flg =
-    VIPM_BMSBatSOCRptVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOH_pct =
-    VIPM_BMSBatSOH_pct;
-  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOHVld_flg =
-    VIPM_BMSBatSOHVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSHVBatActVolt_V =
-    VIPM_BMSHVBatActVolt_V;
-  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSHVBatActVoltVld_flg =
-    VIPM_BMSHVBatActVoltVld_flg;
-  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOCAct_pct =
-    VIPM_BMSBatSOCAct_pct;
-  AppSwcIpm_ARID_DEF.IPM_BMS_2_BatState_EPT.VIPM_BMSBatSOCActVld_flg =
-    VIPM_BMSBatSOCActVld_flg;
-
   /* Outputs for Atomic SubSystem: '<S271>/Subsys_VIPM_BMSMaxConDisCurnt_A' */
   /* Logic: '<S305>/Logical Operator3' incorporates:
    *  Constant: '<S305>/sat3'
@@ -11800,28 +11629,28 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_BMSMaxConDisCurnt_A_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S305>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxConDisCurnt_A_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxConDisCurnt_A_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_BMSMsgActv_flg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S308>/Constant'
      *  Inport: '<Root>/BMS_6_DischrgRecup_EPT'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Product: '<S308>/Product'
      *  Switch: '<S305>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
+    VIPM_BMSCellVoltMin_mV = (float32)
       (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_6_DischrgRecup_EPT_BMS_6_DischrgRecup_EPT
        ())->BMS_MaxConDisCurnt * 0.1F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S305>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S305>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxConDisCurntDflt_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxConDisCurntDflt_A;
   }
 
   /* End of Switch: '<S305>/Switch4' */
@@ -11829,9 +11658,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S305>/MinMax' incorporates:
    *  Constant: '<S305>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSMaxConDisCurntHi_A) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSMaxConDisCurntHi_A) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxConDisCurntHi_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxConDisCurntHi_A;
   }
 
   /* End of MinMax: '<S305>/MinMax' */
@@ -11839,9 +11668,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S305>/MinMax1' incorporates:
    *  Constant: '<S305>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSMaxConDisCurntLo_A) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSMaxConDisCurntLo_A) {
     /* MinMax: '<S305>/MinMax1' */
-    VIPM_BMSMaxConDisCurnt_A = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_BMSMaxConDisCurnt_A = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S305>/MinMax1' */
     VIPM_BMSMaxConDisCurnt_A = KIPM_BMSMaxConDisCurntLo_A;
@@ -11866,28 +11695,28 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_BMSMaxInsDisCurnt_A_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S307>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxInsDisCurnt_A_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxInsDisCurnt_A_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_BMSMsgActv_flg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S309>/Constant'
      *  Inport: '<Root>/BMS_6_DischrgRecup_EPT'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Product: '<S309>/Product'
      *  Switch: '<S307>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
+    VIPM_BMSCellVoltMin_mV = (float32)
       (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_6_DischrgRecup_EPT_BMS_6_DischrgRecup_EPT
        ())->BMS_MaxInstanDisCurnt * 0.1F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S307>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S307>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxInsDisCurntDflt_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxInsDisCurntDflt_A;
   }
 
   /* End of Switch: '<S307>/Switch4' */
@@ -11895,9 +11724,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S307>/MinMax' incorporates:
    *  Constant: '<S307>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSMaxInsDisCurntHi_A) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSMaxInsDisCurntHi_A) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxInsDisCurntHi_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxInsDisCurntHi_A;
   }
 
   /* End of MinMax: '<S307>/MinMax' */
@@ -11905,9 +11734,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S307>/MinMax1' incorporates:
    *  Constant: '<S307>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSMaxInsDisCurntLo_A) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSMaxInsDisCurntLo_A) {
     /* MinMax: '<S307>/MinMax1' */
-    VIPM_BMSMaxInsDisCurnt_A = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_BMSMaxInsDisCurnt_A = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S307>/MinMax1' */
     VIPM_BMSMaxInsDisCurnt_A = KIPM_BMSMaxInsDisCurntLo_A;
@@ -11932,28 +11761,28 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_BMSMaxConChrgCurnt_A_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S304>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxConChrgCurnt_A_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxConChrgCurnt_A_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_BMSMsgActv_flg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S310>/Constant'
      *  Inport: '<Root>/BMS_6_DischrgRecup_EPT'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Product: '<S310>/Product'
      *  Switch: '<S304>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
+    VIPM_BMSCellVoltMin_mV = (float32)
       (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_6_DischrgRecup_EPT_BMS_6_DischrgRecup_EPT
        ())->BMS_PwrRecupMaxConChrgCurnt * 0.1F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S304>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S304>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxConChrgCurntDflt_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxConChrgCurntDflt_A;
   }
 
   /* End of Switch: '<S304>/Switch4' */
@@ -11961,9 +11790,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S304>/MinMax' incorporates:
    *  Constant: '<S304>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSMaxConChrgCurntHi_A) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSMaxConChrgCurntHi_A) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxConChrgCurntHi_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxConChrgCurntHi_A;
   }
 
   /* End of MinMax: '<S304>/MinMax' */
@@ -11971,9 +11800,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S304>/MinMax1' incorporates:
    *  Constant: '<S304>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A >= KIPM_BMSMaxConChrgCurntLo_A) {
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSMaxConChrgCurntLo_A) {
     /* MinMax: '<S304>/MinMax1' */
-    VIPM_BMSMaxConChrgCurnt_A = VIPM_BMSMaxInsChrgCurnt_A;
+    VIPM_BMSMaxConChrgCurnt_A = VIPM_BMSCellVoltMin_mV;
   } else {
     /* MinMax: '<S304>/MinMax1' */
     VIPM_BMSMaxConChrgCurnt_A = KIPM_BMSMaxConChrgCurntLo_A;
@@ -11998,28 +11827,28 @@ static void Runbl_Ipm20ms(void)
   if (KIPM_BMSMaxInsChrgCurnt_A_ovrdflg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S306>/sat4'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxInsChrgCurnt_A_ovrdval;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxInsChrgCurnt_A_ovrdval;
   } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
              ->VIPM_BMSMsgActv_flg) {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S311>/Constant'
      *  Inport: '<Root>/BMS_6_DischrgRecup_EPT'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Product: '<S311>/Product'
      *  Switch: '<S306>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = (float32)
+    VIPM_BMSCellVoltMin_mV = (float32)
       (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_6_DischrgRecup_EPT_BMS_6_DischrgRecup_EPT
        ())->BMS_PwrRecupMaxInstanChrgCurnt * 0.1F;
   } else {
     /* MinMax: '<S251>/MinMax' incorporates:
      *  Constant: '<S306>/sat5'
-     *  MinMax: '<S306>/MinMax'
+     *  MinMax: '<S313>/MinMax'
      *  Switch: '<S306>/Switch'
      */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxInsChrgCurntDflt_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxInsChrgCurntDflt_A;
   }
 
   /* End of Switch: '<S306>/Switch4' */
@@ -12027,9 +11856,9 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S306>/MinMax' incorporates:
    *  Constant: '<S306>/sat6'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A > KIPM_BMSMaxInsChrgCurntHi_A) {
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSMaxInsChrgCurntHi_A) {
     /* MinMax: '<S251>/MinMax' */
-    VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxInsChrgCurntHi_A;
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSMaxInsChrgCurntHi_A;
   }
 
   /* End of MinMax: '<S306>/MinMax' */
@@ -12037,10 +11866,11 @@ static void Runbl_Ipm20ms(void)
   /* MinMax: '<S306>/MinMax1' incorporates:
    *  Constant: '<S306>/sat7'
    */
-  if (VIPM_BMSMaxInsChrgCurnt_A < KIPM_BMSMaxInsChrgCurntLo_A) {
-    /* MinMax: '<S251>/MinMax' incorporates:
-     *  MinMax: '<S306>/MinMax1'
-     */
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSMaxInsChrgCurntLo_A) {
+    /* MinMax: '<S306>/MinMax1' */
+    VIPM_BMSMaxInsChrgCurnt_A = VIPM_BMSCellVoltMin_mV;
+  } else {
+    /* MinMax: '<S306>/MinMax1' */
     VIPM_BMSMaxInsChrgCurnt_A = KIPM_BMSMaxInsChrgCurntLo_A;
   }
 
@@ -12073,6 +11903,150 @@ static void Runbl_Ipm20ms(void)
     VIPM_BMSMaxInsChrgCurnt_A;
   AppSwcIpm_ARID_DEF.IPM_BMS_6_DischrgRecup_EPT.VIPM_BMSMaxInsChrgCurntVld_flg =
     VIPM_BMSMaxInsChrgCurntVld_flg;
+
+  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VIPM_BMSCellVoltMax_mV' */
+  /* Logic: '<S312>/Logical Operator3' incorporates:
+   *  Constant: '<S312>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_BMSCellVoltMaxVld_flg = (KIPM_BMSCellVoltMax_mV_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
+
+  /* Switch: '<S312>/Switch4' incorporates:
+   *  Constant: '<S312>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S312>/Switch'
+   */
+  if (KIPM_BMSCellVoltMax_mV_ovrdflg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S312>/sat4'
+     *  MinMax: '<S313>/MinMax'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSCellVoltMax_mV_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
+             ->VIPM_BMSMsgActv_flg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  DataTypeConversion: '<S312>/Data Type Conversion2'
+     *  Inport: '<Root>/BMS_7_CellVolt_EPT'
+     *  MinMax: '<S313>/MinMax'
+     *  Switch: '<S312>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = (float32)
+      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_7_CellVolt_EPT_BMS_7_CellVolt_EPT())
+      ->BMS_CellVolMax;
+  } else {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S312>/sat5'
+     *  MinMax: '<S313>/MinMax'
+     *  Switch: '<S312>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSCellVoltMaxDflt_mV;
+  }
+
+  /* End of Switch: '<S312>/Switch4' */
+
+  /* MinMax: '<S312>/MinMax' incorporates:
+   *  Constant: '<S312>/sat6'
+   */
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSCellVoltMaxHi_mV) {
+    /* MinMax: '<S251>/MinMax' */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSCellVoltMaxHi_mV;
+  }
+
+  /* End of MinMax: '<S312>/MinMax' */
+
+  /* MinMax: '<S312>/MinMax1' incorporates:
+   *  Constant: '<S312>/sat7'
+   */
+  if (VIPM_BMSCellVoltMin_mV >= KIPM_BMSCellVoltMaxLo_mV) {
+    /* MinMax: '<S312>/MinMax1' */
+    VIPM_BMSCellVoltMax_mV = VIPM_BMSCellVoltMin_mV;
+  } else {
+    /* MinMax: '<S312>/MinMax1' */
+    VIPM_BMSCellVoltMax_mV = KIPM_BMSCellVoltMaxLo_mV;
+  }
+
+  /* End of MinMax: '<S312>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S272>/Subsys_VIPM_BMSCellVoltMax_mV' */
+
+  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VIPM_BMSCellVoltMin_mV' */
+  /* Logic: '<S313>/Logical Operator3' incorporates:
+   *  Constant: '<S313>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   */
+  VIPM_BMSCellVoltMinVld_flg = (KIPM_BMSCellVoltMin_mV_ovrdflg ||
+    (Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())->VIPM_BMSMsgActv_flg);
+
+  /* Switch: '<S313>/Switch4' incorporates:
+   *  Constant: '<S313>/sat3'
+   *  DataTransferBlock generated from: '<Root>/IpmMsgActv'
+   *  Switch: '<S313>/Switch'
+   */
+  if (KIPM_BMSCellVoltMin_mV_ovrdflg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S313>/sat4'
+     *  MinMax: '<S313>/MinMax'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSCellVoltMin_mV_ovrdval;
+  } else if ((Rte_IrvIRead_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV())
+             ->VIPM_BMSMsgActv_flg) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  DataTypeConversion: '<S313>/Data Type Conversion2'
+     *  Inport: '<Root>/BMS_7_CellVolt_EPT'
+     *  MinMax: '<S313>/MinMax'
+     *  Switch: '<S313>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = (float32)
+      (Rte_IRead_Runbl_IpmCanRx_20ms_BMS_7_CellVolt_EPT_BMS_7_CellVolt_EPT())
+      ->BMS_CellVolMin;
+  } else {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  Constant: '<S313>/sat5'
+     *  MinMax: '<S313>/MinMax'
+     *  Switch: '<S313>/Switch'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSCellVoltMinDflt_mV;
+  }
+
+  /* End of Switch: '<S313>/Switch4' */
+
+  /* MinMax: '<S313>/MinMax' incorporates:
+   *  Constant: '<S313>/sat6'
+   */
+  if (VIPM_BMSCellVoltMin_mV > KIPM_BMSCellVoltMinHi_mV) {
+    /* MinMax: '<S251>/MinMax' */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSCellVoltMinHi_mV;
+  }
+
+  /* End of MinMax: '<S313>/MinMax' */
+
+  /* MinMax: '<S313>/MinMax1' incorporates:
+   *  Constant: '<S313>/sat7'
+   */
+  if (VIPM_BMSCellVoltMin_mV < KIPM_BMSCellVoltMinLo_mV) {
+    /* MinMax: '<S251>/MinMax' incorporates:
+     *  MinMax: '<S313>/MinMax1'
+     */
+    VIPM_BMSCellVoltMin_mV = KIPM_BMSCellVoltMinLo_mV;
+  }
+
+  /* End of MinMax: '<S313>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S272>/Subsys_VIPM_BMSCellVoltMin_mV' */
+
+  /* BusCreator: '<S272>/BusCreator' incorporates:
+   *  Logic: '<S312>/Logical Operator3'
+   *  Logic: '<S313>/Logical Operator3'
+   *  MinMax: '<S312>/MinMax1'
+   *  MinMax: '<S313>/MinMax1'
+   */
+  AppSwcIpm_ARID_DEF.IPM_BMS_7_CellVolt_EPT.VIPM_BMSCellVoltMax_mV =
+    VIPM_BMSCellVoltMax_mV;
+  AppSwcIpm_ARID_DEF.IPM_BMS_7_CellVolt_EPT.VIPM_BMSCellVoltMaxVld_flg =
+    VIPM_BMSCellVoltMaxVld_flg;
+  AppSwcIpm_ARID_DEF.IPM_BMS_7_CellVolt_EPT.VIPM_BMSCellVoltMin_mV =
+    VIPM_BMSCellVoltMin_mV;
+  AppSwcIpm_ARID_DEF.IPM_BMS_7_CellVolt_EPT.VIPM_BMSCellVoltMinVld_flg =
+    VIPM_BMSCellVoltMinVld_flg;
 }
 
 /* Output and update for function-call system: '<Root>/Ipm50ms' */
@@ -13800,522 +13774,519 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
   /* RootInportFunctionCallGenerator generated from: '<Root>/Runbl_IpmMsgActv_10ms' incorporates:
    *  SubSystem: '<Root>/IpmMsgActv'
    */
-  /* CCaller: '<S352>/DTC_0xC04688_ErrCode368' */
+  /* CCaller: '<S353>/DTC_0xC04688_ErrCode368' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC04688_GetEventStatus();
 
-  /* Switch: '<S352>/Switch' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg11'
+  /* Switch: '<S353>/Switch' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg11'
    */
   if (KIPM_EPTCANBusOffOvrdSw_flg) {
-    /* Switch: '<S352>/Switch' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg4'
+    /* Switch: '<S353>/Switch' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg4'
      */
     VIPM_EPTCANBusOff_flg = KIPM_EPTCANBusOffOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND'
+    /* Switch: '<S353>/Switch' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND'
      */
     VIPM_EPTCANBusOff_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch' */
+  /* End of Switch: '<S353>/Switch' */
 
-  /* CCaller: '<S352>/DTC_0xC11287_ErrCode354' */
+  /* CCaller: '<S353>/DTC_0xC11287_ErrCode354' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC11287_GetEventStatus();
 
-  /* Switch: '<S352>/Switch4' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg8'
+  /* Switch: '<S353>/Switch4' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg8'
    */
   if (KIPM_BMSLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch4' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg9'
+    /* Switch: '<S353>/Switch4' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg9'
      */
     VIPM_BMSLostComm_flg = KIPM_BMSLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch4' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion4'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND4'
+    /* Switch: '<S353>/Switch4' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion4'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND4'
      */
     VIPM_BMSLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch4' */
+  /* End of Switch: '<S353>/Switch4' */
 
-  /* Logic: '<S353>/Logical Operator' incorporates:
-   *  Switch: '<S352>/Switch'
-   *  Switch: '<S352>/Switch4'
+  /* Logic: '<S354>/Logical Operator' incorporates:
+   *  Switch: '<S353>/Switch'
+   *  Switch: '<S353>/Switch4'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_BMSMsgActv_flg =
     ((!VIPM_EPTCANBusOff_flg) && (!VIPM_BMSLostComm_flg));
 
-  /* CCaller: '<S352>/DTC_0xD10887_ErrCode364' */
+  /* CCaller: '<S353>/DTC_0xD10887_ErrCode364' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xD10887_GetEventStatus();
 
-  /* Switch: '<S352>/Switch13' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg27'
+  /* Switch: '<S353>/Switch13' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg27'
    */
   if (KIPM_MCULostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch13' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg28'
+    /* Switch: '<S353>/Switch13' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg28'
      */
     VIPM_MCULostComm_flg = KIPM_MCULostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch13' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion13'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND13'
+    /* Switch: '<S353>/Switch13' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion13'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND13'
      */
     VIPM_MCULostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch13' */
+  /* End of Switch: '<S353>/Switch13' */
 
-  /* Logic: '<S353>/Logical Operator1' incorporates:
-   *  Switch: '<S352>/Switch'
-   *  Switch: '<S352>/Switch13'
+  /* Logic: '<S354>/Logical Operator1' incorporates:
+   *  Switch: '<S353>/Switch'
+   *  Switch: '<S353>/Switch13'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_INVMsgActv_flg =
     ((!VIPM_EPTCANBusOff_flg) && (!VIPM_MCULostComm_flg));
 
-  /* CCaller: '<S352>/DTC_0xC14687_ErrCode376' */
+  /* CCaller: '<S353>/DTC_0xC14687_ErrCode376' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC14687_GetEventStatus();
 
-  /* Switch: '<S352>/Switch17' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg35'
+  /* Switch: '<S353>/Switch17' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg35'
    */
   if (KIPM_IPULostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch17' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg36'
+    /* Switch: '<S353>/Switch17' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg36'
      */
     VIPM_IPULostComm_flg = KIPM_IPULostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch17' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion17'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND17'
+    /* Switch: '<S353>/Switch17' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion17'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND17'
      */
     VIPM_IPULostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch17' */
+  /* End of Switch: '<S353>/Switch17' */
 
-  /* Logic: '<S353>/Logical Operator2' incorporates:
-   *  Logic: '<S353>/Logical Operator3'
-   *  Switch: '<S352>/Switch'
-   *  Switch: '<S352>/Switch17'
+  /* Logic: '<S354>/Logical Operator2' incorporates:
+   *  Logic: '<S354>/Logical Operator3'
+   *  Switch: '<S353>/Switch'
+   *  Switch: '<S353>/Switch17'
    */
   MsgActv_outputs_tmp = ((!VIPM_EPTCANBusOff_flg) && (!VIPM_IPULostComm_flg));
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_OBCMsgActv_flg = MsgActv_outputs_tmp;
 
-  /* Logic: '<S353>/Logical Operator3' */
+  /* Logic: '<S354>/Logical Operator3' */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_DCDCMsgActv_flg = MsgActv_outputs_tmp;
 
-  /* CCaller: '<S352>/DTC_0xC06488_ErrCode379' */
+  /* CCaller: '<S353>/DTC_0xC06488_ErrCode379' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC06488_GetEventStatus();
 
-  /* Switch: '<S352>/Switch3' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg6'
+  /* Switch: '<S353>/Switch3' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg6'
    */
   if (KIPM_CHACANBusOffOvrdSw_flg) {
-    /* Switch: '<S352>/Switch3' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg7'
+    /* Switch: '<S353>/Switch3' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg7'
      */
     VIPM_CHACANBusOff_flg = KIPM_CHACANBusOffOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch3' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion3'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND3'
+    /* Switch: '<S353>/Switch3' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion3'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND3'
      */
     VIPM_CHACANBusOff_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch3' */
+  /* End of Switch: '<S353>/Switch3' */
 
-  /* CCaller: '<S352>/DTC_0xC13087_ErrCode366' */
+  /* CCaller: '<S353>/DTC_0xC13087_ErrCode366' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC13087_GetEventStatus();
 
-  /* Switch: '<S352>/Switch9' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg19'
+  /* Switch: '<S353>/Switch9' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg19'
    */
   if (KIPM_EPSLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch9' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg20'
+    /* Switch: '<S353>/Switch9' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg20'
      */
     VIPM_EPSLostComm_flg = KIPM_EPSLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch9' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion9'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND9'
+    /* Switch: '<S353>/Switch9' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion9'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND9'
      */
     VIPM_EPSLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch9' */
+  /* End of Switch: '<S353>/Switch9' */
 
-  /* Logic: '<S353>/Logical Operator4' incorporates:
-   *  Switch: '<S352>/Switch3'
-   *  Switch: '<S352>/Switch9'
+  /* Logic: '<S354>/Logical Operator4' incorporates:
+   *  Switch: '<S353>/Switch3'
+   *  Switch: '<S353>/Switch9'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_EPSMsgActv_flg =
     ((!VIPM_CHACANBusOff_flg) && (!VIPM_EPSLostComm_flg));
 
-  /* CCaller: '<S352>/DTC_0xC15187_ErrCode363' */
+  /* CCaller: '<S353>/DTC_0xC15187_ErrCode363' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC15187_GetEventStatus();
 
-  /* Switch: '<S352>/Switch10' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg21'
+  /* Switch: '<S353>/Switch10' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg21'
    */
   if (KIPM_SRSLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch10' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg22'
+    /* Switch: '<S353>/Switch10' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg22'
      */
     VIPM_SRSLostComm_flg = KIPM_SRSLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch10' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion10'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND10'
+    /* Switch: '<S353>/Switch10' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion10'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND10'
      */
     VIPM_SRSLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch10' */
+  /* End of Switch: '<S353>/Switch10' */
 
-  /* Logic: '<S353>/Logical Operator5' incorporates:
-   *  Switch: '<S352>/Switch10'
-   *  Switch: '<S352>/Switch3'
+  /* Logic: '<S354>/Logical Operator5' incorporates:
+   *  Switch: '<S353>/Switch10'
+   *  Switch: '<S353>/Switch3'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_SRSMsgActv_flg =
     ((!VIPM_CHACANBusOff_flg) && (!VIPM_SRSLostComm_flg));
 
-  /* CCaller: '<S352>/DTC_0xC12287_ErrCode359' */
+  /* CCaller: '<S353>/DTC_0xC12287_ErrCode359' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC12287_GetEventStatus();
 
-  /* Switch: '<S352>/Switch5' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg10'
+  /* Switch: '<S353>/Switch5' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg10'
    */
   if (KIPM_ESCLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch5' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg12'
+    /* Switch: '<S353>/Switch5' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg12'
      */
     VIPM_ESCLostComm_flg = KIPM_ESCLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch5' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion5'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND5'
+    /* Switch: '<S353>/Switch5' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion5'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND5'
      */
     VIPM_ESCLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch5' */
+  /* End of Switch: '<S353>/Switch5' */
 
-  /* Logic: '<S353>/Logical Operator6' incorporates:
-   *  Switch: '<S352>/Switch3'
-   *  Switch: '<S352>/Switch5'
+  /* Logic: '<S354>/Logical Operator6' incorporates:
+   *  Switch: '<S353>/Switch3'
+   *  Switch: '<S353>/Switch5'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_ESCMsgActv_flg =
     ((!VIPM_CHACANBusOff_flg) && (!VIPM_ESCLostComm_flg));
 
-  /* CCaller: '<S352>/DTC_0xD10287_ErrCode372' */
+  /* CCaller: '<S353>/DTC_0xD10287_ErrCode372' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xD10287_GetEventStatus();
 
-  /* Switch: '<S352>/Switch6' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg13'
+  /* Switch: '<S353>/Switch6' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg13'
    */
   if (KIPM_FCMLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch6' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg14'
+    /* Switch: '<S353>/Switch6' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg14'
      */
     VIPM_FCMLostComm_flg = KIPM_FCMLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch6' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion6'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND6'
+    /* Switch: '<S353>/Switch6' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion6'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND6'
      */
     VIPM_FCMLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch6' */
+  /* End of Switch: '<S353>/Switch6' */
 
-  /* Logic: '<S353>/Logical Operator7' incorporates:
-   *  Switch: '<S352>/Switch3'
-   *  Switch: '<S352>/Switch6'
+  /* Logic: '<S354>/Logical Operator7' incorporates:
+   *  Switch: '<S353>/Switch3'
+   *  Switch: '<S353>/Switch6'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_FCMMsgActv_flg =
     ((!VIPM_CHACANBusOff_flg) && (!VIPM_FCMLostComm_flg));
 
-  /* CCaller: '<S352>/DTC_0xC07388_ErrCode367' */
+  /* CCaller: '<S353>/DTC_0xC07388_ErrCode367' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC07388_GetEventStatus();
 
-  /* Switch: '<S352>/Switch2' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg3'
+  /* Switch: '<S353>/Switch2' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg3'
    */
   if (KIPM_BACCANBusOffOvrdSw_flg) {
-    /* Switch: '<S352>/Switch2' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg5'
+    /* Switch: '<S353>/Switch2' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg5'
      */
     VIPM_BACCANBusOff_flg = KIPM_BACCANBusOffOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch2' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion2'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND2'
+    /* Switch: '<S353>/Switch2' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion2'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND2'
      */
     VIPM_BACCANBusOff_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch2' */
+  /* End of Switch: '<S353>/Switch2' */
 
-  /* CCaller: '<S352>/DTC_0xD11687_ErrCode369' */
+  /* CCaller: '<S353>/DTC_0xD11687_ErrCode369' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xD11687_GetEventStatus();
 
-  /* Switch: '<S352>/Switch11' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg23'
+  /* Switch: '<S353>/Switch11' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg23'
    */
   if (KIPM_ICULostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch11' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg24'
+    /* Switch: '<S353>/Switch11' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg24'
      */
     VIPM_ICULostComm_flg = KIPM_ICULostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch11' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion11'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND11'
+    /* Switch: '<S353>/Switch11' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion11'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND11'
      */
     VIPM_ICULostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch11' */
+  /* End of Switch: '<S353>/Switch11' */
 
-  /* Logic: '<S353>/Logical Operator8' incorporates:
-   *  Switch: '<S352>/Switch11'
-   *  Switch: '<S352>/Switch2'
+  /* Logic: '<S354>/Logical Operator8' incorporates:
+   *  Switch: '<S353>/Switch11'
+   *  Switch: '<S353>/Switch2'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_CDCMsgActv_flg =
     ((!VIPM_BACCANBusOff_flg) && (!VIPM_ICULostComm_flg));
 
-  /* CCaller: '<S352>/DTC_0xD11687_ErrCode365' */
+  /* CCaller: '<S353>/DTC_0xD11687_ErrCode365' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC19887_GetEventStatus();
 
-  /* Switch: '<S352>/Switch12' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg25'
+  /* Switch: '<S353>/Switch12' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg25'
    */
   if (KIPM_TBOXLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch12' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg26'
+    /* Switch: '<S353>/Switch12' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg26'
      */
     VIPM_TBOXLostComm_flg = KIPM_TBOXLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch12' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion12'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND12'
+    /* Switch: '<S353>/Switch12' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion12'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND12'
      */
     VIPM_TBOXLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch12' */
+  /* End of Switch: '<S353>/Switch12' */
 
-  /* Logic: '<S353>/Logical Operator9' incorporates:
-   *  Switch: '<S352>/Switch12'
-   *  Switch: '<S352>/Switch2'
+  /* Logic: '<S354>/Logical Operator9' incorporates:
+   *  Switch: '<S353>/Switch12'
+   *  Switch: '<S353>/Switch2'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_TBOXMsgActv_flg =
     ((!VIPM_BACCANBusOff_flg) && (!VIPM_TBOXLostComm_flg));
 
-  /* CCaller: '<S352>/DTC_0xC05588_ErrCode378' */
+  /* CCaller: '<S353>/DTC_0xC05588_ErrCode378' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC05588_GetEventStatus();
 
-  /* Switch: '<S352>/Switch1' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg1'
+  /* Switch: '<S353>/Switch1' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg1'
    */
   if (KIPM_BODCANBusOffOvrdSw_flg) {
-    /* Switch: '<S352>/Switch1' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg2'
+    /* Switch: '<S353>/Switch1' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg2'
      */
     VIPM_BODCANBusOff_flg = KIPM_BODCANBusOffOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch1' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion1'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND1'
+    /* Switch: '<S353>/Switch1' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion1'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND1'
      */
     VIPM_BODCANBusOff_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch1' */
+  /* End of Switch: '<S353>/Switch1' */
 
-  /* CCaller: '<S352>/DTC_0xC10F87_ErrCode370' */
+  /* CCaller: '<S353>/DTC_0xC10F87_ErrCode370' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC10F87_GetEventStatus();
 
-  /* Switch: '<S352>/Switch14' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg29'
+  /* Switch: '<S353>/Switch14' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg29'
    */
   if (KIPM_ACCMLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch14' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg30'
+    /* Switch: '<S353>/Switch14' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg30'
      */
     VIPM_ACCMLostComm_flg = KIPM_ACCMLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch14' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion14'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND14'
+    /* Switch: '<S353>/Switch14' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion14'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND14'
      */
     VIPM_ACCMLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch14' */
+  /* End of Switch: '<S353>/Switch14' */
 
-  /* Logic: '<S353>/Logical Operator10' incorporates:
-   *  Switch: '<S352>/Switch1'
-   *  Switch: '<S352>/Switch14'
+  /* Logic: '<S354>/Logical Operator10' incorporates:
+   *  Switch: '<S353>/Switch1'
+   *  Switch: '<S353>/Switch14'
    */
   MsgActv_outputs_tmp = !VIPM_BODCANBusOff_flg;
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_ACCMMsgActv_flg = (MsgActv_outputs_tmp
     && (!VIPM_ACCMLostComm_flg));
 
-  /* Logic: '<S353>/Logical Operator11' incorporates:
-   *  Logic: '<S353>/Logical Operator10'
+  /* Logic: '<S354>/Logical Operator11' incorporates:
+   *  Logic: '<S354>/Logical Operator10'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_SCSMsgActv_flg = MsgActv_outputs_tmp;
 
-  /* Logic: '<S353>/Logical Operator12' incorporates:
-   *  Logic: '<S353>/Logical Operator10'
+  /* Logic: '<S354>/Logical Operator12' incorporates:
+   *  Logic: '<S354>/Logical Operator10'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_CCPMsgActv_flg = MsgActv_outputs_tmp;
 
-  /* Logic: '<S353>/Logical Operator13' incorporates:
-   *  Logic: '<S353>/Logical Operator10'
+  /* Logic: '<S354>/Logical Operator13' incorporates:
+   *  Logic: '<S354>/Logical Operator10'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_ESCLMsgActv_flg = MsgActv_outputs_tmp;
 
-  /* CCaller: '<S352>/DTC_0xD11D87_ErrCode360' */
+  /* CCaller: '<S353>/DTC_0xD11D87_ErrCode360' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xD11D87_GetEventStatus();
 
-  /* Switch: '<S352>/Switch16' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg33'
+  /* Switch: '<S353>/Switch16' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg33'
    */
   if (KIPM_CDCLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch16' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg34'
+    /* Switch: '<S353>/Switch16' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg34'
      */
     VIPM_CDCLostComm_flg = KIPM_CDCLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch16' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion16'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND16'
+    /* Switch: '<S353>/Switch16' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion16'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND16'
      */
     VIPM_CDCLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch16' */
+  /* End of Switch: '<S353>/Switch16' */
 
-  /* Logic: '<S353>/Logical Operator16' incorporates:
-   *  Switch: '<S352>/Switch16'
-   *  Switch: '<S352>/Switch2'
+  /* Logic: '<S354>/Logical Operator16' incorporates:
+   *  Switch: '<S353>/Switch16'
+   *  Switch: '<S353>/Switch2'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_HUMsgActv_flg =
     ((!VIPM_BACCANBusOff_flg) && (!VIPM_CDCLostComm_flg));
 
-  /* CCaller: '<S352>/DTC_0xC23087_ErrCode371' */
+  /* CCaller: '<S353>/DTC_0xC23087_ErrCode371' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC23087_GetEventStatus();
 
-  /* Switch: '<S352>/Switch15' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg31'
+  /* Switch: '<S353>/Switch15' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg31'
    */
   if (KIPM_PTCLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch15' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg32'
+    /* Switch: '<S353>/Switch15' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg32'
      */
     VIPM_PTCLostComm_flg = KIPM_PTCLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch15' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion15'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND15'
+    /* Switch: '<S353>/Switch15' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion15'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND15'
      */
     VIPM_PTCLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch15' */
+  /* End of Switch: '<S353>/Switch15' */
 
-  /* Logic: '<S353>/Logical Operator14' incorporates:
-   *  Switch: '<S352>/Switch1'
-   *  Switch: '<S352>/Switch15'
+  /* Logic: '<S354>/Logical Operator14' incorporates:
+   *  Switch: '<S353>/Switch1'
+   *  Switch: '<S353>/Switch15'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_PTCMsgActv_flg =
     ((!VIPM_BODCANBusOff_flg) && (!VIPM_PTCLostComm_flg));
 
-  /* CCaller: '<S352>/DTC_0xD11287_ErrCode361' */
+  /* CCaller: '<S353>/DTC_0xD11287_ErrCode361' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xD11287_GetEventStatus();
 
-  /* Switch: '<S352>/Switch7' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg15'
+  /* Switch: '<S353>/Switch7' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg15'
    */
   if (KIPM_CRRRLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch7' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg16'
+    /* Switch: '<S353>/Switch7' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg16'
      */
     VIPM_CRRRLostComm_flg = KIPM_CRRRLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch7' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion7'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND7'
+    /* Switch: '<S353>/Switch7' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion7'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND7'
      */
     VIPM_CRRRLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch7' */
+  /* End of Switch: '<S353>/Switch7' */
 
-  /* Logic: '<S353>/Logical Operator15' incorporates:
-   *  Switch: '<S352>/Switch2'
-   *  Switch: '<S352>/Switch7'
+  /* Logic: '<S354>/Logical Operator15' incorporates:
+   *  Switch: '<S353>/Switch2'
+   *  Switch: '<S353>/Switch7'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_CRRRMsgActv_flg =
     ((!VIPM_BACCANBusOff_flg) && (!VIPM_CRRRLostComm_flg));
 
   /* BusCreator: '<S6>/BusCreator' incorporates:
-   *  Constant: '<S353>/Constant8'
+   *  Constant: '<S354>/Constant8'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_EHBMsgActv_flg = true;
 
-  /* SignalConversion: '<S6>/Signal Conversion' */
-  rtb_SignalConversion = AppSwcIpm_ARID_DEF.MsgActv_outputs;
-
-  /* CCaller: '<S352>/DTC_0xD10E87_ErrCode362' */
+  /* CCaller: '<S353>/DTC_0xD10E87_ErrCode362' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xD10E87_GetEventStatus();
 
-  /* Switch: '<S352>/Switch8' incorporates:
-   *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg17'
+  /* Switch: '<S353>/Switch8' incorporates:
+   *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg17'
    */
   if (KIPM_PPLostCommOvrdSw_flg) {
-    /* Switch: '<S352>/Switch8' incorporates:
-     *  Constant: '<S352>/KIPC_LimpHomeOvrdSw_flg18'
+    /* Switch: '<S353>/Switch8' incorporates:
+     *  Constant: '<S353>/KIPC_LimpHomeOvrdSw_flg18'
      */
     VIPM_PPLostComm_flg = KIPM_PPLostCommOvrdVal_flg;
   } else {
-    /* Switch: '<S352>/Switch8' incorporates:
-     *  DataTypeConversion: '<S352>/Data Type Conversion8'
-     *  S-Function (sfix_bitop): '<S352>/Bitwise AND8'
+    /* Switch: '<S353>/Switch8' incorporates:
+     *  DataTypeConversion: '<S353>/Data Type Conversion8'
+     *  S-Function (sfix_bitop): '<S353>/Bitwise AND8'
      */
     VIPM_PPLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
   }
 
-  /* End of Switch: '<S352>/Switch8' */
+  /* End of Switch: '<S353>/Switch8' */
 
-  /* BusCreator: '<S352>/Bus Creator' incorporates:
-   *  Switch: '<S352>/Switch'
-   *  Switch: '<S352>/Switch1'
-   *  Switch: '<S352>/Switch10'
-   *  Switch: '<S352>/Switch11'
-   *  Switch: '<S352>/Switch12'
-   *  Switch: '<S352>/Switch13'
-   *  Switch: '<S352>/Switch14'
-   *  Switch: '<S352>/Switch15'
-   *  Switch: '<S352>/Switch16'
-   *  Switch: '<S352>/Switch17'
-   *  Switch: '<S352>/Switch2'
-   *  Switch: '<S352>/Switch3'
-   *  Switch: '<S352>/Switch4'
-   *  Switch: '<S352>/Switch5'
-   *  Switch: '<S352>/Switch6'
-   *  Switch: '<S352>/Switch7'
-   *  Switch: '<S352>/Switch8'
-   *  Switch: '<S352>/Switch9'
+  /* BusCreator: '<S353>/Bus Creator' incorporates:
+   *  Switch: '<S353>/Switch'
+   *  Switch: '<S353>/Switch1'
+   *  Switch: '<S353>/Switch10'
+   *  Switch: '<S353>/Switch11'
+   *  Switch: '<S353>/Switch12'
+   *  Switch: '<S353>/Switch13'
+   *  Switch: '<S353>/Switch14'
+   *  Switch: '<S353>/Switch15'
+   *  Switch: '<S353>/Switch16'
+   *  Switch: '<S353>/Switch17'
+   *  Switch: '<S353>/Switch2'
+   *  Switch: '<S353>/Switch3'
+   *  Switch: '<S353>/Switch4'
+   *  Switch: '<S353>/Switch5'
+   *  Switch: '<S353>/Switch6'
+   *  Switch: '<S353>/Switch7'
+   *  Switch: '<S353>/Switch8'
+   *  Switch: '<S353>/Switch9'
    */
   rtb_CANCommErr_outputs.VIPM_BACCANBusOff_flg = VIPM_BACCANBusOff_flg;
   rtb_CANCommErr_outputs.VIPM_EPTCANBusOff_flg = VIPM_EPTCANBusOff_flg;
@@ -14335,6 +14306,179 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
   rtb_CANCommErr_outputs.VIPM_PTCLostComm_flg = VIPM_PTCLostComm_flg;
   rtb_CANCommErr_outputs.VIPM_CDCLostComm_flg = VIPM_CDCLostComm_flg;
   rtb_CANCommErr_outputs.VIPM_IPULostComm_flg = VIPM_IPULostComm_flg;
+
+  /* SignalConversion: '<S6>/Signal Conversion' */
+  rtb_SignalConversion = AppSwcIpm_ARID_DEF.MsgActv_outputs;
+
+  /* Logic: '<S352>/Logical Operator' incorporates:
+   *  Constant: '<S352>/Cnst'
+   *  Constant: '<S352>/Constant1'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector'
+   */
+  VIPM_HU_B_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[80] && KIPM_HUCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator1' incorporates:
+   *  Constant: '<S352>/Cnst1'
+   *  Constant: '<S352>/Constant2'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector1'
+   */
+  VIPM_ICU_Info_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[48] &&
+    KIPM_ICUCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator10' incorporates:
+   *  Constant: '<S352>/Cnst10'
+   *  Constant: '<S352>/Constant11'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector10'
+   */
+  VIPM_ESC_7_FuncStatus_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[87] &&
+    KIPM_ESCCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator11' incorporates:
+   *  Constant: '<S352>/Cnst11'
+   *  Constant: '<S352>/Constant12'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector11'
+   */
+  VIPM_FCM_B_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[84] &&
+    KIPM_FCMCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator12' incorporates:
+   *  Constant: '<S352>/Cnst12'
+   *  Constant: '<S352>/Constant13'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector12'
+   */
+  VIPM_PP_InformAndStatus_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[91] &&
+    KIPM_PPCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator13' incorporates:
+   *  Constant: '<S352>/Cnst13'
+   *  Constant: '<S352>/Constant14'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector13'
+   */
+  VIPM_SRS_1_Status_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[90] &&
+    KIPM_SRSCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator14' incorporates:
+   *  Constant: '<S352>/Cnst14'
+   *  Constant: '<S352>/Constant15'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector14'
+   */
+  VIPM_BMS_2_BatState_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[23] &&
+    KIPM_BMSCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator15' incorporates:
+   *  Constant: '<S352>/Cnst15'
+   *  Constant: '<S352>/Constant16'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector15'
+   */
+  VIPM_INV_1_Value_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[42] &&
+    KIPM_INVCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator16' incorporates:
+   *  Constant: '<S352>/Cnst16'
+   *  Constant: '<S352>/Constant17'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector16'
+   */
+  VIPM_IPU_DCC_1_State_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[37] &&
+    KIPM_IPUCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator2' incorporates:
+   *  Constant: '<S352>/Cnst2'
+   *  Constant: '<S352>/Constant3'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector2'
+   */
+  VIPM_TBOX_BJS_Time_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[51] &&
+    KIPM_TBOXCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator3' incorporates:
+   *  Constant: '<S352>/Cnst3'
+   *  Constant: '<S352>/Constant4'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector3'
+   */
+  VIPM_CCP_PanelStatus_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[13] &&
+    KIPM_CCPCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator4' incorporates:
+   *  Constant: '<S352>/Cnst4'
+   *  Constant: '<S352>/Constant5'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector4'
+   */
+  VIPM_COMP_AC_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[18] &&
+    KIPM_ACCMCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator5' incorporates:
+   *  Constant: '<S352>/Cnst5'
+   *  Constant: '<S352>/Constant6'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector5'
+   */
+  VIPM_HVCH_Status1_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[20] &&
+    KIPM_PTCCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator6' incorporates:
+   *  Constant: '<S352>/Cnst6'
+   *  Constant: '<S352>/Constant7'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector6'
+   */
+  VIPM_SCS_RiSwitchSts_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[82] &&
+    KIPM_SCSCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator7' incorporates:
+   *  Constant: '<S352>/Cnst7'
+   *  Constant: '<S352>/Constant8'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector7'
+   */
+  VIPM_CRRR_A_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[11] &&
+    KIPM_CRRRCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator8' incorporates:
+   *  Constant: '<S352>/Cnst8'
+   *  Constant: '<S352>/Constant9'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector8'
+   */
+  VIPM_EHB_B_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[88] &&
+    KIPM_EHBCRCChkEnbl_flg);
+
+  /* Logic: '<S352>/Logical Operator9' incorporates:
+   *  Constant: '<S352>/Cnst9'
+   *  Constant: '<S352>/Constant10'
+   *  DataStoreRead: '<S352>/Data Store Read'
+   *  Selector: '<S352>/Selector9'
+   */
+  VIPM_EPS_2_StrWhlAng_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[9] &&
+    KIPM_EPSCRCChkEnbl_flg);
+
+  CANCommCRCFlt_outputs[0] = VIPM_HU_B_CRCFlt_flg;
+  CANCommCRCFlt_outputs[1] = VIPM_ICU_Info_CRCFlt_flg;
+  CANCommCRCFlt_outputs[2] = VIPM_TBOX_BJS_Time_CRCFlt_flg;
+  CANCommCRCFlt_outputs[3] = VIPM_CCP_PanelStatus_CRCFlt_flg;
+  CANCommCRCFlt_outputs[4] = VIPM_COMP_AC_CRCFlt_flg;
+  CANCommCRCFlt_outputs[5] = VIPM_HVCH_Status1_CRCFlt_flg;
+  CANCommCRCFlt_outputs[6] = VIPM_SCS_RiSwitchSts_CRCFlt_flg;
+  CANCommCRCFlt_outputs[7] = VIPM_CRRR_A_CRCFlt_flg;
+  CANCommCRCFlt_outputs[8] = VIPM_EHB_B_CRCFlt_flg;
+  CANCommCRCFlt_outputs[9] = VIPM_EPS_2_StrWhlAng_CRCFlt_flg;
+  CANCommCRCFlt_outputs[10] = VIPM_ESC_7_FuncStatus_CRCFlt_flg;
+  CANCommCRCFlt_outputs[11] = VIPM_FCM_B_CRCFlt_flg;
+  CANCommCRCFlt_outputs[12] = VIPM_PP_InformAndStatus_CRCFlt_flg;
+  CANCommCRCFlt_outputs[13] = VIPM_SRS_1_Status_CRCFlt_flg;
+  CANCommCRCFlt_outputs[14] = VIPM_BMS_2_BatState_CRCFlt_flg;
+  CANCommCRCFlt_outputs[15] = VIPM_INV_1_Value_CRCFlt_flg;
+  CANCommCRCFlt_outputs[16] = VIPM_IPU_DCC_1_State_CRCFlt_flg;
 
   /* End of Outputs for RootInportFunctionCallGenerator generated from: '<Root>/Runbl_IpmMsgActv_10ms' */
 

@@ -4,9 +4,9 @@
  *
  * Code generation for model "AppSwcBcm".
  *
- * Model version              : 1.1254
+ * Model version              : 1.1400
  * Simulink Coder version : 9.8 (R2022b) 13-May-2022
- * C source code generated on : Fri Aug 23 17:11:12 2024
+ * C source code generated on : Thu Sep 26 11:09:17 2024
  * 
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -233,7 +233,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         /* Axis Type            */      COM_AXIS
         /* Reference to Input   */      NO_INPUT_QUANTITY
         /* Conversion Method    */      AppSwcBcm_CM_single
-        /* Number of Axis Pts   */      12
+        /* Number of Axis Pts   */      24
         /* Lower Limit          */      -3.4E+38
         /* Upper Limit          */      3.4E+38
         AXIS_PTS_REF                    SeatCtl_DrvSeatTempLookUp_X
@@ -248,7 +248,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Record Layout          */      Lookup1D_X_FLOAT32_IEEE
       /* Maximum Difference     */      0
       /* Conversion Method      */      AppSwcBcm_CM_single
-      /* Number of Axis Pts     */      12
+      /* Number of Axis Pts     */      24
       /* Lower Limit            */      -3.4E+38
       /* Upper Limit            */      3.4E+38
     /end AXIS_PTS
@@ -334,7 +334,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* ECU Address            */      0x0000 /* @ECU_Address@PDUCtl_Ts_C@ */ 
       /* Record Layout          */      Scalar_FLOAT32_IEEE 
       /* Maximum Difference     */      0 
-      /* Conversion Method      */      AppSwcBcm_CM_single 
+      /* Conversion Method      */      AppSwcBcm_CM_single_sec 
       /* Lower Limit            */      -3.4E+38 
       /* Upper Limit            */      3.4E+38
     /end CHARACTERISTIC
@@ -399,7 +399,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* ECU Address            */      0x0000 /* @ECU_Address@BatSaveCtl_DlyTim_C@ */ 
       /* Record Layout          */      Scalar_UWORD 
       /* Maximum Difference     */      0 
-      /* Conversion Method      */      AppSwcBcm_CM_uint16_100ms 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_50ms 
       /* Lower Limit            */      0 
       /* Upper Limit            */      65535
     /end CHARACTERISTIC
@@ -412,7 +412,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* ECU Address            */      0x0000 /* @ECU_Address@BatSaveCtl_LckDlyTim_C@ */ 
       /* Record Layout          */      Scalar_UWORD 
       /* Maximum Difference     */      0 
-      /* Conversion Method      */      AppSwcBcm_CM_uint16_100ms 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_50ms 
       /* Lower Limit            */      0 
       /* Upper Limit            */      65535
     /end CHARACTERISTIC
@@ -1160,6 +1160,32 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_HiBeamShortToBatTimInValid_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_HiBeamShortToBatTimInValid_C@ */ 
+      /* Record Layout          */      Scalar_UWORD 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_20ms 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      65535
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_HiBeamShortToBatTimValid_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_HiBeamShortToBatTimValid_C@ */ 
+      /* Record Layout          */      Scalar_UWORD 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_20ms 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      65535
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      LampCtl_HiBeamTimInValid_C  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -1203,6 +1229,32 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_LampDelayTim_C@ */ 
+      /* Record Layout          */      Scalar_UWORD 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_20ms 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      65535
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_LowBeamShortToBatTimInValid_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_LowBeamShortToBatTimInValid_C@ */ 
+      /* Record Layout          */      Scalar_UWORD 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_20ms 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      65535
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_LowBeamShortToBatTimValid_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_LowBeamShortToBatTimValid_C@ */ 
       /* Record Layout          */      Scalar_UWORD 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcBcm_CM_uint16_20ms 
@@ -1374,6 +1426,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TrunkWarnTim_C@ */ 
       /* Record Layout          */      Scalar_UWORD 
       /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_20ms 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      65535
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_TurnIndcrLOpenTimInValid_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrLOpenTimInValid_C@ */ 
+      /* Record Layout          */      Scalar_UWORD 
+      /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcBcm_CM_uint16_10ms 
       /* Lower Limit            */      0 
       /* Upper Limit            */      65535
@@ -1381,26 +1446,39 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
-      /* Name                   */      LampCtl_TurnIndcrFLOpenTimValid_C  
+      /* Name                   */      LampCtl_TurnIndcrLOpenTimValid_C  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
-      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrFLOpenTimValid_C@ */ 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrLOpenTimValid_C@ */ 
       /* Record Layout          */      Scalar_UWORD 
       /* Maximum Difference     */      0 
-      /* Conversion Method      */      AppSwcBcm_CM_uint16 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_10ms 
       /* Lower Limit            */      0 
       /* Upper Limit            */      65535
     /end CHARACTERISTIC
     
     
     /begin CHARACTERISTIC
-      /* Name                   */      LampCtl_TurnIndcrFROpenTimValid_C  
+      /* Name                   */      LampCtl_TurnIndcrLShortTimInValid_C  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
-      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrFROpenTimValid_C@ */ 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrLShortTimInValid_C@ */ 
       /* Record Layout          */      Scalar_UWORD 
       /* Maximum Difference     */      0 
-      /* Conversion Method      */      AppSwcBcm_CM_uint16 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_10ms 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      65535
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_TurnIndcrLShortTimValid_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrLShortTimValid_C@ */ 
+      /* Record Layout          */      Scalar_UWORD 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_10ms 
       /* Lower Limit            */      0 
       /* Upper Limit            */      65535
     /end CHARACTERISTIC
@@ -1498,26 +1576,52 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
-      /* Name                   */      LampCtl_TurnIndcrRLOpenTimInValid_C  
+      /* Name                   */      LampCtl_TurnIndcrROpenTimInValid_C  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
-      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrRLOpenTimInValid_C@ */ 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrROpenTimInValid_C@ */ 
       /* Record Layout          */      Scalar_UWORD 
       /* Maximum Difference     */      0 
-      /* Conversion Method      */      AppSwcBcm_CM_uint16 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_10ms 
       /* Lower Limit            */      0 
       /* Upper Limit            */      65535
     /end CHARACTERISTIC
     
     
     /begin CHARACTERISTIC
-      /* Name                   */      LampCtl_TurnIndcrRROpenTimInValid_C  
+      /* Name                   */      LampCtl_TurnIndcrROpenTimValid_C  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
-      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrRROpenTimInValid_C@ */ 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrROpenTimValid_C@ */ 
       /* Record Layout          */      Scalar_UWORD 
       /* Maximum Difference     */      0 
-      /* Conversion Method      */      AppSwcBcm_CM_uint16 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_10ms 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      65535
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_TurnIndcrRShortTimInValid_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrRShortTimInValid_C@ */ 
+      /* Record Layout          */      Scalar_UWORD 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_10ms 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      65535
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_TurnIndcrRShortTimValid_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_TurnIndcrRShortTimValid_C@ */ 
+      /* Record Layout          */      Scalar_UWORD 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint16_10ms 
       /* Lower Limit            */      0 
       /* Upper Limit            */      65535
     /end CHARACTERISTIC
@@ -3900,7 +4004,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower Limit            */      0 
       /* Upper Limit            */      255
       /* Array Size             */
-      NUMBER                            20
+      NUMBER                            128
     /end CHARACTERISTIC
     
     
@@ -3922,6 +4026,58 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_J408BackLampPWMOvrdVal_C@ */ 
+      /* Record Layout          */      Scalar_UBYTE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint8 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      255
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_LOpenCnt_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_LOpenCnt_C@ */ 
+      /* Record Layout          */      Scalar_UBYTE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint8 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      255
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_LShortCnt_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_LShortCnt_C@ */ 
+      /* Record Layout          */      Scalar_UBYTE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint8 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      255
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_ROpenCnt_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_ROpenCnt_C@ */ 
+      /* Record Layout          */      Scalar_UBYTE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcBcm_CM_uint8 
+      /* Lower Limit            */      0 
+      /* Upper Limit            */      255
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      LampCtl_RShortCnt_C  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@LampCtl_RShortCnt_C@ */ 
       /* Record Layout          */      Scalar_UBYTE 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcBcm_CM_uint8 
@@ -4179,32 +4335,6 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
-      /* Name                   */      LampCtl_TurnIndcrLVol
-      /* Long identifier        */      ""
-      /* Data type              */      UWORD
-      /* Conversion method      */      AppSwcBcm_CM_uint16
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      65535
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_TurnIndcrLVol@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      LampCtl_TurnIndcrRVol
-      /* Long identifier        */      ""
-      /* Data type              */      UWORD
-      /* Conversion method      */      AppSwcBcm_CM_uint16
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      65535
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_TurnIndcrRVol@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
       /* Name                   */      LampCtl_PrdSucCntR
       /* Long identifier        */      ""
       /* Data type              */      UWORD
@@ -4227,6 +4357,32 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      0
       /* Upper limit            */      65535
       ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_PrdSucCntL@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      LampCtl_TurnIndcrLVol
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      AppSwcBcm_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_TurnIndcrLVol@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      LampCtl_TurnIndcrRVol
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      AppSwcBcm_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_TurnIndcrRVol@ */
     /end MEASUREMENT
     
     
@@ -4296,32 +4452,6 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
-      /* Name                   */      BSW_CN744DrvSeatResis
-      /* Long identifier        */      ""
-      /* Data type              */      UWORD
-      /* Conversion method      */      AppSwcBcm_CM_uint16
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      65535
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@BSW_CN744DrvSeatResis@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      BSW_J134SteerWhlResis
-      /* Long identifier        */      ""
-      /* Data type              */      UWORD
-      /* Conversion method      */      AppSwcBcm_CM_uint16
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      65535
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@BSW_J134SteerWhlResis@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
       /* Name                   */      BSW_DrvWinMotorCur
       /* Long identifier        */      ""
       /* Data type              */      UWORD
@@ -4383,6 +4513,32 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      0
       /* Upper limit            */      65535
       ECU_ADDRESS                       0x0000 /* @ECU_Address@BSW_PsgWinMotorCur@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BSW_CN744DrvSeatResis
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      AppSwcBcm_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BSW_CN744DrvSeatResis@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BSW_J134SteerWhlResis
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      AppSwcBcm_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BSW_J134SteerWhlResis@ */
     /end MEASUREMENT
     
     
@@ -4526,6 +4682,32 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      0
       /* Upper limit            */      255
       ECU_ADDRESS                       0x0000 /* @ECU_Address@BSW_J37TrunkAjar@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      DynDID_0xF22CAntitheftSta
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@DynDID_0xF22CAntitheftSta@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      DynDID_0xF237PwrModeSta
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@DynDID_0xF237PwrModeSta@ */
     /end MEASUREMENT
     
     
@@ -4744,6 +4926,111 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
+      /* Name                   */      DynDID_0xF236DigtOutSampleValue
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      /* Array Size             */
+      ARRAY_SIZE                        5
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@DynDID_0xF236DigtOutSampleValue@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      DynDID_0xF235DigtInSampleValue
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      /* Array Size             */
+      ARRAY_SIZE                        5
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@DynDID_0xF235DigtInSampleValue@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      DynDID_0xF234ADSampleValue
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      /* Array Size             */
+      ARRAY_SIZE                        23
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@DynDID_0xF234ADSampleValue@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      DynDID_0xF233RemoteStartUpFailRecord
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      9.0
+      /* Array Size             */
+      ARRAY_SIZE                        10
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@DynDID_0xF233RemoteStartUpFailRecord@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      DynDID_0xF232LocalStartUpFailRecord
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      9.0
+      /* Array Size             */
+      ARRAY_SIZE                        10
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@DynDID_0xF232LocalStartUpFailRecord@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      DynDID_0xF231TrunkOpRecord
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      9.0
+      /* Array Size             */
+      ARRAY_SIZE                        10
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@DynDID_0xF231TrunkOpRecord@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      DynDID_0xF230DoorOpRecord
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      9.0
+      /* Array Size             */
+      ARRAY_SIZE                        10
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@DynDID_0xF230DoorOpRecord@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      DoorLckCtl_EEKeyEntry
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -4939,6 +5226,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
+      /* Name                   */      BSW_FogLampFCfg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BSW_FogLampFCfg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      BSW_J313BrakeLoSw
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -5095,6 +5395,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
+      /* Name                   */      LampCtl_PartArmedSta
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_PartArmedSta@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      LampCtl_RKEReq
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -5134,6 +5447,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
+      /* Name                   */      BSW_LowBeamDigSts
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BSW_LowBeamDigSts@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      LampCtl_LightIntstSta
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -5143,6 +5469,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      0
       /* Upper limit            */      255
       ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_LightIntstSta@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      BSW_HiBeamDigSts
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BSW_HiBeamDigSts@ */
     /end MEASUREMENT
     
     
@@ -5416,6 +5755,66 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      0
       /* Upper limit            */      255
       ECU_ADDRESS                       0x0000 /* @ECU_Address@EEReadCtl_WiprIntlTimeSetFb@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EEReadCtl_DoorOpRecord
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      /* Array Size             */
+      ARRAY_SIZE                        10
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EEReadCtl_DoorOpRecord@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EEReadCtl_LocalStartFailOpRecord
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      /* Array Size             */
+      ARRAY_SIZE                        10
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EEReadCtl_LocalStartFailOpRecord@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EEReadCtl_RemoteStartFailRecord
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      /* Array Size             */
+      ARRAY_SIZE                        10
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EEReadCtl_RemoteStartFailRecord@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      EEReadCtl_TrunkOpRecord
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_uint8
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      /* Array Size             */
+      ARRAY_SIZE                        10
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@EEReadCtl_TrunkOpRecord@ */
     /end MEASUREMENT
     
     
@@ -6655,6 +7054,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
+      /* Name                   */      DoorLckCtl_TrunkHUUnlck
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@DoorLckCtl_TrunkHUUnlck@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      DoorLckCtl_TrunkRKEUnlck
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -6798,6 +7210,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
+      /* Name                   */      BatSaveCtl_DoorUnlckPwrOn
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BatSaveCtl_DoorUnlckPwrOn@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      BatSaveCtl_DoorChgSta
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -6837,7 +7262,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
-      /* Name                   */      BatSaveCtl_DoorUnlckPwrOn
+      /* Name                   */      BatSaveCtl_DoorLckPwrOff
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
       /* Conversion method      */      AppSwcBcm_CM_boolean
@@ -6845,7 +7270,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@BatSaveCtl_DoorUnlckPwrOn@ */
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@BatSaveCtl_DoorLckPwrOff@ */
     /end MEASUREMENT
     
     
@@ -6859,19 +7284,6 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      0
       /* Upper limit            */      1
       ECU_ADDRESS                       0x0000 /* @ECU_Address@BatSaveCtl_PwrModeOff@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      BatSaveCtl_DoorLckPwrOff
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      AppSwcBcm_CM_boolean
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@BatSaveCtl_DoorLckPwrOff@ */
     /end MEASUREMENT
     
     
@@ -7227,7 +7639,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
-      /* Name                   */      LampCtl_VehSeekSta
+      /* Name                   */      LampCtl_TurnIndcrLOpen
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
       /* Conversion method      */      AppSwcBcm_CM_boolean
@@ -7235,20 +7647,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_VehSeekSta@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      LampCtl_TurnIndcrRShort
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      AppSwcBcm_CM_boolean
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_TurnIndcrRShort@ */
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_TurnIndcrLOpen@ */
     /end MEASUREMENT
     
     
@@ -7279,7 +7678,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
-      /* Name                   */      LampCtl_TurnIndcrLOpen
+      /* Name                   */      LampCtl_TurnIndcrRShort
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
       /* Conversion method      */      AppSwcBcm_CM_boolean
@@ -7287,7 +7686,20 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_TurnIndcrLOpen@ */
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_TurnIndcrRShort@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      LampCtl_VehSeekSta
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_VehSeekSta@ */
     /end MEASUREMENT
     
     
@@ -7340,19 +7752,6 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      0
       /* Upper limit            */      1
       ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_RodBeamFaultSta@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      LampCtl_PartArmedSta
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      AppSwcBcm_CM_boolean
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_PartArmedSta@ */
     /end MEASUREMENT
     
     
@@ -7799,6 +8198,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
+      /* Name                   */      LampCtl_LowBeamShortToBat
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_LowBeamShortToBat@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      LampCtl_LampDelay
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -7821,6 +8233,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      0
       /* Upper limit            */      1
       ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_KnobBeamFaultSta@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      LampCtl_HiBeamShortToBat
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@LampCtl_HiBeamShortToBat@ */
     /end MEASUREMENT
     
     
@@ -8003,32 +8428,6 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      0
       /* Upper limit            */      1
       ECU_ADDRESS                       0x0000 /* @ECU_Address@HornCtl_HornSwCtl@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      WinCtl_WinDnRKEReq
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      AppSwcBcm_CM_boolean
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@WinCtl_WinDnRKEReq@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      WinCtl_WinUpRKEReq
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      AppSwcBcm_CM_boolean
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@WinCtl_WinUpRKEReq@ */
     /end MEASUREMENT
     
     
@@ -8436,7 +8835,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
-      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt_f
+      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt_m
       /* Long identifier        */      ""
       /* Data type              */      UWORD
       /* Conversion method      */      AppSwcBcm_CM_uint16
@@ -8444,12 +8843,12 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt_f@ */
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt_m@ */
     /end MEASUREMENT
     
     
     /begin MEASUREMENT
-      /* Name                   */      AppSwcBcm_ARID_DEF.flg_o
+      /* Name                   */      AppSwcBcm_ARID_DEF.flg_l
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
       /* Conversion method      */      AppSwcBcm_CM_boolean
@@ -8457,46 +8856,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.flg_o@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt_i
-      /* Long identifier        */      ""
-      /* Data type              */      UWORD
-      /* Conversion method      */      AppSwcBcm_CM_uint16
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      65535
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt_i@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt2_h
-      /* Long identifier        */      ""
-      /* Data type              */      UWORD
-      /* Conversion method      */      AppSwcBcm_CM_uint16
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      65535
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt2_h@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt_pi
-      /* Long identifier        */      ""
-      /* Data type              */      UWORD
-      /* Conversion method      */      AppSwcBcm_CM_uint16
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      65535
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt_pi@ */
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.flg_l@ */
     /end MEASUREMENT
     
     
@@ -8514,7 +8874,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
-      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt_c2
+      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt2_j
       /* Long identifier        */      ""
       /* Data type              */      UWORD
       /* Conversion method      */      AppSwcBcm_CM_uint16
@@ -8522,25 +8882,12 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt_c2@ */
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt2_j@ */
     /end MEASUREMENT
     
     
     /begin MEASUREMENT
-      /* Name                   */      AppSwcBcm_ARID_DEF.flg_e
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      AppSwcBcm_CM_boolean
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.flg_e@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt_o
+      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt_dy
       /* Long identifier        */      ""
       /* Data type              */      UWORD
       /* Conversion method      */      AppSwcBcm_CM_uint16
@@ -8548,12 +8895,38 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      65535
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt_o@ */
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt_dy@ */
     /end MEASUREMENT
     
     
     /begin MEASUREMENT
-      /* Name                   */      AppSwcBcm_ARID_DEF.Flg_l
+      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt_d
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      AppSwcBcm_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt_d@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt_pi
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      AppSwcBcm_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt_pi@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      AppSwcBcm_ARID_DEF.flg_a
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
       /* Conversion method      */      AppSwcBcm_CM_boolean
@@ -8561,7 +8934,33 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Accuracy (Not used)    */      0
       /* Lower limit            */      0
       /* Upper limit            */      1
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Flg_l@ */
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.flg_a@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      AppSwcBcm_ARID_DEF.Cnt_nz
+      /* Long identifier        */      ""
+      /* Data type              */      UWORD
+      /* Conversion method      */      AppSwcBcm_CM_uint16
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      65535
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Cnt_nz@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      AppSwcBcm_ARID_DEF.Flg_j
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcBcm_CM_boolean
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      1
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@AppSwcBcm_ARID_DEF.Flg_j@ */
     /end MEASUREMENT
     
     
@@ -8610,15 +9009,6 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Conversion Type        */      RAT_FUNC
       /* Format                 */      "%5.0"
       /* Units                  */      "50ms"
-      /* Coefficients           */      COEFFS 0 1 0 0 0 1
-    /end COMPU_METHOD
-    
-    /begin COMPU_METHOD
-      /* Name of CompuMethod    */      AppSwcBcm_CM_uint16_100ms
-      /* Long identifier        */      "Q = V"
-      /* Conversion Type        */      RAT_FUNC
-      /* Format                 */      "%5.0"
-      /* Units                  */      "100ms"
       /* Coefficients           */      COEFFS 0 1 0 0 0 1
     /end COMPU_METHOD
     
@@ -8700,6 +9090,15 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Conversion Type        */      RAT_FUNC
       /* Format                 */      "%5.0"
       /* Units                  */      "Bit"
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
+      /* Name of CompuMethod    */      AppSwcBcm_CM_uint16_100ms
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%5.0"
+      /* Units                  */      "100ms"
       /* Coefficients           */      COEFFS 0 1 0 0 0 1
     /end COMPU_METHOD
     
@@ -8791,6 +9190,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       Root_AppSwcBcm_100ms
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms"
       /begin SUB_GROUP
+        S1_EEWriteCtl
         S1_IODID
         S1_RVMCtl
         S1_SeatCtl
@@ -8821,12 +9221,12 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms"
       /begin SUB_GROUP
         S3_EEReadCtl
-        S3_EEWriteCtl
         S3_HornCtl
         S3_LampCtl
         S3_WiperCtl
       /end SUB_GROUP
       /begin REF_MEASUREMENT
+        BSW_FogLampFCfg
         BSW_J125LightIntst
         BSW_J313BrakeLoSw
         BSW_J319HornSw
@@ -8845,6 +9245,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         S4_AlmSysCtl
         S4_BatSaveCtl
         S4_DoorLckCtl
+        S4_DynDID
         S4_ESCLCtl
         S4_IMMOCtl
         S4_PDUCtl
@@ -8867,6 +9268,15 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         BSW_J37TrunkAjar
         BSW_J38HoodAjar
       /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S1_EEWriteCtl
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/EEWriteCtl"
+      /begin REF_CHARACTERISTIC
+        EEWriteCtl_ImmOvrdFlg_C
+        EEWriteCtl_ImmOvrdVal_C
+      /end REF_CHARACTERISTIC
     /end GROUP
     
     /begin GROUP
@@ -8905,8 +9315,8 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S1_RVMCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/RVMCtl"
       /begin SUB_GROUP
-        S6_Ovrd
-        S6_RVMCtl
+        S7_Ovrd
+        S7_RVMCtl
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         RVMCtl_J42HeatOvrdFlg_C
@@ -8918,7 +9328,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S1_SeatCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/SeatCtl"
       /begin SUB_GROUP
-        S7_SeatCtl
+        S8_SeatCtl
       /end SUB_GROUP
     /end GROUP
     
@@ -8926,7 +9336,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S1_SteerWhlCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/SteerWhlCtl"
       /begin SUB_GROUP
-        S8_SteerWhlCtl
+        S9_SteerWhlCtl
       /end SUB_GROUP
     /end GROUP
     
@@ -8934,13 +9344,13 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S1_WinCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/WinCtl"
       /begin SUB_GROUP
-        S9_Ovrd1
-        S9_Ovrd2
-        S9_Ovrd3
-        S9_Ovrd4
-        S9_SigProc
-        S9_WinMotorProt
-        S9_WinSwArb
+        S10_Ovrd1
+        S10_Ovrd2
+        S10_Ovrd3
+        S10_Ovrd4
+        S10_SigProc
+        S10_WinMotorProt
+        S10_WinSwArb
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         WinCtl_J51DrvWinUpOvrdFlg_C
@@ -8962,11 +9372,11 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S2_PEPSCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_10ms/PEPSCtl"
       /begin SUB_GROUP
-        S192_Key_FobReles
-        S192_Others
-        S192_PE
-        S192_PS
-        S192_Polling
+        S206_Key_FobReles
+        S206_Others
+        S206_PE
+        S206_PS
+        S206_Polling
       /end SUB_GROUP
     /end GROUP
     
@@ -8977,40 +9387,35 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         EEReadCtl_BackLadjvalFb
         EEReadCtl_BodyWarnSts
         EEReadCtl_CrashSta
+        EEReadCtl_DoorOpRecord
         EEReadCtl_FlwrMeHomeCtlFb
         EEReadCtl_HazardLightSta
         EEReadCtl_IllmndLckSts
         EEReadCtl_IllmndUnlckSts
         EEReadCtl_InrTim
+        EEReadCtl_LocalStartFailOpRecord
         EEReadCtl_LockHoornOnSts
         EEReadCtl_ParkAutoUnlockSetFb
+        EEReadCtl_RemoteStartFailRecord
         EEReadCtl_SpdCtlLckSet
+        EEReadCtl_TrunkOpRecord
         EEReadCtl_WiprIntlTimeSetFb
       /end REF_MEASUREMENT
-    /end GROUP
-    
-    /begin GROUP
-      /* Name                   */       S3_EEWriteCtl
-      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/EEWriteCtl"
-      /begin REF_CHARACTERISTIC
-        EEWriteCtl_ImmOvrdFlg_C
-        EEWriteCtl_ImmOvrdVal_C
-      /end REF_CHARACTERISTIC
     /end GROUP
     
     /begin GROUP
       /* Name                   */       S3_HornCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/HornCtl"
       /begin SUB_GROUP
-        S220_Alarm
-        S220_AntiLck
-        S220_Armed
-        S220_HornSet
-        S220_HornSw
-        S220_Ovrd1
-        S220_PartArmed
-        S220_Seek
-        S220_Trunk30sWarn
+        S232_Alarm
+        S232_AntiLck
+        S232_Armed
+        S232_HornSet
+        S232_HornSw
+        S232_Ovrd1
+        S232_PartArmed
+        S232_Seek
+        S232_Trunk30sWarn
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         HornCtl_J430HornDrvOvrdFlg_C
@@ -9022,34 +9427,35 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S3_LampCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl"
       /begin SUB_GROUP
-        S221_AutoLampCtl
-        S221_BackLampCtl
-        S221_BoxLampCtl
-        S221_DomeLampCtl
-        S221_KnobBeamDig
-        S221_LampDelayCtl
-        S221_LightIntstDet
-        S221_LowBeamCtl
-        S221_Ovrd
-        S221_Ovrd1
-        S221_Ovrd10
-        S221_Ovrd11
-        S221_Ovrd12
-        S221_Ovrd13
-        S221_Ovrd14
-        S221_Ovrd2
-        S221_Ovrd3
-        S221_Ovrd4
-        S221_Ovrd5
-        S221_Ovrd6
-        S221_Ovrd7
-        S221_Ovrd8
-        S221_Ovrd9
-        S221_PassLampFunc
-        S221_PosLampCtl
-        S221_SignalProcess
-        S221_TurnIndcrCtl
-        S221_WelcomeLampCtl
+        S233_AutoLampCtl
+        S233_BackLampCtl
+        S233_BoxLampCtl
+        S233_DomeLampCtl
+        S233_HiBeamCtl
+        S233_KnobBeamDig
+        S233_LampDelayCtl
+        S233_LightIntstDet
+        S233_LowBeamCtl
+        S233_Ovrd
+        S233_Ovrd1
+        S233_Ovrd10
+        S233_Ovrd11
+        S233_Ovrd12
+        S233_Ovrd13
+        S233_Ovrd14
+        S233_Ovrd2
+        S233_Ovrd3
+        S233_Ovrd4
+        S233_Ovrd5
+        S233_Ovrd6
+        S233_Ovrd7
+        S233_Ovrd8
+        S233_Ovrd9
+        S233_PassLampFunc
+        S233_PosLampCtl
+        S233_SignalProcess
+        S233_TurnIndcrCtl
+        S233_WelcomeLampCtl
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         LampCtl_BrakeLightStaOvrdFlg_C
@@ -9089,19 +9495,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S3_WiperCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl"
       /begin SUB_GROUP
-        S222_LockedRotorProt
-        S222_Ovrd1
-        S222_Ovrd2
-        S222_Ovrd3
-        S222_SignalProcess
-        S222_WashCtl
-        S222_WiperDrv
-        S222_WiperHiSpdCtl
-        S222_WiperInrCtl
-        S222_WiperLowSpdCtl
-        S222_WiperMaintCtl
-        S222_WiperMistCtl
-        S222_WiperOffCtl
+        S234_LockedRotorProt
+        S234_Ovrd1
+        S234_Ovrd2
+        S234_Ovrd3
+        S234_SignalProcess
+        S234_WashCtl
+        S234_WiperDrv
+        S234_WiperHiSpdCtl
+        S234_WiperInrCtl
+        S234_WiperLowSpdCtl
+        S234_WiperMaintCtl
+        S234_WiperMistCtl
+        S234_WiperOffCtl
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         WiperCtl_HiSpdDrvOvrdFlg_C
@@ -9135,9 +9541,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S4_BatSaveCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/BatSaveCtl"
       /begin SUB_GROUP
-        S599_Ovrd1
-        S599_PwrOff
-        S599_PwrOn
+        S621_Ovrd1
+        S621_PwrOff
+        S621_PwrOn
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         BatSaveCtl_J64SavePwrOvrdFlg_C
@@ -9149,11 +9555,11 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S4_DoorLckCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl"
       /begin SUB_GROUP
-        S601_DoorLckCtlLogic
-        S601_Ovrd1
-        S601_Ovrd2
-        S601_Ovrd3
-        S601_SignalProcess
+        S623_DoorLckCtlLogic
+        S623_Ovrd1
+        S623_Ovrd2
+        S623_Ovrd3
+        S623_SignalProcess
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         DoorLckCtl_DrvTim_C
@@ -9175,10 +9581,28 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
+      /* Name                   */       S4_DynDID
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DynDID"
+      /begin SUB_GROUP
+        S624_0xF230DoorOpRecord
+        S624_0xF231TrunkOpRecord
+        S624_0xF232LocalStartUpFailRecord
+        S624_0xF233RemoteStartUpFailRecord
+        S624_0xF234ADSampleValue
+        S624_0xF235DigtInSampleValue
+        S624_0xF236DigtOutSampleValue
+      /end SUB_GROUP
+      /begin REF_MEASUREMENT
+        DynDID_0xF22CAntitheftSta
+        DynDID_0xF237PwrModeSta
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
       /* Name                   */       S4_ESCLCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/ESCLCtl"
       /begin SUB_GROUP
-        S602_ESCLCtl
+        S625_ESCLCtl
       /end SUB_GROUP
     /end GROUP
     
@@ -9197,13 +9621,13 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S4_PDUCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/PDUCtl"
       /begin SUB_GROUP
-        S604_Ovrd1
-        S604_Ovrd2
-        S604_PwrOff
-        S604_PwrOn
-        S604_RelayDig
-        S604_StartReq
-        S604_Subsystem
+        S627_Ovrd1
+        S627_Ovrd2
+        S627_PwrOff
+        S627_PwrOn
+        S627_RelayDig
+        S627_StartReq
+        S627_Subsystem
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         PDUCtl_J421IG1RlyCtlOvrdFlg_C
@@ -9221,7 +9645,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S4_WakeUpCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/WakeUpCtl"
       /begin SUB_GROUP
-        S605_WakeUpCtl
+        S628_WakeUpCtl
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         BSW_WakeupReas
@@ -9229,7 +9653,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S6_Ovrd
+      /* Name                   */       S7_Ovrd
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/RVMCtl/Ovrd"
       /begin REF_MEASUREMENT
         RVMCtl_J42Heat
@@ -9237,7 +9661,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S6_RVMCtl
+      /* Name                   */       S7_RVMCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/RVMCtl/RVMCtl"
       /begin REF_CHARACTERISTIC
         RVMCtl_MaxHeatTimM_C
@@ -9251,10 +9675,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S7_SeatCtl
+      /* Name                   */       S8_SeatCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/SeatCtl/SeatCtl"
       /begin SUB_GROUP
-        S127_Ovrd
+        S129_Ovrd
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         SeatCtl_CN167DrvSeatHtPWMOvrdFlg_C
@@ -9273,10 +9697,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S8_SteerWhlCtl
+      /* Name                   */       S9_SteerWhlCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/SteerWhlCtl/SteerWhlCtl"
       /begin SUB_GROUP
-        S130_Ovrd
+        S132_Ovrd
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         SteerWhlCtl_DiffTemp_C
@@ -9292,7 +9716,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S9_Ovrd1
+      /* Name                   */       S10_Ovrd1
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/WinCtl/Ovrd1"
       /begin REF_MEASUREMENT
         WinCtl_J51DrvWinUp
@@ -9300,7 +9724,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S9_Ovrd2
+      /* Name                   */       S10_Ovrd2
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/WinCtl/Ovrd2"
       /begin REF_MEASUREMENT
         WinCtl_J55PsgWinUp
@@ -9308,7 +9732,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S9_Ovrd3
+      /* Name                   */       S10_Ovrd3
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/WinCtl/Ovrd3"
       /begin REF_MEASUREMENT
         WinCtl_J57PsgWinDn
@@ -9316,7 +9740,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S9_Ovrd4
+      /* Name                   */       S10_Ovrd4
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/WinCtl/Ovrd4"
       /begin REF_MEASUREMENT
         WinCtl_J53DrvWinDn
@@ -9324,7 +9748,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S9_SigProc
+      /* Name                   */       S10_SigProc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/WinCtl/SigProc"
       /begin REF_CHARACTERISTIC
         WinCtl_DrvPsgWinAutoDnMaxResis_C
@@ -9383,7 +9807,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S9_WinMotorProt
+      /* Name                   */       S10_WinMotorProt
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/WinCtl/WinMotorProt"
       /begin REF_CHARACTERISTIC
         WinCtl_WinProtNum_C
@@ -9398,7 +9822,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S9_WinSwArb
+      /* Name                   */       S10_WinSwArb
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/WinCtl/WinSwArb"
       /begin REF_CHARACTERISTIC
         WinCtl_PwrOffWinValidTimMax_C
@@ -9417,13 +9841,11 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         WinCtl_PsgWinDnReq
         WinCtl_PsgWinReq
         WinCtl_PsgWinUpReq
-        WinCtl_WinDnRKEReq
-        WinCtl_WinUpRKEReq
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S192_Key_FobReles
+      /* Name                   */       S206_Key_FobReles
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_10ms/PEPSCtl/Key_FobReles"
       /begin REF_MEASUREMENT
         PEPSCtl_FrbdnKeyNr
@@ -9431,7 +9853,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S192_Others
+      /* Name                   */       S206_Others
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_10ms/PEPSCtl/Others"
       /begin REF_MEASUREMENT
         PEPSCtl_KeyLoBattLvlWarn
@@ -9440,7 +9862,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S192_PE
+      /* Name                   */       S206_PE
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_10ms/PEPSCtl/PE"
       /begin REF_MEASUREMENT
         PEPSCtl_AvaluebleKeyInCar
@@ -9451,7 +9873,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S192_PS
+      /* Name                   */       S206_PS
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_10ms/PEPSCtl/PS"
       /begin REF_MEASUREMENT
         PEPSCtl_IMMOKey
@@ -9464,7 +9886,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S192_Polling
+      /* Name                   */       S206_Polling
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_10ms/PEPSCtl/Polling"
       /begin REF_MEASUREMENT
         PEPSCtl_LckWlcmReq
@@ -9473,7 +9895,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S220_Alarm
+      /* Name                   */       S232_Alarm
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/HornCtl/Alarm"
       /begin REF_MEASUREMENT
         HornCtl_AlarmSta
@@ -9481,7 +9903,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S220_AntiLck
+      /* Name                   */       S232_AntiLck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/HornCtl/AntiLck"
       /begin REF_MEASUREMENT
         HornCtl_AntiLckSta
@@ -9489,7 +9911,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S220_Armed
+      /* Name                   */       S232_Armed
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/HornCtl/Armed"
       /begin REF_MEASUREMENT
         HornCtl_ArmedSta
@@ -9497,7 +9919,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S220_HornSet
+      /* Name                   */       S232_HornSet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/HornCtl/HornSet"
       /begin REF_MEASUREMENT
         HornCtl_LockHoornOnSt
@@ -9506,7 +9928,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S220_HornSw
+      /* Name                   */       S232_HornSw
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/HornCtl/HornSw"
       /begin REF_CHARACTERISTIC
         HornCtl_HornSwTimInvalid_C
@@ -9519,7 +9941,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S220_Ovrd1
+      /* Name                   */       S232_Ovrd1
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/HornCtl/Ovrd1"
       /begin REF_MEASUREMENT
         HornCtl_J430HornDrv
@@ -9527,7 +9949,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S220_PartArmed
+      /* Name                   */       S232_PartArmed
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/HornCtl/PartArmed"
       /begin REF_MEASUREMENT
         HornCtl_PartArmedSta
@@ -9535,7 +9957,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S220_Seek
+      /* Name                   */       S232_Seek
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/HornCtl/Seek"
       /begin REF_MEASUREMENT
         HornCtl_SeekSta
@@ -9543,7 +9965,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S220_Trunk30sWarn
+      /* Name                   */       S232_Trunk30sWarn
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/HornCtl/Trunk30sWarn"
       /begin REF_CHARACTERISTIC
         HornCtl_TrunkWarnTim_C
@@ -9554,10 +9976,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_AutoLampCtl
+      /* Name                   */       S233_AutoLampCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/AutoLampCtl"
       /begin SUB_GROUP
-        S297_Lib_SR
+        S308_Lib_SR
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         LampCtl_AutoLampDayDelayTim_C
@@ -9567,7 +9989,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_BackLampCtl
+      /* Name                   */       S233_BackLampCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/BackLampCtl"
       /begin REF_MEASUREMENT
         LampCtl_BackLadjvalFb
@@ -9575,7 +9997,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_BoxLampCtl
+      /* Name                   */       S233_BoxLampCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/BoxLampCtl"
       /begin REF_CHARACTERISTIC
         LampCtl_BoxLampOpenTimMax_C
@@ -9583,13 +10005,13 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_DomeLampCtl
+      /* Name                   */       S233_DomeLampCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/DomeLampCtl"
       /begin SUB_GROUP
-        S302_DomeLamp10min
-        S302_DomeLamp30sec
-        S302_DomeLampOff
-        S302_Lib_SR
+        S313_DomeLamp10min
+        S313_DomeLamp30sec
+        S313_DomeLampOff
+        S313_Lib_SR
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         LampCtl_DomeLampOff
@@ -9600,7 +10022,21 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_KnobBeamDig
+      /* Name                   */       S233_HiBeamCtl
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/HiBeamCtl"
+      /begin REF_CHARACTERISTIC
+        LampCtl_HiBeamShortToBatTimInValid_C
+        LampCtl_HiBeamShortToBatTimValid_C
+        LampCtl_Ts_C
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        BSW_HiBeamDigSts
+        LampCtl_HiBeamShortToBat
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S233_KnobBeamDig
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/KnobBeamDig"
       /begin REF_CHARACTERISTIC
         LampCtl_Ts_C
@@ -9611,10 +10047,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_LampDelayCtl
+      /* Name                   */       S233_LampDelayCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/LampDelayCtl"
       /begin SUB_GROUP
-        S306_Lib_SR
+        S317_Lib_SR
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         LampCtl_LampDelayTim_C
@@ -9622,7 +10058,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_LightIntstDet
+      /* Name                   */       S233_LightIntstDet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/LightIntstDet"
       /begin REF_CHARACTERISTIC
         LampCtl_DayTimeVal_C
@@ -9634,17 +10070,23 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_LowBeamCtl
+      /* Name                   */       S233_LowBeamCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/LowBeamCtl"
       /begin REF_CHARACTERISTIC
+        LampCtl_LowBeamShortToBatTimInValid_C
+        LampCtl_LowBeamShortToBatTimValid_C
         LampCtl_LowBeamStaTimInValid_C
         LampCtl_LowBeamStaTimValid_C
         LampCtl_Ts_C
       /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        BSW_LowBeamDigSts
+        LampCtl_LowBeamShortToBat
+      /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd
+      /* Name                   */       S233_Ovrd
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd"
       /begin REF_MEASUREMENT
         LampCtl_PosLampSta
@@ -9652,7 +10094,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd1
+      /* Name                   */       S233_Ovrd1
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd1"
       /begin REF_MEASUREMENT
         LampCtl_DayRunLightSta
@@ -9660,7 +10102,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd10
+      /* Name                   */       S233_Ovrd10
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd10"
       /begin REF_MEASUREMENT
         LampCtl_DomeLampPwmDuty
@@ -9668,7 +10110,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd11
+      /* Name                   */       S233_Ovrd11
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd11"
       /begin REF_MEASUREMENT
         LampCtl_TurnIndcrRSta
@@ -9676,7 +10118,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd12
+      /* Name                   */       S233_Ovrd12
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd12"
       /begin REF_MEASUREMENT
         LampCtl_TurnIndcrLSta
@@ -9684,7 +10126,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd13
+      /* Name                   */       S233_Ovrd13
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd13"
       /begin REF_MEASUREMENT
         LampCtl_J449BoxLamp
@@ -9692,7 +10134,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd14
+      /* Name                   */       S233_Ovrd14
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd14"
       /begin REF_MEASUREMENT
         LampCtl_J408BackLampPWM
@@ -9700,7 +10142,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd2
+      /* Name                   */       S233_Ovrd2
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd2"
       /begin REF_MEASUREMENT
         LampCtl_BrakeLightSta
@@ -9708,7 +10150,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd3
+      /* Name                   */       S233_Ovrd3
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd3"
       /begin REF_MEASUREMENT
         LampCtl_J420BSDRightCtl
@@ -9716,7 +10158,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd4
+      /* Name                   */       S233_Ovrd4
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd4"
       /begin REF_MEASUREMENT
         LampCtl_J422BSDLeftCtl
@@ -9724,7 +10166,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd5
+      /* Name                   */       S233_Ovrd5
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd5"
       /begin REF_MEASUREMENT
         LampCtl_LowBeamSta
@@ -9732,7 +10174,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd6
+      /* Name                   */       S233_Ovrd6
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd6"
       /begin REF_MEASUREMENT
         LampCtl_FogLampRSta
@@ -9740,7 +10182,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd7
+      /* Name                   */       S233_Ovrd7
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd7"
       /begin REF_MEASUREMENT
         LampCtl_FogLampFSta
@@ -9748,7 +10190,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd8
+      /* Name                   */       S233_Ovrd8
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd8"
       /begin REF_MEASUREMENT
         LampCtl_ReverseLampSta
@@ -9756,7 +10198,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_Ovrd9
+      /* Name                   */       S233_Ovrd9
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/Ovrd9"
       /begin REF_MEASUREMENT
         LampCtl_HiBeamSta
@@ -9764,7 +10206,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_PassLampFunc
+      /* Name                   */       S233_PassLampFunc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/PassLampFunc"
       /begin REF_MEASUREMENT
         LampCtl_PassLightSta
@@ -9772,7 +10214,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_PosLampCtl
+      /* Name                   */       S233_PosLampCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/PosLampCtl"
       /begin REF_CHARACTERISTIC
         LampCtl_PosLampStaTimInValid_C
@@ -9782,7 +10224,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_SignalProcess
+      /* Name                   */       S233_SignalProcess
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/SignalProcess"
       /begin REF_CHARACTERISTIC
         LampCtl_AutoLampTimInValid_C
@@ -9845,24 +10287,24 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_TurnIndcrCtl
+      /* Name                   */       S233_TurnIndcrCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl"
       /begin SUB_GROUP
-        S328_AlrmFunc
-        S328_AntiLckFunc
-        S328_ArmedFunc
-        S328_CrashWarnFunc
-        S328_DisarmedFunc
-        S328_EmergencyFunc
-        S328_PartArmedFunc
-        S328_RodBeamDig
-        S328_ThermRunawayFunc
-        S328_Trunk30sWarn
-        S328_TurnIndcrDig
-        S328_TurnIndcrLCtl
-        S328_TurnIndcrRCtl
-        S328_VehMode
-        S328_VehSeekFunc
+        S339_AlrmFunc
+        S339_AntiLckFunc
+        S339_ArmedFunc
+        S339_CrashWarnFunc
+        S339_DisarmedFunc
+        S339_EmergencyFunc
+        S339_PartArmedFunc
+        S339_RodBeamDig
+        S339_ThermRunawayFunc
+        S339_Trunk30sWarn
+        S339_TurnIndcrDig
+        S339_TurnIndcrLCtl
+        S339_TurnIndcrRCtl
+        S339_VehMode
+        S339_VehSeekFunc
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         LampCtl_EmerHazardLightSta
@@ -9877,20 +10319,20 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S221_WelcomeLampCtl
+      /* Name                   */       S233_WelcomeLampCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/WelcomeLampCtl"
       /begin SUB_GROUP
-        S329_FlwrMeHomeOn
-        S329_FlwrMeHomeSet
-        S329_Lib_SR
-        S329_Lib_SR1
-        S329_WelcomeLampOff
-        S329_WelcomeLampOn
+        S340_FlwrMeHomeOn
+        S340_FlwrMeHomeSet
+        S340_Lib_SR
+        S340_Lib_SR1
+        S340_WelcomeLampOff
+        S340_WelcomeLampOn
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_LockedRotorProt
+      /* Name                   */       S234_LockedRotorProt
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/LockedRotorProt"
       /begin REF_CHARACTERISTIC
         WiperCtl_LockedRotorTimDef_C
@@ -9904,7 +10346,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_Ovrd1
+      /* Name                   */       S234_Ovrd1
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/Ovrd1"
       /begin REF_MEASUREMENT
         WiperCtl_LowSpdDrv
@@ -9912,7 +10354,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_Ovrd2
+      /* Name                   */       S234_Ovrd2
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/Ovrd2"
       /begin REF_MEASUREMENT
         WiperCtl_HiSpdDrv
@@ -9920,7 +10362,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_Ovrd3
+      /* Name                   */       S234_Ovrd3
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/Ovrd3"
       /begin REF_MEASUREMENT
         WiperCtl_WashMotorDrv
@@ -9928,7 +10370,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_SignalProcess
+      /* Name                   */       S234_SignalProcess
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/SignalProcess"
       /begin REF_CHARACTERISTIC
         WiperCtl_HiSpdTimInValid_C
@@ -9963,7 +10405,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_WashCtl
+      /* Name                   */       S234_WashCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/WashCtl"
       /begin REF_CHARACTERISTIC
         WiperCtl_Ts_C
@@ -9976,7 +10418,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_WiperDrv
+      /* Name                   */       S234_WiperDrv
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/WiperDrv"
       /begin REF_CHARACTERISTIC
         WiperCtl_MaintWiperRunTim_C
@@ -9992,7 +10434,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_WiperHiSpdCtl
+      /* Name                   */       S234_WiperHiSpdCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/WiperHiSpdCtl"
       /begin REF_MEASUREMENT
         WiperCtl_WiperHiSpdSta
@@ -10000,7 +10442,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_WiperInrCtl
+      /* Name                   */       S234_WiperInrCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/WiperInrCtl"
       /begin REF_CHARACTERISTIC
         WiperCtl_InrLvl1Tim_C
@@ -10020,7 +10462,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_WiperLowSpdCtl
+      /* Name                   */       S234_WiperLowSpdCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/WiperLowSpdCtl"
       /begin REF_MEASUREMENT
         WiperCtl_WiperLowSpdSta
@@ -10028,15 +10470,15 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_WiperMaintCtl
+      /* Name                   */       S234_WiperMaintCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/WiperMaintCtl"
       /begin SUB_GROUP
-        S555_Lib_SR
+        S577_Lib_SR
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_WiperMistCtl
+      /* Name                   */       S234_WiperMistCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/WiperMistCtl"
       /begin REF_MEASUREMENT
         WiperCtl_WiperMistSta
@@ -10044,7 +10486,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S222_WiperOffCtl
+      /* Name                   */       S234_WiperOffCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/WiperOffCtl"
       /begin REF_MEASUREMENT
         WiperCtl_WiperOffSta
@@ -10052,7 +10494,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S599_Ovrd1
+      /* Name                   */       S621_Ovrd1
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/BatSaveCtl/Ovrd1"
       /begin REF_MEASUREMENT
         BatSaveCtl_J64SavePwr
@@ -10060,14 +10502,14 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S599_PwrOff
+      /* Name                   */       S621_PwrOff
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/BatSaveCtl/PwrOff"
       /begin REF_CHARACTERISTIC
         BatSaveCtl_DlyTim_C
         BatSaveCtl_LckDlyTim_C
       /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
-        AppSwcBcm_ARID_DEF.Cnt_f
+        AppSwcBcm_ARID_DEF.Cnt_m
         BatSaveCtl_DoorLckPwrOff
         BatSaveCtl_PwrModeOff
         BatSaveCtl_PwrOff
@@ -10075,41 +10517,39 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S599_PwrOn
+      /* Name                   */       S621_PwrOn
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/BatSaveCtl/PwrOn"
-      /begin SUB_GROUP
-        S626_Lib_RiseEdgeDetInit
-      /end SUB_GROUP
       /begin REF_MEASUREMENT
         BatSaveCtl_DoorChgSta
+        BatSaveCtl_DoorUnlckPwrOn
         BatSaveCtl_PwrModeOn
         BatSaveCtl_PwrOn
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S601_DoorLckCtlLogic
+      /* Name                   */       S623_DoorLckCtlLogic
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic"
       /begin SUB_GROUP
-        S637_AntiLckProt
-        S637_IllmndLckSet
-        S637_IllmndUnlckSet
-        S637_InsideLck
-        S637_InsideUnlck
-        S637_MotorProt
-        S637_OutsideLck
-        S637_OutsideUnlck
-        S637_PECtl
-        S637_ParkUnlckSet
-        S637_SpdLck
+        S657_AntiLckProt
+        S657_IllmndLckSet
+        S657_IllmndUnlckSet
+        S657_InsideLck
+        S657_InsideUnlck
+        S657_MotorProt
+        S657_OutsideLck
+        S657_OutsideUnlck
+        S657_PECtl
+        S657_ParkUnlckSet
+        S657_SpdLck
       /end SUB_GROUP
       /begin REF_MEASUREMENT
-        AppSwcBcm_ARID_DEF.flg_o
+        AppSwcBcm_ARID_DEF.flg_l
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S601_Ovrd1
+      /* Name                   */       S623_Ovrd1
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/Ovrd1"
       /begin REF_MEASUREMENT
         DoorLckCtl_J54DoorLck
@@ -10117,7 +10557,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S601_Ovrd2
+      /* Name                   */       S623_Ovrd2
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/Ovrd2"
       /begin REF_MEASUREMENT
         DoorLckCtl_J511TrunkUnlck
@@ -10125,7 +10565,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S601_Ovrd3
+      /* Name                   */       S623_Ovrd3
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/Ovrd3"
       /begin REF_MEASUREMENT
         DoorLckCtl_J56DoorUnlck
@@ -10133,7 +10573,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S601_SignalProcess
+      /* Name                   */       S623_SignalProcess
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/SignalProcess"
       /begin REF_CHARACTERISTIC
         DoorLckCtl_DoorAjarFLTimInValid_C
@@ -10193,10 +10633,66 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S602_ESCLCtl
+      /* Name                   */       S624_0xF230DoorOpRecord
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DynDID/0xF230DoorOpRecord"
+      /begin REF_MEASUREMENT
+        DynDID_0xF230DoorOpRecord
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S624_0xF231TrunkOpRecord
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DynDID/0xF231TrunkOpRecord"
+      /begin REF_MEASUREMENT
+        DynDID_0xF231TrunkOpRecord
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S624_0xF232LocalStartUpFailRecord
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DynDID/0xF232LocalStartUpFailRecord"
+      /begin REF_MEASUREMENT
+        DynDID_0xF232LocalStartUpFailRecord
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S624_0xF233RemoteStartUpFailRecord
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DynDID/0xF233RemoteStartUpFailRecord"
+      /begin REF_MEASUREMENT
+        DynDID_0xF233RemoteStartUpFailRecord
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S624_0xF234ADSampleValue
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DynDID/0xF234ADSampleValue"
+      /begin REF_MEASUREMENT
+        DynDID_0xF234ADSampleValue
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S624_0xF235DigtInSampleValue
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DynDID/0xF235DigtInSampleValue"
+      /begin REF_MEASUREMENT
+        DynDID_0xF235DigtInSampleValue
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S624_0xF236DigtOutSampleValue
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DynDID/0xF236DigtOutSampleValue"
+      /begin REF_MEASUREMENT
+        DynDID_0xF236DigtOutSampleValue
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S625_ESCLCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/ESCLCtl/ESCLCtl"
       /begin SUB_GROUP
-        S768_Ovrd
+        S820_Ovrd
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         ESCLCtl_J436PwrSupOvrdFlg_C
@@ -10216,7 +10712,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S604_Ovrd1
+      /* Name                   */       S627_Ovrd1
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/PDUCtl/Ovrd1"
       /begin REF_MEASUREMENT
         PDUCtl_J421IG1RlyCtl
@@ -10224,7 +10720,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S604_Ovrd2
+      /* Name                   */       S627_Ovrd2
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/PDUCtl/Ovrd2"
       /begin REF_MEASUREMENT
         PDUCtl_J437IG2RlyCtl
@@ -10232,7 +10728,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S604_PwrOff
+      /* Name                   */       S627_PwrOff
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/PDUCtl/PwrOff"
       /begin REF_CHARACTERISTIC
         PDUCtl_TimOutPwrOffH_C
@@ -10246,7 +10742,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S604_PwrOn
+      /* Name                   */       S627_PwrOn
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/PDUCtl/PwrOn"
       /begin REF_CHARACTERISTIC
         PDUCtl_KeyValidOvrdFlg_C
@@ -10260,7 +10756,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S604_RelayDig
+      /* Name                   */       S627_RelayDig
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/PDUCtl/RelayDig"
       /begin REF_CHARACTERISTIC
         PDUCtl_Ts_C
@@ -10274,10 +10770,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S604_StartReq
+      /* Name                   */       S627_StartReq
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/PDUCtl/StartReq"
       /begin SUB_GROUP
-        S790_Lib_SR
+        S842_Lib_SR
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         PDUCtl_StartReqOverTimValid_C
@@ -10286,7 +10782,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S604_Subsystem
+      /* Name                   */       S627_Subsystem
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/PDUCtl/Subsystem"
       /begin REF_MEASUREMENT
         PDUCtl_SysPwrModeAct
@@ -10294,16 +10790,16 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S605_WakeUpCtl
+      /* Name                   */       S628_WakeUpCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/WakeUpCtl/WakeUpCtl"
       /begin SUB_GROUP
-        S816_NMCtl
-        S816_SleepCtl
+        S870_NMCtl
+        S870_SleepCtl
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S127_Ovrd
+      /* Name                   */       S129_Ovrd
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/SeatCtl/SeatCtl/Ovrd"
       /begin REF_MEASUREMENT
         SeatCtl_CN167DrvSeatHtPWM
@@ -10311,7 +10807,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S130_Ovrd
+      /* Name                   */       S132_Ovrd
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_100ms/SteerWhlCtl/SteerWhlCtl/Ovrd"
       /begin REF_MEASUREMENT
         SteerWhlCtl_J447SteerWhlHt
@@ -10319,7 +10815,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S297_Lib_SR
+      /* Name                   */       S308_Lib_SR
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/AutoLampCtl/Lib_SR"
       /begin REF_MEASUREMENT
         LampCtl_AutoLampSta
@@ -10327,34 +10823,36 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S302_DomeLamp10min
+      /* Name                   */       S313_DomeLamp10min
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/DomeLampCtl/DomeLamp10min"
       /begin SUB_GROUP
-        S350_FL10min
-        S350_FR10min
+        S361_FL10min
+        S361_FR10min
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S302_DomeLamp30sec
+      /* Name                   */       S313_DomeLamp30sec
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/DomeLampCtl/DomeLamp30sec"
       /begin SUB_GROUP
-        S351_30s
-        S351_30s1
+        S362_30s
+        S362_30s1
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S302_DomeLampOff
+      /* Name                   */       S313_DomeLampOff
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/DomeLampCtl/DomeLampOff"
+      /begin SUB_GROUP
+        S364_Lib_RiseEdgeDetInit
+      /end SUB_GROUP
       /begin REF_MEASUREMENT
         LampCtl_DomeLampCloseDoor
-        LampCtl_DomeLampLockDoor
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S302_Lib_SR
+      /* Name                   */       S313_Lib_SR
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/DomeLampCtl/Lib_SR"
       /begin REF_MEASUREMENT
         LampCtl_DomeLampCtl
@@ -10362,7 +10860,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S306_Lib_SR
+      /* Name                   */       S317_Lib_SR
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/LampDelayCtl/Lib_SR"
       /begin REF_MEASUREMENT
         LampCtl_LampDelay
@@ -10370,7 +10868,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_AlrmFunc
+      /* Name                   */       S339_AlrmFunc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/AlrmFunc"
       /begin REF_MEASUREMENT
         LampCtl_AlrmSta
@@ -10378,7 +10876,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_AntiLckFunc
+      /* Name                   */       S339_AntiLckFunc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/AntiLckFunc"
       /begin REF_MEASUREMENT
         LampCtl_AntiLckSta
@@ -10386,7 +10884,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_ArmedFunc
+      /* Name                   */       S339_ArmedFunc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/ArmedFunc"
       /begin REF_MEASUREMENT
         LampCtl_ArmedSta
@@ -10394,7 +10892,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_CrashWarnFunc
+      /* Name                   */       S339_CrashWarnFunc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/CrashWarnFunc"
       /begin REF_MEASUREMENT
         LampCtl_CrashSta
@@ -10402,7 +10900,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_DisarmedFunc
+      /* Name                   */       S339_DisarmedFunc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/DisarmedFunc"
       /begin REF_MEASUREMENT
         LampCtl_DisarmedSta
@@ -10410,7 +10908,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_EmergencyFunc
+      /* Name                   */       S339_EmergencyFunc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/EmergencyFunc"
       /begin REF_MEASUREMENT
         LampCtl_EmerSta
@@ -10418,7 +10916,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_PartArmedFunc
+      /* Name                   */       S339_PartArmedFunc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/PartArmedFunc"
       /begin REF_MEASUREMENT
         LampCtl_PartArmedSta
@@ -10426,7 +10924,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_RodBeamDig
+      /* Name                   */       S339_RodBeamDig
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/RodBeamDig"
       /begin REF_CHARACTERISTIC
         LampCtl_Ts_C
@@ -10437,7 +10935,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_ThermRunawayFunc
+      /* Name                   */       S339_ThermRunawayFunc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/ThermRunawayFunc"
       /begin REF_MEASUREMENT
         LampCtl_ThermalrunawaySta
@@ -10445,7 +10943,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_Trunk30sWarn
+      /* Name                   */       S339_Trunk30sWarn
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/Trunk30sWarn"
       /begin REF_CHARACTERISTIC
         LampCtl_TrunkWarnTim_C
@@ -10456,29 +10954,39 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_TurnIndcrDig
+      /* Name                   */       S339_TurnIndcrDig
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/TurnIndcrDig"
+      /begin SUB_GROUP
+        S448_Enabled_Subsystem1
+        S448_Enabled_Subsystem3
+      /end SUB_GROUP
       /begin REF_CHARACTERISTIC
+        LampCtl_LOpenCnt_C
+        LampCtl_LShortCnt_C
+        LampCtl_ROpenCnt_C
+        LampCtl_RShortCnt_C
         LampCtl_Ts_C
-        LampCtl_TurnIndcrFLOpenTimValid_C
-        LampCtl_TurnIndcrFROpenTimValid_C
+        LampCtl_TurnIndcrLOpenTimInValid_C
+        LampCtl_TurnIndcrLOpenTimValid_C
+        LampCtl_TurnIndcrLShortTimInValid_C
+        LampCtl_TurnIndcrLShortTimValid_C
         LampCtl_TurnIndcrOpenCur_C
-        LampCtl_TurnIndcrRLOpenTimInValid_C
-        LampCtl_TurnIndcrRROpenTimInValid_C
+        LampCtl_TurnIndcrROpenTimInValid_C
+        LampCtl_TurnIndcrROpenTimValid_C
+        LampCtl_TurnIndcrRShortTimInValid_C
+        LampCtl_TurnIndcrRShortTimValid_C
         LampCtl_TurnIndcrShortCur_C
       /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
         LampCtl_TurnIndcrLOpen
         LampCtl_TurnIndcrLShort
-        LampCtl_TurnIndcrLVol
         LampCtl_TurnIndcrROpen
         LampCtl_TurnIndcrRShort
-        LampCtl_TurnIndcrRVol
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_TurnIndcrLCtl
+      /* Name                   */       S339_TurnIndcrLCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/TurnIndcrLCtl"
       /begin REF_MEASUREMENT
         LampCtl_PrdSucCntL
@@ -10486,7 +10994,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_TurnIndcrRCtl
+      /* Name                   */       S339_TurnIndcrRCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/TurnIndcrRCtl"
       /begin REF_MEASUREMENT
         LampCtl_PrdSucCntR
@@ -10494,7 +11002,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_VehMode
+      /* Name                   */       S339_VehMode
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/VehMode"
       /begin REF_MEASUREMENT
         LampCtl_VehModeSta
@@ -10502,7 +11010,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S328_VehSeekFunc
+      /* Name                   */       S339_VehSeekFunc
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/VehSeekFunc"
       /begin REF_MEASUREMENT
         LampCtl_VehSeekSta
@@ -10510,7 +11018,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S329_FlwrMeHomeOn
+      /* Name                   */       S340_FlwrMeHomeOn
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/WelcomeLampCtl/FlwrMeHomeOn"
       /begin REF_CHARACTERISTIC
         LampCtl_FlwrMeHomeTimValid_C
@@ -10518,7 +11026,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S329_FlwrMeHomeSet
+      /* Name                   */       S340_FlwrMeHomeSet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/WelcomeLampCtl/FlwrMeHomeSet"
       /begin REF_MEASUREMENT
         LampCtl_FlwrMeHomeCtlFb
@@ -10527,7 +11035,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S329_Lib_SR
+      /* Name                   */       S340_Lib_SR
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/WelcomeLampCtl/Lib_SR"
       /begin REF_MEASUREMENT
         LampCtl_WelcomeLampSta
@@ -10535,7 +11043,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S329_Lib_SR1
+      /* Name                   */       S340_Lib_SR1
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/WelcomeLampCtl/Lib_SR1"
       /begin REF_MEASUREMENT
         LampCtl_FlwrMeHomeSta
@@ -10543,7 +11051,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S329_WelcomeLampOff
+      /* Name                   */       S340_WelcomeLampOff
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/WelcomeLampCtl/WelcomeLampOff"
       /begin REF_CHARACTERISTIC
         LampCtl_WelcomeLampTimMax_C
@@ -10551,7 +11059,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S329_WelcomeLampOn
+      /* Name                   */       S340_WelcomeLampOn
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/WelcomeLampCtl/WelcomeLampOn"
       /begin REF_CHARACTERISTIC
         LampCtl_OsUnlckDelayTim_C
@@ -10559,7 +11067,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S555_Lib_SR
+      /* Name                   */       S577_Lib_SR
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/WiperCtl/WiperMaintCtl/Lib_SR"
       /begin REF_MEASUREMENT
         WiperCtl_WiperMaintSta
@@ -10567,15 +11075,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S626_Lib_RiseEdgeDetInit
-      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/BatSaveCtl/PwrOn/Lib_RiseEdgeDetInit"
-      /begin REF_MEASUREMENT
-        BatSaveCtl_DoorUnlckPwrOn
-      /end REF_MEASUREMENT
-    /end GROUP
-    
-    /begin GROUP
-      /* Name                   */       S637_AntiLckProt
+      /* Name                   */       S657_AntiLckProt
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/AntiLckProt"
       /begin REF_CHARACTERISTIC
         DoorLckCtl_AntiLckProtTim_C
@@ -10588,7 +11088,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S637_IllmndLckSet
+      /* Name                   */       S657_IllmndLckSet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/IllmndLckSet"
       /begin REF_MEASUREMENT
         DoorLckCtl_IllmndLckSts
@@ -10597,7 +11097,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S637_IllmndUnlckSet
+      /* Name                   */       S657_IllmndUnlckSet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/IllmndUnlckSet"
       /begin REF_MEASUREMENT
         DoorLckCtl_IllmndUnlockSts
@@ -10606,11 +11106,11 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S637_InsideLck
+      /* Name                   */       S657_InsideLck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/InsideLck"
       /begin SUB_GROUP
-        S648_HULck
-        S648_SpdLck
+        S668_HULck
+        S668_SpdLck
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         DoorLckCtl_InsLck
@@ -10618,13 +11118,13 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S637_InsideUnlck
+      /* Name                   */       S657_InsideUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/InsideUnlck"
       /begin SUB_GROUP
-        S649_CrshUnlck
-        S649_HUUnlck
-        S649_ParkUnlck
-        S649_ThermalRunawayUnlck
+        S669_CrshUnlck
+        S669_HUUnlck
+        S669_ParkUnlck
+        S669_ThermalRunawayUnlck
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         DoorLckCtl_InsUnlck
@@ -10632,7 +11132,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S637_MotorProt
+      /* Name                   */       S657_MotorProt
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/MotorProt"
       /begin REF_CHARACTERISTIC
         DoorLckCtl_CntSubTim_C
@@ -10645,15 +11145,15 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S637_OutsideLck
+      /* Name                   */       S657_OutsideLck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck"
       /begin SUB_GROUP
-        S651_AutoLck
-        S651_MechLck
-        S651_PELck
-        S651_RKELck
-        S651_TrunkAutoLck
-        S651_WelcomeLck
+        S671_AutoLck
+        S671_MechLck
+        S671_PELck
+        S671_RKELck
+        S671_TrunkAutoLck
+        S671_WelcomeLck
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         DoorLckCtl_OsLck
@@ -10661,14 +11161,14 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S637_OutsideUnlck
+      /* Name                   */       S657_OutsideUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideUnlck"
       /begin SUB_GROUP
-        S652_MechUnlck
-        S652_PEUnlck
-        S652_RKEUnlck
-        S652_TrunkUnlck
-        S652_WelcomeUnlck
+        S672_MechUnlck
+        S672_PEUnlck
+        S672_RKEUnlck
+        S672_TrunkUnlck
+        S672_WelcomeUnlck
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         DoorLckCtl_OsUnlck
@@ -10676,20 +11176,20 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S637_PECtl
+      /* Name                   */       S657_PECtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/PECtl"
       /begin REF_CHARACTERISTIC
         DoorLckCtl_PEProtCnt_C
         DoorLckCtl_PEProtIntvlTim_C
       /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
-        AppSwcBcm_ARID_DEF.Cnt2_h
-        AppSwcBcm_ARID_DEF.Cnt_i
+        AppSwcBcm_ARID_DEF.Cnt2_j
+        AppSwcBcm_ARID_DEF.Cnt_j
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S637_ParkUnlckSet
+      /* Name                   */       S657_ParkUnlckSet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/ParkUnlckSet"
       /begin REF_MEASUREMENT
         DoorLckCtl_ParkAutoUnlockSetFb
@@ -10697,7 +11197,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S637_SpdLck
+      /* Name                   */       S657_SpdLck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/SpdLck"
       /begin REF_MEASUREMENT
         DoorLckCtl_SpdCtlLckSet
@@ -10706,7 +11206,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S768_Ovrd
+      /* Name                   */       S820_Ovrd
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/ESCLCtl/ESCLCtl/Ovrd"
       /begin REF_MEASUREMENT
         ESCLCtl_J436PwrSup
@@ -10714,7 +11214,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S790_Lib_SR
+      /* Name                   */       S842_Lib_SR
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/PDUCtl/StartReq/Lib_SR"
       /begin REF_MEASUREMENT
         PDUCtl_StartReq
@@ -10722,10 +11222,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S816_NMCtl
+      /* Name                   */       S870_NMCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/WakeUpCtl/WakeUpCtl/NMCtl"
       /begin SUB_GROUP
-        S817_Lib_SR
+        S871_Lib_SR
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         WakeUpCtl_CANSleepDelayTim_C
@@ -10733,7 +11233,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S816_SleepCtl
+      /* Name                   */       S870_SleepCtl
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/WakeUpCtl/WakeUpCtl/SleepCtl"
       /begin REF_CHARACTERISTIC
         WakeUpCtl_LocalSleepDelayTim_C
@@ -10744,16 +11244,16 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S350_FL10min
+      /* Name                   */       S361_FL10min
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/DomeLampCtl/DomeLamp10min/FL10min"
       /begin REF_MEASUREMENT
-        AppSwcBcm_ARID_DEF.Cnt_pi
+        AppSwcBcm_ARID_DEF.Cnt_dy
         LampCtl_DomeLampFLOpen
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S350_FR10min
+      /* Name                   */       S361_FR10min
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/DomeLampCtl/DomeLamp10min/FR10min"
       /begin REF_MEASUREMENT
         LampCtl_DomeLampFROpen
@@ -10761,25 +11261,49 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S351_30s
+      /* Name                   */       S362_30s
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/DomeLampCtl/DomeLamp30sec/30s"
       /begin REF_MEASUREMENT
-        AppSwcBcm_ARID_DEF.Cnt_j
+        AppSwcBcm_ARID_DEF.Cnt_d
         LampCtl_DomeLampPwrOff
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S351_30s1
+      /* Name                   */       S362_30s1
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/DomeLampCtl/DomeLamp30sec/30s1"
       /begin REF_MEASUREMENT
-        AppSwcBcm_ARID_DEF.Cnt_c2
+        AppSwcBcm_ARID_DEF.Cnt_pi
         LampCtl_DomeLampUnlock
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S648_HULck
+      /* Name                   */       S364_Lib_RiseEdgeDetInit
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/DomeLampCtl/DomeLampOff/Lib_RiseEdgeDetInit"
+      /begin REF_MEASUREMENT
+        LampCtl_DomeLampLockDoor
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S448_Enabled_Subsystem1
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/TurnIndcrDig/Enabled Subsystem1"
+      /begin REF_MEASUREMENT
+        LampCtl_TurnIndcrRVol
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S448_Enabled_Subsystem3
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_20ms/LampCtl/TurnIndcrCtl/TurnIndcrDig/Enabled Subsystem3"
+      /begin REF_MEASUREMENT
+        LampCtl_TurnIndcrLVol
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S668_HULck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/InsideLck/HULck"
       /begin REF_MEASUREMENT
         DoorLckCtl_HULck
@@ -10787,10 +11311,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S648_SpdLck
+      /* Name                   */       S668_SpdLck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/InsideLck/SpdLck"
       /begin SUB_GROUP
-        S660_Lib_RiseEdgeDet
+        S680_Lib_RiseEdgeDet
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         DoorLckCtl_SpdLckTimInValid_C
@@ -10801,7 +11325,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S649_CrshUnlck
+      /* Name                   */       S669_CrshUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/InsideUnlck/CrshUnlck"
       /begin REF_CHARACTERISTIC
         DoorLckCtl_CrshPwrOnTimInValid_C
@@ -10814,7 +11338,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S649_HUUnlck
+      /* Name                   */       S669_HUUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/InsideUnlck/HUUnlck"
       /begin REF_MEASUREMENT
         DoorLckCtl_HUUnLck
@@ -10822,7 +11346,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S649_ParkUnlck
+      /* Name                   */       S669_ParkUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/InsideUnlck/ParkUnlck"
       /begin REF_MEASUREMENT
         DoorLckCtl_ParkUnlck
@@ -10830,7 +11354,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S649_ThermalRunawayUnlck
+      /* Name                   */       S669_ThermalRunawayUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/InsideUnlck/ThermalRunawayUnlck"
       /begin REF_MEASUREMENT
         DoorLckCtl_ThermRunawayUnlck
@@ -10838,11 +11362,11 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S651_AutoLck
+      /* Name                   */       S671_AutoLck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck/AutoLck"
       /begin SUB_GROUP
-        S690_Lib_RiseEdgeDet
-        S690_Lib_SR
+        S710_Lib_RiseEdgeDet
+        S710_Lib_SR
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         DoorLckCtl_AutoLckDelayTim_C
@@ -10850,7 +11374,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S651_MechLck
+      /* Name                   */       S671_MechLck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck/MechLck"
       /begin REF_CHARACTERISTIC
         DoorLckCtl_Ts_C
@@ -10861,7 +11385,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S651_PELck
+      /* Name                   */       S671_PELck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck/PELck"
       /begin REF_MEASUREMENT
         DoorLckCtl_PELck
@@ -10869,33 +11393,33 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S651_RKELck
+      /* Name                   */       S671_RKELck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck/RKELck"
       /begin SUB_GROUP
-        S693_Lib_RiseEdgeDet
+        S713_Lib_RiseEdgeDet
       /end SUB_GROUP
       /begin REF_MEASUREMENT
-        AppSwcBcm_ARID_DEF.flg_e
+        AppSwcBcm_ARID_DEF.flg_a
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S651_TrunkAutoLck
+      /* Name                   */       S671_TrunkAutoLck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck/TrunkAutoLck"
       /begin SUB_GROUP
-        S694_Lib_RiseEdgeDet
+        S714_Lib_RiseEdgeDet
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         DoorLckCtl_TrunkAutoLckTim_C
       /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
-        AppSwcBcm_ARID_DEF.Cnt_o
-        AppSwcBcm_ARID_DEF.Flg_l
+        AppSwcBcm_ARID_DEF.Cnt_nz
+        AppSwcBcm_ARID_DEF.Flg_j
       /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S651_WelcomeLck
+      /* Name                   */       S671_WelcomeLck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck/WelcomeLck"
       /begin REF_MEASUREMENT
         DoorLckCtl_WelcomeLck
@@ -10903,7 +11427,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S652_MechUnlck
+      /* Name                   */       S672_MechUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideUnlck/MechUnlck"
       /begin REF_CHARACTERISTIC
         DoorLckCtl_Ts_C
@@ -10914,7 +11438,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S652_PEUnlck
+      /* Name                   */       S672_PEUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideUnlck/PEUnlck"
       /begin REF_MEASUREMENT
         DoorLckCtl_PEUnlck
@@ -10922,10 +11446,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S652_RKEUnlck
+      /* Name                   */       S672_RKEUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideUnlck/RKEUnlck"
       /begin SUB_GROUP
-        S715_Lib_RiseEdgeDet
+        S735_Lib_RiseEdgeDet
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         AppSwcBcm_ARID_DEF.flg
@@ -10933,10 +11457,11 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S652_TrunkUnlck
+      /* Name                   */       S672_TrunkUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideUnlck/TrunkUnlck"
       /begin SUB_GROUP
-        S716_Lib_RiseEdgeDet1
+        S736_Lib_RiseEdgeDet1
+        S736_Lib_RiseEdgeDet2
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         DoorLckCtl_TrunkUnlckTimInvalid_C
@@ -10949,7 +11474,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S652_WelcomeUnlck
+      /* Name                   */       S672_WelcomeUnlck
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideUnlck/WelcomeUnlck"
       /begin REF_MEASUREMENT
         DoorLckCtl_WelcomeUnlck
@@ -10957,7 +11482,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S817_Lib_SR
+      /* Name                   */       S871_Lib_SR
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/WakeUpCtl/WakeUpCtl/NMCtl/Lib_SR"
       /begin REF_MEASUREMENT
         WakeUpCtl_NMReq
@@ -10965,7 +11490,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S660_Lib_RiseEdgeDet
+      /* Name                   */       S680_Lib_RiseEdgeDet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/InsideLck/SpdLck/Lib_RiseEdgeDet"
       /begin REF_MEASUREMENT
         DoorLckCtl_SpdLck
@@ -10973,7 +11498,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S690_Lib_RiseEdgeDet
+      /* Name                   */       S710_Lib_RiseEdgeDet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck/AutoLck/Lib_RiseEdgeDet"
       /begin REF_MEASUREMENT
         DoorLckCtl_AutoLck
@@ -10981,7 +11506,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S690_Lib_SR
+      /* Name                   */       S710_Lib_SR
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck/AutoLck/Lib_SR"
       /begin REF_MEASUREMENT
         DoorLckCtl_AutoLckSta
@@ -10989,7 +11514,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S693_Lib_RiseEdgeDet
+      /* Name                   */       S713_Lib_RiseEdgeDet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck/RKELck/Lib_RiseEdgeDet"
       /begin REF_MEASUREMENT
         DoorLckCtl_RKELck
@@ -10997,7 +11522,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S694_Lib_RiseEdgeDet
+      /* Name                   */       S714_Lib_RiseEdgeDet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideLck/TrunkAutoLck/Lib_RiseEdgeDet"
       /begin REF_MEASUREMENT
         DoorLckCtl_TrunkAutoLck
@@ -11005,7 +11530,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S715_Lib_RiseEdgeDet
+      /* Name                   */       S735_Lib_RiseEdgeDet
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideUnlck/RKEUnlck/Lib_RiseEdgeDet"
       /begin REF_MEASUREMENT
         DoorLckCtl_RKEUnlck
@@ -11013,10 +11538,18 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S716_Lib_RiseEdgeDet1
+      /* Name                   */       S736_Lib_RiseEdgeDet1
       /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideUnlck/TrunkUnlck/Lib_RiseEdgeDet1"
       /begin REF_MEASUREMENT
         DoorLckCtl_TrunkRKEUnlck
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S736_Lib_RiseEdgeDet2
+      /* Long identifier        */       "AppSwcBcm/AppSwcBcm_50ms/DoorLckCtl/DoorLckCtlLogic/OutsideUnlck/TrunkUnlck/Lib_RiseEdgeDet2"
+      /begin REF_MEASUREMENT
+        DoorLckCtl_TrunkHUUnlck
       /end REF_MEASUREMENT
     /end GROUP
     

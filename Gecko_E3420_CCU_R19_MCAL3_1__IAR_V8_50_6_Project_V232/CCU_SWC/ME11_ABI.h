@@ -195,7 +195,10 @@ extern void set_PwrFanCabin(uint8 u);
 extern void set_PwrSensor(uint8 u);
 extern void set_PwrSOV(uint8 u);
 extern void set_PwrFanAndPump(uint8 status);
-
+#if 0
+extern uint8 GetHw_HiBeamDigSts(void);
+extern uint8 GetHw_LoBeamDigSts(void);
+#endif
 typedef struct
 {
 uint16 adc2_group0_0;
@@ -299,5 +302,7 @@ extern void Rte_DIDReadData(uint8 data,uint8 didId);
 extern uint8 Rte_IOCtrl(uint8 didID);
 extern uint8 GetHw_DrvModeSw(void);
 extern uint8 GetHw_CreepModeSw(void);
+uint8 GetHw_HiBeamDigSts(void);
+uint8 GetHw_LoBeamDigSts(void);
 #endif
 // extern uint8 

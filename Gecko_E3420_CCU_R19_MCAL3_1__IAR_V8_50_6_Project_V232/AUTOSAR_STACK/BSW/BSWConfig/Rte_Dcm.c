@@ -249,14 +249,14 @@ Std_ReturnType  Rte_SetSecurityAttemptCounter_LevelFBL( Dcm_OpStatusType  OpStat
 #define  DataLength_DcmDspData_F197 10u
 #define  DCM_START_SEC_VAR_POWER_ON_INIT_8
 #include "Dcm_MemMap.h"
-uint8 Buffer_DcmDspData_F197[ DataLength_DcmDspData_F197 ] = {0x20} ;
+uint8 Buffer_DcmDspData_F197[ DataLength_DcmDspData_F197 ] = {'C', 'C', 'U', ' ', ' ', ' ', ' ', ' ', ' ', ' '} ;
 uint8 Buffer_DcmDspData_F197_Default[ DataLength_DcmDspData_F197 ] = {0x0} ;
 #define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
 #include "Dcm_MemMap.h"
 #define  DataLength_DcmDspData_F18A 10u
 #define  DCM_START_SEC_VAR_POWER_ON_INIT_8
 #include "Dcm_MemMap.h"
-uint8 Buffer_DcmDspData_F18A[ DataLength_DcmDspData_F18A ] = {0x20} ;
+uint8 Buffer_DcmDspData_F18A[ DataLength_DcmDspData_F18A ] = {'B', 'H', 'L', 'J', '5', '1', '0', '0', '4', '3'} ;
 uint8 Buffer_DcmDspData_F18A_Default[ DataLength_DcmDspData_F18A ] = {0x0} ;
 #define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
 #include "Dcm_MemMap.h"

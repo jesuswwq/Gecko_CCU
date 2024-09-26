@@ -219,7 +219,7 @@ extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer66[588];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer67[16];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer68[64];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer69[256];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[20];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[128];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer71[10];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer72[256];
 

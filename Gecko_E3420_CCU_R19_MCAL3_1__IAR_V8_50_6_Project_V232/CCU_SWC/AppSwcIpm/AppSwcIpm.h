@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcIpm'.
  *
- * Model version                  : 9.172
+ * Model version                  : 9.184
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jul 16 10:34:34 2024
+ * C/C++ source code generated on : Thu Sep 19 15:53:21 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -22,7 +22,7 @@
 #endif                                 /* AppSwcIpm_COMMON_INCLUDES_ */
 
 #include "Rte_Type.h"
-//#include "AppSwcIpm_types.h"
+#include "AppSwcIpm_types.h"
 
 /* Includes for objects with custom storage classes */
 #include "calPrmsIpm.h"
@@ -223,6 +223,9 @@ typedef struct {
   boolean UnitDelay_DSTATE_ch;         /* '<S25>/Unit Delay' */
   boolean UnitDelay_DSTATE_g3;         /* '<S24>/Unit Delay' */
 } ARID_DEF_AppSwcIpm_T;
+
+/* Imported (extern) states */
+extern boolean VBSW_CANComCRCInstFlt_flg[100];/* '<S352>/Data Store Memory' */
 
 /* PublicStructure Variables for Internal Data */
 extern ARID_DEF_AppSwcIpm_T AppSwcIpm_ARID_DEF;/* '<S21>/BusCreator' */
@@ -438,6 +441,23 @@ extern ARID_DEF_AppSwcIpm_T AppSwcIpm_ARID_DEF;/* '<S21>/BusCreator' */
  * Block '<S348>/Data Type Conversion2' : Eliminate redundant data type conversion
  * Block '<S350>/Data Type Conversion2' : Eliminate redundant data type conversion
  * Block '<S351>/Data Type Conversion2' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion1' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion10' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion11' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion12' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion13' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion14' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion15' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion16' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion17' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion2' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion3' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion4' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion5' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion6' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion7' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion8' : Eliminate redundant data type conversion
+ * Block '<S352>/Data Type Conversion9' : Eliminate redundant data type conversion
  * Block '<S27>/Unit Delay' : Unused code path elimination
  * Block '<S29>/Unit Delay' : Unused code path elimination
  * Block '<S32>/Unit Delay' : Unused code path elimination
@@ -892,8 +912,9 @@ extern ARID_DEF_AppSwcIpm_T AppSwcIpm_ARID_DEF;/* '<S21>/BusCreator' */
  * '<S349>' : 'AppSwcIpm/Ipm50ms/CHACAN_IN_50ms/Msg_SRS_1_Status_CHA'
  * '<S350>' : 'AppSwcIpm/Ipm50ms/CHACAN_IN_50ms/Msg_SRS_1_Status_CHA/Subsys_VIPM_SRSCrashOutputSts_enum'
  * '<S351>' : 'AppSwcIpm/Ipm50ms/CHACAN_IN_50ms/Msg_SRS_1_Status_CHA/Subsys_VIPM_SRSDrvSeatbeltBkld_flg'
- * '<S352>' : 'AppSwcIpm/IpmMsgActv/CANCommError'
- * '<S353>' : 'AppSwcIpm/IpmMsgActv/MsgActv'
+ * '<S352>' : 'AppSwcIpm/IpmMsgActv/CANCommCRCFlt'
+ * '<S353>' : 'AppSwcIpm/IpmMsgActv/CANCommError'
+ * '<S354>' : 'AppSwcIpm/IpmMsgActv/MsgActv'
  */
 #endif                                 /* RTW_HEADER_AppSwcIpm_h_ */
 
