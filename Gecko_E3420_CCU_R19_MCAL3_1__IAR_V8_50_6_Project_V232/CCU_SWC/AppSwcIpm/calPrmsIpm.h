@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcIpm'.
  *
- * Model version                  : 9.172
+ * Model version                  : 9.184
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jul 16 10:34:34 2024
+ * C/C++ source code generated on : Thu Sep 19 15:53:21 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -24,10 +24,11 @@
 #include "XcpTest_types.h"
 
 /* Declaration for custom storage class: CalParam */
+extern CALDATA const volatile boolean KIPM_ACCMCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst4' */
 extern CALDATA const volatile boolean KIPM_ACCMLostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg29' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg29' */
 extern CALDATA const volatile boolean KIPM_ACCMLostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg30' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg30' */
 extern CALDATA const volatile uint8 KIPM_APPVerMaxDflt_enum;/* Referenced by: '<S15>/sat5' */
 extern CALDATA const volatile boolean KIPM_APPVerMax_enum_ovrdflg;/* Referenced by: '<S15>/sat3' */
 extern CALDATA const volatile uint8 KIPM_APPVerMax_enum_ovrdval;/* Referenced by: '<S15>/sat4' */
@@ -35,9 +36,9 @@ extern CALDATA const volatile uint8 KIPM_APPVerMinDflt_enum;/* Referenced by: '<
 extern CALDATA const volatile boolean KIPM_APPVerMin_enum_ovrdflg;/* Referenced by: '<S16>/sat3' */
 extern CALDATA const volatile uint8 KIPM_APPVerMin_enum_ovrdval;/* Referenced by: '<S16>/sat4' */
 extern CALDATA const volatile boolean KIPM_BACCANBusOffOvrdSw_flg;
-                          /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg3' */
+                          /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg3' */
 extern CALDATA const volatile boolean KIPM_BACCANBusOffOvrdVal_flg;
-                          /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg5' */
+                          /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg5' */
 extern CALDATA const volatile EnumBMSACChrgSt KIPM_BMSACChrgAtclStaDflt_enum;/* Referenced by: '<S293>/sat5' */
 extern CALDATA const volatile boolean KIPM_BMSACChrgAtclSta_enum_ovrdflg;/* Referenced by: '<S293>/sat3' */
 extern CALDATA const volatile EnumBMSACChrgSt KIPM_BMSACChrgAtclSta_enum_ovrdval;/* Referenced by: '<S293>/sat4' */
@@ -64,6 +65,7 @@ extern CALDATA const volatile float32 KIPM_BMSBatSOHHi_pct;/* Referenced by: '<S
 extern CALDATA const volatile float32 KIPM_BMSBatSOHLo_pct;/* Referenced by: '<S286>/sat7' */
 extern CALDATA const volatile boolean KIPM_BMSBatSOH_pct_ovrdflg;/* Referenced by: '<S286>/sat3' */
 extern CALDATA const volatile float32 KIPM_BMSBatSOH_pct_ovrdval;/* Referenced by: '<S286>/sat4' */
+extern CALDATA const volatile boolean KIPM_BMSCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst14' */
 extern CALDATA const volatile float32 KIPM_BMSCellVoltMaxDflt_mV;/* Referenced by: '<S312>/sat5' */
 extern CALDATA const volatile float32 KIPM_BMSCellVoltMaxHi_mV;/* Referenced by: '<S312>/sat6' */
 extern CALDATA const volatile float32 KIPM_BMSCellVoltMaxLo_mV;/* Referenced by: '<S312>/sat7' */
@@ -123,9 +125,9 @@ extern CALDATA const volatile float32 KIPM_BMSIsoResistLo_MOhm;/* Referenced by:
 extern CALDATA const volatile boolean KIPM_BMSIsoResist_MOhm_ovrdflg;/* Referenced by: '<S295>/sat3' */
 extern CALDATA const volatile float32 KIPM_BMSIsoResist_MOhm_ovrdval;/* Referenced by: '<S295>/sat4' */
 extern CALDATA const volatile boolean KIPM_BMSLostCommOvrdSw_flg;
-                          /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg8' */
+                          /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg8' */
 extern CALDATA const volatile boolean KIPM_BMSLostCommOvrdVal_flg;
-                          /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg9' */
+                          /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg9' */
 extern CALDATA const volatile float32 KIPM_BMSMaxChrgCurntACDflt_A;/* Referenced by: '<S296>/sat5' */
 extern CALDATA const volatile float32 KIPM_BMSMaxChrgCurntACHi_A;/* Referenced by: '<S296>/sat6' */
 extern CALDATA const volatile float32 KIPM_BMSMaxChrgCurntACLo_A;/* Referenced by: '<S296>/sat7' */
@@ -177,9 +179,9 @@ extern CALDATA const volatile uint8 KIPM_BMSThermrunawayWrnDflt_enum;/* Referenc
 extern CALDATA const volatile boolean KIPM_BMSThermrunawayWrn_enum_ovrdflg;/* Referenced by: '<S282>/sat3' */
 extern CALDATA const volatile uint8 KIPM_BMSThermrunawayWrn_enum_ovrdval;/* Referenced by: '<S282>/sat4' */
 extern CALDATA const volatile boolean KIPM_BODCANBusOffOvrdSw_flg;
-                          /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg1' */
+                          /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg1' */
 extern CALDATA const volatile boolean KIPM_BODCANBusOffOvrdVal_flg;
-                          /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg2' */
+                          /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg2' */
 extern CALDATA const volatile uint8 KIPM_BootVerDflt_enum;/* Referenced by: '<S17>/sat5' */
 extern CALDATA const volatile boolean KIPM_BootVer_enum_ovrdflg;/* Referenced by: '<S17>/sat3' */
 extern CALDATA const volatile uint8 KIPM_BootVer_enum_ovrdval;/* Referenced by: '<S17>/sat4' */
@@ -210,6 +212,7 @@ extern CALDATA const volatile boolean KIPM_CCPBlwrLvlAddKey_flg_ovrdval;/* Refer
 extern CALDATA const volatile boolean KIPM_CCPBlwrLvlDecKeyDflt_flg;/* Referenced by: '<S327>/sat5' */
 extern CALDATA const volatile boolean KIPM_CCPBlwrLvlDecKey_flg_ovrdflg;/* Referenced by: '<S327>/sat3' */
 extern CALDATA const volatile boolean KIPM_CCPBlwrLvlDecKey_flg_ovrdval;/* Referenced by: '<S327>/sat4' */
+extern CALDATA const volatile boolean KIPM_CCPCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst3' */
 extern CALDATA const volatile boolean KIPM_CCPCenLckKeyDflt_flg;/* Referenced by: '<S328>/sat5' */
 extern CALDATA const volatile boolean KIPM_CCPCenLckKey_flg_ovrdflg;/* Referenced by: '<S328>/sat3' */
 extern CALDATA const volatile boolean KIPM_CCPCenLckKey_flg_ovrdval;/* Referenced by: '<S328>/sat4' */
@@ -247,13 +250,13 @@ extern CALDATA const volatile uint8 KIPM_CDCBackLadjvalDflt_enum;/* Referenced b
 extern CALDATA const volatile boolean KIPM_CDCBackLadjval_enum_ovrdflg;/* Referenced by: '<S72>/sat3' */
 extern CALDATA const volatile uint8 KIPM_CDCBackLadjval_enum_ovrdval;/* Referenced by: '<S72>/sat4' */
 extern CALDATA const volatile boolean KIPM_CDCLostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg33' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg33' */
 extern CALDATA const volatile boolean KIPM_CDCLostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg34' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg34' */
 extern CALDATA const volatile boolean KIPM_CHACANBusOffOvrdSw_flg;
-                          /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg6' */
+                          /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg6' */
 extern CALDATA const volatile boolean KIPM_CHACANBusOffOvrdVal_flg;
-                          /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg7' */
+                          /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg7' */
 extern CALDATA const volatile boolean KIPM_COMPCANBusOffDflt_flg;/* Referenced by: '<S24>/sat5' */
 extern CALDATA const volatile boolean KIPM_COMPCANBusOff_flg_ovrdflg;/* Referenced by: '<S24>/sat3' */
 extern CALDATA const volatile boolean KIPM_COMPCANBusOff_flg_ovrdval;/* Referenced by: '<S24>/sat4' */
@@ -319,6 +322,7 @@ extern CALDATA const volatile uint8 KIPM_CRRRBSDWarnLt_enum_ovrdval;/* Reference
 extern CALDATA const volatile uint8 KIPM_CRRRBSDWarnRtDflt_enum;/* Referenced by: '<S238>/sat5' */
 extern CALDATA const volatile boolean KIPM_CRRRBSDWarnRt_enum_ovrdflg;/* Referenced by: '<S238>/sat3' */
 extern CALDATA const volatile uint8 KIPM_CRRRBSDWarnRt_enum_ovrdval;/* Referenced by: '<S238>/sat4' */
+extern CALDATA const volatile boolean KIPM_CRRRCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst7' */
 extern CALDATA const volatile uint8 KIPM_CRRRDOWWarnLtDflt_enum;/* Referenced by: '<S239>/sat5' */
 extern CALDATA const volatile boolean KIPM_CRRRDOWWarnLt_enum_ovrdflg;/* Referenced by: '<S239>/sat3' */
 extern CALDATA const volatile uint8 KIPM_CRRRDOWWarnLt_enum_ovrdval;/* Referenced by: '<S239>/sat4' */
@@ -326,9 +330,9 @@ extern CALDATA const volatile uint8 KIPM_CRRRDOWWarnRtDflt_enum;/* Referenced by
 extern CALDATA const volatile boolean KIPM_CRRRDOWWarnRt_enum_ovrdflg;/* Referenced by: '<S240>/sat3' */
 extern CALDATA const volatile uint8 KIPM_CRRRDOWWarnRt_enum_ovrdval;/* Referenced by: '<S240>/sat4' */
 extern CALDATA const volatile boolean KIPM_CRRRLostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg15' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg15' */
 extern CALDATA const volatile boolean KIPM_CRRRLostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg16' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg16' */
 extern CALDATA const volatile uint8 KIPM_CRRRRCTAWarnLtDflt_enum;/* Referenced by: '<S241>/sat5' */
 extern CALDATA const volatile boolean KIPM_CRRRRCTAWarnLt_enum_ovrdflg;/* Referenced by: '<S241>/sat3' */
 extern CALDATA const volatile uint8 KIPM_CRRRRCTAWarnLt_enum_ovrdval;/* Referenced by: '<S241>/sat4' */
@@ -366,6 +370,7 @@ extern CALDATA const volatile float32 KIPM_EHBBrkPwrRecupTarWhlTq_Nm_ovrdval;/* 
 extern CALDATA const volatile boolean KIPM_EHBCDDActvDflt_flg;/* Referenced by: '<S161>/sat5' */
 extern CALDATA const volatile boolean KIPM_EHBCDDActv_flg_ovrdflg;/* Referenced by: '<S161>/sat3' */
 extern CALDATA const volatile boolean KIPM_EHBCDDActv_flg_ovrdval;/* Referenced by: '<S161>/sat4' */
+extern CALDATA const volatile boolean KIPM_EHBCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst8' */
 extern CALDATA const volatile EnumEPBState KIPM_EHBEPBActuatorStLDflt_enum;/* Referenced by: '<S245>/sat5' */
 extern CALDATA const volatile boolean KIPM_EHBEPBActuatorStL_enum_ovrdflg;/* Referenced by: '<S245>/sat3' */
 extern CALDATA const volatile EnumEPBState KIPM_EHBEPBActuatorStL_enum_ovrdval;/* Referenced by: '<S245>/sat4' */
@@ -387,10 +392,11 @@ extern CALDATA const volatile boolean KIPM_EHBHDCFucFault_flg_ovrdval;/* Referen
 extern CALDATA const volatile boolean KIPM_EHBReqBrkLiOnDflt_flg;/* Referenced by: '<S164>/sat5' */
 extern CALDATA const volatile boolean KIPM_EHBReqBrkLiOn_flg_ovrdflg;/* Referenced by: '<S164>/sat3' */
 extern CALDATA const volatile boolean KIPM_EHBReqBrkLiOn_flg_ovrdval;/* Referenced by: '<S164>/sat4' */
+extern CALDATA const volatile boolean KIPM_EPSCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst9' */
 extern CALDATA const volatile boolean KIPM_EPSLostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg19' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg19' */
 extern CALDATA const volatile boolean KIPM_EPSLostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg20' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg20' */
 extern CALDATA const volatile float32 KIPM_EPSRotSpdDflt_degps;/* Referenced by: '<S166>/sat5' */
 extern CALDATA const volatile float32 KIPM_EPSRotSpdHi_degps;/* Referenced by: '<S166>/sat6' */
 extern CALDATA const volatile float32 KIPM_EPSRotSpdLo_degps;/* Referenced by: '<S166>/sat7' */
@@ -408,12 +414,13 @@ extern CALDATA const volatile float32 KIPM_EPSSteerWhlAngLo_deg;/* Referenced by
 extern CALDATA const volatile boolean KIPM_EPSSteerWhlAng_deg_ovrdflg;/* Referenced by: '<S169>/sat3' */
 extern CALDATA const volatile float32 KIPM_EPSSteerWhlAng_deg_ovrdval;/* Referenced by: '<S169>/sat4' */
 extern CALDATA const volatile boolean KIPM_EPTCANBusOffOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg11' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg11' */
 extern CALDATA const volatile boolean KIPM_EPTCANBusOffOvrdVal_flg;
-                          /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg4' */
+                          /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg4' */
 extern CALDATA const volatile boolean KIPM_ESCABSActvStaDflt_flg;/* Referenced by: '<S172>/sat5' */
 extern CALDATA const volatile boolean KIPM_ESCABSActvSta_flg_ovrdflg;/* Referenced by: '<S172>/sat3' */
 extern CALDATA const volatile boolean KIPM_ESCABSActvSta_flg_ovrdval;/* Referenced by: '<S172>/sat4' */
+extern CALDATA const volatile boolean KIPM_ESCCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst10' */
 extern CALDATA const volatile boolean KIPM_ESCESPActvStaDflt_flg;/* Referenced by: '<S173>/sat5' */
 extern CALDATA const volatile boolean KIPM_ESCESPActvSta_flg_ovrdflg;/* Referenced by: '<S173>/sat3' */
 extern CALDATA const volatile boolean KIPM_ESCESPActvSta_flg_ovrdval;/* Referenced by: '<S173>/sat4' */
@@ -427,9 +434,9 @@ extern CALDATA const volatile uint64 KIPM_ESCLUnOrLockfeedbackDflt_nu;/* Referen
 extern CALDATA const volatile boolean KIPM_ESCLUnOrLockfeedback_nu_ovrdflg;/* Referenced by: '<S339>/sat3' */
 extern CALDATA const volatile uint64 KIPM_ESCLUnOrLockfeedback_nu_ovrdval;/* Referenced by: '<S339>/sat4' */
 extern CALDATA const volatile boolean KIPM_ESCLostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg10' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg10' */
 extern CALDATA const volatile boolean KIPM_ESCLostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg12' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg12' */
 extern CALDATA const volatile float32 KIPM_ESCMstrCylPresrDflt_bar;/* Referenced by: '<S180>/sat5' */
 extern CALDATA const volatile float32 KIPM_ESCMstrCylPresrHi_bar;/* Referenced by: '<S180>/sat6' */
 extern CALDATA const volatile float32 KIPM_ESCMstrCylPresrLo_bar;/* Referenced by: '<S180>/sat7' */
@@ -538,13 +545,14 @@ extern CALDATA const volatile boolean KIPM_FCMAccTgtAxReq_flg_ovrdflg;/* Referen
 extern CALDATA const volatile boolean KIPM_FCMAccTgtAxReq_flg_ovrdval;/* Referenced by: '<S258>/sat4' */
 extern CALDATA const volatile boolean KIPM_FCMAccTgtAx_mps2_ovrdflg;/* Referenced by: '<S259>/sat3' */
 extern CALDATA const volatile float32 KIPM_FCMAccTgtAx_mps2_ovrdval;/* Referenced by: '<S259>/sat4' */
+extern CALDATA const volatile boolean KIPM_FCMCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst11' */
 extern CALDATA const volatile uint8 KIPM_FCMEPBReqDflt_enum;/* Referenced by: '<S260>/sat5' */
 extern CALDATA const volatile boolean KIPM_FCMEPBReq_enum_ovrdflg;/* Referenced by: '<S260>/sat3' */
 extern CALDATA const volatile uint8 KIPM_FCMEPBReq_enum_ovrdval;/* Referenced by: '<S260>/sat4' */
 extern CALDATA const volatile boolean KIPM_FCMLostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg13' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg13' */
 extern CALDATA const volatile boolean KIPM_FCMLostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg14' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg14' */
 extern CALDATA const volatile uint8 KIPM_FCMTrnLampReqDflt_enum;/* Referenced by: '<S261>/sat5' */
 extern CALDATA const volatile boolean KIPM_FCMTrnLampReq_enum_ovrdflg;/* Referenced by: '<S261>/sat3' */
 extern CALDATA const volatile uint8 KIPM_FCMTrnLampReq_enum_ovrdval;/* Referenced by: '<S261>/sat4' */
@@ -560,6 +568,7 @@ extern CALDATA const volatile uint8 KIPM_HUAirInletModeSet_enum_ovrdval;/* Refer
 extern CALDATA const volatile uint8 KIPM_HUBlwrModeSetDflt_enum;/* Referenced by: '<S76>/sat5' */
 extern CALDATA const volatile boolean KIPM_HUBlwrModeSet_enum_ovrdflg;/* Referenced by: '<S76>/sat3' */
 extern CALDATA const volatile uint8 KIPM_HUBlwrModeSet_enum_ovrdval;/* Referenced by: '<S76>/sat4' */
+extern CALDATA const volatile boolean KIPM_HUCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst' */
 extern CALDATA const volatile uint8 KIPM_HUChgWiprMtMdSwSetDflt_enum;/* Referenced by: '<S77>/sat5' */
 extern CALDATA const volatile boolean KIPM_HUChgWiprMtMdSwSet_enum_ovrdflg;/* Referenced by: '<S77>/sat3' */
 extern CALDATA const volatile uint8 KIPM_HUChgWiprMtMdSwSet_enum_ovrdval;/* Referenced by: '<S77>/sat4' */
@@ -686,10 +695,11 @@ extern CALDATA const volatile uint8 KIPM_HwVerMax_enum_ovrdval;/* Referenced by:
 extern CALDATA const volatile uint8 KIPM_HwVerMinDflt_enum;/* Referenced by: '<S20>/sat5' */
 extern CALDATA const volatile boolean KIPM_HwVerMin_enum_ovrdflg;/* Referenced by: '<S20>/sat3' */
 extern CALDATA const volatile uint8 KIPM_HwVerMin_enum_ovrdval;/* Referenced by: '<S20>/sat4' */
+extern CALDATA const volatile boolean KIPM_ICUCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst1' */
 extern CALDATA const volatile boolean KIPM_ICULostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg23' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg23' */
 extern CALDATA const volatile boolean KIPM_ICULostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg24' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg24' */
 extern CALDATA const volatile EnumINVActMd KIPM_INV1ActModeDflt_enum;/* Referenced by: '<S204>/sat5' */
 extern CALDATA const volatile boolean KIPM_INV1ActMode_enum_ovrdflg;/* Referenced by: '<S204>/sat3' */
 extern CALDATA const volatile EnumINVActMd KIPM_INV1ActMode_enum_ovrdval;/* Referenced by: '<S204>/sat4' */
@@ -748,6 +758,7 @@ extern CALDATA const volatile float32 KIPM_INV3RecupTqAllwdMax_Nm_ovrdval;/* Ref
 extern CALDATA const volatile uint8 KIPM_INV4FltLvlDflt_enum;/* Referenced by: '<S224>/sat5' */
 extern CALDATA const volatile boolean KIPM_INV4FltLvl_enum_ovrdflg;/* Referenced by: '<S224>/sat3' */
 extern CALDATA const volatile uint8 KIPM_INV4FltLvl_enum_ovrdval;/* Referenced by: '<S224>/sat4' */
+extern CALDATA const volatile boolean KIPM_INVCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst15' */
 extern CALDATA const volatile uint8 KIPM_INVLrngData02Dflt_nu;/* Referenced by: '<S112>/sat5' */
 extern CALDATA const volatile boolean KIPM_INVLrngData02_nu_ovrdflg;/* Referenced by: '<S112>/sat3' */
 extern CALDATA const volatile uint8 KIPM_INVLrngData02_nu_ovrdval;/* Referenced by: '<S112>/sat4' */
@@ -772,6 +783,7 @@ extern CALDATA const volatile uint8 KIPM_INVLrngSts_enum_ovrdval;/* Referenced b
 extern CALDATA const volatile uint8 KIPM_INVLrngSubIDDflt_cnt;/* Referenced by: '<S119>/sat5' */
 extern CALDATA const volatile boolean KIPM_INVLrngSubID_cnt_ovrdflg;/* Referenced by: '<S119>/sat3' */
 extern CALDATA const volatile uint8 KIPM_INVLrngSubID_cnt_ovrdval;/* Referenced by: '<S119>/sat4' */
+extern CALDATA const volatile boolean KIPM_IPUCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst16' */
 extern CALDATA const volatile EnumDCCActMd KIPM_IPUDCCActOprtModeDflt_enum;/* Referenced by: '<S120>/sat5' */
 extern CALDATA const volatile boolean KIPM_IPUDCCActOprtMode_enum_ovrdflg;/* Referenced by: '<S120>/sat3' */
 extern CALDATA const volatile EnumDCCActMd KIPM_IPUDCCActOprtMode_enum_ovrdval;/* Referenced by: '<S120>/sat4' */
@@ -804,9 +816,9 @@ extern CALDATA const volatile float32 KIPM_IPUDeviceIntTempLo_C;/* Referenced by
 extern CALDATA const volatile boolean KIPM_IPUDeviceIntTemp_C_ovrdflg;/* Referenced by: '<S141>/sat3' */
 extern CALDATA const volatile float32 KIPM_IPUDeviceIntTemp_C_ovrdval;/* Referenced by: '<S141>/sat4' */
 extern CALDATA const volatile boolean KIPM_IPULostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg35' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg35' */
 extern CALDATA const volatile boolean KIPM_IPULostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg36' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg36' */
 extern CALDATA const volatile float32 KIPM_IPUOBCACMaxPwrAllowDflt_kW;/* Referenced by: '<S142>/sat5' */
 extern CALDATA const volatile float32 KIPM_IPUOBCACMaxPwrAllowHi_kW;/* Referenced by: '<S142>/sat6' */
 extern CALDATA const volatile float32 KIPM_IPUOBCACMaxPwrAllowLo_kW;/* Referenced by: '<S142>/sat7' */
@@ -855,17 +867,20 @@ extern CALDATA const volatile EnumOBCWakeUpMd KIPM_IPUOBCWakeUpModeDflt_enum;/* 
 extern CALDATA const volatile boolean KIPM_IPUOBCWakeUpMode_enum_ovrdflg;/* Referenced by: '<S145>/sat3' */
 extern CALDATA const volatile EnumOBCWakeUpMd KIPM_IPUOBCWakeUpMode_enum_ovrdval;/* Referenced by: '<S145>/sat4' */
 extern CALDATA const volatile boolean KIPM_MCULostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg27' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg27' */
 extern CALDATA const volatile boolean KIPM_MCULostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg28' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg28' */
+extern CALDATA const volatile boolean KIPM_PPCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst12' */
 extern CALDATA const volatile boolean KIPM_PPLostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg17' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg17' */
 extern CALDATA const volatile boolean KIPM_PPLostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg18' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg18' */
+extern CALDATA const volatile boolean KIPM_PTCCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst5' */
 extern CALDATA const volatile boolean KIPM_PTCLostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg31' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg31' */
 extern CALDATA const volatile boolean KIPM_PTCLostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg32' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg32' */
+extern CALDATA const volatile boolean KIPM_SCSCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst6' */
 extern CALDATA const volatile uint8 KIPM_SCSFrntWiprSwtStDflt_enum;/* Referenced by: '<S340>/sat5' */
 extern CALDATA const volatile boolean KIPM_SCSFrntWiprSwtSt_enum_ovrdflg;/* Referenced by: '<S340>/sat3' */
 extern CALDATA const volatile uint8 KIPM_SCSFrntWiprSwtSt_enum_ovrdval;/* Referenced by: '<S340>/sat4' */
@@ -910,6 +925,7 @@ extern CALDATA const volatile boolean KIPM_SCSRghtSwVldty_flg_ovrdval;/* Referen
 extern CALDATA const volatile boolean KIPM_SCSRiTrnLmpSwStDflt_flg;/* Referenced by: '<S348>/sat5' */
 extern CALDATA const volatile boolean KIPM_SCSRiTrnLmpSwSt_flg_ovrdflg;/* Referenced by: '<S348>/sat3' */
 extern CALDATA const volatile boolean KIPM_SCSRiTrnLmpSwSt_flg_ovrdval;/* Referenced by: '<S348>/sat4' */
+extern CALDATA const volatile boolean KIPM_SRSCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst13' */
 extern CALDATA const volatile uint8 KIPM_SRSCrashOutputStsDflt_enum;/* Referenced by: '<S350>/sat5' */
 extern CALDATA const volatile boolean KIPM_SRSCrashOutputSts_enum_ovrdflg;/* Referenced by: '<S350>/sat3' */
 extern CALDATA const volatile uint8 KIPM_SRSCrashOutputSts_enum_ovrdval;/* Referenced by: '<S350>/sat4' */
@@ -917,9 +933,9 @@ extern CALDATA const volatile boolean KIPM_SRSDrvSeatbeltBkldDflt_flg;/* Referen
 extern CALDATA const volatile boolean KIPM_SRSDrvSeatbeltBkld_flg_ovrdflg;/* Referenced by: '<S351>/sat3' */
 extern CALDATA const volatile boolean KIPM_SRSDrvSeatbeltBkld_flg_ovrdval;/* Referenced by: '<S351>/sat4' */
 extern CALDATA const volatile boolean KIPM_SRSLostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg21' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg21' */
 extern CALDATA const volatile boolean KIPM_SRSLostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg22' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg22' */
 extern CALDATA const volatile uint8 KIPM_TBOXBJSTimeDayDflt_nu;/* Referenced by: '<S64>/sat5' */
 extern CALDATA const volatile boolean KIPM_TBOXBJSTimeDay_nu_ovrdflg;/* Referenced by: '<S64>/sat3' */
 extern CALDATA const volatile uint8 KIPM_TBOXBJSTimeDay_nu_ovrdval;/* Referenced by: '<S64>/sat4' */
@@ -938,10 +954,11 @@ extern CALDATA const volatile uint8 KIPM_TBOXBJSTimeSec_nu_ovrdval;/* Referenced
 extern CALDATA const volatile uint16 KIPM_TBOXBJSTimeYearDflt_nu;/* Referenced by: '<S69>/sat5' */
 extern CALDATA const volatile boolean KIPM_TBOXBJSTimeYear_nu_ovrdflg;/* Referenced by: '<S69>/sat3' */
 extern CALDATA const volatile uint16 KIPM_TBOXBJSTimeYear_nu_ovrdval;/* Referenced by: '<S69>/sat4' */
+extern CALDATA const volatile boolean KIPM_TBOXCRCChkEnbl_flg;/* Referenced by: '<S352>/Cnst2' */
 extern CALDATA const volatile boolean KIPM_TBOXLostCommOvrdSw_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg25' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg25' */
 extern CALDATA const volatile boolean KIPM_TBOXLostCommOvrdVal_flg;
-                         /* Referenced by: '<S352>/KIPC_LimpHomeOvrdSw_flg26' */
+                         /* Referenced by: '<S353>/KIPC_LimpHomeOvrdSw_flg26' */
 
 #endif                                 /* RTW_HEADER_calPrmsVcu_h_ */
 

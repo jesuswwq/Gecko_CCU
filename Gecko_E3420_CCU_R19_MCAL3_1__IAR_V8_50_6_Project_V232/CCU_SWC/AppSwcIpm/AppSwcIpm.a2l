@@ -4,9 +4,9 @@
  *
  * Code generation for model "AppSwcIpm".
  *
- * Model version              : 9.172
+ * Model version              : 9.184
  * Simulink Coder version : 9.8 (R2022b) 13-May-2022
- * C source code generated on : Tue Jul 16 10:34:34 2024
+ * C source code generated on : Thu Sep 19 15:53:21 2024
  * 
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -4067,6 +4067,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_ACCMCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_ACCMCRCChkEnbl_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_ACCMLostCommOvrdSw_flg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -4214,6 +4227,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_BMSBatSOH_pct_ovrdflg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_BMSCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_BMSCRCChkEnbl_flg@ */ 
       /* Record Layout          */      Scalar_BOOLEAN 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
@@ -5046,6 +5072,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_CCPBlwrLvlDecKey_flg_ovrdval@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_CCPCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_CCPCRCChkEnbl_flg@ */ 
       /* Record Layout          */      Scalar_BOOLEAN 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
@@ -6004,6 +6043,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_CRRRCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_CRRRCRCChkEnbl_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_CRRRDOWWarnLt_enum_ovrdflg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -6264,6 +6316,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_EHBCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_EHBCRCChkEnbl_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_EHBEPBActuatorStL_enum_ovrdflg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -6398,6 +6463,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_EHBReqBrkLiOn_flg_ovrdval@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_EPSCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_EPSCRCChkEnbl_flg@ */ 
       /* Record Layout          */      Scalar_BOOLEAN 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
@@ -6593,6 +6671,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_ESCABSActvSta_flg_ovrdval@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_ESCCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_ESCCRCChkEnbl_flg@ */ 
       /* Record Layout          */      Scalar_BOOLEAN 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
@@ -7356,6 +7447,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_FCMCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_FCMCRCChkEnbl_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_FCMEPBReq_enum_ovrdflg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -7451,6 +7555,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_HUBlwrModeSet_enum_ovrdflg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_HUCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_HUCRCChkEnbl_flg@ */ 
       /* Record Layout          */      Scalar_BOOLEAN 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
@@ -8019,6 +8136,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_ICUCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_ICUCRCChkEnbl_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_ICULostCommOvrdSw_flg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -8253,6 +8383,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_INVCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_INVCRCChkEnbl_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_INVLrngData02_nu_ovrdflg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -8348,6 +8491,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_INVLrngSubID_cnt_ovrdflg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_IPUCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_IPUCRCChkEnbl_flg@ */ 
       /* Record Layout          */      Scalar_BOOLEAN 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
@@ -8708,6 +8864,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_PPCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_PPCRCChkEnbl_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_PPLostCommOvrdSw_flg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -8734,6 +8903,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_PTCCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_PTCCRCChkEnbl_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_PTCLostCommOvrdSw_flg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -8751,6 +8933,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_PTCLostCommOvrdVal_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_SCSCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_SCSCRCChkEnbl_flg@ */ 
       /* Record Layout          */      Scalar_BOOLEAN 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
@@ -9254,6 +9449,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_SRSCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_SRSCRCChkEnbl_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_SRSCrashOutputSts_enum_ovrdflg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -9401,6 +9609,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_TBOXBJSTimeYear_nu_ovrdflg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_TBOXCRCChkEnbl_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_TBOXCRCChkEnbl_flg@ */ 
       /* Record Layout          */      Scalar_BOOLEAN 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
@@ -13675,6 +13896,227 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
+      /* Name                   */      VIPM_HU_B_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_HU_B_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_ICU_Info_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_ICU_Info_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_ESC_7_FuncStatus_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_ESC_7_FuncStatus_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_FCM_B_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_FCM_B_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_PP_InformAndStatus_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_PP_InformAndStatus_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_SRS_1_Status_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_SRS_1_Status_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_BMS_2_BatState_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_BMS_2_BatState_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_INV_1_Value_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_INV_1_Value_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_IPU_DCC_1_State_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_IPU_DCC_1_State_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_TBOX_BJS_Time_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_TBOX_BJS_Time_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_CCP_PanelStatus_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_CCP_PanelStatus_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_COMP_AC_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_COMP_AC_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_HVCH_Status1_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_HVCH_Status1_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_SCS_RiSwitchSts_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_SCS_RiSwitchSts_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_CRRR_A_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_CRRR_A_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_EHB_B_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_EHB_B_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_EPS_2_StrWhlAng_CRCFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_EPS_2_StrWhlAng_CRCFlt_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      VIPM_SRSDrvSeatbeltBkldVld_flg
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -17924,6 +18366,21 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_FCMAccMode_enum@ */
     /end MEASUREMENT
     
+    
+    /begin MEASUREMENT
+      /* Name                   */      VBSW_CANComCRCInstFlt_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      /* Array Size             */
+      ARRAY_SIZE                        100
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VBSW_CANComCRCInstFlt_flg@ */
+    /end MEASUREMENT
+    
     /begin COMPU_METHOD
       /* Name of CompuMethod    */      AppSwcIpm_CM_single_A
       /* Long identifier        */      "Q = V"
@@ -18665,6 +19122,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       Root_IpmMsgActv
       /* Long identifier        */       "AppSwcIpm/IpmMsgActv"
       /begin SUB_GROUP
+        S6_CANCommCRCFlt
         S6_CANCommError
       /end SUB_GROUP
     /end GROUP
@@ -18801,6 +19259,50 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /begin SUB_GROUP
         S315_Msg_SRS_1_Status_CHA
       /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S6_CANCommCRCFlt
+      /* Long identifier        */       "AppSwcIpm/IpmMsgActv/CANCommCRCFlt"
+      /begin REF_CHARACTERISTIC
+        KIPM_ACCMCRCChkEnbl_flg
+        KIPM_BMSCRCChkEnbl_flg
+        KIPM_CCPCRCChkEnbl_flg
+        KIPM_CRRRCRCChkEnbl_flg
+        KIPM_EHBCRCChkEnbl_flg
+        KIPM_EPSCRCChkEnbl_flg
+        KIPM_ESCCRCChkEnbl_flg
+        KIPM_FCMCRCChkEnbl_flg
+        KIPM_HUCRCChkEnbl_flg
+        KIPM_ICUCRCChkEnbl_flg
+        KIPM_INVCRCChkEnbl_flg
+        KIPM_IPUCRCChkEnbl_flg
+        KIPM_PPCRCChkEnbl_flg
+        KIPM_PTCCRCChkEnbl_flg
+        KIPM_SCSCRCChkEnbl_flg
+        KIPM_SRSCRCChkEnbl_flg
+        KIPM_TBOXCRCChkEnbl_flg
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        VBSW_CANComCRCInstFlt_flg
+        VIPM_BMS_2_BatState_CRCFlt_flg
+        VIPM_CCP_PanelStatus_CRCFlt_flg
+        VIPM_COMP_AC_CRCFlt_flg
+        VIPM_CRRR_A_CRCFlt_flg
+        VIPM_EHB_B_CRCFlt_flg
+        VIPM_EPS_2_StrWhlAng_CRCFlt_flg
+        VIPM_ESC_7_FuncStatus_CRCFlt_flg
+        VIPM_FCM_B_CRCFlt_flg
+        VIPM_HU_B_CRCFlt_flg
+        VIPM_HVCH_Status1_CRCFlt_flg
+        VIPM_ICU_Info_CRCFlt_flg
+        VIPM_INV_1_Value_CRCFlt_flg
+        VIPM_IPU_DCC_1_State_CRCFlt_flg
+        VIPM_PP_InformAndStatus_CRCFlt_flg
+        VIPM_SCS_RiSwitchSts_CRCFlt_flg
+        VIPM_SRS_1_Status_CRCFlt_flg
+        VIPM_TBOX_BJS_Time_CRCFlt_flg
+      /end REF_MEASUREMENT
     /end GROUP
     
     /begin GROUP

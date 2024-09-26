@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-08-17 16:07:03>
+ *  @date       <2024-09-19 16:46:32>
  */
 /*============================================================================*/
 
@@ -45,6 +45,7 @@ typedef struct
     P2VAR(Rte_DE_DT_IPM_CCP_PanelStatus_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_AppSwcBcm_20ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD;
     P2VAR(Rte_DE_DT_IPM_CRRR_A_CHA_status, AUTOMATIC, RTE_DATA)  Runbl_AppSwcBcm_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA;
     P2VAR(Rte_DE_DT_IPM_EHB_A_CHA_status, AUTOMATIC, RTE_DATA)  Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA;
+    P2VAR(Rte_DE_DT_IPM_EHB_B_CHA_status, AUTOMATIC, RTE_DATA)  Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA;
     P2VAR(Rte_DE_DT_IPM_ESC_7_FuncStatus_CHA_status, AUTOMATIC, RTE_DATA)  Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA;
     P2VAR(Rte_DE_DT_IPM_HU_B_BAC_status, AUTOMATIC, RTE_DATA)  Runbl_AppSwcBcm_20ms_IPM_HU_B_BAC_IPM_HU_B_BAC;
     P2VAR(Rte_DE_DT_IPM_SCS_LeSwitchSts_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_AppSwcBcm_20ms_IPM_SCS_LeSwitchSts_BOD_IPM_SCS_LeSwitchSts_BOD;
@@ -73,6 +74,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcBcm, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #ifndef RTE_CORE
 
+#define Rte_IrvIWrite_AppSwcBcm_Init_AlmSysCtl_Bus Rte_IrvIWrite_AppSwcBcm_Init_AlmSysCtl_Bus
+
 #define Rte_IrvIRead_Runbl_AppSwcBcm_100ms_AlmSysCtl_Bus Rte_IrvIRead_Runbl_AppSwcBcm_100ms_AlmSysCtl_Bus
 
 #define Rte_IrvIRead_Runbl_AppSwcBcm_10ms_AlmSysCtl_Bus Rte_IrvIRead_Runbl_AppSwcBcm_10ms_AlmSysCtl_Bus
@@ -85,11 +88,17 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcBcm, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #define Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_BatSaveCtl_Bus Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_BatSaveCtl_Bus
 
+#define Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DoorLckCtl_Bus Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DoorLckCtl_Bus
+
 #define Rte_IrvIRead_Runbl_AppSwcBcm_10ms_DoorLckCtl_Bus Rte_IrvIRead_Runbl_AppSwcBcm_10ms_DoorLckCtl_Bus
 
 #define Rte_IrvIRead_Runbl_AppSwcBcm_20ms_DoorLckCtl_Bus Rte_IrvIRead_Runbl_AppSwcBcm_20ms_DoorLckCtl_Bus
 
 #define Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus
+
+#define Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DynDID_Bus Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DynDID_Bus
+
+#define Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DynDID_Bus Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DynDID_Bus
 
 #define Rte_IrvIWrite_AppSwcBcm_Init_EEReadCtl_Bus Rte_IrvIWrite_AppSwcBcm_Init_EEReadCtl_Bus
 
@@ -100,6 +109,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcBcm, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IrvIRead_Runbl_AppSwcBcm_20ms_ESCLCtl_Bus Rte_IrvIRead_Runbl_AppSwcBcm_20ms_ESCLCtl_Bus
 
 #define Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_ESCLCtl_Bus Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_ESCLCtl_Bus
+
+#define Rte_IrvIRead_Runbl_AppSwcBcm_100ms_HornCtl_Bus Rte_IrvIRead_Runbl_AppSwcBcm_100ms_HornCtl_Bus
 
 #define Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_HornCtl_Bus Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_HornCtl_Bus
 
@@ -185,7 +196,13 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcBcm, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #define Rte_IrvIRead_Runbl_AppSwcBcm_20ms_WinCtl_Bus Rte_IrvIRead_Runbl_AppSwcBcm_20ms_WinCtl_Bus
 
+#define Rte_IrvIRead_Runbl_AppSwcBcm_50ms_WinCtl_Bus Rte_IrvIRead_Runbl_AppSwcBcm_50ms_WinCtl_Bus
+
+#define Rte_IrvIRead_Runbl_AppSwcBcm_100ms_Wiper_Bus Rte_IrvIRead_Runbl_AppSwcBcm_100ms_Wiper_Bus
+
 #define Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_Wiper_Bus Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_Wiper_Bus
+
+#define Rte_IrvIRead_Runbl_AppSwcBcm_50ms_Wiper_Bus Rte_IrvIRead_Runbl_AppSwcBcm_50ms_Wiper_Bus
 
 #define Rte_IRead_Runbl_AppSwcBcm_20ms_FCLL_TiWngSt_FCLL_TiWngSt() (Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_FCLL_TiWngSt_FCLL_TiWngSt->value)
 
@@ -198,6 +215,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcBcm, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IRead_Runbl_AppSwcBcm_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA() (&Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA->value)
 
 #define Rte_IRead_Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA() (&Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA->value)
+
+#define Rte_IRead_Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA() (&Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA->value)
 
 #define Rte_IRead_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA() (&Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA->value)
 
@@ -267,6 +286,10 @@ void Rte_Runbl_AppSwcBcm_50ms(void);
 
 void Rte_AppSwcBcm_Init(void);
 
+void Rte_IrvIWrite_AppSwcBcm_Init_AlmSysCtl_Bus(AlmSysCtl* data);
+
+AlmSysCtl * Rte_IrvIWriteRef_AppSwcBcm_Init_AlmSysCtl_Bus(void);
+
 AlmSysCtl* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_AlmSysCtl_Bus(void);
 
 AlmSysCtl* Rte_IrvIRead_Runbl_AppSwcBcm_10ms_AlmSysCtl_Bus(void);
@@ -283,6 +306,8 @@ void Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_BatSaveCtl_Bus(BatSaveCtl* data);
 
 BatSaveCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_BatSaveCtl_Bus(void);
 
+DoorLckCtl* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DoorLckCtl_Bus(void);
+
 DoorLckCtl* Rte_IrvIRead_Runbl_AppSwcBcm_10ms_DoorLckCtl_Bus(void);
 
 DoorLckCtl* Rte_IrvIRead_Runbl_AppSwcBcm_20ms_DoorLckCtl_Bus(void);
@@ -290,6 +315,12 @@ DoorLckCtl* Rte_IrvIRead_Runbl_AppSwcBcm_20ms_DoorLckCtl_Bus(void);
 void Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus(DoorLckCtl* data);
 
 DoorLckCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus(void);
+
+DynDID* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DynDID_Bus(void);
+
+void Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DynDID_Bus(DynDID* data);
+
+DynDID * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_DynDID_Bus(void);
 
 void Rte_IrvIWrite_AppSwcBcm_Init_EEReadCtl_Bus(EEReadCtl* data);
 
@@ -306,6 +337,8 @@ ESCLCtl* Rte_IrvIRead_Runbl_AppSwcBcm_20ms_ESCLCtl_Bus(void);
 void Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_ESCLCtl_Bus(ESCLCtl* data);
 
 ESCLCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_ESCLCtl_Bus(void);
+
+HornCtl* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_HornCtl_Bus(void);
 
 void Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_HornCtl_Bus(HornCtl* data);
 
@@ -425,9 +458,15 @@ WinCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_100ms_WinCtl_Bus(void);
 
 WinCtl* Rte_IrvIRead_Runbl_AppSwcBcm_20ms_WinCtl_Bus(void);
 
+WinCtl* Rte_IrvIRead_Runbl_AppSwcBcm_50ms_WinCtl_Bus(void);
+
+WiperCtl* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_Wiper_Bus(void);
+
 void Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_Wiper_Bus(WiperCtl* data);
 
 WiperCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_20ms_Wiper_Bus(void);
+
+WiperCtl* Rte_IrvIRead_Runbl_AppSwcBcm_50ms_Wiper_Bus(void);
 
 Std_ReturnType Rte_IStatus_Runbl_AppSwcBcm_20ms_FCLL_TiWngSt_FCLL_TiWngSt(void);
 
@@ -440,6 +479,8 @@ Std_ReturnType Rte_IStatus_Runbl_AppSwcBcm_20ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_
 Std_ReturnType Rte_IStatus_Runbl_AppSwcBcm_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA(void);
 
 Std_ReturnType Rte_IStatus_Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA(void);
+
+Std_ReturnType Rte_IStatus_Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA(void);
 
 Std_ReturnType Rte_IStatus_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA(void);
 

@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-08-16 16:43:39>
+ *  @date       <2024-09-19 16:43:19>
  */
 /*============================================================================*/
 
@@ -1858,6 +1858,10 @@ typedef struct
 
 #define _DEFINED_TYPEDEF_FOR_DoorLckCtl_
 
+typedef UInt8 rt_Array_UInt8_10[10];
+
+#define _DEFINED_TYPEDEF_FOR_rt_Array_UInt8_10_
+
 typedef struct
 {
     UInt8 BodyWarnSts;
@@ -1872,6 +1876,10 @@ typedef struct
     UInt8 IllmndUnlckSts;
     UInt8 InrTim;
     UInt8 WiperIntlTimeSetFb;
+    rt_Array_UInt8_10 DoorOpRecord;
+    rt_Array_UInt8_10 LocalStartFailOpRecord;
+    rt_Array_UInt8_10 RemoteStartFailRecord;
+    rt_Array_UInt8_10 TrunkOpRecord;
 } EEReadCtl;
 
 #define _DEFINED_TYPEDEF_FOR_EEReadCtl_
@@ -2532,7 +2540,7 @@ typedef struct
     Boolean ArmedSta;
     Boolean CrashSta;
     Boolean DisarmedSta;
-    Boolean PartArmedSta;
+    UInt8 PartArmedSta;
     Boolean AlrmSta;
     Boolean EmerHazardLightSta;
     Boolean HazardLightSta;
@@ -2558,6 +2566,8 @@ typedef struct
     Boolean LampDelay;
     Boolean AntiLckSta;
     Boolean TrunkWarnSta;
+    Boolean LowBeamShortToBat;
+    Boolean HiBeamShortToBat;
 } LampCtl;
 
 #define _DEFINED_TYPEDEF_FOR_LampCtl_
@@ -3267,9 +3277,32 @@ typedef struct
 
 #define _DEFINED_TYPEDEF_FOR_WiperCtl_
 
+typedef UInt8 rt_Array_UInt8_23[23];
+
+#define _DEFINED_TYPEDEF_FOR_rt_Array_UInt8_23_
+
 typedef UInt8 rt_Array_UInt8_16[16];
 
 #define _DEFINED_TYPEDEF_FOR_rt_Array_UInt8_16_
+
+typedef UInt8 rt_Array_UInt8_5[5];
+
+#define _DEFINED_TYPEDEF_FOR_rt_Array_UInt8_5_
+
+typedef struct
+{
+    UInt8 DynDID_0xF22CAntitheftSta;
+    rt_Array_UInt8_10 DynDID_0xF230DoorOpRecord;
+    rt_Array_UInt8_10 DynDID_0xF231TrunkOpRecord;
+    rt_Array_UInt8_23 DynDID_0xF234ADSampleValue;
+    rt_Array_UInt8_10 DynDID_0xF232LocalStartUpFailRecord;
+    rt_Array_UInt8_10 DynDID_0xF233RemoteStartUpFailRecord;
+    rt_Array_UInt8_5 DynDID_0xF236DigtOutSampleValue;
+    UInt8 DynDID_0xF237PwrModeSta;
+    rt_Array_UInt8_5 DynDID_0xF235DigtInSampleValue;
+} DynDID;
+
+#define _DEFINED_TYPEDEF_FOR_DynDID_
 
 typedef struct
 {

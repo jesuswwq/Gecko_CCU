@@ -113,7 +113,7 @@ VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer66[588];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer67[16];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer68[64];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer69[256];
-VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[20];
+VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[128];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer71[10];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer72[256];
 /* PRQA S 1504-- */ /* MISRA Rule 8.7 */
@@ -2915,7 +2915,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
          */    
         NVM_CRC16,    /*NvmBlockCRCType*/
         287,    /*NvmNvBlockBaseNumber*/
-        20,    /*NvmNvBlockLength*/
+        128,    /*NvmNvBlockLength*/
         1,    /*NvmNvBlockNum*/
         0,    /*NvmRomBlockNum*/
         3,    /*NvMMaxNumOfReadRetries*/

@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcVcu'.
  *
- * Model version                  : 9.466
+ * Model version                  : 9.483
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Fri Aug 16 15:36:12 2024
+ * C/C++ source code generated on : Thu Sep 19 15:42:51 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -24,199 +24,199 @@
 /* Definition for custom storage class: CalParam */
 CALDATA const volatile float32 ACPT_MotorEffVoltFac_X_V[9] = { 270.0F, 300.0F,
   310.0F, 330.0F, 360.0F, 380.0F, 400.0F, 430.0F, 450.0F } ;
-                                 /* Referenced by: '<S971>/MTQD_TMOverDrt_c1' */
+                                /* Referenced by: '<S1027>/MTQD_TMOverDrt_c1' */
 
 CALDATA const volatile float32 ACPT_MotorSpdFiltCoeff_X_rpm[8] = { 0.0F, 16.0F,
   40.0F, 64.0F, 96.0F, 121.0F, 242.0F, 300.0F } ;
-                       /* Referenced by: '<S971>/MPPC_OutSftSpdFiltCoeff_rat' */
+                      /* Referenced by: '<S1027>/MPPC_OutSftSpdFiltCoeff_rat' */
 
 CALDATA const volatile float32 ACPT_Pwr2MotorTqGen_X_kW[22] = { -180.0F, -160.0F,
   -150.0F, -140.0F, -130.0F, -120.0F, -110.0F, -100.0F, -90.0F, -80.0F, -70.0F,
   -60.0F, -50.0F, -40.0F, -30.0F, -25.0F, -20.0F, -15.0F, -10.0F, -5.0F, -2.0F,
-  0.0F } ;                 /* Referenced by: '<S971>/MCPT_Pwr2MotorTqMot_Nm1' */
+  0.0F } ;                /* Referenced by: '<S1027>/MCPT_Pwr2MotorTqMot_Nm1' */
 
 CALDATA const volatile float32 ACPT_Pwr2MotorTqGen_Y_rpm[28] = { 100.0F, 500.0F,
   1000.0F, 1500.0F, 2000.0F, 2500.0F, 3000.0F, 3500.0F, 4000.0F, 4215.0F,
   4500.0F, 5000.0F, 5500.0F, 6000.0F, 6500.0F, 7000.0F, 7500.0F, 8000.0F,
   8500.0F, 9000.0F, 9500.0F, 10000.0F, 10500.0F, 11000.0F, 11500.0F, 12000.0F,
-  12500.0F, 13000.0F } ;   /* Referenced by: '<S971>/MCPT_Pwr2MotorTqMot_Nm1' */
+  12500.0F, 13000.0F } ;  /* Referenced by: '<S1027>/MCPT_Pwr2MotorTqMot_Nm1' */
 
 CALDATA const volatile float32 ACPT_Pwr2MotorTqMot_X_kW[21] = { 0.0F, 2.0F, 5.0F,
   10.0F, 20.0F, 30.0F, 40.0F, 50.0F, 60.0F, 70.0F, 80.0F, 90.0F, 100.0F, 110.0F,
   120.0F, 130.0F, 140.0F, 150.0F, 160.0F, 170.0F, 180.0F } ;
-                            /* Referenced by: '<S971>/MCPT_Pwr2MotorTqMot_Nm' */
+                           /* Referenced by: '<S1027>/MCPT_Pwr2MotorTqMot_Nm' */
 
 CALDATA const volatile float32 ACPT_Pwr2MotorTqMot_Y_rpm[28] = { 100.0F, 500.0F,
   1000.0F, 1500.0F, 2000.0F, 2500.0F, 3000.0F, 3500.0F, 4000.0F, 4215.0F,
   4500.0F, 5000.0F, 5500.0F, 6000.0F, 6500.0F, 7000.0F, 7500.0F, 8000.0F,
   8500.0F, 9000.0F, 9500.0F, 10000.0F, 10500.0F, 11000.0F, 11500.0F, 12000.0F,
-  12500.0F, 13000.0F } ;    /* Referenced by: '<S971>/MCPT_Pwr2MotorTqMot_Nm' */
+  12500.0F, 13000.0F } ;   /* Referenced by: '<S1027>/MCPT_Pwr2MotorTqMot_Nm' */
 
 CALDATA const volatile float32 ACPT_TqDrtFacIgbtTemp_X_C[8] = { 100.0F, 110.0F,
   120.0F, 130.0F, 140.0F, 150.0F, 160.0F, 170.0F } ;
-                                 /* Referenced by: '<S971>/MTQD_TMOverDrt_c2' */
+                                /* Referenced by: '<S1027>/MTQD_TMOverDrt_c2' */
 
 CALDATA const volatile float32 ACPT_TqDrtFacMotorTemp_X_C[8] = { 120.0F, 130.0F,
   140.0F, 145.0F, 150.0F, 155.0F, 160.0F, 170.0F } ;
-                                 /* Referenced by: '<S971>/MTQD_TMOverDrt_c4' */
+                                /* Referenced by: '<S1027>/MTQD_TMOverDrt_c4' */
 
 CALDATA const volatile float32 ADAC_ACCDsrdTqKi_X_N[15] = { -700.0F, -500.0F,
   -400.0F, -300.0F, -200.0F, -100.0F, -50.0F, 0.0F, 50.0F, 100.0F, 200.0F,
   300.0F, 400.0F, 500.0F, 700.0F } ;
-                           /* Referenced by: '<S998>/ADAC_CCSDsrdTqKi_X_N_PL' */
+                          /* Referenced by: '<S1054>/ADAC_CCSDsrdTqKi_X_N_PL' */
 
 CALDATA const volatile float32 ADAC_ACCDsrdTqKi_Y_mps2[15] = { -2.0F, -0.5F,
   -0.3F, -0.2F, -0.15F, -0.1F, -0.05F, 0.0F, 0.05F, 0.1F, 0.15F, 0.2F, 0.3F,
-  0.5F, 2.0F } ;        /* Referenced by: '<S998>/ADAC_CCSDsrdTqKi_Y_mps2_PL' */
+  0.5F, 2.0F } ;       /* Referenced by: '<S1054>/ADAC_CCSDsrdTqKi_Y_mps2_PL' */
 
 CALDATA const volatile float32 ADAC_ACCDsrdTqKp_X_mps2[15] = { -2.0F, -1.5F,
   -1.2F, -0.8F, -0.5F, -0.15F, -0.05F, 0.0F, 0.05F, 0.15F, 0.5F, 0.8F, 1.2F,
-  1.5F, 2.0F } ;        /* Referenced by: '<S998>/ADAC_CCSDsrdTqKp_X_mps2_PL' */
+  1.5F, 2.0F } ;       /* Referenced by: '<S1054>/ADAC_CCSDsrdTqKp_X_mps2_PL' */
 
 CALDATA const volatile float32 ADAC_ACCOvrdTq_X_kph[7] = { 0.0F, 2.0F, 4.0F,
   6.0F, 8.0F, 10.0F, 20.0F } ;
-                         /* Referenced by: '<S993>/ATQD_RegenTqBrk_X_kph_PL1' */
+                        /* Referenced by: '<S1049>/ATQD_RegenTqBrk_X_kph_PL1' */
 
 CALDATA const volatile float32 ADAC_CCDsrdAcceltnDec_X_mps2[12] = { -2.0F, -1.4F,
   -1.2F, -0.7F, -0.6F, -0.5F, -0.4F, -0.3F, -0.2F, -0.07F, 0.0F, 0.07F } ;
-                /* Referenced by: '<S1013>/Lookup_MTQD_CstRegenTqReqWhlR_Nm1' */
+                /* Referenced by: '<S1069>/Lookup_MTQD_CstRegenTqReqWhlR_Nm1' */
 
 CALDATA const volatile float32 ADAC_CCDsrdAcceltnDeltaSpd_X_kph[21] = { -30.0F,
   -20.0F, -15.0F, -10.0F, -8.0F, -6.0F, -4.0F, -3.0F, -2.0F, -1.0F, 0.0F, 1.0F,
   2.0F, 3.0F, 4.0F, 6.0F, 8.0F, 10.0F, 15.0F, 20.0F, 30.0F } ;
-               /* Referenced by: '<S1013>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
+               /* Referenced by: '<S1069>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
 
 CALDATA const volatile float32 ADAC_CCDsrdAcceltnInc_X_mps2[12] = { -0.07F, 0.0F,
   0.07F, 0.2F, 0.3F, 0.4F, 0.5F, 0.6F, 0.7F, 1.1F, 1.4F, 2.0F } ;
-                 /* Referenced by: '<S1013>/Lookup_MTQD_CstRegenTqReqWhlR_Nm' */
+                 /* Referenced by: '<S1069>/Lookup_MTQD_CstRegenTqReqWhlR_Nm' */
 
 CALDATA const volatile float32 ADAC_CCDsrdAcceltnSpd_X_kph[6] = { 40.0F, 60.0F,
   80.0F, 100.0F, 120.0F, 140.0F } ;
-                /* Referenced by: '<S1013>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
+                /* Referenced by: '<S1069>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
 
 CALDATA const volatile float32 ADAC_CCDsrdTqKi_X_N[15] = { -700.0F, -500.0F,
   -400.0F, -300.0F, -200.0F, -100.0F, -50.0F, 0.0F, 50.0F, 100.0F, 200.0F,
   300.0F, 400.0F, 500.0F, 700.0F } ;
-                          /* Referenced by: '<S1020>/ADAC_CCSDsrdTqKi_X_N_PL' */
+                          /* Referenced by: '<S1076>/ADAC_CCSDsrdTqKi_X_N_PL' */
 
 CALDATA const volatile float32 ADAC_CCDsrdTqKi_Y_mps2[15] = { -2.0F, -0.41F,
   -0.3F, -0.2F, -0.15F, -0.1F, -0.05F, 0.0F, 0.05F, 0.1F, 0.15F, 0.2F, 0.3F,
-  0.4F, 2.0F } ;       /* Referenced by: '<S1020>/ADAC_CCSDsrdTqKi_Y_mps2_PL' */
+  0.4F, 2.0F } ;       /* Referenced by: '<S1076>/ADAC_CCSDsrdTqKi_Y_mps2_PL' */
 
 CALDATA const volatile float32 ADAC_CCDsrdTqKp_X_mps2[15] = { -2.0F, -1.5F,
   -1.2F, -0.8F, -0.5F, -0.15F, -0.05F, 0.0F, 0.05F, 0.15F, 0.5F, 0.8F, 1.2F,
-  1.5F, 2.0F } ;       /* Referenced by: '<S1020>/ADAC_CCSDsrdTqKp_X_mps2_PL' */
+  1.5F, 2.0F } ;       /* Referenced by: '<S1076>/ADAC_CCSDsrdTqKp_X_mps2_PL' */
 
 CALDATA const volatile float32 ADAC_CCMaxDrgTqWhl_X_kph[14] = { 8.0F, 8.2F, 9.0F,
   10.0F, 11.0F, 12.0F, 18.0F, 30.0F, 45.0F, 60.0F, 80.0F, 100.0F, 120.0F, 150.0F
-} ;                     /* Referenced by: '<S1022>/ATQD_RegenTqBrk_X_kph_PL1' */
+} ;                     /* Referenced by: '<S1078>/ATQD_RegenTqBrk_X_kph_PL1' */
 
 CALDATA const volatile float32 ADAC_CCSpdStabOfst_X_kph[8] = { 30.0F, 40.0F,
   60.0F, 80.0F, 100.0F, 120.0F, 140.0F, 160.0F } ;
-                        /* Referenced by: '<S1049>/ATQD_RegenTqBrk_X_kph_PL1' */
+                        /* Referenced by: '<S1105>/ATQD_RegenTqBrk_X_kph_PL1' */
 
 CALDATA const volatile float32 ADAC_FullPedDrvTqWhl_X_kph[23] = { 0.0F, 5.0F,
   10.0F, 15.0F, 20.0F, 25.0F, 30.0F, 35.0F, 45.0F, 55.0F, 62.0F, 68.0F, 74.0F,
   87.0F, 99.0F, 111.0F, 124.0F, 136.0F, 149.0F, 161.0F, 173.0F, 186.0F, 198.0F }
-;                                 /* Referenced by: '<S988>/MTQD_PTBaseTq_Nm' */
+;                                /* Referenced by: '<S1044>/MTQD_PTBaseTq_Nm' */
 
 CALDATA const volatile float32 ADAC_HDCDsrdTqKi_X_N[15] = { -700.0F, -500.0F,
   -400.0F, -300.0F, -200.0F, -100.0F, -50.0F, 0.0F, 50.0F, 100.0F, 200.0F,
   300.0F, 400.0F, 500.0F, 700.0F } ;
-                          /* Referenced by: '<S1086>/ADAC_CCSDsrdTqKi_X_N_PL' */
+                          /* Referenced by: '<S1142>/ADAC_CCSDsrdTqKi_X_N_PL' */
 
 CALDATA const volatile float32 ADAC_HDCDsrdTqKi_Y_mps2[15] = { -2.0F, -0.5F,
   -0.3F, -0.2F, -0.15F, -0.1F, -0.05F, 0.0F, 0.05F, 0.1F, 0.15F, 0.2F, 0.3F,
-  0.5F, 2.0F } ;       /* Referenced by: '<S1086>/ADAC_CCSDsrdTqKi_Y_mps2_PL' */
+  0.5F, 2.0F } ;       /* Referenced by: '<S1142>/ADAC_CCSDsrdTqKi_Y_mps2_PL' */
 
 CALDATA const volatile float32 ADAC_HDCDsrdTqKp_X_mps2[15] = { -2.0F, -1.5F,
   -1.2F, -0.8F, -0.5F, -0.15F, -0.05F, 0.0F, 0.05F, 0.15F, 0.5F, 0.8F, 1.2F,
-  1.5F, 2.0F } ;       /* Referenced by: '<S1086>/ADAC_CCSDsrdTqKp_X_mps2_PL' */
+  1.5F, 2.0F } ;       /* Referenced by: '<S1142>/ADAC_CCSDsrdTqKp_X_mps2_PL' */
 
 CALDATA const volatile float32 ADAC_HDCTgtAcceltnDeltaSpd_X_kph[16] = { -10.0F,
   -6.0F, -3.0F, -2.0F, -1.0F, -0.8F, -0.5F, -0.2F, 0.0F, 0.2F, 0.5F, 0.8F, 1.0F,
-  2.0F, 3.0F, 5.0F } ;          /* Referenced by: '<S1084>/1-D Lookup Table3' */
+  2.0F, 3.0F, 5.0F } ;          /* Referenced by: '<S1140>/1-D Lookup Table3' */
 
 CALDATA const volatile float32 ADAC_INVMaxDrgTqWhl_X_kph[12] = { 2.0F, 4.0F,
   6.0F, 8.0F, 10.0F, 15.0F, 20.0F, 40.0F, 60.0F, 80.0F, 100.0F, 150.0F } ;
-                                 /* Referenced by: '<S988>/1-D Lookup Table1' */
+                                /* Referenced by: '<S1044>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 ADAC_NonDrvnSpdFiltCoeff_X_kph[7] = { 0.0F, 0.2F,
   0.5F, 0.8F, 1.2F, 1.5F, 3.0F } ;
-                 /* Referenced by: '<S1011>/Lookup_MVTM_VehSpdFiltCoeff_rat1' */
+                 /* Referenced by: '<S1067>/Lookup_MVTM_VehSpdFiltCoeff_rat1' */
 
 CALDATA const volatile float32 ADAC_OPDDsrdTqFastIAcc_X_kph[6] = { -1.0F, 0.0F,
-  0.5F, 1.0F, 2.0F, 3.0F } ;    /* Referenced by: '<S1150>/1-D Lookup Table2' */
+  0.5F, 1.0F, 2.0F, 3.0F } ;    /* Referenced by: '<S1206>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 ADAC_OPDDsrdTqKd_X_mps2[12] = { -2.0F, -1.5F,
   -1.2F, -0.8F, -0.5F, -0.2F, 0.0F, 0.2F, 0.5F, 0.8F, 1.2F, 1.5F } ;
-                      /* Referenced by: '<S1139>/ADAC_CCSDsrdTqKp_X_mps2_PL2' */
+                      /* Referenced by: '<S1195>/ADAC_CCSDsrdTqKp_X_mps2_PL2' */
 
 CALDATA const volatile float32 ADAC_OPDDsrdTqKi2_X_N[9] = { -700.0F, -500.0F,
   -300.0F, -100.0F, 0.0F, 100.0F, 300.0F, 500.0F, 700.0F } ;
-                         /* Referenced by: '<S1139>/ADAC_CCSDsrdTqKi_X_N_PL1' */
+                         /* Referenced by: '<S1195>/ADAC_CCSDsrdTqKi_X_N_PL1' */
 
 CALDATA const volatile float32 ADAC_OPDDsrdTqKi2_Y_kph[12] = { -2.0F, -1.0F,
   -0.5F, -0.2F, -0.1F, -0.05F, 0.05F, 0.1F, 0.2F, 0.5F, 1.0F, 2.0F } ;
-                      /* Referenced by: '<S1139>/ADAC_CCSDsrdTqKi_Y_mps2_PL1' */
+                      /* Referenced by: '<S1195>/ADAC_CCSDsrdTqKi_Y_mps2_PL1' */
 
 CALDATA const volatile float32 ADAC_OPDDsrdTqKi_X_N[15] = { -700.0F, -500.0F,
   -400.0F, -300.0F, -200.0F, -100.0F, -50.0F, 0.0F, 50.0F, 100.0F, 200.0F,
   300.0F, 400.0F, 500.0F, 700.0F } ;
-                          /* Referenced by: '<S1139>/ADAC_CCSDsrdTqKi_X_N_PL' */
+                          /* Referenced by: '<S1195>/ADAC_CCSDsrdTqKi_X_N_PL' */
 
 CALDATA const volatile float32 ADAC_OPDDsrdTqKi_Y_mps2[15] = { -2.0F, -0.5F,
   -0.3F, -0.2F, -0.15F, -0.1F, -0.05F, 0.0F, 0.05F, 0.1F, 0.15F, 0.2F, 0.3F,
-  0.5F, 2.0F } ;       /* Referenced by: '<S1139>/ADAC_CCSDsrdTqKi_Y_mps2_PL' */
+  0.5F, 2.0F } ;       /* Referenced by: '<S1195>/ADAC_CCSDsrdTqKi_Y_mps2_PL' */
 
 CALDATA const volatile float32 ADAC_OPDDsrdTqKp2_X_kph[12] = { -2.0F, -1.0F,
   -0.5F, -0.2F, -0.1F, -0.05F, 0.05F, 0.1F, 0.2F, 0.5F, 1.0F, 2.0F } ;
-                      /* Referenced by: '<S1139>/ADAC_CCSDsrdTqKp_X_mps2_PL1' */
+                      /* Referenced by: '<S1195>/ADAC_CCSDsrdTqKp_X_mps2_PL1' */
 
 CALDATA const volatile float32 ADAC_OPDDsrdTqKp_X_mps2[15] = { -2.0F, -1.5F,
   -1.2F, -0.8F, -0.5F, -0.15F, -0.05F, 0.0F, 0.05F, 0.15F, 0.5F, 0.8F, 1.2F,
-  1.5F, 2.0F } ;       /* Referenced by: '<S1139>/ADAC_CCSDsrdTqKp_X_mps2_PL' */
+  1.5F, 2.0F } ;       /* Referenced by: '<S1195>/ADAC_CCSDsrdTqKp_X_mps2_PL' */
 
 CALDATA const volatile float32 ADAC_OPDMaxDrvTqWhl_X_kph[7] = { -3.0F, -1.0F,
   0.0F, 1.0F, 3.0F, 5.0F, 10.0F } ;
-                        /* Referenced by: '<S1150>/ATQD_RegenTqBrk_X_kph_PL1' */
+                        /* Referenced by: '<S1206>/ATQD_RegenTqBrk_X_kph_PL1' */
 
 CALDATA const volatile float32 ADAC_OPDOvrdAccPedPstn_X_Nm[11] = { -1161.0F,
   -930.0F, -699.0F, -466.0F, -233.0F, 0.0F, 233.0F, 466.0F, 699.0F, 930.0F,
-  1161.0F } ;                    /* Referenced by: '<S1099>/1-D Lookup Table' */
+  1161.0F } ;                    /* Referenced by: '<S1155>/1-D Lookup Table' */
 
 CALDATA const volatile float32 ADAC_OPDTgtAcceltnDeltaSpd_Y_kph[16] = { -9.0F,
   -6.0F, -3.0F, -2.0F, -1.0F, -0.8F, -0.5F, -0.2F, 0.0F, 0.2F, 0.5F, 0.8F, 1.0F,
   2.0F, 3.0F, 5.0F } ;
-               /* Referenced by: '<S1130>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
+               /* Referenced by: '<S1186>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
 
 CALDATA const volatile float32 ADAC_OPDTgtAcceltnFiltCoeffInit_X_kph[6] = { 0.0F,
   2.0F, 4.0F, 5.0F, 6.0F, 8.0F } ;
-                                /* Referenced by: '<S1130>/1-D Lookup Table2' */
+                                /* Referenced by: '<S1186>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 ADAC_OPDTgtAcceltnFiltCoeff_X_mps2[11] = { -1.0F,
   -0.5F, -0.3F, -0.2F, -0.1F, 0.0F, 0.1F, 0.2F, 0.3F, 0.5F, 1.0F } ;
-                                /* Referenced by: '<S1130>/1-D Lookup Table1' */
+                                /* Referenced by: '<S1186>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 ADAC_OPDTgtAcceltnTgtSpd_X_kph[7] = { 0.0F, 0.5F,
   1.0F, 2.0F, 3.0F, 5.0F, 8.0F } ;
-                /* Referenced by: '<S1130>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
+                /* Referenced by: '<S1186>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
 
 CALDATA const volatile float32 ADAC_OPDTgtSpdChgRate_X_kph[11] = { -10.0F, -8.0F,
   -6.0F, -4.0F, -2.0F, 0.0F, 2.0F, 4.0F, 6.0F, 8.0F, 10.0F } ;
-                                 /* Referenced by: '<S1130>/1-D Lookup Table' */
+                                 /* Referenced by: '<S1186>/1-D Lookup Table' */
 
 CALDATA const volatile float32 ADAC_OPDTgtSpd_X_Nm[11] = { -1161.0F, -930.0F,
   -699.0F, -466.0F, -233.0F, 0.0F, 233.0F, 466.0F, 699.0F, 930.0F, 1161.0F } ;
-                                 /* Referenced by: '<S1130>/2-D Lookup Table' */
+                                 /* Referenced by: '<S1186>/2-D Lookup Table' */
 
 CALDATA const volatile float32 ADAC_OPDTgtSpd_Y_pct[15] = { 0.0F, 1.5F, 3.0F,
   6.0F, 9.0F, 12.0F, 15.0F, 17.0F, 20.0F, 23.0F, 25.0F, 30.0F, 40.0F, 50.0F,
-  70.0F } ;                      /* Referenced by: '<S1130>/2-D Lookup Table' */
+  70.0F } ;                      /* Referenced by: '<S1186>/2-D Lookup Table' */
 
 CALDATA const volatile float32 ADAC_OPDTqReqWhlRate_X_Nm[11] = { -1000.0F,
   -500.0F, -300.0F, -200.0F, -100.0F, 0.0F, 100.0F, 200.0F, 300.0F, 500.0F,
-  1000.0F } ;                   /* Referenced by: '<S1140>/1-D Lookup Table2' */
+  1000.0F } ;                   /* Referenced by: '<S1196>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 ADSA_DeceltnIdxAvg_X_pct[10] = { 0.0F, 5.0F,
   10.0F, 15.0F, 20.0F, 25.0F, 30.0F, 35.0F, 40.0F, 50.0F } ;
@@ -309,44 +309,44 @@ CALDATA const volatile float32 AEMS_MaxInsDchaCurr_Y_pct[10] = { 0.0F, 2.0F,
 
 CALDATA const volatile float32 AIBS_EnvirTemp_X_C[6] = { -15.0F, -10.0F, -5.0F,
   0.0F, 5.0F, 10.0F } ;                /* Referenced by:
-                                        * '<S901>/MIBS_NextRtcWupThr_min'
-                                        * '<S901>/MIBS_WupChgTmThr_min'
+                                        * '<S952>/MIBS_NextRtcWupThr_min'
+                                        * '<S952>/MIBS_WupChgTmThr_min'
                                         */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½Â¶È£ï¿½Xï¿½á£©_versteckt */
+/* »·¾³ÎÂ¶È£¨XÖá£©_versteckt */
 CALDATA const volatile float32 AIBS_KL30_Y_V[10] = { 12.0F, 12.1F, 12.2F, 12.3F,
   12.4F, 12.5F, 12.6F, 12.7F, 12.8F, 13.0F } ;/* Referenced by:
-                                               * '<S901>/MIBS_NextRtcWupThr_min'
-                                               * '<S901>/MIBS_WupChgTmThr_min'
+                                               * '<S952>/MIBS_NextRtcWupThr_min'
+                                               * '<S952>/MIBS_WupChgTmThr_min'
                                                */
 
-/* KL30ï¿½ï¿½Ñ¹ï¿½ï¿½Yï¿½á£©_versteckt */
+/* KL30µçÑ¹£¨YÖá£©_versteckt */
 CALDATA const volatile float32 AIPC_AccPedBckLsh_X_pct[12] = { 0.0F, 5.0F, 10.0F,
   15.0F, 20.0F, 25.0F, 30.0F, 40.0F, 60.0F, 80.0F, 90.0F, 100.0F } ;
-                                      /* Referenced by: '<S776>/Lookup Table' */
+                                      /* Referenced by: '<S829>/Lookup Table' */
 
 CALDATA const volatile uint8 AIPC_TireRadius_X_enum[6] = { 0U, 1U, 2U, 3U, 4U,
-  15U } ;                            /* Referenced by: '<S774>/TireSizeTable' */
+  15U } ;                            /* Referenced by: '<S827>/TireSizeTable' */
 
 CALDATA const volatile float32 ARME_BMSBatCellTempMin_X_C[6] = { -20.0F, -15.0F,
   -10.0F, 0.0F, 10.0F, 20.0F } ;       /* Referenced by:
-                                        * '<S870>/MRME_WLTPDwLimFac_c'
-                                        * '<S872>/MRME_DynEstRmnChgStp_c'
+                                        * '<S921>/MRME_WLTPDwLimFac_c'
+                                        * '<S923>/MRME_DynEstRmnChgStp_c'
                                         */
 
-/* BMSï¿½ï¿½Ð¾ï¿½ï¿½Ð¡ï¿½Â¶ï¿½ */
+/* BMSµçÐ¾×îÐ¡ÎÂ¶È */
 CALDATA const volatile float32 ARME_BMSBatRptSOC_Y_pct[12] = { 0.0F, 3.0F, 10.0F,
   20.0F, 30.0F, 40.0F, 50.0F, 60.0F, 70.0F, 80.0F, 90.0F, 100.0F } ;/* Referenced by:
-                                                                     * '<S853>/MRME_CHTCStdRmnMil_km'
-                                                                     * '<S870>/MRME_WLTPStdRmnMil_km'
+                                                                     * '<S904>/MRME_CHTCStdRmnMil_km'
+                                                                     * '<S921>/MRME_WLTPStdRmnMil_km'
                                                                      */
 
-/* ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½RPTSOCÖµ */
+/* ±ê×¼Ðøº½²é±íRPTSOCÖµ */
 CALDATA const volatile float32 ARME_EstTgtSubDynEstErr_Y_km[10] = { -90.0F,
   -70.0F, -50.0F, -30.0F, -15.0F, -5.0F, 0.0F, 5.0F, 15.0F, 30.0F } ;
-                            /* Referenced by: '<S872>/MRME_DynEstRmnChgStp_c' */
+                            /* Referenced by: '<S923>/MRME_DynEstRmnChgStp_c' */
 
-/* Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Öµ */
+/* Ä¿±êÐøº½ÓëÊµ¼ÊÐøº½Öµ²îÖµ */
 CALDATA const volatile uint8 ASYS_HVBatPackTyp_X_Ah[10] = { 1U, 2U, 3U, 4U, 5U,
   6U, 7U, 8U, 9U, 10U } ;              /* Referenced by:
                                         * '<S25>/Lookup2D_MEMS_MaxInsDchaCurrFac_c'
@@ -362,13 +362,13 @@ CALDATA const volatile uint8 ASYS_HVBatPackTyp_X_Ah[10] = { 1U, 2U, 3U, 4U, 5U,
                                         * '<S98>/MDAG_CellTempLoThr_C'
                                         * '<S98>/MDAG_CellUndrVoltThr1_mV'
                                         * '<S98>/MDAG_CellUndrVoltThr2_mV'
-                                        * '<S648>/MHVM_BMSCelMaxVol_mV'
-                                        * '<S648>/MHVM_BMSTotMaxVol_V'
-                                        * '<S648>/MHVM_MaxChrgCurntDC_A'
-                                        * '<S648>/MHVM_MaxChrgVoltDC_V'
-                                        * '<S853>/MRME_CHTCStdRmnMil_km'
-                                        * '<S900>/MIBS_BMSBatSOCExtrmLo_pct'
-                                        * '<S900>/MIBS_IBSEnMinSOC_pct'
+                                        * '<S701>/MHVM_BMSCelMaxVol_mV'
+                                        * '<S701>/MHVM_BMSTotMaxVol_V'
+                                        * '<S701>/MHVM_MaxChrgCurntDC_A'
+                                        * '<S701>/MHVM_MaxChrgVoltDC_V'
+                                        * '<S904>/MRME_CHTCStdRmnMil_km'
+                                        * '<S951>/MIBS_BMSBatSOCExtrmLo_pct'
+                                        * '<S951>/MIBS_IBSEnMinSOC_pct'
                                         * '<S79>/PwrDrt'
                                         * '<S80>/PwrDrt'
                                         * '<S80>/PwrDrt1'
@@ -376,1059 +376,1080 @@ CALDATA const volatile uint8 ASYS_HVBatPackTyp_X_Ah[10] = { 1U, 2U, 3U, 4U, 5U,
                                         * '<S101>/BMS_BMSCTL_LMPRECSOC2_CAL'
                                         * '<S101>/BMS_BMSCTL_LMPSOC1_CAL'
                                         * '<S101>/BMS_BMSCTL_LMPSOC2_CAL'
-                                        * '<S857>/  '
-                                        * '<S870>/MRME_WLTPStdRmnMil_km'
-                                        * '<S870>/MRME_WLTPStdSOCCnsm_pct100km '
+                                        * '<S908>/  '
+                                        * '<S921>/MRME_WLTPStdRmnMil_km'
+                                        * '<S921>/MRME_WLTPStdSOCCnsm_pct100km '
                                         */
 
 CALDATA const volatile float32 ATQC_RegenMaxTqDecRate_X_kph[4] = { 20.0F, 40.0F,
   60.0F, 80.0F } ;
-                /* Referenced by: '<S1189>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
+                /* Referenced by: '<S1245>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
 
 CALDATA const volatile float32 ATQC_RegenMaxTqDecRate_Y_pct[5] = { 0.0F, 5.0F,
   10.0F, 20.0F, 30.0F } ;
-               /* Referenced by: '<S1189>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
+               /* Referenced by: '<S1245>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
 
 CALDATA const volatile float32 ATQC_RegenMaxTqIncRate_X_Nm[8] = { -2000.0F,
   -1500.0F, -1000.0F, -800.0F, -500.0F, -300.0F, -200.0F, -100.0F } ;
-                        /* Referenced by: '<S1189>/ATQD_RegenTqBrk_X_kph_PL1' */
+                        /* Referenced by: '<S1245>/ATQD_RegenTqBrk_X_kph_PL1' */
 
 CALDATA const volatile float32 ATQD_AdaptCstDsrdTqKi_X_N[15] = { -700.0F,
   -500.0F, -400.0F, -300.0F, -200.0F, -100.0F, -50.0F, 0.0F, 50.0F, 100.0F,
   200.0F, 300.0F, 400.0F, 500.0F, 700.0F } ;
-                          /* Referenced by: '<S1224>/ADAC_CCSDsrdTqKi_X_N_PL' */
+                          /* Referenced by: '<S1280>/ADAC_CCSDsrdTqKi_X_N_PL' */
 
 CALDATA const volatile float32 ATQD_AdaptCstDsrdTqKi_Y_mps2[15] = { -2.0F, -0.5F,
   -0.3F, -0.2F, -0.15F, -0.1F, -0.05F, 0.0F, 0.05F, 0.1F, 0.15F, 0.2F, 0.3F,
-  0.5F, 2.0F } ;       /* Referenced by: '<S1224>/ADAC_CCSDsrdTqKi_Y_mps2_PL' */
+  0.5F, 2.0F } ;       /* Referenced by: '<S1280>/ADAC_CCSDsrdTqKi_Y_mps2_PL' */
 
 CALDATA const volatile float32 ATQD_AdaptCstDsrdTqKp_X_mps2[15] = { -2.0F, -1.5F,
   -1.2F, -0.8F, -0.5F, -0.15F, -0.05F, 0.0F, 0.05F, 0.15F, 0.5F, 0.8F, 1.2F,
-  1.5F, 2.0F } ;       /* Referenced by: '<S1224>/ADAC_CCSDsrdTqKp_X_mps2_PL' */
+  1.5F, 2.0F } ;       /* Referenced by: '<S1280>/ADAC_CCSDsrdTqKp_X_mps2_PL' */
 
 CALDATA const volatile float32 ATQD_AdaptCstVehSpd_X_kph[14] = { 8.0F, 8.2F,
   9.0F, 10.0F, 11.0F, 12.0F, 18.0F, 30.0F, 45.0F, 60.0F, 80.0F, 100.0F, 120.0F,
   150.0F } ;                           /* Referenced by:
-                                        * '<S1220>/ATQD_RegenTqBrk_X_kph_PL'
-                                        * '<S1224>/ATQD_RegenTqBrk_X_kph_PL1'
+                                        * '<S1276>/ATQD_RegenTqBrk_X_kph_PL'
+                                        * '<S1280>/ATQD_RegenTqBrk_X_kph_PL1'
                                         */
 
 CALDATA const volatile float32 ATQD_CrpTqReqWhlD_X_kph[10] = { 0.0F, 2.0F, 3.0F,
   4.0F, 5.0F, 6.0F, 7.0F, 8.0F, 9.0F, 10.0F } ;
-                      /* Referenced by: '<S1210>/Lookup_MTQD_CrpTqReqWhlD_Nm' */
+                      /* Referenced by: '<S1266>/Lookup_MTQD_CrpTqReqWhlD_Nm' */
 
 CALDATA const volatile float32 ATQD_CrpTqReqWhlR_X_kph[10] = { -10.0F, -9.0F,
   -8.0F, -7.0F, -6.0F, -5.0F, -4.0F, -3.0F, -2.0F, 0.0F } ;
-                      /* Referenced by: '<S1210>/Lookup_MTQD_CrpTqReqWhlR_Nm' */
+                      /* Referenced by: '<S1266>/Lookup_MTQD_CrpTqReqWhlR_Nm' */
 
 CALDATA const volatile float32 ATQD_CstRegenEndPstnV_X_kph[14] = { 2.0F, 4.0F,
   7.0F, 9.0F, 11.0F, 15.0F, 20.0F, 30.0F, 40.0F, 60.0F, 80.0F, 90.0F, 100.0F,
-  120.0F } ;                    /* Referenced by: '<S1219>/1-D Lookup Table1' */
+  120.0F } ;                    /* Referenced by: '<S1275>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 ATQD_CstRegenEndPstn_X_kph[15] = { 7.0F, 8.0F,
   9.0F, 10.0F, 12.0F, 14.0F, 16.0F, 18.0F, 20.0F, 30.0F, 40.0F, 50.0F, 60.0F,
-  70.0F, 100.0F } ;     /* Referenced by: '<S1219>/ATQD_RegenTqBrk_X_kph_PL2' */
+  70.0F, 100.0F } ;     /* Referenced by: '<S1275>/ATQD_RegenTqBrk_X_kph_PL2' */
 
 CALDATA const volatile float32 ATQD_CstRegenRateAccPed_X_pct[8] = { -5.0F, 0.0F,
   10.0F, 20.0F, 30.0F, 40.0F, 50.0F, 80.0F } ;
-                        /* Referenced by: '<S1221>/ATQD_RegenTqBrk_X_kph_PL2' */
+                        /* Referenced by: '<S1277>/ATQD_RegenTqBrk_X_kph_PL2' */
 
 CALDATA const volatile float32 ATQD_CstRegenTqReqWhlD_X_kph[14] = { 8.0F, 8.2F,
   9.0F, 10.0F, 11.0F, 12.0F, 18.0F, 30.0F, 45.0F, 60.0F, 80.0F, 100.0F, 120.0F,
-  150.0F } ;            /* Referenced by: '<S1218>/ATQD_RegenTqBrk_X_kph_PL1' */
+  150.0F } ;            /* Referenced by: '<S1274>/ATQD_RegenTqBrk_X_kph_PL1' */
 
 CALDATA const volatile float32 ATQD_CstRegenTqReqWhlOff_X_pct[5] = { 0.0F, 5.0F,
-  10.0F, 20.0F, 50.0F } ; /* Referenced by: '<S1218>/MTQD_PedMapBasTqEco_pct' */
+  10.0F, 20.0F, 50.0F } ; /* Referenced by: '<S1274>/MTQD_PedMapBasTqEco_pct' */
 
 CALDATA const volatile float32 ATQD_CstRegenTqReqWhlOff_Y_kph[14] = { 8.0F, 8.2F,
   9.0F, 10.0F, 11.0F, 12.0F, 18.0F, 30.0F, 45.0F, 60.0F, 80.0F, 100.0F, 120.0F,
-  150.0F } ;              /* Referenced by: '<S1218>/MTQD_PedMapBasTqEco_pct' */
+  150.0F } ;              /* Referenced by: '<S1274>/MTQD_PedMapBasTqEco_pct' */
 
 CALDATA const volatile float32 ATQD_CstRegenTqReqWhlR_X_kph[12] = { -150.0F,
   -100.0F, -80.0F, -60.0F, -45.0F, -30.0F, -18.0F, -12.0F, -10.0F, -8.2F, -8.0F,
-  0.0F } ;                      /* Referenced by: '<S1218>/1-D Lookup Table2' */
+  0.0F } ;                      /* Referenced by: '<S1274>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 ATQD_CstRegenTqReqWhlV_X_kph[14] = { 2.0F, 4.0F,
   7.0F, 9.0F, 11.0F, 15.0F, 20.0F, 30.0F, 40.0F, 60.0F, 80.0F, 100.0F, 120.0F,
-  160.0F } ;                    /* Referenced by: '<S1218>/1-D Lookup Table1' */
+  160.0F } ;                    /* Referenced by: '<S1274>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 ATQD_FwdFullPedDrvTqWhl_X_kph[19] = { 0.0F,
   5.26442337F, 10.5383654F, 15.7946501F, 21.0539875F, 31.5900345F, 42.1265068F,
   44.3735886F, 47.3844757F, 52.6475F, 57.9181023F, 63.1764908F, 73.7083282F,
   84.2376404F, 94.7668457F, 105.296257F, 115.826721F, 126.357201F, 136.885559F }
 ;                                      /* Referenced by:
-                                        * '<S1211>/MTQD_PTBaseTq_Nm'
-                                        * '<S1211>/MTQD_PTBaseTq_Nm1'
+                                        * '<S1267>/MTQD_PTBaseTq_Nm'
+                                        * '<S1267>/MTQD_PTBaseTq_Nm1'
                                         */
 
 CALDATA const volatile float32 ATQD_FwdPedMapEco_X_kph[18] = { 0.0F, 10.0F,
   20.0F, 30.0F, 40.0F, 50.0F, 60.0F, 70.0F, 80.0F, 90.0F, 100.0F, 110.0F, 120.0F,
   130.0F, 140.0F, 150.0F, 170.0F, 180.0F } ;
-                         /* Referenced by: '<S1211>/MTQD_PedMapBasTqEco_pct1' */
+                         /* Referenced by: '<S1267>/MTQD_PedMapBasTqEco_pct1' */
 
 CALDATA const volatile float32 ATQD_FwdPedMapEco_Y_pct[21] = { 0.0F, 5.0F, 10.0F,
   15.0F, 20.0F, 25.0F, 30.0F, 35.0F, 40.0F, 45.0F, 50.0F, 55.0F, 60.0F, 65.0F,
   70.0F, 75.0F, 80.0F, 85.0F, 90.0F, 95.0F, 100.0F } ;/* Referenced by:
-                                                       * '<S1211>/MTQD_PedMapBasTqEco_pct1'
-                                                       * '<S1211>/2-D Lookup Table1'
+                                                       * '<S1267>/MTQD_PedMapBasTqEco_pct1'
+                                                       * '<S1267>/2-D Lookup Table1'
                                                        */
 
 CALDATA const volatile float32 ATQD_FwdPedMapNoCrpEco_X_kph[2] = { 0.0F, 7.0F } ;
-                                /* Referenced by: '<S1211>/2-D Lookup Table1' */
+                                /* Referenced by: '<S1267>/2-D Lookup Table1' */
 
 CALDATA const volatile float32 ATQD_FwdPedMapNoCrpNorm_X_kph[2] = { 0.0F, 7.0F }
-;                               /* Referenced by: '<S1211>/2-D Lookup Table3' */
+;                               /* Referenced by: '<S1267>/2-D Lookup Table3' */
 
 CALDATA const volatile float32 ATQD_FwdPedMapNoCrpSnow_X_kph[2] = { 0.0F, 7.0F }
-;                                /* Referenced by: '<S1211>/2-D Lookup Table' */
+;                                /* Referenced by: '<S1267>/2-D Lookup Table' */
 
 CALDATA const volatile float32 ATQD_FwdPedMapNoCrpSpt_X_kph[2] = { 0.0F, 7.0F } ;
-                                /* Referenced by: '<S1211>/2-D Lookup Table2' */
+                                /* Referenced by: '<S1267>/2-D Lookup Table2' */
 
 CALDATA const volatile float32 ATQD_FwdPedMapNorm_X_kph[18] = { 0.0F, 10.0F,
   20.0F, 30.0F, 40.0F, 50.0F, 60.0F, 70.0F, 80.0F, 90.0F, 100.0F, 110.0F, 120.0F,
   130.0F, 140.0F, 150.0F, 170.0F, 180.0F } ;
-                         /* Referenced by: '<S1211>/MTQD_PedMapBasTqEco_pct3' */
+                         /* Referenced by: '<S1267>/MTQD_PedMapBasTqEco_pct3' */
 
 CALDATA const volatile float32 ATQD_FwdPedMapNorm_Y_pct[21] = { 0.0F, 5.0F,
   10.0F, 15.0F, 20.0F, 25.0F, 30.0F, 35.0F, 40.0F, 45.0F, 50.0F, 55.0F, 60.0F,
   65.0F, 70.0F, 75.0F, 80.0F, 85.0F, 90.0F, 95.0F, 100.0F } ;/* Referenced by:
-                                                              * '<S1211>/MTQD_PedMapBasTqEco_pct3'
-                                                              * '<S1211>/2-D Lookup Table3'
+                                                              * '<S1267>/MTQD_PedMapBasTqEco_pct3'
+                                                              * '<S1267>/2-D Lookup Table3'
                                                               */
 
 CALDATA const volatile float32 ATQD_FwdPedMapSnow_X_kph[18] = { 0.0F, 10.0F,
   20.0F, 30.0F, 40.0F, 50.0F, 60.0F, 70.0F, 80.0F, 90.0F, 100.0F, 110.0F, 120.0F,
   130.0F, 140.0F, 150.0F, 170.0F, 180.0F } ;
-                          /* Referenced by: '<S1211>/MTQD_PedMapBasTqEco_pct' */
+                          /* Referenced by: '<S1267>/MTQD_PedMapBasTqEco_pct' */
 
 CALDATA const volatile float32 ATQD_FwdPedMapSnow_Y_pct[21] = { 0.0F, 5.0F,
   10.0F, 15.0F, 20.0F, 25.0F, 30.0F, 35.0F, 40.0F, 45.0F, 50.0F, 55.0F, 60.0F,
   65.0F, 70.0F, 75.0F, 80.0F, 85.0F, 90.0F, 95.0F, 100.0F } ;/* Referenced by:
-                                                              * '<S1211>/MTQD_PedMapBasTqEco_pct'
-                                                              * '<S1211>/2-D Lookup Table'
+                                                              * '<S1267>/MTQD_PedMapBasTqEco_pct'
+                                                              * '<S1267>/2-D Lookup Table'
                                                               */
 
 CALDATA const volatile float32 ATQD_FwdPedMapSpt_X_kph[18] = { 0.0F, 5.0F, 10.0F,
   15.0F, 20.0F, 25.0F, 30.0F, 35.0F, 50.0F, 70.0F, 90.0F, 100.0F, 120.0F, 130.0F,
   150.0F, 160.0F, 170.0F, 180.0F } ;
-                         /* Referenced by: '<S1211>/MTQD_PedMapBasTqEco_pct2' */
+                         /* Referenced by: '<S1267>/MTQD_PedMapBasTqEco_pct2' */
 
 CALDATA const volatile float32 ATQD_FwdPedMapSpt_Y_pct[21] = { 0.0F, 5.0F, 10.0F,
   15.0F, 20.0F, 25.0F, 30.0F, 35.0F, 40.0F, 45.0F, 50.0F, 55.0F, 60.0F, 65.0F,
   70.0F, 75.0F, 80.0F, 85.0F, 90.0F, 95.0F, 100.0F } ;/* Referenced by:
-                                                       * '<S1211>/MTQD_PedMapBasTqEco_pct2'
-                                                       * '<S1211>/2-D Lookup Table2'
+                                                       * '<S1267>/MTQD_PedMapBasTqEco_pct2'
+                                                       * '<S1267>/2-D Lookup Table2'
                                                        */
 
 CALDATA const volatile float32 ATQD_LimpHomeMaxTq_X_kph[8] = { -15.0F, -10.0F,
   -5.0F, 0.0F, 5.0F, 10.0F, 20.0F, 30.0F } ;
-                        /* Referenced by: '<S1206>/ATQD_RegenTqBrk_X_kph_PL2' */
+                        /* Referenced by: '<S1262>/ATQD_RegenTqBrk_X_kph_PL2' */
 
 CALDATA const volatile float32 ATQD_RevFullPedDrvTqWhl_X_kph[19] = { -150.0F,
   -136.0F, -124.0F, -111.0F, -99.0F, -87.0F, -74.0F, -68.0F, -62.0F, -55.0F,
   -45.0F, -35.0F, -30.0F, -25.0F, -20.0F, -15.0F, -10.0F, -5.0F, 0.0F } ;
-                                 /* Referenced by: '<S1213>/MTQD_PTBaseTq_Nm' */
+                                 /* Referenced by: '<S1269>/MTQD_PTBaseTq_Nm' */
 
 CALDATA const volatile float32 ATQD_RevPedMap_X_kph[11] = { -100.0F, -90.0F,
   -80.0F, -70.0F, -60.0F, -50.0F, -40.0F, -30.0F, -20.0F, -10.0F, 0.0F } ;
-                          /* Referenced by: '<S1213>/MTQD_PedMapBasTqEco_pct' */
+                          /* Referenced by: '<S1269>/MTQD_PedMapBasTqEco_pct' */
 
 CALDATA const volatile float32 ATQD_RevPedMap_Y_pct[21] = { 0.0F, 5.0F, 10.0F,
   15.0F, 20.0F, 25.0F, 30.0F, 35.0F, 40.0F, 45.0F, 50.0F, 55.0F, 60.0F, 65.0F,
   70.0F, 75.0F, 80.0F, 85.0F, 90.0F, 95.0F, 100.0F } ;
-                          /* Referenced by: '<S1213>/MTQD_PedMapBasTqEco_pct' */
+                          /* Referenced by: '<S1269>/MTQD_PedMapBasTqEco_pct' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacBrkPedAccOff_X_pct[9] = { 0.0F, 0.5F,
   2.5F, 7.0F, 10.0F, 15.0F, 20.0F, 25.0F, 100.0F } ;
-                      /* Referenced by: '<S1250>/MTQD_BrkPdlTqDerateAccOff_c' */
+                      /* Referenced by: '<S1306>/MTQD_BrkPdlTqDerateAccOff_c' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacBrkPedAccOn_X_pct[9] = { 0.0F, 0.5F,
   2.5F, 7.0F, 10.0F, 15.0F, 20.0F, 50.0F, 100.0F } ;
-                       /* Referenced by: '<S1250>/MTQD_BrkPdlTqDerateAccOn_c' */
+                       /* Referenced by: '<S1306>/MTQD_BrkPdlTqDerateAccOn_c' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacBrkPedAccOn_Y_kph[5] = { 0.0F, 0.5F,
   10.0F, 20.0F, 30.0F } ;
-                       /* Referenced by: '<S1250>/MTQD_BrkPdlTqDerateAccOn_c' */
+                       /* Referenced by: '<S1306>/MTQD_BrkPdlTqDerateAccOn_c' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacHiddenLmtPwr_X_kph[7] = { -22.0F,
   -18.0F, -15.0F, 0.0F, 55.0F, 58.0F, 62.0F } ;
-               /* Referenced by: '<S1253>/Lookup_MTQD_TqDrtFacHiddenLmtPwr_c' */
+               /* Referenced by: '<S1309>/Lookup_MTQD_TqDrtFacHiddenLmtPwr_c' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacLimpHome_X_kph[7] = { -42.0F, -38.0F,
   -25.0F, 0.0F, 25.0F, 38.0F, 42.0F } ;
-                /* Referenced by: '<S1252>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
+                /* Referenced by: '<S1308>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacLmtPerfmn_X_kph[8] = { -10.0F, -5.0F,
   0.0F, 5.0F, 10.0F, 20.0F, 30.0F, 50.0F } ;
-                /* Referenced by: '<S1251>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
+                /* Referenced by: '<S1307>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacMotorSpd_X_rpm[5] = { -15800.0F,
   -15300.0F, 0.0F, 15300.0F, 15800.0F } ;
-                                 /* Referenced by: '<S1248>/MTQD_TMOverDrt_c' */
+                                 /* Referenced by: '<S1304>/MTQD_TMOverDrt_c' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacVehSpdEco_X_kph[6] = { -12.0F, -8.0F,
   0.0F, 135.0F, 143.0F, 147.0F } ;
-                /* Referenced by: '<S1254>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
+                /* Referenced by: '<S1310>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacVehSpdNorm_X_kph[6] = { -12.0F,
   -8.0F, 0.0F, 170.0F, 178.0F, 182.0F } ;
-                /* Referenced by: '<S1254>/Lookup_MTQD_TqDrtFacVehSpdSnow_c3' */
+                /* Referenced by: '<S1310>/Lookup_MTQD_TqDrtFacVehSpdSnow_c3' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacVehSpdRev_X_kph[6] = { -42.0F,
   -38.0F, -35.0F, 0.0F, 8.0F, 12.0F } ;
-                /* Referenced by: '<S1254>/Lookup_MTQD_TqDrtFacVehSpdSnow_c4' */
+                /* Referenced by: '<S1310>/Lookup_MTQD_TqDrtFacVehSpdSnow_c4' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacVehSpdSnow_X_kph[6] = { -12.0F,
   -8.0F, 0.0F, 90.0F, 98.0F, 102.0F } ;
-                 /* Referenced by: '<S1254>/Lookup_MTQD_TqDrtFacVehSpdSnow_c' */
+                 /* Referenced by: '<S1310>/Lookup_MTQD_TqDrtFacVehSpdSnow_c' */
 
 CALDATA const volatile float32 ATQD_TqDrtFacVehSpdSpt_X_kph[6] = { -12.0F, -8.0F,
   0.0F, 170.0F, 178.0F, 182.0F } ;
-                /* Referenced by: '<S1254>/Lookup_MTQD_TqDrtFacVehSpdSnow_c2' */
+                /* Referenced by: '<S1310>/Lookup_MTQD_TqDrtFacVehSpdSnow_c2' */
 
 CALDATA const volatile float32 ATQD_WhlSpdDiffMaxTq_X_kph[10] = { 0.0F, 3.0F,
   5.0F, 10.0F, 20.0F, 30.0F, 40.0F, 50.0F, 70.0F, 100.0F } ;
-                        /* Referenced by: '<S1206>/ATQD_RegenTqBrk_X_kph_PL1' */
+                        /* Referenced by: '<S1262>/ATQD_RegenTqBrk_X_kph_PL1' */
 
 CALDATA const volatile float32 ATQF_DecRateFiltTm_X_Nmps[12] = { -8000.0F,
   -5000.0F, -4000.0F, -3000.0F, -2500.0F, -2000.0F, -1500.0F, -1000.0F, -500.0F,
   -300.0F, 0.0F, 100.0F } ;
-                        /* Referenced by: '<S1266>/ATQD_RegenTqBrk_X_kph_PL1' */
+                        /* Referenced by: '<S1322>/ATQD_RegenTqBrk_X_kph_PL1' */
 
 /* torque decrease rate filter time in starting phase, x axle */
 CALDATA const volatile float32 ATQF_IncRateFiltTm_X_Nmps[12] = { -100.0F, 0.0F,
   300.0F, 500.0F, 1000.0F, 1500.0F, 2000.0F, 2500.0F, 3000.0F, 4000.0F, 5000.0F,
-  8000.0F } ;           /* Referenced by: '<S1267>/ATQD_RegenTqBrk_X_kph_PL1' */
+  8000.0F } ;           /* Referenced by: '<S1323>/ATQD_RegenTqBrk_X_kph_PL1' */
 
 /* torque increase rate filter time in starting phase, x axle */
 CALDATA const volatile float32 ATQF_TipOutTqDecRateCoeff_Nm[8] = { 0.0F, 100.0F,
   300.0F, 500.0F, 700.0F, 1000.0F, 1500.0F, 2000.0F } ;
-                                /* Referenced by: '<S1266>/1-D Lookup Table1' */
+                                /* Referenced by: '<S1322>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 ATQF_TqRateDecMaxACC_X_Nm[8] = { 0.0F, 100.0F,
   300.0F, 500.0F, 700.0F, 1000.0F, 1500.0F, 2000.0F } ;
-                                    /* Referenced by: '<S1266>/Lookup Table5' */
+                                    /* Referenced by: '<S1322>/Lookup Table5' */
 
 CALDATA const volatile float32 ATQF_TqRateDecMaxRegen_X_pct[7] = { -20.0F,
   -10.0F, -5.0F, 0.0F, 5.0F, 10.0F, 20.0F } ;
-               /* Referenced by: '<S1266>/ATQD_TqRateLimEndErrIncE_X_pct_PL6' */
+               /* Referenced by: '<S1322>/ATQD_TqRateLimEndErrIncE_X_pct_PL6' */
 
 CALDATA const volatile float32 ATQF_TqRateDecMaxRegen_Y_kph[13] = { -10.0F,
   -5.0F, 0.0F, 5.0F, 10.0F, 20.0F, 30.0F, 40.0F, 50.0F, 60.0F, 80.0F, 90.0F,
-  100.0F } ;   /* Referenced by: '<S1266>/ATQD_TqRateLimEndErrIncE_X_pct_PL7' */
+  100.0F } ;   /* Referenced by: '<S1322>/ATQD_TqRateLimEndErrIncE_X_pct_PL7' */
 
 CALDATA const volatile float32 ATQF_TqRateDecMax_X_pct[12] = { -5.0F, 0.0F, 5.0F,
   10.0F, 20.0F, 30.0F, 40.0F, 50.0F, 60.0F, 80.0F, 90.0F, 100.0F } ;
-                /* Referenced by: '<S1266>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
+                /* Referenced by: '<S1322>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
 
 /* X axis of max torque decreasing change rate */
 CALDATA const volatile float32 ATQF_TqRateDecMax_Y_kph[13] = { -10.0F, -5.0F,
   0.0F, 5.0F, 10.0F, 20.0F, 30.0F, 40.0F, 50.0F, 60.0F, 80.0F, 90.0F, 100.0F } ;
-               /* Referenced by: '<S1266>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
+               /* Referenced by: '<S1322>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
 
 /* Y axis of max torque decreasing change rate */
 CALDATA const volatile float32 ATQF_TqRateIncMaxACC_X_Nm[8] = { 0.0F, 200.0F,
   400.0F, 600.0F, 800.0F, 1000.0F, 1500.0F, 2000.0F } ;
-                                    /* Referenced by: '<S1267>/Lookup Table5' */
+                                    /* Referenced by: '<S1323>/Lookup Table5' */
 
 CALDATA const volatile float32 ATQF_TqRateIncMax_X_pct[12] = { -5.0F, 0.0F, 5.0F,
   15.0F, 35.0F, 55.0F, 70.0F, 75.0F, 80.0F, 90.0F, 95.0F, 100.0F } ;
-                /* Referenced by: '<S1267>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
+                /* Referenced by: '<S1323>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
 
 /* X axis of max torque increasing change rate */
 CALDATA const volatile float32 ATQF_TqRateIncMax_Y_kph[13] = { -10.0F, -4.0F,
   0.0F, 4.0F, 10.0F, 20.0F, 30.0F, 40.0F, 50.0F, 60.0F, 80.0F, 100.0F, 200.0F } ;
-               /* Referenced by: '<S1267>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
+               /* Referenced by: '<S1323>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
 
 /* Y axis of max torque increasing change rate */
 CALDATA const volatile float32 ATQF_TqRateLimEndErr_X_pct[14] = { -20.0F, -10.0F,
   -2.0F, 0.0F, 5.0F, 10.0F, 20.0F, 30.0F, 40.0F, 50.0F, 60.0F, 80.0F, 90.0F,
-  100.0F } ;    /* Referenced by: '<S1265>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
+  100.0F } ;    /* Referenced by: '<S1321>/ATQD_TqRateLimEndErrIncE_X_pct_PL' */
 
 /* pedal position including acc and brk */
 CALDATA const volatile float32 ATQF_TqRateLimEndErr_Y_kph[11] = { -20.0F, 0.0F,
   10.0F, 20.0F, 30.0F, 50.0F, 70.0F, 90.0F, 110.0F, 130.0F, 150.0F } ;
-               /* Referenced by: '<S1265>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
+               /* Referenced by: '<S1321>/ATQD_TqRateLimEndErrIncE_X_pct_PL1' */
 
 /* vehicle speed */
 CALDATA const volatile float32 ATQR_ASDSpdFiltHi_X_rpm[8] = { 0.0F, 2.0F, 4.0F,
   6.0F, 8.0F, 10.0F, 15.0F, 20.0F } ;
-                                 /* Referenced by: '<S1293>/1-D Lookup Table' */
+                                 /* Referenced by: '<S1349>/1-D Lookup Table' */
 
 CALDATA const volatile float32 ATQR_ASDTqGain_X_kph[8] = { 0.0F, 0.5F, 1.0F,
   1.5F, 2.0F, 3.0F, 5.0F, 10.0F } ;
-                                 /* Referenced by: '<S1294>/1-D Lookup Table' */
+                                 /* Referenced by: '<S1350>/1-D Lookup Table' */
 
 CALDATA const volatile float32 ATZX_AZDecRate_X_Nm[11] = { -8.0F, -6.0F, -4.0F,
   -3.5F, -3.0F, -2.5F, -1.0F, -0.5F, 0.0F, 1.0F, 2.0F } ;
-                                /* Referenced by: '<S1325>/1-D Lookup Table4' */
+                                /* Referenced by: '<S1381>/1-D Lookup Table4' */
 
 CALDATA const volatile float32 ATZX_AZIncRate_X_Nm[11] = { -2.0F, -1.0F, 0.0F,
   0.5F, 1.0F, 2.5F, 3.0F, 3.5F, 4.0F, 6.0F, 8.0F } ;
-                                /* Referenced by: '<S1325>/1-D Lookup Table3' */
+                                /* Referenced by: '<S1381>/1-D Lookup Table3' */
 
 CALDATA const volatile float32 ATZX_AZRngDec_X_kph[12] = { -15.0F, -10.0F, -5.0F,
   0.0F, 5.0F, 10.0F, 15.0F, 20.0F, 30.0F, 50.0F, 70.0F, 100.0F } ;
-                         /* Referenced by: '<S1325>/MTZX_AZRngTipOutTMOly_Nm' */
+                         /* Referenced by: '<S1381>/MTZX_AZRngTipOutTMOly_Nm' */
 
 CALDATA const volatile float32 ATZX_AZRngInc_X_kph[12] = { -15.0F, -10.0F, -5.0F,
   0.0F, 5.0F, 10.0F, 15.0F, 20.0F, 30.0F, 50.0F, 70.0F, 100.0F } ;
-                          /* Referenced by: '<S1325>/MTZX_AZRngTipInTMOly_Nm' */
+                          /* Referenced by: '<S1381>/MTZX_AZRngTipInTMOly_Nm' */
 
 CALDATA const volatile float32 ATZX_BZDecRate_X_Nm[11] = { -2.0F, -1.0F, 0.0F,
   1.0F, 2.0F, 4.0F, 6.0F, 8.0F, 10.0F, 12.0F, 15.0F } ;
-                                /* Referenced by: '<S1325>/1-D Lookup Table2' */
+                                /* Referenced by: '<S1381>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 ATZX_BZIncRate_X_Nm[11] = { -15.0F, -12.0F,
   -10.0F, -8.0F, -6.0F, -4.0F, -2.0F, -1.0F, 0.0F, 1.0F, 2.0F } ;
-                                /* Referenced by: '<S1325>/1-D Lookup Table1' */
+                                /* Referenced by: '<S1381>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 ATZX_BZRngDec_X_kph[12] = { -15.0F, -10.0F, -5.0F,
   0.0F, 5.0F, 10.0F, 15.0F, 20.0F, 30.0F, 50.0F, 70.0F, 100.0F } ;
-                         /* Referenced by: '<S1325>/MTZX_BZRngTipOutTMOly_Nm' */
+                         /* Referenced by: '<S1381>/MTZX_BZRngTipOutTMOly_Nm' */
 
 CALDATA const volatile float32 ATZX_BZRngInc_X_kph[12] = { -15.0F, -10.0F, -5.0F,
   0.0F, 5.0F, 10.0F, 15.0F, 20.0F, 30.0F, 50.0F, 70.0F, 100.0F } ;
-                          /* Referenced by: '<S1325>/MTZX_BZRngTipInTMOly_Nm' */
+                          /* Referenced by: '<S1381>/MTZX_BZRngTipInTMOly_Nm' */
 
 CALDATA const volatile float32 ATZX_OPDSlopTq_X_Nm[5] = { -466.0F, -233.0F, 0.0F,
   233.0F, 466.0F } ;                   /* Referenced by:
-                                        * '<S1325>/2-D Lookup Table'
-                                        * '<S1325>/2-D Lookup Table1'
-                                        * '<S1325>/2-D Lookup Table2'
-                                        * '<S1325>/2-D Lookup Table3'
+                                        * '<S1381>/2-D Lookup Table'
+                                        * '<S1381>/2-D Lookup Table1'
+                                        * '<S1381>/2-D Lookup Table2'
+                                        * '<S1381>/2-D Lookup Table3'
                                         */
 
 CALDATA const volatile float32 ATZX_RampDecRate_X_Nm[10] = { 0.0F, 10.0F, 20.0F,
   40.0F, 60.0F, 80.0F, 100.0F, 150.0F, 200.0F, 250.0F } ;
-                                /* Referenced by: '<S1324>/1-D Lookup Table1' */
+                                /* Referenced by: '<S1380>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 ATZX_RampIncRate_X_Nm[10] = { 0.0F, 10.0F, 20.0F,
   40.0F, 60.0F, 80.0F, 100.0F, 150.0F, 200.0F, 250.0F } ;
-                                /* Referenced by: '<S1324>/1-D Lookup Table2' */
+                                /* Referenced by: '<S1380>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 ATZX_ZeroTqOfstDecACC_X_kph[12] = { -15.0F,
   -10.0F, -5.0F, 0.0F, 5.0F, 10.0F, 15.0F, 20.0F, 30.0F, 50.0F, 70.0F, 100.0F } ;
-                   /* Referenced by: '<S1325>/MTZX_ZeroTqOfstTipOutTMOly_Nm5' */
+                   /* Referenced by: '<S1381>/MTZX_ZeroTqOfstTipOutTMOly_Nm5' */
 
 CALDATA const volatile float32 ATZX_ZeroTqOfstDec_Y_kph[16] = { -15.0F, -10.0F,
   -5.0F, 0.0F, 0.1F, 0.2F, 1.9F, 2.0F, 5.0F, 10.0F, 15.0F, 20.0F, 30.0F, 50.0F,
-  70.0F, 100.0F } ;             /* Referenced by: '<S1325>/2-D Lookup Table1' */
+  70.0F, 100.0F } ;             /* Referenced by: '<S1381>/2-D Lookup Table1' */
 
 CALDATA const volatile float32 ATZX_ZeroTqOfstIncACC_X_kph[12] = { -15.0F,
   -10.0F, -5.0F, 0.0F, 5.0F, 10.0F, 15.0F, 20.0F, 30.0F, 50.0F, 70.0F, 100.0F } ;
-                    /* Referenced by: '<S1325>/MTZX_ZeroTqOfstTipInTMOly_Nm1' */
+                    /* Referenced by: '<S1381>/MTZX_ZeroTqOfstTipInTMOly_Nm1' */
 
 CALDATA const volatile float32 ATZX_ZeroTqOfstInc_Y_kph[16] = { -15.0F, -10.0F,
   -5.0F, 0.0F, 0.1F, 0.2F, 1.9F, 2.0F, 5.0F, 10.0F, 15.0F, 20.0F, 30.0F, 50.0F,
-  70.0F, 100.0F } ;              /* Referenced by: '<S1325>/2-D Lookup Table' */
+  70.0F, 100.0F } ;              /* Referenced by: '<S1381>/2-D Lookup Table' */
 
 CALDATA const volatile float32 ATZX_ZeroXTmACC_X_kph[10] = { -20.0F, -10.0F,
   0.0F, 5.0F, 10.0F, 20.0F, 30.0F, 50.0F, 60.0F, 100.0F } ;
-                        /* Referenced by: '<S1325>/MTZX_ZeroXTmTipInTMOly_s1' */
+                        /* Referenced by: '<S1381>/MTZX_ZeroXTmTipInTMOly_s1' */
 
 CALDATA const volatile float32 ATZX_ZeroXTmDec_Y_kph[16] = { -15.0F, -10.0F,
   -5.0F, 0.0F, 0.1F, 0.2F, 1.9F, 2.0F, 5.0F, 10.0F, 15.0F, 20.0F, 30.0F, 50.0F,
-  70.0F, 100.0F } ;             /* Referenced by: '<S1325>/2-D Lookup Table2' */
+  70.0F, 100.0F } ;             /* Referenced by: '<S1381>/2-D Lookup Table2' */
 
 CALDATA const volatile float32 ATZX_ZeroXTmInc_Y_kph[16] = { -15.0F, -10.0F,
   -5.0F, 0.0F, 0.1F, 0.2F, 1.9F, 2.0F, 5.0F, 10.0F, 15.0F, 20.0F, 30.0F, 50.0F,
-  70.0F, 100.0F } ;             /* Referenced by: '<S1325>/2-D Lookup Table3' */
+  70.0F, 100.0F } ;             /* Referenced by: '<S1381>/2-D Lookup Table3' */
 
 CALDATA const volatile float32 AVTM_ActPwrBacklash_X_kW[8] = { 0.0F, 0.5F, 1.0F,
-  2.0F, 3.0F, 5.0F, 10.0F, 30.0F } ;   /* Referenced by: '<S1381>/Dbnd' */
+  2.0F, 3.0F, 5.0F, 10.0F, 30.0F } ;   /* Referenced by: '<S1437>/Dbnd' */
 
 CALDATA const volatile float32 AVTM_MotorMaxDrvTqWT_X_rpm[23] = { 0.0F, 500.0F,
   1000.0F, 1500.0F, 2000.0F, 2500.0F, 3000.0F, 3500.0F, 4000.0F, 4500.0F,
   5000.0F, 5500.0F, 6000.0F, 7000.0F, 8000.0F, 9000.0F, 10000.0F, 11000.0F,
   12000.0F, 13000.0F, 14000.0F, 15000.0F, 16000.0F } ;
-                                 /* Referenced by: '<S1376>/MTQD_PTBaseTq_Nm' */
+                                 /* Referenced by: '<S1432>/MTQD_PTBaseTq_Nm' */
 
 CALDATA const volatile float32 AVTM_MotorSpdFiltCoeff_X_rpm[8] = { 0.0F, 10.0F,
   20.0F, 30.0F, 50.0F, 100.0F, 200.0F, 300.0F } ;
-                      /* Referenced by: '<S1367>/MPPC_OutSftSpdFiltCoeff_rat' */
+                      /* Referenced by: '<S1423>/MPPC_OutSftSpdFiltCoeff_rat' */
 
 CALDATA const volatile float32 AVTM_VehSpdFiltCoeff_X_kph[8] = { 0.0F, 0.1F,
   0.2F, 0.3F, 0.4F, 1.0F, 2.0F, 5.0F } ;
-                  /* Referenced by: '<S1367>/Lookup_MVTM_VehSpdFiltCoeff_rat' */
+                  /* Referenced by: '<S1423>/Lookup_MVTM_VehSpdFiltCoeff_rat' */
 
-CALDATA const volatile float32 KCPT_GenMaxTqDecRate_Nmps = -800.0F;/* Referenced by: '<S971>/Constant18' */
-CALDATA const volatile float32 KCPT_GenMaxTqIncRate_Nmps = 50000.0F;/* Referenced by: '<S971>/Constant19' */
-CALDATA const volatile float32 KCPT_MotMaxTqDecRate_Nmps = -50000.0F;/* Referenced by: '<S971>/Constant11' */
+CALDATA const volatile float32 KCPT_GenMaxTqDecRate_Nmps = -800.0F;/* Referenced by: '<S1027>/Constant18' */
+CALDATA const volatile float32 KCPT_GenMaxTqIncRate_Nmps = 50000.0F;/* Referenced by: '<S1027>/Constant19' */
+CALDATA const volatile float32 KCPT_MotMaxTqDecRate_Nmps = -50000.0F;/* Referenced by: '<S1027>/Constant11' */
 CALDATA const volatile float32 KCPT_MotMaxTqFiltAchvd_Nm = 2.0F;/* Referenced by:
-                                                                 * '<S971>/KCPT_MotorMaxTqFiltAchvd_Nm'
-                                                                 * '<S971>/KCPT_MotorMaxTqFiltAchvd_Nm1'
+                                                                 * '<S1027>/KCPT_MotorMaxTqFiltAchvd_Nm'
+                                                                 * '<S1027>/KCPT_MotorMaxTqFiltAchvd_Nm1'
                                                                  */
-CALDATA const volatile float32 KCPT_MotMaxTqIncRate_Nmps = 800.0F;/* Referenced by: '<S971>/Constant3' */
+CALDATA const volatile float32 KCPT_MotMaxTqIncRate_Nmps = 800.0F;/* Referenced by: '<S1027>/Constant3' */
 CALDATA const volatile float32 KCPT_MotorDrgMaxTqAllwd_Nm = -300.0F;
-                      /* Referenced by: '<S971>/KCPT_MotorMaxTqFiltAchvd_Nm2' */
+                     /* Referenced by: '<S1027>/KCPT_MotorMaxTqFiltAchvd_Nm2' */
 CALDATA const volatile float32 KCPT_MotorMaxTqFiltCoeff_c = 0.8F;/* Referenced by:
-                                                                  * '<S971>/KCPT_MotorMaxTqFiltCoeff_c'
-                                                                  * '<S971>/KCPT_MotorMaxTqFiltCoeff_c1'
+                                                                  * '<S1027>/KCPT_MotorMaxTqFiltCoeff_c'
+                                                                  * '<S1027>/KCPT_MotorMaxTqFiltCoeff_c1'
                                                                   */
-CALDATA const volatile float32 KCPT_MotorRvrsSpdOffD_rpm = -50.0F;/* Referenced by: '<S971>/Constant8' */
-CALDATA const volatile float32 KCPT_MotorRvrsSpdOffR_rpm = 100.0F;/* Referenced by: '<S971>/Constant10' */
-CALDATA const volatile float32 KCPT_MotorRvrsSpdOnD_rpm = -100.0F;/* Referenced by: '<S971>/Constant9' */
-CALDATA const volatile float32 KCPT_MotorRvrsSpdOnR_rpm = 50.0F;/* Referenced by: '<S971>/Constant5' */
-CALDATA const volatile float32 KDAC_ABSActvDlyTm4CC_s = 0.8F;/* Referenced by: '<S1033>/Constant2' */
-CALDATA const volatile float32 KDAC_ACCDsrdTqIMax_N = 5000.0F;/* Referenced by: '<S998>/Saturation1' */
-CALDATA const volatile float32 KDAC_ACCDsrdTqIMin_N = -30000.0F;/* Referenced by: '<S998>/Saturation1' */
+CALDATA const volatile float32 KCPT_MotorRvrsSpdOffD_rpm = -50.0F;/* Referenced by: '<S1027>/Constant8' */
+CALDATA const volatile float32 KCPT_MotorRvrsSpdOffR_rpm = 100.0F;/* Referenced by: '<S1027>/Constant10' */
+CALDATA const volatile float32 KCPT_MotorRvrsSpdOnD_rpm = -100.0F;/* Referenced by: '<S1027>/Constant9' */
+CALDATA const volatile float32 KCPT_MotorRvrsSpdOnR_rpm = 50.0F;/* Referenced by: '<S1027>/Constant5' */
+CALDATA const volatile float32 KDAC_ABSActvDlyTm4CC_s = 0.8F;/* Referenced by: '<S1089>/Constant2' */
+CALDATA const volatile float32 KDAC_ACCDsrdTqIMax_N = 5000.0F;
+                                      /* Referenced by: '<S1054>/Saturation1' */
+CALDATA const volatile float32 KDAC_ACCDsrdTqIMin_N = -30000.0F;
+                                      /* Referenced by: '<S1054>/Saturation1' */
+CALDATA const volatile float32 KDAC_AccReqStopAllwdSpd_kph = 3.0F;
+                        /* Referenced by: '<S1050>/KVTM_LimpHomeOvrdVal_flg2' */
 CALDATA const volatile float32 KDAC_AutoHoldIntvDlyTm_s = 2.8F;
-                              /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s5' */
+                              /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s5' */
 CALDATA const volatile float32 KDAC_BrkPedPrsdOff_pct = 0.5F;
-                            /* Referenced by: '<S988>/KTQD_BrkPedPstnHi_pct1' */
+                           /* Referenced by: '<S1044>/KTQD_BrkPedPstnHi_pct1' */
 CALDATA const volatile float32 KDAC_BrkPedPrsdOn_pct = 2.0F;
-                             /* Referenced by: '<S988>/KTQD_BrkPedPstnHi_pct' */
+                            /* Referenced by: '<S1044>/KTQD_BrkPedPstnHi_pct' */
 CALDATA const volatile float32 KDAC_BrkTq2PresrCvrtCoeff_c = 0.0093F;/* Referenced by:
-                                                                      * '<S988>/Constant18'
-                                                                      * '<S1085>/Constant18'
+                                                                      * '<S1044>/Constant18'
+                                                                      * '<S1141>/Constant18'
                                                                       */
 CALDATA const volatile boolean KDAC_BypCruiseSdnCC_flg = false;
-                        /* Referenced by: '<S1033>/KVTM_LimpHomeOvrdVal_flg3' */
+                        /* Referenced by: '<S1089>/KVTM_LimpHomeOvrdVal_flg3' */
 CALDATA const volatile boolean KDAC_BypCruiseSdn_flg = false;
-                         /* Referenced by: '<S992>/KVTM_LimpHomeOvrdVal_flg2' */
+                        /* Referenced by: '<S1048>/KVTM_LimpHomeOvrdVal_flg2' */
 CALDATA const volatile boolean KDAC_BypESPTqIntv_flg = true;
-                         /* Referenced by: '<S992>/KVTM_LimpHomeOvrdVal_flg3' */
+                        /* Referenced by: '<S1048>/KVTM_LimpHomeOvrdVal_flg3' */
 CALDATA const volatile float32 KDAC_CCAccelPedPrsdOff_pct = 1.0F;
-                       /* Referenced by: '<S1022>/KTQD_CstRegenVehSpdOn_kph1' */
+                       /* Referenced by: '<S1078>/KTQD_CstRegenVehSpdOn_kph1' */
 CALDATA const volatile float32 KDAC_CCAccelPedPrsdOn_pct = 3.0F;
-                        /* Referenced by: '<S1022>/KTQD_CstRegenVehSpdOn_kph' */
+                        /* Referenced by: '<S1078>/KTQD_CstRegenVehSpdOn_kph' */
 CALDATA const volatile float32 KDAC_CCDsrdAcceltnMax_mps2 = 2.0F;
-                                      /* Referenced by: '<S1013>/Saturation1' */
+                                      /* Referenced by: '<S1069>/Saturation1' */
 CALDATA const volatile float32 KDAC_CCDsrdAcceltnMin_mps2 = -2.0F;
-                                      /* Referenced by: '<S1013>/Saturation1' */
-CALDATA const volatile float32 KDAC_CCDsrdTqDecIDlyTm_s = 0.5F;/* Referenced by: '<S1022>/Constant4' */
+                                      /* Referenced by: '<S1069>/Saturation1' */
+CALDATA const volatile float32 KDAC_CCDsrdTqDecIDlyTm_s = 0.5F;/* Referenced by: '<S1078>/Constant4' */
 CALDATA const volatile float32 KDAC_CCDsrdTqIMax_N = 2000.0F;
-                                      /* Referenced by: '<S1020>/Saturation1' */
+                                      /* Referenced by: '<S1076>/Saturation1' */
 CALDATA const volatile float32 KDAC_CCDsrdTqIMin_N = -2000.0F;
-                                      /* Referenced by: '<S1020>/Saturation1' */
-CALDATA const volatile float32 KDAC_CCDsrdTqIncIDlyTm_s = 0.5F;/* Referenced by: '<S1022>/Constant1' */
+                                      /* Referenced by: '<S1076>/Saturation1' */
+CALDATA const volatile float32 KDAC_CCDsrdTqIncIDlyTm_s = 0.5F;/* Referenced by: '<S1078>/Constant1' */
 CALDATA const volatile float32 KDAC_CCHldISpdOverOff_kph = 0.5F;
-                       /* Referenced by: '<S1022>/KTQD_CstRegenVehSpdOn_kph3' */
+                       /* Referenced by: '<S1078>/KTQD_CstRegenVehSpdOn_kph3' */
 CALDATA const volatile float32 KDAC_CCHldISpdOverOn_kph = 1.0F;
-                       /* Referenced by: '<S1022>/KTQD_CstRegenVehSpdOn_kph2' */
+                       /* Referenced by: '<S1078>/KTQD_CstRegenVehSpdOn_kph2' */
 CALDATA const volatile float32 KDAC_CCMaxSpdOfst_kph = 5.0F;
-                                      /* Referenced by: '<S1033>/Constant150' */
-CALDATA const volatile uint8 KDAC_CCMaxTgtSpdE_kph = 140U;/* Referenced by: '<S1060>/Constant3' */
+                                      /* Referenced by: '<S1089>/Constant150' */
+CALDATA const volatile uint8 KDAC_CCMaxTgtSpdE_kph = 140U;/* Referenced by: '<S1116>/Constant3' */
 CALDATA const volatile uint8 KDAC_CCMaxTgtSpdN_kph = 150U;
-                                      /* Referenced by: '<S1060>/Constant164' */
-CALDATA const volatile uint8 KDAC_CCMaxTgtSpdS_kph = 150U;/* Referenced by: '<S1060>/Constant4' */
-CALDATA const volatile uint8 KDAC_CCMaxTgtSpdSnow_kph = 120U;/* Referenced by: '<S1060>/Constant8' */
+                                      /* Referenced by: '<S1116>/Constant164' */
+CALDATA const volatile uint8 KDAC_CCMaxTgtSpdS_kph = 150U;/* Referenced by: '<S1116>/Constant4' */
+CALDATA const volatile uint8 KDAC_CCMaxTgtSpdSnow_kph = 120U;/* Referenced by: '<S1116>/Constant8' */
 CALDATA const volatile float32 KDAC_CCMinSpdOfst_kph = 5.0F;
-                                      /* Referenced by: '<S1033>/Constant148' */
-CALDATA const volatile uint8 KDAC_CCMinTgtSpd_kph = 30U;/* Referenced by: '<S1060>/Constant9' */
-CALDATA const volatile float32 KDAC_CCOvrdTqOff_Nm = 5.0F;/* Referenced by: '<S1007>/Constant5' */
+                                      /* Referenced by: '<S1089>/Constant148' */
+CALDATA const volatile uint8 KDAC_CCMinTgtSpd_kph = 30U;/* Referenced by: '<S1116>/Constant9' */
+CALDATA const volatile float32 KDAC_CCOvrdTqOff_Nm = 5.0F;/* Referenced by: '<S1063>/Constant5' */
 CALDATA const volatile float32 KDAC_CCOvrdTqOn_Nm = 20.0F;
-                                      /* Referenced by: '<S1007>/Constant174' */
+                                      /* Referenced by: '<S1063>/Constant174' */
 CALDATA const volatile uint8 KDAC_CCSpdChgLongDiv_cnt = 100U;
-                         /* Referenced by: '<S1009>/KDAC_CCSpdChgLongDiv_cnt' */
+                         /* Referenced by: '<S1065>/KDAC_CCSpdChgLongDiv_cnt' */
 CALDATA const volatile uint8 KDAC_CCSpdChgShort_kph = 1U;
-                           /* Referenced by: '<S1009>/KDAC_CCSpdChgShort_kph' */
+                           /* Referenced by: '<S1065>/KDAC_CCSpdChgShort_kph' */
 CALDATA const volatile float32 KDAC_CCTgtSpdChgRate_kphps = 5.0F;
-                       /* Referenced by: '<S1009>/KDAC_CCTgtSpdChgRate_kphps' */
+                       /* Referenced by: '<S1065>/KDAC_CCTgtSpdChgRate_kphps' */
 CALDATA const volatile float32 KDAC_CCTqReqWhlAchvd_Nm = 100.0F;
-                              /* Referenced by: '<S1021>/KDAC_TapDwnTmOut_s2' */
+                              /* Referenced by: '<S1077>/KDAC_TapDwnTmOut_s2' */
 CALDATA const volatile float32 KDAC_CCTqReqWhlDec_Nmps = -10000.0F;
-                              /* Referenced by: '<S1021>/KDAC_TapDwnTmOut_s1' */
+                              /* Referenced by: '<S1077>/KDAC_TapDwnTmOut_s1' */
 CALDATA const volatile float32 KDAC_CCTqReqWhlInc_Nmps = 10000.0F;
-                              /* Referenced by: '<S1021>/KDAC_TapDwnTmOut_s3' */
-CALDATA const volatile uint8 KDAC_CruzSetSwOpCntr_cnt = 2U;/* Referenced by: '<S1062>/Constant4' */
+                              /* Referenced by: '<S1077>/KDAC_TapDwnTmOut_s3' */
+CALDATA const volatile uint8 KDAC_CruzSetSwOpCntr_cnt = 2U;/* Referenced by: '<S1118>/Constant4' */
 CALDATA const volatile float32 KDAC_CruzSetSwOpTm_s = 1.0F;
-                             /* Referenced by: '<S1010>/KDAC_CruzSetSwOpTm_s' */
-CALDATA const volatile float32 KDAC_DrvAsstTqSplitEHBMin_Nm = -20.0F;/* Referenced by: '<S988>/Constant19' */
-CALDATA const volatile float32 KDAC_ESCIntvDlyTm4CC_s = 0.8F;/* Referenced by: '<S1033>/Constant1' */
-CALDATA const volatile float32 KDAC_ESPActvDlyTm4CC_s = 0.8F;/* Referenced by: '<S1033>/Constant3' */
+                             /* Referenced by: '<S1066>/KDAC_CruzSetSwOpTm_s' */
+CALDATA const volatile float32 KDAC_DrvAsstTqSplitEHBMin_Nm = -20.0F;/* Referenced by: '<S1044>/Constant19' */
+CALDATA const volatile float32 KDAC_ESCIntvDlyTm4CC_s = 0.8F;/* Referenced by: '<S1089>/Constant1' */
+CALDATA const volatile float32 KDAC_ESPActvDlyTm4CC_s = 0.8F;/* Referenced by: '<S1089>/Constant3' */
 CALDATA const volatile boolean KDAC_EnblOPDSpdClsLoopP_flg = true;
-                              /* Referenced by: '<S1139>/KDAC_TapDwnTmOut_s2' */
+                              /* Referenced by: '<S1195>/KDAC_TapDwnTmOut_s2' */
 CALDATA const volatile boolean KDAC_EnblOPDSpdClsLoop_flg = false;
-                              /* Referenced by: '<S1139>/KDAC_TapDwnTmOut_s1' */
-CALDATA const volatile float32 KDAC_HDCActvSlopOff_pct = -3.0F;/* Referenced by: '<S1081>/Cnst7' */
-CALDATA const volatile float32 KDAC_HDCActvSlopOn_pct = -10.0F;/* Referenced by: '<S1081>/Cnst5' */
-CALDATA const volatile uint8 KDAC_HDCActvSpdHiOfst_kph = 10U;/* Referenced by: '<S1081>/Cnst10' */
+                              /* Referenced by: '<S1195>/KDAC_TapDwnTmOut_s1' */
+CALDATA const volatile float32 KDAC_HDCActvSlopOff_pct = -3.0F;/* Referenced by: '<S1137>/Cnst7' */
+CALDATA const volatile float32 KDAC_HDCActvSlopOn_pct = -10.0F;/* Referenced by: '<S1137>/Cnst5' */
+CALDATA const volatile uint8 KDAC_HDCActvSpdHiOfst_kph = 10U;/* Referenced by: '<S1137>/Cnst10' */
 CALDATA const volatile uint8 KDAC_HDCActvSpdHi_kph = 25U;/* Referenced by:
-                                                          * '<S1081>/Cnst2'
-                                                          * '<S1081>/Cnst3'
+                                                          * '<S1137>/Cnst2'
+                                                          * '<S1137>/Cnst3'
                                                           */
-CALDATA const volatile uint8 KDAC_HDCActvSpdLoOfst_kph = 3U;/* Referenced by: '<S1081>/Cnst11' */
+CALDATA const volatile uint8 KDAC_HDCActvSpdLoOfst_kph = 3U;/* Referenced by: '<S1137>/Cnst11' */
 CALDATA const volatile uint8 KDAC_HDCActvSpdLo_kph = 5U;/* Referenced by:
-                                                         * '<S1081>/Cnst4'
-                                                         * '<S1081>/Cnst6'
+                                                         * '<S1137>/Cnst4'
+                                                         * '<S1137>/Cnst6'
                                                          */
 CALDATA const volatile float32 KDAC_HDCDsrdTqIMax_N = 1000.0F;
-                                      /* Referenced by: '<S1086>/Saturation1' */
+                                      /* Referenced by: '<S1142>/Saturation1' */
 CALDATA const volatile float32 KDAC_HDCDsrdTqIMin_N = -10000.0F;
-                                      /* Referenced by: '<S1086>/Saturation1' */
-CALDATA const volatile boolean KDAC_HDCFuncEnbl_flg = false;/* Referenced by: '<S1081>/Cnst1' */
+                                      /* Referenced by: '<S1142>/Saturation1' */
+CALDATA const volatile boolean KDAC_HDCFuncEnbl_flg = false;/* Referenced by: '<S1137>/Cnst1' */
 CALDATA const volatile uint8 KDAC_HDCStdbyAllwdSpd_kph = 60U;/* Referenced by:
-                                                              * '<S1081>/Cnst'
-                                                              * '<S1081>/Cnst9'
+                                                              * '<S1137>/Cnst'
+                                                              * '<S1137>/Cnst9'
                                                               */
-CALDATA const volatile float32 KDAC_HDCTgtAcceltnFiltCoeff_rat = 0.8F;/* Referenced by: '<S1084>/Cnst5' */
+CALDATA const volatile float32 KDAC_HDCTgtAcceltnFiltCoeff_rat = 0.8F;/* Referenced by: '<S1140>/Cnst5' */
 CALDATA const volatile float32 KDAC_HDCTqReqWhlAchvd_Nm = 30.0F;/* Referenced by:
-                                                                 * '<S988>/KDAC_TapDwnTmOut_s2'
-                                                                 * '<S1085>/KDAC_TapDwnTmOut_s2'
+                                                                 * '<S1044>/KDAC_TapDwnTmOut_s2'
+                                                                 * '<S1141>/KDAC_TapDwnTmOut_s2'
                                                                  */
 CALDATA const volatile float32 KDAC_HDCTqReqWhlDec_Nmps = -2000.0F;/* Referenced by:
-                                                                    * '<S988>/KDAC_TapDwnTmOut_s1'
-                                                                    * '<S1085>/KDAC_TapDwnTmOut_s1'
+                                                                    * '<S1044>/KDAC_TapDwnTmOut_s1'
+                                                                    * '<S1141>/KDAC_TapDwnTmOut_s1'
                                                                     */
 CALDATA const volatile float32 KDAC_HDCTqReqWhlInc_Nmps = 1500.0F;/* Referenced by:
-                                                                   * '<S988>/KDAC_TapDwnTmOut_s3'
-                                                                   * '<S1085>/KDAC_TapDwnTmOut_s3'
+                                                                   * '<S1044>/KDAC_TapDwnTmOut_s3'
+                                                                   * '<S1141>/KDAC_TapDwnTmOut_s3'
                                                                    */
 CALDATA const volatile float32 KDAC_MstrCylPresDecCfmTm_s = 0.06F;
-                              /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s2' */
+                              /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s2' */
 CALDATA const volatile float32 KDAC_MstrCylPresDecRecTm_s = 2.8F;
-                             /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s10' */
+                             /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s10' */
 CALDATA const volatile float32 KDAC_OPDAutoBrkDlyTmLong_s = 3.0F;
-                              /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s4' */
+                              /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s4' */
 CALDATA const volatile float32 KDAC_OPDAutoBrkDlyTm_s = 0.2F;
-                              /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s1' */
+                              /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s1' */
 CALDATA const volatile float32 KDAC_OPDAvailBMSChrgCur_A = -25.0F;
-                        /* Referenced by: '<S1100>/KDAC_OPDAvailBMSChrgCur_A' */
+                        /* Referenced by: '<S1156>/KDAC_OPDAvailBMSChrgCur_A' */
 CALDATA const volatile float32 KDAC_OPDAvailBMSDchaCur_A = 25.0F;
-                        /* Referenced by: '<S1100>/KDAC_OPDAvailBMSDchaCur_A' */
+                        /* Referenced by: '<S1156>/KDAC_OPDAvailBMSDchaCur_A' */
 CALDATA const volatile float32 KDAC_OPDAvailCapLoDlyTm_s = 2.0F;
-                       /* Referenced by: '<S1100>/KDAC_OPDAvailBMSChrgCur_A1' */
+                       /* Referenced by: '<S1156>/KDAC_OPDAvailBMSChrgCur_A1' */
 CALDATA const volatile float32 KDAC_OPDAvailMotorDrvTq_Nm = 100.0F;
-                       /* Referenced by: '<S1100>/KDAC_OPDAvailMotorDrvTq_Nm' */
+                       /* Referenced by: '<S1156>/KDAC_OPDAvailMotorDrvTq_Nm' */
 CALDATA const volatile float32 KDAC_OPDAvailMotorRegenTq_Nm = -100.0F;
-                     /* Referenced by: '<S1100>/KDAC_OPDAvailMotorRegenTq_Nm' */
+                     /* Referenced by: '<S1156>/KDAC_OPDAvailMotorRegenTq_Nm' */
 CALDATA const volatile float32 KDAC_OPDDsblSpd_kph = 11.0F;
-                             /* Referenced by: '<S1100>/KDAC_OPDEnblSpd_kph1' */
+                             /* Referenced by: '<S1156>/KDAC_OPDEnblSpd_kph1' */
 CALDATA const volatile float32 KDAC_OPDDsrdTqFastIAccErr_mps2 = 0.05F;
-                      /* Referenced by: '<S1150>/KDAC_OPDDsrdTqPFiltCoeff_c2' */
+                      /* Referenced by: '<S1206>/KDAC_OPDDsrdTqPFiltCoeff_c2' */
 CALDATA const volatile float32 KDAC_OPDDsrdTqFastIFac_c = 2.0F;
-                      /* Referenced by: '<S1150>/KDAC_OPDDsrdTqPFiltCoeff_c4' */
+                      /* Referenced by: '<S1206>/KDAC_OPDDsrdTqPFiltCoeff_c4' */
 CALDATA const volatile float32 KDAC_OPDDsrdTqFastISpd_kph = 1.0F;
-                       /* Referenced by: '<S1150>/KDAC_OPDDsrdTqPFiltCoeff_c' */
+                       /* Referenced by: '<S1206>/KDAC_OPDDsrdTqPFiltCoeff_c' */
 CALDATA const volatile float32 KDAC_OPDDsrdTqFastITqErrOff_Nm = 200.0F;
-                      /* Referenced by: '<S1150>/KDAC_OPDDsrdTqPFiltCoeff_c5' */
+                      /* Referenced by: '<S1206>/KDAC_OPDDsrdTqPFiltCoeff_c5' */
 CALDATA const volatile float32 KDAC_OPDDsrdTqFastITqErrOn_Nm = 150.0F;
-                      /* Referenced by: '<S1150>/KDAC_OPDDsrdTqPFiltCoeff_c3' */
+                      /* Referenced by: '<S1206>/KDAC_OPDDsrdTqPFiltCoeff_c3' */
 CALDATA const volatile float32 KDAC_OPDDsrdTqIMax_N = 4500.0F;
-                                      /* Referenced by: '<S1139>/Saturation1' */
+                                      /* Referenced by: '<S1195>/Saturation1' */
 CALDATA const volatile float32 KDAC_OPDDsrdTqIMin_N = -4500.0F;
-                                      /* Referenced by: '<S1139>/Saturation1' */
+                                      /* Referenced by: '<S1195>/Saturation1' */
 CALDATA const volatile float32 KDAC_OPDDsrdTqPAchvd_N = 100.0F;/* Referenced by:
-                                                                * '<S1139>/KDAC_OPDDsrdTqPAchvd_N'
-                                                                * '<S1139>/KDAC_OPDDsrdTqPAchvd_N1'
+                                                                * '<S1195>/KDAC_OPDDsrdTqPAchvd_N'
+                                                                * '<S1195>/KDAC_OPDDsrdTqPAchvd_N1'
                                                                 */
-CALDATA const volatile float32 KDAC_OPDDsrdTqPBckLsh_N = 10.0F;/* Referenced by: '<S1145>/Constant3' */
+CALDATA const volatile float32 KDAC_OPDDsrdTqPBckLsh_N = 10.0F;/* Referenced by: '<S1201>/Constant3' */
 CALDATA const volatile float32 KDAC_OPDDsrdTqPFiltCoeff_c = 0.85F;/* Referenced by:
-                                                                   * '<S1139>/KDAC_OPDDsrdTqPFiltCoeff_c'
-                                                                   * '<S1139>/KDAC_OPDDsrdTqPFiltCoeff_c1'
-                                                                   * '<S1139>/KDAC_OPDDsrdTqPFiltCoeff_c2'
+                                                                   * '<S1195>/KDAC_OPDDsrdTqPFiltCoeff_c'
+                                                                   * '<S1195>/KDAC_OPDDsrdTqPFiltCoeff_c1'
+                                                                   * '<S1195>/KDAC_OPDDsrdTqPFiltCoeff_c2'
                                                                    */
 CALDATA const volatile float32 KDAC_OPDEnblSpd_kph = 9.0F;
-                              /* Referenced by: '<S1100>/KDAC_OPDEnblSpd_kph' */
+                              /* Referenced by: '<S1156>/KDAC_OPDEnblSpd_kph' */
 CALDATA const volatile float32 KDAC_OPDExitAccPedPstn_pct = 8.0F;
-                           /* Referenced by: '<S1100>/KTQD_CrpRsmPedPstn_pct' */
+                           /* Referenced by: '<S1156>/KTQD_CrpRsmPedPstn_pct' */
 CALDATA const volatile float32 KDAC_OPDExitBrkPedPstn_pct = 10.0F;
-                          /* Referenced by: '<S1100>/KTQD_CrpRsmPedPstn_pct1' */
+                          /* Referenced by: '<S1156>/KTQD_CrpRsmPedPstn_pct1' */
 CALDATA const volatile float32 KDAC_OPDExitVehSpd_kph = 5.0F;
-                             /* Referenced by: '<S1100>/KDAC_OPDEnblSpd_kph2' */
+                             /* Referenced by: '<S1156>/KDAC_OPDEnblSpd_kph2' */
 CALDATA const volatile boolean KDAC_OPDOvrdFallRstLmt_flg = true;
-                       /* Referenced by: '<S1140>/KDAC_OPDOvrdFallRstTgt_flg' */
-CALDATA const volatile float32 KDAC_OPDOvrdTqOff_Nm = 5.0F;/* Referenced by: '<S1099>/Constant11' */
+                       /* Referenced by: '<S1196>/KDAC_OPDOvrdFallRstTgt_flg' */
+CALDATA const volatile float32 KDAC_OPDOvrdTqOff_Nm = 5.0F;/* Referenced by: '<S1155>/Constant11' */
 CALDATA const volatile float32 KDAC_OPDOvrdTqOn_Nm = 20.0F;
-                                      /* Referenced by: '<S1099>/Constant174' */
+                                      /* Referenced by: '<S1155>/Constant174' */
 CALDATA const volatile float32 KDAC_OPDSpdClsLoopOff_kph = 1.5F;
-                              /* Referenced by: '<S1139>/KDAC_TapDwnTmOut_s4' */
+                              /* Referenced by: '<S1195>/KDAC_TapDwnTmOut_s4' */
 CALDATA const volatile float32 KDAC_OPDSpdClsLoopOn_kph = 0.5F;
-                              /* Referenced by: '<S1139>/KDAC_TapDwnTmOut_s3' */
+                              /* Referenced by: '<S1195>/KDAC_TapDwnTmOut_s3' */
 CALDATA const volatile float32 KDAC_OPDTqReqUnloadRmn_Nm = 30.0F;
-                              /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s7' */
+                              /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s7' */
 CALDATA const volatile float32 KDAC_OPDTqReqWhlAchvd_Nm = 30.0F;
-                              /* Referenced by: '<S1140>/KDAC_TapDwnTmOut_s2' */
+                              /* Referenced by: '<S1196>/KDAC_TapDwnTmOut_s2' */
 CALDATA const volatile float32 KDAC_OPDTqReqWhlLmtPosOff_Nm = -120.0F;
-                      /* Referenced by: '<S1140>/KDAC_OPDDsrdTqPFiltCoeff_c5' */
+                      /* Referenced by: '<S1196>/KDAC_OPDDsrdTqPFiltCoeff_c5' */
 CALDATA const volatile float32 KDAC_OPDTqReqWhlLmtPosOn_Nm = -100.0F;
-                      /* Referenced by: '<S1140>/KDAC_OPDDsrdTqPFiltCoeff_c3' */
+                      /* Referenced by: '<S1196>/KDAC_OPDDsrdTqPFiltCoeff_c3' */
 CALDATA const volatile float32 KDAC_OPDTqReqWhlLmtPos_Nm = 25.0F;
-                      /* Referenced by: '<S1140>/KDAC_OPDDsrdTqPFiltCoeff_c1' */
+                      /* Referenced by: '<S1196>/KDAC_OPDDsrdTqPFiltCoeff_c1' */
 CALDATA const volatile float32 KDAC_OPDTqReqWhlLmtRateFst_Nmps = 3000.0F;
-                      /* Referenced by: '<S1140>/KDAC_OPDDsrdTqPFiltCoeff_c4' */
+                      /* Referenced by: '<S1196>/KDAC_OPDDsrdTqPFiltCoeff_c4' */
 CALDATA const volatile float32 KDAC_OPDTqReqWhlLmtRate_Nmps = 200.0F;
-                      /* Referenced by: '<S1140>/KDAC_OPDDsrdTqPFiltCoeff_c2' */
+                      /* Referenced by: '<S1196>/KDAC_OPDDsrdTqPFiltCoeff_c2' */
 CALDATA const volatile float32 KDAC_OPDTqReqWhlLoadAchvd_Nm = 50.0F;
-                      /* Referenced by: '<S1099>/KCPT_MotorMaxTqFiltAchvd_Nm' */
+                      /* Referenced by: '<S1155>/KCPT_MotorMaxTqFiltAchvd_Nm' */
 CALDATA const volatile float32 KDAC_OPDTqReqWhlLoadFstRate_Nmps = 8000.0F;
-                             /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s12' */
+                             /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s12' */
 CALDATA const volatile float32 KDAC_OPDTqReqWhlLoadRate_Nmps = 2000.0F;
-                             /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s13' */
+                             /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s13' */
 CALDATA const volatile float32 KDAC_OPDTqReqWhlUnloadRate_Nmps = 800.0F;
-                             /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s11' */
-CALDATA const volatile boolean KDAC_OPDTqRespFst_flg = false;/* Referenced by: '<S988>/Constant15' */
-CALDATA const volatile boolean KDAC_OPDTqRespSprt_flg = true;/* Referenced by: '<S988>/Constant14' */
+                             /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s11' */
+CALDATA const volatile boolean KDAC_OPDTqRespFst_flg = false;/* Referenced by: '<S1044>/Constant15' */
+CALDATA const volatile boolean KDAC_OPDTqRespSprt_flg = true;/* Referenced by: '<S1044>/Constant14' */
 CALDATA const volatile float32 KDAC_OPDVehAcceltnFilt2_rat = 0.93F;
-                               /* Referenced by: '<S1101>/KDAC_TapDwnTmOut_s' */
-CALDATA const volatile float32 KDAC_OPDVehAcceltnMax_mps2 = 10.0F;/* Referenced by: '<S1101>/Saturation' */
-CALDATA const volatile float32 KDAC_OPDVehAcceltnMin_mps2 = -10.0F;/* Referenced by: '<S1101>/Saturation' */
+                               /* Referenced by: '<S1157>/KDAC_TapDwnTmOut_s' */
+CALDATA const volatile float32 KDAC_OPDVehAcceltnMax_mps2 = 10.0F;/* Referenced by: '<S1157>/Saturation' */
+CALDATA const volatile float32 KDAC_OPDVehAcceltnMin_mps2 = -10.0F;/* Referenced by: '<S1157>/Saturation' */
 CALDATA const volatile float32 KDAC_OPDVehLnhSpd_kph = 0.5F;
-                              /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s6' */
+                              /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s6' */
 CALDATA const volatile float32 KDAC_OPDVehResistTqAchvd_Nm = 2.0F;
-                           /* Referenced by: '<S1138>/KDAC_OPDDsrdTqPAchvd_N' */
+                           /* Referenced by: '<S1194>/KDAC_OPDDsrdTqPAchvd_N' */
 CALDATA const volatile float32 KDAC_OPDVehResistTqDrtOff_kph = 1.5F;
-                              /* Referenced by: '<S1138>/KDAC_TapDwnTmOut_s3' */
+                              /* Referenced by: '<S1194>/KDAC_TapDwnTmOut_s3' */
 CALDATA const volatile float32 KDAC_OPDVehResistTqDrtOn_kph = 0.5F;
-                              /* Referenced by: '<S1138>/KDAC_TapDwnTmOut_s2' */
+                              /* Referenced by: '<S1194>/KDAC_TapDwnTmOut_s2' */
 CALDATA const volatile float32 KDAC_OPDVehResistTqDrt_rat = 0.0F;
-                              /* Referenced by: '<S1138>/KDAC_TapDwnTmOut_s1' */
+                              /* Referenced by: '<S1194>/KDAC_TapDwnTmOut_s1' */
 CALDATA const volatile float32 KDAC_OPDVehResistTqFiltCoeff_c = 0.995F;
-                       /* Referenced by: '<S1138>/KDAC_OPDDsrdTqPFiltCoeff_c' */
+                       /* Referenced by: '<S1194>/KDAC_OPDDsrdTqPFiltCoeff_c' */
 CALDATA const volatile float32 KDAC_OPDVehSpdMotorFacFilt_s = 0.25F;
-                     /* Referenced by: '<S1101>/KDAC_OPDVehSpdMotorFacFilt_s' */
+                     /* Referenced by: '<S1157>/KDAC_OPDVehSpdMotorFacFilt_s' */
 CALDATA const volatile float32 KDAC_OPDVehSpdUseMotorTgt_kph = 0.05F;
-                              /* Referenced by: '<S1101>/KDAC_TapDwnTmOut_s4' */
+                              /* Referenced by: '<S1157>/KDAC_TapDwnTmOut_s4' */
 CALDATA const volatile float32 KDAC_OPDVehSpdUseMotorTm_s = 2.0F;
-                              /* Referenced by: '<S1101>/KDAC_TapDwnTmOut_s2' */
+                              /* Referenced by: '<S1157>/KDAC_TapDwnTmOut_s2' */
 CALDATA const volatile float32 KDAC_OPDVehStopSpd_kph = 0.5F;
-                              /* Referenced by: '<S1099>/KDAC_TapDwnTmOut_s3' */
+                              /* Referenced by: '<S1155>/KDAC_TapDwnTmOut_s3' */
 CALDATA const volatile float32 KDAC_SpdOutRngDlyTm4CC_s = 1.0F;
-                                      /* Referenced by: '<S1033>/Constant164' */
-CALDATA const volatile float32 KDAC_SpdStabDlyTm4CC_s = 5.0F;/* Referenced by: '<S1049>/Constant8' */
-CALDATA const volatile float32 KDAC_SpdUnstabDlyTm4CC_s = 40.0F;/* Referenced by: '<S1049>/Constant4' */
-CALDATA const volatile float32 KDAC_TCSActvDlyTm4CC_s = 0.8F;/* Referenced by: '<S1033>/Constant4' */
+                                      /* Referenced by: '<S1089>/Constant164' */
+CALDATA const volatile float32 KDAC_SpdStabDlyTm4CC_s = 5.0F;/* Referenced by: '<S1105>/Constant8' */
+CALDATA const volatile float32 KDAC_SpdUnstabDlyTm4CC_s = 40.0F;/* Referenced by: '<S1105>/Constant4' */
+CALDATA const volatile float32 KDAC_TCSActvDlyTm4CC_s = 0.8F;/* Referenced by: '<S1089>/Constant4' */
 CALDATA const volatile float32 KDAC_TapDwnTmOut_s = 0.5F;
-                               /* Referenced by: '<S1009>/KDAC_TapDwnTmOut_s' */
+                               /* Referenced by: '<S1065>/KDAC_TapDwnTmOut_s' */
 CALDATA const volatile float32 KDAC_TapUpTmOut_s = 0.5F;
-                                /* Referenced by: '<S1009>/KDAC_TapUpTmOut_s' */
+                                /* Referenced by: '<S1065>/KDAC_TapUpTmOut_s' */
 CALDATA const volatile float32 KDAC_VehResistA_fac = 143.4F;/* Referenced by:
-                                                             * '<S930>/KDAC_TapDwnTmOut_s4'
-                                                             * '<S1019>/KDAC_TapDwnTmOut_s3'
+                                                             * '<S986>/KDAC_TapDwnTmOut_s4'
+                                                             * '<S1075>/KDAC_TapDwnTmOut_s3'
                                                              */
 CALDATA const volatile float32 KDAC_VehResistB_fac = 0.774F;/* Referenced by:
-                                                             * '<S930>/KDAC_TapDwnTmOut_s3'
-                                                             * '<S1019>/KDAC_TapDwnTmOut_s2'
+                                                             * '<S986>/KDAC_TapDwnTmOut_s3'
+                                                             * '<S1075>/KDAC_TapDwnTmOut_s2'
                                                              */
 CALDATA const volatile float32 KDAC_VehResistC_fac = 0.031F;/* Referenced by:
-                                                             * '<S930>/KDAC_TapDwnTmOut_s2'
-                                                             * '<S1019>/KDAC_TapDwnTmOut_s1'
+                                                             * '<S986>/KDAC_TapDwnTmOut_s2'
+                                                             * '<S1075>/KDAC_TapDwnTmOut_s1'
                                                              */
-CALDATA const volatile float32 KDAC_VirtAccelPedPstnOff_pct = 0.2F;/* Referenced by: '<S988>/Constant7' */
-CALDATA const volatile float32 KDAC_VirtAccelPedPstnOn_pct = 0.5F;/* Referenced by: '<S988>/Constant6' */
+CALDATA const volatile float32 KDAC_VirtAccelPedPstnOff_pct = 0.2F;/* Referenced by: '<S1044>/Constant7' */
+CALDATA const volatile float32 KDAC_VirtAccelPedPstnOn_pct = 0.5F;/* Referenced by: '<S1044>/Constant6' */
 CALDATA const volatile float32 KDAC_WhlSlipDiffSpd4CC_kph = 5.0F;/* Referenced by:
-                                                                  * '<S1033>/Constant174'
-                                                                  * '<S1033>/Constant6'
+                                                                  * '<S1089>/Constant174'
+                                                                  * '<S1089>/Constant6'
                                                                   */
-CALDATA const volatile float32 KDAC_WhlSlipDiffSpdOfst4CC_kph = 5.0F;/* Referenced by: '<S1033>/Constant5' */
-CALDATA const volatile float32 KDAC_WhlSlipDlyTm4CC_s = 0.5F;/* Referenced by: '<S1033>/Constant8' */
+CALDATA const volatile float32 KDAC_WhlSlipDiffSpdOfst4CC_kph = 5.0F;/* Referenced by: '<S1089>/Constant5' */
+CALDATA const volatile float32 KDAC_WhlSlipDlyTm4CC_s = 0.5F;/* Referenced by: '<S1089>/Constant8' */
+CALDATA const volatile uint16 KDAG_ACCMCRCFltActnMsk_enum = 8192U;
+                        /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s15' */
 CALDATA const volatile uint16 KDAG_ACChrgStFailActnMsk_enum = 0U;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s24' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s24' */
 
-/* ACChargeStateFailï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ACChargeStateFail¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_ACChrgStFailFailTm_s = 3.0F;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s20' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s20' */
 
-/* ACChargeStateFailï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* ACChargeStateFail¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_ACDchaBMSPwrLoActnMsk_enum = 4096U;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s21' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s21' */
 
-/* ACï¿½Åµï¿½BMSï¿½ï¿½ï¿½ÊµÍ¹ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* AC·ÅµçBMS¹¦ÂÊµÍ¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_ACDchaBMSPwrLoFailTm_s = 3.0F;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s19' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s19' */
 
-/* ACï¿½Åµï¿½BMSï¿½ï¿½ï¿½Êµï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* AC·ÅµçBMS¹¦ÂÊµÍÈ·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KDAG_ACDchaBMSPwrLo_A = 5.0F;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s18' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s18' */
 
-/* ACï¿½Åµï¿½BMSï¿½ï¿½ï¿½ÊµÍµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* AC·ÅµçBMS¹¦ÂÊµÍµçÁ÷ÄÜÁ¦ÃÅ¼÷ */
 CALDATA const volatile uint16 KDAG_ACDchaBMSSOCLoActnMsk_enum = 4096U;
-                         /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s9' */
+                         /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s9' */
 
-/* ACï¿½Åµï¿½BMSSOCï¿½Í¹ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* AC·ÅµçBMSSOCµÍ¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_ACDchaBMSSOCLoFailTm_s = 3.0F;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s10' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s10' */
 
-/* ACï¿½Åµï¿½BMSSOCï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* AC·ÅµçBMSSOCµÍÈ·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KDAG_ACDchaBMSSOCLo_pct = 15.0F;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s16' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s16' */
 
-/* ACï¿½Åµï¿½BMSSOCï¿½Í´ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* AC·ÅµçBMSSOCµÍ´¥·¢ÃÅ¼÷ */
 CALDATA const volatile uint16 KDAG_ACDchaOverPwrActnMsk_enum = 4096U;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s23' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s23' */
 
-/* ACï¿½Åµç¹¦ï¿½Ê³ï¿½ï¿½Þ¹ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* AC·Åµç¹¦ÂÊ³¬ÏÞ¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_ACDchaOverPwrFailTm_s = 3.0F;/* Referenced by:
-                                                                  * '<S302>/KDAG_BMSCmdTmOutFailTm_s22'
-                                                                  * '<S303>/KDAG_BMSCmdTmOutFailTm_s22'
+                                                                  * '<S353>/KDAG_BMSCmdTmOutFailTm_s22'
+                                                                  * '<S354>/KDAG_BMSCmdTmOutFailTm_s22'
                                                                   */
 
-/* ACï¿½Åµç¹¦ï¿½Ê³ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* AC·Åµç¹¦ÂÊ³¬ÏÞÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_ACSCmdTmOutActnMsk_enum = 0U;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s25' */
 
-/* ACSCmdï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ACSCmd³¬Ê±¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_ACSCmdTmOutFailTm_s = 180.0F;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s24' */
 
-/* ACSCmdï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* ACSCmd³¬Ê±¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KDAG_AccPed1VoltMax_mV = 4250.0F;/* Referenced by:
-                                                                 * '<S422>/Constant76'
-                                                                 * '<S778>/Constant4'
+                                                                 * '<S475>/Constant76'
+                                                                 * '<S831>/Constant4'
                                                                  */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½1Â·ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* ¼ÓËÙÌ¤°å1Â·µçÑ¹¹ý¸ßÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_AccPed1VoltMin_mV = 500.0F;/* Referenced by:
-                                                                * '<S422>/Constant75'
-                                                                * '<S778>/Constant3'
+                                                                * '<S475>/Constant75'
+                                                                * '<S831>/Constant3'
                                                                 */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½1Â·ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* ¼ÓËÙÌ¤°å1Â·µçÑ¹¹ýµÍÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_AccPed2VoltMax_mV = 2200.0F;/* Referenced by:
-                                                                 * '<S422>/Constant78'
-                                                                 * '<S778>/Constant5'
+                                                                 * '<S475>/Constant78'
+                                                                 * '<S831>/Constant5'
                                                                  */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½2Â·ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* ¼ÓËÙÌ¤°å2Â·µçÑ¹¹ý¸ßÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_AccPed2VoltMin_mV = 250.0F;/* Referenced by:
-                                                                * '<S422>/Constant77'
-                                                                * '<S778>/Constant6'
+                                                                * '<S475>/Constant77'
+                                                                * '<S831>/Constant6'
                                                                 */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½2Â·ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* ¼ÓËÙÌ¤°å2Â·µçÑ¹¹ýµÍÃÅ¼÷ */
 CALDATA const volatile uint16 KDAG_AccPedBothFailActnMsk_enum = 114U;
-                        /* Referenced by: '<S422>/KDAG_BMSCmdTmOutFailTm_s23' */
+                        /* Referenced by: '<S475>/KDAG_BMSCmdTmOutFailTm_s23' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½Ë«Â·Ê§Ð§ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ¼ÓËÙÌ¤°åË«Â·Ê§Ð§¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_AccPedCrsChkActnMsk_enum = 114U;
-                        /* Referenced by: '<S422>/KDAG_BMSCmdTmOutFailTm_s21' */
+                        /* Referenced by: '<S475>/KDAG_BMSCmdTmOutFailTm_s21' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½Ë«Â·Ð£ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ¼ÓËÙÌ¤°åË«Â·Ð£Ñé¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_AccPedCrsChkFailTm_s = 0.1F;
-                        /* Referenced by: '<S422>/KDAG_BMSCmdTmOutFailTm_s20' */
+                        /* Referenced by: '<S475>/KDAG_BMSCmdTmOutFailTm_s20' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½Ë«Â·Ð£ï¿½ï¿½Æ«ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KDAG_AccPedCrsChkThr_pct = 10.0F;/* Referenced by: '<S423>/Constant81' */
+/* ¼ÓËÙÌ¤°åË«Â·Ð£ÑéÆ«²îÈ·ÈÏÊ±¼ä */
+CALDATA const volatile float32 KDAG_AccPedCrsChkThr_pct = 10.0F;/* Referenced by: '<S476>/Constant81' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½Ë«Â·Ð£ï¿½ï¿½Æ«ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* ¼ÓËÙÌ¤°åË«Â·Ð£ÑéÆ«²îÃÅ¼÷ */
 CALDATA const volatile uint16 KDAG_AccPedShtCircActnMsk_enum = 116U;/* Referenced by:
-                                                                     * '<S422>/KDAG_BMSCmdTmOutFailTm_s11'
-                                                                     * '<S422>/KDAG_BMSCmdTmOutFailTm_s15'
-                                                                     * '<S422>/KDAG_BMSCmdTmOutFailTm_s17'
-                                                                     * '<S422>/KDAG_BMSCmdTmOutFailTm_s19'
-                                                                     * '<S422>/KDAG_BMSCmdTmOutFailTm_s6'
+                                                                     * '<S475>/KDAG_BMSCmdTmOutFailTm_s11'
+                                                                     * '<S475>/KDAG_BMSCmdTmOutFailTm_s15'
+                                                                     * '<S475>/KDAG_BMSCmdTmOutFailTm_s17'
+                                                                     * '<S475>/KDAG_BMSCmdTmOutFailTm_s19'
+                                                                     * '<S475>/KDAG_BMSCmdTmOutFailTm_s6'
                                                                      */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ¼ÓËÙÌ¤°å¶ÌÂ·¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_AccPedShtCircFailTm_s = 0.1F;/* Referenced by:
-                                                                  * '<S422>/KDAG_BMSCmdTmOutFailTm_s12'
-                                                                  * '<S422>/KDAG_BMSCmdTmOutFailTm_s13'
-                                                                  * '<S422>/KDAG_BMSCmdTmOutFailTm_s14'
-                                                                  * '<S422>/KDAG_BMSCmdTmOutFailTm_s16'
-                                                                  * '<S422>/KDAG_BMSCmdTmOutFailTm_s18'
-                                                                  * '<S422>/KDAG_BMSCmdTmOutFailTm_s5'
+                                                                  * '<S475>/KDAG_BMSCmdTmOutFailTm_s12'
+                                                                  * '<S475>/KDAG_BMSCmdTmOutFailTm_s13'
+                                                                  * '<S475>/KDAG_BMSCmdTmOutFailTm_s14'
+                                                                  * '<S475>/KDAG_BMSCmdTmOutFailTm_s16'
+                                                                  * '<S475>/KDAG_BMSCmdTmOutFailTm_s18'
+                                                                  * '<S475>/KDAG_BMSCmdTmOutFailTm_s5'
                                                                   */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½ï¿½ï¿½Â·È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* ¼ÓËÙÌ¤°å¶ÌÂ·È·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KDAG_AccPedSuplyVoltMax_mV = 5250.0F;/* Referenced by:
-                                                                     * '<S422>/Constant36'
-                                                                     * '<S422>/Constant72'
-                                                                     * '<S778>/Constant2'
-                                                                     * '<S778>/Constant7'
+                                                                     * '<S475>/Constant36'
+                                                                     * '<S475>/Constant72'
+                                                                     * '<S831>/Constant2'
+                                                                     * '<S831>/Constant7'
                                                                      */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½å¹©ï¿½ï¿½ï¿½ï¿½ßµï¿½Ñ¹ï¿½Å¼ï¿½ */
+/* ¼ÓËÙÌ¤°å¹©µç¹ý¸ßµçÑ¹ÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_AccPedSuplyVoltMin_mV = 4750.0F;/* Referenced by:
-                                                                     * '<S422>/Constant34'
-                                                                     * '<S422>/Constant48'
-                                                                     * '<S778>/Constant1'
-                                                                     * '<S778>/Constant8'
+                                                                     * '<S475>/Constant34'
+                                                                     * '<S475>/Constant48'
+                                                                     * '<S831>/Constant1'
+                                                                     * '<S831>/Constant8'
                                                                      */
 
-/* ï¿½ï¿½ï¿½ï¿½Ì¤ï¿½å¹©ï¿½ï¿½ï¿½ï¿½Íµï¿½Ñ¹ï¿½Å¼ï¿½ */
+/* ¼ÓËÙÌ¤°å¹©µç¹ýµÍµçÑ¹ÃÅ¼÷ */
 CALDATA const volatile uint16 KDAG_BACBusOffActnMsk_enum = 0U;
                         /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s11' */
+CALDATA const volatile uint16 KDAG_BMSCRCFltActnMsk_enum = 32505U;
+                        /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s30' */
 CALDATA const volatile uint16 KDAG_BMSCmdTmOutActnMsk_enum = 16121U;
                           /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s2' */
 
-/* BMSï¿½Ìµï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* BMS¼ÌµçÆ÷Ö¸ÁîÏìÓ¦³¬Ê±¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_BMSCmdTmOutFailTm1_s = 5.0F;
                           /* Referenced by: '<S100>/KDAG_BMSCmdTmOutFailTm_s' */
 
-/* BMSï¿½Ìµï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ê±È·ï¿½ï¿½Ê±ï¿½ï¿½_ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ÕºÏµÈ´ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KDAG_BMSCmdTmOutFailTm2_s = 60.0F;
+/* BMS¼ÌµçÆ÷Ö¸ÁîÏìÓ¦³¬Ê±È·ÈÏÊ±¼ä_·ÇÖ±Á÷³äµç±ÕºÏµÈ´ýÊ±¼ä */
+CALDATA const volatile float32 KDAG_BMSCmdTmOutFailTm2_s = 10.0F;
                          /* Referenced by: '<S100>/KDAG_BMSCmdTmOutFailTm_s1' */
 
-/* BMSï¿½Ìµï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ê±È·ï¿½ï¿½Ê±ï¿½ï¿½_Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ÕºÏµÈ´ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KDAG_BMSCmdTmOutFailTm3_s = 600.0F;
+/* BMS¼ÌµçÆ÷Ö¸ÁîÏìÓ¦³¬Ê±È·ÈÏÊ±¼ä_Ö±Á÷³äµç±ÕºÏµÈ´ýÊ±¼ä */
+CALDATA const volatile float32 KDAG_BMSCmdTmOutFailTm3_s = 10.0F;
                          /* Referenced by: '<S100>/KDAG_BMSCmdTmOutFailTm_s2' */
 
-/* BMSï¿½Ìµï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ê±È·ï¿½ï¿½Ê±ï¿½ï¿½_BMSï¿½Ô¼ï¿½ï¿½Ï¿ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½È´ï¿½Ê±ï¿½ï¿½ */
+/* BMS¼ÌµçÆ÷Ö¸ÁîÏìÓ¦³¬Ê±È·ÈÏÊ±¼ä_BMS×Ô¼º¶Ï¿ª¼ÌµçÆ÷µÈ´ýÊ±¼ä */
 CALDATA const volatile uint16 KDAG_BMSEmgcySdnActnMsk_enum = 16121U;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s11' */
 
-/* BMSï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* BMS½ô¼±ÏÂµç¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_BMSEmgcySdnFailTm_s = 0.1F;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s12' */
 
-/* BMSï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* BMS½ô¼±ÏÂµç¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_BMSLostCommActnMsk_enum = 0U;
                          /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s4' */
 CALDATA const volatile uint16 KDAG_BMSSOCLoActnMsk_enum = 114U;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s10' */
 
-/* BMSSOCï¿½Í¹ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* BMSSOCµÍ¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_BMSSOCLoFailTm_s = 1.0F;
                           /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s9' */
 
-/* BMSSOCï¿½Í¹ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* BMSSOCµÍ¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KDAG_BMSSysFailFailTm_s = 0.1F;/* Referenced by:
                                                                * '<S98>/KDAG_BMSCmdTmOutFailTm_s4'
                                                                * '<S98>/KDAG_BMSCmdTmOutFailTm_s5'
                                                                * '<S98>/KDAG_BMSCmdTmOutFailTm_s7'
                                                                */
 
-/* BMSFailï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* BMSFail¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_BMSSysFailLvl2ActnMsk_enum = 116U;
                           /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s6' */
 
-/* BMSFailLevel2ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* BMSFailLevel2¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_BMSSysFailLvl3ActnMsk_enum = 16121U;
                           /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s8' */
 
-/* BMSFailLevel3ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* BMSFailLevel3¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_BMSUndrVoltActnMsk1_enum = 0U;
                         /* Referenced by: '<S102>/KDAG_BMSCmdTmOutFailTm_s13' */
 
-/* BMSPackÇ·Ñ¹ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Ç° */
+/* BMSPackÇ·Ñ¹¹ÊÕÏ¶¯×÷_Éý¼¶Ç° */
 CALDATA const volatile uint16 KDAG_BMSUndrVoltActnMsk2_enum = 0U;
                         /* Referenced by: '<S102>/KDAG_BMSCmdTmOutFailTm_s15' */
 
-/* BMSPackÇ·Ñ¹ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* BMSPackÇ·Ñ¹¹ÊÕÏ¶¯×÷_Éý¼¶ºó */
 CALDATA const volatile float32 KDAG_BMSUndrVoltFailTm_s = 1.0F;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s14' */
 
-/* BMSPackÇ·Ñ¹ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* BMSPackÇ·Ñ¹¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_BODBusOffActnMsk_enum = 0U;
                          /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s2' */
-CALDATA const volatile float32 KDAG_BrkPedVoltMax_mV = 4500.0F;/* Referenced by: '<S453>/Constant1' */
+CALDATA const volatile float32 KDAG_BrkPedVoltMax_mV = 4500.0F;/* Referenced by: '<S506>/Constant1' */
 
-/* ï¿½Æ¶ï¿½Ì¤ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
-CALDATA const volatile float32 KDAG_BrkPedVoltMin_mV = 500.0F;/* Referenced by: '<S453>/Constant48' */
+/* ÖÆ¶¯Ì¤°åµçÑ¹¹ý¸ßÃÅ¼÷ */
+CALDATA const volatile float32 KDAG_BrkPedVoltMin_mV = 500.0F;/* Referenced by: '<S506>/Constant48' */
 
-/* ï¿½Æ¶ï¿½Ì¤ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* ÖÆ¶¯Ì¤°åµçÑ¹¹ýµÍÃÅ¼÷ */
 CALDATA const volatile uint16 KDAG_BrkSwCrsChkActnMsk_enum = 112U;
-                        /* Referenced by: '<S453>/KDAG_BMSCmdTmOutFailTm_s23' */
+                        /* Referenced by: '<S506>/KDAG_BMSCmdTmOutFailTm_s23' */
 
-/* ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ë«Â·Ð£ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
-CALDATA const volatile uint8 KDAG_BrkSwCrsChkCntDec_cnt = 1U;/* Referenced by: '<S454>/Constant11' */
+/* ÖÆ¶¯¿ª¹ØË«Â·Ð£Ñé¹ÊÕÏ¶¯×÷ */
+CALDATA const volatile uint8 KDAG_BrkSwCrsChkCntDec_cnt = 1U;/* Referenced by: '<S507>/Constant11' */
 
-/* ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ë«Â·Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù²ï¿½ï¿½ï¿½ */
-CALDATA const volatile uint8 KDAG_BrkSwCrsChkCntHi_cnt = 20U;/* Referenced by: '<S454>/Constant1' */
+/* ÖÆ¶¯¿ª¹ØË«Â·Ð£Ñé¼ÆÊý¼õÉÙ²½³¤ */
+CALDATA const volatile uint8 KDAG_BrkSwCrsChkCntHi_cnt = 20U;/* Referenced by: '<S507>/Constant1' */
 
-/* ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ë«Â·Ð£ï¿½ï¿½ï¿½ï¿½ï¿½High_ï¿½ï¿½ï¿½Ú´ï¿½Öµï¿½Ð¶ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½ */
-CALDATA const volatile uint8 KDAG_BrkSwCrsChkCntInc_cnt = 1U;/* Referenced by: '<S454>/Constant10' */
+/* ÖÆ¶¯¿ª¹ØË«Â·Ð£Ñé¼ÆÊýHigh_¸ßÓÚ´ËÖµÅÐ¶¨ÓÐ¹ÊÕÏ */
+CALDATA const volatile uint8 KDAG_BrkSwCrsChkCntInc_cnt = 1U;/* Referenced by: '<S507>/Constant10' */
 
-/* ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ë«Â·Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ */
-CALDATA const volatile uint8 KDAG_BrkSwCrsChkCntLo_cnt = 10U;/* Referenced by: '<S454>/Constant3' */
+/* ÖÆ¶¯¿ª¹ØË«Â·Ð£Ñé¼ÆÊýÔö¼Ó²½³¤ */
+CALDATA const volatile uint8 KDAG_BrkSwCrsChkCntLo_cnt = 10U;/* Referenced by: '<S507>/Constant3' */
 
-/* ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ë«Â·Ð£ï¿½ï¿½ï¿½ï¿½ï¿½Low_ï¿½ï¿½ï¿½Ú´ï¿½Öµï¿½Ð¶ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½ */
-CALDATA const volatile uint8 KDAG_BrkSwCrsChkCntMax_cnt = 30U;/* Referenced by: '<S454>/Constant12' */
+/* ÖÆ¶¯¿ª¹ØË«Â·Ð£Ñé¼ÆÊýLow_µÍÓÚ´ËÖµÅÐ¶¨ÎÞ¹ÊÕÏ */
+CALDATA const volatile uint8 KDAG_BrkSwCrsChkCntMax_cnt = 30U;/* Referenced by: '<S507>/Constant12' */
 
-/* ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ë«Â·Ð£ï¿½ï¿½ï¿½ï¿½ï¿½Max */
-CALDATA const volatile float32 KDAG_BrkSwCrsChkIntvlTm_s = 2.0F;/* Referenced by: '<S454>/Constant5' */
+/* ÖÆ¶¯¿ª¹ØË«Â·Ð£Ñé¼ÆÊýMax */
+CALDATA const volatile float32 KDAG_BrkSwCrsChkIntvlTm_s = 2.0F;/* Referenced by: '<S507>/Constant5' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KDAG_BrkSwDisagreeTmHi_s = 1.0F;/* Referenced by: '<S454>/Constant4' */
+/* Á½´ÎÖÆ¶¯¿ª¹ØÐ£ÑéÖÁÉÙÐèÒª¼ä¸ôµÄÊ±¼ä */
+CALDATA const volatile float32 KDAG_BrkSwDisagreeTmHi_s = 1.0F;/* Referenced by: '<S507>/Constant4' */
 
-/* ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Ø²ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½High_ï¿½ï¿½ï¿½Ú´ï¿½Öµï¿½ï¿½Ê¾ï¿½Ë´ï¿½Ð£ï¿½é²»Í¨ï¿½ï¿½ */
-CALDATA const volatile float32 KDAG_BrkSwDisagreeTmLo_s = 0.2F;/* Referenced by: '<S454>/Constant2' */
+/* ÖÆ¶¯¿ª¹Ø²»Ò»ÖÂÊ±¼äHigh_¸ßÓÚ´ËÖµ±íÊ¾´Ë´ÎÐ£Ñé²»Í¨¹ý */
+CALDATA const volatile float32 KDAG_BrkSwDisagreeTmLo_s = 0.2F;/* Referenced by: '<S507>/Constant2' */
 
-/* ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½Ø²ï¿½Ò»ï¿½ï¿½Ê±ï¿½ï¿½Low_ï¿½ï¿½ï¿½Ú´ï¿½Öµï¿½ï¿½Ê¾ï¿½Ë´ï¿½Ð£ï¿½ï¿½Í¨ï¿½ï¿½ */
+/* ÖÆ¶¯¿ª¹Ø²»Ò»ÖÂÊ±¼äLow_µÍÓÚ´ËÖµ±íÊ¾´Ë´ÎÐ£ÑéÍ¨¹ý */
+CALDATA const volatile float32 KDAG_BrkSwDisagreeTmLong_s = 10.0F;/* Referenced by: '<S507>/Constant6' */
+
+/* ÖÆ¶¯¿ª¹Ø²»Ò»ÖÂÊ±¼äLong_¸ßÓÚ´ËÖµÖ±½Ó±¨Ð£Ñé¹ÊÕÏ */
+CALDATA const volatile uint16 KDAG_CCPCRCFltActnMsk_enum = 32U;
+                        /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s13' */
 CALDATA const volatile uint16 KDAG_CHABusOffActnMsk_enum = 0U;
                          /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s3' */
+CALDATA const volatile uint16 KDAG_CRRRCRCFltActnMsk_enum = 64U;
+                        /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s21' */
 CALDATA const volatile uint16 KDAG_CellUndrVoltActnMsk_enum = 0U;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s13' */
 
-/* BMSCellÇ·Ñ¹ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* BMSCellÇ·Ñ¹¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_CellUndrVoltFailTm_s = 3.0F;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s15' */
 
-/* BMSCellÇ·Ñ¹ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* BMSCellÇ·Ñ¹¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_DCCCmdTmOutActnMsk1_enum = 0U;
-                        /* Referenced by: '<S213>/KDAG_BMSCmdTmOutFailTm_s13' */
+                        /* Referenced by: '<S264>/KDAG_BMSCmdTmOutFailTm_s13' */
 
-/* DCDCÄ£Ê½Ö¸ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Ç° */
+/* DCDCÄ£Ê½Ö¸ÁîÏìÓ¦³¬Ê±¹ÊÕÏ¶¯×÷_Éý¼¶Ç° */
 CALDATA const volatile uint16 KDAG_DCCCmdTmOutActnMsk2_enum = 0U;
-                        /* Referenced by: '<S213>/KDAG_BMSCmdTmOutFailTm_s15' */
+                        /* Referenced by: '<S264>/KDAG_BMSCmdTmOutFailTm_s15' */
 
-/* DCDCÄ£Ê½Ö¸ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* DCDCÄ£Ê½Ö¸ÁîÏìÓ¦³¬Ê±¹ÊÕÏ¶¯×÷_Éý¼¶ºó */
 CALDATA const volatile float32 KDAG_DCCCmdTmOutFailTm_s = 5.0F;
-                        /* Referenced by: '<S206>/KDAG_BMSCmdTmOutFailTm_s14' */
+                        /* Referenced by: '<S257>/KDAG_BMSCmdTmOutFailTm_s14' */
 
-/* DCDCÄ£Ê½Ö¸ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* DCDCÄ£Ê½Ö¸ÁîÏìÓ¦³¬Ê±¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_DCCInVoltLoActnMsk_enum = 0U;
-                         /* Referenced by: '<S206>/KDAG_BMSCmdTmOutFailTm_s1' */
+                         /* Referenced by: '<S257>/KDAG_BMSCmdTmOutFailTm_s1' */
 
-/* DCDCï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½Í¹ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* DCDCÊäÈëµçÑ¹µÍ¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_DCCInVoltLoFailTm_s = 3.0F;
-                        /* Referenced by: '<S206>/KDAG_BMSCmdTmOutFailTm_s13' */
+                        /* Referenced by: '<S257>/KDAG_BMSCmdTmOutFailTm_s13' */
 
-/* DCDCï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½Í¹ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* DCDCÊäÈëµçÑ¹µÍ¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_DCCModeFltActnMsk1_enum = 0U;
-                         /* Referenced by: '<S215>/KDAG_BMSCmdTmOutFailTm_s1' */
+                         /* Referenced by: '<S266>/KDAG_BMSCmdTmOutFailTm_s1' */
 
-/* DCDCModeFaultï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Ç° */
+/* DCDCModeFault¹ÊÕÏ¶¯×÷_Éý¼¶Ç° */
 CALDATA const volatile uint16 KDAG_DCCModeFltActnMsk2_enum = 0U;
-                        /* Referenced by: '<S215>/KDAG_BMSCmdTmOutFailTm_s11' */
+                        /* Referenced by: '<S266>/KDAG_BMSCmdTmOutFailTm_s11' */
 
-/* DCDCModeFaultï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* DCDCModeFault¹ÊÕÏ¶¯×÷_Éý¼¶ºó */
 CALDATA const volatile float32 KDAG_DCCModeFltFailTm_s = 60.0F;
-                        /* Referenced by: '<S206>/KDAG_BMSCmdTmOutFailTm_s12' */
+                        /* Referenced by: '<S257>/KDAG_BMSCmdTmOutFailTm_s12' */
 
-/* DCDCModeFaultï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* DCDCModeFault¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KDAG_DCCSysFailFailTm_s = 1.5F;/* Referenced by:
-                                                               * '<S206>/KDAG_BMSCmdTmOutFailTm_s4'
-                                                               * '<S206>/KDAG_BMSCmdTmOutFailTm_s5'
-                                                               * '<S206>/KDAG_BMSCmdTmOutFailTm_s7'
-                                                               * '<S206>/KDAG_BMSCmdTmOutFailTm_s9'
+                                                               * '<S257>/KDAG_BMSCmdTmOutFailTm_s4'
+                                                               * '<S257>/KDAG_BMSCmdTmOutFailTm_s5'
+                                                               * '<S257>/KDAG_BMSCmdTmOutFailTm_s7'
+                                                               * '<S257>/KDAG_BMSCmdTmOutFailTm_s9'
                                                                */
 
-/* DCDCFailï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* DCDCFail¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_DCCSysFailLvl3ActnMsk1_enum = 594U;
-                         /* Referenced by: '<S214>/KDAG_BMSCmdTmOutFailTm_s1' */
+                         /* Referenced by: '<S265>/KDAG_BMSCmdTmOutFailTm_s1' */
 
-/* DCDCFaillevel3ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Ç° */
+/* DCDCFaillevel3¹ÊÕÏ¶¯×÷_Éý¼¶Ç° */
 CALDATA const volatile uint16 KDAG_DCCSysFailLvl3ActnMsk2_enum = 633U;
-                         /* Referenced by: '<S214>/KDAG_BMSCmdTmOutFailTm_s8' */
+                         /* Referenced by: '<S265>/KDAG_BMSCmdTmOutFailTm_s8' */
 
-/* DCDCFaillevel3ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* DCDCFaillevel3¹ÊÕÏ¶¯×÷_Éý¼¶ºó */
 CALDATA const volatile float32 KDAG_DCCSysFailLvl3FailTm_s = 60.0F;
-                         /* Referenced by: '<S206>/KDAG_BMSCmdTmOutFailTm_s6' */
+                         /* Referenced by: '<S257>/KDAG_BMSCmdTmOutFailTm_s6' */
 
-/* DCDCFaillevel3ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* DCDCFaillevel3¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_DCCSysFailLvl4ActnMsk_enum = 16121U;
-                        /* Referenced by: '<S206>/KDAG_BMSCmdTmOutFailTm_s10' */
+                        /* Referenced by: '<S257>/KDAG_BMSCmdTmOutFailTm_s10' */
 
-/* DCDCFaillevel4ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* DCDCFaillevel4¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_DCSChrgReqActnMsk_enum = 0U;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s21' */
 
-/* DCSChargeRequestï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* DCSChargeRequest¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_DCSChrgReqFailTm_s = 1.0F;/* Referenced by:
                                                                * '<S98>/KDAG_BMSCmdTmOutFailTm_s20'
-                                                               * '<S668>/Constant5'
+                                                               * '<S721>/Constant5'
                                                                */
 
-/* DCSChargeRequestï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* DCSChargeRequest¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_DCSCmdTmOutActnMsk_enum = 0U;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s27' */
 
-/* DCSCmdï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* DCSCmd³¬Ê±¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_DCSCmdTmOutFailTm_s = 180.0F;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s17' */
 
-/* DCSCmdï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* DCSCmd³¬Ê±¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_DCSFailStaActnMsk_enum = 0U;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s28' */
 
-/* DCSFailStateï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* DCSFailState¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_DCSFailStaFailTm_s = 0.2F;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s16' */
 
-/* DCSFailStateï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* DCSFailState¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_DCSInletConnectActnMsk_enum = 0U;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s19' */
 
-/* DCSï¿½ï¿½Ç¹×´Ì¬ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* DCS²åÇ¹×´Ì¬¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_DCSInletConnectFailTm_s = 1.0F;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s18' */
 
-/* DCSï¿½ï¿½Ç¹×´Ì¬ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* DCS²åÇ¹×´Ì¬¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_DCSModeFailActnMsk_enum = 0U;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s23' */
 
-/* DCSModeFailï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* DCSModeFail¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_DCSModeFailFailTm_s = 0.2F;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s22' */
 
-/* DCSModeFailï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* DCSModeFail¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint8 KDAG_Did0xF163WrtData_cnt[4] = { 0U, 1U, 0U, 1U } ;/* Referenced by: '<S97>/DidData3' */
 
-/* CCU_FlashDriverï¿½ï¿½ï¿½ï¿½ */
+/* CCU_FlashDriverÈí¼þ */
 CALDATA const volatile uint8 KDAG_Did0xF180WrtData_cnt[4] = { 0U, 1U, 0U, 1U } ;/* Referenced by: '<S97>/DidData2' */
 
-/* CCU_Bootï¿½ï¿½ï¿½ï¿½ */
+/* CCU_BootÈí¼þ */
 CALDATA const volatile uint8 KDAG_Did0xF187WrtData_cnt[2] = { 0U, 2U } ;/* Referenced by: '<S97>/DidData' */
 
-/* ï¿½Ü³Éºï¿½ */
+/* ×Ü³ÉºÅ */
 CALDATA const volatile uint8 KDAG_Did0xF188WrtData_cnt[4] = { 0U, 1U, 0U, 1U } ;/* Referenced by: '<S97>/DidData4' */
 
-/* CCU_Appï¿½ï¿½ï¿½ï¿½ */
+/* CCU_AppÈí¼þ */
 CALDATA const volatile uint8 KDAG_Did0xF191WrtData_cnt[4] = { 0U, 1U, 0U, 1U } ;/* Referenced by: '<S97>/DidData1' */
 
-/* CCUÓ²ï¿½ï¿½ */
+/* CCUÓ²¼þ */
+CALDATA const volatile uint16 KDAG_EHBCRCFltActnMsk_enum = 114U;
+                        /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s34' */
 CALDATA const volatile float32 KDAG_EHBFltFailTm_s = 0.5F;/* Referenced by:
-                                                           * '<S362>/KDAG_BMSCmdTmOutFailTm_s17'
-                                                           * '<S362>/KDAG_BMSCmdTmOutFailTm_s4'
-                                                           * '<S362>/KDAG_BMSCmdTmOutFailTm_s5'
-                                                           * '<S362>/KDAG_BMSCmdTmOutFailTm_s7'
-                                                           * '<S362>/KDAG_BMSCmdTmOutFailTm_s9'
+                                                           * '<S415>/KDAG_BMSCmdTmOutFailTm_s17'
+                                                           * '<S415>/KDAG_BMSCmdTmOutFailTm_s4'
+                                                           * '<S415>/KDAG_BMSCmdTmOutFailTm_s5'
+                                                           * '<S415>/KDAG_BMSCmdTmOutFailTm_s7'
+                                                           * '<S415>/KDAG_BMSCmdTmOutFailTm_s9'
                                                            */
 
-/* EHBï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* EHB¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_EHBFltLvl2ActnMsk_enum = 112U;
-                         /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s6' */
+                         /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s6' */
 
-/* EHB2ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* EHB2¼¶¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_EHBFltLvl3ActnMsk_enum = 112U;
-                         /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s8' */
+                         /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s8' */
 
-/* EHB3ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* EHB3¼¶¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_EHBFltLvl4ActnMsk_enum = 114U;
-                        /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s18' */
+                        /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s18' */
 
-/* EHB4ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* EHB4¼¶¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_EHBFltLvl5ActnMsk_enum = 114U;
-                        /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s10' */
+                        /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s10' */
 
-/* EHB5ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* EHB5¼¶¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_EHBLostCommActnMsk_enum = 0U;
                          /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s7' */
 CALDATA const volatile uint16 KDAG_EPTBusOffActnMsk_enum = 0U;
                          /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s1' */
+CALDATA const volatile uint16 KDAG_ESCCRCFltActnMsk_enum = 114U;
+                        /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s35' */
 CALDATA const volatile float32 KDAG_ESCFltFailTm_s = 0.5F;/* Referenced by:
-                                                           * '<S362>/KDAG_BMSCmdTmOutFailTm_s14'
-                                                           * '<S362>/KDAG_BMSCmdTmOutFailTm_s19'
-                                                           * '<S362>/KDAG_BMSCmdTmOutFailTm_s20'
-                                                           * '<S362>/KDAG_BMSCmdTmOutFailTm_s22'
-                                                           * '<S362>/KDAG_BMSCmdTmOutFailTm_s24'
+                                                           * '<S415>/KDAG_BMSCmdTmOutFailTm_s14'
+                                                           * '<S415>/KDAG_BMSCmdTmOutFailTm_s19'
+                                                           * '<S415>/KDAG_BMSCmdTmOutFailTm_s20'
+                                                           * '<S415>/KDAG_BMSCmdTmOutFailTm_s22'
+                                                           * '<S415>/KDAG_BMSCmdTmOutFailTm_s24'
                                                            */
 
-/* ESCï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* ESC¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_ESCFltLvl2ActnMsk_enum = 112U;
-                        /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s21' */
+                        /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s21' */
 
-/* ESC2ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ESC2¼¶¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_ESCFltLvl3ActnMsk_enum = 112U;
-                        /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s23' */
+                        /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s23' */
 
-/* ESC3ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ESC3¼¶¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_ESCFltLvl4ActnMsk_enum = 114U;
-                        /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s15' */
+                        /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s15' */
 
-/* ESC4ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ESC4¼¶¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_ESCFltLvl5ActnMsk_enum = 114U;
-                        /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s12' */
+                        /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s12' */
 
-/* ESC5ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ESC5¼¶¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_ESCLostCommActnMsk_enum = 0U;
                          /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s5' */
 CALDATA const volatile uint16 KDAG_ESCVehSpdInvldActnMsk_enum = 0U;
-                        /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s13' */
+                        /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s13' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ê§Ð§ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ³µËÙÊ§Ð§¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_ESCVehSpdInvldFailTm_s = 0.5F;
-                         /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s3' */
+                         /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s3' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ê§Ð§È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* ³µËÙÊ§Ð§È·ÈÏÊ±¼ä */
 CALDATA const volatile boolean KDAG_EmgcyShtdwnOvrdSw_flg = false;
                            /* Referenced by: '<S88>/KDAG_LimpHomeOvrdSw_flg9' */
 CALDATA const volatile boolean KDAG_EmgcyShtdwnOvrdVal_flg = false;
                           /* Referenced by: '<S88>/KDAG_LimpHomeOvrdVal_flg9' */
+CALDATA const volatile uint16 KDAG_FCMCRCFltActnMsk_enum = 64U;
+                        /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s24' */
 CALDATA const volatile boolean KDAG_FanFullSpdOnOvrdSw_flg = false;
                           /* Referenced by: '<S88>/KDAG_LimpHomeOvrdSw_flg17' */
 CALDATA const volatile boolean KDAG_FanFullSpdOnOvrdVal_flg = false;
@@ -1482,98 +1503,102 @@ CALDATA const volatile boolean KDAG_FltLampOnOvrdSw_flg = false;
 CALDATA const volatile boolean KDAG_FltLampOnOvrdVal_flg = false;
                          /* Referenced by: '<S88>/KDAG_LimpHomeOvrdVal_flg15' */
 CALDATA const volatile float32 KDAG_GearShftInvldFailTm_s = 0.5F;
-                         /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s2' */
+                         /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s2' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§Ð§ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* »»µ²ÊäÈëÊ§Ð§¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KDAG_HVAccAcptBMSVoltFac_c = 0.7F;/* Referenced by:
-                                                                  * '<S206>/KDAG_BMSCmdTmOutFailTm_s19'
-                                                                  * '<S206>/KDAG_BMSCmdTmOutFailTm_s2'
-                                                                  * '<S650>/Constant1'
+                                                                  * '<S257>/KDAG_BMSCmdTmOutFailTm_s19'
+                                                                  * '<S257>/KDAG_BMSCmdTmOutFailTm_s2'
+                                                                  * '<S703>/Constant1'
                                                                   */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½Øµï¿½Ñ¹ï¿½ï¿½Öµï¿½Ä¿É½ï¿½ï¿½Ü±ï¿½ï¿½ï¿½Ïµï¿½ï¿½ */
+/* ¸ßÑ¹²¿¼þµçÑ¹Óëµç³ØµçÑ¹±ÈÖµµÄ¿É½ÓÊÜ±ÈÀýÏµÊý */
 CALDATA const volatile float32 KDAG_HVILChkMotorSpdLo_rpm = 300.0F;
-                         /* Referenced by: '<S453>/KDAG_BMSCmdTmOutFailTm_s6' */
+                         /* Referenced by: '<S506>/KDAG_BMSCmdTmOutFailTm_s6' */
 
-/* ï¿½ï¿½ï¿½Ö¸ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÈ¼ï¿½ï¿½Í¶ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½×ªï¿½ï¿½ï¿½Å¼ï¿½ */
+/* Çø·Ö¸ßÑ¹»¥Ëø¹ÊÕÏµÈ¼¶ºÍ¶¯×÷µÄµç»ú×ªËÙÃÅ¼÷ */
 CALDATA const volatile uint16 KDAG_HVILVoltChkActnMsk1_enum = 0U;/* Referenced by:
-                                                                  * '<S464>/KDAG_BMSCmdTmOutFailTm_s6'
-                                                                  * '<S465>/KDAG_BMSCmdTmOutFailTm_s6'
+                                                                  * '<S517>/KDAG_BMSCmdTmOutFailTm_s6'
+                                                                  * '<S518>/KDAG_BMSCmdTmOutFailTm_s6'
                                                                   */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Ç° */
+/* ¸ßÑ¹»¥Ëø¹ÊÕÏ¶¯×÷_Éý¼¶Ç° */
 CALDATA const volatile uint16 KDAG_HVILVoltChkActnMsk2_enum = 0U;/* Referenced by:
-                                                                  * '<S464>/KDAG_BMSCmdTmOutFailTm_s1'
-                                                                  * '<S465>/KDAG_BMSCmdTmOutFailTm_s1'
+                                                                  * '<S517>/KDAG_BMSCmdTmOutFailTm_s1'
+                                                                  * '<S518>/KDAG_BMSCmdTmOutFailTm_s1'
                                                                   */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ¸ßÑ¹»¥Ëø¹ÊÕÏ¶¯×÷_Éý¼¶ºó */
 CALDATA const volatile float32 KDAG_HVILVoltChkFailTm_s = 0.2F;/* Referenced by:
-                                                                * '<S453>/KDAG_BMSCmdTmOutFailTm_s5'
-                                                                * '<S453>/KDAG_BMSCmdTmOutFailTm_s9'
+                                                                * '<S506>/KDAG_BMSCmdTmOutFailTm_s5'
+                                                                * '<S506>/KDAG_BMSCmdTmOutFailTm_s9'
                                                                 */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KDAG_HVILVoltMax_mV = 16000.0F;/* Referenced by: '<S464>/Constant75' */
+/* ¸ßÑ¹»¥Ëø¹ÊÕÏÈ·ÈÏÊ±¼ä */
+CALDATA const volatile float32 KDAG_HVILVoltMax_mV = 16000.0F;/* Referenced by: '<S517>/Constant75' */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
-CALDATA const volatile float32 KDAG_HVILVoltMin_mV = 5000.0F;/* Referenced by: '<S465>/Constant75' */
+/* ¸ßÑ¹»¥ËøµçÑ¹¹ý¸ßÃÅ¼÷ */
+CALDATA const volatile float32 KDAG_HVILVoltMin_mV = 5000.0F;/* Referenced by: '<S518>/Constant75' */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* ¸ßÑ¹»¥ËøµçÑ¹¹ýµÍÃÅ¼÷ */
 CALDATA const volatile uint16 KDAG_HVIsoResistLoActnMsk_enum = 16121U;
                           /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s1' */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½Ø¾ï¿½Ôµï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* ¸ßÑ¹µç³Ø¾øÔµ¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_HVIsoResistLoFailTm_s = 25.0F;
                            /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s' */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½Ø¾ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* ¸ßÑ¹µç³Ø¾øÔµ¹ÊÕÏ×èÖµµÍÈ·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KDAG_HVIsoResistLoPassTm_s = 5.0F;
                           /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s3' */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½Ø¾ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Í»Ö¸ï¿½Ê±ï¿½ï¿½ */
+/* ¸ßÑ¹µç³Ø¾øÔµ¹ÊÕÏ×èÖµµÍ»Ö¸´Ê±¼ä */
 CALDATA const volatile float32 KDAG_HVIsoResistLoThr_kOhm = 5.0F;
                          /* Referenced by: '<S98>/KDAG_BMSCmdTmOutFailTm_s26' */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½Ø¾ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Å¼ï¿½ */
+/* ¸ßÑ¹µç³Ø¾øÔµ¹ÊÕÏ×èÖµÃÅ¼÷ */
+CALDATA const volatile uint16 KDAG_INVCRCFltActnMsk_enum = 32505U;
+                        /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s32' */
 CALDATA const volatile float32 KDAG_INVFltFailTm_s = 0.1F;/* Referenced by:
-                                                           * '<S278>/KDAG_BMSCmdTmOutFailTm_s4'
-                                                           * '<S278>/KDAG_BMSCmdTmOutFailTm_s5'
-                                                           * '<S278>/KDAG_BMSCmdTmOutFailTm_s7'
-                                                           * '<S278>/KDAG_BMSCmdTmOutFailTm_s9'
+                                                           * '<S329>/KDAG_BMSCmdTmOutFailTm_s4'
+                                                           * '<S329>/KDAG_BMSCmdTmOutFailTm_s5'
+                                                           * '<S329>/KDAG_BMSCmdTmOutFailTm_s7'
+                                                           * '<S329>/KDAG_BMSCmdTmOutFailTm_s9'
                                                            */
 
-/* INVFaultï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* INVFault¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_INVFltLvl2ActnMsk_enum = 116U;
-                         /* Referenced by: '<S278>/KDAG_BMSCmdTmOutFailTm_s6' */
+                         /* Referenced by: '<S329>/KDAG_BMSCmdTmOutFailTm_s6' */
 
-/* INVFaultLevel2ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* INVFaultLevel2¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_INVFltLvl3ActnMsk_enum = 16505U;
-                         /* Referenced by: '<S278>/KDAG_BMSCmdTmOutFailTm_s8' */
+                         /* Referenced by: '<S329>/KDAG_BMSCmdTmOutFailTm_s8' */
 
-/* INVFaultLevel3ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* INVFaultLevel3¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_INVFltLvl4ActnMsk_enum = 32505U;
-                        /* Referenced by: '<S278>/KDAG_BMSCmdTmOutFailTm_s10' */
+                        /* Referenced by: '<S329>/KDAG_BMSCmdTmOutFailTm_s10' */
 
-/* INVFaultLevel4ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* INVFaultLevel4¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile uint16 KDAG_INVInVoltLoActnMsk_enum = 0U;
-                        /* Referenced by: '<S206>/KDAG_BMSCmdTmOutFailTm_s17' */
+                        /* Referenced by: '<S257>/KDAG_BMSCmdTmOutFailTm_s17' */
 
-/* INVï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½Í¹ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* INVÊäÈëµçÑ¹µÍ¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_INVInVoltLoFailTm_s = 3.0F;
-                        /* Referenced by: '<S206>/KDAG_BMSCmdTmOutFailTm_s18' */
+                        /* Referenced by: '<S257>/KDAG_BMSCmdTmOutFailTm_s18' */
 
-/* INVï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½Í¹ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* INVÊäÈëµçÑ¹µÍ¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_INVLostCommActnMsk_enum = 0U;
                          /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s6' */
 CALDATA const volatile uint16 KDAG_INVRunCmdRespActnMsk_enum = 0U;
-                        /* Referenced by: '<S278>/KDAG_BMSCmdTmOutFailTm_s11' */
+                        /* Referenced by: '<S329>/KDAG_BMSCmdTmOutFailTm_s11' */
 
-/* INVRunÖ¸ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* INVRunÖ¸ÁîÏìÓ¦³¬Ê±¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_INVRunCmdRespFailTm_s = 0.5F;
-                        /* Referenced by: '<S278>/KDAG_BMSCmdTmOutFailTm_s12' */
+                        /* Referenced by: '<S329>/KDAG_BMSCmdTmOutFailTm_s12' */
 
-/* INVRunÖ¸ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* INVRunÖ¸ÁîÏìÓ¦³¬Ê±¹ÊÕÏÈ·ÈÏÊ±¼ä */
+CALDATA const volatile uint16 KDAG_IPUCRCFltActnMsk_enum = 32377U;
+                        /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s36' */
 CALDATA const volatile uint16 KDAG_IPULostCommActnMsk_enum = 0U;
                          /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s9' */
 CALDATA const volatile boolean KDAG_LVBatLampOnOvrdSw_flg = false;
@@ -1581,66 +1606,66 @@ CALDATA const volatile boolean KDAG_LVBatLampOnOvrdSw_flg = false;
 CALDATA const volatile boolean KDAG_LVBatLampOnOvrdVal_flg = false;
                          /* Referenced by: '<S88>/KDAG_LimpHomeOvrdVal_flg16' */
 CALDATA const volatile float32 KDAG_LVBatVoltHiRec_V = 16.5F;
-                         /* Referenced by: '<S406>/KDAG_BMSCmdTmOutFailTm_s5' */
+                         /* Referenced by: '<S459>/KDAG_BMSCmdTmOutFailTm_s5' */
 
-/* ï¿½ï¿½ï¿½Ø¹ï¿½Ñ¹ï¿½Ö¸ï¿½ï¿½Å¼ï¿½ */
+/* Ðîµç³Ø¹ýÑ¹»Ö¸´ÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_LVBatVoltHi_V = 17.0F;/* Referenced by:
-                                                           * '<S406>/KDAG_BMSCmdTmOutFailTm_s8'
-                                                           * '<S453>/KDAG_BMSCmdTmOutFailTm_s8'
+                                                           * '<S459>/KDAG_BMSCmdTmOutFailTm_s8'
+                                                           * '<S506>/KDAG_BMSCmdTmOutFailTm_s8'
                                                            */
 
-/* ï¿½ï¿½ï¿½Ø¹ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* Ðîµç³Ø¹ýÑ¹´¥·¢ÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_LVBatVoltLoRec_V = 9.5F;
-                         /* Referenced by: '<S406>/KDAG_BMSCmdTmOutFailTm_s4' */
+                         /* Referenced by: '<S459>/KDAG_BMSCmdTmOutFailTm_s4' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ç·Ñ¹ï¿½Ö¸ï¿½ï¿½Å¼ï¿½ */
+/* Ðîµç³ØÇ·Ñ¹»Ö¸´ÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_LVBatVoltLo_V = 9.0F;/* Referenced by:
-                                                          * '<S406>/KDAG_BMSCmdTmOutFailTm_s7'
-                                                          * '<S453>/KDAG_BMSCmdTmOutFailTm_s7'
+                                                          * '<S459>/KDAG_BMSCmdTmOutFailTm_s7'
+                                                          * '<S506>/KDAG_BMSCmdTmOutFailTm_s7'
                                                           */
 
-/* ï¿½ï¿½ï¿½ï¿½Ç·Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* Ðîµç³ØÇ·Ñ¹´¥·¢ÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_LVBatVoltPassbl_V = 11.0F;/* Referenced by:
-                                                               * '<S206>/KDAG_BMSCmdTmOutFailTm_s15'
-                                                               * '<S415>/KDAG_BMSCmdTmOutFailTm_s15'
+                                                               * '<S257>/KDAG_BMSCmdTmOutFailTm_s15'
+                                                               * '<S468>/KDAG_BMSCmdTmOutFailTm_s15'
                                                                */
 
-/* ï¿½ï¿½ï¿½Øµï¿½Ñ¹ï¿½Ð¿ï¿½ï¿½Å¼ï¿½ */
+/* Ðîµç³ØµçÑ¹ÉÐ¿ÉÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_LVBattSOCLoFailTm_s = 10.0F;
-                        /* Referenced by: '<S406>/KDAG_BMSCmdTmOutFailTm_s18' */
+                        /* Referenced by: '<S459>/KDAG_BMSCmdTmOutFailTm_s18' */
 
-/* ï¿½ï¿½ï¿½ï¿½SOCï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile uint8 KDAG_LVBattSOCLo_pct = 60U;/* Referenced by: '<S406>/Constant77' */
+/* Ðîµç³ØSOCµÍÈ·ÈÏÊ±¼ä */
+CALDATA const volatile uint8 KDAG_LVBattSOCLo_pct = 60U;/* Referenced by: '<S459>/Constant77' */
 
-/* ï¿½ï¿½ï¿½ï¿½SOCï¿½ï¿½ï¿½Å¼ï¿½ */
+/* Ðîµç³ØSOCµÍÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_LVBattSOHLoFailTm_s = 10.0F;
-                         /* Referenced by: '<S406>/KDAG_BMSCmdTmOutFailTm_s1' */
+                         /* Referenced by: '<S459>/KDAG_BMSCmdTmOutFailTm_s1' */
 
-/* ï¿½ï¿½ï¿½ï¿½SOHï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile uint8 KDAG_LVBattSOHLo_pct = 30U;/* Referenced by: '<S406>/Constant78' */
+/* Ðîµç³ØSOHµÍÈ·ÈÏÊ±¼ä */
+CALDATA const volatile uint8 KDAG_LVBattSOHLo_pct = 30U;/* Referenced by: '<S459>/Constant78' */
 
-/* ï¿½ï¿½ï¿½ï¿½SOHï¿½ï¿½ï¿½Å¼ï¿½ */
+/* Ðîµç³ØSOHµÍÃÅ¼÷ */
 CALDATA const volatile uint16 KDAG_LVBattTempHiActnMsk1_enum = 0U;
-                        /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s13' */
+                        /* Referenced by: '<S468>/KDAG_BMSCmdTmOutFailTm_s13' */
 
-/* ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½Â¹ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Ç° */
+/* Ðîµç³Ø¹ýÎÂ¹ÊÕÏ¶¯×÷_Éý¼¶Ç° */
 CALDATA const volatile uint16 KDAG_LVBattTempHiActnMsk2_enum = 0U;
-                         /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s1' */
+                         /* Referenced by: '<S468>/KDAG_BMSCmdTmOutFailTm_s1' */
 
-/* ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½Â¹ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* Ðîµç³Ø¹ýÎÂ¹ÊÕÏ¶¯×÷_Éý¼¶ºó */
 CALDATA const volatile float32 KDAG_LVBattTempHiFailTm_s = 60.0F;
-                         /* Referenced by: '<S406>/KDAG_BMSCmdTmOutFailTm_s2' */
+                         /* Referenced by: '<S459>/KDAG_BMSCmdTmOutFailTm_s2' */
 
-/* ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KDAG_LVBattTempHi_C = 105.0F;/* Referenced by: '<S415>/Constant40' */
+/* Ðîµç³Ø¹ýÎÂÈ·ÈÏÊ±¼ä */
+CALDATA const volatile float32 KDAG_LVBattTempHi_C = 105.0F;/* Referenced by: '<S468>/Constant40' */
 
-/* ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½Â¶ï¿½ï¿½Å¼ï¿½ */
+/* Ðîµç³Ø¹ýÎÂÎÂ¶ÈÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_LVBattVoltExcdFailTm_s = 10.0F;/* Referenced by:
-                                                                    * '<S406>/KDAG_BMSCmdTmOutFailTm_s3'
-                                                                    * '<S406>/KDAG_BMSCmdTmOutFailTm_s6'
+                                                                    * '<S459>/KDAG_BMSCmdTmOutFailTm_s3'
+                                                                    * '<S459>/KDAG_BMSCmdTmOutFailTm_s6'
                                                                     */
 
-/* ï¿½ï¿½ï¿½ï¿½Ç·Ñ¹ï¿½ï¿½Ñ¹È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* Ðîµç³ØÇ·Ñ¹¹ýÑ¹È·ÈÏÊ±¼ä */
 CALDATA const volatile boolean KDAG_LimpHomeOvrdSw_flg = false;
                            /* Referenced by: '<S88>/KDAG_LimpHomeOvrdSw_flg1' */
 CALDATA const volatile boolean KDAG_LimpHomeOvrdVal_flg = false;
@@ -1652,103 +1677,105 @@ CALDATA const volatile boolean KDAG_LmtDrvTqOvrdVal_flg = false;
 CALDATA const volatile uint8 KDAG_ManlClrDTCReq_enum = 0U;
                          /* Referenced by: '<S87>/KDAG_VehStandStillSpd_kph1' */
 
-/* ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ÏµÄ±ê¶¨_ï¿½ï¿½0ï¿½Ä³ï¿½255Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ÊÖ¶¯Çå³ýËùÓÐ¹ÊÕÏµÄ±ê¶¨_´Ó0¸Ä³É255Ê±´¥·¢ÆðÒ»´Î×÷ÓÃ */
 CALDATA const volatile uint16 KDAG_OBCChrgReqActnMsk_enum = 0U;
-                         /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s7' */
+                         /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s7' */
 
-/* OBCChargeRequestï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* OBCChargeRequest¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_OBCChrgReqFailTm_s = 30.0F;
-                         /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s8' */
+                         /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s8' */
 
-/* OBCChargeRequestï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* OBCChargeRequest¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_OBCConnectTmOutActnMsk_enum = 0U;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s25' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s25' */
 
-/* OBCï¿½ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* OBCÁ¬½Ó³¬Ê±¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_OBCConnectTmOutFailTm1_s = 180.0F;
-                          /* Referenced by: '<S337>/KDAG_BMSCmdTmOutFailTm_s' */
+                          /* Referenced by: '<S388>/KDAG_BMSCmdTmOutFailTm_s' */
 
-/* OBCï¿½ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ï¿½ÏµÈ´ï¿½Ê±ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Ç° */
+/* OBCÁ¬½Ó³¬Ê±¹ÊÕÏµÈ´ýÊ±¼ä_Á¬½ÓÇ° */
 CALDATA const volatile float32 KDAG_OBCConnectTmOutFailTm2_s = 3.0F;
-                         /* Referenced by: '<S337>/KDAG_BMSCmdTmOutFailTm_s1' */
+                         /* Referenced by: '<S388>/KDAG_BMSCmdTmOutFailTm_s1' */
 
-/* OBCï¿½ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ï¿½ÏµÈ´ï¿½Ê±ï¿½ï¿½_ï¿½ï¿½ï¿½Óºï¿½Ï¿ï¿½ */
+/* OBCÁ¬½Ó³¬Ê±¹ÊÕÏµÈ´ýÊ±¼ä_Á¬½Óºó¶Ï¿ª */
 CALDATA const volatile uint16 KDAG_OBCInletConnectActnMsk_enum = 0U;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s11' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s11' */
 
-/* OBCï¿½ï¿½Ç¹×´Ì¬ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* OBC²åÇ¹×´Ì¬¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_OBCInletConnectFailTm_s = 3.0F;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s12' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s12' */
 
-/* OBCï¿½ï¿½Ç¹×´Ì¬ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* OBC²åÇ¹×´Ì¬¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_OBCModeMsmtchActnMsk_enum = 0U;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s27' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s27' */
 
-/* OBCÄ£Ê½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* OBCÄ£Ê½²»Æ¥Åä¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_OBCModeMsmtchFailTm_s = 90.0F;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s26' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s26' */
 
-/* OBCÄ£Ê½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* OBCÄ£Ê½²»Æ¥Åä¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_OBCS2StatActnMsk_enum = 0U;
-                         /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s5' */
+                         /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s5' */
 
-/* OBCS2ï¿½ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* OBCS2Á¬½Ó³¬Ê±¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_OBCS2StatFailTm_s = 6.0F;
-                         /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s6' */
+                         /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s6' */
 
-/* OBCS2ï¿½ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* OBCS2Á¬½Ó³¬Ê±¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KDAG_OBCSysFailFailTm_s = 3.0F;/* Referenced by:
-                                                               * '<S302>/KDAG_BMSCmdTmOutFailTm_s14'
-                                                               * '<S302>/KDAG_BMSCmdTmOutFailTm_s15'
-                                                               * '<S302>/KDAG_BMSCmdTmOutFailTm_s17'
-                                                               * '<S302>/KDAG_BMSCmdTmOutFailTm_s4'
+                                                               * '<S353>/KDAG_BMSCmdTmOutFailTm_s14'
+                                                               * '<S353>/KDAG_BMSCmdTmOutFailTm_s15'
+                                                               * '<S353>/KDAG_BMSCmdTmOutFailTm_s17'
+                                                               * '<S353>/KDAG_BMSCmdTmOutFailTm_s4'
                                                                */
 
-/* OBCFailï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* OBCFail¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_OBCSysFailLvl4ActnMsk_enum = 16121U;
-                        /* Referenced by: '<S302>/KDAG_BMSCmdTmOutFailTm_s13' */
+                        /* Referenced by: '<S353>/KDAG_BMSCmdTmOutFailTm_s13' */
 
-/* OBCFailLevel4ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* OBCFailLevel4¹ÊÕÏ¶¯×÷ */
+CALDATA const volatile uint16 KDAG_SCSCRCFltActnMsk_enum = 80U;
+                        /* Referenced by: '<S162>/KDAG_BMSCmdTmOutFailTm_s19' */
 CALDATA const volatile float32 KDAG_SysPwrModeInvldFailTm_s = 3.0F;
-                         /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s1' */
+                         /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s1' */
 
-/* PowerModeÊ§Ð§È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* PowerModeÊ§Ð§È·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_TMSFailLvl3ActnMsk_enum = 0U;
-                        /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s11' */
+                        /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s11' */
 
-/* TMSRFailLevel3ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* TMSRFailLevel3¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile float32 KDAG_TMSFailLvl3FailTm_s = 0.5F;
-                        /* Referenced by: '<S362>/KDAG_BMSCmdTmOutFailTm_s16' */
+                        /* Referenced by: '<S415>/KDAG_BMSCmdTmOutFailTm_s16' */
 
-/* TMSRFailLevel3ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* TMSRFailLevel3¹ÊÕÏÈ·ÈÏÊ±¼ä */
 CALDATA const volatile uint16 KDAG_VehCrashActnMsk_enum = 15737U;
-                         /* Referenced by: '<S422>/KDAG_BMSCmdTmOutFailTm_s2' */
+                         /* Referenced by: '<S475>/KDAG_BMSCmdTmOutFailTm_s2' */
 
-/* ï¿½ï¿½×²ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½ */
+/* Åö×²¹ÊÕÏ¶¯×÷ */
 CALDATA const volatile boolean KDAG_VehStandStillBypasBrk_flg = true;
                          /* Referenced by: '<S87>/KDAG_VehStandStillSpd_kph2' */
 
-/* ×¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½É²ï¿½ï¿½ï¿½Ä±ê¶¨ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½Ã¿ï¿½É²ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½PNï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ×¤³µÇå³ý¹ÊÕÏ²»¿´É²³µµÄ±ê¶¨Á¿_½¨Òé±ê³É1²»ÓÃ¿´É²³µ_Âú×ãÍ£³µºÍPNµ²¼´¿É */
 CALDATA const volatile float32 KDAG_VehStandStillSpd_kph = 0.5F;
                           /* Referenced by: '<S87>/KDAG_VehStandStillSpd_kph' */
 
-/* ×¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ³ï¿½ï¿½ï¿½ï¿½Å¼ï¿½_ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£Ö¹ */
+/* ×¤³µÇå³ý¹ÊÕÏµÄ³µËÙÃÅ¼÷_Ðè»ù±¾¾ø¶ÔÍ£Ö¹ */
 CALDATA const volatile float32 KDAG_WakeUpDlyTm_s = 0.1F;
                          /* Referenced by: '<S87>/KDAG_VehStandStillSpd_kph3' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ßµï¿½ï¿½Åºï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½_ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½Ê¼ï¿½ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile uint32 KDAG_WaterTempAbvThr_Ohm = 500U;/* Referenced by: '<S476>/Constant1' */
+/* »½ÐÑÔ´À­¸ßµÄÐÅºÅÑÓ³ÙÊ±¼ä_¼´Õï¶Ï¿ªÊ¼µÄÑÓ³ÙÊ±¼ä */
+CALDATA const volatile uint32 KDAG_WaterTempAbvThr_Ohm = 500U;/* Referenced by: '<S529>/Constant1' */
 
-/* ï¿½ï¿½È´Ë®ï¿½Â¹ï¿½ï¿½ßµÄµï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
-CALDATA const volatile uint32 KDAG_WaterTempBlwThr_Ohm = 5000001U;/* Referenced by: '<S476>/Constant75' */
+/* ÀäÈ´Ë®ÎÂ¹ý¸ßµÄµç×èÃÅ¼÷ */
+CALDATA const volatile uint32 KDAG_WaterTempBlwThr_Ohm = 5000001U;/* Referenced by: '<S529>/Constant75' */
 
-/* ï¿½ï¿½È´Ë®ï¿½Â¹ï¿½ï¿½ÍµÄµï¿½ï¿½ï¿½ï¿½Å¼ï¿½ */
+/* ÀäÈ´Ë®ÎÂ¹ýµÍµÄµç×èÃÅ¼÷ */
 CALDATA const volatile float32 KDAG_WaterTempExcdThrFailTm_s = 0.25F;/* Referenced by:
-                                                                      * '<S476>/KDAG_BMSCmdTmOutFailTm_s1'
-                                                                      * '<S476>/KDAG_BMSCmdTmOutFailTm_s5'
+                                                                      * '<S529>/KDAG_BMSCmdTmOutFailTm_s1'
+                                                                      * '<S529>/KDAG_BMSCmdTmOutFailTm_s5'
                                                                       */
 
-/* ï¿½ï¿½È´Ë®ï¿½ï¿½ï¿½ì³£ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* ÀäÈ´Ë®ÎÂÒì³£µÄÈ·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KDSA_AcceltnIdxAvgInit_pct = 40.0F;/* Referenced by: '<S16>/Unit Delay2' */
 CALDATA const volatile float32 KDSA_AcceltnIdxDecRate_pctps = -0.2F;
                       /* Referenced by: '<S16>/KVTM_AcceltnIdxIncRate_pctps1' */
@@ -1788,1292 +1815,1296 @@ CALDATA const volatile boolean KDSA_UseTqCalcAcceltn_flg = true;
 CALDATA const volatile float32 KEMS_AccPwrDecFiltCoeff_c = 0.9F;
                            /* Referenced by: '<S27>/KVTM_LimpHomeOvrdSw_flg3' */
 
-/* ï¿½Åµç¸½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ */
+/* ·Åµç¸½¼þ¹¦ÂÊÂË²¨ÏµÊý£¨Ö»ÂËÏÂ½µ£© */
 CALDATA const volatile float32 KEMS_AccPwrIncFiltCoeff_c = 0.9F;
                            /* Referenced by: '<S25>/KVTM_LimpHomeOvrdSw_flg4' */
 
-/* ï¿½ï¿½ç¸½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ï½ï¿½ï¿½ï¿½ */
+/* ³äµç¸½¼þ¹¦ÂÊÂË²¨ÏµÊý£¨Ö»ÂËÉÏ½µ£© */
 CALDATA const volatile float32 KEMS_CellTempSynDecRate_Cps = -0.5F;
                            /* Referenced by: '<S30>/KVTM_LimpHomeOvrdSw_flg6' */
 
-/* ï¿½ï¿½Ð¾ï¿½Â¶ï¿½ï¿½Â½ï¿½Ð±ï¿½ï¿½ */
+/* µçÐ¾ÎÂ¶ÈÏÂ½µÐ±ÂÊ */
 CALDATA const volatile float32 KEMS_CellTempSynIncRate_Cps = 0.5F;
                            /* Referenced by: '<S30>/KVTM_LimpHomeOvrdSw_flg7' */
 
-/* ï¿½ï¿½Ð¾ï¿½Â¶ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ */
+/* µçÐ¾ÎÂ¶ÈÉÏÉýÐ±ÂÊ */
 CALDATA const volatile float32 KEMS_ChrgCurFbKiMax_A = 300.0F;/* Referenced by: '<S79>/Saturation' */
 
-/* ï¿½ï¿½ï¿½KIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ³äµçKIÉÏÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_ChrgCurFbKiMin_A = 0.0F;/* Referenced by: '<S79>/Saturation' */
 
-/* ï¿½ï¿½ï¿½KIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ³äµçKIÏÂÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_ChrgCurFbMax_A = 500.0F;/* Referenced by: '<S79>/Saturation2' */
 
-/* ï¿½ï¿½ï¿½KP+KIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ³äµçKP+KIÉÏÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_ChrgCurFbMin_A = 0.0F;/* Referenced by: '<S79>/Saturation2' */
 
-/* ï¿½ï¿½ï¿½KP+KIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ³äµçKP+KIÏÂÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_ChrgFbActvDlyTm_s = 2.0F;
                            /* Referenced by: '<S26>/KVTM_LimpHomeOvrdSw_flg2' */
 
-/* ï¿½ï¿½ç¹¦ï¿½Ê±Õ»ï¿½ï¿½Ë³ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ */
+/* ³äµç¹¦ÂÊ±Õ»·ÍË³öÑÓ³ÙÊ±¼ä */
 CALDATA const volatile float32 KEMS_ChrgPwr2MotRawFiltCoeff_c = 0.9F;
                            /* Referenced by: '<S25>/KVTM_LimpHomeOvrdSw_flg5' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½ï¿½Ë²ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ */
+/* ³äµç×Ü¹¦ÂÊÂË²¨ÏµÊý£¨Ö»ÂËÏÂ½µ£© */
 CALDATA const volatile float32 KEMS_ChrgPwrFbFiltCoeff_c = 0.8F;
                            /* Referenced by: '<S26>/KVTM_LimpHomeOvrdSw_flg3' */
 
-/* ï¿½ï¿½ç¹¦ï¿½Ê±Õ»ï¿½ï¿½Ë²ï¿½Ïµï¿½ï¿½ */
+/* ³äµç¹¦ÂÊ±Õ»·ÂË²¨ÏµÊý */
 CALDATA const volatile float32 KEMS_ChrgPwrFbKiMax_kW = 20.0F;/* Referenced by: '<S45>/Saturation' */
 
-/* ï¿½ï¿½ç¹¦ï¿½Ê±Õ»ï¿½KIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ³äµç¹¦ÂÊ±Õ»·KIÉÏÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_ChrgPwrFbKiMin_kW = 0.0F;/* Referenced by: '<S45>/Saturation' */
 
-/* ï¿½ï¿½ç¹¦ï¿½Ê±Õ»ï¿½KIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ³äµç¹¦ÂÊ±Õ»·KIÏÂÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_ChrgPwrFbMax_kW = 30.0F;/* Referenced by: '<S45>/Saturation2' */
 
-/* ï¿½ï¿½ç¹¦ï¿½Ê±Õ»ï¿½KI+KPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ³äµç¹¦ÂÊ±Õ»·KI+KPÉÏÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_ChrgPwrFbMin_kW = 0.0F;/* Referenced by: '<S45>/Saturation2' */
 
-/* ï¿½ï¿½ç¹¦ï¿½Ê±Õ»ï¿½KI+KPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ³äµç¹¦ÂÊ±Õ»·KI+KPÏÂÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_ChrgPwrFbOff_kW = -10.0F;
                            /* Referenced by: '<S26>/KVTM_LimpHomeOvrdSw_flg1' */
 
-/* ï¿½ï¿½ç¹¦ï¿½Ê±Õ»ï¿½ï¿½ï¿½ï¿½ë·§Öµ */
+/* ³äµç¹¦ÂÊ±Õ»·½øÈë·§Öµ */
 CALDATA const volatile float32 KEMS_ChrgPwrFbOn_kW = -5.0F;
                           /* Referenced by: '<S26>/KVTM_LimpHomeOvrdSw_flg15' */
 
-/* ï¿½ï¿½ç¹¦ï¿½Ê±Õ»ï¿½ï¿½Ë³ï¿½ï¿½ï¿½Öµ */
+/* ³äµç¹¦ÂÊ±Õ»·ÍË³ö·§Öµ */
 CALDATA const volatile float32 KEMS_DCCRsrvMaxPwr_kW = 2.5F;
                            /* Referenced by: '<S29>/KVTM_LimpHomeOvrdSw_flg2' */
 
-/* Ô¤ï¿½ï¿½DCCï¿½ï¿½ï¿½ï¿½ */
+/* Ô¤ÁôDCC¹¦ÂÊ */
 CALDATA const volatile boolean KEMS_DCChrgDCCPwrSel_flg = true;
                            /* Referenced by: '<S29>/KVTM_LimpHomeOvrdSw_flg7' */
 
-/* ï¿½ï¿½È¥DCCï¿½ï¿½ï¿½ÊµÄ·ï¿½Ê½-0-Ô¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-1-Êµï¿½Ê¹ï¿½ï¿½ï¿½ */
+/* ¼õÈ¥DCC¹¦ÂÊµÄ·½Ê½-0-Ô¤Áô¹¦ÂÊ-1-Êµ¼Ê¹¦ÂÊ */
 CALDATA const volatile float32 KEMS_DchaCurFbKiMax_A = 0.0F;/* Referenced by: '<S80>/Saturation' */
 
-/* ï¿½Åµï¿½Kiï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ·ÅµçKiÉÏÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_DchaCurFbKiMin_A = -450.0F;/* Referenced by: '<S80>/Saturation' */
 
-/* ï¿½Åµï¿½Kiï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ·ÅµçKiÏÂÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_DchaCurFbMax_A = 0.0F;/* Referenced by: '<S80>/Saturation2' */
 
-/* ï¿½Åµï¿½KP+Kiï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ·ÅµçKP+KiÉÏÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_DchaCurFbMin_A = -650.0F;/* Referenced by: '<S80>/Saturation2' */
 
-/* ï¿½Åµï¿½KP+Kiï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ·ÅµçKP+KiÏÂÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_DchaFbActvDlyTm_s = 2.0F;
                            /* Referenced by: '<S28>/KVTM_LimpHomeOvrdSw_flg2' */
 
-/* ï¿½Åµç¹¦ï¿½Ê±Õ»ï¿½ï¿½Ë³ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ */
+/* ·Åµç¹¦ÂÊ±Õ»·ÍË³öÑÓ³ÙÊ±¼ä */
 CALDATA const volatile float32 KEMS_DchaPwr2MotRawFiltCoeff_c = 0.9F;
                            /* Referenced by: '<S27>/KVTM_LimpHomeOvrdSw_flg2' */
 
-/* ï¿½Åµï¿½ï¿½Ü¹ï¿½ï¿½ï¿½ï¿½Ë²ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ·Åµç×Ü¹¦ÂÊÂË²¨ÏµÊý£¨Ö»ÂËÉÏÉý£© */
 CALDATA const volatile float32 KEMS_DchaPwrFbFiltCoeff_c = 0.8F;
                            /* Referenced by: '<S28>/KVTM_LimpHomeOvrdSw_flg3' */
 
-/* ï¿½Åµç¹¦ï¿½Ê±Õ»ï¿½ï¿½Ë²ï¿½Ïµï¿½ï¿½ */
+/* ·Åµç¹¦ÂÊ±Õ»·ÂË²¨ÏµÊý */
 CALDATA const volatile float32 KEMS_DchaPwrFbKiMax_kW = 0.0F;/* Referenced by: '<S63>/Saturation' */
 
-/* ï¿½Åµç¹¦ï¿½Ê±Õ»ï¿½KIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ·Åµç¹¦ÂÊ±Õ»·KIÉÏÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_DchaPwrFbKiMin_kW = -20.0F;/* Referenced by: '<S63>/Saturation' */
 
-/* ï¿½Åµç¹¦ï¿½Ê±Õ»ï¿½KIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ·Åµç¹¦ÂÊ±Õ»·KIÏÂÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_DchaPwrFbMax_kW = 0.0F;/* Referenced by: '<S63>/Saturation2' */
 
-/* ï¿½Åµç¹¦ï¿½Ê±Õ»ï¿½KI+KPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ·Åµç¹¦ÂÊ±Õ»·KI+KPÉÏÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_DchaPwrFbMin_kW = -30.0F;/* Referenced by: '<S63>/Saturation2' */
 
-/* ï¿½Åµç¹¦ï¿½Ê±Õ»ï¿½KI+KPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ·Åµç¹¦ÂÊ±Õ»·KI+KPÏÂÏÞÏÞÖÆ */
 CALDATA const volatile float32 KEMS_DchaPwrFbOff_kW = 10.0F;
                            /* Referenced by: '<S28>/KVTM_LimpHomeOvrdSw_flg1' */
 
-/* ï¿½Åµç¹¦ï¿½Ê±Õ»ï¿½ï¿½Ë³ï¿½ï¿½ï¿½Öµ */
+/* ·Åµç¹¦ÂÊ±Õ»·ÍË³ö·§Öµ */
 CALDATA const volatile float32 KEMS_DchaPwrFbOn_kW = 5.0F;
                           /* Referenced by: '<S28>/KVTM_LimpHomeOvrdSw_flg15' */
 
-/* ï¿½Åµç¹¦ï¿½Ê±Õ»ï¿½ï¿½ï¿½ï¿½ë·§Öµ */
+/* ·Åµç¹¦ÂÊ±Õ»·½øÈë·§Öµ */
 CALDATA const volatile float32 KEMS_HVBatActCurrExcdThr_A = -800.0F;
                            /* Referenced by: '<S30>/KVTM_LimpHomeOvrdSw_flg1' */
 
-/* Êµï¿½Êµï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½Öµ */
+/* Êµ¼ÊµçÁ÷Òì³£³¬ÏÞÖµ */
 CALDATA const volatile float32 KEMS_HVBatActCurrExcdVal_A = 500.0F;
                            /* Referenced by: '<S30>/KVTM_LimpHomeOvrdSw_flg2' */
 
-/* Êµï¿½Êµï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ£ï¿½ */
+/* Êµ¼ÊµçÁ÷Òì³£³¬ÏÞÌæ´úÖµ£¨Çý¶¯³¬ÏÞ£© */
 CALDATA const volatile float32 KEMS_HVBatCurrBelowConChrgDlyTm_s = 60.0F;
                          /* Referenced by: '<S25>/KTQC_DrvTqLoEnblRBSThr_Nm1' */
 
-/* Conï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½InsË²Ê±ï¿½ï¿½ï¿½ï¿½ */
+/* Con³ÖÐø»ØÊÕÇÐInsË²Ê±»ØÊÕ */
 CALDATA const volatile float32 KEMS_HVBatCurrBelowConDlyTm_s = 60.0F;
                          /* Referenced by: '<S27>/KTQC_DrvTqLoEnblRBSThr_Nm1' */
 
-/* Conï¿½ï¿½ï¿½ï¿½ï¿½ï¿½InsË²Ê± */
+/* Con³ÖÐøÇÐInsË²Ê± */
 CALDATA const volatile float32 KEMS_HVBatCurrOverConChrgDlyTm_s = 6000.0F;
                          /* Referenced by: '<S25>/KTQC_DrvTqLoEnblRBSThr_Nm3' */
 
-/* InsË²Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Conï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* InsË²Ê±»ØÊÕÇÐCon³ÖÐø»ØÊÕ */
 CALDATA const volatile float32 KEMS_HVBatCurrOverConDlyTm_s = 6000.0F;
                          /* Referenced by: '<S27>/KTQC_DrvTqLoEnblRBSThr_Nm3' */
 
-/* InsË²Ê±ï¿½ï¿½Conï¿½ï¿½ï¿½ï¿½ */
+/* InsË²Ê±ÇÐCon³ÖÐø */
 CALDATA const volatile float32 KEMS_MaxChrgCurDecRate_Aps = -25.0F;
                         /* Referenced by: '<S25>/KCPT_MotorMaxTqFiltCoeff_c1' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½Ð±ï¿½ï¿½ */
+/* ×î´ó³äµçµçÁ÷ÏÂ½µÐ±ÂÊ */
 CALDATA const volatile float32 KEMS_MaxChrgCurFiltAchvd_A = 5.0F;
                         /* Referenced by: '<S25>/KCPT_MotorMaxTqFiltAchvd_Nm' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
+/* ×î´ó³äµçµçÁ÷ÂË²¨½áÊøÖµ */
 CALDATA const volatile float32 KEMS_MaxChrgCurIncRate_Aps = 50.0F;
                          /* Referenced by: '<S25>/KCPT_MotorMaxTqFiltCoeff_c' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ */
+/* ×î´ó³äµçµçÁ÷ÉÏÉýÐ±ÂÊ */
 CALDATA const volatile float32 KEMS_MaxDchaCurDecRate_Aps = -75.0F;
                         /* Referenced by: '<S27>/KCPT_MotorMaxTqFiltCoeff_c1' */
 
-/* ï¿½ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½Ð±ï¿½ï¿½ */
+/* ×î´ó·ÅµçµçÁ÷ÏÂ½µÐ±ÂÊ */
 CALDATA const volatile float32 KEMS_MaxDchaCurFiltAchvd_A = 5.0F;
                         /* Referenced by: '<S27>/KCPT_MotorMaxTqFiltAchvd_Nm' */
 
-/* ï¿½ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
+/* ×î´ó·ÅµçµçÁ÷ÂË²¨½áÊøÖµ */
 CALDATA const volatile float32 KEMS_MaxDchaCurIncRate_Aps = 25.0F;
                          /* Referenced by: '<S27>/KCPT_MotorMaxTqFiltCoeff_c' */
 
-/* ï¿½ï¿½ï¿½Åµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ */
+/* ×î´ó·ÅµçµçÁ÷ÉÏÉýÐ±ÂÊ */
 CALDATA const volatile float32 KEMS_TMSActSOCOff_pct = 3.0F;
                            /* Referenced by: '<S29>/KVTM_LimpHomeOvrdSw_flg5' */
 
-/* ï¿½ï¿½ÏµTMSï¿½ï¿½ï¿½ï¿½SOCï¿½ï¿½Öµ */
+/* ¹ØÏµTMS¹¤×÷SOC·§Öµ */
 CALDATA const volatile float32 KEMS_TMSActSOCOn_pct = 5.0F;
                            /* Referenced by: '<S29>/KVTM_LimpHomeOvrdSw_flg4' */
 
-/* ï¿½ï¿½ï¿½ï¿½TMSï¿½ï¿½ï¿½ï¿½SOCï¿½ï¿½Öµ */
+/* ÔÊÐíTMS¹¤×÷SOC·§Öµ */
 CALDATA const volatile float32 KEMS_TMSMaxPwrLim_kW = 10.0F;
                            /* Referenced by: '<S29>/KVTM_LimpHomeOvrdSw_flg6' */
 
-/* TMSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¹ï¿½ï¿½ï¿½ */
+/* TMS×î´óÔÊÐíÊ¹ÓÃ¹¦ÂÊ */
 CALDATA const volatile float32 KEMS_TMSPwrEnblOff_kW = 0.5F;
                            /* Referenced by: '<S29>/KVTM_LimpHomeOvrdSw_flg3' */
 
-/* ï¿½Ø±ï¿½TMSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* ¹Ø±ÕTMS¹¤×÷¹¦ÂÊ³ÙÖÍÇø¼ä */
 CALDATA const volatile float32 KEMS_TMSPwrEnblOn_kW = 1.0F;
                            /* Referenced by: '<S29>/KVTM_LimpHomeOvrdSw_flg1' */
 
-/* ï¿½ï¿½ï¿½ï¿½TMSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê·ï¿½Öµ */
+/* ÔÊÐíTMS¹¤×÷¹¦ÂÊ·§Öµ */
 CALDATA const volatile float32 KEMS_TMSPwrOffDlyTm_s = 1.8F;
                            /* Referenced by: '<S29>/KVTM_LimpHomeOvrdSw_flg8' */
-CALDATA const volatile boolean KGSM_DRFlt2NSw_flg = false;/* Referenced by: '<S1438>/Constant3' */
+CALDATA const volatile boolean KGSM_DRFlt2NSw_flg = false;/* Referenced by: '<S1494>/Constant3' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½Nï¿½ï¿½Ç¿ï¿½ï¿½ */
-CALDATA const volatile boolean KGSM_DRFlt2NVal_flg = false;/* Referenced by: '<S1438>/Constant2' */
+/* Çý¶¯µµ¹ÊÕÏ½øNµµÇ¿¿Ø */
+CALDATA const volatile boolean KGSM_DRFlt2NVal_flg = false;/* Referenced by: '<S1494>/Constant2' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï½ï¿½Nï¿½ï¿½-ï¿½Û²ï¿½ï¿½ï¿½ï¿½ï¿½VGSM_DRFlt2N_flg */
-CALDATA const volatile float32 KGSM_EPBApld2PDlyTm_s = 2.0F;/* Referenced by: '<S1477>/Constant4' */
+/* Çý¶¯µµ¹ÊÕÏ½øNµµ-¹Û²âÁ¿£ºVGSM_DRFlt2N_flg */
+CALDATA const volatile float32 KGSM_EPBApld2PDlyTm_s = 2.0F;/* Referenced by: '<S1533>/Constant4' */
 
-/* ï¿½æ·¶ï¿½ï¿½EPBï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KGSM_EPBReld2NDlyTm_s = 2.0F;/* Referenced by: '<S1478>/Constant4' */
+/* ¹æ·¶£ºEPBÀ­ÆðÈëPÐèÇóÅÐ¶ÏÊ±¼äãÐÖµ */
+CALDATA const volatile float32 KGSM_EPBReld2NDlyTm_s = 2.0F;/* Referenced by: '<S1534>/Constant4' */
 
-/* ï¿½æ·¶ï¿½ï¿½EPBï¿½Í·ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KGSM_EPBReqMaxTm_s = 2.0F;/* Referenced by: '<S1431>/Constant5' */
+/* ¹æ·¶£ºEPBÊÍ·ÅÈëNÐèÇóÅÐ¶ÏÊ±¼äãÐÖµ */
+CALDATA const volatile float32 KGSM_EPBReqMaxTm_s = 2.0F;/* Referenced by: '<S1487>/Constant5' */
 
-/* ï¿½æ·¶ï¿½ï¿½EPBï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile boolean KGSM_GrNReq2PSw_flg = false;/* Referenced by: '<S1438>/Constant5' */
+/* ¹æ·¶£ºEPBÀ­Æð²Ù×÷Ê±¼äãÐÖµ */
+CALDATA const volatile boolean KGSM_GrNReq2PSw_flg = false;/* Referenced by: '<S1494>/Constant5' */
 
-/* Nï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ */
-CALDATA const volatile boolean KGSM_GrNReq2PVal_flg = false;/* Referenced by: '<S1438>/Constant4' */
+/* Nµµ·Ç»»µ²ÇëÇó½øPµµÇëÇóÇ¿¿Ø */
+CALDATA const volatile boolean KGSM_GrNReq2PVal_flg = false;/* Referenced by: '<S1494>/Constant4' */
 
-/* Nï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½Û²ï¿½ï¿½ï¿½ï¿½ï¿½VGSM_GrNReq2P_flg */
+/* Nµµ·Ç»»µ²ÇëÇó½øPµµÇëÇó-¹Û²âÁ¿£ºVGSM_GrNReq2P_flg */
 CALDATA const volatile float32 KGSM_GrShftF1R1HldTm_s = 0.3F;/* Referenced by:
-                                                              * '<S1476>/Constant3'
-                                                              * '<S1476>/Constant4'
-                                                              * '<S1478>/Constant2'
+                                                              * '<S1532>/Constant3'
+                                                              * '<S1532>/Constant4'
+                                                              * '<S1534>/Constant2'
                                                               */
 
-/* ï¿½æ·¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ */
+/* ¹æ·¶£º»»µ²¸ËÈëNÐèÇóÅÐ¶ÏÊ±¼äãÐÖµ */
 CALDATA const volatile float32 KGSM_GrShftF2R2HldTm_s = 0.2F;/* Referenced by:
-                                                              * '<S1476>/Constant5'
-                                                              * '<S1476>/Constant6'
-                                                              * '<S1476>/Constant7'
-                                                              * '<S1476>/Constant8'
-                                                              * '<S1478>/Constant1'
-                                                              * '<S1478>/Constant9'
+                                                              * '<S1532>/Constant5'
+                                                              * '<S1532>/Constant6'
+                                                              * '<S1532>/Constant7'
+                                                              * '<S1532>/Constant8'
+                                                              * '<S1534>/Constant1'
+                                                              * '<S1534>/Constant9'
                                                               */
 
-/* ï¿½æ·¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Dï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ/ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ */
+/* ¹æ·¶£º»»µ²¸ËÈëDÐèÇóÅÐ¶ÏÊ±¼äãÐÖµ/»»µ²¸ËÈëRÐèÇóÅÐ¶ÏÊ±¼äãÐÖµ */
 CALDATA const volatile float32 KGSM_GrShftHwPHldTm_s = 0.2F;/* Referenced by:
-                                                             * '<S1477>/Constant2'
-                                                             * '<S1477>/Constant5'
-                                                             * '<S1477>/Constant6'
+                                                             * '<S1533>/Constant2'
+                                                             * '<S1533>/Constant5'
+                                                             * '<S1533>/Constant6'
                                                              */
 
-/* ï¿½æ·¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ */
+/* ¹æ·¶£º»»µ²¸ËÈëP°´¼üÊ±¼äãÐÖµ */
 CALDATA const volatile float32 KGSM_GrShftMaxVehSpd_kph = 3.0F;/* Referenced by:
-                                                                * '<S534>/Constant'
-                                                                * '<S534>/Constant1'
-                                                                * '<S1440>/Constant6'
-                                                                * '<S1476>/Constant10'
-                                                                * '<S1476>/Constant11'
-                                                                * '<S1476>/Constant12'
-                                                                * '<S1476>/Constant9'
+                                                                * '<S587>/Constant'
+                                                                * '<S587>/Constant1'
+                                                                * '<S1496>/Constant6'
+                                                                * '<S1532>/Constant10'
+                                                                * '<S1532>/Constant11'
+                                                                * '<S1532>/Constant12'
+                                                                * '<S1532>/Constant9'
                                                                 */
 
-/* ï¿½æ·¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile boolean KGSM_HldGearPSw_flg = false;/* Referenced by: '<S1438>/Constant1' */
+/* ¹æ·¶£º»»µ²³µËÙãÐÖµ */
+CALDATA const volatile boolean KGSM_HldGearPSw_flg = false;/* Referenced by: '<S1494>/Constant1' */
 
-/* ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ */
-CALDATA const volatile boolean KGSM_HldGearPVal_flg = false;/* Referenced by: '<S1438>/Constant' */
+/* ±£³ÖPµµÇëÇóÇ¿¿Ø */
+CALDATA const volatile boolean KGSM_HldGearPVal_flg = false;/* Referenced by: '<S1494>/Constant' */
 
-/* ï¿½ï¿½ï¿½ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½Û²ï¿½ï¿½ï¿½ï¿½ï¿½VGSM_HldGearP_flg */
-CALDATA const volatile float32 KGSM_INVTrnOffDly_s = 2.0F;/* Referenced by: '<S1432>/Constant1' */
+/* ±£³ÖPµµÇëÇó-¹Û²âÁ¿£ºVGSM_HldGearP_flg */
+CALDATA const volatile float32 KGSM_INVTrnOffDly_s = 2.0F;/* Referenced by: '<S1488>/Constant1' */
 
-/* ï¿½æ·¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Êµï¿½Î»ï¿½É·ï¿½Pï¿½ï¿½ï¿½ï¿½ï¿½ëµ½Pï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½2S */
+/* ¹æ·¶£º³µÁ¾Êµ¼ÊµµÎ»ÓÉ·ÇPµµ½øÈëµ½Pµµ¼ÆÊ±Âú2S */
 CALDATA const volatile float32 KGSM_PErrDispMaxTm_s = 5.0F;/* Referenced by:
-                                                            * '<S1431>/Cnst'
-                                                            * '<S1431>/Cnst2'
+                                                            * '<S1487>/Cnst'
+                                                            * '<S1487>/Cnst2'
                                                             */
 
-/* ï¿½æ·¶ï¿½ï¿½Perrorï¿½ï¿½Î»Ê±ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile boolean KGSM_ReqEPBSw_flg = false;/* Referenced by: '<S1431>/Constant1' */
+/* ¹æ·¶£ºPerrorÖÃÎ»Ê±¼äãÐÖµ */
+CALDATA const volatile boolean KGSM_ReqEPBSw_flg = false;/* Referenced by: '<S1487>/Constant1' */
 
-/* ï¿½ï¿½ï¿½ï¿½EPB×´Ì¬Ç¿ï¿½ï¿½ */
-CALDATA const volatile EnumEPBReq KGSM_ReqEPBVal_enum = EnumEPBReq_NoCmd;/* Referenced by: '<S1431>/Constant' */
+/* ÇëÇóEPB×´Ì¬Ç¿¿Ø */
+CALDATA const volatile EnumEPBReq KGSM_ReqEPBVal_enum = EnumEPBReq_NoCmd;/* Referenced by: '<S1487>/Constant' */
 
-/* ï¿½ï¿½ï¿½ï¿½EPB×´Ì¬-ï¿½Û²ï¿½ï¿½ï¿½ï¿½ï¿½VGSM_ReqEPB_enum */
+/* ÇëÇóEPB×´Ì¬-¹Û²âÁ¿£ºVGSM_ReqEPB_enum */
 CALDATA const volatile float32 KGSM_TgtGrReqWatTm_s = 2.0F;/* Referenced by:
-                                                            * '<S1476>/Constant1'
-                                                            * '<S1476>/Constant2'
-                                                            * '<S1477>/Constant1'
-                                                            * '<S1477>/Constant3'
-                                                            * '<S1522>/Constant4'
-                                                            * '<S1523>/Constant4'
-                                                            * '<S1586>/Constant4'
-                                                            * '<S1587>/Constant4'
-                                                            * '<S1588>/Constant4'
-                                                            * '<S1628>/Constant4'
-                                                            * '<S1629>/Constant4'
-                                                            * '<S1630>/Constant4'
+                                                            * '<S1532>/Constant1'
+                                                            * '<S1532>/Constant2'
+                                                            * '<S1533>/Constant1'
+                                                            * '<S1533>/Constant3'
+                                                            * '<S1578>/Constant4'
+                                                            * '<S1579>/Constant4'
+                                                            * '<S1642>/Constant4'
+                                                            * '<S1643>/Constant4'
+                                                            * '<S1644>/Constant4'
+                                                            * '<S1684>/Constant4'
+                                                            * '<S1685>/Constant4'
+                                                            * '<S1686>/Constant4'
                                                             */
 
-/* ï¿½æ·¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ */
+/* ¹æ·¶£º»»µ²ÇëÇó³ÖÐøÊ±¼äãÐÖµ */
 CALDATA const volatile boolean KGSM_VehActGearPstnSw_flg = false;
-                                      /* Referenced by: '<S1432>/APA_Switdh4' */
+                                      /* Referenced by: '<S1488>/APA_Switdh4' */
 
-/* Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½ */
+/* Êµ¼ÊÊä³öµµÎ»¿ØÖÆÇ¿¿Ø */
 CALDATA const volatile EnumGearPstn KGSM_VehActGearPstnVal_enum = EnumGearPstn_P;
-                                      /* Referenced by: '<S1432>/APA_Switdh5' */
+                                      /* Referenced by: '<S1488>/APA_Switdh5' */
 
-/* Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ 0-P 1-N 2-D 3-R-ï¿½Û²ï¿½ï¿½ï¿½ï¿½ï¿½VGSM_VehActGearPstn_enum */
-CALDATA const volatile float32 KHMI_BackwSldgBgnEnd_kph = -3.0F;/* Referenced by: '<S536>/Constant1' */
-CALDATA const volatile float32 KHMI_BackwSldgBgnSpd_kph = -0.5F;/* Referenced by: '<S536>/Constant' */
-CALDATA const volatile float32 KHMI_BackwSldgDst_m = -0.5F;/* Referenced by: '<S536>/Constant2' */
-CALDATA const volatile float32 KHMI_BatCellMaxTemWarning_C = 48.0F;/* Referenced by: '<S528>/Constant' */
+/* Êµ¼ÊÊä³öµµÎ»¿ØÖÆ 0-P 1-N 2-D 3-R-¹Û²âÁ¿£ºVGSM_VehActGearPstn_enum */
+CALDATA const volatile float32 KHMI_BackwSldgBgnEnd_kph = -3.0F;/* Referenced by: '<S589>/Constant1' */
+CALDATA const volatile float32 KHMI_BackwSldgBgnSpd_kph = -0.5F;/* Referenced by: '<S589>/Constant' */
+CALDATA const volatile float32 KHMI_BackwSldgDst_m = -0.5F;/* Referenced by: '<S589>/Constant2' */
+CALDATA const volatile float32 KHMI_BatCellMaxTemWarning_C = 48.0F;/* Referenced by: '<S581>/Constant' */
 
-/* ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¶È£ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½ï¿½Â¶ï¿½ */
-CALDATA const volatile float32 KHMI_BothAccBrkTime_s = 0.2F;/* Referenced by: '<S529>/Constant1' */
+/* µçÐ¾£¨×î¸ßÎÂ¶È£©ÏÞ¹¦ÂÊÎÂ¶È */
+CALDATA const volatile float32 KHMI_BothAccBrkTime_s = 0.2F;/* Referenced by: '<S582>/Constant1' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHMI_CellOverTempTime_s = 5.0F;/* Referenced by: '<S528>/Constant1' */
+/* »ØÀ¡ÄÜÁ¦ÊÜÏÞÅÐ¶ÏÊ±³¤ */
+CALDATA const volatile float32 KHMI_CellOverTempTime_s = 5.0F;/* Referenced by: '<S581>/Constant1' */
 
-/* ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHMI_DriPwrLmtTime_s = 5.0F;/* Referenced by: '<S533>/Constant1' */
+/* µçÐ¾¹ýÎÂÅÐ¶ÏÊ±³¤ */
+CALDATA const volatile float32 KHMI_DriPwrLmtTime_s = 5.0F;/* Referenced by: '<S586>/Constant1' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHMI_DriPwrLmtVa_kw = 25.0F;/* Referenced by: '<S533>/Constant' */
+/* Çý¶¯ÄÜÁ¦ÊÜÏÞÅÐ¶ÏÊ±³¤ */
+CALDATA const volatile float32 KHMI_DriPwrLmtVa_kw = 25.0F;/* Referenced by: '<S586>/Constant' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KHMI_FwdSldgBgnEnd_kph = 3.0F;/* Referenced by: '<S536>/Constant5' */
-CALDATA const volatile float32 KHMI_FwdSldgBgnSpd_kph = 0.5F;/* Referenced by: '<S536>/Constant4' */
-CALDATA const volatile float32 KHMI_FwdSldgDst_m = 0.5F;/* Referenced by: '<S536>/Constant6' */
-CALDATA const volatile float32 KHMI_InfoDispIntervalTm_s = 2.5F;/* Referenced by: '<S525>/Constant27' */
+/* Çý¶¯ÄÜÁ¦ÊÜÏÞãÐÖµ */
+CALDATA const volatile float32 KHMI_FwdSldgBgnEnd_kph = 3.0F;/* Referenced by: '<S589>/Constant5' */
+CALDATA const volatile float32 KHMI_FwdSldgBgnSpd_kph = 0.5F;/* Referenced by: '<S589>/Constant4' */
+CALDATA const volatile float32 KHMI_FwdSldgDst_m = 0.5F;/* Referenced by: '<S589>/Constant6' */
+CALDATA const volatile float32 KHMI_InfoDispIntervalTm_s = 2.5F;/* Referenced by: '<S578>/Constant27' */
 
-/* InfoDispï¿½ï¿½ï¿½Í¸ï¿½ï¿½Ç±ï¿½Î¬ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHMI_RecPwrLmtTime_s = 5.0F;/* Referenced by: '<S535>/Constant1' */
+/* InfoDisp·¢ËÍ¸øÒÇ±íÎ¬³ÖÊ±³¤ */
+CALDATA const volatile float32 KHMI_RecPwrLmtTime_s = 5.0F;/* Referenced by: '<S588>/Constant1' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHMI_RecPwrLmtVa_kw = -10.0F;/* Referenced by: '<S535>/Constant' */
+/* »ØÀ¡ÄÜÁ¦ÊÜÏÞÅÐ¶ÏÊ±³¤ */
+CALDATA const volatile float32 KHMI_RecPwrLmtVa_kw = -10.0F;/* Referenced by: '<S588>/Constant' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KHMI_SnowModWarnSpd_kph = 120.0F;/* Referenced by: '<S537>/Constant1' */
+/* »ØÀ¡ÄÜÁ¦ÊÜÏÞãÐÖµ */
+CALDATA const volatile float32 KHMI_SnowModWarnSpd_kph = 120.0F;/* Referenced by: '<S590>/Constant1' */
 
-/* Ñ©ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½Ù±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
+/* Ñ©µØÄ£Ê½³¬ËÙ±¨¾¯³µËÙãÐÖµ */
 CALDATA const volatile float32 KHMI_SpdWheelFRdiff_kph = 20.0F;/* Referenced by:
-                                                                * '<S538>/Constant1'
-                                                                * '<S538>/Constant3'
-                                                                * '<S538>/Constant5'
-                                                                * '<S538>/Constant7'
+                                                                * '<S591>/Constant1'
+                                                                * '<S591>/Constant3'
+                                                                * '<S591>/Constant5'
+                                                                * '<S591>/Constant7'
                                                                 */
 
-/* ï¿½ï¿½ï¿½Ò³ï¿½ï¿½Ö²ï¿½Öµï¿½ï¿½Öµ */
+/* ×óÓÒ³µÂÖ²îÖµãÐÖµ */
 CALDATA const volatile float32 KHMI_WarningSendTime_s = 2.5F;/* Referenced by:
-                                                              * '<S525>/Constant'
-                                                              * '<S525>/Constant10'
-                                                              * '<S525>/Constant12'
-                                                              * '<S525>/Constant14'
-                                                              * '<S525>/Constant16'
-                                                              * '<S525>/Constant18'
-                                                              * '<S525>/Constant2'
-                                                              * '<S525>/Constant20'
-                                                              * '<S525>/Constant22'
-                                                              * '<S525>/Constant4'
-                                                              * '<S525>/Constant6'
-                                                              * '<S525>/Constant8'
+                                                              * '<S578>/Constant'
+                                                              * '<S578>/Constant10'
+                                                              * '<S578>/Constant12'
+                                                              * '<S578>/Constant14'
+                                                              * '<S578>/Constant16'
+                                                              * '<S578>/Constant18'
+                                                              * '<S578>/Constant2'
+                                                              * '<S578>/Constant20'
+                                                              * '<S578>/Constant22'
+                                                              * '<S578>/Constant4'
+                                                              * '<S578>/Constant6'
+                                                              * '<S578>/Constant8'
                                                               */
 
-/* InfoDispï¿½ï¿½ï¿½ï¿½Î¬ï¿½Ö·ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_ChrgStopWaitTm_s = 2.0F;/* Referenced by: '<S647>/MainState' */
+/* InfoDispÌáÐÑÎ¬³Ö·¢ËÍÊ±¼ä */
+CALDATA const volatile float32 KHVM_ChrgStopWaitTm_s = 1.0F;/* Referenced by: '<S700>/MainState' */
 
-/* OBCï¿½ï¿½ç»½ï¿½ï¿½Ô´ï¿½Ï¿ï¿½ï¿½È´ï¿½Ê±ï¿½ï¿½ */
+/* OBC³äµç»½ÐÑÔ´¶Ï¿ªµÈ´ýÊ±¼ä */
 CALDATA const volatile float32 KHVM_ChrgTransCfmTm_s = 0.5F;/* Referenced by:
-                                                             * '<S668>/Constant1'
-                                                             * '<S668>/Constant11'
-                                                             * '<S668>/Constant12'
-                                                             * '<S668>/Constant2'
-                                                             * '<S668>/Constant3'
-                                                             * '<S668>/Constant4'
-                                                             * '<S668>/Constant7'
-                                                             * '<S668>/Constant9'
+                                                             * '<S721>/Constant1'
+                                                             * '<S721>/Constant11'
+                                                             * '<S721>/Constant12'
+                                                             * '<S721>/Constant2'
+                                                             * '<S721>/Constant3'
+                                                             * '<S721>/Constant4'
+                                                             * '<S721>/Constant7'
+                                                             * '<S721>/Constant9'
                                                              */
 
-/* ï¿½ï¿½Åµï¿½×´Ì¬×ªï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
+/* ³ä·Åµç×´Ì¬×ªÒÆµ½½áÊøµÄÈ·ÈÏÊ±¼ä */
 CALDATA const volatile float32 KHVM_ChrgVoltReachCfmTm_s = 3.0F;/* Referenced by:
-                                                                 * '<S648>/Constant4'
-                                                                 * '<S648>/Constant7'
+                                                                 * '<S701>/Constant4'
+                                                                 * '<S701>/Constant7'
                                                                  */
 
-/* ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ïµ½ï¿½ï¿½Ö¹ï¿½ï¿½Ñ¹È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_DCCBuckLVVolt_V = 14.41F;/* Referenced by: '<S647>/MainState' */
+/* ½»Ö±Á÷³äµç´ïµ½½ØÖ¹µçÑ¹È·ÈÏÊ±¼ä */
+CALDATA const volatile float32 KHVM_DCCBuckLVVolt_V = 14.41F;/* Referenced by: '<S700>/MainState' */
 
-/* DCDC BUCK ï¿½ï¿½Ñ¹ */
-CALDATA const volatile float32 KHVM_DchaStopWaitTm_s = 2.0F;/* Referenced by: '<S647>/MainState' */
+/* DCDC BUCK µçÑ¹ */
+CALDATA const volatile float32 KHVM_DchaStopWaitTm_s = 2.0F;/* Referenced by: '<S700>/MainState' */
 
-/* OBCï¿½Åµï¿½ç»½ï¿½ï¿½Ô´ï¿½Ï¿ï¿½ï¿½È´ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_HUMaxChrgCurntAC_A = 32.0F;/* Referenced by: '<S648>/Constant3' */
+/* OBC·Åµçµç»½ÐÑÔ´¶Ï¿ªµÈ´ýÊ±¼ä */
+CALDATA const volatile float32 KHVM_HUMaxChrgCurntAC_A = 32.0F;/* Referenced by: '<S701>/Constant3' */
 
-/* HUï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_HUMinChrgCurntAC_A = 5.0F;/* Referenced by: '<S648>/Constant2' */
+/* HUÉèÖÃ½»Á÷³äµçµçÁ÷×î´óÏÞÖÆ */
+CALDATA const volatile float32 KHVM_HUMinChrgCurntAC_A = 5.0F;/* Referenced by: '<S701>/Constant2' */
 
-/* HUï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_HVCheckTmout_s = 4.0F;/* Referenced by: '<S647>/MainState' */
+/* HUÉèÖÃ½»Á÷³äµçµçÁ÷×îÐ¡ÏÞÖÆ */
+CALDATA const volatile float32 KHVM_HVCheckTmout_s = 4.0F;/* Referenced by: '<S700>/MainState' */
 
-/* INV&DCDCï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_HVCutOffTmout_s = 180.0F;/* Referenced by: '<S647>/MainState' */
+/* INV&DCDC¸ßÑ¹½¨Á¢µÈ´ýÊ±¼ä */
+CALDATA const volatile float32 KHVM_HVCutOffTmout_s = 180.0F;/* Referenced by: '<S700>/MainState' */
 
-/* BMSï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½È´ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_HVDeviceOffTmout_s = 10.0F;/* Referenced by: '<S647>/MainState' */
+/* BMSÖ÷¼ÌµçÆ÷¶Ï¿ªµÈ´ýÊ±¼ä */
+CALDATA const volatile float32 KHVM_HVDeviceOffTmout_s = 10.0F;/* Referenced by: '<S700>/MainState' */
 
-/* ï¿½Âµï¿½Ø±ï¿½ï¿½è±¸ï¿½ï¿½ï¿½Õµï¿½&DCDCï¿½ï¿½ï¿½È´ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_HVDschrgTmout_s = 180.0F;/* Referenced by: '<S647>/MainState' */
+/* ÏÂµç¹Ø±ÕÉè±¸£¨¿Õµ÷&DCDC£©µÈ´ýÊ±¼ä */
+CALDATA const volatile float32 KHVM_HVDschrgTmout_s = 180.0F;/* Referenced by: '<S700>/MainState' */
 
-/* INVÐ¹ï¿½ÅµÈ´ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_HVSetUpTmout_s = 61.0F;/* Referenced by: '<S647>/MainState' */
+/* INVÐ¹·ÅµÈ´ýÊ±¼ä */
+CALDATA const volatile float32 KHVM_HVSetUpTmout_s = 61.0F;/* Referenced by: '<S700>/MainState' */
 
-/* ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ÕºÏµÈ´ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_INVPreprogm_ovrdflg = false;/* Referenced by: '<S669>/Constant1' */
+/* Ö÷¼ÌµçÆ÷±ÕºÏµÈ´ýÊ±¼ä */
+CALDATA const volatile boolean KHVM_INVPreprogm_ovrdflg = false;/* Referenced by: '<S722>/Constant1' */
 
-/* INVï¿½ï¿½ï¿½Ì±ê¶¨ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_INVPreprogm_ovrdval = false;/* Referenced by: '<S669>/Constant' */
+/* INVÓë±à³Ì±ê¶¨¿ØÖÆ¿ª¹Ø */
+CALDATA const volatile boolean KHVM_INVPreprogm_ovrdval = false;/* Referenced by: '<S722>/Constant' */
 
-/* INVï¿½ï¿½ï¿½Ì±ê¶¨ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KHVM_INVholdTm_s = 2.0F;/* Referenced by: '<S647>/MainState' */
+/* INVÓë±à³Ì±ê¶¨¿ØÖÆÖµ */
+CALDATA const volatile float32 KHVM_INVholdTm_s = 2.0F;/* Referenced by: '<S700>/MainState' */
 
-/* ï¿½Âµç±£ï¿½ï¿½INVÓ²ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Ó³ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_KL15OffPwrDwnCfmTm_s = 0.5F;/* Referenced by: '<S673>/Constant4' */
+/* ÏÂµç±£³ÖINVÓ²ÏßÊ¹ÄÜÑÓ³ÙÊ±¼ä */
+CALDATA const volatile float32 KHVM_KL15OffPwrDwnCfmTm_s = 0.5F;/* Referenced by: '<S726>/Constant4' */
 
-/* KL15ï¿½Ï¿ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_MaxHVDCCurntAC_A = 32.0F;/* Referenced by: '<S648>/Constant1' */
+/* KL15¶Ï¿ªÈ·ÈÏÊ±¼ä */
+CALDATA const volatile float32 KHVM_MaxHVDCCurntAC_A = 32.0F;/* Referenced by: '<S701>/Constant1' */
 
-/* VCUï¿½ï¿½ï¿½ï¿½ï¿½ï¿½OBCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(Ö±ï¿½ï¿½ï¿½ï¿½) */
-CALDATA const volatile float32 KHVM_MaxHVDCVoltAC_V = 455.0F;/* Referenced by: '<S648>/Constant12' */
+/* VCU·´À¡¸øOBC×î´óµçÁ÷ÏÞÖÆ(Ö±Á÷²à) */
+CALDATA const volatile float32 KHVM_MaxHVDCVoltAC_V = 455.0F;/* Referenced by: '<S701>/Constant12' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ */
-CALDATA const volatile float32 KHVM_OBCS2ClsTmout_s = 6.0F;/* Referenced by: '<S647>/MainState' */
+/* ½»Á÷³äµç×î´óµçÑ¹ */
+CALDATA const volatile float32 KHVM_OBCS2ClsTmout_s = 6.0F;/* Referenced by: '<S700>/MainState' */
 
-/* S2ï¿½ÕºÏµÈ´ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_PTRdy2PTStdby_ovrdflg = false;/* Referenced by: '<S671>/Constant7' */
+/* S2±ÕºÏµÈ´ýÊ±¼ä */
+CALDATA const volatile boolean KHVM_PTRdy2PTStdby_ovrdflg = false;/* Referenced by: '<S724>/Constant7' */
 
-/* Rdyï¿½Ë»ï¿½Stdbyï¿½ï¿½ï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_PTRdy2PTStdby_ovrdval = false;/* Referenced by: '<S671>/Constant4' */
+/* RdyÍË»ØStdby¿ª¹Ø */
+CALDATA const volatile boolean KHVM_PTRdy2PTStdby_ovrdval = false;/* Referenced by: '<S724>/Constant4' */
 
-/* Rdyï¿½Ë»ï¿½Stdbyï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KHVM_PTRdyBrkSwEffctvTm_s = 2.0F;/* Referenced by: '<S671>/Constant1' */
+/* RdyÍË»ØStdby¿ØÖÆÖµ */
+CALDATA const volatile float32 KHVM_PTRdyBrkSwEffctvTm_s = 2.0F;/* Referenced by: '<S724>/Constant1' */
 
-/* É²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_PTStdby2PTRdy_ovrdflg = false;/* Referenced by: '<S671>/Constant3' */
+/* É²³µÉÏÉýÑØ±£³ÖÊ±¼ä */
+CALDATA const volatile boolean KHVM_PTStdby2PTRdy_ovrdflg = false;/* Referenced by: '<S724>/Constant3' */
 
-/* Stdbyï¿½ï¿½ï¿½ï¿½Rdyï¿½ï¿½ï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_PTStdby2PTRdy_ovrdval = false;/* Referenced by: '<S671>/Constant' */
+/* Stdby½øÈëRdy¿ª¹Ø */
+CALDATA const volatile boolean KHVM_PTStdby2PTRdy_ovrdval = false;/* Referenced by: '<S724>/Constant' */
 
-/* Stdbyï¿½ï¿½ï¿½ï¿½Rdyï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile boolean KHVM_PowUpSelfChek_ovrdflg = false;/* Referenced by: '<S672>/Constant3' */
+/* Stdby½øÈëRdy¿ØÖÆÖµ */
+CALDATA const volatile boolean KHVM_PowUpSelfChek_ovrdflg = false;/* Referenced by: '<S725>/Constant3' */
 
-/* ï¿½ï¿½Ñ¹ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_PowUpSelfChek_ovrdval = false;/* Referenced by: '<S672>/Constant' */
+/* ¸ßÑ¹×Ô¼ìÌõ¼þ¿ØÖÆ¿ª¹Ø */
+CALDATA const volatile boolean KHVM_PowUpSelfChek_ovrdval = false;/* Referenced by: '<S725>/Constant' */
 
-/* ï¿½ï¿½Ñ¹ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile boolean KHVM_PwrOn2PwrDwn_ovrdflg = false;/* Referenced by: '<S673>/Constant3' */
+/* ¸ßÑ¹×Ô¼ìÌõ¼þ¿ØÖÆÖµ */
+CALDATA const volatile boolean KHVM_PwrOn2PwrDwn_ovrdflg = false;/* Referenced by: '<S726>/Constant3' */
 
-/* ï¿½ï¿½Ñ¹ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¿ªï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_PwrOn2PwrDwn_ovrdval = false;/* Referenced by: '<S673>/Constant' */
+/* ¸ßÑ¹ÏÂµçÌõ¼þÂú×ã¿ª¹Ø */
+CALDATA const volatile boolean KHVM_PwrOn2PwrDwn_ovrdval = false;/* Referenced by: '<S726>/Constant' */
 
-/* ï¿½ï¿½Ñ¹ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KHVM_PwrUpACChrgEffctvTm_s = 2.0F;/* Referenced by: '<S674>/Constant1' */
+/* ¸ßÑ¹ÏÂµçÌõ¼þÂú×ã¿ØÖÆÖµ */
+CALDATA const volatile float32 KHVM_PwrUpACChrgEffctvTm_s = 2.0F;/* Referenced by: '<S727>/Constant1' */
 
-/* OBCï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_PwrUpDCChrgEffctvTm_s = 2.0F;/* Referenced by: '<S674>/Constant4' */
+/* OBC»½ÐÑÔ´ÉÏÉýÑØ±£³ÖÊ±¼ä */
+CALDATA const volatile float32 KHVM_PwrUpDCChrgEffctvTm_s = 2.0F;/* Referenced by: '<S727>/Constant4' */
 
-/* BMSï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_PwrUpIBSDlyTm_s = 3.0F;/* Referenced by: '<S674>/Constant5' */
+/* BMS»½ÐÑÔ´ÉÏÉýÑØ±£³ÖÊ±¼ä */
+CALDATA const volatile float32 KHVM_PwrUpIBSDlyTm_s = 3.0F;/* Referenced by: '<S727>/Constant5' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½Ô´ï¿½Ó³ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_PwrUpIBSEffctvTm_s = 5.0F;/* Referenced by: '<S674>/Constant9' */
+/* IBS»½ÐÑÔ´ÑÓ³ÙÊ±¼ä */
+CALDATA const volatile float32 KHVM_PwrUpIBSEffctvTm_s = 5.0F;/* Referenced by: '<S727>/Constant9' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_PwrUpKL15EffctvTm_s = 2.0F;/* Referenced by: '<S674>/Constant17' */
+/* IBSÉÏÉýÑØ±£³ÖÊ±¼ä */
+CALDATA const volatile float32 KHVM_PwrUpKL15EffctvTm_s = 2.0F;/* Referenced by: '<S727>/Constant17' */
 
-/* KL15ï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_SOCExtrmLo_pct = 0.0F;/* Referenced by: '<S650>/Constant9' */
+/* KL15ÉÏÉýÑØ±£³ÖÊ±¼ä */
+CALDATA const volatile float32 KHVM_SOCExtrmLo_pct = 0.0F;/* Referenced by: '<S703>/Constant9' */
 
-/* SOCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KHVM_SOCLoPwrDwnDlyTm_s = 10.0F;/* Referenced by: '<S673>/Constant2' */
+/* SOC¼«µÍãÐÖµ */
+CALDATA const volatile float32 KHVM_SOCLoPwrDwnDlyTm_s = 10.0F;/* Referenced by: '<S726>/Constant2' */
 
-/* SOCï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_SOPExtrmLo_kW = 0.1F;/* Referenced by: '<S650>/Constant3' */
+/* SOC¼«µÍÈ·ÈÏÊ±¼ä */
+CALDATA const volatile float32 KHVM_SOPExtrmLo_kW = 0.1F;/* Referenced by: '<S703>/Constant3' */
 
-/* SOPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KHVM_SleepWaitTm_s = 5.0F;/* Referenced by: '<S647>/MainState' */
+/* SOP¼«µÍãÐÖµ */
+CALDATA const volatile float32 KHVM_SleepWaitTm_s = 5.0F;/* Referenced by: '<S700>/MainState' */
 
-/* ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµÈ´ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_TBOXReSetACChgTm_s = 2.0F;/* Referenced by: '<S648>/Constant6' */
+/* ÏÂµç¿ÉÒÔÐÝÃßµÈ´ýÊ±¼ä */
+CALDATA const volatile float32 KHVM_TBOXReSetACChgTm_s = 2.0F;/* Referenced by: '<S701>/Constant6' */
 
-/* TBOXÔ¶ï¿½Ì³ï¿½ï¿½ï¿½ï¿½ï¿½ó±£³ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_Tbox2OBCOprtCmd_ovrdflg = false;/* Referenced by: '<S648>/Constant9' */
+/* TBOXÔ¶³Ì³äµçÇëÇó±£³ÖÊ±¼ä */
+CALDATA const volatile boolean KHVM_Tbox2OBCOprtCmd_ovrdflg = false;/* Referenced by: '<S701>/Constant9' */
 
-/* TBOXÔ¶ï¿½Ì³ï¿½ç¿ªï¿½ï¿½ */
-CALDATA const volatile uint8 KHVM_Tbox2OBCOprtCmd_ovrdval = 0U;/* Referenced by: '<S648>/Constant' */
+/* TBOXÔ¶³Ì³äµç¿ª¹Ø */
+CALDATA const volatile uint8 KHVM_Tbox2OBCOprtCmd_ovrdval = 0U;/* Referenced by: '<S701>/Constant' */
 
-/* TBOXÔ¶ï¿½Ì³ï¿½ï¿½ê¶¨Öµ */
-CALDATA const volatile float32 KHVM_VehHaltCfmTm_s = 0.5F;/* Referenced by: '<S650>/Constant7' */
+/* TBOXÔ¶³Ì³äµç±ê¶¨Öµ */
+CALDATA const volatile float32 KHVM_VehHaltCfmTm_s = 0.5F;/* Referenced by: '<S703>/Constant7' */
 
-/* ï¿½ï¿½ï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_VehHaltSpd_kph = 1.0F;/* Referenced by: '<S650>/Constant10' */
+/* ³µÁ¾Í£Ö¹³µËÙÈ·ÈÏÊ±¼ä */
+CALDATA const volatile float32 KHVM_VehHaltSpd_kph = 1.0F;/* Referenced by: '<S703>/Constant10' */
 
-/* ï¿½ï¿½ï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KHVM_VehMoveCfmTm_s = 1.0F;/* Referenced by: '<S650>/Constant12' */
+/* ³µÁ¾Í£Ö¹³µËÙãÐÖµ */
+CALDATA const volatile float32 KHVM_VehMoveCfmTm_s = 1.0F;/* Referenced by: '<S703>/Constant12' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile float32 KHVM_VehSpdLo_kph = 3.0F;/* Referenced by: '<S650>/Constant2' */
+/* ³µÁ¾ÔË¶¯³µËÙÈ·ÈÏÊ±¼ä */
+CALDATA const volatile float32 KHVM_VehSpdLo_kph = 3.0F;/* Referenced by: '<S703>/Constant2' */
 
-/* ï¿½Í³ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile boolean KHVM_WakeUp2PwrUp_ovrdflg = false;/* Referenced by: '<S674>/Constant6' */
+/* µÍ³µËÙãÐÖµ */
+CALDATA const volatile boolean KHVM_WakeUp2PwrUp_ovrdflg = false;/* Referenced by: '<S727>/Constant6' */
 
-/* ï¿½ï¿½ï¿½Ñµï¿½ï¿½Ï¸ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_WakeUp2PwrUp_ovrdval = false;/* Referenced by: '<S674>/Constant' */
+/* »½ÐÑµ½ÉÏ¸ßÑ¹Ìõ¼þ¿ª¹Ø */
+CALDATA const volatile boolean KHVM_WakeUp2PwrUp_ovrdval = false;/* Referenced by: '<S727>/Constant' */
 
-/* ï¿½ï¿½ï¿½Ñµï¿½ï¿½Ï¸ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile boolean KHVM_WakeUpVCU_ovrdflg = false;/* Referenced by: '<S675>/Constant1' */
+/* »½ÐÑµ½ÉÏ¸ßÑ¹Ìõ¼þ¿ØÖÆÖµ */
+CALDATA const volatile boolean KHVM_WakeUpVCU_ovrdflg = false;/* Referenced by: '<S728>/Constant1' */
 
-/* ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ï¿½ï¿½ */
-CALDATA const volatile boolean KHVM_WakeUpVCU_ovrdval = false;/* Referenced by: '<S675>/Constant' */
+/* ÐÝÃßµ½»½ÐÑÌõ¼þ¿ØÖÆ¿ª¹Ø */
+CALDATA const volatile boolean KHVM_WakeUpVCU_ovrdval = false;/* Referenced by: '<S728>/Constant' */
 
-/* ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
+/* ÐÝÃßµ½»½ÐÑÌõ¼þ¿ØÖÆÖµ */
 CALDATA const volatile uint8 KIBS_ChgMaxNumThr_cnt = 60U;/* Referenced by:
-                                                          * '<S900>/Constant'
-                                                          * '<S900>/Constant6'
+                                                          * '<S951>/Constant'
+                                                          * '<S951>/Constant6'
                                                           */
 
-/* ï¿½ï¿½ó²¹µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ_versteckt */
-CALDATA const volatile float32 KIBS_ChrgCurntOKThr_A = 0.05F;/* Referenced by: '<S898>/ChrgSt' */
+/* ×î´ó²¹µç´ÎÊýãÐÖµ_versteckt */
+CALDATA const volatile float32 KIBS_ChrgCurntOKThr_A = 0.05F;/* Referenced by: '<S949>/ChrgSt' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ_versteckt */
-CALDATA const volatile uint16 KIBS_ChrgFailTmThr_min = 1U;/* Referenced by: '<S898>/ChrgSt' */
+/* IBS³äµçµçÁ÷ãÐÖµ_versteckt */
+CALDATA const volatile uint16 KIBS_ChrgFailTmThr_min = 1U;/* Referenced by: '<S949>/ChrgSt' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ_versteckt */
-CALDATA const volatile float32 KIBS_ChrgTempThr1_C = -15.0F;/* Referenced by: '<S901>/VoltState' */
+/* IBS²¹µç¹ÊÕÏÊ±¼äãÐÖµ_versteckt */
+CALDATA const volatile float32 KIBS_ChrgTempThr1_C = -15.0F;/* Referenced by: '<S952>/VoltState' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½Öµ1_versteckt */
-CALDATA const volatile float32 KIBS_ChrgTempThr2_C = -5.0F;/* Referenced by: '<S901>/VoltState' */
+/* IBS²¹µçÎÂ¶ÈãÐÖµ1_versteckt */
+CALDATA const volatile float32 KIBS_ChrgTempThr2_C = -5.0F;/* Referenced by: '<S952>/VoltState' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½Öµ2_versteckt */
-CALDATA const volatile float32 KIBS_ChrgTempThr3_C = 5.0F;/* Referenced by: '<S901>/VoltState' */
+/* IBS²¹µçÎÂ¶ÈãÐÖµ2_versteckt */
+CALDATA const volatile float32 KIBS_ChrgTempThr3_C = 5.0F;/* Referenced by: '<S952>/VoltState' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½Â¶ï¿½ï¿½ï¿½Öµ3_versteckt */
-CALDATA const volatile float32 KIBS_ChrgVoltThr1_V = 12.4F;/* Referenced by: '<S901>/VoltState' */
+/* IBS²¹µçÎÂ¶ÈãÐÖµ3_versteckt */
+CALDATA const volatile float32 KIBS_ChrgVoltThr1_V = 12.4F;/* Referenced by: '<S952>/VoltState' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½Öµ1_versteckt */
-CALDATA const volatile float32 KIBS_ChrgVoltThr2_V = 12.5F;/* Referenced by: '<S901>/VoltState' */
+/* IBS²¹µçµçÑ¹ãÐÖµ1_versteckt */
+CALDATA const volatile float32 KIBS_ChrgVoltThr2_V = 12.5F;/* Referenced by: '<S952>/VoltState' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½Öµ2_versteckt */
-CALDATA const volatile float32 KIBS_ChrgVoltThr3_V = 12.6F;/* Referenced by: '<S901>/VoltState' */
+/* IBS²¹µçµçÑ¹ãÐÖµ2_versteckt */
+CALDATA const volatile float32 KIBS_ChrgVoltThr3_V = 12.6F;/* Referenced by: '<S952>/VoltState' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½Öµ3_versteckt */
-CALDATA const volatile float32 KIBS_ChrgVoltThr4_V = 12.7F;/* Referenced by: '<S901>/VoltState' */
+/* IBS²¹µçµçÑ¹ãÐÖµ3_versteckt */
+CALDATA const volatile float32 KIBS_ChrgVoltThr4_V = 12.7F;/* Referenced by: '<S952>/VoltState' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½Öµ4_versteckt */
-CALDATA const volatile uint16 KIBS_CurntOKTmThr_min = 1U;/* Referenced by: '<S898>/ChrgSt' */
+/* IBS²¹µçµçÑ¹ãÐÖµ4_versteckt */
+CALDATA const volatile uint16 KIBS_CurntOKTmThr_min = 1U;/* Referenced by: '<S949>/ChrgSt' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ïµ½ï¿½ï¿½ÖµÈ·ï¿½ï¿½Ê±ï¿½ï¿½_versteckt */
-CALDATA const volatile float32 KIBS_DfltEnvirTemp_C = 5.0F;/* Referenced by: '<S901>/Constant1' */
+/* IBS³äµçµçÁ÷´ïµ½ãÐÖµÈ·ÈÏÊ±¼ä_versteckt */
+CALDATA const volatile float32 KIBS_DfltEnvirTemp_C = 5.0F;/* Referenced by: '<S952>/Constant1' */
 
-/* ACï¿½ï¿½ï¿½ï¿½ï¿½Â¶ï¿½Ê§Ð§Ê±ï¿½ï¿½Ä¬ï¿½ÏµÄ»ï¿½ï¿½ï¿½ï¿½Â¶ï¿½_versteckt */
-CALDATA const volatile float32 KIBS_EnvirTemptFiltCoeff_c = 0.1F;/* Referenced by: '<S901>/Constant3' */
+/* AC»·¾³ÎÂ¶ÈÊ§Ð§Ê±£¬Ä¬ÈÏµÄ»·¾³ÎÂ¶È_versteckt */
+CALDATA const volatile float32 KIBS_EnvirTemptFiltCoeff_c = 0.1F;/* Referenced by: '<S952>/Constant3' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½Â¶ï¿½ï¿½Ë²ï¿½Ïµï¿½ï¿½_versteckt */
+/* »·¾³ÎÂ¶ÈÂË²¨ÏµÊý_versteckt */
 CALDATA const volatile uint8 KIBS_FailChgNumThr_cnt = 6U;/* Referenced by:
-                                                          * '<S900>/Constant10'
-                                                          * '<S900>/Constant12'
+                                                          * '<S951>/Constant10'
+                                                          * '<S951>/Constant12'
                                                           */
 
-/* ï¿½ï¿½ó²¹µï¿½Ê§ï¿½Ü´ï¿½ï¿½ï¿½ï¿½ï¿½Öµ_versteckt */
-CALDATA const volatile boolean KIBS_FbIBSWup_flg = true;/* Referenced by: '<S900>/Constant17' */
+/* ×î´ó²¹µçÊ§°Ü´ÎÊýãÐÖµ_versteckt */
+CALDATA const volatile boolean KIBS_FbIBSWup_flg = true;/* Referenced by: '<S951>/Constant17' */
 
-/* ï¿½ï¿½Ö¹IBSï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½ï¿½_versteckt */
-CALDATA const volatile uint16 KIBS_HoldNMTmThr_s = 8U;/* Referenced by: '<S900>/Constant14' */
+/* ½ûÖ¹IBS»½ÐÑÊÖ¶¯¿ª¹Ø_versteckt */
+CALDATA const volatile uint16 KIBS_FbRctWupThr_min = 65535U;/* Referenced by: '<S952>/Constant10' */
 
-/* IBSï¿½ï¿½ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½_versteckt */
-CALDATA const volatile uint8 KIBS_KL30VoltDebNumThr_cnt = 5U;/* Referenced by: '<S916>/Constant2' */
+/* ½ûÖ¹RTC»½ÐÑÅäÖÃµÄÊ±¼ä_versteckt */
+CALDATA const volatile uint16 KIBS_HoldNMTmThr_s = 8U;/* Referenced by: '<S951>/Constant14' */
 
-/* KL30ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½Ü´ï¿½ï¿½ï¿½_versteckt */
-CALDATA const volatile float32 KIBS_KL30VoltDebTmThr_s = 1.0F;/* Referenced by: '<S901>/Constant7' */
+/* IBS»½ÐÑ±£³ÖÍøÂçÊ±¼ä_versteckt */
+CALDATA const volatile uint8 KIBS_KL30VoltDebNumThr_cnt = 5U;/* Referenced by: '<S969>/Constant2' */
 
-/* KL30ï¿½ï¿½Ñ¹ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½_versteckt */
-CALDATA const volatile float32 KIBS_KL30VoltFiltCoeff_c = 0.2F;/* Referenced by: '<S901>/Constant2' */
+/* KL30µçÑ¹µÍÓÚ²¹µçµçÑ¹×Ü´ÎÊý_versteckt */
+CALDATA const volatile float32 KIBS_KL30VoltDebTmThr_s = 1.0F;/* Referenced by: '<S952>/Constant7' */
 
-/* KL30ï¿½ï¿½Ñ¹ï¿½Ë²ï¿½Ïµï¿½ï¿½_versteckt */
-CALDATA const volatile uint16 KIBS_StWaitTm_s = 5U;/* Referenced by: '<S901>/Constant5' */
+/* KL30µçÑ¹ÊÇ·ñÂú×ãÕï¶ÏÊ±¼ä_versteckt */
+CALDATA const volatile float32 KIBS_KL30VoltFiltCoeff_c = 0.2F;/* Referenced by: '<S952>/Constant2' */
 
-/* IBS×´Ì¬ï¿½ï¿½ï¿½ï¿½Ñ¹&ï¿½Â¶È£ï¿½ï¿½È¶ï¿½Ê±ï¿½ï¿½_versteckt */
-CALDATA const volatile uint16 KIBS_WupChgTmThr1_min = 15U;/* Referenced by: '<S898>/ChrgSt' */
+/* KL30µçÑ¹ÂË²¨ÏµÊý_versteckt */
+CALDATA const volatile uint16 KIBS_StWaitTm_s = 5U;/* Referenced by: '<S952>/Constant5' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ1_versteckt */
+/* IBS×´Ì¬£¨µçÑ¹&ÎÂ¶È£©ÎÈ¶¨Ê±¼ä_versteckt */
+CALDATA const volatile uint8 KIBS_WakeupReas_enum = 34U;/* Referenced by: '<S967>/Constant' */
+
+/* µ×²ã»½ÐÑÔ­ÒòÃ¶¾ÙÖµ_versteckt */
+CALDATA const volatile uint16 KIBS_WupChgTmThr1_min = 15U;/* Referenced by: '<S949>/ChrgSt' */
+
+/* IBS²¹µçÊ±¼äãÐÖµ1_versteckt */
 CALDATA const volatile boolean KIPC_ACCCfgOvrdSw_flg = false;
-                          /* Referenced by: '<S774>/KIPC_LimpHomeOvrdSw_flg2' */
+                          /* Referenced by: '<S827>/KIPC_LimpHomeOvrdSw_flg2' */
 CALDATA const volatile boolean KIPC_ACCCfgOvrdVal_flg = false;
-                         /* Referenced by: '<S774>/KIPC_LimpHomeOvrdVal_flg2' */
-CALDATA const volatile float32 KIPC_AccPed1FullPstn_pct = 74.0F;/* Referenced by: '<S782>/Constant2' */
-CALDATA const volatile float32 KIPC_AccPed2FullPstn_pct = 74.0F;/* Referenced by: '<S784>/Constant6' */
+                         /* Referenced by: '<S827>/KIPC_LimpHomeOvrdVal_flg2' */
+CALDATA const volatile float32 KIPC_AccPed1FullPstn_pct = 74.0F;/* Referenced by: '<S835>/Constant2' */
+CALDATA const volatile float32 KIPC_AccPed2FullPstn_pct = 74.0F;/* Referenced by: '<S837>/Constant6' */
 CALDATA const volatile float32 KIPC_AccPedDbnd_pct = 2.0F;
-                   /* Referenced by: '<S776>/cnst_ValidCheck_EngCoolantTemp1' */
+                   /* Referenced by: '<S829>/cnst_ValidCheck_EngCoolantTemp1' */
 CALDATA const volatile float32 KIPC_AccPedInitTm_s = 0.3F;
-                               /* Referenced by: '<S779>/KIPC_AccPedInitTm_s' */
+                               /* Referenced by: '<S832>/KIPC_AccPedInitTm_s' */
 CALDATA const volatile float32 KIPC_AccPedLrnDwnFiltCoeff_rat = 0.91F;/* Referenced by:
-                                                                      * '<S781>/KIPC_AccPedLrnDwnFiltCoeff_rat'
-                                                                      * '<S783>/KIPC_AccPedLrnDwnFiltCoeff_rat'
+                                                                      * '<S834>/KIPC_AccPedLrnDwnFiltCoeff_rat'
+                                                                      * '<S836>/KIPC_AccPedLrnDwnFiltCoeff_rat'
                                                                       */
 CALDATA const volatile float32 KIPC_AccPedLrnDwnStabThr_pct = 0.5F;/* Referenced by:
-                                                                    * '<S781>/KAccPed_Threshold1ISLow_V6'
-                                                                    * '<S783>/KAccPed_Threshold1ISLow_V6'
+                                                                    * '<S834>/KAccPed_Threshold1ISLow_V6'
+                                                                    * '<S836>/KAccPed_Threshold1ISLow_V6'
                                                                     */
 CALDATA const volatile float32 KIPC_AccPedLrnDwnStabTm_s = 2.0F;/* Referenced by:
-                                                                 * '<S781>/KAccPed_Threshold1ISLow_V5'
-                                                                 * '<S783>/KAccPed_Threshold1ISLow_V5'
+                                                                 * '<S834>/KAccPed_Threshold1ISLow_V5'
+                                                                 * '<S836>/KAccPed_Threshold1ISLow_V5'
                                                                  */
 CALDATA const volatile float32 KIPC_AccPedMinPstnHi_pct = 21.0F;/* Referenced by:
-                                                                 * '<S781>/KAccPed_Threshold1ISLow_V10'
-                                                                 * '<S781>/KAccPed_Threshold1ISLow_V11'
-                                                                 * '<S783>/KAccPed_Threshold1ISLow_V10'
-                                                                 * '<S783>/KAccPed_Threshold1ISLow_V11'
+                                                                 * '<S834>/KAccPed_Threshold1ISLow_V10'
+                                                                 * '<S834>/KAccPed_Threshold1ISLow_V11'
+                                                                 * '<S836>/KAccPed_Threshold1ISLow_V10'
+                                                                 * '<S836>/KAccPed_Threshold1ISLow_V11'
                                                                  */
 CALDATA const volatile float32 KIPC_AccPedMinPstnLo_pct = 13.0F;/* Referenced by:
-                                                                 * '<S781>/KAccPed_Threshold1ISLow_V8'
-                                                                 * '<S783>/KAccPed_Threshold1ISLow_V8'
+                                                                 * '<S834>/KAccPed_Threshold1ISLow_V8'
+                                                                 * '<S836>/KAccPed_Threshold1ISLow_V8'
                                                                  */
 CALDATA const volatile float32 KIPC_AccPedMinPstnLrnUpHi_pct = 80.0F;/* Referenced by:
-                                                                      * '<S781>/KAccPed_Threshold1ISLow_V2'
-                                                                      * '<S783>/KAccPed_Threshold1ISLow_V2'
+                                                                      * '<S834>/KAccPed_Threshold1ISLow_V2'
+                                                                      * '<S836>/KAccPed_Threshold1ISLow_V2'
                                                                       */
 CALDATA const volatile float32 KIPC_AccPedMinPstnLrnUpLo_pct = 20.0F;/* Referenced by:
-                                                                      * '<S781>/KAccPed_Threshold1ISLow_V1'
-                                                                      * '<S783>/KAccPed_Threshold1ISLow_V1'
+                                                                      * '<S834>/KAccPed_Threshold1ISLow_V1'
+                                                                      * '<S836>/KAccPed_Threshold1ISLow_V1'
                                                                       */
 CALDATA const volatile float32 KIPC_AccPedMinPstnUpOfst_pct = 0.2F;/* Referenced by:
-                                                                    * '<S781>/KAccPed_Threshold1ISLow_V7'
-                                                                    * '<S783>/KAccPed_Threshold1ISLow_V7'
+                                                                    * '<S834>/KAccPed_Threshold1ISLow_V7'
+                                                                    * '<S836>/KAccPed_Threshold1ISLow_V7'
                                                                     */
 CALDATA const volatile float32 KIPC_AccPedNormzPstnFiltTm_s = 0.02F;/* Referenced by:
-                                                                     * '<S778>/KIPC_AccPedLrnDwnFiltCoeff_rat'
-                                                                     * '<S778>/KIPC_AccPedLrnDwnFiltCoeff_rat1'
+                                                                     * '<S831>/KIPC_AccPedLrnDwnFiltCoeff_rat'
+                                                                     * '<S831>/KIPC_AccPedLrnDwnFiltCoeff_rat1'
                                                                      */
 CALDATA const volatile float32 KIPC_AccPedPrsdThr4Stk_pct = 2.0F;
-                           /* Referenced by: '<S779>/KAPD_Threshold1ISLow_V1' */
+                           /* Referenced by: '<S832>/KAPD_Threshold1ISLow_V1' */
 CALDATA const volatile float32 KIPC_AccPedPstnLmt_pct = 100.0F;
-                   /* Referenced by: '<S776>/cnst_ValidCheck_EngCoolantTemp5' */
+                   /* Referenced by: '<S829>/cnst_ValidCheck_EngCoolantTemp5' */
 CALDATA const volatile boolean KIPC_AccPedPstnOvrdSw_flg = false;
-                   /* Referenced by: '<S776>/cnst_ValidCheck_EngCoolantTemp3' */
+                   /* Referenced by: '<S829>/cnst_ValidCheck_EngCoolantTemp3' */
 CALDATA const volatile float32 KIPC_AccPedPstnOvrdVal_pct = 0.0F;
-                   /* Referenced by: '<S776>/cnst_ValidCheck_EngCoolantTemp4' */
+                   /* Referenced by: '<S829>/cnst_ValidCheck_EngCoolantTemp4' */
 CALDATA const volatile float32 KIPC_AccPedSclRng_pct = 106.0F;/* Referenced by:
-                                                               * '<S782>/cnst_ValidCheck_EngCoolantTemp1'
-                                                               * '<S784>/cnst_ValidCheck_EngCoolantTemp3'
+                                                               * '<S835>/cnst_ValidCheck_EngCoolantTemp1'
+                                                               * '<S837>/cnst_ValidCheck_EngCoolantTemp3'
                                                                */
 CALDATA const volatile boolean KIPC_AccPedStkDiagEnbl_flg = true;
-                           /* Referenced by: '<S779>/KAPD_Threshold1ISLow_V7' */
+                           /* Referenced by: '<S832>/KAPD_Threshold1ISLow_V7' */
 CALDATA const volatile float32 KIPC_AccPedStkFiltCoeff_rat = 0.91F;
-                       /* Referenced by: '<S779>/KIPC_AccPedStkFiltCoeff_rat' */
+                       /* Referenced by: '<S832>/KIPC_AccPedStkFiltCoeff_rat' */
 CALDATA const volatile float32 KIPC_AccPedStkStabThr_pct = 0.5F;
-                        /* Referenced by: '<S779>/KAccPed_Threshold1ISLow_V6' */
+                        /* Referenced by: '<S832>/KAccPed_Threshold1ISLow_V6' */
 CALDATA const volatile float32 KIPC_AccPedStkStabTm_s = 5.0F;
-                        /* Referenced by: '<S779>/KAccPed_Threshold1ISLow_V5' */
+                        /* Referenced by: '<S832>/KAccPed_Threshold1ISLow_V5' */
 CALDATA const volatile float32 KIPC_AccPedSwThr_pct = 2.0F;
-                   /* Referenced by: '<S776>/cnst_ValidCheck_EngCoolantTemp2' */
+                   /* Referenced by: '<S829>/cnst_ValidCheck_EngCoolantTemp2' */
 
-/* ï¿½ï¿½ï¿½Å¿ï¿½ï¿½Ø¿ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
+/* ÓÍÃÅ¿ª¹Ø¿ªÆôãÐÖµ */
 CALDATA const volatile float32 KIPC_AccPedZeroPstnDecRate_pctps = -100.0F;
-                          /* Referenced by: '<S779>/KAPD_Threshold1ISLow_V18' */
+                          /* Referenced by: '<S832>/KAPD_Threshold1ISLow_V18' */
 CALDATA const volatile float32 KIPC_AccPedZeroPstnIncRate_pctps = 100.0F;
-                          /* Referenced by: '<S779>/KAPD_Threshold1ISLow_V17' */
+                          /* Referenced by: '<S832>/KAPD_Threshold1ISLow_V17' */
 CALDATA const volatile float32 KIPC_BrkPedPrsdThr4Stk_pct = 10.0F;
-                          /* Referenced by: '<S779>/KAPD_Threshold1ISLow_V11' */
-CALDATA const volatile float32 KIPC_BrkPedPstnDfltPrsd_pct = 100.0F;/* Referenced by: '<S771>/Constant2' */
+                          /* Referenced by: '<S832>/KAPD_Threshold1ISLow_V11' */
+CALDATA const volatile float32 KIPC_BrkPedPstnDfltPrsd_pct = 100.0F;/* Referenced by: '<S824>/Constant2' */
 CALDATA const volatile boolean KIPC_BrkPedPstnOvrdSw_flg = false;
-                   /* Referenced by: '<S771>/cnst_ValidCheck_EngCoolantTemp2' */
+                   /* Referenced by: '<S824>/cnst_ValidCheck_EngCoolantTemp2' */
 CALDATA const volatile float32 KIPC_BrkPedPstnOvrdVal_pct = 0.0F;
-                   /* Referenced by: '<S771>/cnst_ValidCheck_EngCoolantTemp3' */
+                   /* Referenced by: '<S824>/cnst_ValidCheck_EngCoolantTemp3' */
 CALDATA const volatile float32 KIPC_BrkPedReldThr4Stk_pct = 3.0F;
-                           /* Referenced by: '<S779>/KAPD_Threshold1ISLow_V2' */
+                           /* Referenced by: '<S832>/KAPD_Threshold1ISLow_V2' */
 CALDATA const volatile float32 KIPC_BrkSwPrsdPedPstn_pct = 5.0F;
-                             /* Referenced by: '<S771>/KTQD_BrkPedPstnHi_pct' */
+                             /* Referenced by: '<S824>/KTQD_BrkPedPstnHi_pct' */
 CALDATA const volatile boolean KIPC_CCSCfgOvrdSw_flg = false;
-                          /* Referenced by: '<S774>/KIPC_LimpHomeOvrdSw_flg1' */
+                          /* Referenced by: '<S827>/KIPC_LimpHomeOvrdSw_flg1' */
 CALDATA const volatile boolean KIPC_CCSCfgOvrdVal_flg = false;
-                         /* Referenced by: '<S774>/KIPC_LimpHomeOvrdVal_flg1' */
+                         /* Referenced by: '<S827>/KIPC_LimpHomeOvrdVal_flg1' */
 CALDATA const volatile boolean KIPC_CrpCtrlCfgOvrdSw_flg = false;
-                          /* Referenced by: '<S774>/KIPC_LimpHomeOvrdSw_flg3' */
+                          /* Referenced by: '<S827>/KIPC_LimpHomeOvrdSw_flg3' */
 CALDATA const volatile boolean KIPC_CrpCtrlCfgOvrdVal_flg = false;
-                         /* Referenced by: '<S774>/KIPC_LimpHomeOvrdVal_flg3' */
+                         /* Referenced by: '<S827>/KIPC_LimpHomeOvrdVal_flg3' */
 CALDATA const volatile boolean KIPC_CrpModeActOvrdSw_flg = false;
-                           /* Referenced by: '<S773>/KIPC_LimpHomeOvrdSw_flg' */
+                           /* Referenced by: '<S826>/KIPC_LimpHomeOvrdSw_flg' */
 CALDATA const volatile EnumCrpModeAct KIPC_CrpModeActOvrdVal_enum =
-  EnumCrpModeAct_Open;    /* Referenced by: '<S773>/KIPC_LimpHomeOvrdVal_flg' */
+  EnumCrpModeAct_Open;    /* Referenced by: '<S826>/KIPC_LimpHomeOvrdVal_flg' */
 CALDATA const volatile boolean KIPC_DrvModeActOvrdSw_flg = false;
-                          /* Referenced by: '<S773>/KIPC_LimpHomeOvrdSw_flg1' */
+                          /* Referenced by: '<S826>/KIPC_LimpHomeOvrdSw_flg1' */
 CALDATA const volatile EnumDrvModeAct KIPC_DrvModeActOvrdVal_enum =
-  EnumDrvModeAct_Eco;    /* Referenced by: '<S773>/KIPC_LimpHomeOvrdVal_flg1' */
+  EnumDrvModeAct_Eco;    /* Referenced by: '<S826>/KIPC_LimpHomeOvrdVal_flg1' */
 CALDATA const volatile boolean KIPC_DrvPwrIntnstyOvrdSw_flg = false;
-                          /* Referenced by: '<S773>/KIPC_LimpHomeOvrdSw_flg4' */
+                          /* Referenced by: '<S826>/KIPC_LimpHomeOvrdSw_flg4' */
 CALDATA const volatile uint8 KIPC_DrvPwrIntnstyOvrdVal_pct = 0U;
-                         /* Referenced by: '<S773>/KIPC_LimpHomeOvrdVal_flg4' */
+                         /* Referenced by: '<S826>/KIPC_LimpHomeOvrdVal_flg4' */
 CALDATA const volatile boolean KIPC_ESCVehSpdPrio_flg = true;
-                                /* Referenced by: '<S844>/KSYS_VehTransRto_c' */
+                                /* Referenced by: '<S895>/KSYS_VehTransRto_c' */
 CALDATA const volatile boolean KIPC_ESCWhlSpdPrio_flg = true;
-                               /* Referenced by: '<S844>/KSYS_VehTransRto_c2' */
+                               /* Referenced by: '<S895>/KSYS_VehTransRto_c2' */
 CALDATA const volatile boolean KIPC_EnblFltRstAccPedZP_flg = true;
-                           /* Referenced by: '<S779>/KAPD_Threshold1ISLow_V3' */
-CALDATA const volatile boolean KIPC_EnblVpedAutoCrp_flg = true;/* Referenced by: '<S810>/Shift_enum1' */
+                           /* Referenced by: '<S832>/KAPD_Threshold1ISLow_V3' */
+CALDATA const volatile boolean KIPC_EnblVpedAutoCrp_flg = true;/* Referenced by: '<S863>/Shift_enum1' */
 CALDATA const volatile float32 KIPC_ExitAutoCrpDrvDist_m = 1.0F;
-                         /* Referenced by: '<S810>/KIPC_ExitAutoCrpDrvDist_m' */
-CALDATA const volatile float32 KIPC_ExitAutoCrpPNDurTm_s = 5.0F;/* Referenced by: '<S810>/Shift_enum4' */
+                         /* Referenced by: '<S863>/KIPC_ExitAutoCrpDrvDist_m' */
+CALDATA const volatile float32 KIPC_ExitAutoCrpPNDurTm_s = 5.0F;/* Referenced by: '<S863>/Shift_enum4' */
 CALDATA const volatile float32 KIPC_ExitAutoCrpVehSpd_kph = 15.0F;
-                        /* Referenced by: '<S810>/KIPC_ExitAutoCrpVehSpd_kph' */
+                        /* Referenced by: '<S863>/KIPC_ExitAutoCrpVehSpd_kph' */
 CALDATA const volatile boolean KIPC_HDCCfgOvrdSw_flg = false;
-                          /* Referenced by: '<S774>/KIPC_LimpHomeOvrdSw_flg4' */
+                          /* Referenced by: '<S827>/KIPC_LimpHomeOvrdSw_flg4' */
 CALDATA const volatile boolean KIPC_HDCCfgOvrdVal_flg = false;
-                         /* Referenced by: '<S774>/KIPC_LimpHomeOvrdVal_flg4' */
+                         /* Referenced by: '<S827>/KIPC_LimpHomeOvrdVal_flg4' */
 CALDATA const volatile boolean KIPC_RegenModeActOvrdSw_flg = false;
-                          /* Referenced by: '<S773>/KIPC_LimpHomeOvrdSw_flg3' */
+                          /* Referenced by: '<S826>/KIPC_LimpHomeOvrdSw_flg3' */
 CALDATA const volatile EnumRegenModeAct KIPC_RegenModeActOvrdVal_enum =
-  EnumRegenModeAct_Weak; /* Referenced by: '<S773>/KIPC_LimpHomeOvrdVal_flg3' */
+  EnumRegenModeAct_Weak; /* Referenced by: '<S826>/KIPC_LimpHomeOvrdVal_flg3' */
 CALDATA const volatile boolean KIPC_RegenPwrIntnstyOvrdSw_flg = false;
-                          /* Referenced by: '<S773>/KIPC_LimpHomeOvrdSw_flg5' */
+                          /* Referenced by: '<S826>/KIPC_LimpHomeOvrdSw_flg5' */
 CALDATA const volatile uint8 KIPC_RegenPwrIntnstyOvrdVal_pct = 0U;
-                         /* Referenced by: '<S773>/KIPC_LimpHomeOvrdVal_flg5' */
-CALDATA const volatile boolean KIPC_SnowModeDft_flg = false;/* Referenced by: '<S773>/Unit Delay3' */
+                         /* Referenced by: '<S826>/KIPC_LimpHomeOvrdVal_flg5' */
+CALDATA const volatile boolean KIPC_SnowModeDft_flg = false;/* Referenced by: '<S826>/Unit Delay3' */
 CALDATA const volatile boolean KIPC_SnowModeOvrdSw_flg = false;
-                          /* Referenced by: '<S773>/KIPC_LimpHomeOvrdSw_flg2' */
+                          /* Referenced by: '<S826>/KIPC_LimpHomeOvrdSw_flg2' */
 CALDATA const volatile boolean KIPC_SnowModeOvrdVal_flg = false;
-                         /* Referenced by: '<S773>/KIPC_LimpHomeOvrdVal_flg2' */
+                         /* Referenced by: '<S826>/KIPC_LimpHomeOvrdVal_flg2' */
 CALDATA const volatile float32 KIPC_VehHiddenBtnSyncnTm_s = 2.0F;/* Referenced by:
-                                                                  * '<S773>/Cnst4'
-                                                                  * '<S773>/Cnst6'
-                                                                  * '<S773>/Cnst9'
+                                                                  * '<S826>/Cnst4'
+                                                                  * '<S826>/Cnst6'
+                                                                  * '<S826>/Cnst9'
                                                                   */
 CALDATA const volatile float32 KIPC_VehHiddenModeWaitTm_s = 10.0F;/* Referenced by:
-                                                                   * '<S773>/Cnst1'
-                                                                   * '<S773>/Cnst2'
-                                                                   * '<S773>/Cnst3'
-                                                                   * '<S773>/Cnst5'
-                                                                   * '<S773>/Cnst7'
+                                                                   * '<S826>/Cnst1'
+                                                                   * '<S826>/Cnst2'
+                                                                   * '<S826>/Cnst3'
+                                                                   * '<S826>/Cnst5'
+                                                                   * '<S826>/Cnst7'
                                                                    */
-CALDATA const volatile float32 KIPC_VehSpdUseWhlDir_kph = 3.0F;
-                               /* Referenced by: '<S844>/KSYS_VehTransRto_c1' */
 CALDATA const volatile boolean KIPC_iTPMSCfgOvrdSw_flg = false;
-                          /* Referenced by: '<S774>/KIPC_LimpHomeOvrdSw_flg5' */
+                          /* Referenced by: '<S827>/KIPC_LimpHomeOvrdSw_flg5' */
 CALDATA const volatile boolean KIPC_iTPMSCfgOvrdVal_flg = false;
-                         /* Referenced by: '<S774>/KIPC_LimpHomeOvrdVal_flg5' */
-CALDATA const volatile float32 KIPM_HwAccPedCh1SuplyVoltHi_mV = 15000.0F;/* Referenced by: '<S1389>/sat6' */
-CALDATA const volatile float32 KIPM_HwAccPedCh1SuplyVoltLo_mV = 0.0F;/* Referenced by: '<S1389>/sat7' */
-CALDATA const volatile boolean KIPM_HwAccPedCh1SuplyVolt_mV_ovrdflg = false;/* Referenced by: '<S1389>/sat3' */
-CALDATA const volatile float32 KIPM_HwAccPedCh1SuplyVolt_mV_ovrdval = 0.0F;/* Referenced by: '<S1389>/sat4' */
-CALDATA const volatile float32 KIPM_HwAccPedCh1VoltHi_mV = 5500.0F;/* Referenced by: '<S1390>/sat6' */
-CALDATA const volatile float32 KIPM_HwAccPedCh1VoltLo_mV = 0.0F;/* Referenced by: '<S1390>/sat7' */
-CALDATA const volatile boolean KIPM_HwAccPedCh1Volt_mV_ovrdflg = false;/* Referenced by: '<S1390>/sat3' */
-CALDATA const volatile float32 KIPM_HwAccPedCh1Volt_mV_ovrdval = 0.0F;/* Referenced by: '<S1390>/sat4' */
-CALDATA const volatile float32 KIPM_HwAccPedCh2SuplyVoltHi_mV = 15000.0F;/* Referenced by: '<S1391>/sat6' */
-CALDATA const volatile float32 KIPM_HwAccPedCh2SuplyVoltLo_mV = 0.0F;/* Referenced by: '<S1391>/sat7' */
-CALDATA const volatile boolean KIPM_HwAccPedCh2SuplyVolt_mV_ovrdflg = false;/* Referenced by: '<S1391>/sat3' */
-CALDATA const volatile float32 KIPM_HwAccPedCh2SuplyVolt_mV_ovrdval = 0.0F;/* Referenced by: '<S1391>/sat4' */
-CALDATA const volatile float32 KIPM_HwAccPedCh2VoltHi_mV = 5500.0F;/* Referenced by: '<S1392>/sat6' */
-CALDATA const volatile float32 KIPM_HwAccPedCh2VoltLo_mV = 0.0F;/* Referenced by: '<S1392>/sat7' */
-CALDATA const volatile boolean KIPM_HwAccPedCh2Volt_mV_ovrdflg = false;/* Referenced by: '<S1392>/sat3' */
-CALDATA const volatile float32 KIPM_HwAccPedCh2Volt_mV_ovrdval = 0.0F;/* Referenced by: '<S1392>/sat4' */
-CALDATA const volatile boolean KIPM_HwBMSWakeup_flg_ovrdflg = false;/* Referenced by: '<S1393>/sat3' */
-CALDATA const volatile boolean KIPM_HwBMSWakeup_flg_ovrdval = false;/* Referenced by: '<S1393>/sat4' */
-CALDATA const volatile boolean KIPM_HwBrkSwHi_flg_ovrdflg = false;/* Referenced by: '<S1394>/sat3' */
-CALDATA const volatile boolean KIPM_HwBrkSwHi_flg_ovrdval = false;/* Referenced by: '<S1394>/sat4' */
-CALDATA const volatile boolean KIPM_HwBrkSwLo_flg_ovrdflg = false;/* Referenced by: '<S1395>/sat3' */
-CALDATA const volatile boolean KIPM_HwBrkSwLo_flg_ovrdval = false;/* Referenced by: '<S1395>/sat4' */
-CALDATA const volatile boolean KIPM_HwCrpModeSw_flg_ovrdflg = false;/* Referenced by: '<S1396>/sat3' */
-CALDATA const volatile boolean KIPM_HwCrpModeSw_flg_ovrdval = false;/* Referenced by: '<S1396>/sat4' */
-CALDATA const volatile boolean KIPM_HwDrvModeSw_flg_ovrdflg = false;/* Referenced by: '<S1397>/sat3' */
-CALDATA const volatile boolean KIPM_HwDrvModeSw_flg_ovrdval = false;/* Referenced by: '<S1397>/sat4' */
-CALDATA const volatile boolean KIPM_HwEmgcyShutOff_flg_ovrdflg = false;/* Referenced by: '<S1398>/sat3' */
-CALDATA const volatile boolean KIPM_HwEmgcyShutOff_flg_ovrdval = false;/* Referenced by: '<S1398>/sat4' */
-CALDATA const volatile boolean KIPM_HwKL15A_flg_ovrdflg = false;/* Referenced by: '<S1399>/sat3' */
-CALDATA const volatile boolean KIPM_HwKL15A_flg_ovrdval = false;/* Referenced by: '<S1399>/sat4' */
-CALDATA const volatile boolean KIPM_HwKL15B_flg_ovrdflg = false;/* Referenced by: '<S1400>/sat3' */
-CALDATA const volatile boolean KIPM_HwKL15B_flg_ovrdval = false;/* Referenced by: '<S1400>/sat4' */
-CALDATA const volatile uint16 KIPM_HwKL30Hi_mV = 20000U;/* Referenced by: '<S1401>/sat6' */
-CALDATA const volatile uint16 KIPM_HwKL30Lo_mV = 0U;/* Referenced by: '<S1401>/sat7' */
-CALDATA const volatile boolean KIPM_HwKL30_mV_ovrdflg = false;/* Referenced by: '<S1401>/sat3' */
-CALDATA const volatile uint16 KIPM_HwKL30_mV_ovrdval = 0U;/* Referenced by: '<S1401>/sat4' */
-CALDATA const volatile boolean KIPM_HwOBCWakeup_flg_ovrdflg = false;/* Referenced by: '<S1402>/sat3' */
-CALDATA const volatile boolean KIPM_HwOBCWakeup_flg_ovrdval = false;/* Referenced by: '<S1402>/sat4' */
-CALDATA const volatile boolean KIPM_HwRearFogLampSwt_flg_ovrdflg = false;/* Referenced by: '<S1403>/sat3' */
-CALDATA const volatile boolean KIPM_HwRearFogLampSwt_flg_ovrdval = false;/* Referenced by: '<S1403>/sat4' */
-CALDATA const volatile uint16 KIPM_HwShftPstnSwPrsdHi_Ohm = 6000U;/* Referenced by: '<S1406>/Constant' */
-CALDATA const volatile uint16 KIPM_HwShftPstnSwPrsdLo_Ohm = 4000U;/* Referenced by: '<S1406>/Constant1' */
-CALDATA const volatile uint16 KIPM_HwShftPstnSwReldHi_Ohm = 40000U;/* Referenced by: '<S1406>/Constant3' */
-CALDATA const volatile uint16 KIPM_HwShftPstnSwReldLo_Ohm = 36000U;/* Referenced by: '<S1406>/Constant4' */
-CALDATA const volatile uint16 KIPM_HwShftPstnSwShtBatt_Ohm = 65000U;/* Referenced by: '<S1406>/Constant5' */
-CALDATA const volatile uint16 KIPM_HwShftPstnSwShtGnd_Ohm = 500U;/* Referenced by: '<S1406>/Constant7' */
-CALDATA const volatile boolean KIPM_HwShftPstnSwSts_enum_ovrdflg = false;/* Referenced by: '<S1404>/sat3' */
+                         /* Referenced by: '<S827>/KIPC_LimpHomeOvrdVal_flg5' */
+CALDATA const volatile float32 KIPM_HwAccPedCh1SuplyVoltHi_mV = 15000.0F;/* Referenced by: '<S1445>/sat6' */
+CALDATA const volatile float32 KIPM_HwAccPedCh1SuplyVoltLo_mV = 0.0F;/* Referenced by: '<S1445>/sat7' */
+CALDATA const volatile boolean KIPM_HwAccPedCh1SuplyVolt_mV_ovrdflg = false;/* Referenced by: '<S1445>/sat3' */
+CALDATA const volatile float32 KIPM_HwAccPedCh1SuplyVolt_mV_ovrdval = 0.0F;/* Referenced by: '<S1445>/sat4' */
+CALDATA const volatile float32 KIPM_HwAccPedCh1VoltHi_mV = 5500.0F;/* Referenced by: '<S1446>/sat6' */
+CALDATA const volatile float32 KIPM_HwAccPedCh1VoltLo_mV = 0.0F;/* Referenced by: '<S1446>/sat7' */
+CALDATA const volatile boolean KIPM_HwAccPedCh1Volt_mV_ovrdflg = false;/* Referenced by: '<S1446>/sat3' */
+CALDATA const volatile float32 KIPM_HwAccPedCh1Volt_mV_ovrdval = 0.0F;/* Referenced by: '<S1446>/sat4' */
+CALDATA const volatile float32 KIPM_HwAccPedCh2SuplyVoltHi_mV = 15000.0F;/* Referenced by: '<S1447>/sat6' */
+CALDATA const volatile float32 KIPM_HwAccPedCh2SuplyVoltLo_mV = 0.0F;/* Referenced by: '<S1447>/sat7' */
+CALDATA const volatile boolean KIPM_HwAccPedCh2SuplyVolt_mV_ovrdflg = false;/* Referenced by: '<S1447>/sat3' */
+CALDATA const volatile float32 KIPM_HwAccPedCh2SuplyVolt_mV_ovrdval = 0.0F;/* Referenced by: '<S1447>/sat4' */
+CALDATA const volatile float32 KIPM_HwAccPedCh2VoltHi_mV = 5500.0F;/* Referenced by: '<S1448>/sat6' */
+CALDATA const volatile float32 KIPM_HwAccPedCh2VoltLo_mV = 0.0F;/* Referenced by: '<S1448>/sat7' */
+CALDATA const volatile boolean KIPM_HwAccPedCh2Volt_mV_ovrdflg = false;/* Referenced by: '<S1448>/sat3' */
+CALDATA const volatile float32 KIPM_HwAccPedCh2Volt_mV_ovrdval = 0.0F;/* Referenced by: '<S1448>/sat4' */
+CALDATA const volatile boolean KIPM_HwBMSWakeup_flg_ovrdflg = false;/* Referenced by: '<S1449>/sat3' */
+CALDATA const volatile boolean KIPM_HwBMSWakeup_flg_ovrdval = false;/* Referenced by: '<S1449>/sat4' */
+CALDATA const volatile boolean KIPM_HwBrkSwHi_flg_ovrdflg = false;/* Referenced by: '<S1450>/sat3' */
+CALDATA const volatile boolean KIPM_HwBrkSwHi_flg_ovrdval = false;/* Referenced by: '<S1450>/sat4' */
+CALDATA const volatile boolean KIPM_HwBrkSwLo_flg_ovrdflg = false;/* Referenced by: '<S1451>/sat3' */
+CALDATA const volatile boolean KIPM_HwBrkSwLo_flg_ovrdval = false;/* Referenced by: '<S1451>/sat4' */
+CALDATA const volatile boolean KIPM_HwCrpModeSw_flg_ovrdflg = false;/* Referenced by: '<S1452>/sat3' */
+CALDATA const volatile boolean KIPM_HwCrpModeSw_flg_ovrdval = false;/* Referenced by: '<S1452>/sat4' */
+CALDATA const volatile boolean KIPM_HwDrvModeSw_flg_ovrdflg = false;/* Referenced by: '<S1453>/sat3' */
+CALDATA const volatile boolean KIPM_HwDrvModeSw_flg_ovrdval = false;/* Referenced by: '<S1453>/sat4' */
+CALDATA const volatile boolean KIPM_HwEmgcyShutOff_flg_ovrdflg = false;/* Referenced by: '<S1454>/sat3' */
+CALDATA const volatile boolean KIPM_HwEmgcyShutOff_flg_ovrdval = false;/* Referenced by: '<S1454>/sat4' */
+CALDATA const volatile boolean KIPM_HwKL15A_flg_ovrdflg = false;/* Referenced by: '<S1455>/sat3' */
+CALDATA const volatile boolean KIPM_HwKL15A_flg_ovrdval = false;/* Referenced by: '<S1455>/sat4' */
+CALDATA const volatile boolean KIPM_HwKL15B_flg_ovrdflg = false;/* Referenced by: '<S1456>/sat3' */
+CALDATA const volatile boolean KIPM_HwKL15B_flg_ovrdval = false;/* Referenced by: '<S1456>/sat4' */
+CALDATA const volatile uint16 KIPM_HwKL30Hi_mV = 20000U;/* Referenced by: '<S1457>/sat6' */
+CALDATA const volatile uint16 KIPM_HwKL30Lo_mV = 0U;/* Referenced by: '<S1457>/sat7' */
+CALDATA const volatile boolean KIPM_HwKL30_mV_ovrdflg = false;/* Referenced by: '<S1457>/sat3' */
+CALDATA const volatile uint16 KIPM_HwKL30_mV_ovrdval = 0U;/* Referenced by: '<S1457>/sat4' */
+CALDATA const volatile boolean KIPM_HwOBCWakeup_flg_ovrdflg = false;/* Referenced by: '<S1458>/sat3' */
+CALDATA const volatile boolean KIPM_HwOBCWakeup_flg_ovrdval = false;/* Referenced by: '<S1458>/sat4' */
+CALDATA const volatile boolean KIPM_HwRearFogLampSwt_flg_ovrdflg = false;/* Referenced by: '<S1459>/sat3' */
+CALDATA const volatile boolean KIPM_HwRearFogLampSwt_flg_ovrdval = false;/* Referenced by: '<S1459>/sat4' */
+CALDATA const volatile uint16 KIPM_HwShftPstnSwPrsdHi_Ohm = 6000U;/* Referenced by: '<S1462>/Constant' */
+CALDATA const volatile uint16 KIPM_HwShftPstnSwPrsdLo_Ohm = 4000U;/* Referenced by: '<S1462>/Constant1' */
+CALDATA const volatile uint16 KIPM_HwShftPstnSwReldHi_Ohm = 40000U;/* Referenced by: '<S1462>/Constant3' */
+CALDATA const volatile uint16 KIPM_HwShftPstnSwReldLo_Ohm = 36000U;/* Referenced by: '<S1462>/Constant4' */
+CALDATA const volatile uint16 KIPM_HwShftPstnSwShtBatt_Ohm = 65000U;/* Referenced by: '<S1462>/Constant5' */
+CALDATA const volatile uint16 KIPM_HwShftPstnSwShtGnd_Ohm = 500U;/* Referenced by: '<S1462>/Constant7' */
+CALDATA const volatile boolean KIPM_HwShftPstnSwSts_enum_ovrdflg = false;/* Referenced by: '<S1460>/sat3' */
 CALDATA const volatile EnumPGearSwSts KIPM_HwShftPstnSwSts_enum_ovrdval =
-  EnumPGearSwSts_Reld;                 /* Referenced by: '<S1404>/sat4' */
-CALDATA const volatile boolean KIPM_HwVehCrash_flg_ovrdflg = false;/* Referenced by: '<S1405>/sat3' */
-CALDATA const volatile boolean KIPM_HwVehCrash_flg_ovrdval = false;/* Referenced by: '<S1405>/sat4' */
-CALDATA const volatile boolean KOPM_HwWakeupBMS_flg_ovrdflg = false;/* Referenced by: '<S1418>/sat3' */
-CALDATA const volatile boolean KOPM_HwWakeupBMS_flg_ovrdval = false;/* Referenced by: '<S1418>/sat4' */
-CALDATA const volatile float32 KRME_AvgSOCCnsm100NumWghtFac_c = 0.0F;/* Referenced by: '<S871>/Constant9' */
+  EnumPGearSwSts_Reld;                 /* Referenced by: '<S1460>/sat4' */
+CALDATA const volatile boolean KIPM_HwVehCrash_flg_ovrdflg = false;/* Referenced by: '<S1461>/sat3' */
+CALDATA const volatile boolean KIPM_HwVehCrash_flg_ovrdval = false;/* Referenced by: '<S1461>/sat4' */
+CALDATA const volatile boolean KOPM_HwWakeupBMS_flg_ovrdflg = false;/* Referenced by: '<S1474>/sat3' */
+CALDATA const volatile boolean KOPM_HwWakeupBMS_flg_ovrdval = false;/* Referenced by: '<S1474>/sat4' */
+CALDATA const volatile float32 KRME_AvgSOCCnsm100NumWghtFac_c = 0.0F;/* Referenced by: '<S922>/Constant9' */
 
-/* Ç°100ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÜºÄ¼ï¿½È¨Ïµï¿½ï¿½ */
-CALDATA const volatile float32 KRME_AvgSOCCnsm10NumWghtFac_c = 0.2F;/* Referenced by: '<S871>/Constant5' */
+/* Ç°100¸öÊý×éÄÜºÄ¼ÓÈ¨ÏµÊý */
+CALDATA const volatile float32 KRME_AvgSOCCnsm10NumWghtFac_c = 0.2F;/* Referenced by: '<S922>/Constant5' */
 
-/* Ç°10ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÜºÄ¼ï¿½È¨Ïµï¿½ï¿½ */
-CALDATA const volatile float32 KRME_AvgSOCCnsm15NumWghtFac_c = 0.2F;/* Referenced by: '<S871>/Constant6' */
+/* Ç°10¸öÊý×éÄÜºÄ¼ÓÈ¨ÏµÊý */
+CALDATA const volatile float32 KRME_AvgSOCCnsm15NumWghtFac_c = 0.2F;/* Referenced by: '<S922>/Constant6' */
 
-/* Ç°15ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÜºÄ¼ï¿½È¨Ïµï¿½ï¿½ */
-CALDATA const volatile float32 KRME_AvgSOCCnsm1NumWghtFac_c = 0.0F;/* Referenced by: '<S871>/Constant3' */
+/* Ç°15¸öÊý×éÄÜºÄ¼ÓÈ¨ÏµÊý */
+CALDATA const volatile float32 KRME_AvgSOCCnsm1NumWghtFac_c = 0.0F;/* Referenced by: '<S922>/Constant3' */
 
-/* ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½È¨Ïµï¿½ï¿½ */
-CALDATA const volatile float32 KRME_AvgSOCCnsm25NumWghtFac_c = 0.2F;/* Referenced by: '<S871>/Constant7' */
+/* ³õÊ¼Êý×é¼ÓÈ¨ÏµÊý */
+CALDATA const volatile float32 KRME_AvgSOCCnsm25NumWghtFac_c = 0.2F;/* Referenced by: '<S922>/Constant7' */
 
-/* Ç°25ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÜºÄ¼ï¿½È¨Ïµï¿½ï¿½ */
-CALDATA const volatile float32 KRME_AvgSOCCnsm50NumWghtFac_c = 0.2F;/* Referenced by: '<S871>/Constant8' */
+/* Ç°25¸öÊý×éÄÜºÄ¼ÓÈ¨ÏµÊý */
+CALDATA const volatile float32 KRME_AvgSOCCnsm50NumWghtFac_c = 0.2F;/* Referenced by: '<S922>/Constant8' */
 
-/* Ç°50ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÜºÄ¼ï¿½È¨Ïµï¿½ï¿½ */
-CALDATA const volatile float32 KRME_AvgSOCCnsm5NumWghtFac_c = 0.2F;/* Referenced by: '<S871>/Constant4' */
+/* Ç°50¸öÊý×éÄÜºÄ¼ÓÈ¨ÏµÊý */
+CALDATA const volatile float32 KRME_AvgSOCCnsm5NumWghtFac_c = 0.2F;/* Referenced by: '<S922>/Constant4' */
 
-/* Ç°5ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÜºÄ¼ï¿½È¨Ïµï¿½ï¿½ */
-CALDATA const volatile boolean KRME_AvgSOCCnsmWghtSw_flg = false;/* Referenced by: '<S871>/Constant10' */
+/* Ç°5¸öÊý×éÄÜºÄ¼ÓÈ¨ÏµÊý */
+CALDATA const volatile boolean KRME_AvgSOCCnsmWghtSw_flg = false;/* Referenced by: '<S922>/Constant10' */
 
-/* ï¿½ï¿½È¨SOCï¿½ï¿½ï¿½ï¿½Ç¿ï¿½Ø¿ï¿½ï¿½ï¿½ */
-CALDATA const volatile float32 KRME_AvgSOCCnsmWghtVal_pctpkm = 0.0F;/* Referenced by: '<S871>/Constant11' */
+/* ¼ÓÈ¨SOCÏûºÄÇ¿¿Ø¿ª¹Ø */
+CALDATA const volatile float32 KRME_AvgSOCCnsmWghtVal_pctpkm = 0.0F;/* Referenced by: '<S922>/Constant11' */
 
-/* ï¿½ï¿½È¨SOCï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½Öµ */
-CALDATA const volatile float32 KRME_CHTCRmnMilEstVldOff_km = 25.0F;/* Referenced by: '<S853>/Constant4' */
+/* ¼ÓÈ¨SOCÏûºÄÇ¿¿ØÖµ */
+CALDATA const volatile float32 KRME_CHTCRmnMilEstVldOff_km = 25.0F;/* Referenced by: '<S904>/Constant4' */
 
-/* ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½CHTCï¿½ï¿½Ð§ï¿½ï¿½Off */
-CALDATA const volatile float32 KRME_CHTCRmnMilEstVldOn_km = 30.0F;/* Referenced by: '<S853>/Constant7' */
+/* ±ê×¼Ðøº½CHTCÓÐÐ§ÐÔOff */
+CALDATA const volatile float32 KRME_CHTCRmnMilEstVldOn_km = 30.0F;/* Referenced by: '<S904>/Constant7' */
 
-/* ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½CHTCï¿½ï¿½Ð§ï¿½ï¿½On */
-CALDATA const volatile float32 KRME_CalPwrCnsmVehThr_kph = 0.5F;/* Referenced by: '<S857>/Constant1' */
+/* ±ê×¼Ðøº½CHTCÓÐÐ§ÐÔOn */
+CALDATA const volatile float32 KRME_CalPwrCnsmVehThr_kph = 0.5F;/* Referenced by: '<S908>/Constant1' */
 
-/* PwrCnseï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½ï¿½ï¿½ÌµÄ³ï¿½ï¿½ï¿½Öµ */
+/* PwrCnse¼ÆËãÀÛ¼ÆÀï³ÌµÄ³µËÙÖµ */
 CALDATA const volatile float32 KRME_CalSOCCnsmTgtDist_m = 1000.0F;/* Referenced by:
-                                                                   * '<S870>/Constant2'
-                                                                   * '<S870>/Constant8'
-                                                                   * '<S870>/Constant9'
+                                                                   * '<S921>/Constant2'
+                                                                   * '<S921>/Constant8'
+                                                                   * '<S921>/Constant9'
                                                                    */
 
-/* SOCï¿½ï¿½ï¿½Äµï¿½Î»ï¿½ï¿½ï¿½ */
+/* SOCÏûºÄµ¥Î»Àï³Ì */
 CALDATA const volatile float32 KRME_CalSOCCnsmVehThr_kph = 0.5F;/* Referenced by:
-                                                                 * '<S870>/Constant1'
-                                                                 * '<S872>/Constant10'
+                                                                 * '<S921>/Constant1'
+                                                                 * '<S923>/Constant10'
                                                                  */
 
-/* ï¿½ï¿½ï¿½ï¿½SOCï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ü³ï¿½ï¿½ï¿½Öµ */
-CALDATA const volatile uint8 KRME_PwrCnsmStorRst_enum = 0U;/* Referenced by: '<S858>/Constant64' */
+/* ¼ÆËãSOCÏûºÄÊ¹ÄÜ³µËÙÖµ */
+CALDATA const volatile uint8 KRME_PwrCnsmStorRst_enum = 0U;/* Referenced by: '<S909>/Constant64' */
 
-/* ï¿½ï¿½ï¿½ï¿½PwrCnseï¿½ï¿½ï¿½ï¿½æ´¢Öµ(ï¿½ê¶¨Ê¹ï¿½ï¿½) */
-CALDATA const volatile uint8 KRME_SOCCnsmStorRst_enum = 0U;/* Referenced by: '<S871>/Constant64' */
+/* ÖØÖÃPwrCnseÊý×é´æ´¢Öµ(±ê¶¨Ê¹ÓÃ) */
+CALDATA const volatile uint8 KRME_SOCCnsmStorRst_enum = 0U;/* Referenced by: '<S922>/Constant64' */
 
-/* ï¿½ï¿½ï¿½ï¿½SOCCnseï¿½ï¿½ï¿½ï¿½æ´¢Öµ(ï¿½ê¶¨Ê¹ï¿½ï¿½) */
-CALDATA const volatile boolean KRME_SOHCrctFacEnbl_flg = false;/* Referenced by: '<S853>/Constant2' */
+/* ÖØÖÃSOCCnseÊý×é´æ´¢Öµ(±ê¶¨Ê¹ÓÃ) */
+CALDATA const volatile boolean KRME_SOHCrctFacEnbl_flg = false;/* Referenced by: '<S904>/Constant2' */
 
-/* Ê¹ï¿½ï¿½SOHï¿½ï¿½RptSOCï¿½ï¿½ï¿½ï¿½ */
-CALDATA const volatile float32 KRME_VehStpDlyTm_s = 2.0F;/* Referenced by: '<S872>/Constant11' */
+/* Ê¹ÓÃSOH¶ÔRptSOCÐÞÕý */
+CALDATA const volatile float32 KRME_VehStpDlyTm_s = 2.0F;/* Referenced by: '<S923>/Constant11' */
 
-/* ï¿½ï¿½ï¿½ï¿½Í£Ö¹È·ï¿½ï¿½Ê±ï¿½ï¿½ */
-CALDATA const volatile boolean KRME_WLTPCtrlModeSel_flg = false;/* Referenced by: '<S872>/Constant13' */
+/* ³µÁ¾Í£Ö¹È·ÈÏÊ±¼ä */
+CALDATA const volatile boolean KRME_WLTPCtrlModeSel_flg = false;/* Referenced by: '<S923>/Constant13' */
 
-/* WLTPï¿½ï¿½ï¿½Æ·ï¿½Ê½Ñ¡ï¿½ï¿½:0-ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ 1-ï¿½ï¿½ï¿½WLTPï¿½ï¿½ï¿½ï¿½ */
-CALDATA const volatile float32 KRME_WLTPRmnMilEstVldOff_km = 25.0F;/* Referenced by: '<S872>/Constant17' */
+/* WLTP¿ØÖÆ·½Ê½Ñ¡Ôñ:0-¶¯Ì¬Ðøº½ 1-²é±íWLTPÐøº½ */
+CALDATA const volatile float32 KRME_WLTPRmnMilEstVldOff_km = 25.0F;/* Referenced by: '<S923>/Constant17' */
 
-/* ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½WLTPï¿½ï¿½Ð§ï¿½ï¿½Off */
-CALDATA const volatile float32 KRME_WLTPRmnMilEstVldOn_km = 30.0F;/* Referenced by: '<S872>/Constant18' */
+/* ¶¯Ì¬Ðøº½WLTPÓÐÐ§ÐÔOff */
+CALDATA const volatile float32 KRME_WLTPRmnMilEstVldOn_km = 30.0F;/* Referenced by: '<S923>/Constant18' */
 
-/* ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½WLTPï¿½ï¿½Ð§ï¿½ï¿½On */
-CALDATA const volatile float32 KRME_WLTPStdUpLimFac_c = 1.16F;/* Referenced by: '<S870>/Constant7' */
+/* ¶¯Ì¬Ðøº½WLTPÓÐÐ§ÐÔOn */
+CALDATA const volatile float32 KRME_WLTPStdUpLimFac_c = 1.16F;/* Referenced by: '<S921>/Constant7' */
 
-/* ï¿½ï¿½ï¿½Ú±ï¿½×¼ï¿½ï¿½ï¿½ï¿½WLTPï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ */
+/* »ùÓÚ±ê×¼Ðøº½WLTP×î´óÉÏÏÞÏµÊý */
 CALDATA const volatile uint8 KSYS_CalVer_cnt = 20U;
-                           /* Referenced by: '<S1416>/ASYS_HVBatPackTyp_X_Ah' */
-CALDATA const volatile boolean KSYS_ChkTaskRunCnt_flg = FALSE; /*test flag*/
-                          /* Referenced by: '<S1416>/ASYS_HVBatPackTyp_X_Ah1' */
+                           /* Referenced by: '<S1472>/ASYS_HVBatPackTyp_X_Ah' */
+CALDATA const volatile boolean KSYS_ChkTaskRunCnt_flg = false;
+                          /* Referenced by: '<S1472>/ASYS_HVBatPackTyp_X_Ah1' */
 CALDATA const volatile float32 KSYS_VehMass_kg = 1800.0F;/* Referenced by:
                                                           * '<S16>/KVTM_VehMass_kg'
-                                                          * '<S930>/KDAC_TapDwnTmOut_s'
-                                                          * '<S930>/KDAC_TapDwnTmOut_s1'
-                                                          * '<S930>/KDAC_TapDwnTmOut_s6'
-                                                          * '<S1138>/KDAC_TapDwnTmOut_s'
-                                                          * '<S1224>/KDAC_TapDwnTmOut_s1'
-                                                          * '<S1019>/KDAC_TapDwnTmOut_s'
+                                                          * '<S986>/KDAC_TapDwnTmOut_s'
+                                                          * '<S986>/KDAC_TapDwnTmOut_s1'
+                                                          * '<S986>/KDAC_TapDwnTmOut_s6'
+                                                          * '<S1194>/KDAC_TapDwnTmOut_s'
+                                                          * '<S1280>/KDAC_TapDwnTmOut_s1'
+                                                          * '<S1075>/KDAC_TapDwnTmOut_s'
                                                           */
 CALDATA const volatile float32 KSYS_VehTransRto_c = 12.1F;/* Referenced by:
-                                                           * '<S775>/KSYS_VehTransRto_c'
-                                                           * '<S930>/KSYS_VehTransRto_c'
-                                                           * '<S952>/KSYS_VehTransRto_c'
-                                                           * '<S971>/KSYS_VehTransRto_c'
-                                                           * '<S971>/KSYS_VehTransRto_c1'
-                                                           * '<S1374>/KSYS_VehTransRto_c3'
-                                                           * '<S1375>/KSYS_VehTransRto_c1'
-                                                           * '<S1375>/KSYS_VehTransRto_c2'
-                                                           * '<S1188>/KSYS_VehTransRto_c'
-                                                           * '<S1324>/KSYS_VehTransRto_c1'
-                                                           * '<S1324>/KSYS_VehTransRto_c2'
-                                                           * '<S1101>/KSYS_VehTransRto_c'
-                                                           * '<S1266>/KSYS_VehTransRto_c'
-                                                           * '<S1267>/KSYS_VehTransRto_c'
-                                                           * '<S1284>/KSYS_VehTransRto_c'
-                                                           * '<S1284>/KSYS_VehTransRto_c1'
-                                                           * '<S1242>/KSYS_VehTransRto_c'
-                                                           * '<S1150>/KSYS_VehTransRto_c'
+                                                           * '<S828>/KSYS_VehTransRto_c'
+                                                           * '<S986>/KSYS_VehTransRto_c'
+                                                           * '<S1008>/KSYS_VehTransRto_c'
+                                                           * '<S1027>/KSYS_VehTransRto_c'
+                                                           * '<S1027>/KSYS_VehTransRto_c1'
+                                                           * '<S1430>/KSYS_VehTransRto_c3'
+                                                           * '<S1431>/KSYS_VehTransRto_c1'
+                                                           * '<S1431>/KSYS_VehTransRto_c2'
+                                                           * '<S1244>/KSYS_VehTransRto_c'
+                                                           * '<S1380>/KSYS_VehTransRto_c1'
+                                                           * '<S1380>/KSYS_VehTransRto_c2'
+                                                           * '<S1157>/KSYS_VehTransRto_c'
+                                                           * '<S1322>/KSYS_VehTransRto_c'
+                                                           * '<S1323>/KSYS_VehTransRto_c'
+                                                           * '<S1340>/KSYS_VehTransRto_c'
+                                                           * '<S1340>/KSYS_VehTransRto_c1'
+                                                           * '<S1298>/KSYS_VehTransRto_c'
+                                                           * '<S1206>/KSYS_VehTransRto_c'
                                                            */
 CALDATA const volatile boolean KTQC_ABSInhbBrkRegen_flg = false;
-                      /* Referenced by: '<S1189>/KTQD_CstRegenVehSpdOff_kph1' */
+                      /* Referenced by: '<S1245>/KTQD_CstRegenVehSpdOff_kph1' */
 CALDATA const volatile float32 KTQC_ABSorESPActvTm1_s = 0.2F;
-                      /* Referenced by: '<S1187>/DrvCtl_DrvMot_MaxTrqFlg_Cal' */
+                      /* Referenced by: '<S1243>/DrvCtl_DrvMot_MaxTrqFlg_Cal' */
 CALDATA const volatile float32 KTQC_ABSorESPActvTm2_s = 0.4F;
-                     /* Referenced by: '<S1187>/DrvCtl_DrvMot_MaxTrqFlg_Cal1' */
+                     /* Referenced by: '<S1243>/DrvCtl_DrvMot_MaxTrqFlg_Cal1' */
 CALDATA const volatile float32 KTQC_BrkRegenTgtTqDecRate_Nmps = -10000.0F;
-                       /* Referenced by: '<S1189>/KTQC_DrvTqLoEnblRBSThr_Nm5' */
+                       /* Referenced by: '<S1245>/KTQC_DrvTqLoEnblRBSThr_Nm5' */
 CALDATA const volatile float32 KTQC_BrkRegenTgtTqIncRate_Nmps = 10000.0F;
-                       /* Referenced by: '<S1189>/KTQC_DrvTqLoEnblRBSThr_Nm4' */
+                       /* Referenced by: '<S1245>/KTQC_DrvTqLoEnblRBSThr_Nm4' */
 CALDATA const volatile float32 KTQC_CstRegenLmtTqDecRecry_Nmps = 2000.0F;
-                     /* Referenced by: '<S1187>/DrvCtl_DrvMot_MaxTrqFlg_Cal5' */
+                     /* Referenced by: '<S1243>/DrvCtl_DrvMot_MaxTrqFlg_Cal5' */
 CALDATA const volatile float32 KTQC_CstRegenLmtTqDecSlow_Nmps = 10.0F;
-                     /* Referenced by: '<S1187>/DrvCtl_DrvMot_MaxTrqFlg_Cal4' */
+                     /* Referenced by: '<S1243>/DrvCtl_DrvMot_MaxTrqFlg_Cal4' */
 CALDATA const volatile float32 KTQC_CstRegenLmtTqIncPhs1_Nmps = 1035.0F;
-                     /* Referenced by: '<S1187>/DrvCtl_DrvMot_MaxTrqFlg_Cal2' */
+                     /* Referenced by: '<S1243>/DrvCtl_DrvMot_MaxTrqFlg_Cal2' */
 CALDATA const volatile float32 KTQC_CstRegenLmtTqIncPhs2_Nmps = 2070.0F;
-                     /* Referenced by: '<S1187>/DrvCtl_DrvMot_MaxTrqFlg_Cal3' */
+                     /* Referenced by: '<S1243>/DrvCtl_DrvMot_MaxTrqFlg_Cal3' */
 CALDATA const volatile float32 KTQC_DrvTqHiDsblRBSDlyTm_s = 0.1F;
-                       /* Referenced by: '<S1189>/KTQC_DrvTqLoEnblRBSThr_Nm3' */
+                       /* Referenced by: '<S1245>/KTQC_DrvTqLoEnblRBSThr_Nm3' */
 CALDATA const volatile float32 KTQC_DrvTqHiDsblRBSThr_Nm = 20.0F;
-                       /* Referenced by: '<S1189>/KTQC_DrvTqLoEnblRBSThr_Nm2' */
+                       /* Referenced by: '<S1245>/KTQC_DrvTqLoEnblRBSThr_Nm2' */
 CALDATA const volatile float32 KTQC_DrvTqLoEnblRBSDlyTm_s = 0.1F;
-                       /* Referenced by: '<S1189>/KTQC_DrvTqLoEnblRBSThr_Nm1' */
+                       /* Referenced by: '<S1245>/KTQC_DrvTqLoEnblRBSThr_Nm1' */
 CALDATA const volatile float32 KTQC_DrvTqLoEnblRBSThr_Nm = -30.0F;
-                        /* Referenced by: '<S1189>/KTQC_DrvTqLoEnblRBSThr_Nm' */
+                        /* Referenced by: '<S1245>/KTQC_DrvTqLoEnblRBSThr_Nm' */
 CALDATA const volatile float32 KTQC_ESCTqIntvAllwdVal_Nm = 6000.0F;/* Referenced by:
-                                                                    * '<S1367>/DrvCtl_DrvMot_MaxTrqFlg_Cal'
-                                                                    * '<S1367>/DrvCtl_DrvMot_MaxTrqFlg_Cal1'
-                                                                    * '<S1188>/DrvCtl_DrvMot_MaxTrqFlg_Cal'
-                                                                    * '<S1188>/DrvCtl_DrvMot_MaxTrqFlg_Cal1'
+                                                                    * '<S1423>/DrvCtl_DrvMot_MaxTrqFlg_Cal'
+                                                                    * '<S1423>/DrvCtl_DrvMot_MaxTrqFlg_Cal1'
+                                                                    * '<S1244>/DrvCtl_DrvMot_MaxTrqFlg_Cal'
+                                                                    * '<S1244>/DrvCtl_DrvMot_MaxTrqFlg_Cal1'
                                                                     */
 CALDATA const volatile boolean KTQC_EnblBrkRsmCstRegen_flg = true;
-                     /* Referenced by: '<S1187>/DrvCtl_DrvMot_MaxTrqFlg_Cal8' */
+                     /* Referenced by: '<S1243>/DrvCtl_DrvMot_MaxTrqFlg_Cal8' */
 CALDATA const volatile boolean KTQC_EnblESPIntvBrkTgtZero_flg = true;
-                       /* Referenced by: '<S1189>/KTQC_DrvTqLoEnblRBSThr_Nm6' */
+                       /* Referenced by: '<S1245>/KTQC_DrvTqLoEnblRBSThr_Nm6' */
 CALDATA const volatile boolean KTQC_EnblRBSIntv_flg = true;
-                       /* Referenced by: '<S1189>/KTQD_CstRegenVehSpdOff_kph' */
+                       /* Referenced by: '<S1245>/KTQD_CstRegenVehSpdOff_kph' */
 CALDATA const volatile float32 KTQC_RsmCstRegenAccPed_pct = 10.0F;
-                     /* Referenced by: '<S1187>/DrvCtl_DrvMot_MaxTrqFlg_Cal6' */
+                     /* Referenced by: '<S1243>/DrvCtl_DrvMot_MaxTrqFlg_Cal6' */
 CALDATA const volatile float32 KTQC_RsmCstRegenTqReq_Nm = 100.0F;
-                     /* Referenced by: '<S1187>/DrvCtl_DrvMot_MaxTrqFlg_Cal7' */
+                     /* Referenced by: '<S1243>/DrvCtl_DrvMot_MaxTrqFlg_Cal7' */
 CALDATA const volatile float32 KTQD_AccelPedPrsdOff_pct = 1.0F;
-                       /* Referenced by: '<S1250>/KTQD_CstRegenVehSpdOn_kph1' */
+                       /* Referenced by: '<S1306>/KTQD_CstRegenVehSpdOn_kph1' */
 CALDATA const volatile float32 KTQD_AccelPedPrsdOn_pct = 2.0F;
-                        /* Referenced by: '<S1250>/KTQD_CstRegenVehSpdOn_kph' */
+                        /* Referenced by: '<S1306>/KTQD_CstRegenVehSpdOn_kph' */
 CALDATA const volatile float32 KTQD_AdaptCstDsrdTqIMax_N = 3000.0F;
-                                      /* Referenced by: '<S1224>/Saturation2' */
+                                      /* Referenced by: '<S1280>/Saturation2' */
 CALDATA const volatile float32 KTQD_AdaptCstDsrdTqIMin_N = -3000.0F;
-                                      /* Referenced by: '<S1224>/Saturation2' */
+                                      /* Referenced by: '<S1280>/Saturation2' */
 CALDATA const volatile boolean KTQD_AdaptCstRegenEnbl_flg = false;
-                      /* Referenced by: '<S1220>/KTQD_CstRegenVehSpdOff_kph1' */
+                      /* Referenced by: '<S1276>/KTQD_CstRegenVehSpdOff_kph1' */
 CALDATA const volatile float32 KTQD_AdaptCstTgtAcceltnFiltTm_s = 0.03F;
-                              /* Referenced by: '<S1224>/KDAC_TapDwnTmOut_s2' */
+                              /* Referenced by: '<S1280>/KDAC_TapDwnTmOut_s2' */
 CALDATA const volatile float32 KTQD_AdaptCstVehSpdOff_kph = 8.0F;
-                       /* Referenced by: '<S1220>/KTQD_CstRegenVehSpdOff_kph' */
+                       /* Referenced by: '<S1276>/KTQD_CstRegenVehSpdOff_kph' */
 CALDATA const volatile float32 KTQD_AdaptCstVehSpdOn_kph = 9.0F;
-                        /* Referenced by: '<S1220>/KTQD_CstRegenVehSpdOn_kph' */
+                        /* Referenced by: '<S1276>/KTQD_CstRegenVehSpdOn_kph' */
 CALDATA const volatile float32 KTQD_BrkPedPrsd_pct = 1.0F;/* Referenced by:
-                                                           * '<S1130>/KTQD_BrkPedPstnHi_pct2'
-                                                           * '<S1219>/KTQD_BrkPedPstnHi_pct'
+                                                           * '<S1186>/KTQD_BrkPedPstnHi_pct2'
+                                                           * '<S1275>/KTQD_BrkPedPstnHi_pct'
                                                            */
 CALDATA const volatile float32 KTQD_BrkPedReldDlyTm_s = 2.0F;
-                           /* Referenced by: '<S1220>/KTQD_BrkPedPstnHi_pct2' */
+                           /* Referenced by: '<S1276>/KTQD_BrkPedPstnHi_pct2' */
 CALDATA const volatile boolean KTQD_CrpEnbl_flg = true;
-                       /* Referenced by: '<S1210>/Motohawk_KTQD_EnblEcrp_flg' */
+                       /* Referenced by: '<S1266>/Motohawk_KTQD_EnblEcrp_flg' */
 CALDATA const volatile float32 KTQD_CrpRsmPedPstn_pct = 3.0F;
-                           /* Referenced by: '<S1210>/KTQD_CrpRsmPedPstn_pct' */
+                           /* Referenced by: '<S1266>/KTQD_CrpRsmPedPstn_pct' */
 CALDATA const volatile float32 KTQD_CstRegenTqFiltAchvd_Nm = 35.0F;
-                      /* Referenced by: '<S1221>/KTQD_CstRegenVehSpdOff_kph1' */
+                      /* Referenced by: '<S1277>/KTQD_CstRegenVehSpdOff_kph1' */
 CALDATA const volatile float32 KTQD_CstRegenTqReqWhlDecEnbl_Nmps = -1000.0F;
-                      /* Referenced by: '<S1221>/KTQD_CstRegenVehSpdOff_kph3' */
+                      /* Referenced by: '<S1277>/KTQD_CstRegenVehSpdOff_kph3' */
 CALDATA const volatile float32 KTQD_CstRegenTqReqWhlDec_Nmps = -200.0F;
-                      /* Referenced by: '<S1221>/KTQD_CstRegenVehSpdOff_kph4' */
+                      /* Referenced by: '<S1277>/KTQD_CstRegenVehSpdOff_kph4' */
 CALDATA const volatile float32 KTQD_CstRegenTqReqWhlIncEnbl_Nmps = 500.0F;
-                      /* Referenced by: '<S1221>/KTQD_CstRegenVehSpdOff_kph2' */
+                      /* Referenced by: '<S1277>/KTQD_CstRegenVehSpdOff_kph2' */
 CALDATA const volatile float32 KTQD_CstRegenVehSpdOff_kph = 1.0F;
-                       /* Referenced by: '<S1219>/KTQD_CstRegenVehSpdOff_kph' */
+                       /* Referenced by: '<S1275>/KTQD_CstRegenVehSpdOff_kph' */
 CALDATA const volatile float32 KTQD_CstRegenVehSpdOn_kph = 1.5F;
-                        /* Referenced by: '<S1219>/KTQD_CstRegenVehSpdOn_kph' */
+                        /* Referenced by: '<S1275>/KTQD_CstRegenVehSpdOn_kph' */
 CALDATA const volatile float32 KTQD_EPBAppliedMaxTq_Nm = 9999.0F;
-                            /* Referenced by: '<S1249>/KTQD_LimpHomeMaxTq_Nm' */
+                            /* Referenced by: '<S1305>/KTQD_LimpHomeMaxTq_Nm' */
 CALDATA const volatile float32 KTQD_EnblDRShftVehSpd_kph = 5.0F;
-                        /* Referenced by: '<S1242>/KTQD_EnblDRShftVehSpd_kph' */
+                        /* Referenced by: '<S1298>/KTQD_EnblDRShftVehSpd_kph' */
 CALDATA const volatile float32 KTQD_EnblDRShftWhlTq_Nm = 1.0F;
-                          /* Referenced by: '<S1242>/KTQD_EnblDRShftWhlTq_Nm' */
+                          /* Referenced by: '<S1298>/KTQD_EnblDRShftWhlTq_Nm' */
 CALDATA const volatile float32 KTQD_PedTqReqFiltCoeffMAA_c = 0.9995F;
-                      /* Referenced by: '<S1249>/KCPT_MotorMaxTqFiltCoeff_c2' */
+                      /* Referenced by: '<S1305>/KCPT_MotorMaxTqFiltCoeff_c2' */
 CALDATA const volatile float32 KTQD_PlugOnTqZeroSpd_kph = 5.0F;
-                         /* Referenced by: '<S1240>/KTQD_TqZeroSpdPlugOn_kph' */
+                         /* Referenced by: '<S1296>/KTQD_TqZeroSpdPlugOn_kph' */
 CALDATA const volatile float32 KTQD_TqDrtFacLmtPerfmnRate_cps = 0.1F;
-                   /* Referenced by: '<S1251>/KTQD_TqDrtFacVehSpdIncRate_cps' */
+                   /* Referenced by: '<S1307>/KTQD_TqDrtFacVehSpdIncRate_cps' */
 CALDATA const volatile float32 KTQD_TqDrtFacVehSpdDecRate_cps = -0.4F;
-                   /* Referenced by: '<S1254>/KTQD_TqDrtFacVehSpdDecRate_cps' */
+                   /* Referenced by: '<S1310>/KTQD_TqDrtFacVehSpdDecRate_cps' */
 CALDATA const volatile float32 KTQD_TqDrtFacVehSpdIncRate_cps = 0.4F;
-                   /* Referenced by: '<S1254>/KTQD_TqDrtFacVehSpdIncRate_cps' */
+                   /* Referenced by: '<S1310>/KTQD_TqDrtFacVehSpdIncRate_cps' */
 CALDATA const volatile float32 KTQD_WhlSpdDiffFiltCoeff_c = 0.91F;
-                       /* Referenced by: '<S1206>/KTQD_WhlSpdDiffFiltCoeff_c' */
+                       /* Referenced by: '<S1262>/KTQD_WhlSpdDiffFiltCoeff_c' */
 CALDATA const volatile boolean KTQF_DsblEndFlgRateCond_flg = true;
-                   /* Referenced by: '<S1265>/KTQF_DsblEndFlgRateCondInc_flg' */
+                   /* Referenced by: '<S1321>/KTQF_DsblEndFlgRateCondInc_flg' */
 
 /* set to false, change rate is considered when judging ending flag */
 CALDATA const volatile float32 KTQF_TqDecDlyTm_s = 0.02F;
-                               /* Referenced by: '<S1263>/KTQF_TqDecDelay_s ' */
+                               /* Referenced by: '<S1319>/KTQF_TqDecDelay_s ' */
 
 /* torque increase judgement turn on delay */
 CALDATA const volatile float32 KTQF_TqDecThr_Nm = -30.0F;
-                                /* Referenced by: '<S1263>/KTQF_TqDecThr_Nm ' */
+                                /* Referenced by: '<S1319>/KTQF_TqDecThr_Nm ' */
 
 /* torque decrease judgement tq threshold */
 CALDATA const volatile float32 KTQF_TqIncDlyTm_s = 0.02F;
-                               /* Referenced by: '<S1263>/KTQF_TqIncDelay_s ' */
+                               /* Referenced by: '<S1319>/KTQF_TqIncDelay_s ' */
 
 /* torque Decrease judgement turn on delay */
 CALDATA const volatile float32 KTQF_TqIncThr_Nm = 30.0F;
-                                /* Referenced by: '<S1263>/KTQF_TqIncThr_Nm ' */
+                                /* Referenced by: '<S1319>/KTQF_TqIncThr_Nm ' */
 
 /* torque increase judgement tq threshold */
 CALDATA const volatile float32 KTQF_TqOutChgRateFilt_rat = 0.8F;
-                     /* Referenced by: '<S1265>/KTQF_TqOutChgRateFiltInc_rat' */
+                     /* Referenced by: '<S1321>/KTQF_TqOutChgRateFiltInc_rat' */
 
 /* torque output change rate filter */
 CALDATA const volatile float32 KTQF_TqRateDecMaxEndg_Nmps = -2000.0F;
-                       /* Referenced by: '<S1266>/KTQF_TqRateDecMaxEndg_Nmps' */
+                       /* Referenced by: '<S1322>/KTQF_TqRateDecMaxEndg_Nmps' */
 
 /* decrease tq rate max in ending or decreasing period */
 CALDATA const volatile float32 KTQF_TqRateDecMaxRegenACC_Nmps = -4000.0F;
-                      /* Referenced by: '<S1266>/KTQF_TqRateDecMaxEndg_Nmps1' */
+                      /* Referenced by: '<S1322>/KTQF_TqRateDecMaxEndg_Nmps1' */
 CALDATA const volatile float32 KTQF_TqRateDecMaxStart_Nmps = -7000.0F;
-                      /* Referenced by: '<S1266>/KTQF_TqRateDecMaxEndg_Nmps3' */
+                      /* Referenced by: '<S1322>/KTQF_TqRateDecMaxEndg_Nmps3' */
 CALDATA const volatile float32 KTQF_TqRateDecMin_Nmps = -260.0F;/* Referenced by:
-                                                                 * '<S1265>/KTQF_TqRateDecMin_Nmps'
-                                                                 * '<S1266>/KTQF_TqRateDecMin_Nmps'
+                                                                 * '<S1321>/KTQF_TqRateDecMin_Nmps'
+                                                                 * '<S1322>/KTQF_TqRateDecMin_Nmps'
                                                                  */
 
 /* Rate limit, max decreasing.  */
 CALDATA const volatile float32 KTQF_TqRateIncMaxEndg_Nmps = 2000.0F;
-                       /* Referenced by: '<S1267>/KTQF_TqRateIncMaxEndg_Nmps' */
+                       /* Referenced by: '<S1323>/KTQF_TqRateIncMaxEndg_Nmps' */
 
 /* increase tq rate max in ending or decreasing period */
 CALDATA const volatile float32 KTQF_TqRateIncMin_Nmps = 260.0F;/* Referenced by:
-                                                                * '<S1265>/KTQF_TqRateIncMin_Nmps'
-                                                                * '<S1267>/KTQF_TqRateIncMin_Nmps'
+                                                                * '<S1321>/KTQF_TqRateIncMin_Nmps'
+                                                                * '<S1323>/KTQF_TqRateIncMin_Nmps'
                                                                 */
 
 /* Rate limit, min decreasing.  */
 CALDATA const volatile float32 KTQF_TqRateLimEndErrFac_c = 0.8F;
-                           /* Referenced by: '<S1265>/KTQF_TqRateLimEndTm_s1' */
+                           /* Referenced by: '<S1321>/KTQF_TqRateLimEndTm_s1' */
 CALDATA const volatile float32 KTQF_TqRateLimEndTm_s = 0.0F;
-                            /* Referenced by: '<S1265>/KTQF_TqRateLimEndTm_s' */
+                            /* Referenced by: '<S1321>/KTQF_TqRateLimEndTm_s' */
 
 /* Rate limit, target torque prediction time towards ending.  */
 CALDATA const volatile float32 KTQF_TqRawChgRateFilt_rat = 0.8F;
-                        /* Referenced by: '<S1265>/KTQF_TqRawChgRateFilt_rat' */
+                        /* Referenced by: '<S1321>/KTQF_TqRawChgRateFilt_rat' */
 
 /* raw torque change rate filter */
 CALDATA const volatile float32 KTQR_ABSActvDlyTm4Dampng_s = 0.2F;
-                         /* Referenced by: '<S1289>/KTQR_EnblMotorStdby_flg4' */
+                         /* Referenced by: '<S1345>/KTQR_EnblMotorStdby_flg4' */
 CALDATA const volatile float32 KTQR_ASDEnblOscSpd_rpm = 2.0F;
-                          /* Referenced by: '<S1294>/KTQR_MotDampngLmtFac_c3' */
+                          /* Referenced by: '<S1350>/KTQR_MotDampngLmtFac_c3' */
 CALDATA const volatile boolean KTQR_ASDEnbl_flg = false;
-                         /* Referenced by: '<S1289>/KTQR_EnblMotorStdby_flg6' */
+                         /* Referenced by: '<S1345>/KTQR_EnblMotorStdby_flg6' */
 CALDATA const volatile float32 KTQR_ASDOscTrigTm_s = 0.5F;
-                          /* Referenced by: '<S1294>/KTQR_MotDampngLmtFac_c1' */
+                          /* Referenced by: '<S1350>/KTQR_MotDampngLmtFac_c1' */
 CALDATA const volatile float32 KTQR_ASDPhCompKa_c = -0.6442F;/* Referenced by:
-                                                              * '<S1295>/KTQR_MotDampngLmtFac_c13'
-                                                              * '<S1295>/KTQR_MotDampngLmtFac_c2'
-                                                              * '<S1295>/KTQR_MotDampngLmtFac_c6'
-                                                              * '<S1295>/KTQR_MotDampngLmtFac_c9'
+                                                              * '<S1351>/KTQR_MotDampngLmtFac_c13'
+                                                              * '<S1351>/KTQR_MotDampngLmtFac_c2'
+                                                              * '<S1351>/KTQR_MotDampngLmtFac_c6'
+                                                              * '<S1351>/KTQR_MotDampngLmtFac_c9'
                                                               */
 CALDATA const volatile float32 KTQR_ASDPhCompKb1_c = 1.0F;/* Referenced by:
-                                                           * '<S1295>/KTQR_MotDampngLmtFac_c10'
-                                                           * '<S1295>/KTQR_MotDampngLmtFac_c11'
-                                                           * '<S1295>/KTQR_MotDampngLmtFac_c3'
-                                                           * '<S1295>/KTQR_MotDampngLmtFac_c7'
+                                                           * '<S1351>/KTQR_MotDampngLmtFac_c10'
+                                                           * '<S1351>/KTQR_MotDampngLmtFac_c11'
+                                                           * '<S1351>/KTQR_MotDampngLmtFac_c3'
+                                                           * '<S1351>/KTQR_MotDampngLmtFac_c7'
                                                            */
 CALDATA const volatile float32 KTQR_ASDPhCompKb2_c = -0.94F;/* Referenced by:
-                                                             * '<S1295>/KTQR_MotDampngLmtFac_c1'
-                                                             * '<S1295>/KTQR_MotDampngLmtFac_c12'
-                                                             * '<S1295>/KTQR_MotDampngLmtFac_c5'
-                                                             * '<S1295>/KTQR_MotDampngLmtFac_c8'
+                                                             * '<S1351>/KTQR_MotDampngLmtFac_c1'
+                                                             * '<S1351>/KTQR_MotDampngLmtFac_c12'
+                                                             * '<S1351>/KTQR_MotDampngLmtFac_c5'
+                                                             * '<S1351>/KTQR_MotDampngLmtFac_c8'
                                                              */
 CALDATA const volatile float32 KTQR_ASDSpdFiltHiDecRate_nu = -0.15F;
-                          /* Referenced by: '<S1293>/KTQR_MotDampngLmtFac_c2' */
+                          /* Referenced by: '<S1349>/KTQR_MotDampngLmtFac_c2' */
 CALDATA const volatile float32 KTQR_ASDSpdFiltHiIncRate_nu = 15.0F;
-                          /* Referenced by: '<S1293>/KTQR_MotDampngLmtFac_c1' */
+                          /* Referenced by: '<S1349>/KTQR_MotDampngLmtFac_c1' */
 CALDATA const volatile float32 KTQR_ASDSpdFiltLo_s = 0.01F;
-                          /* Referenced by: '<S1293>/KTQR_MotDampngLmtFac_c3' */
+                          /* Referenced by: '<S1349>/KTQR_MotDampngLmtFac_c3' */
 CALDATA const volatile uint8 KTQR_ASDSpdPhCompCout_Cnt = 1U;
-                          /* Referenced by: '<S1295>/KTQR_MotDampngLmtFac_c4' */
+                          /* Referenced by: '<S1351>/KTQR_MotDampngLmtFac_c4' */
 CALDATA const volatile float32 KTQR_ASDTqDbnd_Nm = 0.5F;
-                          /* Referenced by: '<S1294>/KTQR_MotDampngLmtFac_c4' */
+                          /* Referenced by: '<S1350>/KTQR_MotDampngLmtFac_c4' */
 CALDATA const volatile float32 KTQR_ASDTqMax_Nm = 10.0F;
-                          /* Referenced by: '<S1294>/KTQR_MotDampngLmtFac_c5' */
+                          /* Referenced by: '<S1350>/KTQR_MotDampngLmtFac_c5' */
 CALDATA const volatile float32 KTQR_ASDTqMin_Nm = -10.0F;
-                          /* Referenced by: '<S1294>/KTQR_MotDampngLmtFac_c6' */
+                          /* Referenced by: '<S1350>/KTQR_MotDampngLmtFac_c6' */
 CALDATA const volatile boolean KTQR_AllZeroCrsDsblDamp_flg = false;
-                         /* Referenced by: '<S1289>/KTQR_EnblMotorStdby_flg5' */
+                         /* Referenced by: '<S1345>/KTQR_EnblMotorStdby_flg5' */
 CALDATA const volatile boolean KTQR_BypassASDOscTrig_flg = true;
-                          /* Referenced by: '<S1294>/KTQR_MotDampngLmtFac_c2' */
+                          /* Referenced by: '<S1350>/KTQR_MotDampngLmtFac_c2' */
 CALDATA const volatile float32 KTQR_MotDampngBrkout_pct = 110.0F;
-                          /* Referenced by: '<S1289>/KTQR_MotDampngLmtFac_c5' */
+                          /* Referenced by: '<S1345>/KTQR_MotDampngLmtFac_c5' */
 CALDATA const volatile float32 KTQR_MotDampngLmtFac_c = 0.25F;
-                           /* Referenced by: '<S1289>/KTQR_MotDampngLmtFac_c' */
+                           /* Referenced by: '<S1345>/KTQR_MotDampngLmtFac_c' */
 CALDATA const volatile float32 KTQR_MotDampngLmtMaxRate_Nmps = 10.0F;
-                          /* Referenced by: '<S1289>/KTQR_MotDampngLmtFac_c4' */
+                          /* Referenced by: '<S1345>/KTQR_MotDampngLmtFac_c4' */
 CALDATA const volatile float32 KTQR_MotDampngLmtMin_Nm = 0.5F;
-                          /* Referenced by: '<S1289>/KTQR_MotDampngLmtFac_c2' */
+                          /* Referenced by: '<S1345>/KTQR_MotDampngLmtFac_c2' */
 CALDATA const volatile float32 KTQR_MotDampngSpdOff_rpm = 5.0F;
-                          /* Referenced by: '<S1289>/KTQR_MotDampngLmtFac_c3' */
+                          /* Referenced by: '<S1345>/KTQR_MotDampngLmtFac_c3' */
 CALDATA const volatile float32 KTQR_MotDampngSpdOn_rpm = 10.0F;
-                          /* Referenced by: '<S1289>/KTQR_MotDampngLmtFac_c1' */
+                          /* Referenced by: '<S1345>/KTQR_MotDampngLmtFac_c1' */
 CALDATA const volatile boolean KTQR_MotorDampngDsblAZ_flg = false;
-                         /* Referenced by: '<S1289>/KTQR_EnblMotorStdby_flg3' */
+                         /* Referenced by: '<S1345>/KTQR_EnblMotorStdby_flg3' */
 CALDATA const volatile boolean KTQR_MotorDampngDsblBZ_flg = false;
-                         /* Referenced by: '<S1289>/KTQR_EnblMotorStdby_flg2' */
+                         /* Referenced by: '<S1345>/KTQR_EnblMotorStdby_flg2' */
 CALDATA const volatile boolean KTQR_MotorDampngDsblZX_flg = true;
-                         /* Referenced by: '<S1289>/KTQR_EnblMotorStdby_flg1' */
+                         /* Referenced by: '<S1345>/KTQR_EnblMotorStdby_flg1' */
 CALDATA const volatile boolean KTQR_MotorDampngEnbl_flg = false;
-                          /* Referenced by: '<S1289>/KTQR_EnblMotorStdby_flg' */
+                          /* Referenced by: '<S1345>/KTQR_EnblMotorStdby_flg' */
 CALDATA const volatile float32 KTQR_MotorStdbyDlyTm_s = 3.0F;
-                               /* Referenced by: '<S1291>/KTQF_TqIncDelay_s ' */
+                               /* Referenced by: '<S1347>/KTQF_TqIncDelay_s ' */
 CALDATA const volatile boolean KTQR_MotorStdbyEnbl_flg = true;
-                          /* Referenced by: '<S1291>/KTQR_EnblMotorStdby_flg' */
+                          /* Referenced by: '<S1347>/KTQR_EnblMotorStdby_flg' */
 CALDATA const volatile float32 KTQR_MotorStdbyVehHaltHi_kph = 1.0F;
-                     /* Referenced by: '<S1291>/KTQR_MotorStdbyVehHaltHi_kph' */
+                     /* Referenced by: '<S1347>/KTQR_MotorStdbyVehHaltHi_kph' */
 CALDATA const volatile float32 KTQR_MotorStdbyVehHaltLo_kph = 0.5F;
-                     /* Referenced by: '<S1291>/KTQR_MotorStdbyVehHaltLo_kph' */
+                     /* Referenced by: '<S1347>/KTQR_MotorStdbyVehHaltLo_kph' */
 CALDATA const volatile float32 KTQR_MotorTqZeroDlyTm_s = 2.0F;
-                              /* Referenced by: '<S1290>/KTQF_TqIncDelay_s 1' */
+                              /* Referenced by: '<S1346>/KTQF_TqIncDelay_s 1' */
 CALDATA const volatile float32 KTQR_MotorTqZero_Nm = 0.5F;
-                    /* Referenced by: '<S1290>/KTQR_MotorStdbyVehHaltLo_kph1' */
+                    /* Referenced by: '<S1346>/KTQR_MotorStdbyVehHaltLo_kph1' */
 CALDATA const volatile float32 KTZX_AZDMaxTm_s = 0.8F;
-                                  /* Referenced by: '<S1320>/KTZX_AZDMaxTm_s' */
+                                  /* Referenced by: '<S1376>/KTZX_AZDMaxTm_s' */
 CALDATA const volatile float32 KTZX_AZIMaxTm_s = 0.8F;
-                                  /* Referenced by: '<S1320>/KTZX_AZIMaxTm_s' */
+                                  /* Referenced by: '<S1376>/KTZX_AZIMaxTm_s' */
 CALDATA const volatile float32 KTZX_BrkPedPrsd_pct = 5.0F;
-                              /* Referenced by: '<S1320>/KTZX_BrkPedPrsd_pct' */
+                              /* Referenced by: '<S1376>/KTZX_BrkPedPrsd_pct' */
 CALDATA const volatile float32 KTZX_ClkZXTmD_s = 0.25F;
-                                  /* Referenced by: '<S1320>/KTZX_ClkZXTmD_s' */
+                                  /* Referenced by: '<S1376>/KTZX_ClkZXTmD_s' */
 CALDATA const volatile float32 KTZX_ClkZXTmR_s = 0.25F;
-                                  /* Referenced by: '<S1320>/KTZX_ClkZXTmR_s' */
+                                  /* Referenced by: '<S1376>/KTZX_ClkZXTmR_s' */
 CALDATA const volatile float32 KTZX_ClkZXTqD_Nm = 0.8F;
-                                 /* Referenced by: '<S1320>/KTZX_ClkZXTqD_Nm' */
+                                 /* Referenced by: '<S1376>/KTZX_ClkZXTqD_Nm' */
 CALDATA const volatile float32 KTZX_ClkZXTqR_Nm = 0.8F;
-                                 /* Referenced by: '<S1320>/KTZX_ClkZXTqR_Nm' */
+                                 /* Referenced by: '<S1376>/KTZX_ClkZXTqR_Nm' */
 CALDATA const volatile float32 KTZX_MotorTqDecDlyTm_s = 0.02F;
-                               /* Referenced by: '<S1330>/KTQF_TqDecDelay_s ' */
+                               /* Referenced by: '<S1386>/KTQF_TqDecDelay_s ' */
 CALDATA const volatile float32 KTZX_MotorTqDecThr_Nm = -3.0F;
-                                /* Referenced by: '<S1330>/KTQF_TqDecThr_Nm ' */
+                                /* Referenced by: '<S1386>/KTQF_TqDecThr_Nm ' */
 CALDATA const volatile float32 KTZX_MotorTqIncDlyTm_s = 0.02F;
-                               /* Referenced by: '<S1330>/KTQF_TqIncDelay_s ' */
+                               /* Referenced by: '<S1386>/KTQF_TqIncDelay_s ' */
 CALDATA const volatile float32 KTZX_MotorTqIncThr_Nm = 3.0F;
-                                /* Referenced by: '<S1330>/KTQF_TqIncThr_Nm ' */
+                                /* Referenced by: '<S1386>/KTQF_TqIncThr_Nm ' */
 CALDATA const volatile float32 KTZX_TMSpdBckThr_rpm = -8.0F;
-                             /* Referenced by: '<S1320>/KTZX_TMSpdBckThr_rpm' */
+                             /* Referenced by: '<S1376>/KTZX_TMSpdBckThr_rpm' */
 CALDATA const volatile float32 KTZX_TMSpdFwdThr_rpm = 8.0F;
-                             /* Referenced by: '<S1320>/KTZX_TMSpdFwdThr_rpm' */
+                             /* Referenced by: '<S1376>/KTZX_TMSpdFwdThr_rpm' */
 CALDATA const volatile float32 KTZX_TqDsengCfmTm_s = 2.0F;
-                              /* Referenced by: '<S1320>/KTZX_TqDsengCfmTm_s' */
+                              /* Referenced by: '<S1376>/KTZX_TqDsengCfmTm_s' */
 CALDATA const volatile float32 KTZX_TqDsengThr_Nm = 0.5F;
-                               /* Referenced by: '<S1320>/KTZX_TqDsengThr_Nm' */
+                               /* Referenced by: '<S1376>/KTZX_TqDsengThr_Nm' */
 CALDATA const volatile boolean KTZX_UseZeroTqAddRngFinshAZ_flg = false;/* Referenced by:
-                                                                      * '<S1346>/KTZX_UseZeroTqAddRngFinshAZ_flg'
-                                                                      * '<S1347>/KTZX_UseZeroTqAddRngFinshAZ_flg'
+                                                                      * '<S1402>/KTZX_UseZeroTqAddRngFinshAZ_flg'
+                                                                      * '<S1403>/KTZX_UseZeroTqAddRngFinshAZ_flg'
                                                                       */
 CALDATA const volatile float32 KTZX_VehStopSpd_kph = 3.0F;
-                              /* Referenced by: '<S1320>/KTZX_VehStopSpd_kph' */
+                              /* Referenced by: '<S1376>/KTZX_VehStopSpd_kph' */
 CALDATA const volatile float32 KTZX_ZXRegenTqTgtThr_Nm = -9999.0F;
-                            /* Referenced by: '<S1320>/KTZX_ZXRgnTqTgtThr_Nm' */
+                            /* Referenced by: '<S1376>/KTZX_ZXRgnTqTgtThr_Nm' */
 CALDATA const volatile uint16 KVCU_EcuCommReqOff_Cnt = 0U;
-                         /* Referenced by: '<S1414>/KIPC_LimpHomeOvrdSw_flg4' */
+                         /* Referenced by: '<S1470>/KIPC_LimpHomeOvrdSw_flg4' */
 
 /* _versteckt */
 CALDATA const volatile uint16 KVCU_EcuCommReqOn_Cnt = 10U;
-                         /* Referenced by: '<S1414>/KIPC_LimpHomeOvrdSw_flg1' */
+                         /* Referenced by: '<S1470>/KIPC_LimpHomeOvrdSw_flg1' */
 
 /* _versteckt */
 CALDATA const volatile boolean KVCU_EcuCommReq_flg = false;
-                         /* Referenced by: '<S1414>/KIPC_LimpHomeOvrdSw_flg2' */
+                         /* Referenced by: '<S1470>/KIPC_LimpHomeOvrdSw_flg2' */
 
 /* _versteckt */
 CALDATA const volatile float32 KVCU_MCUTempWrngOff_C = 149.0F;
-                         /* Referenced by: '<S1416>/KVTM_LimpHomeOvrdSw_flg3' */
+                         /* Referenced by: '<S1472>/KVTM_LimpHomeOvrdSw_flg3' */
 CALDATA const volatile float32 KVCU_MCUTempWrngOn_C = 156.0F;
-                        /* Referenced by: '<S1416>/KVTM_LimpHomeOvrdSw_flg15' */
+                        /* Referenced by: '<S1472>/KVTM_LimpHomeOvrdSw_flg15' */
 CALDATA const volatile float32 KVCU_MotorTempWrngOff_C = 149.0F;
-                         /* Referenced by: '<S1416>/KVTM_LimpHomeOvrdSw_flg2' */
+                         /* Referenced by: '<S1472>/KVTM_LimpHomeOvrdSw_flg2' */
 CALDATA const volatile float32 KVCU_MotorTempWrngOn_C = 157.0F;
-                         /* Referenced by: '<S1416>/KVTM_LimpHomeOvrdSw_flg1' */
+                         /* Referenced by: '<S1472>/KVTM_LimpHomeOvrdSw_flg1' */
 CALDATA const volatile uint16 KVCU_RtcWakeupTm_min = 65535U;
-                         /* Referenced by: '<S1414>/KIPC_LimpHomeOvrdSw_flg3' */
+                         /* Referenced by: '<S1470>/KIPC_LimpHomeOvrdSw_flg3' */
 
 /* _versteckt */
 CALDATA const volatile boolean KVCU_XWhlDistErrRefOvrdSw_flg = false;
-                        /* Referenced by: '<S1415>/KIPC_LimpHomeOvrdSw_flg13' */
+                        /* Referenced by: '<S1471>/KIPC_LimpHomeOvrdSw_flg13' */
 
 /* _versteckt */
 CALDATA const volatile float32 KVCU_XWhlDistErrRefOvrdVal_mpkm = 0.0F;
-                         /* Referenced by: '<S1415>/KIPC_LimpHomeOvrdSw_flg5' */
+                         /* Referenced by: '<S1471>/KIPC_LimpHomeOvrdSw_flg5' */
 
 /* _versteckt */
 CALDATA const volatile boolean KVCU_XWhlDistErrRefStatOvrdSw_flg = false;
-                        /* Referenced by: '<S1415>/KIPC_LimpHomeOvrdSw_flg12' */
+                        /* Referenced by: '<S1471>/KIPC_LimpHomeOvrdSw_flg12' */
 
 /* _versteckt */
 CALDATA const volatile uint8 KVCU_XWhlDistErrRefStatOvrdVal_enum = 0U;
-                         /* Referenced by: '<S1415>/KIPC_LimpHomeOvrdSw_flg6' */
+                         /* Referenced by: '<S1471>/KIPC_LimpHomeOvrdSw_flg6' */
 
 /* _versteckt */
 CALDATA const volatile boolean KVCU_iTPMSWrngOvrdSw_flg = false;
-                        /* Referenced by: '<S1415>/KIPC_LimpHomeOvrdSw_flg11' */
+                        /* Referenced by: '<S1471>/KIPC_LimpHomeOvrdSw_flg11' */
 
 /* _versteckt */
 CALDATA const volatile boolean KVCU_iTPMSWrngOvrdVal_flg = false;
-                         /* Referenced by: '<S1415>/KIPC_LimpHomeOvrdSw_flg4' */
+                         /* Referenced by: '<S1471>/KIPC_LimpHomeOvrdSw_flg4' */
 
 /* _versteckt */
-CALDATA const volatile float32 KVSO_AirBlowArea_m2 = 3.07F;/* Referenced by: '<S952>/A' */
-CALDATA const volatile float32 KVSO_AirResistCoeff_c = 0.3F;/* Referenced by: '<S952>/Cd' */
-CALDATA const volatile float32 KVSO_AvgXWhlDistErr1Fac_c = 0.0F;/* Referenced by: '<S936>/Cnst3' */
-CALDATA const volatile float32 KVSO_AvgXWhlDistErr2Fac_c = 0.0F;/* Referenced by: '<S936>/Cnst1' */
-CALDATA const volatile float32 KVSO_AvgXWhlDistErr3Fac_c = 1.0F;/* Referenced by: '<S936>/Cnst2' */
-CALDATA const volatile float32 KVSO_AvgXWhlDistErr4Fac_c = 0.0F;/* Referenced by: '<S936>/Cnst4' */
-CALDATA const volatile float32 KVSO_AvgXWhlDistErr5Fac_c = 0.0F;/* Referenced by: '<S936>/Cnst5' */
-CALDATA const volatile float32 KVSO_DistErrHldSlip_kph = 1.0F;/* Referenced by: '<S940>/Cnst' */
-CALDATA const volatile float32 KVSO_DistErrHldSpd_kph = 10.0F;/* Referenced by: '<S940>/Cnst2' */
+CALDATA const volatile float32 KVSO_AirBlowArea_m2 = 3.07F;/* Referenced by: '<S1008>/A' */
+CALDATA const volatile float32 KVSO_AirResistCoeff_c = 0.3F;/* Referenced by: '<S1008>/Cd' */
+CALDATA const volatile float32 KVSO_AvgXWhlDistErr1Fac_c = 0.0F;/* Referenced by: '<S992>/Cnst3' */
+CALDATA const volatile float32 KVSO_AvgXWhlDistErr2Fac_c = 0.0F;/* Referenced by: '<S992>/Cnst1' */
+CALDATA const volatile float32 KVSO_AvgXWhlDistErr3Fac_c = 1.0F;/* Referenced by: '<S992>/Cnst2' */
+CALDATA const volatile float32 KVSO_AvgXWhlDistErr4Fac_c = 0.0F;/* Referenced by: '<S992>/Cnst4' */
+CALDATA const volatile float32 KVSO_AvgXWhlDistErr5Fac_c = 0.0F;/* Referenced by: '<S992>/Cnst5' */
+CALDATA const volatile float32 KVSO_DistErrHldSlip_kph = 1.0F;/* Referenced by: '<S996>/Cnst' */
+CALDATA const volatile float32 KVSO_DistErrHldSpd_kph = 10.0F;/* Referenced by: '<S996>/Cnst2' */
 CALDATA const volatile float32 KVSO_DistErrHldStrg_kph = 1.0F;/* Referenced by:
-                                                               * '<S940>/Cnst1'
-                                                               * '<S940>/Cnst3'
+                                                               * '<S996>/Cnst1'
+                                                               * '<S996>/Cnst3'
                                                                */
 CALDATA const volatile float32 KVSO_MassEstBrkPrsd_pct = 2.0F;
-                           /* Referenced by: '<S952>/KVSO_MassEstBrkPrsd_pct' */
+                          /* Referenced by: '<S1008>/KVSO_MassEstBrkPrsd_pct' */
 CALDATA const volatile float32 KVSO_MassEstSpdLo_kph = -5.0F;
-                             /* Referenced by: '<S952>/KVSO_MassEstSpdLo_kph' */
-CALDATA const volatile float32 KVSO_MotorActTqFiltTm_s = 0.05F;/* Referenced by: '<S952>/Const1' */
+                            /* Referenced by: '<S1008>/KVSO_MassEstSpdLo_kph' */
+CALDATA const volatile float32 KVSO_MotorActTqFiltTm_s = 0.05F;/* Referenced by: '<S1008>/Const1' */
 CALDATA const volatile float32 KVSO_RSECovMeas_c = 10.0F;
-                                 /* Referenced by: '<S930>/KTQD_CovVehSpd_c3' */
+                                 /* Referenced by: '<S986>/KTQD_CovVehSpd_c3' */
 CALDATA const volatile float32 KVSO_RSECovSlopFrc_c = 400000.0F;
-                                 /* Referenced by: '<S930>/KTQD_CovVehSpd_c1' */
+                                 /* Referenced by: '<S986>/KTQD_CovVehSpd_c1' */
 CALDATA const volatile float32 KVSO_RSECovVehSpdSlopFrc_c = 0.0F;
-                                 /* Referenced by: '<S930>/KTQD_CovVehSpd_c2' */
+                                 /* Referenced by: '<S986>/KTQD_CovVehSpd_c2' */
 CALDATA const volatile float32 KVSO_RSECovVehSpd_c = 10.0F;
-                                  /* Referenced by: '<S930>/KTQD_CovVehSpd_c' */
+                                  /* Referenced by: '<S986>/KTQD_CovVehSpd_c' */
 CALDATA const volatile float32 KVSO_RoadSlopTqFiltTm_s = 0.06F;
-                                 /* Referenced by: '<S930>/KTQD_CovVehSpd_c4' */
+                                 /* Referenced by: '<S986>/KTQD_CovVehSpd_c4' */
 CALDATA const volatile float32 KVSO_RoadSlopTqHoldBrkPresr_bar = 3.0F;
-                                 /* Referenced by: '<S930>/KTQD_CovVehSpd_c7' */
+                                 /* Referenced by: '<S986>/KTQD_CovVehSpd_c7' */
 CALDATA const volatile float32 KVSO_RoadSlopTqHoldSpd_kph = 0.2F;
-                         /* Referenced by: '<S930>/KVSO_OPDSlopTqHoldSpd_kph' */
+                         /* Referenced by: '<S986>/KVSO_OPDSlopTqHoldSpd_kph' */
 CALDATA const volatile float32 KVSO_RoadSlopTqMax_Nm = 1800.0F;
-                                 /* Referenced by: '<S930>/KTQD_CovVehSpd_c5' */
+                                 /* Referenced by: '<S986>/KTQD_CovVehSpd_c5' */
 CALDATA const volatile float32 KVSO_RoadSlopTqMin_Nm = -1800.0F;
-                                 /* Referenced by: '<S930>/KTQD_CovVehSpd_c6' */
-CALDATA const volatile float32 KVSO_RollgResistCoeff_c = 0.013F;/* Referenced by: '<S952>/f' */
+                                 /* Referenced by: '<S986>/KTQD_CovVehSpd_c6' */
+CALDATA const volatile float32 KVSO_RollgResistCoeff_c = 0.013F;/* Referenced by: '<S1008>/f' */
 CALDATA const volatile float32 KVSO_RotMassCnvnCoeff_c = 1.0F;
-                           /* Referenced by: '<S952>/KVSO_RotMassCnvnCoeff_c' */
+                          /* Referenced by: '<S1008>/KVSO_RotMassCnvnCoeff_c' */
 CALDATA const volatile float32 KVSO_SlopFiltTm_s = 0.2F;
-                                 /* Referenced by: '<S952>/KVSO_SlopFiltTm_s' */
-CALDATA const volatile float32 KVSO_TPMSLrnReqCfmTm_s = 2.0F;/* Referenced by: '<S936>/Cnst7' */
+                                /* Referenced by: '<S1008>/KVSO_SlopFiltTm_s' */
+CALDATA const volatile float32 KVSO_TPMSLrnReqCfmTm_s = 2.0F;/* Referenced by: '<S992>/Cnst7' */
 CALDATA const volatile float32 KVSO_VMECovMeas_c = 0.001F;
-                                    /* Referenced by: '<S952>/KVSO_CovMeas_c' */
+                                   /* Referenced by: '<S1008>/KVSO_CovMeas_c' */
 CALDATA const volatile float32 KVSO_VMECovSlop_c = 0.0006F;
-                                    /* Referenced by: '<S952>/KVSO_CovSlop_c' */
+                                   /* Referenced by: '<S1008>/KVSO_CovSlop_c' */
 CALDATA const volatile float32 KVSO_VMECovVehMass_c = 800.0F;
-                                 /* Referenced by: '<S952>/KVSO_CovVehMass_c' */
+                                /* Referenced by: '<S1008>/KVSO_CovVehMass_c' */
 CALDATA const volatile float32 KVSO_VMECovVehSpd2_c = 100.0F;
-                                 /* Referenced by: '<S952>/KVSO_CovVehSpd2_c' */
+                                /* Referenced by: '<S1008>/KVSO_CovVehSpd2_c' */
 CALDATA const volatile float32 KVSO_VMECovVehSpd_c = 0.01F;
-                                  /* Referenced by: '<S952>/KVSO_CovVehSpd_c' */
+                                 /* Referenced by: '<S1008>/KVSO_CovVehSpd_c' */
 CALDATA const volatile float32 KVSO_VehMassFiltTm_s = 0.2F;
-                              /* Referenced by: '<S952>/KVSO_VehMassFiltTm_s' */
+                             /* Referenced by: '<S1008>/KVSO_VehMassFiltTm_s' */
 CALDATA const volatile float32 KVSO_VehMassInit_kg = 1500.0F;
-                               /* Referenced by: '<S952>/KVSO_VehMassInit_kg' */
+                              /* Referenced by: '<S1008>/KVSO_VehMassInit_kg' */
 CALDATA const volatile float32 KVSO_VehResistPosTh_mps = 0.0556F;
-                               /* Referenced by: '<S930>/KDAC_TapDwnTmOut_s5' */
-CALDATA const volatile float32 KVSO_VehSpdFiltTm_s = 0.05F;/* Referenced by: '<S952>/Const' */
+                               /* Referenced by: '<S986>/KDAC_TapDwnTmOut_s5' */
+CALDATA const volatile float32 KVSO_VehSpdFiltTm_s = 0.05F;/* Referenced by: '<S1008>/Const' */
 CALDATA const volatile float32 KVSO_VehTransEff_c = 0.96F;
-                                /* Referenced by: '<S952>/KVSO_VehTransEff_c' */
+                               /* Referenced by: '<S1008>/KVSO_VehTransEff_c' */
 CALDATA const volatile float32 KVSO_WhlDistErrRecThr_m = 250.0F;
-                              /* Referenced by: '<S949>/KVSO_SpdErrRecDist_m' */
+                             /* Referenced by: '<S1005>/KVSO_SpdErrRecDist_m' */
 CALDATA const volatile float32 KVSO_WhlDistErrRefRecThr_m = 2000.0F;
-                             /* Referenced by: '<S949>/KVSO_SpdErrRecDist_m1' */
-CALDATA const volatile float32 KVSO_XWhlDistErrExcd_mpkm = 1.8F;/* Referenced by: '<S936>/Cnst6' */
-CALDATA const volatile float32 KVTM_BrkLampOffRegenTq_Nm = -620.0F;/* Referenced by: '<S1374>/Constant8' */
-CALDATA const volatile float32 KVTM_BrkLampOnRegenTq_Nm = -670.0F;/* Referenced by: '<S1374>/Constant9' */
+                            /* Referenced by: '<S1005>/KVSO_SpdErrRecDist_m1' */
+CALDATA const volatile float32 KVSO_XWhlDistErrExcd_mpkm = 1.8F;/* Referenced by: '<S992>/Cnst6' */
+CALDATA const volatile float32 KVTM_BrkLampOffRegenTq_Nm = -620.0F;/* Referenced by: '<S1430>/Constant8' */
+CALDATA const volatile float32 KVTM_BrkLampOnRegenTq_Nm = -670.0F;/* Referenced by: '<S1430>/Constant9' */
 CALDATA const volatile float32 KVTM_BrkPedReld_pct = 2.0F;
-                            /* Referenced by: '<S1367>/KTQD_BrkPedPstnHi_pct' */
+                            /* Referenced by: '<S1423>/KTQD_BrkPedPstnHi_pct' */
 CALDATA const volatile float32 KVTM_MotorMaxDrvPwr_kW = 160.0F;
-                              /* Referenced by: '<S1376>/KSYS_VehTransRto_c2' */
+                              /* Referenced by: '<S1432>/KSYS_VehTransRto_c2' */
 CALDATA const volatile float32 KVTM_MotorMaxRegenPwr_kW = -50.0F;
-                              /* Referenced by: '<S1376>/KSYS_VehTransRto_c1' */
+                              /* Referenced by: '<S1432>/KSYS_VehTransRto_c1' */
 CALDATA const volatile float32 KVTM_MotorPwrTypeRecup_Nm = -2.8F;
-                              /* Referenced by: '<S1376>/KSYS_VehTransRto_c4' */
+                              /* Referenced by: '<S1432>/KSYS_VehTransRto_c4' */
 CALDATA const volatile float32 KVTM_MotorSpdFiltCoeff_rat = 0.65F;
-                       /* Referenced by: '<S1367>/KVTM_MotorSpdFiltCoeff_rat' */
+                       /* Referenced by: '<S1423>/KVTM_MotorSpdFiltCoeff_rat' */
 CALDATA const volatile float32 KVTM_VehAcceltnFiltCoeff_rat = 0.93F;
-                              /* Referenced by: '<S1367>/KDAC_TapDwnTmOut_s1' */
+                              /* Referenced by: '<S1423>/KDAC_TapDwnTmOut_s1' */
 CALDATA const volatile float32 KVTM_VehAcceltnMax_mps2 = 10.0F;
-                                      /* Referenced by: '<S1367>/Saturation1' */
+                                      /* Referenced by: '<S1423>/Saturation1' */
 CALDATA const volatile float32 KVTM_VehAcceltnMin_mps2 = -10.0F;
-                                      /* Referenced by: '<S1367>/Saturation1' */
+                                      /* Referenced by: '<S1423>/Saturation1' */
 CALDATA const volatile float32 KVTM_VehSpdFiltCoeff_rat = 0.5F;
-                      /* Referenced by: '<S1367>/KVTM_MotorSpdFiltCoeff_rat1' */
+                      /* Referenced by: '<S1423>/KVTM_MotorSpdFiltCoeff_rat1' */
 CALDATA const volatile float32 MCPT_MotorEffVoltFac_c[9] = { 1.0F, 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F } ;
-                                 /* Referenced by: '<S971>/MTQD_TMOverDrt_c1' */
+                                /* Referenced by: '<S1027>/MTQD_TMOverDrt_c1' */
 
 CALDATA const volatile float32 MCPT_MotorSpdFiltCoeff_rat[8] = { 0.98F, 0.94F,
   0.9F, 0.87F, 0.78F, 0.6F, 0.5F, 0.5F } ;
-                       /* Referenced by: '<S971>/MPPC_OutSftSpdFiltCoeff_rat' */
+                      /* Referenced by: '<S1027>/MPPC_OutSftSpdFiltCoeff_rat' */
 
 CALDATA const volatile float32 MCPT_Pwr2MotorTqGen_Nm[616] = { -330.0F, -330.0F,
   -330.0F, -330.0F, -330.0F, -330.0F, -330.0F, -330.0F, -330.0F, -330.0F,
@@ -3183,7 +3214,7 @@ CALDATA const volatile float32 MCPT_Pwr2MotorTqGen_Nm[616] = { -330.0F, -330.0F,
   -87.3131943F, -79.252182F, -71.3869247F, -63.5077591F, -55.8609924F,
   -48.3698692F, -40.7572746F, -33.1729774F, -25.4020042F, -21.4482079F,
   -17.7531929F, -14.2077513F, -10.6623106F, -5.51513052F, -2.2060523F, 0.0F } ;
-                           /* Referenced by: '<S971>/MCPT_Pwr2MotorTqMot_Nm1' */
+                          /* Referenced by: '<S1027>/MCPT_Pwr2MotorTqMot_Nm1' */
 
 CALDATA const volatile float32 MCPT_Pwr2MotorTqMot_Nm[588] = { 0.0F, 141.973648F,
   288.662964F, 330.0F, 330.0F, 330.0F, 330.0F, 330.0F, 330.0F, 330.0F, 330.0F,
@@ -3276,15 +3307,15 @@ CALDATA const volatile float32 MCPT_Pwr2MotorTqMot_Nm[588] = { 0.0F, 141.973648F
   10.9314747F, 18.5412655F, 25.9835796F, 32.7927246F, 38.8979645F, 46.9587975F,
   54.3899841F, 61.0519714F, 66.9039688F, 73.9052887F, 81.5337296F, 87.3207474F,
   93.59F, 100.275F, 106.96F, 113.645F, 120.33F } ;
-                            /* Referenced by: '<S971>/MCPT_Pwr2MotorTqMot_Nm' */
+                           /* Referenced by: '<S1027>/MCPT_Pwr2MotorTqMot_Nm' */
 
 CALDATA const volatile float32 MCPT_TqDrtFacIgbtTemp_c[8] = { 1.0F, 1.0F, 1.0F,
   0.66F, 0.33F, 0.0F, 0.0F, 0.0F } ;
-                                 /* Referenced by: '<S971>/MTQD_TMOverDrt_c2' */
+                                /* Referenced by: '<S1027>/MTQD_TMOverDrt_c2' */
 
 CALDATA const volatile float32 MCPT_TqDrtFacMotorTemp_c[8] = { 1.0F, 1.0F, 1.0F,
   0.5F, 0.0F, 0.0F, 0.0F, 0.0F } ;
-                                 /* Referenced by: '<S971>/MTQD_TMOverDrt_c4' */
+                                /* Referenced by: '<S1027>/MTQD_TMOverDrt_c4' */
 
 CALDATA const volatile float32 MDAC_ACCDsrdTqKi_c[225] = { 1125.0F, 1215.0F,
   1285.0F, 1346.0F, 1398.0F, 1435.0F, 1462.0F, 1480.0F, 1520.0F, 1615.0F,
@@ -3313,27 +3344,27 @@ CALDATA const volatile float32 MDAC_ACCDsrdTqKi_c[225] = { 1125.0F, 1215.0F,
   1339.0F, 1291.0F, 1236.0F, 1172.0F, 1090.0F, 2250.0F, 2250.0F, 1894.0F,
   1800.0F, 1714.0F, 1615.0F, 1520.0F, 1480.0F, 1462.0F, 1435.0F, 1398.0F,
   1346.0F, 1285.0F, 1215.0F, 1125.0F } ;
-                       /* Referenced by: '<S998>/MDAC_CCSDsrdTqKi_fac_IntTbl' */
+                      /* Referenced by: '<S1054>/MDAC_CCSDsrdTqKi_fac_IntTbl' */
 
 CALDATA const volatile float32 MDAC_ACCDsrdTqKp_c[15] = { 2000.0F, 1000.0F,
   600.0F, 500.0F, 400.0F, 200.0F, 0.0F, 0.0F, 0.0F, 200.0F, 400.0F, 500.0F,
   600.0F, 1000.0F, 2000.0F } ;
-                       /* Referenced by: '<S998>/MDAC_CCSDsrdTqKp_fac_IntTbl' */
+                      /* Referenced by: '<S1054>/MDAC_CCSDsrdTqKp_fac_IntTbl' */
 
 CALDATA const volatile float32 MDAC_ACCOvrdTqOff_Nm[7] = { 5.0F, 5.0F, 5.0F,
-  5.0F, 5.0F, 5.0F, 5.0F } ; /* Referenced by: '<S993>/MTQD_CstTqReqWhlS_Nm1' */
+  5.0F, 5.0F, 5.0F, 5.0F } ;/* Referenced by: '<S1049>/MTQD_CstTqReqWhlS_Nm1' */
 
 CALDATA const volatile float32 MDAC_ACCOvrdTqOn_Nm[7] = { 20.0F, 20.0F, 20.0F,
   20.0F, 20.0F, 20.0F, 20.0F } ;
-                              /* Referenced by: '<S993>/MTQD_CstTqReqWhlS_Nm' */
+                             /* Referenced by: '<S1049>/MTQD_CstTqReqWhlS_Nm' */
 
 CALDATA const volatile float32 MDAC_CCDsrdAcceltnDec_mps3[12] = { -20.0F, -20.0F,
   -20.0F, -20.0F, -10.0F, -2.0F, -2.0F, -2.0F, -2.0F, -1.0F, -0.03F, -0.2F } ;
-                /* Referenced by: '<S1013>/Lookup_MTQD_CstRegenTqReqWhlR_Nm1' */
+                /* Referenced by: '<S1069>/Lookup_MTQD_CstRegenTqReqWhlR_Nm1' */
 
 CALDATA const volatile float32 MDAC_CCDsrdAcceltnInc_mps3[12] = { 0.1F, 0.1F,
   1.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 3.0F, 5.0F } ;
-                 /* Referenced by: '<S1013>/Lookup_MTQD_CstRegenTqReqWhlR_Nm' */
+                 /* Referenced by: '<S1069>/Lookup_MTQD_CstRegenTqReqWhlR_Nm' */
 
 CALDATA const volatile float32 MDAC_CCDsrdAcceltn_mps2[126] = { -0.9F, -0.9F,
   -0.9F, -0.9F, -0.9F, -0.9F, -0.9F, -0.9F, -0.9F, -0.9F, -0.9F, -0.9F, -0.85F,
@@ -3347,7 +3378,7 @@ CALDATA const volatile float32 MDAC_CCDsrdAcceltn_mps2[126] = { -0.9F, -0.9F,
   0.7F, 0.7F, 0.7F, 0.7F, 0.85F, 0.85F, 0.85F, 0.8F, 0.8F, 0.8F, 1.0F, 1.0F,
   0.95F, 0.9F, 0.85F, 0.85F, 1.1F, 1.1F, 1.0F, 1.0F, 0.9F, 0.9F, 1.2F, 1.2F,
   1.1F, 1.0F, 1.0F, 1.0F, 1.2F, 1.2F, 1.1F, 1.0F, 1.0F, 1.0F } ;
-                   /* Referenced by: '<S1013>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
+                   /* Referenced by: '<S1069>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
 
 CALDATA const volatile float32 MDAC_CCDsrdTqKi_c[225] = { 100.0F, 100.0F, 100.0F,
   150.0F, 150.0F, 300.0F, 300.0F, 750.0F, 800.0F, 857.0F, 1714.0F, 1800.0F,
@@ -3375,30 +3406,30 @@ CALDATA const volatile float32 MDAC_CCDsrdTqKi_c[225] = { 100.0F, 100.0F, 100.0F
   750.0F, 1285.0F, 1333.0F, 1384.0F, 1333.0F, 1241.0F, 1241.0F, 1090.0F, 2250.0F,
   2250.0F, 2117.0F, 2000.0F, 1714.0F, 857.0F, 800.0F, 750.0F, 1333.0F, 1384.0F,
   1440.0F, 1384.0F, 1285.0F, 1285.0F, 1125.0F } ;
-                      /* Referenced by: '<S1020>/MDAC_CCSDsrdTqKi_fac_IntTbl' */
+                      /* Referenced by: '<S1076>/MDAC_CCSDsrdTqKi_fac_IntTbl' */
 
 CALDATA const volatile float32 MDAC_CCDsrdTqKp_c[15] = { 2000.0F, 800.0F, 600.0F,
   400.0F, 200.0F, 100.0F, 0.0F, 0.0F, 0.0F, 100.0F, 400.0F, 500.0F, 600.0F,
-  1000.0F, 2000.0F } ;/* Referenced by: '<S1020>/MDAC_CCSDsrdTqKp_fac_IntTbl' */
+  1000.0F, 2000.0F } ;/* Referenced by: '<S1076>/MDAC_CCSDsrdTqKp_fac_IntTbl' */
 
 CALDATA const volatile float32 MDAC_CCMaxDrgTqWhl_Nm[14] = { 0.0F, -20.0F,
   -20.0F, -30.0F, -50.0F, -135.0F, -377.0F, -586.0F, -616.0F, -624.0F, -585.0F,
   -536.0F, -425.0F, -261.0F } ;
-                             /* Referenced by: '<S1022>/MTQD_CstTqReqWhlS_Nm' */
+                             /* Referenced by: '<S1078>/MTQD_CstTqReqWhlS_Nm' */
 
 CALDATA const volatile float32 MDAC_CCSpdStabLowerOfst_kph[8] = { 8.0F, 10.0F,
   15.0F, 20.0F, 25.0F, 30.0F, 35.0F, 40.0F } ;
-                            /* Referenced by: '<S1049>/MTQD_CstTqReqWhlS_Nm1' */
+                            /* Referenced by: '<S1105>/MTQD_CstTqReqWhlS_Nm1' */
 
 CALDATA const volatile float32 MDAC_CCSpdStabUpprOfst_kph[8] = { 10.0F, 10.0F,
   10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F } ;
-                             /* Referenced by: '<S1049>/MTQD_CstTqReqWhlS_Nm' */
+                             /* Referenced by: '<S1105>/MTQD_CstTqReqWhlS_Nm' */
 
 CALDATA const volatile float32 MDAC_FullPedDrvTqWhl_Nm[23] = { 2898.0F, 2898.0F,
   2898.0F, 2898.0F, 2898.0F, 2898.0F, 2898.0F, 2898.0F, 2898.0F, 2898.0F,
   2898.0F, 2867.0F, 2711.0F, 2328.0F, 1987.0F, 1728.0F, 1552.0F, 1366.0F,
   1221.0F, 1097.0F, 1014.0F, 900.0F, 828.0F } ;
-                                  /* Referenced by: '<S988>/MTQD_PTBaseTq_Nm' */
+                                 /* Referenced by: '<S1044>/MTQD_PTBaseTq_Nm' */
 
 CALDATA const volatile float32 MDAC_HDCDsrdTqKi_c[225] = { 1125.0F, 1215.0F,
   1285.0F, 1346.0F, 1398.0F, 1435.0F, 1462.0F, 1480.0F, 1520.0F, 1615.0F,
@@ -3427,31 +3458,31 @@ CALDATA const volatile float32 MDAC_HDCDsrdTqKi_c[225] = { 1125.0F, 1215.0F,
   1339.0F, 1291.0F, 1236.0F, 1172.0F, 1090.0F, 2250.0F, 2250.0F, 1894.0F,
   1800.0F, 1714.0F, 1615.0F, 1520.0F, 1480.0F, 1462.0F, 1435.0F, 1398.0F,
   1346.0F, 1285.0F, 1215.0F, 1125.0F } ;
-                      /* Referenced by: '<S1086>/MDAC_CCSDsrdTqKi_fac_IntTbl' */
+                      /* Referenced by: '<S1142>/MDAC_CCSDsrdTqKi_fac_IntTbl' */
 
 CALDATA const volatile float32 MDAC_HDCDsrdTqKp_c[15] = { 2000.0F, 1000.0F,
   600.0F, 500.0F, 400.0F, 200.0F, 0.0F, 0.0F, 0.0F, 200.0F, 400.0F, 500.0F,
   600.0F, 1000.0F, 2000.0F } ;
-                      /* Referenced by: '<S1086>/MDAC_CCSDsrdTqKp_fac_IntTbl' */
+                      /* Referenced by: '<S1142>/MDAC_CCSDsrdTqKp_fac_IntTbl' */
 
 CALDATA const volatile float32 MDAC_HDCTgtAcceltn_mps2[16] = { -2.0F, -2.0F,
   -1.5F, -0.8F, -0.35F, -0.2F, -0.1F, -0.05F, 0.0F, 0.05F, 0.1F, 0.2F, 0.35F,
-  0.5F, 0.8F, 1.1F } ;          /* Referenced by: '<S1084>/1-D Lookup Table3' */
+  0.5F, 0.8F, 1.1F } ;          /* Referenced by: '<S1140>/1-D Lookup Table3' */
 
 CALDATA const volatile float32 MDAC_INVMaxDrgTqWhl_Nm[12] = { 0.0F, 0.0F,
   -500.0F, -1000.0F, -1500.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F,
-  -2000.0F, -2000.0F } ;         /* Referenced by: '<S988>/1-D Lookup Table1' */
+  -2000.0F, -2000.0F } ;        /* Referenced by: '<S1044>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 MDAC_NonDrvnSpdFiltCoeff_rat[7] = { 0.98F, 0.97F,
   0.95F, 0.93F, 0.83F, 0.67F, 0.5F } ;
-                 /* Referenced by: '<S1011>/Lookup_MVTM_VehSpdFiltCoeff_rat1' */
+                 /* Referenced by: '<S1067>/Lookup_MVTM_VehSpdFiltCoeff_rat1' */
 
 CALDATA const volatile float32 MDAC_OPDDsrdTqFastIAcc_mps2[6] = { 0.0F, 0.0F,
-  0.0F, 0.0F, 0.0F, 0.0F } ;    /* Referenced by: '<S1150>/1-D Lookup Table2' */
+  0.0F, 0.0F, 0.0F, 0.0F } ;    /* Referenced by: '<S1206>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 MDAC_OPDDsrdTqKd_c[12] = { 150.0F, 150.0F, 150.0F,
   150.0F, 150.0F, 50.0F, 50.0F, 50.0F, 150.0F, 150.0F, 150.0F, 150.0F } ;
-                     /* Referenced by: '<S1139>/MDAC_CCSDsrdTqKp_fac_IntTbl2' */
+                     /* Referenced by: '<S1195>/MDAC_CCSDsrdTqKp_fac_IntTbl2' */
 
 CALDATA const volatile float32 MDAC_OPDDsrdTqKi2_c[108] = { 200.0F, 200.0F,
   300.0F, 300.0F, 300.0F, 500.0F, 1000.0F, 1500.0F, 2000.0F, 200.0F, 200.0F,
@@ -3466,7 +3497,7 @@ CALDATA const volatile float32 MDAC_OPDDsrdTqKi2_c[108] = { 200.0F, 200.0F,
   800.0F, 550.0F, 350.0F, 350.0F, 350.0F, 300.0F, 300.0F, 1500.0F, 1200.0F,
   1000.0F, 500.0F, 300.0F, 300.0F, 300.0F, 200.0F, 200.0F, 2000.0F, 1500.0F,
   1000.0F, 500.0F, 300.0F, 300.0F, 300.0F, 200.0F, 200.0F } ;
-                     /* Referenced by: '<S1139>/MDAC_CCSDsrdTqKi_fac_IntTbl1' */
+                     /* Referenced by: '<S1195>/MDAC_CCSDsrdTqKi_fac_IntTbl1' */
 
 CALDATA const volatile float32 MDAC_OPDDsrdTqKi_c[225] = { 500.0F, 550.0F,
   550.0F, 550.0F, 550.0F, 600.0F, 600.0F, 750.0F, 800.0F, 857.0F, 1714.0F,
@@ -3494,35 +3525,35 @@ CALDATA const volatile float32 MDAC_OPDDsrdTqKi_c[225] = { 500.0F, 550.0F,
   800.0F, 750.0F, 1285.0F, 1333.0F, 1384.0F, 1333.0F, 1241.0F, 1241.0F, 1090.0F,
   2250.0F, 2250.0F, 2117.0F, 2000.0F, 1714.0F, 857.0F, 800.0F, 750.0F, 1333.0F,
   1384.0F, 1440.0F, 1384.0F, 1285.0F, 1285.0F, 1125.0F } ;
-                      /* Referenced by: '<S1139>/MDAC_CCSDsrdTqKi_fac_IntTbl' */
+                      /* Referenced by: '<S1195>/MDAC_CCSDsrdTqKi_fac_IntTbl' */
 
 CALDATA const volatile float32 MDAC_OPDDsrdTqKp2_c[12] = { 300.0F, 300.0F,
   200.0F, 150.0F, 100.0F, 0.0F, 0.0F, 100.0F, 150.0F, 200.0F, 300.0F, 300.0F } ;
-                     /* Referenced by: '<S1139>/MDAC_CCSDsrdTqKp_fac_IntTbl1' */
+                     /* Referenced by: '<S1195>/MDAC_CCSDsrdTqKp_fac_IntTbl1' */
 
 CALDATA const volatile float32 MDAC_OPDDsrdTqKp_c[15] = { 300.0F, 300.0F, 250.0F,
   200.0F, 150.0F, 100.0F, 0.0F, 0.0F, 1000.0F, 1000.0F, 400.0F, 500.0F, 600.0F,
-  1000.0F, 1000.0F } ;/* Referenced by: '<S1139>/MDAC_CCSDsrdTqKp_fac_IntTbl' */
+  1000.0F, 1000.0F } ;/* Referenced by: '<S1195>/MDAC_CCSDsrdTqKp_fac_IntTbl' */
 
 CALDATA const volatile float32 MDAC_OPDMaxDrgTqWhl_Nm[7] = { -1800.0F, -1800.0F,
   -1800.0F, -1800.0F, -1800.0F, -1800.0F, -1800.0F } ;
-                            /* Referenced by: '<S1150>/MTQD_CstTqReqWhlS_Nm1' */
+                            /* Referenced by: '<S1206>/MTQD_CstTqReqWhlS_Nm1' */
 
 CALDATA const volatile float32 MDAC_OPDMaxDrvTqWhl_Nm[7] = { 1800.0F, 1800.0F,
   1800.0F, 1800.0F, 1800.0F, 1800.0F, 1800.0F } ;
-                             /* Referenced by: '<S1150>/MTQD_CstTqReqWhlS_Nm' */
+                             /* Referenced by: '<S1206>/MTQD_CstTqReqWhlS_Nm' */
 
 CALDATA const volatile float32 MDAC_OPDOvrdAccPedPstn_pct[11] = { 15.0F, 15.0F,
   15.0F, 15.0F, 15.0F, 15.0F, 15.0F, 15.0F, 15.0F, 15.0F, 15.0F } ;
-                                 /* Referenced by: '<S1099>/1-D Lookup Table' */
+                                 /* Referenced by: '<S1155>/1-D Lookup Table' */
 
 CALDATA const volatile float32 MDAC_OPDTgtAcceltnFiltCoeffInit_rat[6] = { 0.5F,
   0.7F, 0.91F, 0.95F, 0.98F, 0.99F } ;
-                                /* Referenced by: '<S1130>/1-D Lookup Table2' */
+                                /* Referenced by: '<S1186>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 MDAC_OPDTgtAcceltnFiltCoeff_rat[11] = { 0.72F,
   0.765F, 0.783F, 0.81F, 0.81F, 0.81F, 0.81F, 0.81F, 0.783F, 0.765F, 0.72F } ;
-                                /* Referenced by: '<S1130>/1-D Lookup Table1' */
+                                /* Referenced by: '<S1186>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 MDAC_OPDTgtAcceltn_mps2[112] = { -1.5F, -1.5F,
   -1.5F, -1.5F, -1.5F, -1.5F, -1.5F, -1.2F, -1.2F, -1.2F, -1.2F, -1.2F, -1.2F,
@@ -3535,11 +3566,11 @@ CALDATA const volatile float32 MDAC_OPDTgtAcceltn_mps2[112] = { -1.5F, -1.5F,
   0.2F, 0.2F, 0.2F, 0.2F, 0.2F, 0.35F, 0.35F, 0.35F, 0.35F, 0.35F, 0.35F, 0.35F,
   0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.8F, 0.8F, 0.8F, 0.8F, 0.8F, 0.8F,
   0.8F, 1.1F, 1.1F, 1.1F, 1.1F, 1.1F, 1.1F, 1.1F } ;
-                   /* Referenced by: '<S1130>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
+                   /* Referenced by: '<S1186>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
 
 CALDATA const volatile float32 MDAC_OPDTgtSpdChgRate_kphps[11] = { 5.0F, 5.0F,
   4.5F, 4.0F, 3.0F, 1.5F, 3.0F, 4.0F, 4.5F, 5.0F, 5.0F } ;
-                                 /* Referenced by: '<S1130>/1-D Lookup Table' */
+                                 /* Referenced by: '<S1186>/1-D Lookup Table' */
 
 CALDATA const volatile float32 MDAC_OPDTgtSpd_kph[165] = { 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.5F, 0.5F, 0.5F, 0.2F, 0.2F,
@@ -3555,46 +3586,46 @@ CALDATA const volatile float32 MDAC_OPDTgtSpd_kph[165] = { 0.0F, 0.0F, 0.0F,
   7.0F, 5.0F, 3.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F,
   10.0F, 8.0F, 6.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F,
   10.0F, 10.0F, 8.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F,
-  10.0F, 10.0F, 10.0F } ;        /* Referenced by: '<S1130>/2-D Lookup Table' */
+  10.0F, 10.0F, 10.0F } ;        /* Referenced by: '<S1186>/2-D Lookup Table' */
 
 CALDATA const volatile float32 MDAC_OPDTqReqWhlRate_Nmps[11] = { 2000.0F,
   1000.0F, 600.0F, 400.0F, 200.0F, 500.0F, 1000.0F, 2000.0F, 3000.0F, 3000.0F,
-  4000.0F } ;                   /* Referenced by: '<S1140>/1-D Lookup Table2' */
+  4000.0F } ;                   /* Referenced by: '<S1196>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 MDAG_BMSSOCLoRecThr1_pct[10] = { 5.0F, 5.0F, 5.0F,
   5.0F, 5.0F, 5.0F, 5.0F, 5.0F, 5.0F, 5.0F } ;
                          /* Referenced by: '<S101>/BMS_BMSCTL_LMPRECSOC1_CAL' */
 
-/* BMSSOCï¿½Í¹ï¿½ï¿½Ï»Ö¸ï¿½ï¿½Å¼ï¿½_ï¿½ï¿½ï¿½ï¿½ */
+/* BMSSOCµÍ¹ÊÕÏ»Ö¸´ÃÅ¼÷_µÍÎÂ */
 CALDATA const volatile float32 MDAG_BMSSOCLoRecThr2_pct[10] = { 5.0F, 5.0F, 5.0F,
   5.0F, 5.0F, 5.0F, 5.0F, 5.0F, 5.0F, 5.0F } ;
                          /* Referenced by: '<S101>/BMS_BMSCTL_LMPRECSOC2_CAL' */
 
-/* BMSSOCï¿½Í¹ï¿½ï¿½Ï»Ö¸ï¿½ï¿½Å¼ï¿½_ï¿½ï¿½ï¿½ï¿½ */
+/* BMSSOCµÍ¹ÊÕÏ»Ö¸´ÃÅ¼÷_¸ßÎÂ */
 CALDATA const volatile float32 MDAG_BMSSOCLoThr1_pct[10] = { 3.0F, 3.0F, 3.0F,
   3.0F, 3.0F, 3.0F, 3.0F, 3.0F, 3.0F, 3.0F } ;
                             /* Referenced by: '<S101>/BMS_BMSCTL_LMPSOC1_CAL' */
 
-/* BMSSOCï¿½Í¹ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Å¼ï¿½_ï¿½ï¿½ï¿½ï¿½ */
+/* BMSSOCµÍ¹ÊÕÏ´¥·¢ÃÅ¼÷_µÍÎÂ */
 CALDATA const volatile float32 MDAG_BMSSOCLoThr2_pct[10] = { 3.0F, 3.0F, 3.0F,
   3.0F, 3.0F, 3.0F, 3.0F, 3.0F, 3.0F, 3.0F } ;
                             /* Referenced by: '<S101>/BMS_BMSCTL_LMPSOC2_CAL' */
 
-/* BMSSOCï¿½Í¹ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Å¼ï¿½_ï¿½ï¿½ï¿½ï¿½ */
+/* BMSSOCµÍ¹ÊÕÏ´¥·¢ÃÅ¼÷_¸ßÎÂ */
 CALDATA const volatile sint16 MDAG_CellTempLoThr_C[10] = { 0, 0, 0, 0, 0, 0, 0,
   0, 0, 0 } ;                  /* Referenced by: '<S98>/MDAG_CellTempLoThr_C' */
 
-/* ï¿½ï¿½ï¿½Öµï¿½Ð¾ï¿½Â¶È¸ßµÍµÄ·Ö½ï¿½Öµ */
+/* Çø·ÖµçÐ¾ÎÂ¶È¸ßµÍµÄ·Ö½çÖµ */
 CALDATA const volatile uint16 MDAG_CellUndrVoltThr1_mV[10] = { 2300U, 2300U,
   2300U, 2300U, 2300U, 2300U, 2300U, 2300U, 2300U, 2300U } ;
                            /* Referenced by: '<S98>/MDAG_CellUndrVoltThr1_mV' */
 
-/* BMSCellÇ·Ñ¹ï¿½ï¿½ï¿½ÏµÄµï¿½Ñ¹ï¿½Å¼ï¿½_ï¿½ï¿½ï¿½ï¿½ */
+/* BMSCellÇ·Ñ¹¹ÊÕÏµÄµçÑ¹ÃÅ¼÷_µÍÎÂ */
 CALDATA const volatile uint16 MDAG_CellUndrVoltThr2_mV[10] = { 2700U, 2700U,
   2700U, 2700U, 2700U, 2700U, 2700U, 2700U, 2700U, 2700U } ;
                            /* Referenced by: '<S98>/MDAG_CellUndrVoltThr2_mV' */
 
-/* BMSCellÇ·Ñ¹ï¿½ï¿½ï¿½ÏµÄµï¿½Ñ¹ï¿½Å¼ï¿½_ï¿½ï¿½ï¿½ï¿½ */
+/* BMSCellÇ·Ñ¹¹ÊÕÏµÄµçÑ¹ÃÅ¼÷_¸ßÎÂ */
 CALDATA const volatile float32 MDSA_DeceltnIdxAvg_pct[10] = { 0.0F, 0.0F, 0.0F,
   0.0F, 5.0F, 10.0F, 12.0F, 16.0F, 20.0F, 20.0F } ;
                        /* Referenced by: '<S16>/MTQD_ZeroTqOfstTipInTMOly_Nm' */
@@ -3619,111 +3650,111 @@ CALDATA const volatile float32 MDSA_WildDrvMap_mps2[15] = { 4.5F, 4.0F, 3.8F,
 CALDATA const volatile float32 MEMS_CellOverVoltBgn_mV[10] = { 3700.0F, 3700.0F,
   3700.0F, 3700.0F, 3700.0F, 3700.0F, 3700.0F, 3700.0F, 3700.0F, 3700.0F } ;/* Referenced by: '<S25>/PwrDrt2' */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½BeginÖµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¹ï¿½Ñ¹ï¿½Õ»ï¿½ï¿½ï¿½ */
+/* ¹ýÑ¹ÐÞÕýBeginÖµ£¨ÓÅÏÈÊ¹ÓÃ¹ýÑ¹±Õ»·£© */
 CALDATA const volatile float32 MEMS_CellOverVoltRng_mV[10] = { 40.0F, 40.0F,
   40.0F, 40.0F, 40.0F, 40.0F, 40.0F, 40.0F, 40.0F, 40.0F } ;/* Referenced by: '<S25>/PwrDrt4' */
 
-/* ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½RangeÖµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¹ï¿½Ñ¹ï¿½Õ»ï¿½ï¿½ï¿½ */
+/* ¹ýÑ¹ÐÞÕýRangeÖµ£¨ÓÅÏÈÊ¹ÓÃ¹ýÑ¹±Õ»·£© */
 CALDATA const volatile float32 MEMS_CellOverVoltThr_mV[10] = { 3650.0F, 3650.0F,
   3650.0F, 3650.0F, 3650.0F, 3650.0F, 3650.0F, 3650.0F, 3650.0F, 3650.0F } ;/* Referenced by: '<S79>/PwrDrt' */
 
-/* ï¿½ï¿½Ñ¹ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ñ¹ */
+/* ¹ýÑ¹±Õ»·¿ØÖÆÄ¿±êµçÑ¹ */
 CALDATA const volatile float32 MEMS_CellTempLoThr_C[10] = { 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;/* Referenced by: '<S30>/PwrDrt4' */
 
-/* ï¿½ï¿½Ð¾ï¿½ï¿½ï¿½ÂºÍµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
+/* µçÐ¾³£ÎÂºÍµÍÎÂÇø·ÖÖµ */
 CALDATA const volatile float32 MEMS_CellTempMinFac_rat[5] = { 1.0F, 1.0F, 0.0F,
   0.0F, 0.0F } ;                  /* Referenced by: '<S30>/MTQD_TMOverDrt_c5' */
 
-/* ï¿½ï¿½Ð¾ï¿½Â¶ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ */
+/* µçÐ¾ÎÂ¶ÈÇÐ»»¹ý¶ÉÏµÊý */
 CALDATA const volatile float32 MEMS_CellUndrVoltBgn1_mV[10] = { 2300.0F, 2300.0F,
   2300.0F, 2300.0F, 2300.0F, 2300.0F, 2300.0F, 2300.0F, 2300.0F, 2300.0F } ;/* Referenced by: '<S27>/PwrDrt' */
 
-/* ï¿½ï¿½ï¿½Â·Åµï¿½Ç·Ñ¹ï¿½ï¿½ï¿½ï¿½BeginÖµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½Ñ¹ï¿½Õ»ï¿½ï¿½ï¿½ */
+/* µÍÎÂ·ÅµçÇ·Ñ¹ÐÞÕýBeginÖµ£¨ÓÅÏÈÊ¹ÓÃµçÑ¹±Õ»·£© */
 CALDATA const volatile float32 MEMS_CellUndrVoltBgn2_mV[10] = { 2700.0F, 2700.0F,
   2700.0F, 2700.0F, 2700.0F, 2700.0F, 2700.0F, 2700.0F, 2700.0F, 2700.0F } ;/* Referenced by: '<S27>/PwrDrt1' */
 
-/* ï¿½ï¿½ï¿½Â·Åµï¿½Ç·Ñ¹ï¿½ï¿½ï¿½ï¿½BeginÖµ(ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½Ñ¹ï¿½Õ»ï¿½) */
+/* ³£ÎÂ·ÅµçÇ·Ñ¹ÐÞÕýBeginÖµ(ÓÅÏÈÊ¹ÓÃµçÑ¹±Õ»·) */
 CALDATA const volatile float32 MEMS_CellUndrVoltRng1_mV[10] = { 100.0F, 100.0F,
   100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F } ;/* Referenced by: '<S27>/PwrDrt2' */
 
-/* ï¿½ï¿½ï¿½Â·Åµï¿½Ç·Ñ¹ï¿½ï¿½ï¿½ï¿½RangÖµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½Ñ¹ï¿½Õ»ï¿½ï¿½ï¿½ */
+/* µÍÎÂ·ÅµçÇ·Ñ¹ÐÞÕýRangÖµ£¨ÓÅÏÈÊ¹ÓÃµçÑ¹±Õ»·£© */
 CALDATA const volatile float32 MEMS_CellUndrVoltRng2_mV[10] = { 150.0F, 150.0F,
   150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F } ;/* Referenced by: '<S27>/PwrDrt3' */
 
-/* ï¿½ï¿½ï¿½Â·Åµï¿½Ç·Ñ¹ï¿½ï¿½ï¿½ï¿½RangÖµ(ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ãµï¿½Ñ¹ï¿½Õ»ï¿½) */
+/* ³£ÎÂ·ÅµçÇ·Ñ¹ÐÞÕýRangÖµ(ÓÅÏÈÊ¹ÓÃµçÑ¹±Õ»·) */
 CALDATA const volatile float32 MEMS_CellUndrVoltThr1_mV[10] = { 2400.0F, 2400.0F,
   2400.0F, 2400.0F, 2400.0F, 2400.0F, 2400.0F, 2400.0F, 2400.0F, 2400.0F } ;/* Referenced by: '<S80>/PwrDrt' */
 
-/* ï¿½ï¿½ï¿½Âµï¿½Ñ¹ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ñ¹ */
+/* µÍÎÂµçÑ¹±Õ»·¿ØÖÆÄ¿±êµçÑ¹ */
 CALDATA const volatile float32 MEMS_CellUndrVoltThr2_mV[10] = { 2800.0F, 2800.0F,
   2800.0F, 2800.0F, 2800.0F, 2800.0F, 2800.0F, 2800.0F, 2800.0F, 2800.0F } ;/* Referenced by: '<S80>/PwrDrt1' */
 
-/* ï¿½ï¿½ï¿½Âµï¿½Ñ¹ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½Ñ¹ */
+/* ³£ÎÂµçÑ¹±Õ»·¿ØÖÆÄ¿±êµçÑ¹ */
 CALDATA const volatile float32 MEMS_ChrgCurFbKi_c[15] = { 0.15F, 0.1F, 0.1F,
   0.1F, 0.05F, 1.5F, 1.5F, 1.5F, 1.5F, 1.5F, 1.5F, 1.5F, 1.5F, 2.0F, 3.0F } ;
                                   /* Referenced by: '<S79>/lu1d_BatLimHiSoC1' */
 
-/* ï¿½ï¿½Ñ¹ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½Ki */
+/* ¹ýÑ¹±Õ»·¿ØÖÆKi */
 CALDATA const volatile float32 MEMS_ChrgCurFbKp_c[11] = { 0.0F, 0.0F, 0.1F, 0.1F,
   0.1F, 0.1F, 0.15F, 0.15F, 0.15F, 0.2F, 0.25F } ;
                                    /* Referenced by: '<S79>/lu1d_BatLimHiSoC' */
 
-/* ï¿½ï¿½Ñ¹ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½KP */
+/* ¹ýÑ¹±Õ»·¿ØÖÆKP */
 CALDATA const volatile float32 MEMS_ChrgPwrFbKi_c[15] = { 0.5F, 0.5F, 0.5F, 0.2F,
   0.2F, 5.4F, 5.4F, 5.4F, 5.4F, 5.4F, 5.4F, 5.4F, 5.4F, 5.4F, 5.4F } ;
                                   /* Referenced by: '<S45>/lu1d_BatLimHiSoC1' */
 
-/* ï¿½ï¿½ç¹¦ï¿½Ê±Õ»ï¿½KI */
+/* ³äµç¹¦ÂÊ±Õ»·KI */
 CALDATA const volatile float32 MEMS_ChrgPwrFbKp_c[11] = { 0.0F, 0.0F, 0.0F,
   0.25F, 0.5F, 0.75F, 0.8F, 1.0F, 2.0F, 2.0F, 3.0F } ;
                                    /* Referenced by: '<S45>/lu1d_BatLimHiSoC' */
 
-/* ï¿½ï¿½ç¹¦ï¿½Ê±Õ»ï¿½KP */
+/* ³äµç¹¦ÂÊ±Õ»·KP */
 CALDATA const volatile float32 MEMS_DchaCurFbKi_c[15] = { 3.0F, 2.0F, 1.5F, 1.5F,
   1.5F, 1.5F, 1.5F, 1.5F, 1.5F, 1.5F, 0.05F, 0.1F, 0.1F, 0.1F, 0.15F } ;
                                   /* Referenced by: '<S80>/lu1d_BatLimHiSoC1' */
 
-/* Ç·Ñ¹ï¿½ï¿½Ñ¹ï¿½Õ»ï¿½KI */
+/* Ç·Ñ¹µçÑ¹±Õ»·KI */
 CALDATA const volatile float32 MEMS_DchaCurFbKp_c[11] = { 0.25F, 0.2F, 0.15F,
   0.15F, 0.15F, 0.1F, 0.1F, 0.1F, 0.1F, 0.0F, 0.0F } ;
                                    /* Referenced by: '<S80>/lu1d_BatLimHiSoC' */
 
-/* Ç·Ñ¹ï¿½ï¿½Ñ¹ï¿½Õ»ï¿½KP */
+/* Ç·Ñ¹µçÑ¹±Õ»·KP */
 CALDATA const volatile float32 MEMS_DchaPwrFbKi_c[15] = { 5.4F, 5.4F, 5.4F, 5.4F,
   5.4F, 5.4F, 5.4F, 5.4F, 5.4F, 5.4F, 0.2F, 0.2F, 0.5F, 0.5F, 0.5F } ;
                                   /* Referenced by: '<S63>/lu1d_BatLimHiSoC1' */
 
-/* ï¿½Åµç¹¦ï¿½Ê±Õ»ï¿½KI */
+/* ·Åµç¹¦ÂÊ±Õ»·KI */
 CALDATA const volatile float32 MEMS_DchaPwrFbKp_c[11] = { 3.0F, 2.0F, 1.25F,
   1.0F, 1.0F, 1.0F, 0.75F, 0.25F, 0.0F, 0.0F, 0.0F } ;
                                    /* Referenced by: '<S63>/lu1d_BatLimHiSoC' */
 
-/* ï¿½Åµç¹¦ï¿½Ê±Õ»ï¿½KP */
+/* ·Åµç¹¦ÂÊ±Õ»·KP */
 CALDATA const volatile float32 MEMS_HVBatMaxChrgPwrSOC_kW[7] = { -999.0F,
   -999.0F, -999.0F, -999.0F, -999.0F, -999.0F, -999.0F } ;
                                   /* Referenced by: '<S25>/MTQD_TMOverDrt_c8' */
 
-/* ï¿½ï¿½ï¿½SOCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½Ä¿Ç°ï¿½ï¿½Î´Ê¹ï¿½Ã£ï¿½ */
+/* ³äµçSOC¹¦ÂÊÏÞÖÆ£¨Ä¿Ç°ÔÝÎ´Ê¹ÓÃ£© */
 CALDATA const volatile float32 MEMS_HVBatMaxDchaPwrSOC_kW[7] = { 999.0F, 999.0F,
   999.0F, 999.0F, 999.0F, 999.0F, 999.0F } ;
                                   /* Referenced by: '<S27>/MTQD_TMOverDrt_c6' */
 
-/* ï¿½Åµï¿½SOCï¿½ï¿½ï¿½Æ¹ï¿½ï¿½ï¿½(Ä¿Ç°ï¿½ï¿½Î´Ê¹ï¿½ï¿½) */
+/* ·ÅµçSOCÏÞÖÆ¹¦ÂÊ(Ä¿Ç°ÔÝÎ´Ê¹ÓÃ) */
 CALDATA const volatile float32 MEMS_MaxConChrgCurOfst_A[8] = { -15.0F, -15.0F,
   -15.0F, -10.0F, -7.0F, -5.0F, -3.0F, 0.0F } ;
                                   /* Referenced by: '<S25>/MTQD_TMOverDrt_c1' */
 
-/* Conï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Æ«ï¿½ï¿½ */
+/* Con³ÖÐø»ØÊÕµçÁ÷Æ«ÒÆ */
 CALDATA const volatile float32 MEMS_MaxConDchaCurOfst_A[8] = { 0.0F, 3.0F, 5.0F,
   5.0F, 5.0F, 5.0F, 5.0F, 5.0F } ;/* Referenced by: '<S27>/MTQD_TMOverDrt_c1' */
 
-/* ï¿½Åµï¿½-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½ */
+/* ·Åµç-³ÖÐøµçÁ÷Æ«ÒÆ */
 CALDATA const volatile float32 MEMS_MaxInsChrgCurOfst_A[8] = { -15.0F, -15.0F,
   -15.0F, -10.0F, -7.0F, -5.0F, -3.0F, 0.0F } ;
                                   /* Referenced by: '<S25>/MTQD_TMOverDrt_c7' */
 
-/* InsË²Ê±ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Æ«ï¿½ï¿½ */
+/* InsË²Ê±»ØÊÕµçÁ÷Æ«ÒÆ */
 CALDATA const volatile float32 MEMS_MaxInsChrgCurrFac_c[100] = { 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F,
@@ -3735,7 +3766,7 @@ CALDATA const volatile float32 MEMS_MaxInsChrgCurrFac_c[100] = { 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F } ;
                   /* Referenced by: '<S25>/Lookup2D_MEMS_MaxInsDchaCurrFac_c' */
 
-/* VCUï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Packï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½Ïµï¿½ï¿½ */
+/* VCUÐÞÕý²»Í¬PackÀàÐÍ»ØÊÕÏµÊý */
 CALDATA const volatile float32 MEMS_MaxInsChrgCurr_A[170] = { -200.0F, -230.0F,
   -250.0F, -300.0F, -400.0F, -500.0F, -500.0F, -500.0F, -500.0F, -500.0F,
   -500.0F, -220.0F, -220.0F, -120.0F, -120.0F, -80.0F, 0.0F, -200.0F, -230.0F,
@@ -3758,12 +3789,12 @@ CALDATA const volatile float32 MEMS_MaxInsChrgCurr_A[170] = { -200.0F, -230.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
                      /* Referenced by: '<S25>/Lookup2D_MEMS_MaxInsDchaCurr_A' */
 
-/* VCUï¿½ï¿½ï¿½ï¿½InsË²Ê±ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ */
+/* VCUÏÞÖÆInsË²Ê±»ØÊÕµçÁ÷ */
 CALDATA const volatile float32 MEMS_MaxInsDchaCurOfst_A[8] = { 0.0F, 3.0F, 5.0F,
   8.0F, 10.0F, 10.0F, 10.0F, 10.0F } ;
                                   /* Referenced by: '<S27>/MTQD_TMOverDrt_c2' */
 
-/* ï¿½Åµï¿½-Ë²Ê±ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½ */
+/* ·Åµç-Ë²Ê±µçÁ÷Æ«ÒÆ */
 CALDATA const volatile float32 MEMS_MaxInsDchaCurrFac_c[100] = { 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F,
@@ -3775,7 +3806,7 @@ CALDATA const volatile float32 MEMS_MaxInsDchaCurrFac_c[100] = { 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F } ;
                   /* Referenced by: '<S27>/Lookup2D_MEMS_MaxInsDchaCurrFac_c' */
 
-/* VCUï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½Packï¿½Åµï¿½Ïµï¿½ï¿½ */
+/* VCUÐÞÕý²»Í¬ÀàÐÍPack·ÅµçÏµÊý */
 CALDATA const volatile float32 MEMS_MaxInsDchaCurr_A[170] = { 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 12.0F, 20.0F, 46.0F, 69.0F, 96.0F, 98.0F, 99.0F, 109.0F, 111.0F,
@@ -3796,60 +3827,60 @@ CALDATA const volatile float32 MEMS_MaxInsDchaCurr_A[170] = { 0.0F, 0.0F, 0.0F,
   514.0F, 500.0F, 154.0F } ;
                      /* Referenced by: '<S27>/Lookup2D_MEMS_MaxInsDchaCurr_A' */
 
-/* VCUï¿½ï¿½ï¿½ï¿½InsË²Ê±ï¿½Åµï¿½ï¿½ï¿½ï¿½ */
+/* VCUÏÞÖÆInsË²Ê±·ÅµçµçÁ÷ */
 CALDATA const volatile float32 MHVM_BMSCelMaxVol_mV[10] = { 3660.0F, 3660.0F,
   3660.0F, 3660.0F, 3660.0F, 3660.0F, 3660.0F, 3660.0F, 3660.0F, 3660.0F } ;
-                              /* Referenced by: '<S648>/MHVM_BMSCelMaxVol_mV' */
+                              /* Referenced by: '<S701>/MHVM_BMSCelMaxVol_mV' */
 
-/* ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ */
+/* ½»Ö±Á÷³äµç½ØÖ¹µ¥ÌåµçÑ¹ */
 CALDATA const volatile float32 MHVM_BMSTotMaxVol_V[10] = { 453.0F, 453.0F,
   453.0F, 453.0F, 453.0F, 453.0F, 453.0F, 453.0F, 453.0F, 453.0F } ;
-                               /* Referenced by: '<S648>/MHVM_BMSTotMaxVol_V' */
+                               /* Referenced by: '<S701>/MHVM_BMSTotMaxVol_V' */
 
-/* ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½Üµï¿½Ñ¹ */
+/* ½»Ö±Á÷³äµç½ØÖ¹×ÜµçÑ¹ */
 CALDATA const volatile float32 MHVM_MaxChrgCurntDC_A[10] = { 300.0F, 300.0F,
   300.0F, 300.0F, 300.0F, 300.0F, 300.0F, 300.0F, 300.0F, 300.0F } ;
-                             /* Referenced by: '<S648>/MHVM_MaxChrgCurntDC_A' */
+                             /* Referenced by: '<S701>/MHVM_MaxChrgCurntDC_A' */
 
-/* DCÖ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+/* DCÖ±Á÷³äµç×î´óµçÁ÷ */
 CALDATA const volatile float32 MHVM_MaxChrgVoltDC_V[10] = { 453.0F, 453.0F,
   453.0F, 453.0F, 453.0F, 453.0F, 453.0F, 453.0F, 453.0F, 453.0F } ;
-                              /* Referenced by: '<S648>/MHVM_MaxChrgVoltDC_V' */
+                              /* Referenced by: '<S701>/MHVM_MaxChrgVoltDC_V' */
 
-/* DCÖ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ */
+/* DCÖ±Á÷³äµç×î´óµçÑ¹ */
 CALDATA const volatile float32 MIBS_BMSBatSOCExtrmLo_pct[10] = { 5.0F, 5.0F,
   5.0F, 5.0F, 5.0F, 5.0F, 5.0F, 5.0F, 5.0F, 5.0F } ;
-                         /* Referenced by: '<S900>/MIBS_BMSBatSOCExtrmLo_pct' */
+                         /* Referenced by: '<S951>/MIBS_BMSBatSOCExtrmLo_pct' */
 
-/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SOCï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½Ë³ï¿½IBSï¿½ï¿½ï¿½ï¿½_versteckt */
+/* ¶¯Á¦µç³ØSOC¼«µÍ£¬½ûÖ¹»òÍË³öIBS²¹µç_versteckt */
 CALDATA const volatile float32 MIBS_IBSEnMinSOC_pct[10] = { 10.0F, 10.0F, 10.0F,
   10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F } ;
-                              /* Referenced by: '<S900>/MIBS_IBSEnMinSOC_pct' */
+                              /* Referenced by: '<S951>/MIBS_IBSEnMinSOC_pct' */
 
-/* IBSï¿½ï¿½ï¿½ç¶¯ï¿½ï¿½ï¿½ï¿½ï¿½SOCï¿½ï¿½Öµ_versteckt */
+/* IBS²¹µç¶¯Á¦µç³ØSOCãÐÖµ_versteckt */
 CALDATA const volatile uint16 MIBS_NextRtcWupThr_min[60] = { 120U, 120U, 120U,
   90U, 90U, 60U, 120U, 120U, 120U, 90U, 90U, 60U, 120U, 120U, 120U, 90U, 90U,
   60U, 120U, 120U, 120U, 90U, 90U, 120U, 120U, 120U, 120U, 180U, 180U, 120U,
   240U, 240U, 240U, 180U, 180U, 240U, 240U, 240U, 240U, 300U, 300U, 240U, 240U,
   330U, 330U, 300U, 300U, 240U, 360U, 330U, 330U, 300U, 300U, 240U, 360U, 330U,
-  330U, 300U, 300U, 240U } ;/* Referenced by: '<S901>/MIBS_NextRtcWupThr_min' */
+  330U, 300U, 300U, 240U } ;/* Referenced by: '<S952>/MIBS_NextRtcWupThr_min' */
 
-/* IBSï¿½ï¿½Ò»ï¿½ï¿½RTCï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ_versteckt */
+/* IBSÏÂÒ»´ÎRTC»½ÐÑÊ±¼äãÐÖµ_versteckt */
 CALDATA const volatile uint16 MIBS_WupChgTmThr2_min[60] = { 120U, 120U, 120U,
   180U, 180U, 180U, 120U, 120U, 120U, 180U, 180U, 180U, 120U, 120U, 120U, 180U,
   180U, 180U, 120U, 120U, 120U, 180U, 180U, 120U, 120U, 120U, 120U, 90U, 90U,
   120U, 120U, 90U, 90U, 90U, 90U, 30U, 90U, 90U, 90U, 30U, 30U, 30U, 90U, 30U,
   30U, 30U, 30U, 30U, 30U, 30U, 30U, 30U, 30U, 30U, 30U, 30U, 30U, 30U, 30U, 30U
-} ;                           /* Referenced by: '<S901>/MIBS_WupChgTmThr_min' */
+} ;                           /* Referenced by: '<S952>/MIBS_WupChgTmThr_min' */
 
-/* IBSï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Öµ2_versteckt */
+/* IBS²¹µçÊ±¼äãÐÖµ2_versteckt */
 CALDATA const volatile float32 MIPC_AccPedBckLsh_pct[12] = { 2.0F, 2.0F, 2.0F,
   2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 3.0F, 3.0F } ;
-                                      /* Referenced by: '<S776>/Lookup Table' */
+                                      /* Referenced by: '<S829>/Lookup Table' */
 
 CALDATA const volatile float32 MIPC_TireRadius_m[6] = { 0.3412F, 0.3412F,
   0.3412F, 0.3412F, 0.3412F, 0.3412F } ;
-                                     /* Referenced by: '<S774>/TireSizeTable' */
+                                     /* Referenced by: '<S827>/TireSizeTable' */
 
 CALDATA const volatile float32 MRME_CHTCStdRmnMil_km[120] = { 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 10.0F, 15.0F, 0.0F, 0.0F, 0.0F, 0.0F,
@@ -3862,26 +3893,26 @@ CALDATA const volatile float32 MRME_CHTCStdRmnMil_km[120] = { 0.0F, 0.0F, 0.0F,
   0.0F, 170.0F, 230.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 190.0F,
   250.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 205.0F, 275.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
-                             /* Referenced by: '<S853>/MRME_CHTCStdRmnMil_km' */
+                             /* Referenced by: '<S904>/MRME_CHTCStdRmnMil_km' */
 
-/* ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½CHTCï¿½ï¿½ï¿½Öµ */
+/* ±ê×¼Ðøº½CHTC²é±íÖµ */
 CALDATA const volatile float32 MRME_DynRmnMilEstChgStp_c[60] = { 0.2F, 0.2F,
   0.2F, 0.2F, 0.2F, 0.2F, 0.3F, 0.3F, 0.3F, 0.3F, 0.3F, 0.3F, 0.45F, 0.45F,
   0.45F, 0.45F, 0.45F, 0.45F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.5F, 0.6F, 0.6F,
   0.6F, 0.6F, 0.6F, 0.6F, 0.7F, 0.7F, 0.7F, 0.7F, 0.7F, 0.7F, 1.0F, 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 1.7F, 1.7F, 1.7F, 1.7F,
   1.7F, 1.7F, 1.5F, 1.5F, 1.5F, 1.5F, 1.5F, 1.5F } ;
-                            /* Referenced by: '<S872>/MRME_DynEstRmnChgStp_c' */
+                            /* Referenced by: '<S923>/MRME_DynEstRmnChgStp_c' */
 
-/* ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ä»¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½1kmÎªï¿½ï¿½×¼ï¿½ï¿½ */
+/* ¶¯Ì¬Ðøº½±ä»¯ËÙÂÊÐÞÕýÏµÊý£¨Ä¬ÈÏÒÔ1kmÎª»ù×¼£© */
 CALDATA const volatile float32 MRME_WLTPStdDwLimFac_c[6] = { 0.4F, 0.5F, 0.6F,
-  0.7F, 0.8F, 0.9F } ;         /* Referenced by: '<S870>/MRME_WLTPDwLimFac_c' */
+  0.7F, 0.8F, 0.9F } ;         /* Referenced by: '<S921>/MRME_WLTPDwLimFac_c' */
 
-/* ï¿½ï¿½ï¿½Ú±ï¿½×¼ï¿½ï¿½ï¿½ï¿½WLTPï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½(Ê¹ï¿½Ãµï¿½Ð¾ï¿½Â¶ï¿½ï¿½ï¿½ï¿½ï¿½) */
+/* »ùÓÚ±ê×¼Ðøº½WLTP×îÐ¡ÏÂÏÞÏµÊý(Ê¹ÓÃµçÐ¾ÎÂ¶ÈÐÞÕý) */
 CALDATA const volatile float32 MRME_WLTPStdPwrCnsm_kWh100km[10] = { 28.0F, 30.0F,
-  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;/* Referenced by: '<S857>/  ' */
+  0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;/* Referenced by: '<S908>/  ' */
 
-/* ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½100kmï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½100kmï¿½ï¿½ï¿½ã£© */
+/* ±ê×¼¹¤¿ö100kmµçºÄ£¨°´ÕÕ100kmÕÛËã£© */
 CALDATA const volatile float32 MRME_WLTPStdRmnMil_km[120] = { 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 10.0F, 15.0F, 0.0F, 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 25.0F, 30.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
@@ -3893,35 +3924,35 @@ CALDATA const volatile float32 MRME_WLTPStdRmnMil_km[120] = { 0.0F, 0.0F, 0.0F,
   0.0F, 170.0F, 230.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 190.0F,
   250.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 205.0F, 275.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
-                             /* Referenced by: '<S870>/MRME_WLTPStdRmnMil_km' */
+                             /* Referenced by: '<S921>/MRME_WLTPStdRmnMil_km' */
 
-/* ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½WLTPï¿½ï¿½ï¿½Öµ */
+/* ±ê×¼Ðøº½WLTP²é±íÖµ */
 CALDATA const volatile float32 MRME_WLTPStdSOCCnsm_pct100km[10] = { 50.0F, 37.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
-                     /* Referenced by: '<S870>/MRME_WLTPStdSOCCnsm_pct100km ' */
+                     /* Referenced by: '<S921>/MRME_WLTPStdSOCCnsm_pct100km ' */
 
-/* ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½SOCï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½100kmï¿½ï¿½ï¿½ã£© */
+/* ±ê×¼¹¤¿öSOCÏûºÄ£¨°´100kmÕÛËã£© */
 CALDATA const volatile float32 MTQC_RegenMaxTqDecRate_Nmps[20] = { -10000.0F,
   -10000.0F, -10000.0F, -10000.0F, -10000.0F, -10000.0F, -10000.0F, -10000.0F,
   -10000.0F, -10000.0F, -10000.0F, -10000.0F, -10000.0F, -10000.0F, -10000.0F,
   -10000.0F, -10000.0F, -10000.0F, -10000.0F, -10000.0F } ;
-                   /* Referenced by: '<S1189>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
+                   /* Referenced by: '<S1245>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
 
 CALDATA const volatile float32 MTQC_RegenMaxTqIncRate_Nmps[8] = { 12000.0F,
   12000.0F, 10000.0F, 10000.0F, 8000.0F, 5000.0F, 1000.0F, 500.0F } ;
-                             /* Referenced by: '<S1189>/MTQD_CstTqReqWhlS_Nm' */
+                             /* Referenced by: '<S1245>/MTQD_CstTqReqWhlS_Nm' */
 
 CALDATA const volatile float32 MTQD_AdaptCstAcceltnReqWhlEndPstn_mps2[14] = {
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
-  0.0F } ;                  /* Referenced by: '<S1224>/MTQD_CstTqReqWhlS_Nm2' */
+  0.0F } ;                  /* Referenced by: '<S1280>/MTQD_CstTqReqWhlS_Nm2' */
 
 CALDATA const volatile float32 MTQD_AdaptCstAcceltnReqWhlS_mps2[14] = { 0.0F,
   0.0F, 0.0F, 0.0F, -0.2F, -0.5F, -2.0F, -2.0F, -2.0F, -2.0F, -2.0F, -2.0F,
-  -2.0F, -2.0F } ;           /* Referenced by: '<S1224>/MTQD_CstTqReqWhlS_Nm' */
+  -2.0F, -2.0F } ;           /* Referenced by: '<S1280>/MTQD_CstTqReqWhlS_Nm' */
 
 CALDATA const volatile float32 MTQD_AdaptCstAcceltnReqWhlW_mps2[14] = { 0.0F,
   0.0F, 0.0F, 0.0F, -0.1F, -0.3F, -1.0F, -1.0F, -1.0F, -1.0F, -1.0F, -1.0F,
-  -1.0F, -1.0F } ;          /* Referenced by: '<S1224>/MTQD_CstTqReqWhlS_Nm1' */
+  -1.0F, -1.0F } ;          /* Referenced by: '<S1280>/MTQD_CstTqReqWhlS_Nm1' */
 
 CALDATA const volatile float32 MTQD_AdaptCstDsrdTqKi_c[225] = { 1125.0F, 1285.0F,
   1285.0F, 1384.0F, 1440.0F, 1384.0F, 1333.0F, 750.0F, 800.0F, 857.0F, 1714.0F,
@@ -3949,49 +3980,49 @@ CALDATA const volatile float32 MTQD_AdaptCstDsrdTqKi_c[225] = { 1125.0F, 1285.0F
   800.0F, 750.0F, 700.0F, 700.0F, 650.0F, 650.0F, 650.0F, 650.0F, 600.0F,
   2250.0F, 2250.0F, 1894.0F, 1800.0F, 1714.0F, 857.0F, 800.0F, 750.0F, 600.0F,
   600.0F, 550.0F, 550.0F, 550.0F, 550.0F, 500.0F } ;
-                      /* Referenced by: '<S1224>/MDAC_CCSDsrdTqKi_fac_IntTbl' */
+                      /* Referenced by: '<S1280>/MDAC_CCSDsrdTqKi_fac_IntTbl' */
 
 CALDATA const volatile float32 MTQD_AdaptCstDsrdTqKp_c[15] = { 2000.0F, 1000.0F,
   600.0F, 500.0F, 400.0F, 200.0F, 0.0F, 0.0F, 0.0F, 200.0F, 400.0F, 500.0F,
   600.0F, 1000.0F, 2000.0F } ;
-                      /* Referenced by: '<S1224>/MDAC_CCSDsrdTqKp_fac_IntTbl' */
+                      /* Referenced by: '<S1280>/MDAC_CCSDsrdTqKp_fac_IntTbl' */
 
 CALDATA const volatile float32 MTQD_AdaptCstMaxTqWhl_Nm[14] = { 0.0F, -20.0F,
   -50.0F, -150.0F, -250.0F, -350.0F, -1050.0F, -1600.0F, -1600.0F, -1600.0F,
   -1600.0F, -1600.0F, -1600.0F, -1600.0F } ;
-                            /* Referenced by: '<S1220>/MTQD_CstTqReqWhlS_Nm4' */
+                            /* Referenced by: '<S1276>/MTQD_CstTqReqWhlS_Nm4' */
 
 CALDATA const volatile float32 MTQD_AdaptCstMinTqWhl_Nm[14] = { 0.0F, -20.0F,
   -25.0F, -30.0F, -30.0F, -30.0F, -30.0F, -30.0F, -30.0F, -30.0F, -30.0F, -30.0F,
-  -30.0F, -30.0F } ;        /* Referenced by: '<S1220>/MTQD_CstTqReqWhlS_Nm3' */
+  -30.0F, -30.0F } ;        /* Referenced by: '<S1276>/MTQD_CstTqReqWhlS_Nm3' */
 
 CALDATA const volatile float32 MTQD_CrpTqReqWhlD_Nm[10] = { 720.0F, 600.0F,
   480.0F, 400.0F, 350.0F, 150.0F, 20.0F, 10.0F, 5.0F, 0.0F } ;
-                      /* Referenced by: '<S1210>/Lookup_MTQD_CrpTqReqWhlD_Nm' */
+                      /* Referenced by: '<S1266>/Lookup_MTQD_CrpTqReqWhlD_Nm' */
 
 CALDATA const volatile float32 MTQD_CrpTqReqWhlR_Nm[10] = { 0.0F, 0.0F, 5.0F,
   10.0F, 20.0F, 150.0F, 350.0F, 430.0F, 520.0F, 600.0F } ;
-                      /* Referenced by: '<S1210>/Lookup_MTQD_CrpTqReqWhlR_Nm' */
+                      /* Referenced by: '<S1266>/Lookup_MTQD_CrpTqReqWhlR_Nm' */
 
 CALDATA const volatile float32 MTQD_CstRegenEndPstnA_pct[15] = { 0.0F, 1.0F,
   3.0F, 4.0F, 5.0F, 7.0F, 8.0F, 9.0F, 10.0F, 11.0F, 12.0F, 12.0F, 12.0F, 12.0F,
-  12.0F } ;                 /* Referenced by: '<S1219>/MTQD_CstTqReqWhlA_Nm1' */
+  12.0F } ;                 /* Referenced by: '<S1275>/MTQD_CstTqReqWhlA_Nm1' */
 
 CALDATA const volatile float32 MTQD_CstRegenEndPstnS_pct[15] = { 0.0F, 1.0F,
   3.0F, 5.0F, 7.0F, 9.0F, 11.0F, 12.0F, 13.0F, 14.0F, 15.0F, 15.0F, 15.0F, 15.0F,
-  15.0F } ;                 /* Referenced by: '<S1219>/MTQD_CstTqReqWhlS_Nm2' */
+  15.0F } ;                 /* Referenced by: '<S1275>/MTQD_CstTqReqWhlS_Nm2' */
 
 CALDATA const volatile float32 MTQD_CstRegenEndPstnV_pct[14] = { 15.0F, 15.0F,
   15.0F, 18.0F, 20.0F, 20.0F, 20.0F, 20.0F, 20.0F, 19.0F, 18.0F, 17.0F, 16.0F,
-  15.0F } ;                     /* Referenced by: '<S1219>/1-D Lookup Table1' */
+  15.0F } ;                     /* Referenced by: '<S1275>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 MTQD_CstRegenEndPstnW_pct[15] = { 0.0F, 1.0F,
   2.0F, 3.0F, 4.0F, 5.0F, 6.0F, 7.0F, 8.0F, 9.0F, 10.0F, 10.0F, 10.0F, 10.0F,
-  10.0F } ;                 /* Referenced by: '<S1219>/MTQD_CstTqReqWhlS_Nm3' */
+  10.0F } ;                 /* Referenced by: '<S1275>/MTQD_CstTqReqWhlS_Nm3' */
 
 CALDATA const volatile float32 MTQD_CstRegenTqReqWhlInc_Nmps[8] = { 200.0F,
   200.0F, 800.0F, 1500.0F, 3000.0F, 5000.0F, 6000.0F, 8000.0F } ;
-                            /* Referenced by: '<S1221>/MTQD_CstTqReqWhlS_Nm3' */
+                            /* Referenced by: '<S1277>/MTQD_CstTqReqWhlS_Nm3' */
 
 CALDATA const volatile float32 MTQD_CstRegenTqReqWhlOff_Nm[70] = { 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, -20.0F, -20.0F, -20.0F, -20.0F, -20.0F, -20.0F, -20.0F,
@@ -4001,36 +4032,36 @@ CALDATA const volatile float32 MTQD_CstRegenTqReqWhlOff_Nm[70] = { 0.0F, 0.0F,
   -150.0F, -270.0F, -270.0F, -270.0F, -30.0F, -165.0F, -300.0F, -300.0F, -300.0F,
   -30.0F, -132.5F, -235.0F, -235.0F, -235.0F, -30.0F, -130.0F, -230.0F, -230.0F,
   -230.0F, -30.0F, -115.0F, -200.0F, -200.0F, -200.0F, -30.0F, -87.5F, -145.0F,
-  -145.0F, -145.0F } ;    /* Referenced by: '<S1218>/MTQD_PedMapBasTqEco_pct' */
+  -145.0F, -145.0F } ;    /* Referenced by: '<S1274>/MTQD_PedMapBasTqEco_pct' */
 
 CALDATA const volatile float32 MTQD_CstRegenTqReqWhlR_Nm[12] = { -100.0F,
   -152.0F, -152.0F, -130.0F, -105.0F, -90.0F, -65.0F, -30.0F, -20.0F, -20.0F,
-  0.0F, 0.0F } ;                /* Referenced by: '<S1218>/1-D Lookup Table2' */
+  0.0F, 0.0F } ;                /* Referenced by: '<S1274>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 MTQD_CstRegenTqReqWhlS_Nm[14] = { 0.0F, -20.0F,
   -20.0F, -30.0F, -50.0F, -135.0F, -377.0F, -586.0F, -616.0F, -624.0F, -585.0F,
   -536.0F, -425.0F, -261.0F } ;
-                             /* Referenced by: '<S1218>/MTQD_CstTqReqWhlS_Nm' */
+                             /* Referenced by: '<S1274>/MTQD_CstTqReqWhlS_Nm' */
 
 CALDATA const volatile float32 MTQD_CstRegenTqReqWhlV_Nm[14] = { 0.0F, -375.0F,
   -750.0F, -1080.0F, -1125.0F, -1125.0F, -1125.0F, -1125.0F, -1125.0F, -1016.0F,
   -907.0F, -700.0F, -600.0F, -500.0F } ;
-                                /* Referenced by: '<S1218>/1-D Lookup Table1' */
+                                /* Referenced by: '<S1274>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 MTQD_CstRegenTqReqWhlW_Nm[14] = { 0.0F, -20.0F,
   -20.0F, -30.0F, -40.0F, -50.0F, -120.0F, -225.0F, -270.0F, -300.0F, -235.0F,
   -230.0F, -200.0F, -145.0F } ;
-                            /* Referenced by: '<S1218>/MTQD_CstTqReqWhlS_Nm1' */
+                            /* Referenced by: '<S1274>/MTQD_CstTqReqWhlS_Nm1' */
 
 CALDATA const volatile float32 MTQD_FwdFullPedDrvTqWhlSprt_Nm[19] = { 4000.0F,
   4000.0F, 4000.0F, 4000.0F, 4000.0F, 4000.0F, 4000.0F, 4000.0F, 3907.2F,
   3528.69F, 3174.6F, 2808.3F, 2380.95F, 2039.07F, 1807.08F, 1562.88F, 1404.15F,
-  1245.42F, 1147.74F } ;        /* Referenced by: '<S1211>/MTQD_PTBaseTq_Nm1' */
+  1245.42F, 1147.74F } ;        /* Referenced by: '<S1267>/MTQD_PTBaseTq_Nm1' */
 
 CALDATA const volatile float32 MTQD_FwdFullPedDrvTqWhl_Nm[19] = { 4000.0F,
   4000.0F, 4000.0F, 4000.0F, 4000.0F, 4000.0F, 4000.0F, 4000.0F, 3907.2F,
   3528.69F, 3174.6F, 2808.3F, 2380.95F, 2039.07F, 1807.08F, 1562.88F, 1404.15F,
-  1245.42F, 1147.74F } ;         /* Referenced by: '<S1211>/MTQD_PTBaseTq_Nm' */
+  1245.42F, 1147.74F } ;         /* Referenced by: '<S1267>/MTQD_PTBaseTq_Nm' */
 
 CALDATA const volatile float32 MTQD_FwdPedMapEco_pct[378] = { 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
@@ -4066,31 +4097,31 @@ CALDATA const volatile float32 MTQD_FwdPedMapEco_pct[378] = { 0.0F, 0.0F, 0.0F,
   92.0F, 91.0F, 90.0F, 90.0F, 90.0F, 90.0F, 90.0F, 91.0F, 91.0F, 92.0F, 92.0F,
   92.0F, 92.0F, 92.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F,
   100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F,
-  100.0F } ;             /* Referenced by: '<S1211>/MTQD_PedMapBasTqEco_pct1' */
+  100.0F } ;             /* Referenced by: '<S1267>/MTQD_PedMapBasTqEco_pct1' */
 
 CALDATA const volatile float32 MTQD_FwdPedMapNoCrpEco_pct[42] = { 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
-  0.0F } ;                      /* Referenced by: '<S1211>/2-D Lookup Table1' */
+  0.0F } ;                      /* Referenced by: '<S1267>/2-D Lookup Table1' */
 
 CALDATA const volatile float32 MTQD_FwdPedMapNoCrpNorm_pct[42] = { 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
-  0.0F } ;                      /* Referenced by: '<S1211>/2-D Lookup Table3' */
+  0.0F } ;                      /* Referenced by: '<S1267>/2-D Lookup Table3' */
 
 CALDATA const volatile float32 MTQD_FwdPedMapNoCrpSnow_pct[42] = { 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
-  0.0F } ;                       /* Referenced by: '<S1211>/2-D Lookup Table' */
+  0.0F } ;                       /* Referenced by: '<S1267>/2-D Lookup Table' */
 
 CALDATA const volatile float32 MTQD_FwdPedMapNoCrpSpt_pct[42] = { 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
-  0.0F } ;                      /* Referenced by: '<S1211>/2-D Lookup Table2' */
+  0.0F } ;                      /* Referenced by: '<S1267>/2-D Lookup Table2' */
 
 CALDATA const volatile float32 MTQD_FwdPedMapNorm_pct[378] = { 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
@@ -4126,7 +4157,7 @@ CALDATA const volatile float32 MTQD_FwdPedMapNorm_pct[378] = { 0.0F, 0.0F, 0.0F,
   95.0F, 95.0F, 94.0F, 94.0F, 94.0F, 95.0F, 95.0F, 96.0F, 96.0F, 97.0F, 98.0F,
   99.0F, 99.0F, 99.0F, 99.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F,
   100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F,
-  100.0F, 100.0F } ;     /* Referenced by: '<S1211>/MTQD_PedMapBasTqEco_pct3' */
+  100.0F, 100.0F } ;     /* Referenced by: '<S1267>/MTQD_PedMapBasTqEco_pct3' */
 
 CALDATA const volatile float32 MTQD_FwdPedMapSnow_pct[378] = { 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
@@ -4162,7 +4193,7 @@ CALDATA const volatile float32 MTQD_FwdPedMapSnow_pct[378] = { 0.0F, 0.0F, 0.0F,
   92.0F, 91.0F, 90.0F, 90.0F, 90.0F, 90.0F, 90.0F, 91.0F, 91.0F, 92.0F, 92.0F,
   92.0F, 92.0F, 92.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F,
   100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F,
-  100.0F } ;              /* Referenced by: '<S1211>/MTQD_PedMapBasTqEco_pct' */
+  100.0F } ;              /* Referenced by: '<S1267>/MTQD_PedMapBasTqEco_pct' */
 
 CALDATA const volatile float32 MTQD_FwdPedMapSpt_pct[378] = { 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
@@ -4199,16 +4230,16 @@ CALDATA const volatile float32 MTQD_FwdPedMapSpt_pct[378] = { 0.0F, 0.0F, 0.0F,
   100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F,
   100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F,
   100.0F, 100.0F, 100.0F } ;
-                         /* Referenced by: '<S1211>/MTQD_PedMapBasTqEco_pct2' */
+                         /* Referenced by: '<S1267>/MTQD_PedMapBasTqEco_pct2' */
 
 CALDATA const volatile float32 MTQD_LimpHomeMaxTq_Nm[8] = { 828.0F, 828.0F,
   1000.0F, 1500.0F, 1300.0F, 1000.0F, 828.0F, 828.0F } ;
-                            /* Referenced by: '<S1206>/MTQD_CstTqReqWhlS_Nm2' */
+                            /* Referenced by: '<S1262>/MTQD_CstTqReqWhlS_Nm2' */
 
 CALDATA const volatile float32 MTQD_RevFullPedDrvTqWhl_Nm[19] = { 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 500.0F, 1000.0F, 2000.0F,
   4000.0F, 4000.0F, 4000.0F, 4000.0F, 4000.0F } ;
-                                 /* Referenced by: '<S1213>/MTQD_PTBaseTq_Nm' */
+                                 /* Referenced by: '<S1269>/MTQD_PTBaseTq_Nm' */
 
 CALDATA const volatile float32 MTQD_RevPedMap_pct[231] = { 0.0F, 0.0F, 0.0F,
   0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
@@ -4231,113 +4262,113 @@ CALDATA const volatile float32 MTQD_RevPedMap_pct[231] = { 0.0F, 0.0F, 0.0F,
   81.0F, 81.0F, 81.0F, 81.0F, 82.0F, 84.0F, 85.0F, 88.0F, 91.0F, 89.0F, 90.0F,
   90.0F, 90.0F, 90.0F, 90.0F, 91.0F, 92.0F, 92.0F, 94.0F, 96.0F, 95.0F, 100.0F,
   100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F, 100.0F
-} ;                       /* Referenced by: '<S1213>/MTQD_PedMapBasTqEco_pct' */
+} ;                       /* Referenced by: '<S1269>/MTQD_PedMapBasTqEco_pct' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacBrkPedAccOff_c[9] = { 1.0F, 1.0F,
   0.6F, 0.5F, 0.1F, 0.05F, 0.04F, 0.0F, 0.0F } ;
-                      /* Referenced by: '<S1250>/MTQD_BrkPdlTqDerateAccOff_c' */
+                      /* Referenced by: '<S1306>/MTQD_BrkPdlTqDerateAccOff_c' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacBrkPedAccOn_c[45] = { 1.0F, 1.0F,
   0.65F, 0.65F, 0.65F, 0.65F, 0.65F, 0.1F, 0.0F, 1.0F, 1.0F, 0.65F, 0.65F, 0.65F,
   0.65F, 0.65F, 0.1F, 0.0F, 1.0F, 1.0F, 0.6F, 0.5F, 0.08F, 0.05F, 0.0F, 0.0F,
   0.0F, 1.0F, 1.0F, 0.6F, 0.5F, 0.08F, 0.05F, 0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.6F,
   0.5F, 0.08F, 0.05F, 0.0F, 0.0F, 0.0F } ;
-                       /* Referenced by: '<S1250>/MTQD_BrkPdlTqDerateAccOn_c' */
+                       /* Referenced by: '<S1306>/MTQD_BrkPdlTqDerateAccOn_c' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacHiddenLmtPwr_c[7] = { 0.0F, 0.35F,
   0.5F, 0.5F, 0.5F, 0.35F, 0.0F } ;
-               /* Referenced by: '<S1253>/Lookup_MTQD_TqDrtFacHiddenLmtPwr_c' */
+               /* Referenced by: '<S1309>/Lookup_MTQD_TqDrtFacHiddenLmtPwr_c' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacLimpHome_c[7] = { 0.0F, 0.3F, 1.0F,
   1.0F, 1.0F, 0.3F, 0.0F } ;
-                /* Referenced by: '<S1252>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
+                /* Referenced by: '<S1308>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacLmtPerfmn_c[8] = { 0.5F, 0.65F, 0.8F,
   0.7F, 0.6F, 0.5F, 0.5F, 0.5F } ;
-                /* Referenced by: '<S1251>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
+                /* Referenced by: '<S1307>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacMotorSpd_c[5] = { 0.0F, 1.0F, 1.0F,
-  1.0F, 0.0F } ;                 /* Referenced by: '<S1248>/MTQD_TMOverDrt_c' */
+  1.0F, 0.0F } ;                 /* Referenced by: '<S1304>/MTQD_TMOverDrt_c' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacVehSpdEco_c[6] = { 0.0F, 1.0F, 1.0F,
   1.0F, 0.5F, 0.0F } ;
-                /* Referenced by: '<S1254>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
+                /* Referenced by: '<S1310>/Lookup_MTQD_TqDrtFacVehSpdSnow_c1' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacVehSpdNorm_c[6] = { 0.0F, 1.0F, 1.0F,
   1.0F, 0.5F, 0.0F } ;
-                /* Referenced by: '<S1254>/Lookup_MTQD_TqDrtFacVehSpdSnow_c3' */
+                /* Referenced by: '<S1310>/Lookup_MTQD_TqDrtFacVehSpdSnow_c3' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacVehSpdRev_c[6] = { 0.0F, 0.7F, 1.0F,
   1.0F, 1.0F, 0.0F } ;
-                /* Referenced by: '<S1254>/Lookup_MTQD_TqDrtFacVehSpdSnow_c4' */
+                /* Referenced by: '<S1310>/Lookup_MTQD_TqDrtFacVehSpdSnow_c4' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacVehSpdSnow_c[6] = { 0.0F, 1.0F, 1.0F,
   1.0F, 0.5F, 0.0F } ;
-                 /* Referenced by: '<S1254>/Lookup_MTQD_TqDrtFacVehSpdSnow_c' */
+                 /* Referenced by: '<S1310>/Lookup_MTQD_TqDrtFacVehSpdSnow_c' */
 
 CALDATA const volatile float32 MTQD_TqDrtFacVehSpdSpt_c[6] = { 0.0F, 1.0F, 1.0F,
   1.0F, 0.5F, 0.0F } ;
-                /* Referenced by: '<S1254>/Lookup_MTQD_TqDrtFacVehSpdSnow_c2' */
+                /* Referenced by: '<S1310>/Lookup_MTQD_TqDrtFacVehSpdSnow_c2' */
 
 CALDATA const volatile float32 MTQD_WhlSpdDiffMaxTqFac_c[10] = { 1.0F, 1.0F,
   0.9F, 0.85F, 0.8F, 0.6F, 0.4F, 0.2F, 0.1F, 0.0F } ;
-                             /* Referenced by: '<S1206>/MTQD_CstTqReqWhlS_Nm' */
+                             /* Referenced by: '<S1262>/MTQD_CstTqReqWhlS_Nm' */
 
 CALDATA const volatile float32 MTQD_WhlSpdDiffMaxTq_Nm[10] = { 4000.0F, 4000.0F,
   3600.0F, 3000.0F, 2000.0F, 1200.0F, 800.0F, 400.0F, 100.0F, 0.0F } ;
-                            /* Referenced by: '<S1206>/MTQD_CstTqReqWhlS_Nm1' */
+                            /* Referenced by: '<S1262>/MTQD_CstTqReqWhlS_Nm1' */
 
 CALDATA const volatile float32 MTQF_DecEndRateFiltTmSMode_s[12] = { 0.03F, 0.03F,
   0.05F, 0.05F, 0.06F, 0.06F, 0.07F, 0.08F, 0.1F, 0.15F, 0.2F, 0.08F } ;
-                             /* Referenced by: '<S1266>/MTQD_CstTqReqWhlS_Nm' */
+                             /* Referenced by: '<S1322>/MTQD_CstTqReqWhlS_Nm' */
 
 CALDATA const volatile float32 MTQF_DecEndRateFiltTm_s[12] = { 0.03F, 0.03F,
   0.05F, 0.05F, 0.06F, 0.06F, 0.07F, 0.08F, 0.1F, 0.15F, 0.2F, 0.08F } ;
-                            /* Referenced by: '<S1266>/MTQD_CstTqReqWhlS_Nm1' */
+                            /* Referenced by: '<S1322>/MTQD_CstTqReqWhlS_Nm1' */
 
 /* torque decrease rate filter time in ending phase */
 CALDATA const volatile float32 MTQF_DecStartRateFiltTmACC_s[12] = { 0.02F, 0.02F,
   0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.05F, 0.1F, 0.08F } ;
-                            /* Referenced by: '<S1266>/MTQD_CstTqReqWhlS_Nm2' */
+                            /* Referenced by: '<S1322>/MTQD_CstTqReqWhlS_Nm2' */
 
 CALDATA const volatile float32 MTQF_DecStartRateFiltTmSMode_s[12] = { 0.02F,
   0.02F, 0.03F, 0.03F, 0.03F, 0.05F, 0.05F, 0.06F, 0.08F, 0.1F, 0.15F, 0.08F } ;
-                            /* Referenced by: '<S1266>/MTQD_CstTqReqWhlS_Nm3' */
+                            /* Referenced by: '<S1322>/MTQD_CstTqReqWhlS_Nm3' */
 
 CALDATA const volatile float32 MTQF_DecStartRateFiltTm_s[12] = { 0.02F, 0.02F,
   0.03F, 0.03F, 0.03F, 0.05F, 0.05F, 0.06F, 0.08F, 0.1F, 0.15F, 0.08F } ;
-                            /* Referenced by: '<S1266>/MTQD_CstTqReqWhlS_Nm4' */
+                            /* Referenced by: '<S1322>/MTQD_CstTqReqWhlS_Nm4' */
 
 /* torque decrease rate filter time in starting phase */
 CALDATA const volatile float32 MTQF_IncEndRateFiltTmSMode_s[12] = { 0.1F, 0.2F,
   0.15F, 0.1F, 0.05F, 0.03F, 0.02F, 0.02F, 0.02F, 0.02F, 0.02F, 0.02F } ;
-                             /* Referenced by: '<S1267>/MTQD_CstTqReqWhlS_Nm' */
+                             /* Referenced by: '<S1323>/MTQD_CstTqReqWhlS_Nm' */
 
 CALDATA const volatile float32 MTQF_IncEndRateFiltTm_s[12] = { 0.1F, 0.2F, 0.15F,
   0.1F, 0.08F, 0.07F, 0.06F, 0.06F, 0.05F, 0.05F, 0.05F, 0.05F } ;
-                            /* Referenced by: '<S1267>/MTQD_CstTqReqWhlS_Nm1' */
+                            /* Referenced by: '<S1323>/MTQD_CstTqReqWhlS_Nm1' */
 
 /* torque increase rate filter time in ending phase */
 CALDATA const volatile float32 MTQF_IncStartRateFiltTmACC_s[12] = { 0.05F, 0.03F,
   0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.02F, 0.02F } ;
-                            /* Referenced by: '<S1267>/MTQD_CstTqReqWhlS_Nm2' */
+                            /* Referenced by: '<S1323>/MTQD_CstTqReqWhlS_Nm2' */
 
 CALDATA const volatile float32 MTQF_IncStartRateFiltTmSMode_s[12] = { 0.05F,
   0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.03F, 0.02F, 0.02F } ;
-                            /* Referenced by: '<S1267>/MTQD_CstTqReqWhlS_Nm3' */
+                            /* Referenced by: '<S1323>/MTQD_CstTqReqWhlS_Nm3' */
 
 CALDATA const volatile float32 MTQF_IncStartRateFiltTm_s[12] = { 0.1F, 0.2F,
   0.2F, 0.15F, 0.15F, 0.1F, 0.05F, 0.03F, 0.03F, 0.03F, 0.02F, 0.02F } ;
-                            /* Referenced by: '<S1267>/MTQD_CstTqReqWhlS_Nm4' */
+                            /* Referenced by: '<S1323>/MTQD_CstTqReqWhlS_Nm4' */
 
 /* torque increase rate filter time in starting phase */
 CALDATA const volatile float32 MTQF_TipOutTqDecRateCoeff_rat[8] = { 1.0F, 1.0F,
   1.5F, 1.8F, 1.9F, 2.0F, 2.0F, 2.0F } ;
-                                /* Referenced by: '<S1266>/1-D Lookup Table1' */
+                                /* Referenced by: '<S1322>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 MTQF_TqRateDecMaxACC_Nmps[8] = { -3000.0F,
   -3500.0F, -4500.0F, -5000.0F, -5500.0F, -6000.0F, -6000.0F, -6000.0F } ;
-                                    /* Referenced by: '<S1266>/Lookup Table5' */
+                                    /* Referenced by: '<S1322>/Lookup Table5' */
 
 /* Max torque decreasing change rate in ACC */
 CALDATA const volatile float32 MTQF_TqRateDecMaxE_Nmps[156] = { -2000.0F,
@@ -4361,7 +4392,7 @@ CALDATA const volatile float32 MTQF_TqRateDecMaxE_Nmps[156] = { -2000.0F,
   -2800.0F, -2800.0F, -2800.0F, -2800.0F, -2800.0F, -2800.0F, -2800.0F, -3000.0F,
   -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F,
   -3000.0F, -3000.0F, -3000.0F } ;
-                   /* Referenced by: '<S1266>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
+                   /* Referenced by: '<S1322>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
 
 /* Max torque decreasing change rate in Eco */
 CALDATA const volatile float32 MTQF_TqRateDecMaxN_Nmps[156] = { -2000.0F,
@@ -4385,7 +4416,7 @@ CALDATA const volatile float32 MTQF_TqRateDecMaxN_Nmps[156] = { -2000.0F,
   -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F,
   -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F,
   -3000.0F, -3000.0F, -3000.0F } ;
-                  /* Referenced by: '<S1266>/MTQD_TqRateLimEndErr_Nm_IntTbl2' */
+                  /* Referenced by: '<S1322>/MTQD_TqRateLimEndErr_Nm_IntTbl2' */
 
 /* Max torque decreasing change rate in Normal */
 CALDATA const volatile float32 MTQF_TqRateDecMaxRegenE_Nmps[91] = { -1500.0F,
@@ -4401,7 +4432,7 @@ CALDATA const volatile float32 MTQF_TqRateDecMaxRegenE_Nmps[91] = { -1500.0F,
   -1800.0F, -1800.0F, -1800.0F, -1800.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F,
   -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F,
   -2000.0F, -2000.0F } ;
-                  /* Referenced by: '<S1266>/MTQD_TqRateLimEndErr_Nm_IntTbl3' */
+                  /* Referenced by: '<S1322>/MTQD_TqRateLimEndErr_Nm_IntTbl3' */
 
 CALDATA const volatile float32 MTQF_TqRateDecMaxRegenN_Nmps[91] = { -2000.0F,
   -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F,
@@ -4416,7 +4447,7 @@ CALDATA const volatile float32 MTQF_TqRateDecMaxRegenN_Nmps[91] = { -2000.0F,
   -2500.0F, -2500.0F, -2500.0F, -2500.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F,
   -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F,
   -3000.0F, -3000.0F } ;
-                  /* Referenced by: '<S1266>/MTQD_TqRateLimEndErr_Nm_IntTbl5' */
+                  /* Referenced by: '<S1322>/MTQD_TqRateLimEndErr_Nm_IntTbl5' */
 
 CALDATA const volatile float32 MTQF_TqRateDecMaxRegenS_Nmps[91] = { -2000.0F,
   -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F, -2000.0F,
@@ -4431,7 +4462,7 @@ CALDATA const volatile float32 MTQF_TqRateDecMaxRegenS_Nmps[91] = { -2000.0F,
   -2500.0F, -2500.0F, -2500.0F, -2500.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F,
   -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F,
   -3000.0F, -3000.0F } ;
-                  /* Referenced by: '<S1266>/MTQD_TqRateLimEndErr_Nm_IntTbl4' */
+                  /* Referenced by: '<S1322>/MTQD_TqRateLimEndErr_Nm_IntTbl4' */
 
 CALDATA const volatile float32 MTQF_TqRateDecMaxS_Nmps[156] = { -2500.0F,
   -2500.0F, -2500.0F, -2500.0F, -2500.0F, -2500.0F, -2500.0F, -2500.0F, -2500.0F,
@@ -4454,12 +4485,12 @@ CALDATA const volatile float32 MTQF_TqRateDecMaxS_Nmps[156] = { -2500.0F,
   -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3000.0F, -3100.0F,
   -3100.0F, -3100.0F, -3100.0F, -3100.0F, -3100.0F, -3100.0F, -3100.0F, -3100.0F,
   -3100.0F, -3100.0F, -3100.0F } ;
-                  /* Referenced by: '<S1266>/MTQD_TqRateLimEndErr_Nm_IntTbl1' */
+                  /* Referenced by: '<S1322>/MTQD_TqRateLimEndErr_Nm_IntTbl1' */
 
 /* Max torque decreasing change rate in Sport */
 CALDATA const volatile float32 MTQF_TqRateIncMaxACC_Nmps[8] = { 5000.0F, 5000.0F,
   6500.0F, 7000.0F, 7500.0F, 8000.0F, 9000.0F, 9000.0F } ;
-                                    /* Referenced by: '<S1267>/Lookup Table5' */
+                                    /* Referenced by: '<S1323>/Lookup Table5' */
 
 /* Max torque increasing change rate in ACC */
 CALDATA const volatile float32 MTQF_TqRateIncMaxE_Nmps[156] = { 1635.0F, 1635.0F,
@@ -4482,7 +4513,7 @@ CALDATA const volatile float32 MTQF_TqRateIncMaxE_Nmps[156] = { 1635.0F, 1635.0F
   7085.0F, 2180.0F, 2180.0F, 2180.0F, 2180.0F, 3379.0F, 3379.0F, 3815.0F,
   4905.0F, 5450.0F, 5995.0F, 7085.0F, 7085.0F, 2180.0F, 2180.0F, 2180.0F,
   2180.0F, 3379.0F, 3379.0F, 3815.0F, 4905.0F, 5450.0F, 5995.0F, 7085.0F,
-  7085.0F } ;      /* Referenced by: '<S1267>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
+  7085.0F } ;      /* Referenced by: '<S1323>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
 
 /* Max torque increasing change rate in Eco */
 CALDATA const volatile float32 MTQF_TqRateIncMaxN_Nmps[156] = { 2180.0F, 2180.0F,
@@ -4506,7 +4537,7 @@ CALDATA const volatile float32 MTQF_TqRateIncMaxN_Nmps[156] = { 2180.0F, 2180.0F
   4360.0F, 4360.0F, 6540.0F, 7630.0F, 8720.0F, 10900.0F, 2725.0F, 2725.0F,
   2725.0F, 2725.0F, 3924.0F, 3924.0F, 4360.0F, 4360.0F, 6540.0F, 7630.0F,
   8720.0F, 10900.0F } ;
-                  /* Referenced by: '<S1267>/MTQD_TqRateLimEndErr_Nm_IntTbl2' */
+                  /* Referenced by: '<S1323>/MTQD_TqRateLimEndErr_Nm_IntTbl2' */
 
 /* Max torque increasing change rate in Normal */
 CALDATA const volatile float32 MTQF_TqRateIncMaxS_Nmps[156] = { 2725.0F, 2725.0F,
@@ -4530,7 +4561,7 @@ CALDATA const volatile float32 MTQF_TqRateIncMaxS_Nmps[156] = { 2725.0F, 2725.0F
   8175.0F, 8175.0F, 9265.0F, 9810.0F, 10900.0F, 10900.0F, 4905.0F, 4905.0F,
   4905.0F, 5014.0F, 7630.0F, 7630.0F, 8175.0F, 8175.0F, 9265.0F, 9810.0F,
   10900.0F, 10900.0F } ;
-                  /* Referenced by: '<S1267>/MTQD_TqRateLimEndErr_Nm_IntTbl1' */
+                  /* Referenced by: '<S1323>/MTQD_TqRateLimEndErr_Nm_IntTbl1' */
 
 /* Max torque increasing change rate in Sport */
 CALDATA const volatile float32 MTQF_TqRateLimEndErrE_Nm[154] = { 200.0F, 200.0F,
@@ -4550,7 +4581,7 @@ CALDATA const volatile float32 MTQF_TqRateLimEndErrE_Nm[154] = { 200.0F, 200.0F,
   150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F,
   150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F,
   150.0F, 150.0F } ;
-                   /* Referenced by: '<S1265>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
+                   /* Referenced by: '<S1321>/MTQD_TqRateLimEndErr_Nm_IntTbl' */
 
 /* torque ending error in E */
 CALDATA const volatile float32 MTQF_TqRateLimEndErrN_Nm[154] = { 200.0F, 200.0F,
@@ -4570,7 +4601,7 @@ CALDATA const volatile float32 MTQF_TqRateLimEndErrN_Nm[154] = { 200.0F, 200.0F,
   150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F,
   150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F,
   150.0F, 150.0F } ;
-                  /* Referenced by: '<S1265>/MTQD_TqRateLimEndErr_Nm_IntTbl2' */
+                  /* Referenced by: '<S1321>/MTQD_TqRateLimEndErr_Nm_IntTbl2' */
 
 /* torque ending error in N */
 CALDATA const volatile float32 MTQF_TqRateLimEndErrS_Nm[154] = { 200.0F, 200.0F,
@@ -4590,60 +4621,60 @@ CALDATA const volatile float32 MTQF_TqRateLimEndErrS_Nm[154] = { 200.0F, 200.0F,
   150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F,
   150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F, 150.0F,
   150.0F, 150.0F } ;
-                  /* Referenced by: '<S1265>/MTQD_TqRateLimEndErr_Nm_IntTbl1' */
+                  /* Referenced by: '<S1321>/MTQD_TqRateLimEndErr_Nm_IntTbl1' */
 
 /* torque ending error in S */
 CALDATA const volatile float32 MTQR_ASDSpdFiltHi_s[8] = { 0.0011F, 0.0043F,
   0.01F, 0.0488F, 0.0733F, 0.1011F, 0.1329F, 0.1329F } ;
-                                 /* Referenced by: '<S1293>/1-D Lookup Table' */
+                                 /* Referenced by: '<S1349>/1-D Lookup Table' */
 
 CALDATA const volatile float32 MTQR_ASDTqGain_c[8] = { -1.0F, -1.0F, -1.0F,
   -1.0F, -1.0F, -1.0F, -1.0F, -1.0F } ;
-                                 /* Referenced by: '<S1294>/1-D Lookup Table' */
+                                 /* Referenced by: '<S1350>/1-D Lookup Table' */
 
 CALDATA const volatile float32 MTZX_AZDecRate_Nmps[11] = { -250.0F, -250.0F,
   -200.0F, -180.0F, -150.0F, -120.0F, -70.0F, -50.0F, -35.0F, -100.0F, -100.0F }
-;                               /* Referenced by: '<S1325>/1-D Lookup Table4' */
+;                               /* Referenced by: '<S1381>/1-D Lookup Table4' */
 
 CALDATA const volatile float32 MTZX_AZIncRate_Nmps[11] = { 100.0F, 100.0F, 50.0F,
   50.0F, 100.0F, 150.0F, 200.0F, 250.0F, 300.0F, 400.0F, 400.0F } ;
-                                /* Referenced by: '<S1325>/1-D Lookup Table3' */
+                                /* Referenced by: '<S1381>/1-D Lookup Table3' */
 
 CALDATA const volatile float32 MTZX_AZRngDec_Nm[12] = { 6.0F, 6.0F, 6.0F, 6.0F,
   6.0F, 6.0F, 6.0F, 6.0F, 6.0F, 6.0F, 6.0F, 6.0F } ;
-                         /* Referenced by: '<S1325>/MTZX_AZRngTipOutTMOly_Nm' */
+                         /* Referenced by: '<S1381>/MTZX_AZRngTipOutTMOly_Nm' */
 
 CALDATA const volatile float32 MTZX_AZRngInc_Nm[12] = { 6.0F, 6.0F, 6.0F, 6.0F,
   6.0F, 6.0F, 6.0F, 6.0F, 6.0F, 6.0F, 6.0F, 6.0F } ;
-                          /* Referenced by: '<S1325>/MTZX_AZRngTipInTMOly_Nm' */
+                          /* Referenced by: '<S1381>/MTZX_AZRngTipInTMOly_Nm' */
 
 CALDATA const volatile float32 MTZX_BZDecRate_Nmps[11] = { -35.0F, -35.0F,
   -35.0F, -50.0F, -75.0F, -125.0F, -200.0F, -400.0F, -700.0F, -800.0F, -800.0F }
-;                               /* Referenced by: '<S1325>/1-D Lookup Table2' */
+;                               /* Referenced by: '<S1381>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 MTZX_BZIncRate_Nmps[11] = { 800.0F, 800.0F,
   700.0F, 400.0F, 200.0F, 125.0F, 75.0F, 50.0F, 35.0F, 35.0F, 35.0F } ;
-                                /* Referenced by: '<S1325>/1-D Lookup Table1' */
+                                /* Referenced by: '<S1381>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 MTZX_BZRngDec_Nm[12] = { 10.0F, 10.0F, 10.0F,
   10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F } ;
-                         /* Referenced by: '<S1325>/MTZX_BZRngTipOutTMOly_Nm' */
+                         /* Referenced by: '<S1381>/MTZX_BZRngTipOutTMOly_Nm' */
 
 CALDATA const volatile float32 MTZX_BZRngInc_Nm[12] = { 10.0F, 10.0F, 10.0F,
   10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F, 10.0F } ;
-                          /* Referenced by: '<S1325>/MTZX_BZRngTipInTMOly_Nm' */
+                          /* Referenced by: '<S1381>/MTZX_BZRngTipInTMOly_Nm' */
 
 CALDATA const volatile float32 MTZX_RampDecRate_Nmps[10] = { -200.0F, -300.0F,
   -400.0F, -500.0F, -600.0F, -600.0F, -600.0F, -600.0F, -800.0F, -800.0F } ;
-                                /* Referenced by: '<S1324>/1-D Lookup Table1' */
+                                /* Referenced by: '<S1380>/1-D Lookup Table1' */
 
 CALDATA const volatile float32 MTZX_RampIncRate_Nmps[10] = { 200.0F, 300.0F,
   400.0F, 500.0F, 600.0F, 600.0F, 600.0F, 600.0F, 800.0F, 800.0F } ;
-                                /* Referenced by: '<S1324>/1-D Lookup Table2' */
+                                /* Referenced by: '<S1380>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 MTZX_ZeroTqOfstDecACC_Nm[12] = { -1.0F, -1.0F,
   -1.0F, -1.0F, -1.0F, -1.0F, -1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F } ;
-                   /* Referenced by: '<S1325>/MTZX_ZeroTqOfstTipOutTMOly_Nm5' */
+                   /* Referenced by: '<S1381>/MTZX_ZeroTqOfstTipOutTMOly_Nm5' */
 
 CALDATA const volatile float32 MTZX_ZeroTqOfstDec_Nm[80] = { -1.0F, -1.0F, -1.0F,
   -1.0F, -1.0F, -1.0F, -1.0F, -1.0F, -1.0F, -1.0F, -1.0F, -1.0F, -1.0F, -1.0F,
@@ -4653,11 +4684,11 @@ CALDATA const volatile float32 MTZX_ZeroTqOfstDec_Nm[80] = { -1.0F, -1.0F, -1.0F
   -1.0F, -1.0F, -1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F } ;
-                                /* Referenced by: '<S1325>/2-D Lookup Table1' */
+                                /* Referenced by: '<S1381>/2-D Lookup Table1' */
 
 CALDATA const volatile float32 MTZX_ZeroTqOfstIncACC_Nm[12] = { 1.0F, 2.0F, 2.0F,
   2.0F, 6.0F, 6.0F, 6.0F, 5.0F, 5.0F, 3.0F, 3.0F, 0.0F } ;
-                    /* Referenced by: '<S1325>/MTZX_ZeroTqOfstTipInTMOly_Nm1' */
+                    /* Referenced by: '<S1381>/MTZX_ZeroTqOfstTipInTMOly_Nm1' */
 
 CALDATA const volatile float32 MTZX_ZeroTqOfstInc_Nm[80] = { 1.0F, 1.0F, 1.0F,
   1.0F, 1.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 2.0F, 1.6F,
@@ -4666,11 +4697,11 @@ CALDATA const volatile float32 MTZX_ZeroTqOfstInc_Nm[80] = { 1.0F, 1.0F, 1.0F,
   1.6F, 1.6F, 1.6F, 1.6F, 1.6F, 1.6F, 1.6F, 1.6F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F,
   1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F,
   1.0F, 1.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0F } ;
-                                 /* Referenced by: '<S1325>/2-D Lookup Table' */
+                                 /* Referenced by: '<S1381>/2-D Lookup Table' */
 
 CALDATA const volatile float32 MTZX_ZeroXTmACC_s[10] = { 0.05F, 0.05F, 0.08F,
   0.08F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F } ;
-                        /* Referenced by: '<S1325>/MTZX_ZeroXTmTipInTMOly_s1' */
+                        /* Referenced by: '<S1381>/MTZX_ZeroXTmTipInTMOly_s1' */
 
 CALDATA const volatile float32 MTZX_ZeroXTmDec_s[80] = { 0.12F, 0.12F, 0.12F,
   0.12F, 0.12F, 0.18F, 0.18F, 0.18F, 0.18F, 0.18F, 0.18F, 0.18F, 0.18F, 0.18F,
@@ -4680,7 +4711,7 @@ CALDATA const volatile float32 MTZX_ZeroXTmDec_s[80] = { 0.12F, 0.12F, 0.12F,
   0.12F, 0.12F, 0.12F, 0.12F, 0.12F, 0.12F, 0.12F, 0.12F, 0.12F, 0.12F, 0.12F,
   0.12F, 0.12F, 0.08F, 0.08F, 0.08F, 0.08F, 0.08F, 0.05F, 0.05F, 0.05F, 0.05F,
   0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F } ;
-                                /* Referenced by: '<S1325>/2-D Lookup Table2' */
+                                /* Referenced by: '<S1381>/2-D Lookup Table2' */
 
 CALDATA const volatile float32 MTZX_ZeroXTmInc_s[80] = { 0.1F, 0.1F, 0.1F, 0.1F,
   0.1F, 0.15F, 0.15F, 0.15F, 0.15F, 0.15F, 0.15F, 0.15F, 0.15F, 0.15F, 0.15F,
@@ -4690,23 +4721,23 @@ CALDATA const volatile float32 MTZX_ZeroXTmInc_s[80] = { 0.1F, 0.1F, 0.1F, 0.1F,
   0.08F, 0.08F, 0.08F, 0.08F, 0.08F, 0.08F, 0.08F, 0.08F, 0.08F, 0.08F, 0.08F,
   0.08F, 0.08F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F,
   0.05F, 0.05F, 0.05F, 0.05F, 0.05F, 0.05F } ;
-                                /* Referenced by: '<S1325>/2-D Lookup Table3' */
+                                /* Referenced by: '<S1381>/2-D Lookup Table3' */
 
 CALDATA const volatile float32 MVTM_ActPwrBacklash_kW[8] = { 0.0F, 0.0F, 0.2F,
-  0.4F, 0.6F, 1.0F, 1.5F, 1.5F } ;     /* Referenced by: '<S1381>/Dbnd' */
+  0.4F, 0.6F, 1.0F, 1.5F, 1.5F } ;     /* Referenced by: '<S1437>/Dbnd' */
 
 CALDATA const volatile float32 MVTM_MotorMaxDrvTqWT_Nm[23] = { 280.0F, 280.0F,
   280.0F, 280.0F, 280.0F, 280.0F, 280.0F, 280.0F, 280.0F, 280.0F, 280.0F, 278.0F,
   262.0F, 226.0F, 193.0F, 169.0F, 150.0F, 133.0F, 119.0F, 107.0F, 99.0F, 90.0F,
-  85.0F } ;                      /* Referenced by: '<S1376>/MTQD_PTBaseTq_Nm' */
+  85.0F } ;                      /* Referenced by: '<S1432>/MTQD_PTBaseTq_Nm' */
 
 CALDATA const volatile float32 MVTM_MotorSpdFiltCoeff_rat[8] = { 0.95F, 0.93F,
   0.9F, 0.85F, 0.75F, 0.65F, 0.5F, 0.3F } ;
-                      /* Referenced by: '<S1367>/MPPC_OutSftSpdFiltCoeff_rat' */
+                      /* Referenced by: '<S1423>/MPPC_OutSftSpdFiltCoeff_rat' */
 
 CALDATA const volatile float32 MVTM_VehSpdFiltCoeff_rat[8] = { 0.91F, 0.9F, 0.8F,
   0.7F, 0.6F, 0.5F, 0.35F, 0.0F } ;
-                  /* Referenced by: '<S1367>/Lookup_MVTM_VehSpdFiltCoeff_rat' */
+                  /* Referenced by: '<S1423>/Lookup_MVTM_VehSpdFiltCoeff_rat' */
 
 /*
  * File trailer for generated code.

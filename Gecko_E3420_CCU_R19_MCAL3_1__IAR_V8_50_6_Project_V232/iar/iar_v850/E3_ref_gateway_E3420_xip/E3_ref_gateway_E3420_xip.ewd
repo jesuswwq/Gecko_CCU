@@ -112,7 +112,7 @@
                 </option>
                 <option>
                     <name>FlashLoadersV3</name>
-                    <state>D:\wwq\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\tools\IAR_Ddf\flashloader\SemiDrive\3420\xip\hyperflash\iar_flashboardcfg_bootloader.board</state>
+                    <state>$PROJ_DIR$\tools\IAR_Ddf\flashloader\SemiDrive\3420\xip\hyperflash\iar_flashboardcfg_bootloader.board</state>
                 </option>
                 <option>
                     <name>OCImagesSuppressCheck1</name>

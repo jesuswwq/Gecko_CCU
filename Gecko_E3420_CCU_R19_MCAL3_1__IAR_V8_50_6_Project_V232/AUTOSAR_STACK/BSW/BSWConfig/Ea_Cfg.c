@@ -593,13 +593,13 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
     {
         4832U,
         1148U,
-        64U,
+        160U,
         FALSE,
         0u,
         0u
     },
     {
-        4896U,
+        4992U,
         1164U,
         32U,
         FALSE,
@@ -607,7 +607,7 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
         0u
     },
     {
-        4928U,
+        5024U,
         1180U,
         288U,
         FALSE,

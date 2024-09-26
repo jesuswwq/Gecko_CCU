@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-08-17 16:06:11>
+ *  @date       <2024-09-19 16:45:37>
  */
 /*============================================================================*/
 
@@ -69,10 +69,14 @@ static void Rte_PRE_Runbl_AppSwcBcm_100ms(void)
     {
         SuspendAllInterrupts();
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_AlmSysCtl_Bus, (uint8*)&Irv_AppSwcBcm_AlmSysCtl_Bus, sizeof(AlmSysCtl));
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_DoorLckCtl_Bus, (uint8*)&Irv_AppSwcBcm_DoorLckCtl_Bus, sizeof(DoorLckCtl));
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_DynDID_Bus, (uint8*)&Irv_AppSwcBcm_DynDID_Bus, sizeof(DynDID));
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_HornCtl_Bus, (uint8*)&Irv_AppSwcBcm_HornCtl_Bus, sizeof(HornCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_IPM_CCP_PanelStatus_BOD, (uint8*)&Irv_AppSwcBcm_IPM_CCP_PanelStatus_BOD, sizeof(DT_IPM_CCP_PanelStatus_BOD));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_IPM_HU_B_BAC, (uint8*)&Irv_AppSwcBcm_IPM_HU_B_BAC, sizeof(DT_IPM_HU_B_BAC));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_LampCtl_Bus, (uint8*)&Irv_AppSwcBcm_LampCtl_Bus, sizeof(LampCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_PDUCtl_Bus, (uint8*)&Irv_AppSwcBcm_PDUCtl_Bus, sizeof(PDUCtl));
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_Wiper_Bus, (uint8*)&Irv_AppSwcBcm_Wiper_Bus, sizeof(WiperCtl));
         ResumeAllInterrupts();
     }
 }
@@ -111,6 +115,7 @@ static void Rte_PRE_Runbl_AppSwcBcm_20ms(void)
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD->value), (uint8*)&Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD, sizeof(DT_IPM_CCP_PanelStatus_BOD));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA->value), (uint8*)&Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA, sizeof(DT_IPM_CRRR_A_CHA));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA->value), (uint8*)&Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA, sizeof(DT_IPM_EHB_A_CHA));
+        rte_memcpy((uint8*)&(Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA->value), (uint8*)&Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA, sizeof(DT_IPM_EHB_B_CHA));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA->value), (uint8*)&Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA, sizeof(DT_IPM_ESC_7_FuncStatus_CHA));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_HU_B_BAC_IPM_HU_B_BAC->value), (uint8*)&Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_HU_B_BAC_IPM_HU_B_BAC, sizeof(DT_IPM_HU_B_BAC));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_SCS_LeSwitchSts_BOD_IPM_SCS_LeSwitchSts_BOD->value), (uint8*)&Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_SCS_LeSwitchSts_BOD_IPM_SCS_LeSwitchSts_BOD, sizeof(DT_IPM_SCS_LeSwitchSts_BOD));
@@ -153,6 +158,8 @@ static void Rte_PRE_Runbl_AppSwcBcm_50ms(void)
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_LampCtl_Bus, (uint8*)&Irv_AppSwcBcm_LampCtl_Bus, sizeof(LampCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_PEPSCtl_Bus, (uint8*)&Irv_AppSwcBcm_PEPSCtl_Bus, sizeof(PEPSCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_Vcu2BcmTms_outputs, (uint8*)&Irv_AppSwcBcm_Vcu2BcmTms_outputs, sizeof(DT_Vcu2BcmTms_outputs));
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_WinCtl_Bus, (uint8*)&Irv_AppSwcBcm_WinCtl_Bus, sizeof(WinCtl));
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_Wiper_Bus, (uint8*)&Irv_AppSwcBcm_Wiper_Bus, sizeof(WiperCtl));
         ResumeAllInterrupts();
     }
 }
@@ -166,6 +173,7 @@ static void Rte_POST_AppSwcBcm_Init(void)
     if (RteInitState == RTE_INITED)
     {
         SuspendAllInterrupts();
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_AlmSysCtl_Bus, (uint8*)&Irv_AppSwcBcm_AppSwcBcm_Init_AlmSysCtl_Bus, sizeof(AlmSysCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_EEReadCtl_Bus, (uint8*)&Irv_AppSwcBcm_AppSwcBcm_Init_EEReadCtl_Bus, sizeof(EEReadCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_IMMOCtl_Bus, (uint8*)&Irv_AppSwcBcm_AppSwcBcm_Init_IMMOCtl_Bus, sizeof(IMMOCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_PEPSCtl_Bus, (uint8*)&Irv_AppSwcBcm_AppSwcBcm_Init_PEPSCtl_Bus, sizeof(PEPSCtl));
@@ -247,6 +255,7 @@ static void Rte_POST_Runbl_AppSwcBcm_50ms(void)
         rte_memcpy((uint8*)&Irv_AppSwcBcm_AlmSysCtl_Bus, (uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_AlmSysCtl_Bus, sizeof(AlmSysCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_BatSaveCtl_Bus, (uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_BatSaveCtl_Bus, sizeof(BatSaveCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_DoorLckCtl_Bus, (uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus, sizeof(DoorLckCtl));
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_DynDID_Bus, (uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_DynDID_Bus, sizeof(DynDID));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_ESCLCtl_Bus, (uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_ESCLCtl_Bus, sizeof(ESCLCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_IMMOCtl_Bus, (uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IMMOCtl_Bus, sizeof(IMMOCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_PDUCtl_Bus, (uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_PDUCtl_Bus, sizeof(PDUCtl));
@@ -391,6 +400,53 @@ void Rte_AppSwcBcm_Init(void)
         AppSwcBcm_Init();
     }
     Rte_POST_AppSwcBcm_Init();
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIWrite_AppSwcBcm_Init_AlmSysCtl_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_IrvIWrite_AppSwcBcm_Init_AlmSysCtl_Bus(AlmSysCtl* data)
+{
+    if (RteInitState == RTE_INITED)
+    {
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_AppSwcBcm_Init_AlmSysCtl_Bus, (uint8*)data, sizeof(AlmSysCtl));
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIWriteRef_AppSwcBcm_Init_AlmSysCtl_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               AlmSysCtl *
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+AlmSysCtl * Rte_IrvIWriteRef_AppSwcBcm_Init_AlmSysCtl_Bus(void)
+{
+    return &Irv_AppSwcBcm_AppSwcBcm_Init_AlmSysCtl_Bus;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -578,6 +634,28 @@ BatSaveCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_BatSaveCtl_Bus(void)
 #include "Rte_MemMap.h"
 
 /*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DoorLckCtl_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               DoorLckCtl*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+DoorLckCtl* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DoorLckCtl_Bus(void)
+{
+    return &Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_DoorLckCtl_Bus;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
 *Function-Name        Rte_IrvIRead_Runbl_AppSwcBcm_10ms_DoorLckCtl_Bus
 *Service ID           <None>
 *Sync/Async           <Synchronous>
@@ -664,6 +742,75 @@ void Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus(DoorLckCtl* data)
 DoorLckCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus(void)
 {
     return &Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DynDID_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               DynDID*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+DynDID* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DynDID_Bus(void)
+{
+    return &Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_DynDID_Bus;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DynDID_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DynDID_Bus(DynDID* data)
+{
+    if (RteInitState == RTE_INITED)
+    {
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_DynDID_Bus, (uint8*)data, sizeof(DynDID));
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_DynDID_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               DynDID *
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+DynDID * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_DynDID_Bus(void)
+{
+    return &Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_DynDID_Bus;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -849,6 +996,28 @@ void Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_ESCLCtl_Bus(ESCLCtl* data)
 ESCLCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_ESCLCtl_Bus(void)
 {
     return &Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_ESCLCtl_Bus;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_AppSwcBcm_100ms_HornCtl_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               HornCtl*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+HornCtl* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_HornCtl_Bus(void)
+{
+    return &Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_HornCtl_Bus;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -2203,6 +2372,50 @@ WinCtl* Rte_IrvIRead_Runbl_AppSwcBcm_20ms_WinCtl_Bus(void)
 #include "Rte_MemMap.h"
 
 /*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_AppSwcBcm_50ms_WinCtl_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               WinCtl*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+WinCtl* Rte_IrvIRead_Runbl_AppSwcBcm_50ms_WinCtl_Bus(void)
+{
+    return &Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_WinCtl_Bus;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_AppSwcBcm_100ms_Wiper_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               WiperCtl*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+WiperCtl* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_Wiper_Bus(void)
+{
+    return &Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_Wiper_Bus;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
 *Function-Name        Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_Wiper_Bus
 *Service ID           <None>
 *Sync/Async           <Synchronous>
@@ -2245,6 +2458,28 @@ void Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_Wiper_Bus(WiperCtl* data)
 WiperCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_20ms_Wiper_Bus(void)
 {
     return &Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_Wiper_Bus;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_AppSwcBcm_50ms_Wiper_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               WiperCtl*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+WiperCtl* Rte_IrvIRead_Runbl_AppSwcBcm_50ms_Wiper_Bus(void)
+{
+    return &Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_Wiper_Bus;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -2377,6 +2612,28 @@ Std_ReturnType Rte_IStatus_Runbl_AppSwcBcm_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA(vo
 Std_ReturnType Rte_IStatus_Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA(void)
 {
     return Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA->status;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IStatus_Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               Std_ReturnType
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+Std_ReturnType Rte_IStatus_Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA(void)
+{
+    return Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA->status;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"

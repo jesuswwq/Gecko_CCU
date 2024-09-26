@@ -221,7 +221,7 @@ EcuM_AL_DriverInitOne(
 
     TCA6424_Init();
     IoExp_TCA6424_SetAllPortHigh(TCA6424_CHIP_A);
-    IoExp_TCA6424_SetAllPortHigh(TCA6424_CHIP_B);
+    //IoExp_TCA6424_SetAllPortHigh(TCA6424_CHIP_B);
     // IoExp_TCA6424_SetAllPortHigh(TCA6424_CHIP_C);
     // IoExp_TCA6424_SetAllPortHigh(TCA6424_CHIP_D);
     // IoExp_TCA6424_SetAllPortHigh(TCA6424_CHIP_E);
@@ -234,8 +234,8 @@ EcuM_AL_DriverInitOne(
 
     TLE75004_Init();
     // TLE75004_Output(0X3);
-    TLE75004_Ctrl_PortOut(TLE75004_LS_OUT0, TLE75004_CH_ON);
-    TLE75004_Ctrl_PortOut(TLE75004_LS_OUT1, TLE75004_CH_ON);
+    TLE75004_Ctrl_PortOut(TLE75004_LS_OUT0, TLE75004_CH_OFF);
+    TLE75004_Ctrl_PortOut(TLE75004_LS_OUT1, TLE75004_CH_OFF);
 
     TLE75242_Init();
 #if 0

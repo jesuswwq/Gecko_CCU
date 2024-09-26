@@ -1,0 +1,80 @@
+Os_Ioc.pbi: \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\AUTOSAR_STACK\BSW\SystemServices\OS\kernel\Os_Ioc.c \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\AUTOSAR_STACK\BSW\SystemServices\OS\kernel/Os_Internal.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\AUTOSAR_STACK\BSW\BSWConfig\Os_TestMacros.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\AUTOSAR_STACK\BSW\SystemServices\OS\arch\Os_Processor.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\AUTOSAR_STACK\BSW\SystemServices\OS\kernel\Os.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\AUTOSAR_STACK\BSW\SystemServices\OS\kernel/Os_Err.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\AUTOSAR_STACK\BSW\BSWConfig\Os_Cfg.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Std_Types.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Platform_Types.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Compiler.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Compiler_Cfg.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/CompilerDefinition.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\AUTOSAR_STACK\BSW\BSWConfig\Os_CfgData.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\AUTOSAR_STACK\BSW\BSWConfig/Os_Cfg.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\AUTOSAR_STACK\BSW\SystemServices\OS\kernel\Os_Types.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\AUTOSAR_STACK\BSW\SystemServices\OS\kernel/Os_Marcos.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\AUTOSAR_STACK\BSW\SystemServices\OS\kernel\Os_MemMap.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\AUTOSAR_STACK\BSW\SystemServices\OS\kernel/Os_MemMap.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\AUTOSAR_STACK\BSW\SystemServices\OS\arch/Os_SysAsmFun.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Platform_Types.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\AUTOSAR_STACK\BSW\SystemServices\OS\arch/e3430_vic.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\IrqM_TS_T01D20M1I4R0\include\irq.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\IrqM_TS_T01D20M1I4R0\include/arch_irq.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Compiler.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\IrqM_TS_T01D20M1I4R0\include\irq_num.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\IrqM_TS_T01D20M1I4R0\include/irq_num_sf.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\soc\taishan\include\__regs_base.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\driver\btm\sdrv_btm.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\include\common\types.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\include\common\__compiler.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\intrinsics.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\iccarm_builtin.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\yvals.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\DLib_Defaults.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\DLib_Config_Normal.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\DLib_Product.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\iar_intrinsics_common.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\driver\lld\sdrv_btm_hw.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\driver\btm/sdrv_btm_common.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\AUTOSAR_STACK\BSW\SystemServices\OS\arch/Os_Timer.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\AUTOSAR_STACK\BSW\SystemServices\OS\kernel\Os_Internal.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\IrqM_TS_T01D20M1I4R0\include\sdrv_vic.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\Mcal_Cfg\E3_ref_gateway_E3420\output\include\Vic_Irq_Cfg.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include\Mcu_Soc.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\Mcal.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/OsIf.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include/Std_Types.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\stdalign.h \
+  C:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.4\arm\inc\c\ycheck.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Modules.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_GeneralTypes.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Base_TS_T01D20M1I4R0\include\RegHelper.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\Mcal_Cfg\E3_ref_gateway_E3420\output\include\Mcu_Cfg.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include\Mcu_GeneralTypes.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\include\common\reg.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Gpt_TS_T01D20M1I4R0\include\Gpt_Ip.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\Mcal_Cfg\E3_ref_gateway_E3420\output\include\Gpt_Cfg.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Gpt_TS_T01D20M1I4R0\include\Gpt_Types.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Gpt_TS_T01D20M1I4R0\include/Gpt_Types.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Gpt_TS_T01D20M1I4R0\include\Gpt_Register.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mailbox_TS_T01D20M1I4R0\include\mbox.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\soc\soc_def.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include\Mcu_Modules.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include\Mcu_Delay.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Soc.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mailbox_TS_T01D20M1I4R0\include/mbox_reg.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include\Mcu_Extend.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Clk.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Dcdc.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Ldo.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_KickCore.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_PvtSens.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Reset.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Rtc.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Pmu.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Ckgen.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_RtcMode.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_Rstgen.h \
+  D:\wwq\testgit\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_V232\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\mcal\Mcu_TS_T01D20M1I4R0\include/Mcu_ResetDrv.h

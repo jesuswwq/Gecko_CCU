@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcIpm'.
  *
- * Model version                  : 9.172
+ * Model version                  : 9.184
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Jul 16 10:34:34 2024
+ * C/C++ source code generated on : Thu Sep 19 15:53:21 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -14,20 +14,20 @@
  */
 
 #include "monPrmsIpm.h"
-//#include "AppSwcIpm.h"
+#include "AppSwcIpm.h"
 
 /* Exported data definition */
 
 /* Volatile memory section */
-//#define MONPRM                         __attribute__((section(".Monitor_Ram")))
+#include "XcpTest_types.h"
 
 /* Definition for custom storage class: Volatile */
-MONPRM volatile boolean VIPM_ACCMLostComm_flg = false;/* '<S352>/Switch14' */
+MONPRM volatile boolean VIPM_ACCMLostComm_flg = false;/* '<S353>/Switch14' */
 MONPRM volatile boolean VIPM_APPVerMaxVld_flg = false;/* '<S15>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_APPVerMax_enum = ((uint8)0U);/* '<S15>/Switch4' */
 MONPRM volatile boolean VIPM_APPVerMinVld_flg = false;/* '<S16>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_APPVerMin_enum = ((uint8)0U);/* '<S16>/Switch4' */
-MONPRM volatile boolean VIPM_BACCANBusOff_flg = false;/* '<S352>/Switch2' */
+MONPRM volatile boolean VIPM_BACCANBusOff_flg = false;/* '<S353>/Switch2' */
 MONPRM volatile boolean VIPM_BMSACChrgAtclStaVld_flg = false;/* '<S293>/Logical Operator3' */
 MONPRM volatile EnumBMSACChrgSt VIPM_BMSACChrgAtclSta_enum =
   EnumBMSACChrgSt_ChrgOff;             /* '<S293>/Switch4' */
@@ -69,7 +69,7 @@ MONPRM volatile boolean VIPM_BMSInletCooltActlTempVld_flg = false;/* '<S294>/Log
 MONPRM volatile float32 VIPM_BMSInletCooltActlTemp_C = 0.0F;/* '<S294>/MinMax1' */
 MONPRM volatile boolean VIPM_BMSIsoResistVld_flg = false;/* '<S295>/Logical Operator3' */
 MONPRM volatile float32 VIPM_BMSIsoResist_MOhm = 0.0F;/* '<S295>/MinMax1' */
-MONPRM volatile boolean VIPM_BMSLostComm_flg = false;/* '<S352>/Switch4' */
+MONPRM volatile boolean VIPM_BMSLostComm_flg = false;/* '<S353>/Switch4' */
 MONPRM volatile boolean VIPM_BMSMaxChrgCurntACVld_flg = false;/* '<S296>/Logical Operator3' */
 MONPRM volatile float32 VIPM_BMSMaxChrgCurntAC_A = 0.0F;/* '<S296>/MinMax1' */
 MONPRM volatile boolean VIPM_BMSMaxChrgVoltACVld_flg = false;/* '<S297>/Logical Operator3' */
@@ -94,7 +94,8 @@ MONPRM volatile boolean VIPM_BMSSysFailStaVld_flg = false;/* '<S281>/Logical Ope
 MONPRM volatile uint8 VIPM_BMSSysFailSta_enum = ((uint8)0U);/* '<S281>/Switch4' */
 MONPRM volatile boolean VIPM_BMSThermrunawayWrnVld_flg = false;/* '<S282>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_BMSThermrunawayWrn_enum = ((uint8)0U);/* '<S282>/Switch4' */
-MONPRM volatile boolean VIPM_BODCANBusOff_flg = false;/* '<S352>/Switch1' */
+MONPRM volatile boolean VIPM_BMS_2_BatState_CRCFlt_flg = false;/* '<S352>/Logical Operator14' */
+MONPRM volatile boolean VIPM_BODCANBusOff_flg = false;/* '<S353>/Switch1' */
 MONPRM volatile boolean VIPM_BootVerVld_flg = false;/* '<S17>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_BootVer_enum = ((uint8)0U);/* '<S17>/Switch4' */
 MONPRM volatile boolean VIPM_CCPACAutoKeyVld_flg = false;/* '<S319>/Logical Operator3' */
@@ -137,10 +138,11 @@ MONPRM volatile boolean VIPM_CCPTempAddKeyVld_flg = false;/* '<S337>/Logical Ope
 MONPRM volatile boolean VIPM_CCPTempAddKey_flg = false;/* '<S337>/Switch4' */
 MONPRM volatile boolean VIPM_CCPTempDecKeyVld_flg = false;/* '<S338>/Logical Operator3' */
 MONPRM volatile boolean VIPM_CCPTempDecKey_flg = false;/* '<S338>/Switch4' */
+MONPRM volatile boolean VIPM_CCP_PanelStatus_CRCFlt_flg = false;/* '<S352>/Logical Operator3' */
 MONPRM volatile boolean VIPM_CDCBackLadjvalVld_flg = false;/* '<S72>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_CDCBackLadjval_enum = ((uint8)0U);/* '<S72>/Switch4' */
-MONPRM volatile boolean VIPM_CDCLostComm_flg = false;/* '<S352>/Switch16' */
-MONPRM volatile boolean VIPM_CHACANBusOff_flg = false;/* '<S352>/Switch3' */
+MONPRM volatile boolean VIPM_CDCLostComm_flg = false;/* '<S353>/Switch16' */
+MONPRM volatile boolean VIPM_CHACANBusOff_flg = false;/* '<S353>/Switch3' */
 MONPRM volatile boolean VIPM_COMPCANBusOffVld_flg = false;/* '<S24>/Logical Operator3' */
 MONPRM volatile boolean VIPM_COMPCANBusOff_flg = false;/* '<S24>/Switch4' */
 MONPRM volatile boolean VIPM_COMPCommuErrorVld_flg = false;/* '<S25>/Logical Operator3' */
@@ -175,6 +177,7 @@ MONPRM volatile boolean VIPM_COMPTempErrVld_flg = false;/* '<S39>/Logical Operat
 MONPRM volatile boolean VIPM_COMPTempErr_flg = false;/* '<S39>/Switch4' */
 MONPRM volatile boolean VIPM_COMPTempVld_flg = false;/* '<S40>/Logical Operator3' */
 MONPRM volatile float32 VIPM_COMPTemp_C = 0.0F;/* '<S40>/MinMax1' */
+MONPRM volatile boolean VIPM_COMP_AC_CRCFlt_flg = false;/* '<S352>/Logical Operator4' */
 MONPRM volatile boolean VIPM_CRRRBSDWarnLtVld_flg = false;/* '<S237>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_CRRRBSDWarnLt_enum = ((uint8)0U);/* '<S237>/Switch4' */
 MONPRM volatile boolean VIPM_CRRRBSDWarnRtVld_flg = false;/* '<S238>/Logical Operator3' */
@@ -183,11 +186,12 @@ MONPRM volatile boolean VIPM_CRRRDOWWarnLtVld_flg = false;/* '<S239>/Logical Ope
 MONPRM volatile uint8 VIPM_CRRRDOWWarnLt_enum = ((uint8)0U);/* '<S239>/Switch4' */
 MONPRM volatile boolean VIPM_CRRRDOWWarnRtVld_flg = false;/* '<S240>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_CRRRDOWWarnRt_enum = ((uint8)0U);/* '<S240>/Switch4' */
-MONPRM volatile boolean VIPM_CRRRLostComm_flg = false;/* '<S352>/Switch7' */
+MONPRM volatile boolean VIPM_CRRRLostComm_flg = false;/* '<S353>/Switch7' */
 MONPRM volatile boolean VIPM_CRRRRCTAWarnLtVld_flg = false;/* '<S241>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_CRRRRCTAWarnLt_enum = ((uint8)0U);/* '<S241>/Switch4' */
 MONPRM volatile boolean VIPM_CRRRRCTAWarnRtVld_flg = false;/* '<S242>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_CRRRRCTAWarnRt_enum = ((uint8)0U);/* '<S242>/Switch4' */
+MONPRM volatile boolean VIPM_CRRR_A_CRCFlt_flg = false;/* '<S352>/Logical Operator7' */
 MONPRM volatile boolean VIPM_ClientNumVld_flg = false;/* '<S18>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_ClientNum_enum = ((uint8)0U);/* '<S18>/Switch4' */
 MONPRM volatile boolean VIPM_ECUHiVoltInterlockSigVld_flg = false;/* '<S41>/Logical Operator3' */
@@ -221,7 +225,8 @@ MONPRM volatile boolean VIPM_EHBHDCFucFaultVld_flg = false;/* '<S248>/Logical Op
 MONPRM volatile boolean VIPM_EHBHDCFucFault_flg = false;/* '<S248>/Switch4' */
 MONPRM volatile boolean VIPM_EHBReqBrkLiOnVld_flg = false;/* '<S164>/Logical Operator3' */
 MONPRM volatile boolean VIPM_EHBReqBrkLiOn_flg = false;/* '<S164>/Switch4' */
-MONPRM volatile boolean VIPM_EPSLostComm_flg = false;/* '<S352>/Switch9' */
+MONPRM volatile boolean VIPM_EHB_B_CRCFlt_flg = false;/* '<S352>/Logical Operator8' */
+MONPRM volatile boolean VIPM_EPSLostComm_flg = false;/* '<S353>/Switch9' */
 MONPRM volatile boolean VIPM_EPSRotSpdVld_flg = false;/* '<S166>/Logical Operator3' */
 MONPRM volatile float32 VIPM_EPSRotSpd_degps = 0.0F;/* '<S166>/MinMax1' */
 MONPRM volatile boolean VIPM_EPSSteerWhlAngCaldVld_flg = false;/* '<S167>/Logical Operator3' */
@@ -230,7 +235,8 @@ MONPRM volatile boolean VIPM_EPSSteerWhlAngFailrVld_flg = false;/* '<S168>/Logic
 MONPRM volatile boolean VIPM_EPSSteerWhlAngFailr_flg = false;/* '<S168>/Switch4' */
 MONPRM volatile boolean VIPM_EPSSteerWhlAngVld_flg = false;/* '<S169>/Logical Operator3' */
 MONPRM volatile float32 VIPM_EPSSteerWhlAng_deg = 0.0F;/* '<S169>/MinMax1' */
-MONPRM volatile boolean VIPM_EPTCANBusOff_flg = false;/* '<S352>/Switch' */
+MONPRM volatile boolean VIPM_EPS_2_StrWhlAng_CRCFlt_flg = false;/* '<S352>/Logical Operator9' */
+MONPRM volatile boolean VIPM_EPTCANBusOff_flg = false;/* '<S353>/Switch' */
 MONPRM volatile boolean VIPM_ESCABSActvStaVld_flg = false;/* '<S172>/Logical Operator3' */
 MONPRM volatile boolean VIPM_ESCABSActvSta_flg = false;/* '<S172>/Switch4' */
 MONPRM volatile boolean VIPM_ESCESPActvStaVld_flg = false;/* '<S173>/Logical Operator3' */
@@ -241,7 +247,7 @@ MONPRM volatile boolean VIPM_ESCFltLvlVld_flg = false;/* '<S175>/Logical Operato
 MONPRM volatile uint8 VIPM_ESCFltLvl_enum = ((uint8)0U);/* '<S175>/Switch4' */
 MONPRM volatile boolean VIPM_ESCLUnOrLockfeedbackVld_flg = false;/* '<S339>/Logical Operator3' */
 MONPRM volatile uint64 VIPM_ESCLUnOrLockfeedback_nu = (0ULL);/* '<S339>/Switch4' */
-MONPRM volatile boolean VIPM_ESCLostComm_flg = false;/* '<S352>/Switch5' */
+MONPRM volatile boolean VIPM_ESCLostComm_flg = false;/* '<S353>/Switch5' */
 MONPRM volatile boolean VIPM_ESCMstrCylPresrVld_flg = false;/* '<S180>/Logical Operator3' */
 MONPRM volatile float32 VIPM_ESCMstrCylPresr_bar = 0.0F;/* '<S180>/MinMax1' */
 MONPRM volatile boolean VIPM_ESCReqBrkLghtOnVld_flg = false;/* '<S176>/Logical Operator3' */
@@ -276,6 +282,7 @@ MONPRM volatile boolean VIPM_ESCWhlTqIncReqActvVld_flg = false;/* '<S192>/Logica
 MONPRM volatile boolean VIPM_ESCWhlTqIncReqActv_flg = false;/* '<S192>/Switch4' */
 MONPRM volatile boolean VIPM_ESCWhlTqIncReqValVld_flg = false;/* '<S193>/Logical Operator3' */
 MONPRM volatile float32 VIPM_ESCWhlTqIncReqVal_Nm = 0.0F;/* '<S193>/MinMax1' */
+MONPRM volatile boolean VIPM_ESC_7_FuncStatus_CRCFlt_flg = false;/* '<S352>/Logical Operator10' */
 MONPRM volatile boolean VIPM_FCMACCWhlDeceVld_flg = false;/* '<S249>/Logical Operator3' */
 MONPRM volatile float32 VIPM_FCMACCWhlDece_mps2 = 0.0F;/* '<S249>/MinMax1' */
 MONPRM volatile boolean VIPM_FCMACCWhlTqReqActvVld_flg = false;/* '<S250>/Logical Operator3' */
@@ -300,9 +307,10 @@ MONPRM volatile boolean VIPM_FCMAccTgtAxVld_flg = false;/* '<S259>/Logical Opera
 MONPRM volatile float32 VIPM_FCMAccTgtAx_mps2 = 0.0F;/* '<S259>/MinMax1' */
 MONPRM volatile boolean VIPM_FCMEPBReqVld_flg = false;/* '<S260>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_FCMEPBReq_enum = ((uint8)0U);/* '<S260>/Switch4' */
-MONPRM volatile boolean VIPM_FCMLostComm_flg = false;/* '<S352>/Switch6' */
+MONPRM volatile boolean VIPM_FCMLostComm_flg = false;/* '<S353>/Switch6' */
 MONPRM volatile boolean VIPM_FCMTrnLampReqVld_flg = false;/* '<S261>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_FCMTrnLampReq_enum = ((uint8)0U);/* '<S261>/Switch4' */
+MONPRM volatile boolean VIPM_FCM_B_CRCFlt_flg = false;/* '<S352>/Logical Operator11' */
 MONPRM volatile boolean VIPM_HUACAutoCtlVld_flg = false;/* '<S73>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_HUACAutoCtl_enum = ((uint8)0U);/* '<S73>/Switch4' */
 MONPRM volatile boolean VIPM_HUACPwrCtlVld_flg = false;/* '<S74>/Logical Operator3' */
@@ -361,6 +369,7 @@ MONPRM volatile boolean VIPM_HUTrnkLckSwCtrlVld_flg = false;/* '<S99>/Logical Op
 MONPRM volatile uint8 VIPM_HUTrnkLckSwCtrl_enum = ((uint8)0U);/* '<S99>/Switch4' */
 MONPRM volatile boolean VIPM_HUWiprIntlTmSetVld_flg = false;/* '<S100>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_HUWiprIntlTmSet_enum = ((uint8)0U);/* '<S100>/Switch4' */
+MONPRM volatile boolean VIPM_HU_B_CRCFlt_flg = false;/* '<S352>/Logical Operator' */
 MONPRM volatile boolean VIPM_HVCHCurrVld_flg = false;/* '<S55>/Logical Operator3' */
 MONPRM volatile float32 VIPM_HVCHCurr_A = 0.0F;/* '<S55>/MinMax1' */
 MONPRM volatile boolean VIPM_HVCHFltCodVld_flg = false;/* '<S56>/Logical Operator3' */
@@ -383,11 +392,13 @@ MONPRM volatile boolean VIPM_HVCHWorkModeVld_flg = false;/* '<S51>/Logical Opera
 MONPRM volatile uint8 VIPM_HVCHWorkMode_enum = ((uint8)0U);/* '<S51>/Switch4' */
 MONPRM volatile boolean VIPM_HVCHWorkStVld_flg = false;/* '<S59>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_HVCHWorkSt_enum = ((uint8)0U);/* '<S59>/Switch4' */
+MONPRM volatile boolean VIPM_HVCH_Status1_CRCFlt_flg = false;/* '<S352>/Logical Operator5' */
 MONPRM volatile boolean VIPM_HwVerMaxVld_flg = false;/* '<S19>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_HwVerMax_enum = ((uint8)0U);/* '<S19>/Switch4' */
 MONPRM volatile boolean VIPM_HwVerMinVld_flg = false;/* '<S20>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_HwVerMin_enum = ((uint8)0U);/* '<S20>/Switch4' */
-MONPRM volatile boolean VIPM_ICULostComm_flg = false;/* '<S352>/Switch11' */
+MONPRM volatile boolean VIPM_ICULostComm_flg = false;/* '<S353>/Switch11' */
+MONPRM volatile boolean VIPM_ICU_Info_CRCFlt_flg = false;/* '<S352>/Logical Operator1' */
 MONPRM volatile boolean VIPM_INV1ActModeVld_flg = false;/* '<S204>/Logical Operator3' */
 MONPRM volatile EnumINVActMd VIPM_INV1ActMode_enum = EnumINVActMd_Invld;/* '<S204>/Switch4' */
 MONPRM volatile boolean VIPM_INV1ActTorqVld_flg = false;/* '<S205>/Logical Operator3' */
@@ -432,6 +443,7 @@ MONPRM volatile boolean VIPM_INVLrngStsVld_flg = false;/* '<S118>/Logical Operat
 MONPRM volatile uint8 VIPM_INVLrngSts_enum = ((uint8)0U);/* '<S118>/Switch4' */
 MONPRM volatile boolean VIPM_INVLrngSubIDVld_flg = false;/* '<S119>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_INVLrngSubID_cnt = ((uint8)0U);/* '<S119>/Switch4' */
+MONPRM volatile boolean VIPM_INV_1_Value_CRCFlt_flg = false;/* '<S352>/Logical Operator15' */
 MONPRM volatile boolean VIPM_IPUDCCActOprtModeVld_flg = false;/* '<S120>/Logical Operator3' */
 MONPRM volatile EnumDCCActMd VIPM_IPUDCCActOprtMode_enum = EnumDCCActMd_Init;/* '<S120>/Switch4' */
 MONPRM volatile boolean VIPM_IPUDCCHiVoltActCurntVld_flg = false;/* '<S126>/Logical Operator3' */
@@ -446,7 +458,7 @@ MONPRM volatile boolean VIPM_IPUDCCSysFailStaVld_flg = false;/* '<S123>/Logical 
 MONPRM volatile uint8 VIPM_IPUDCCSysFailSta_enum = ((uint8)0U);/* '<S123>/Switch4' */
 MONPRM volatile boolean VIPM_IPUDeviceIntTempVld_flg = false;/* '<S141>/Logical Operator3' */
 MONPRM volatile float32 VIPM_IPUDeviceIntTemp_C = 0.0F;/* '<S141>/MinMax1' */
-MONPRM volatile boolean VIPM_IPULostComm_flg = false;/* '<S352>/Switch17' */
+MONPRM volatile boolean VIPM_IPULostComm_flg = false;/* '<S353>/Switch17' */
 MONPRM volatile boolean VIPM_IPUOBCACMaxPwrAllowVld_flg = false;/* '<S142>/Logical Operator3' */
 MONPRM volatile float32 VIPM_IPUOBCACMaxPwrAllow_kW = 0.0F;/* '<S142>/MinMax1' */
 MONPRM volatile boolean VIPM_IPUOBCActOprtModeVld_flg = false;/* '<S130>/Logical Operator3' */
@@ -473,9 +485,11 @@ MONPRM volatile float32 VIPM_IPUOBCTempInt_C = 0.0F;/* '<S144>/MinMax1' */
 MONPRM volatile boolean VIPM_IPUOBCWakeUpModeVld_flg = false;/* '<S145>/Logical Operator3' */
 MONPRM volatile EnumOBCWakeUpMd VIPM_IPUOBCWakeUpMode_enum =
   EnumOBCWakeUpMd_Invld;               /* '<S145>/Switch4' */
-MONPRM volatile boolean VIPM_MCULostComm_flg = false;/* '<S352>/Switch13' */
-MONPRM volatile boolean VIPM_PPLostComm_flg = false;/* '<S352>/Switch8' */
-MONPRM volatile boolean VIPM_PTCLostComm_flg = false;/* '<S352>/Switch15' */
+MONPRM volatile boolean VIPM_IPU_DCC_1_State_CRCFlt_flg = false;/* '<S352>/Logical Operator16' */
+MONPRM volatile boolean VIPM_MCULostComm_flg = false;/* '<S353>/Switch13' */
+MONPRM volatile boolean VIPM_PPLostComm_flg = false;/* '<S353>/Switch8' */
+MONPRM volatile boolean VIPM_PP_InformAndStatus_CRCFlt_flg = false;/* '<S352>/Logical Operator12' */
+MONPRM volatile boolean VIPM_PTCLostComm_flg = false;/* '<S353>/Switch15' */
 MONPRM volatile boolean VIPM_SCSFrntWiprSwtStVld_flg = false;/* '<S340>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_SCSFrntWiprSwtSt_enum = ((uint8)0U);/* '<S340>/Switch4' */
 MONPRM volatile boolean VIPM_SCSFrntWshrSwtStVld_flg = false;/* '<S341>/Logical Operator3' */
@@ -505,11 +519,13 @@ MONPRM volatile boolean VIPM_SCSRghtSwVldtyVld_flg = false;/* '<S233>/Logical Op
 MONPRM volatile boolean VIPM_SCSRghtSwVldty_flg = false;/* '<S233>/Switch4' */
 MONPRM volatile boolean VIPM_SCSRiTrnLmpSwStVld_flg = false;/* '<S348>/Logical Operator3' */
 MONPRM volatile boolean VIPM_SCSRiTrnLmpSwSt_flg = false;/* '<S348>/Switch4' */
+MONPRM volatile boolean VIPM_SCS_RiSwitchSts_CRCFlt_flg = false;/* '<S352>/Logical Operator6' */
 MONPRM volatile boolean VIPM_SRSCrashOutputStsVld_flg = false;/* '<S350>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_SRSCrashOutputSts_enum = ((uint8)0U);/* '<S350>/Switch4' */
 MONPRM volatile boolean VIPM_SRSDrvSeatbeltBkldVld_flg = false;/* '<S351>/Logical Operator3' */
 MONPRM volatile boolean VIPM_SRSDrvSeatbeltBkld_flg = false;/* '<S351>/Switch4' */
-MONPRM volatile boolean VIPM_SRSLostComm_flg = false;/* '<S352>/Switch10' */
+MONPRM volatile boolean VIPM_SRSLostComm_flg = false;/* '<S353>/Switch10' */
+MONPRM volatile boolean VIPM_SRS_1_Status_CRCFlt_flg = false;/* '<S352>/Logical Operator13' */
 MONPRM volatile boolean VIPM_TBOXBJSTimeDayVld_flg = false;/* '<S64>/Logical Operator3' */
 MONPRM volatile uint8 VIPM_TBOXBJSTimeDay_nu = ((uint8)0U);/* '<S64>/Switch4' */
 MONPRM volatile boolean VIPM_TBOXBJSTimeHourVld_flg = false;/* '<S65>/Logical Operator3' */
@@ -522,7 +538,8 @@ MONPRM volatile boolean VIPM_TBOXBJSTimeSecVld_flg = false;/* '<S68>/Logical Ope
 MONPRM volatile uint8 VIPM_TBOXBJSTimeSec_nu = ((uint8)0U);/* '<S68>/Switch4' */
 MONPRM volatile boolean VIPM_TBOXBJSTimeYearVld_flg = false;/* '<S69>/Logical Operator3' */
 MONPRM volatile uint16 VIPM_TBOXBJSTimeYear_nu = ((uint16)0U);/* '<S69>/Switch4' */
-MONPRM volatile boolean VIPM_TBOXLostComm_flg = false;/* '<S352>/Switch12' */
+MONPRM volatile boolean VIPM_TBOXLostComm_flg = false;/* '<S353>/Switch12' */
+MONPRM volatile boolean VIPM_TBOX_BJS_Time_CRCFlt_flg = false;/* '<S352>/Logical Operator2' */
 
 /*
  * File trailer for generated code.

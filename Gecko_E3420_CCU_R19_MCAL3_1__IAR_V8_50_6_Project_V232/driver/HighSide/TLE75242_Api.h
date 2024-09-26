@@ -134,5 +134,6 @@ extern uint8 TLE75242_Diag_OlON_Channel(TLE75242_Chip_e_ chip);
 extern void TLE75242_Enable_OLON_Diag_Loop(TLE75242_Chip_e_ chip);
 extern void TLE75242_Disable_OLON_Diag_Loop(TLE75242_Chip_e_ chip);
 extern void TLE75242_DataWrite(TLE75242_Chip_e_ chip, uint8 CmdData);
+void TLE75242_OUT2_3_Switch(TLE75242_Chip_e_ chip, Dio_LevelType level,TLE75242_Channel_e_ channel);
 
 #endif
