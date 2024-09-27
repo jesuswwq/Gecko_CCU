@@ -127,12 +127,9 @@ void ADC2_ReadGroup0(void)
 	Adc_StartGroupConversion(0);
         
         ResumeAllInterrupts();
-
-        if (ADC_STREAM_COMPLETED == Adc_GetGroupStatus(0))
-        {
-                Adc_ReadGroup(0, adc2_group0_resultbuffer);
-        }
-
+        
+        while(ADC_STREAM_COMPLETED != Adc_GetGroupStatus(0));
+        Adc_ReadGroup(0, adc2_group0_resultbuffer);
 }
 
 void ADC2_ReadGroup1(void)
@@ -143,12 +140,9 @@ void ADC2_ReadGroup1(void)
 	Adc_StartGroupConversion(1);
 
         ResumeAllInterrupts();
-
-        if (ADC_STREAM_COMPLETED == Adc_GetGroupStatus(1))
-              {
-                Adc_ReadGroup(1, adc2_group1_resultbuffer);
-              }
-	
+        
+        while(ADC_STREAM_COMPLETED != Adc_GetGroupStatus(1));
+        Adc_ReadGroup(1, adc2_group1_resultbuffer);
 }
 
 #ifdef TESTCODE
