@@ -1,0 +1,1557 @@
+/*
+ * SEMIDRIVE Copyright Statement
+ * Copyright (c) SEMIDRIVE. All rights reserved
+ *
+ * This software and all rights therein are owned by SEMIDRIVE, and are
+ * protected by copyright law and other relevant laws, regulations and
+ * protection. Without SEMIDRIVE's prior written consent and/or related rights,
+ * please do not use this software or any potion thereof in any form or by any
+ * means. You may not reproduce, modify or distribute this software except in
+ * compliance with the License. Unless required by applicable law or agreed to
+ * in writing, software distributed under the License is distributed on
+ * an "AS IS" basis, WITHOUT WARRANTIES OF ANY KIND, either express or implied.
+ *
+ * You should have received a copy of the License along with this program.
+ * If not, see <http://www.semidrive.com/licenses/>.
+ */
+
+/**
+ * @file  e3_adc_lld.h
+ * @brief Semidrive. adc
+ */
+
+#ifndef E3_ADC_LLD_H_
+#define E3_ADC_LLD_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "RegHelper.h"
+#include <types.h>
+#include <cdefs.h>
+#include "Mcu_Delay.h"
+
+#define ADC_MAX_FIFO_NUM 32
+
+#define SADC_SOFT_RST_BASE (0x0u)
+#define SADC_SOFT_RST_ANA_RST_FIELD_OFFSET (1u)
+#define SADC_SOFT_RST_ANA_RST_FIELD_SIZE (1u)
+#define SADC_SOFT_RST_DIG_RST_FIELD_OFFSET (0u)
+#define SADC_SOFT_RST_DIG_RST_FIELD_SIZE (1u)
+
+#define SADC_INIT_BASE (0x4u)
+#define SADC_INIT_DONE_FIELD_OFFSET (24u)
+#define SADC_INIT_DONE_FIELD_SIZE (1u)
+#define SADC_INIT_START_FIELD_OFFSET (20u)
+#define SADC_INIT_START_FIELD_SIZE (1u)
+#define SADC_INIT_VALUE_FIELD_OFFSET (0u)
+#define SADC_INIT_VALUE_FIELD_SIZE (20u)
+
+#define SADC_DCOC_BASE (0x8u)
+#define SADC_DCOC_DONE_FIELD_OFFSET (31u)
+#define SADC_DCOC_DONE_FIELD_SIZE (1u)
+#define SADC_DCOC_VALUE_FIELD_OFFSET (16u)
+#define SADC_DCOC_VALUE_SIGN_FIELD_OFFSET (28u)
+#define SADC_DCOC_VALUE_FIELD_SIZE (13u)
+#define SADC_DCOC_SOFT_OVWR_EN_FIELD_OFFSET (8u)
+#define SADC_DCOC_SOFT_OVWR_EN_FIELD_SIZE (1u)
+#define SADC_DCOC_EN_FIELD_OFFSET (4u)
+#define SADC_DCOC_EN_FIELD_SIZE (1u)
+#define SADC_DCOC_START_FIELD_OFFSET (3u)
+#define SADC_DCOC_START_FIELD_SIZE (1u)
+#define SADC_DCOC_TIMES_FIELD_OFFSET (0u)
+#define SADC_DCOC_TIMES_FIELD_SIZE (3u)
+
+#define SADC_HTC_BASE (0xCu)
+#define SADC_HTC_READY_FIELD_OFFSET (31u)
+#define SADC_HTC_READY_FIELD_SIZE (1u)
+#define SADC_HTC_READY_LEN_FIELD_OFFSET (8u)
+#define SADC_HTC_READY_LEN_FIELD_SIZE (8u)
+#define SADC_HTC_DONE_LEN_FIELD_OFFSET (0u)
+#define SADC_HTC_DONE_LEN_FIELD_SIZE (4u)
+
+#define SADC_RCHT_ENTRY_BASE(num) ((num) * 4u + 0x10u)
+#define SADC_RCHT_ENTRY_REPEAT_TIMES_FIELD_OFFSET (24u)
+#define SADC_RCHT_ENTRY_REPEAT_TIMES_FIELD_SIZE (3u)
+#define SADC_RCHT_ENTRY_REPEAT_MODE_FIELD_OFFSET (16u)
+#define SADC_RCHT_ENTRY_REPEAT_MODE_FIELD_SIZE (1u)
+#define SADC_RCHT_ENTRY_CSEL_FIELD_OFFSET (12u)
+#define SADC_RCHT_ENTRY_CSEL_FIELD_SIZE (4u)
+#define SADC_RCHT_ENTRY_AMSEL_FIELD_OFFSET (0u)
+#define SADC_RCHT_ENTRY_AMSEL_FIELD_SIZE (9u)
+
+#define SADC_RC_TIMER_BASE(num) ((num) * 4u + 0x90u)
+#define SADC_RC_TIMER_TMN_VALUE_FIELD_OFFSET (16u)
+#define SADC_RC_TIMER_TMN_VALUE_FIELD_SIZE (16u)
+#define SADC_RC_TIMER_CMP_VALUE_FIELD_OFFSET (0u)
+#define SADC_RC_TIMER_CMP_VALUE_FIELD_SIZE (16u)
+
+#define SADC_RC_BASE(num) ((num) * 4u + 0xA0u)
+#define SADC_RC_TRG_EN_FIELD_OFFSET (17u)
+#define SADC_RC_TRG_EN_FIELD_SIZE (1u)
+#define SADC_RC_SOFT_OVWR_POINT_EN_FIELD_OFFSET (16u)
+#define SADC_RC_SOFT_OVWR_POINT_EN_FIELD_SIZE (1u)
+#define SADC_RC_SOFT_TRG_FIELD_OFFSET (15u)
+#define SADC_RC_SOFT_TRG_FIELD_SIZE (1u)
+#define SADC_RC_TRG_MODE_FIELD_OFFSET (14u)
+#define SADC_RC_TRG_MODE_FIELD_SIZE (1u)
+#define SADC_RC_TMR_MODE_FIELD_OFFSET (13u)
+#define SADC_RC_TMR_MODE_FIELD_SIZE (1u)
+#define SADC_RC_TRG_START_FIELD_OFFSET (12u)
+#define SADC_RC_TRG_START_FIELD_SIZE (1u)
+#define SADC_RC_QEND_FIELD_OFFSET (8u)
+#define SADC_RC_QEND_FIELD_SIZE (4u)
+#define SADC_RC_QSTART_FIELD_OFFSET (4u)
+#define SADC_RC_QSTART_FIELD_SIZE (4u)
+#define SADC_RC_CUR_POINT_FIELD_OFFSET (0u)
+#define SADC_RC_CUR_POINT_FIELD_SIZE (4u)
+
+#define SADC_INT_STA_BASE (0xB0u)
+#define SADC_INT_STA_MNT_EVT_CONT_FIELD_OFFSET (24u)
+#define SADC_INT_STA_MNT_EVT_CONT_FIELD_SIZE (1u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_7_FIELD_OFFSET (23u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_7_FIELD_SIZE (1u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_6_FIELD_OFFSET (22u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_6_FIELD_SIZE (1u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_5_FIELD_OFFSET (21u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_5_FIELD_SIZE (1u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_4_FIELD_OFFSET (20u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_4_FIELD_SIZE (1u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_3_FIELD_OFFSET (19u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_3_FIELD_SIZE (1u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_2_FIELD_OFFSET (18u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_2_FIELD_SIZE (1u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_1_FIELD_OFFSET (17u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_1_FIELD_SIZE (1u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_0_FIELD_OFFSET (16u)
+#define SADC_INT_STA_MNT_EVT_SINGLE_0_FIELD_SIZE (1u)
+#define SADC_INT_STA_TS_OVF_FIELD_OFFSET (12u)
+#define SADC_INT_STA_TS_OVF_FIELD_SIZE (1u)
+#define SADC_INT_STA_WATER_MARK_SUB_3_FIELD_OFFSET (11u)
+#define SADC_INT_STA_WATER_MARK_SUB_3_FIELD_SIZE (1u)
+#define SADC_INT_STA_WATER_MARK_SUB_2_FIELD_OFFSET (10u)
+#define SADC_INT_STA_WATER_MARK_SUB_2_FIELD_SIZE (1u)
+#define SADC_INT_STA_WATER_MARK_SUB_1_FIELD_OFFSET (9u)
+#define SADC_INT_STA_WATER_MARK_SUB_1_FIELD_SIZE (1u)
+#define SADC_INT_STA_WATER_MARK_SUB_0_FIELD_OFFSET (8u)
+#define SADC_INT_STA_WATER_MARK_SUB_0_FIELD_SIZE (1u)
+#define SADC_INT_STA_END_COV_RCHT_FIELD_OFFSET (4u)
+#define SADC_INT_STA_END_COV_RCHT_FIELD_SIZE (1u)
+#define SADC_INT_STA_END_COV_RC0_FIELD_OFFSET (3u)
+#define SADC_INT_STA_END_COV_RC0_FIELD_SIZE (1u)
+#define SADC_INT_STA_END_COV_RC1_FIELD_OFFSET (2u)
+#define SADC_INT_STA_END_COV_RC1_FIELD_SIZE (1u)
+#define SADC_INT_STA_END_COV_RC2_FIELD_OFFSET (1u)
+#define SADC_INT_STA_END_COV_RC2_FIELD_SIZE (1u)
+#define SADC_INT_STA_END_COV_RC3_FIELD_OFFSET (0u)
+#define SADC_INT_STA_END_COV_RC3_FIELD_SIZE (1u)
+
+#define SADC_INT_STA_EN_BASE (0xB4u)
+#define SADC_INT_STA_EN_ALL ((1u << 25u) - 1u)
+#define SADC_INT_STA_EN_MNT_EVT_CONT_FIELD_OFFSET (24u)
+#define SADC_INT_STA_EN_MNT_EVT_CONT_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_7_FIELD_OFFSET (23u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_7_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_6_FIELD_OFFSET (22u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_6_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_5_FIELD_OFFSET (21u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_5_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_4_FIELD_OFFSET (20u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_4_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_3_FIELD_OFFSET (19u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_3_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_2_FIELD_OFFSET (18u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_2_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_1_FIELD_OFFSET (17u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_1_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_0_FIELD_OFFSET (16u)
+#define SADC_INT_STA_EN_MNT_EVT_SINGLE_0_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_TS_OVF_FIELD_OFFSET (12u)
+#define SADC_INT_STA_EN_TS_OVF_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_WATER_MARK_SUB_3_FIELD_OFFSET (11u)
+#define SADC_INT_STA_EN_WATER_MARK_SUB_3_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_WATER_MARK_SUB_2_FIELD_OFFSET (10u)
+#define SADC_INT_STA_EN_WATER_MARK_SUB_2_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_WATER_MARK_SUB_1_FIELD_OFFSET (9u)
+#define SADC_INT_STA_EN_WATER_MARK_SUB_1_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_WATER_MARK_SUB_0_FIELD_OFFSET (8u)
+#define SADC_INT_STA_EN_WATER_MARK_SUB_0_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_END_COV_RCHT_FIELD_OFFSET (4u)
+#define SADC_INT_STA_EN_END_COV_RCHT_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_END_COV_RC0_FIELD_OFFSET (3u)
+#define SADC_INT_STA_EN_END_COV_RC0_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_END_COV_RC1_FIELD_OFFSET (2u)
+#define SADC_INT_STA_EN_END_COV_RC1_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_END_COV_RC2_FIELD_OFFSET (1u)
+#define SADC_INT_STA_EN_END_COV_RC2_FIELD_SIZE (1u)
+#define SADC_INT_STA_EN_END_COV_RC3_FIELD_OFFSET (0u)
+#define SADC_INT_STA_EN_END_COV_RC3_FIELD_SIZE (1u)
+
+#define SADC_INT_SIG_EN_BASE (0xB8u)
+#define SADC_INT_SIG_EN_ALL ((1u << 25u) - 1u)
+#define SADC_INT_SIG_EN_MNT_EVT_CONT_FIELD_OFFSET (24u)
+#define SADC_INT_SIG_EN_MNT_EVT_CONT_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_7_FIELD_OFFSET (23u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_7_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_6_FIELD_OFFSET (22u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_6_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_5_FIELD_OFFSET (21u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_5_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_4_FIELD_OFFSET (20u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_4_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_3_FIELD_OFFSET (19u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_3_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_2_FIELD_OFFSET (18u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_2_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_1_FIELD_OFFSET (17u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_1_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_0_FIELD_OFFSET (16u)
+#define SADC_INT_SIG_EN_MNT_EVT_SINGLE_0_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_TS_OVF_FIELD_OFFSET (12u)
+#define SADC_INT_SIG_EN_TS_OVF_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_WATER_MARK_SUB_3_FIELD_OFFSET (11u)
+#define SADC_INT_SIG_EN_WATER_MARK_SUB_3_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_WATER_MARK_SUB_2_FIELD_OFFSET (10u)
+#define SADC_INT_SIG_EN_WATER_MARK_SUB_2_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_WATER_MARK_SUB_1_FIELD_OFFSET (9u)
+#define SADC_INT_SIG_EN_WATER_MARK_SUB_1_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_WATER_MARK_SUB_0_FIELD_OFFSET (8u)
+#define SADC_INT_SIG_EN_WATER_MARK_SUB_0_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_END_COV_RCHT_FIELD_OFFSET (4u)
+#define SADC_INT_SIG_EN_END_COV_RCHT_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_END_COV_RC0_FIELD_OFFSET (3u)
+#define SADC_INT_SIG_EN_END_COV_RC0_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_END_COV_RC1_FIELD_OFFSET (2u)
+#define SADC_INT_SIG_EN_END_COV_RC1_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_END_COV_RC2_FIELD_OFFSET (1u)
+#define SADC_INT_SIG_EN_END_COV_RC2_FIELD_SIZE (1u)
+#define SADC_INT_SIG_EN_END_COV_RC3_FIELD_OFFSET (0u)
+#define SADC_INT_SIG_EN_END_COV_RC3_FIELD_SIZE (1u)
+
+#define SADC_COR_ERR_INT_STA_BASE (0xc0u)
+#define SADC_COR_ERR_INT_STA_ALL (0xf1ff0000u)
+#define SADC_COR_ERR_INT_STA_SUB3_OVF_FIELD_OFFSET (31u)
+#define SADC_COR_ERR_INT_STA_SUB3_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_SUB2_OVF_FIELD_OFFSET (30u)
+#define SADC_COR_ERR_INT_STA_SUB2_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_SUB1_OVF_FIELD_OFFSET (29u)
+#define SADC_COR_ERR_INT_STA_SUB1_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_SUB0_OVF_FIELD_OFFSET (28u)
+#define SADC_COR_ERR_INT_STA_SUB0_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_CONT_FIELD_OFFSET (24u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_CONT_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_7_FIELD_OFFSET (23u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_7_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_6_FIELD_OFFSET (22u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_6_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_5_FIELD_OFFSET (21u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_5_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_4_FIELD_OFFSET (20u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_4_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_3_FIELD_OFFSET (19u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_3_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_2_FIELD_OFFSET (18u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_2_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_1_FIELD_OFFSET (17u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_1_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_0_FIELD_OFFSET (16u)
+#define SADC_COR_ERR_INT_STA_MNT_EVT_SINGLE_0_FIELD_SIZE (1u)
+
+#define SADC_COR_ERR_INT_STA_EN_BASE (0xc4u)
+#define SADC_COR_ERR_INT_STA_EN_ALL (0xf1ff0000u)
+#define SADC_COR_ERR_INT_STA_EN_SUB3_OVF_FIELD_OFFSET (31u)
+#define SADC_COR_ERR_INT_STA_EN_SUB3_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_SUB2_OVF_FIELD_OFFSET (30u)
+#define SADC_COR_ERR_INT_STA_EN_SUB2_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_SUB1_OVF_FIELD_OFFSET (29u)
+#define SADC_COR_ERR_INT_STA_EN_SUB1_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_SUB0_OVF_FIELD_OFFSET (28u)
+#define SADC_COR_ERR_INT_STA_EN_SUB0_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_CONT_FIELD_OFFSET (24u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_CONT_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_7_FIELD_OFFSET (23u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_7_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_6_FIELD_OFFSET (22u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_6_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_5_FIELD_OFFSET (21u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_5_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_4_FIELD_OFFSET (20u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_4_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_3_FIELD_OFFSET (19u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_3_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_2_FIELD_OFFSET (18u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_2_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_1_FIELD_OFFSET (17u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_1_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_0_FIELD_OFFSET (16u)
+#define SADC_COR_ERR_INT_STA_EN_MNT_EVT_SINGLE_0_FIELD_SIZE (1u)
+
+#define SADC_COR_ERR_INT_SIG_EN_BASE (0xc8u)
+#define SADC_COR_ERR_INT_SIG_EN_ALL (0xf1ff0000u)
+#define SADC_COR_ERR_INT_SIG_EN_SUB3_OVF_FIELD_OFFSET (31u)
+#define SADC_COR_ERR_INT_SIG_EN_SUB3_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_SUB2_OVF_FIELD_OFFSET (30u)
+#define SADC_COR_ERR_INT_SIG_EN_SUB2_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_SUB1_OVF_FIELD_OFFSET (29u)
+#define SADC_COR_ERR_INT_SIG_EN_SUB1_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_SUB0_OVF_FIELD_OFFSET (28u)
+#define SADC_COR_ERR_INT_SIG_EN_SUB0_OVF_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_CONT_FIELD_OFFSET (24u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_CONT_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_7_FIELD_OFFSET (23u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_7_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_6_FIELD_OFFSET (22u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_6_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_5_FIELD_OFFSET (21u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_5_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_4_FIELD_OFFSET (20u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_4_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_3_FIELD_OFFSET (19u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_3_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_2_FIELD_OFFSET (18u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_2_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_1_FIELD_OFFSET (17u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_1_FIELD_SIZE (1u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_0_FIELD_OFFSET (16u)
+#define SADC_COR_ERR_INT_SIG_EN_MNT_EVT_SINGLE_0_FIELD_SIZE (1u)
+
+#define SADC_UNC_ERR_INT_STA_BASE (0xD0u)
+#define SADC_UNC_ERR_INT_STA_ALL (0xf1ff0001u)
+#define SADC_UNC_ERR_INT_STA_SUB3_OVF_FIELD_OFFSET (31u)
+#define SADC_UNC_ERR_INT_STA_SUB3_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_SUB2_OVF_FIELD_OFFSET (30u)
+#define SADC_UNC_ERR_INT_STA_SUB2_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_SUB1_OVF_FIELD_OFFSET (29u)
+#define SADC_UNC_ERR_INT_STA_SUB1_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_SUB0_OVF_FIELD_OFFSET (28u)
+#define SADC_UNC_ERR_INT_STA_SUB0_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_CONT_FIELD_OFFSET (24u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_CONT_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_7_FIELD_OFFSET (23u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_7_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_6_FIELD_OFFSET (22u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_6_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_5_FIELD_OFFSET (21u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_5_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_4_FIELD_OFFSET (20u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_4_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_3_FIELD_OFFSET (19u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_3_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_2_FIELD_OFFSET (18u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_2_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_1_FIELD_OFFSET (17u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_1_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_0_FIELD_OFFSET (16u)
+#define SADC_UNC_ERR_INT_STA_MNT_EVT_SINGLE_0_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_ANA_EXT_MUX_ERR_FIELD_OFFSET (0u)
+#define SADC_UNC_ERR_INT_STA_ANA_EXT_MUX_ERR_FIELD_SIZE (1u)
+
+#define SADC_UNC_ERR_INT_STA_EN_BASE (0xd4u)
+#define SADC_UNC_ERR_INT_STA_EN_ALL (0xf1ff0001u)
+#define SADC_UNC_ERR_INT_STA_EN_SUB3_OVF_FIELD_OFFSET (31u)
+#define SADC_UNC_ERR_INT_STA_EN_SUB3_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_SUB2_OVF_FIELD_OFFSET (30u)
+#define SADC_UNC_ERR_INT_STA_EN_SUB2_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_SUB1_OVF_FIELD_OFFSET (29u)
+#define SADC_UNC_ERR_INT_STA_EN_SUB1_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_SUB0_OVF_FIELD_OFFSET (28u)
+#define SADC_UNC_ERR_INT_STA_EN_SUB0_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_CONT_FIELD_OFFSET (24u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_CONT_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_7_FIELD_OFFSET (23u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_7_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_6_FIELD_OFFSET (22u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_6_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_5_FIELD_OFFSET (21u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_5_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_4_FIELD_OFFSET (20u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_4_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_3_FIELD_OFFSET (19u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_3_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_2_FIELD_OFFSET (18u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_2_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_1_FIELD_OFFSET (17u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_1_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_0_FIELD_OFFSET (16u)
+#define SADC_UNC_ERR_INT_STA_EN_MNT_EVT_SINGLE_0_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_STA_EN_ANA_EXT_MUX_ERR_FIELD_OFFSET (0u)
+#define SADC_UNC_ERR_INT_STA_EN_ANA_EXT_MUX_ERR_FIELD_SIZE (1u)
+
+#define SADC_UNC_ERR_INT_SIG_EN_BASE (0xd8u)
+#define SADC_UNC_ERR_INT_SIG_EN_ALL (0xf1ff0001u)
+#define SADC_UNC_ERR_INT_SIG_EN_SUB3_OVF_FIELD_OFFSET (31u)
+#define SADC_UNC_ERR_INT_SIG_EN_SUB3_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_SUB2_OVF_FIELD_OFFSET (30u)
+#define SADC_UNC_ERR_INT_SIG_EN_SUB2_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_SUB1_OVF_FIELD_OFFSET (29u)
+#define SADC_UNC_ERR_INT_SIG_EN_SUB1_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_SUB0_OVF_FIELD_OFFSET (28u)
+#define SADC_UNC_ERR_INT_SIG_EN_SUB0_OVF_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_CONT_FIELD_OFFSET (24u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_CONT_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_7_FIELD_OFFSET (23u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_7_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_6_FIELD_OFFSET (22u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_6_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_5_FIELD_OFFSET (21u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_5_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_4_FIELD_OFFSET (20u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_4_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_3_FIELD_OFFSET (19u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_3_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_2_FIELD_OFFSET (18u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_2_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_1_FIELD_OFFSET (17u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_1_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_0_FIELD_OFFSET (16u)
+#define SADC_UNC_ERR_INT_SIG_EN_MNT_EVT_SINGLE_0_FIELD_SIZE (1u)
+#define SADC_UNC_ERR_INT_SIG_EN_ANA_EXT_MUX_ERR_FIELD_OFFSET (0u)
+#define SADC_UNC_ERR_INT_SIG_EN_ANA_EXT_MUX_ERR_FIELD_SIZE (1u)
+
+
+#define SADC_RC_ENTRY_BASE(rc_val, num) ((num) * 4u + (rc_val) * 16u * 4u + 0x100u)
+#define SADC_RC_ENTRY_REPEAT_TIMES_FIELD_OFFSET (24u)
+#define SADC_RC_ENTRY_REPEAT_TIMES_FIELD_SIZE (4u)
+#define SADC_RC_ENTRY_REPEAT_MODE_FIELD_OFFSET (16u)
+#define SADC_RC_ENTRY_REPEAT_MODE_FIELD_SIZE (1u)
+#define SADC_RC_ENTRY_CSEL_FIELD_OFFSET (12u)
+#define SADC_RC_ENTRY_CSEL_FIELD_SIZE (4u)
+#define SADC_RC_ENTRY_AMSEL_FIELD_OFFSET (0u)
+#define SADC_RC_ENTRY_AMSEL_FIELD_SIZE (9u)
+
+#define SADC_SCH_CID_PART_BASE(num) (((num) / 8) * 4u + 0x200u)
+#define SADC_SCH_CID_PART_CID_FIELD_OFFSET(cid_num) (((cid_num) % 8u) * 4u)
+#define SADC_SCH_CID_PART_CID_FIELD_SIZE 3
+
+#define SADC_TS_VALUE_BASE (0x220u)
+#define SADC_TS_VALUE_VALUE_FIELD_OFFSET (0u)
+#define SADC_TS_VALUE_VALUE_FIELD_SIZE (24u)
+
+#define SADC_SCH_TIMEOUT_BASE (0x224)
+#define SADC_SCH_TIMEOUT_THRD_FIELD_OFFSET (0u)
+#define SADC_SCH_TIMEOUT_THRD_FIELD_SIZE (16u)
+
+#define SADC_SCH_CFG_BASE (0x230)
+#define SADC_SCH_CFG_TS_RST_FIELD_OFFSET (31u)
+#define SADC_SCH_CFG_TS_RST_FIELD_SIZE (1u)
+#define SADC_SCH_CFG_TS_VLD_FIELD_OFFSET (30u)
+#define SADC_SCH_CFG_TS_VLD_FIELD_SIZE (1u)
+#define SADC_SCH_CFG_RST_DONE_FIELD_OFFSET (28u)
+#define SADC_SCH_CFG_RST_DONE_FIELD_SIZE (1u)
+#define SADC_SCH_CFG_SLOT_RST_FIELD_OFFSET (25u)
+#define SADC_SCH_CFG_SLOT_RST_FIELD_SIZE (1u)
+#define SADC_SCH_CFG_SLOT_HALT_FIELD_OFFSET (24u)
+#define SADC_SCH_CFG_SLOT_HALT_FIELD_SIZE (1u)
+#define SADC_SCH_CFG_SLV_DLY_FIELD_OFFSET (16u)
+#define SADC_SCH_CFG_SLV_DLY_FIELD_SIZE (8u)
+#define SADC_SCH_CFG_ASYNC_STALL_FIELD_OFFSET (12u)
+#define SADC_SCH_CFG_ASYNC_STALL_FIELD_SIZE (1u)
+#define SADC_SCH_CFG_ROT_EN_FIELD_OFFSET (11u)
+#define SADC_SCH_CFG_ROT_EN_FIELD_SIZE (1u)
+#define SADC_SCH_CFG_SYNC_MODE_FIELD_OFFSET (10u)
+#define SADC_SCH_CFG_SYNC_MODE_FIELD_SIZE (1u)
+#define SADC_SCH_CFG_MST_MODE_FIELD_OFFSET (9u)
+#define SADC_SCH_CFG_MST_MODE_FIELD_SIZE (1u)
+#define SADC_SCH_CFG_SLOT_MODE_FIELD_OFFSET (8u)
+#define SADC_SCH_CFG_SLOT_MODE_FIELD_SIZE (1u)
+#define SADC_SCH_CFG_SLOT_INTERVAL_FIELD_OFFSET (0u)
+#define SADC_SCH_CFG_SLOT_INTERVAL_FIELD_SIZE (8u)
+
+#define SADC_CLK_CTRL_BASE (0x238u)
+#define SADC_CLK_CTRL_REF_LOW_FIELD_OFFSET (12u)
+#define SADC_CLK_CTRL_REF_LOW_FIELD_SIZE (4u)
+#define SADC_CLK_CTRL_REF_HIGH_FIELD_OFFSET (8u)
+#define SADC_CLK_CTRL_REF_HIGH_FIELD_SIZE (4u)
+#define SADC_CLK_CTRL_DIV_BYPASS_FIELD_OFFSET (0u)
+#define SADC_CLK_CTRL_DIV_BYPASS_FIELD_SIZE (1u)
+
+#define SADC_CONT_MODE_BASE (0x248u)
+#define SADC_CONT_MODE_SOC_FIELD_OFFSET (31u)
+#define SADC_CONT_MODE_SOC_FIELD_SIZE (1u)
+#define SADC_CONT_MODE_AMSEL_FIELD_OFFSET (24u)
+#define SADC_CONT_MODE_AMSEL_FIELD_SIZE (7u)
+#define SADC_CONT_MODE_SAMCTRL_FIELD_OFFSET (21u)
+#define SADC_CONT_MODE_SAMCTRL_FIELD_SIZE (3u)
+#define SADC_CONT_MODE_CCT_FIELD_OFFSET (16u)
+#define SADC_CONT_MODE_CCT_FIELD_SIZE (5u)
+#define SADC_CONT_MODE_CCN_FIELD_OFFSET (12u)
+#define SADC_CONT_MODE_CCN_FIELD_SIZE (4u)
+#define SADC_CONT_MODE_CCP_FIELD_OFFSET (8u)
+#define SADC_CONT_MODE_CCP_FIELD_SIZE (4u)
+#define SADC_CONT_MODE_EN_FIELD_OFFSET (7u)
+#define SADC_CONT_MODE_EN_FIELD_SIZE (1u)
+#define SADC_CONT_MODE_SDSEL_FIELD_OFFSET (6u)
+#define SADC_CONT_MODE_SDSEL_FIELD_SIZE (1u)
+#define SADC_CONT_MODE_REFSEL_FIELD_OFFSET (5u)
+#define SADC_CONT_MODE_REFSEL_FIELD_SIZE (1u)
+#define SADC_CONT_MODE_RC_SEL_FIELD_OFFSET (0u)
+#define SADC_CONT_MODE_RC_SEL_FIELD_SIZE (5u)
+
+#define SADC_CONT_MODE_1_BASE (0x24cu)
+#define SADC_CONT_MODE_1_AMSEL_FIELD_OFFSET (0)
+#define SADC_CONT_MODE_1_AMSEL_FIELD_SIZE (9)
+
+#define SADC_ANA_PARA_BASE(num) ((num) * 4u + 0x250u)
+#define SADC_ANA_PARA_CCT_FIELD_OFFSET (16u)
+#define SADC_ANA_PARA_CCT_FIELD_SIZE (5u)
+#define SADC_ANA_PARA_CCN_FIELD_OFFSET (12u)
+#define SADC_ANA_PARA_CCN_FIELD_SIZE (4u)
+#define SADC_ANA_PARA_CCP_FIELD_OFFSET (8u)
+#define SADC_ANA_PARA_CCP_FIELD_SIZE (4u)
+#define SADC_ANA_PARA_SDSEL_FIELD_OFFSET (5u)
+#define SADC_ANA_PARA_SDSEL_FIELD_SIZE (1u)
+#define SADC_ANA_PARA_REFSEL_FIELD_OFFSET (4u)
+#define SADC_ANA_PARA_REFSEL_FIELD_SIZE (1u)
+#define SADC_ANA_PARA_SAMCTRL_FIELD_OFFSET (0u)
+#define SADC_ANA_PARA_SAMCTRL_FIELD_SIZE (3u)
+
+#define SADC_MNT_SINGLE_BASE(num) ((num) * 4u + 0x290u)
+#define SADC_MNT_MATCH_FIELD_OFFSET (16u)
+#define SADC_MNT_MATCH_FIELD_SIZE (13u)
+#define SADC_MNT_MASK_FIELD_OFFSET (0u)
+#define SADC_MNT_MASK_FIELD_SIZE (13u)
+
+#define SADC_MNT_CONT_BASE (0x2B0u)
+#define SADC_MNT_CONT_MATCH_FIELD_OFFSET (16u)
+#define SADC_MNT_CONT_MATCH_FIELD_SIZE (13u)
+#define SADC_MNT_CONT_MASK_FIELD_OFFSET (0u)
+#define SADC_MNT_CONT_MASK_FIELD_SIZE (13u)
+
+#define SADC_MNT_THRD_SINGLE_BASE(num) ((num) * 4u + 0x2B4u)
+#define SADC_MNT_THRD_SINGLE_MODE_FIELD_OFFSET (28u)
+#define SADC_MNT_THRD_SINGLE_MODE_FIELD_SIZE (2u)
+#define SADC_MNT_THRD_SINGLE_LTHRD_FIELD_OFFSET (16u)
+#define SADC_MNT_THRD_SINGLE_LTHRD_FIELD_SIZE (12u)
+#define SADC_MNT_THRD_SINGLE_HTHRD_FIELD_OFFSET (0u)
+#define SADC_MNT_THRD_SINGLE_HTHRD_FIELD_SIZE (12u)
+
+#define SADC_MNT_THRD_CONT_BASE (0x2D4u)
+#define SADC_MNT_THRD_CONT_MODE_FIELD_OFFSET (28u)
+#define SADC_MNT_THRD_CONT_MODE_FIELD_SIZE (2u)
+#define SADC_MNT_THRD_CONT_LTHRD_FIELD_OFFSET (16u)
+#define SADC_MNT_THRD_CONT_LTHRD_FIELD_SIZE (12u)
+#define SADC_MNT_THRD_CONT_HTHRD_FIELD_OFFSET (0u)
+#define SADC_MNT_THRD_CONT_HTHRD_FIELD_SIZE (12u)
+
+#define SADC_MNT_CONT_CFG_BASE (0x2E0u)
+#define SADC_MNT_CONT_CFG_CONT_THRD_FIELD_OFFSET (16u)
+#define SADC_MNT_CONT_CFG_CONT_THRD_FIELD_SIZE (6u)
+#define SADC_MNT_CONT_CFG_CONT_MODE_FIELD_OFFSET (0u)
+#define SADC_MNT_CONT_CFG_CONT_MODE_FIELD_SIZE (1u)
+
+#define SADC_FIFO_CFG_BASE (0x2E4u)
+#define SADC_FIFO_CFG_PACK16_AMSEL_EN_FIELD_OFFSET (8u)
+#define SADC_FIFO_CFG_PACK16_AMSEL_EN_FIELD_SIZE (1u)
+#define SADC_FIFO_CFG_BYPASS_FIELD_OFFSET (4u)
+#define SADC_FIFO_CFG_BYPASS_FIELD_SIZE (1u)
+#define SADC_FIFO_CFG_PACK_MODE_FIELD_OFFSET (0u)
+#define SADC_FIFO_CFG_PACK_MODE_FIELD_SIZE (2u)
+
+#define SADC_SUB_FIFO_BASE(num) ((num) * 4u + 0x2E8u)
+#define SADC_SUB_FIFO_FULL_FIELD_OFFSET (25u)
+#define SADC_SUB_FIFO_FULL_FIELD_SIZE (1u)
+#define SADC_SUB_FIFO_EMPTY_FIELD_OFFSET (24u)
+#define SADC_SUB_FIFO_EMPTY_FIELD_SIZE (1u)
+#define SADC_SUB_FIFO_SUB_RC_EN_FIELD_OFFSET (16u)
+#define SADC_SUB_FIFO_SUB_RC_EN_FIELD_SIZE (5u)
+#define SADC_SUB_FIFO_SUB_THRD_FIELD_OFFSET (8u)
+#define SADC_SUB_FIFO_SUB_THRD_FIELD_SIZE (7u)
+#define SADC_SUB_FIFO_SUB_START_FIELD_OFFSET (0u)
+#define SADC_SUB_FIFO_SUB_START_FIELD_SIZE (7u)
+
+#define SADC_DMA_BASE (0x2f8u)
+#define SADC_DMA_CHN1_EN_FIELD_OFFSET (16u)
+#define SADC_DMA_CHN1_EN_FIELD_SIZE (5u)
+#define SADC_DMA_CHN0_EN_FIELD_OFFSET (8u)
+#define SADC_DMA_CHN0_EN_FIELD_SIZE (5u)
+#define SADC_DMA_MODE_FIELD_OFFSET (0u)
+#define SADC_DMA_MODE_FIELD_SIZE (5u)
+
+#define SADC_SUB_FIFO_DATA_BASE(num) ((num) * 0x40 + 0x300)
+
+#define SADC_FUSA_UNCOR_ERR_INT_STAT    (0x420u)
+#define SADC_FUSA_UNCOR_ERR_INT_STATEN  (0x424u)
+#define SADC_FUSA_UNCOR_ERR_INT_SIGEN   (0x428u)
+#define SADC_FUSA_UNCOR_ERR_B_ALL       (0x7FFFu)
+#define SADC_FUSA_UNCOR_ERR_B_PWDATA        (1u<<0)
+#define SADC_FUSA_UNCOR_ERR_B_PWDATA_FT     (1u<<1)
+#define SADC_FUSA_UNCOR_ERR_B_PADDR         (1u<<2)
+#define SADC_FUSA_UNCOR_ERR_B_PCTL          (1u<<3)
+#define SADC_FUSA_UNCOR_ERR_B_INPUT         (1u<<4)
+#define SADC_FUSA_UNCOR_ERR_B_DMA0_BW       (1u<<5)
+#define SADC_FUSA_UNCOR_ERR_B_DMA0_BWFT     (1u<<6)
+#define SADC_FUSA_UNCOR_ERR_B_DMA1_BW       (1u<<7)
+#define SADC_FUSA_UNCOR_ERR_B_DMA1_BWFT     (1u<<8)
+#define SADC_FUSA_UNCOR_ERR_B_DMA0_EOBA     (1u<<9)
+#define SADC_FUSA_UNCOR_ERR_B_DMA1_EOBA     (1u<<10)
+#define SADC_FUSA_UNCOR_ERR_B_DMA0_EOBC     (1u<<11)
+#define SADC_FUSA_UNCOR_ERR_B_DMA1_EOBC     (1u<<12)
+#define SADC_FUSA_UNCOR_ERR_B_SRAM_RDATA    (1u<<13)
+#define SADC_FUSA_UNCOR_ERR_B_SRAM_RDATAFT  (1u<<14)
+
+#define SADC_CONV_RCHT_LOW_BASE (0x460u)
+#define SADC_CONV_RCHT_HIGH_BASE (0x464u)
+
+#define SADC_CONV_RC0_LOW_BASE (0x468u)
+#define SADC_CONV_RC0_HIGH_BASE (0x46Cu)
+
+#define SADC_CONV_RC1_LOW_BASE (0x470u)
+#define SADC_CONV_RC1_HIGH_BASE (0x474u)
+
+#define SADC_CONV_RC2_LOW_BASE (0x478u)
+#define SADC_CONV_RC2_HIGH_BASE (0x47Cu)
+
+#define SADC_CONV_RC3_LOW_BASE (0x480u)
+#define SADC_CONV_RC3_HIGH_BASE (0x484u)
+
+typedef enum {
+    ADC_SINGLE_CONTINUONS_IRQ = 1,
+    ADC_IRQ_MAX,
+} adc_lld_iflag_t;
+
+enum sadc_trg_mode {
+    SADC_HW_TRG_MODE = 0,
+    SADC_SW_TRG_MODE,
+};
+
+enum sadc_tmr_mode {
+    SADC_MASTER_TMR_MODE = 0,
+    SADC_SLAVE_TMR_MODE,
+};
+
+enum sadc_repeat_mode {
+    SADC_TRANSFER_ONCE_MODE = 0,
+    SADC_TRANSFER_REPEAT_MODE,
+};
+
+enum sadc_cid_part {
+    SADC_RC0_CID = 0,
+    SADC_RC1_CID,
+    SADC_RC2_CID,
+    SADC_RC3_CID,
+    SADC_RCHT_CID,
+    SADC_MRG_PRE_CID,
+    SADC_JUMP_NOEMPTY_CID,
+    SADC_MV_NOEMPTY_CID,
+};
+
+enum sadc_sch_mode {
+    SADC_ASYNC_MODE = 0,
+    SADC_SYNC_MODE,
+};
+
+enum sadc_multi_mode {
+    SADC_SLAVE_MODE = 0,
+    SADC_MASTER_MODE,
+};
+
+enum sadc_slot_mode {
+    SADC_INTERVAL_NOCONST = 0,
+    SADC_INTERVAL_CONST,
+};
+
+enum sadc_sdsel {
+    SADC_SINGLE_ENDED = 0,
+    SADC_DIFFERENTIAL_INPUTS,
+};
+
+enum sadc_sdref {
+    SADC_REFP1 = 0,
+    SADC_REFP2,
+};
+
+enum sadc_pack_mode {
+    SADC_16BIT_MODE = 0,
+    SADC_32BIT_MODE,
+    SADC_64BIT_MODE,
+};
+
+enum sadc_rc {
+    SADC_RC3 = 1 << 0,
+    SADC_RC2  = 1 << 1,
+    SADC_RC1  = 1 << 2,
+    SADC_RC0  = 1 << 3,
+    SADC_RCHT  = 1 << 4,
+};
+
+static inline void sadc_lld_set_rc_timer_rst(paddr_t base, uint8 timer,
+                                             bool is_rst)
+{
+    REG_RMW32(base + SADC_SOFT_RST_BASE, timer + 2, 1, !!is_rst);
+}
+
+static inline void sadc_lld_set_ana_rst(paddr_t base, bool is_rst)
+{
+    REG_RMW32(base + SADC_SOFT_RST_BASE, SADC_SOFT_RST_ANA_RST_FIELD_OFFSET,
+             SADC_SOFT_RST_ANA_RST_FIELD_SIZE , !!is_rst);
+}
+
+static inline void sadc_lld_set_dig_rst(paddr_t base, bool is_rst)
+{
+    REG_RMW32(base + SADC_SOFT_RST_BASE, SADC_SOFT_RST_DIG_RST_FIELD_OFFSET,
+             SADC_SOFT_RST_DIG_RST_FIELD_SIZE , !!is_rst);
+}
+
+static inline void sadc_lld_soft_rst(paddr_t base)
+{
+    for (int i = 0; i < 4; i++) {
+        sadc_lld_set_rc_timer_rst(base, i, 1);
+    }
+
+    sadc_lld_set_ana_rst(base, 0);
+
+    sadc_lld_set_dig_rst(base, 1);
+
+    Mcu_udelay(1);  /* reset at least 100nS */
+
+
+    for (int i = 0; i < 4; i++) {
+        sadc_lld_set_rc_timer_rst(base, i, 0);
+    }
+
+    sadc_lld_set_ana_rst(base, 1);
+
+    sadc_lld_set_dig_rst(base, 0);
+}
+
+static inline bool sadc_lld_is_init_done(paddr_t base)
+{
+    return !!(readl(base + SADC_INIT_BASE) &
+           (1u << SADC_INIT_DONE_FIELD_OFFSET));
+}
+
+static inline void sadc_lld_init_start(paddr_t base)
+{
+    REG_RMW32(base + SADC_INIT_BASE, SADC_INIT_START_FIELD_OFFSET,
+             SADC_INIT_START_FIELD_SIZE, 1);
+}
+
+static inline void sadc_lld_set_init_time(paddr_t base, uint32 time)
+{
+    REG_RMW32(base + SADC_INIT_BASE, SADC_INIT_VALUE_FIELD_OFFSET,
+             SADC_INIT_VALUE_FIELD_SIZE, time & 0xfffff);
+}
+
+static inline void sadc_lld_adc_init(paddr_t base, uint32 time)
+{
+    if (time) {
+        sadc_lld_set_init_time(base, time);
+    }
+
+    sadc_lld_init_start(base);
+    while (!sadc_lld_is_init_done(base));
+}
+
+static inline bool sadc_lld_dcoc_is_init_done(paddr_t base)
+{
+    return !!(readl(base + SADC_DCOC_BASE) &
+           (1u << SADC_DCOC_DONE_FIELD_OFFSET));
+}
+
+static inline void sadc_lld_set_dcoc_value(paddr_t base, sint16 offset)
+{
+    uint16 sign_val = offset < 0? 1u << (SADC_DCOC_VALUE_FIELD_SIZE - 1) : 0;
+    uint16 offset_tmp = offset < 0? (-offset) : offset;
+
+    REG_RMW32(base + SADC_DCOC_BASE, SADC_DCOC_VALUE_FIELD_OFFSET,
+             SADC_DCOC_VALUE_FIELD_SIZE, (sign_val | offset_tmp));
+}
+
+static inline sint16 sadc_lld_get_dcoc_value(paddr_t base)
+{
+    uint32 reg_val = readl(base + SADC_DCOC_BASE);
+    sint16 res = (reg_val >> SADC_DCOC_VALUE_FIELD_OFFSET) & 0xfff;
+
+    return (reg_val & (1u << SADC_DCOC_VALUE_SIGN_FIELD_OFFSET)) > 0? (-res)
+            : res;
+}
+
+static inline void sadc_lld_dcoc_soft_ovwr_en(paddr_t base)
+{
+    REG_RMW32(base + SADC_DCOC_BASE, SADC_DCOC_SOFT_OVWR_EN_FIELD_OFFSET,
+             SADC_DCOC_SOFT_OVWR_EN_FIELD_SIZE, 1);
+}
+
+static inline void sadc_lld_set_dcoc_en(paddr_t base, bool is_enable)
+{
+    REG_RMW32(base + SADC_DCOC_BASE, SADC_DCOC_EN_FIELD_OFFSET,
+             SADC_DCOC_EN_FIELD_SIZE, !!is_enable);
+}
+
+static inline void sadc_lld_dcoc_start(paddr_t base)
+{
+    REG_RMW32(base + SADC_DCOC_BASE, SADC_DCOC_START_FIELD_OFFSET,
+             SADC_DCOC_START_FIELD_SIZE, 1);
+}
+
+static inline void sadc_lld_set_dcoc_cal_times(paddr_t base, uint8 times)
+{
+    REG_RMW32(base + SADC_DCOC_BASE, SADC_DCOC_TIMES_FIELD_OFFSET,
+             SADC_DCOC_TIMES_FIELD_SIZE, times & 0x7);
+}
+
+static inline void sadc_lld_set_htc_ready(paddr_t base, bool ready)
+{
+    REG_RMW32(base + SADC_HTC_BASE, SADC_HTC_READY_FIELD_OFFSET,
+             SADC_HTC_READY_FIELD_SIZE, !!ready);
+}
+
+static inline void sadc_lld_set_htc_ready_len(paddr_t base, uint8 len)
+{
+    REG_RMW32(base + SADC_HTC_BASE, SADC_HTC_READY_LEN_FIELD_OFFSET,
+             SADC_HTC_READY_LEN_FIELD_SIZE, len);
+}
+
+static inline void sadc_lld_set_htc_done_len(paddr_t base, uint8 len)
+{
+    REG_RMW32(base + SADC_HTC_BASE, SADC_HTC_DONE_LEN_FIELD_OFFSET,
+             SADC_HTC_DONE_LEN_FIELD_SIZE, len);
+}
+
+static inline void sadc_lld_set_rcht_entry_repeat_times(paddr_t base,
+                                                        uint8 entry,
+                                                        uint8 times)
+{
+    REG_RMW32(base + SADC_RCHT_ENTRY_BASE(entry),
+             SADC_RCHT_ENTRY_REPEAT_TIMES_FIELD_OFFSET,
+             SADC_RCHT_ENTRY_REPEAT_TIMES_FIELD_SIZE, times);
+}
+
+static inline void sadc_lld_set_rcht_entry_repeat_mode(paddr_t base,
+                                                       uint8 entry,
+                                                    enum sadc_repeat_mode mode)
+{
+    REG_RMW32(base + SADC_RCHT_ENTRY_BASE(entry),
+             SADC_RCHT_ENTRY_REPEAT_MODE_FIELD_OFFSET,
+             SADC_RCHT_ENTRY_REPEAT_MODE_FIELD_SIZE, mode);
+}
+
+static inline void sadc_lld_set_rcht_entry_csel(paddr_t base, uint8 entry,
+                                                uint8 csel)
+{
+    REG_RMW32(base + SADC_RCHT_ENTRY_BASE(entry),
+             SADC_RCHT_ENTRY_CSEL_FIELD_OFFSET,
+             SADC_RCHT_ENTRY_CSEL_FIELD_SIZE, csel);
+}
+
+static inline void sadc_lld_set_rcht_entry_amsel(paddr_t base, uint8 entry,
+                                                 uint16 amsel)
+{
+    REG_RMW32(base + SADC_RCHT_ENTRY_BASE(entry),
+             SADC_RCHT_ENTRY_AMSEL_FIELD_OFFSET,
+             SADC_RCHT_ENTRY_AMSEL_FIELD_SIZE, amsel);
+}
+
+static inline void sadc_lld_set_rc_timer_tmn_val(paddr_t base, uint8 timer,
+                                                 uint16 val)
+{
+    REG_RMW32(base + SADC_RC_TIMER_BASE(timer),
+             SADC_RC_TIMER_TMN_VALUE_FIELD_OFFSET,
+             SADC_RC_TIMER_TMN_VALUE_FIELD_SIZE, val);
+}
+
+static inline void sadc_lld_set_rc_timer_cmp_val(paddr_t base, uint8 timer,
+                                                 uint16 val)
+{
+    REG_RMW32(base + SADC_RC_TIMER_BASE(timer),
+             SADC_RC_TIMER_CMP_VALUE_FIELD_OFFSET,
+             SADC_RC_TIMER_CMP_VALUE_FIELD_SIZE, val);
+}
+
+static inline void sadc_lld_set_rc_trg_en(paddr_t base, uint8 rc, bool is_enable)
+{
+    REG_RMW32(base + SADC_RC_BASE(rc), SADC_RC_TRG_EN_FIELD_OFFSET,
+             SADC_RC_TRG_EN_FIELD_SIZE, !!is_enable);
+}
+
+static inline void sadc_lld_set_rc_soft_ovwr_point_en(paddr_t base, uint8 rc)
+{
+    REG_RMW32(base + SADC_RC_BASE(rc), SADC_RC_SOFT_OVWR_POINT_EN_FIELD_OFFSET,
+             SADC_RC_SOFT_OVWR_POINT_EN_FIELD_SIZE, 1);
+}
+
+static inline void sadc_lld_set_rc_soft_trg(paddr_t base, uint8 rc)
+{
+    REG_RMW32(base + SADC_RC_BASE(rc), SADC_RC_SOFT_TRG_FIELD_OFFSET,
+             SADC_RC_SOFT_TRG_FIELD_SIZE, 1);
+}
+
+static inline void sadc_lld_set_rc_trg_mode(paddr_t base, uint8 rc,
+                                            enum sadc_trg_mode mode)
+{
+    REG_RMW32(base + SADC_RC_BASE(rc), SADC_RC_TRG_MODE_FIELD_OFFSET,
+             SADC_RC_TRG_MODE_FIELD_SIZE, mode);
+}
+
+static inline void sadc_lld_set_rc_tmr_mode(paddr_t base, uint8 rc,
+                                            enum sadc_tmr_mode mode)
+{
+    REG_RMW32(base + SADC_RC_BASE(rc), SADC_RC_TMR_MODE_FIELD_OFFSET,
+             SADC_RC_TMR_MODE_FIELD_SIZE, mode);
+}
+
+static inline void sadc_lld_set_rc_trg_start(paddr_t base, uint8 rc,
+                                             bool start)
+{
+    REG_RMW32(base + SADC_RC_BASE(rc), SADC_RC_TRG_START_FIELD_OFFSET,
+             SADC_RC_TRG_START_FIELD_SIZE, !!start);
+}
+
+static inline void sadc_lld_set_rc_qend(paddr_t base, uint8 rc, uint8 qend)
+{
+    REG_RMW32(base + SADC_RC_BASE(rc), SADC_RC_QEND_FIELD_OFFSET,
+             SADC_RC_QEND_FIELD_SIZE, qend & 0xf);
+}
+
+static inline void sadc_lld_set_rc_qstart(paddr_t base, uint8 rc,
+                                          uint8 qstart)
+{
+    REG_RMW32(base + SADC_RC_BASE(rc), SADC_RC_QSTART_FIELD_OFFSET,
+             SADC_RC_QSTART_FIELD_SIZE, qstart & 0xf);
+}
+
+static inline void sadc_lld_set_rc_cur_pointer(paddr_t base, uint8 rc,
+                                               uint8 cur_p)
+{
+    sadc_lld_set_rc_soft_ovwr_point_en(base, rc);
+    REG_RMW32(base + SADC_RC_BASE(rc), SADC_RC_CUR_POINT_FIELD_OFFSET,
+             SADC_RC_CUR_POINT_FIELD_SIZE, cur_p & 0xf);
+}
+
+static inline uint32 sadc_lld_get_int_sta(paddr_t base)
+{
+    return readl(base + SADC_INT_STA_BASE);
+}
+
+static inline void sadc_lld_clr_int_sta(paddr_t base, uint32 int_sta)
+{
+    writel(int_sta, base + SADC_INT_STA_BASE);
+}
+
+static inline void sadc_lld_set_int_sta_en(paddr_t base, uint32 sta_en)
+{
+    uint32 reg_val = readl(base + SADC_INT_STA_EN_BASE);
+    writel(reg_val | sta_en, base + SADC_INT_STA_EN_BASE);
+}
+
+static inline void sadc_lld_clr_int_sta_en(paddr_t base, uint32 sta_en)
+{
+    uint32 reg_val = readl(base + SADC_INT_STA_EN_BASE);
+    writel(reg_val & (~sta_en), base + SADC_INT_STA_EN_BASE);
+}
+
+static inline void sadc_lld_set_int_sig_en(paddr_t base, uint32 sig_en)
+{
+    uint32 reg_val = readl(base + SADC_INT_SIG_EN_BASE);
+    writel(reg_val | sig_en, base + SADC_INT_SIG_EN_BASE);
+}
+
+static inline void sadc_lld_clr_int_sig_en(paddr_t base, uint32 sig_en)
+{
+    uint32 reg_val = readl(base + SADC_INT_SIG_EN_BASE);
+    writel(reg_val & (~sig_en), base + SADC_INT_SIG_EN_BASE);
+}
+
+static inline uint32 sadc_lld_get_cor_err_int_sta(paddr_t base)
+{
+    return readl(base + SADC_COR_ERR_INT_STA_BASE);
+}
+
+static inline void sadc_lld_clr_cor_err_int_sta(paddr_t base, uint32 int_sta)
+{
+    writel(int_sta, base + SADC_COR_ERR_INT_STA_BASE);
+}
+
+static inline void sadc_lld_set_cor_err_int_sta_en(paddr_t base,
+                                                   uint32 sta_en)
+{
+    uint32 reg_val = readl(base + SADC_COR_ERR_INT_STA_EN_BASE);
+    writel(reg_val | sta_en, base + SADC_COR_ERR_INT_STA_EN_BASE);
+}
+
+static inline void sadc_lld_clr_cor_err_int_sta_en(paddr_t base,
+                                                   uint32 sta_en)
+{
+    uint32 reg_val = readl(base + SADC_COR_ERR_INT_STA_EN_BASE);
+    writel(reg_val & (~sta_en), base + SADC_COR_ERR_INT_STA_EN_BASE);
+}
+
+static inline void sadc_lld_set_cor_err_int_sig_en(paddr_t base,
+                                                   uint32 sig_en)
+{
+    uint32 reg_val = readl(base + SADC_COR_ERR_INT_SIG_EN_BASE);
+    writel(reg_val | sig_en, base + SADC_COR_ERR_INT_SIG_EN_BASE);
+}
+
+static inline void sadc_lld_clr_cor_err_int_sig_en(paddr_t base,
+                                                   uint32 sig_en)
+{
+    uint32 reg_val = readl(base + SADC_COR_ERR_INT_SIG_EN_BASE);
+    writel(reg_val & (~sig_en), base + SADC_COR_ERR_INT_SIG_EN_BASE);
+}
+
+static inline uint32 sadc_lld_get_unc_err_int_sta(paddr_t base)
+{
+    return readl(base + SADC_UNC_ERR_INT_STA_BASE);
+}
+
+static inline void sadc_lld_clr_unc_err_int_sta(paddr_t base, uint32 int_sta)
+{
+    writel(int_sta, base + SADC_UNC_ERR_INT_STA_BASE);
+}
+
+static inline void sadc_lld_set_unc_err_int_sta_en(paddr_t base,
+                                                   uint32 sta_en)
+{
+    uint32 reg_val = readl(base + SADC_UNC_ERR_INT_STA_EN_BASE);
+    writel(reg_val | sta_en, base + SADC_UNC_ERR_INT_STA_EN_BASE);
+}
+
+static inline void sadc_lld_clr_unc_err_int_sta_en(paddr_t base,
+                                                   uint32 sta_en)
+{
+    uint32 reg_val = readl(base + SADC_UNC_ERR_INT_STA_EN_BASE);
+    writel(reg_val & (~sta_en), base + SADC_UNC_ERR_INT_STA_EN_BASE);
+}
+
+static inline void sadc_lld_set_unc_err_int_sig_en(paddr_t base,
+                                                   uint32 sig_en)
+{
+    uint32 reg_val = readl(base + SADC_UNC_ERR_INT_SIG_EN_BASE);
+    writel(reg_val | sig_en, base + SADC_UNC_ERR_INT_SIG_EN_BASE);
+}
+
+static inline void sadc_lld_clr_unc_err_int_sig_en(paddr_t base,
+                                                   uint32 sig_en)
+{
+    uint32 reg_val = readl(base + SADC_UNC_ERR_INT_SIG_EN_BASE);
+    writel(reg_val & (~sig_en), base + SADC_UNC_ERR_INT_SIG_EN_BASE);
+}
+
+static inline void sadc_lld_set_rc_entry_repeat_times(paddr_t base, uint8 rc,
+                                                      uint8 entry,
+                                                      uint8 times)
+{
+    REG_RMW32(base + SADC_RC_ENTRY_BASE(rc, entry),
+             SADC_RC_ENTRY_REPEAT_TIMES_FIELD_OFFSET,
+             SADC_RC_ENTRY_REPEAT_TIMES_FIELD_SIZE, times & 0xf);
+}
+
+static inline void sadc_lld_set_rc_entry_repeat_mode(paddr_t base, uint8 rc,
+                                                 uint8 entry,
+                                                 enum sadc_repeat_mode mode)
+{
+    REG_RMW32(base + SADC_RC_ENTRY_BASE(rc, entry),
+             SADC_RC_ENTRY_REPEAT_MODE_FIELD_OFFSET,
+             SADC_RC_ENTRY_REPEAT_MODE_FIELD_SIZE, mode);
+}
+
+static inline void sadc_lld_set_rc_entry_csel(paddr_t base, uint8 rc,
+                                              uint8 entry, uint8 csel)
+{
+    REG_RMW32(base + SADC_RC_ENTRY_BASE(rc, entry),
+             SADC_RC_ENTRY_CSEL_FIELD_OFFSET,
+             SADC_RC_ENTRY_CSEL_FIELD_SIZE, csel);
+}
+
+static inline void sadc_lld_set_rc_entry_amsel(paddr_t base, uint8 rc,
+                                               uint8 entry, uint16 amsel)
+{
+    REG_RMW32(base + SADC_RC_ENTRY_BASE(rc, entry),
+             SADC_RC_ENTRY_AMSEL_FIELD_OFFSET,
+             SADC_RC_ENTRY_AMSEL_FIELD_SIZE, amsel);
+}
+
+static inline void sadc_lld_set_sch_cid_part(paddr_t base, uint8 slot,
+                                             enum sadc_cid_part cid)
+{
+    REG_RMW32(base + SADC_SCH_CID_PART_BASE(slot),
+             SADC_SCH_CID_PART_CID_FIELD_OFFSET(slot),
+             SADC_SCH_CID_PART_CID_FIELD_SIZE, cid);
+}
+
+static inline void sadc_lld_set_ts_value(paddr_t base, uint32 value)
+{
+    REG_RMW32(base + SADC_TS_VALUE_BASE,
+             SADC_TS_VALUE_VALUE_FIELD_OFFSET,
+             SADC_TS_VALUE_VALUE_FIELD_SIZE, value);
+}
+
+static inline void sadc_lld_set_sch_timeout_thrd(paddr_t base, uint16 thrd)
+{
+    REG_RMW32(base + SADC_SCH_TIMEOUT_BASE,
+             SADC_SCH_TIMEOUT_THRD_FIELD_OFFSET,
+             SADC_SCH_TIMEOUT_THRD_FIELD_SIZE, thrd);
+}
+
+static inline void sadc_lld_set_sch_cfg_ts_rst(paddr_t base)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_TS_RST_FIELD_OFFSET,
+             SADC_SCH_CFG_TS_RST_FIELD_SIZE, 1);
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_TS_RST_FIELD_OFFSET,
+             SADC_SCH_CFG_TS_RST_FIELD_SIZE, 0);
+}
+
+static inline void sadc_lld_set_sch_cfg_ts_vld(paddr_t base, bool vld)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_TS_VLD_FIELD_OFFSET,
+             SADC_SCH_CFG_TS_VLD_FIELD_SIZE, !!vld);
+}
+
+static inline void sadc_lld_set_sch_cfg_slot_rst(paddr_t base)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_SLOT_RST_FIELD_OFFSET,
+             SADC_SCH_CFG_SLOT_RST_FIELD_SIZE, 1);
+    while (!(readl(base + SADC_SCH_CFG_BASE) & (1u << SADC_SCH_CFG_RST_DONE_FIELD_OFFSET)));
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_SLOT_RST_FIELD_OFFSET,
+             SADC_SCH_CFG_SLOT_RST_FIELD_SIZE, 0);
+}
+
+static inline void sadc_lld_set_sch_cfg_slot_halt(paddr_t base, bool halt)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_SLOT_HALT_FIELD_OFFSET,
+             SADC_SCH_CFG_SLOT_HALT_FIELD_SIZE, !!halt);
+}
+
+static inline void sadc_lld_set_sch_cfg_slv_dly(paddr_t base, uint8 dly)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_SLV_DLY_FIELD_OFFSET,
+             SADC_SCH_CFG_SLV_DLY_FIELD_SIZE, dly);
+}
+
+static inline void sadc_lld_set_sch_cfg_async_stall(paddr_t base, bool stall)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_ASYNC_STALL_FIELD_OFFSET,
+             SADC_SCH_CFG_ASYNC_STALL_FIELD_SIZE, !!stall);
+}
+
+static inline void sadc_lld_set_sch_cfg_rot_en(paddr_t base, bool rot_en)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_ROT_EN_FIELD_OFFSET,
+             SADC_SCH_CFG_ROT_EN_FIELD_SIZE, !!rot_en);
+}
+
+static inline void sadc_lld_set_sch_cfg_sync_mode(paddr_t base,
+                                                  enum sadc_sch_mode mode)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_SYNC_MODE_FIELD_OFFSET,
+             SADC_SCH_CFG_SYNC_MODE_FIELD_SIZE, mode);
+}
+
+static inline void sadc_lld_set_sch_cfg_mst_mode(paddr_t base,
+                                                 enum sadc_multi_mode mode)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_MST_MODE_FIELD_OFFSET,
+             SADC_SCH_CFG_MST_MODE_FIELD_SIZE, mode);
+}
+
+static inline void sadc_lld_set_sch_cfg_slot_mode(paddr_t base,
+                                                  enum sadc_slot_mode mode)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_SLOT_MODE_FIELD_OFFSET,
+             SADC_SCH_CFG_SLOT_MODE_FIELD_SIZE, mode);
+}
+
+static inline void sadc_lld_set_sch_cfg_slot_internal(paddr_t base,
+                                                      uint8 internal)
+{
+    REG_RMW32(base + SADC_SCH_CFG_BASE, SADC_SCH_CFG_SLOT_INTERVAL_FIELD_OFFSET,
+             SADC_SCH_CFG_SLOT_INTERVAL_FIELD_SIZE, internal);
+}
+
+static inline void sadc_lld_set_clk_ctrl_ref_low(paddr_t base, uint8 ref_low)
+{
+    REG_RMW32(base + SADC_CLK_CTRL_BASE, SADC_CLK_CTRL_REF_LOW_FIELD_OFFSET,
+             SADC_CLK_CTRL_REF_LOW_FIELD_SIZE, ref_low);
+}
+
+static inline void sadc_lld_set_clk_ctrl_ref_high(paddr_t base,
+                                                  uint8 ref_high)
+{
+    REG_RMW32(base + SADC_CLK_CTRL_BASE, SADC_CLK_CTRL_REF_HIGH_FIELD_OFFSET,
+             SADC_CLK_CTRL_REF_HIGH_FIELD_SIZE, ref_high);
+}
+
+static inline void sadc_lld_set_clk_ctrl_div_bypass(paddr_t base, bool bypass)
+{
+    REG_RMW32(base + SADC_CLK_CTRL_BASE, SADC_CLK_CTRL_DIV_BYPASS_FIELD_OFFSET,
+             SADC_CLK_CTRL_DIV_BYPASS_FIELD_SIZE, !!bypass);
+}
+
+static inline void sadc_lld_set_ana_para_cct(paddr_t base, uint8 para,
+                                             uint8 cct)
+{
+    REG_RMW32(base + SADC_ANA_PARA_BASE(para), SADC_ANA_PARA_CCT_FIELD_OFFSET,
+             SADC_ANA_PARA_CCT_FIELD_SIZE, cct & 0x1f);
+}
+
+static inline void sadc_lld_set_ana_para_ccn(paddr_t base, uint8 para,
+                                             uint8 ccn)
+{
+    REG_RMW32(base + SADC_ANA_PARA_BASE(para), SADC_ANA_PARA_CCN_FIELD_OFFSET,
+             SADC_ANA_PARA_CCN_FIELD_SIZE, ccn & 0xf);
+}
+
+static inline void sadc_lld_set_ana_para_ccp(paddr_t base, uint8 para,
+                                             uint8 ccp)
+{
+    REG_RMW32(base + SADC_ANA_PARA_BASE(para), SADC_ANA_PARA_CCP_FIELD_OFFSET,
+             SADC_ANA_PARA_CCP_FIELD_SIZE, ccp & 0xf);
+}
+
+static inline void sadc_lld_set_ana_para_sdsel(paddr_t base, uint8 para,
+                                               enum sadc_sdsel sdsel)
+{
+    REG_RMW32(base + SADC_ANA_PARA_BASE(para), SADC_ANA_PARA_SDSEL_FIELD_OFFSET,
+             SADC_ANA_PARA_SDSEL_FIELD_SIZE, sdsel);
+}
+
+static inline void sadc_lld_set_ana_para_refsel(paddr_t base, uint8 para,
+                                                enum sadc_sdref sdref)
+{
+    REG_RMW32(base + SADC_ANA_PARA_BASE(para),
+             SADC_ANA_PARA_REFSEL_FIELD_OFFSET,
+             SADC_ANA_PARA_REFSEL_FIELD_SIZE, sdref);
+}
+
+static inline void sadc_lld_set_ana_para_samctrl(paddr_t base, uint8 para,
+                                                 uint8 samctrl)
+{
+    REG_RMW32(base + SADC_ANA_PARA_BASE(para),
+             SADC_ANA_PARA_SAMCTRL_FIELD_OFFSET,
+             SADC_ANA_PARA_SAMCTRL_FIELD_SIZE, samctrl & 0x7);
+}
+
+static inline void sadc_lld_set_cont_mode_soc(paddr_t base, bool enable)
+{
+    REG_RMW32(base + SADC_CONT_MODE_BASE, SADC_CONT_MODE_SOC_FIELD_OFFSET,
+             SADC_CONT_MODE_SOC_FIELD_SIZE, !!enable);
+}
+
+static inline void sadc_lld_set_cont_mode_samctrl(paddr_t base, uint8 samctrl)
+{
+    REG_RMW32(base + SADC_CONT_MODE_BASE, SADC_CONT_MODE_SAMCTRL_FIELD_OFFSET,
+             SADC_CONT_MODE_SAMCTRL_FIELD_SIZE, samctrl & 0x7);
+}
+
+static inline void sadc_lld_set_cont_mode_en(paddr_t base, bool enable)
+{
+    REG_RMW32(base + SADC_CONT_MODE_BASE, SADC_CONT_MODE_EN_FIELD_OFFSET,
+             SADC_CONT_MODE_EN_FIELD_SIZE, !!enable);
+}
+
+static inline void sadc_lld_set_cont_mode_sdsel(paddr_t base, enum sadc_sdsel sdsel)
+{
+    REG_RMW32(base + SADC_CONT_MODE_BASE, SADC_CONT_MODE_SDSEL_FIELD_OFFSET,
+             SADC_CONT_MODE_SDSEL_FIELD_SIZE, sdsel);
+}
+
+static inline void sadc_lld_set_cont_mode_rc_sel(paddr_t base, enum sadc_rc rc_sel)
+{
+    REG_RMW32(base + SADC_CONT_MODE_BASE, SADC_CONT_MODE_RC_SEL_FIELD_OFFSET,
+             SADC_CONT_MODE_RC_SEL_FIELD_SIZE, rc_sel);
+}
+
+static inline void sadc_lld_set_cont_mode_refsel(paddr_t base, enum sadc_sdref sdref)
+{
+    REG_RMW32(base + SADC_CONT_MODE_BASE, SADC_CONT_MODE_REFSEL_FIELD_OFFSET,
+             SADC_CONT_MODE_REFSEL_FIELD_SIZE, sdref);
+}
+
+static inline void sadc_lld_set_cont_mode1_amsel(paddr_t base, uint16 channel)
+{
+    REG_RMW32(base + SADC_CONT_MODE_1_BASE, SADC_CONT_MODE_1_AMSEL_FIELD_OFFSET,
+             SADC_CONT_MODE_1_AMSEL_FIELD_SIZE, channel);
+}
+
+static inline void sadc_lld_set_mnt_single_match(paddr_t base, uint8 single,
+                                                 uint16 match)
+{
+    REG_RMW32(base + SADC_MNT_SINGLE_BASE(single), SADC_MNT_MATCH_FIELD_OFFSET,
+             SADC_MNT_MATCH_FIELD_SIZE, match);
+}
+
+static inline void sadc_lld_set_mnt_single_mask(paddr_t base, uint8 single,
+                                                uint16 mask)
+{
+    REG_RMW32(base + SADC_MNT_SINGLE_BASE(single), SADC_MNT_MASK_FIELD_OFFSET,
+             SADC_MNT_MASK_FIELD_SIZE, mask);
+}
+
+static inline void sadc_lld_set_mnt_cont_match(paddr_t base, uint16 match)
+{
+    REG_RMW32(base + SADC_MNT_CONT_BASE, SADC_MNT_CONT_MATCH_FIELD_OFFSET,
+             SADC_MNT_CONT_MATCH_FIELD_SIZE, match);
+}
+
+static inline void sadc_lld_set_mnt_cont_mask(paddr_t base, uint16 mask)
+{
+    REG_RMW32(base + SADC_MNT_CONT_BASE, SADC_MNT_CONT_MASK_FIELD_OFFSET,
+             SADC_MNT_CONT_MASK_FIELD_SIZE, mask);
+}
+
+static inline void sadc_lld_set_mnt_thrd_single_mode(paddr_t base,
+                                                     uint8 single,
+                                                     uint8 mode)
+{
+    REG_RMW32(base + SADC_MNT_THRD_SINGLE_BASE(single),
+             SADC_MNT_THRD_SINGLE_MODE_FIELD_OFFSET,
+             SADC_MNT_THRD_SINGLE_MODE_FIELD_SIZE, mode);
+}
+
+static inline void sadc_lld_set_mnt_thrd_single_lthrd(paddr_t base,
+                                                      uint8 single,
+                                                      uint16 lthrd)
+{
+    REG_RMW32(base + SADC_MNT_THRD_SINGLE_BASE(single),
+             SADC_MNT_THRD_SINGLE_LTHRD_FIELD_OFFSET,
+             SADC_MNT_THRD_SINGLE_LTHRD_FIELD_SIZE, lthrd);
+}
+
+static inline void sadc_lld_set_mnt_thrd_single_hthrd(paddr_t base,
+                                                      uint8 single,
+                                                      uint16 hthrd)
+{
+    REG_RMW32(base + SADC_MNT_THRD_SINGLE_BASE(single),
+             SADC_MNT_THRD_SINGLE_HTHRD_FIELD_OFFSET,
+             SADC_MNT_THRD_SINGLE_HTHRD_FIELD_SIZE, hthrd);
+}
+
+static inline void sadc_lld_set_mnt_thrd_cont_mode(paddr_t base, uint8 mode)
+{
+    REG_RMW32(base + SADC_MNT_THRD_CONT_BASE,
+             SADC_MNT_THRD_CONT_MODE_FIELD_OFFSET,
+             SADC_MNT_THRD_CONT_MODE_FIELD_SIZE, mode);
+}
+
+static inline void sadc_lld_set_mnt_thrd_cont_lthrd(paddr_t base,
+                                                    uint16 lthrd)
+{
+    REG_RMW32(base + SADC_MNT_THRD_CONT_BASE,
+             SADC_MNT_THRD_CONT_LTHRD_FIELD_OFFSET,
+             SADC_MNT_THRD_CONT_LTHRD_FIELD_SIZE, lthrd);
+}
+
+static inline void sadc_lld_set_mnt_thrd_cont_hthrd(paddr_t base,
+                                                   uint16 hthrd)
+{
+    REG_RMW32(base + SADC_MNT_THRD_CONT_BASE,
+             SADC_MNT_THRD_CONT_HTHRD_FIELD_OFFSET,
+             SADC_MNT_THRD_CONT_HTHRD_FIELD_SIZE, hthrd);
+}
+
+static inline void sadc_lld_set_mnt_cont_cfg_thrd(paddr_t base, uint8 thrd)
+{
+    REG_RMW32(base + SADC_MNT_CONT_CFG_BASE,
+             SADC_MNT_CONT_CFG_CONT_THRD_FIELD_OFFSET,
+             SADC_MNT_CONT_CFG_CONT_THRD_FIELD_SIZE, thrd);
+}
+
+static inline void sadc_lld_set_mnt_cont_cfg_mode(paddr_t base, bool mode)
+{
+    REG_RMW32(base + SADC_MNT_CONT_CFG_BASE,
+             SADC_MNT_CONT_CFG_CONT_MODE_FIELD_OFFSET,
+             SADC_MNT_CONT_CFG_CONT_MODE_FIELD_SIZE, !!mode);
+}
+
+static inline void sadc_lld_set_fifo_cfg_pack16_amsel_en(paddr_t base,
+                                                         bool pack16_amsel_en)
+{
+    REG_RMW32(base + SADC_FIFO_CFG_BASE,
+             SADC_FIFO_CFG_PACK16_AMSEL_EN_FIELD_OFFSET,
+             SADC_FIFO_CFG_PACK16_AMSEL_EN_FIELD_SIZE, !!pack16_amsel_en);
+}
+
+static inline void sadc_lld_set_fifo_cfg_bypass(paddr_t base, bool bypass)
+{
+    REG_RMW32(base + SADC_FIFO_CFG_BASE, SADC_FIFO_CFG_BYPASS_FIELD_OFFSET,
+             SADC_FIFO_CFG_BYPASS_FIELD_SIZE, !!bypass);
+}
+
+static inline void sadc_lld_set_fifo_cfg_pack_mode(paddr_t base,
+                                                   enum sadc_pack_mode mode)
+{
+    REG_RMW32(base + SADC_FIFO_CFG_BASE, SADC_FIFO_CFG_PACK_MODE_FIELD_OFFSET,
+             SADC_FIFO_CFG_PACK_MODE_FIELD_SIZE, mode);
+}
+
+static inline bool sadc_lld_get_sub_fifo_is_full(paddr_t base, uint8 sub_fifo)
+{
+    return !!(readl(base + SADC_SUB_FIFO_BASE(sub_fifo)) &
+             (1u << SADC_SUB_FIFO_FULL_FIELD_OFFSET));
+}
+
+static inline bool sadc_lld_get_sub_fifo_is_empty(paddr_t base, uint8 sub_fifo)
+{
+    return !!(readl(base + SADC_SUB_FIFO_BASE(sub_fifo)) &
+             (1u << SADC_SUB_FIFO_EMPTY_FIELD_OFFSET));
+}
+
+static inline void sadc_lld_set_sub_fifo_rc_en(paddr_t base, uint8 sub_fifo,
+                                               uint8 rc_en)
+{
+    uint32 val = readl(base + SADC_SUB_FIFO_BASE(sub_fifo));
+    uint8 rc_en_tmp = (val >> SADC_SUB_FIFO_SUB_RC_EN_FIELD_OFFSET) & 0x1f;
+
+    REG_RMW32(base + SADC_SUB_FIFO_BASE(sub_fifo),
+             SADC_SUB_FIFO_SUB_RC_EN_FIELD_OFFSET,
+             SADC_SUB_FIFO_SUB_RC_EN_FIELD_SIZE,
+             rc_en_tmp | rc_en);
+}
+
+static inline void sadc_lld_clr_sub_fifo_rc_en(paddr_t base, uint8 sub_fifo,
+                                               uint8 rc_en)
+{
+    uint32 val = readl(base + SADC_SUB_FIFO_BASE(sub_fifo));
+    uint8 rc_en_tmp = (val >> SADC_SUB_FIFO_SUB_RC_EN_FIELD_OFFSET) & 0x1f;
+
+    rc_en_tmp &= ~rc_en;
+    REG_RMW32(base + SADC_SUB_FIFO_BASE(sub_fifo),
+             SADC_SUB_FIFO_SUB_RC_EN_FIELD_OFFSET,
+             SADC_SUB_FIFO_SUB_RC_EN_FIELD_SIZE,
+             rc_en_tmp);
+}
+
+static inline void sadc_lld_set_sub_fifo_thrd(paddr_t base, uint8 sub_fifo,
+                                              uint8 thrd)
+{
+    REG_RMW32(base + SADC_SUB_FIFO_BASE(sub_fifo),
+             SADC_SUB_FIFO_SUB_THRD_FIELD_OFFSET,
+             SADC_SUB_FIFO_SUB_THRD_FIELD_SIZE, thrd & 0x7f);
+}
+
+static inline void sadc_lld_set_sub_fifo_start(paddr_t base, uint8 sub_fifo,
+                                               uint8 start)
+{
+    REG_RMW32(base + SADC_SUB_FIFO_BASE(sub_fifo),
+             SADC_SUB_FIFO_SUB_START_FIELD_OFFSET,
+             SADC_SUB_FIFO_SUB_START_FIELD_SIZE, start & 0x7f);
+}
+
+static inline uint32 sadc_lld_get_fifo_data(paddr_t base, uint8 fifo)
+{
+    return readl(base + SADC_SUB_FIFO_DATA_BASE(fifo));
+}
+
+static inline void sadc_lld_set_dma_chn1_en(paddr_t base, uint8 chn1_en)
+{
+    REG_RMW32(base + SADC_DMA_BASE, SADC_DMA_CHN1_EN_FIELD_OFFSET,
+             SADC_DMA_CHN1_EN_FIELD_SIZE, chn1_en & 0x1f);
+}
+
+static inline void sadc_lld_set_dma_chn0_en(paddr_t base, uint8 chn0_en)
+{
+    REG_RMW32(base + SADC_DMA_BASE, SADC_DMA_CHN0_EN_FIELD_OFFSET,
+             SADC_DMA_CHN0_EN_FIELD_SIZE, chn0_en & 0x1f);
+}
+
+static inline void sadc_lld_set_dma_mode(paddr_t base, uint8 mode)
+{
+    REG_RMW32(base + SADC_DMA_BASE, SADC_DMA_MODE_FIELD_OFFSET,
+             SADC_DMA_MODE_FIELD_SIZE, mode & 0x1f);
+}
+
+static inline void sadc_lld_get_conv_rcht_data(paddr_t base, uint32 *ts,
+                                               uint16 *amsel, uint16 *data)
+{
+    uint32 reg_low = readl(base + SADC_CONV_RCHT_LOW_BASE);
+    uint32 reg_high = readl(base + SADC_CONV_RCHT_HIGH_BASE);
+
+    if (ts) {
+        *ts = (reg_high << 11) | (reg_low >> 21);
+    }
+
+    if (amsel) {
+        *amsel = (reg_low >> 12) & 0x1ff;
+    }
+
+    if (data) {
+        *data = reg_low & 0xfff;
+    }
+}
+
+static inline void sadc_lld_get_conv_rc0_data(paddr_t base, uint32 *ts,
+                                              uint16 *amsel, uint16 *data)
+{
+    uint32 reg_low = readl(base + SADC_CONV_RC0_LOW_BASE);
+    uint32 reg_high = readl(base + SADC_CONV_RC0_HIGH_BASE);
+
+    if (ts) {
+        *ts = (reg_high << 11) | (reg_low >> 21);
+    }
+
+    if (amsel) {
+        *amsel = (reg_low >> 12) & 0x1ff;
+    }
+
+    if (data) {
+        *data = reg_low & 0xfff;
+    }
+}
+
+static inline void sadc_lld_get_conv_rc1_data(paddr_t base, uint32 *ts,
+                                              uint16 *amsel, uint16 *data)
+{
+    uint32 reg_low = readl(base + SADC_CONV_RC1_LOW_BASE);
+    uint32 reg_high = readl(base + SADC_CONV_RC1_HIGH_BASE);
+
+    if (ts) {
+        *ts = (reg_high << 11) | (reg_low >> 21);
+    }
+
+    if (amsel) {
+        *amsel = (reg_low >> 12) & 0x1ff;
+    }
+
+    if (data) {
+        *data = reg_low & 0xfff;
+    }
+}
+
+static inline void sadc_lld_get_conv_rc2_data(paddr_t base, uint32 *ts,
+                                              uint16 *amsel, uint16 *data)
+{
+    uint32 reg_low = readl(base + SADC_CONV_RC2_LOW_BASE);
+    uint32 reg_high = readl(base + SADC_CONV_RC2_HIGH_BASE);
+
+    if (ts) {
+        *ts = (reg_high << 11) | (reg_low >> 21);
+    }
+
+    if (amsel) {
+        *amsel = (reg_low >> 12) & 0x1ff;
+    }
+
+    if (data) {
+        *data = reg_low & 0xfff;
+    }
+}
+
+static inline void sadc_lld_get_conv_rc3_data(paddr_t base, uint32 *ts,
+                                              uint16 *amsel, uint16 *data)
+{
+    uint32 reg_low = readl(base + SADC_CONV_RC3_LOW_BASE);
+    uint32 reg_high = readl(base + SADC_CONV_RC3_HIGH_BASE);
+
+    if (ts) {
+        *ts = (reg_high << 11) | (reg_low >> 21);
+    }
+
+    if (amsel) {
+        *amsel = (reg_low >> 12) & 0x1ff;
+    }
+
+    if (data) {
+        *data = reg_low & 0xfff;
+    }
+}
+
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif
+

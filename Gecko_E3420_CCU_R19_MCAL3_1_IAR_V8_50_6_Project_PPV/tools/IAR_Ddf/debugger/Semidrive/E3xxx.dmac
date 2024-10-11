@@ -1,0 +1,55 @@
+/*********************************************************************
+* _ExecDeviceReset()
+*********************************************************************/
+_ExecDeviceReset()
+{
+    /* disable debug mode */
+    __writeMemory32(0x00, 0xF0681074, "Memory");
+    __writeMemory32(0x00, 0xF07E0000, "Memory"); //WDT1
+    __writeMemory32(0x00, 0xF07F0000, "Memory"); //WDT2
+    __writeMemory32(0x00, 0xF2100000, "Memory"); //WDT3
+    __writeMemory32(0x00, 0xF2110000, "Memory"); //WDT4
+    __writeMemory32(0x00, 0xF0BE0000, "Memory"); //WDT5
+    __writeMemory32(0x00, 0xF0BF0000, "Memory"); //WDT6
+    __writeMemory32(0x00, 0xF31F0000, "Memory"); //WDT8
+    /* disable MPU and CACHE in SCTLR register */
+    __var reg;
+    reg = __readMemory32(0x01000000, "CP15Register");
+    /* bit0--SCTLR.M bit2--SCTLR.C bit12--SCTLR.I */
+    __writeMemory32(reg & 0xFFFFEFFA, 0x01000000, "CP15Register");
+
+}
+
+/*********************************************************************
+* _ExecDevicePreload()
+*********************************************************************/
+_ExecDevicePreload()
+{
+    /* disable MPU and CACHE in SCTLR register */
+    __var reg;
+    reg = __readMemory32(0x01000000, "CP15Register");
+    /* bit0--SCTLR.M bit2--SCTLR.C bit12--SCTLR.I */
+    __writeMemory32(reg & 0xFFFFEFFA, 0x01000000, "CP15Register");
+}
+
+/*********************************************************************
+* execUserExecutionStarted()
+*********************************************************************/
+execUserExecutionStarted()
+{
+    // debug_mode register is located in 0xF0681074
+     __writeMemory32(0x00, 0xF0681074, "Memory");
+
+}
+
+/*********************************************************************
+* execUserExecutionStopped()
+*********************************************************************/
+execUserExecutionStopped()
+{
+    // debug_mode register is located in 0xF0681074
+    // when debug mode signal is asserted, cnt/local_cnt will hold current value
+     __writeMemory32(0x01, 0xF0681074, "Memory");
+
+}
+

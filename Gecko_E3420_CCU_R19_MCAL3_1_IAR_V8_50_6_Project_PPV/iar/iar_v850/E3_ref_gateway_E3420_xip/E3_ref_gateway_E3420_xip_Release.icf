@@ -1,0 +1,89 @@
+define symbol intvec_start__ = 0x10140000;
+
+define symbol STACK_SZ = 0x14000;
+define symbol HEAP_SZ = 0x4000;
+define symbol DMA_BLOCK_SZ = 0x20000;
+define memory mem with size = 4G;
+
+define region TCM = mem:[from 0x40 to 0xffff];
+define region FLASH = mem:[from 0x10140000 to 0x107fffff];
+define region IRAM = mem:[from 0x404000 to 0x5fffff];
+
+do not initialize  { section .noinit };
+do not initialize  { section .zeroinit };
+do not initialize  { section .bss };
+do not initialize  { section .iram_bss };
+do not initialize  { section .tcm_bss };
+do not initialize  { section .mcal_bss.* };
+do not initialize  { section .dma_buffer };
+initialize manually { readwrite };
+initialize manually { section .data};
+initialize manually { section .mcal_data.* };
+initialize manually { section .iram_data };
+initialize manually { section .tcm_data };
+initialize manually { section .tcm_func, section .mcal_text.fast.* };
+initialize manually { section .iram_func };
+
+define block VECTOR_TBL with alignment = 32        { readonly section .vector };
+
+define block TEST_SECTION    with alignment = 32    { readonly section TEST_SECTION};
+define block shell_cmd       with alignment = 32    { readonly section shell_cmd};
+
+define block CBSS            with alignment = 32   { section .bss};
+define block MCALBSS         with alignment = 32   { section .mcal_bss.* };
+define block CDATA           with alignment = 32   { section .data };
+define block MCALDATA        with alignment = 32   { section .mcal_data.* };
+define block MCALCONST_CFG   with alignment = 32   { readonly section .mcal_const_cfg.* };
+define block MCALCONST       with alignment = 32   { readonly section .mcal_const.* };
+define block MCALTEXT        with alignment = 32   { section .mcal_text.* };
+define block IRAMFUNC        with alignment = 32   { section .iram_func };
+define block TCMFUNC         with alignment = 32   { section .tcm_func, section .mcal_text.fast.* };
+define block IRAMDATA        with alignment = 32   { section .iram_data };
+define block TCMDATA         with alignment = 32   { section .tcm_data };
+define block IRAMBSS         with alignment = 32   { section .iram_bss};
+define block TCMBSS          with alignment = 32   { section .tcm_bss};
+define block TEXT            with alignment = 32   { section .text};
+define block RODATA          with alignment = 32   { section .rodata};
+
+define block CDATA_init      with alignment = 32   { section .data_init };
+define block MCALDATA_init   with alignment = 32   { section .mcal_data.*_init };
+define block IRAMFUNC_init   with alignment = 32   { section .iram_func_init };
+define block TCMFUNC_init    with alignment = 32   { section .tcm_func_init, section .mcal_text.fast.*_init };
+define block IRAMDATA_init   with alignment = 32   { section .iram_data_init };
+define block TCMDATA_init    with alignment = 32   { section .tcm_data_init };
+
+define block DMABUFFER       with alignment = 128k, size       = DMA_BLOCK_SZ { readwrite section .dma_buffer, section .mcal_bss.*.nocache };
+
+define block CSTACK          with alignment = 32, size         = STACK_SZ     { };
+define block HEAP            with alignment = 32, minimum size = HEAP_SZ, expanding size { };
+
+place in IRAM  { readwrite };
+place in IRAM  { block CBSS };
+place in IRAM  { block MCALBSS };
+place in IRAM  { block CDATA };
+place in IRAM  { block MCALDATA };
+place in IRAM  { block HEAP, block CSTACK };
+
+place in TCM   { block TCMBSS };
+place in TCM   { block TCMDATA };
+place in TCM   { block TCMFUNC };
+
+place in FLASH  { readonly, block RODATA, block TEXT, block TEST_SECTION, block shell_cmd};
+place in FLASH  { block CDATA_init };
+place in FLASH  { block MCALDATA_init };
+place in FLASH  { block MCALCONST_CFG };
+place in FLASH  { block MCALCONST };
+place in FLASH  { block MCALTEXT };
+place in FLASH  { block TCMFUNC_init };
+place in FLASH  { block TCMDATA_init };
+place in FLASH  { block IRAMFUNC_init };
+place in FLASH  { block IRAMDATA_init };
+
+place in IRAM { block IRAMBSS };
+place in IRAM { block IRAMDATA };
+place in IRAM { block IRAMFUNC };
+place in IRAM { block DMABUFFER};
+
+place at address mem:intvec_start__ { block VECTOR_TBL };
+
+export symbol intvec_start__;

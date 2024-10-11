@@ -1,0 +1,298 @@
+<?xml version='1.0'?>
+<datamodel version="6.0"
+           xmlns="http://www.tresos.de/_projects/DataModel2/14/root.xsd"
+           xmlns:a="http://www.tresos.de/_projects/DataModel2/14/attribute.xsd"
+           xmlns:v="http://www.tresos.de/_projects/DataModel2/06/schema.xsd"
+           xmlns:d="http://www.tresos.de/_projects/DataModel2/06/data.xsd">
+
+  <d:ctr type="AUTOSAR" factory="autosar"
+         xmlns:ad="http://www.tresos.de/_projects/DataModel2/08/admindata.xsd"
+         xmlns:cd="http://www.tresos.de/_projects/DataModel2/08/customdata.xsd"
+         xmlns:f="http://www.tresos.de/_projects/DataModel2/14/formulaexpr.xsd"
+         xmlns:icc="http://www.tresos.de/_projects/DataModel2/08/implconfigclass.xsd"
+         xmlns:mt="http://www.tresos.de/_projects/DataModel2/11/multitest.xsd"
+         xmlns:variant="http://www.tresos.de/_projects/DataModel2/11/variant.xsd">
+    <d:lst type="TOP-LEVEL-PACKAGES">
+      <d:ctr name="TS_T01D20M1I4R0" type="AR-PACKAGE">
+        <d:lst type="ELEMENTS">
+          <d:chc name="ResourceManager" type="AR-ELEMENT" value="MODULE-DEF">
+            <v:ctr type="MODULE-DEF">
+              <a:a name="ADMIN-DATA" type="ADMIN-DATA">
+                 <ad:ADMIN-DATA>
+                   <ad:DOC-REVISIONS>
+                      <ad:DOC-REVISION>
+                        <ad:REVISION-LABEL>4.3.1</ad:REVISION-LABEL>
+                        <ad:ISSUED-BY>AUTOSAR</ad:ISSUED-BY>
+                      </ad:DOC-REVISION>
+                   </ad:DOC-REVISIONS>
+                 </ad:ADMIN-DATA>
+              </a:a>
+              <a:a name="DESC"
+                       value="EN: ."/>
+              <a:a name="LOWER-MULTIPLICITY" value="0"/>
+              <a:a name="POSTBUILDVARIANTSUPPORT" value="true"/>
+              <a:a name="RELEASE" value="asc:4.3.1"/>
+              <a:a name="UPPER-MULTIPLICITY" value="1"/>
+              <a:a name="UUID"
+                       value="ECUC:865c8c0e-f964-4d70-92a9-ff60c9da4cee"/>
+              <v:var name="IMPLEMENTATION_CONFIG_VARIANT"
+                         type="ENUMERATION">
+                    <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                         type="IMPLEMENTATIONCONFIGCLASS">
+                      <icc:v vclass="PreCompile">VariantPostBuild</icc:v>
+                      <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                    </a:a>
+                    <a:a name="LABEL" value="Config Variant"/>
+                    <a:da name="DEFAULT" value="VariantPostBuild"/>
+                    <a:da name="RANGE">
+                      <a:v>VariantPostBuild</a:v>
+                      <a:v>VariantPreCompile</a:v>
+                    </a:da>
+              </v:var>
+              <v:ctr name="ChipInfo" type="IDENTIFIABLE">
+                <a:a name="ENABLE" value="true"/>
+                <a:a name="DESC" value="EN: Display the chip's main feature."/>
+                <v:var name="PartNum" type="STRING">
+                    <a:a name="DESC"
+                         value="EN: Current chip part num."/>
+                  <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID"
+                       value="ECUC:31505abb-2290-4c99-bdb7-d0959f0440f2"/>
+                  <a:da name="EDITABLE" value="false"/>
+                  <a:da name="DEFAULT" type="XPath" expr="ecu:get('Chip.SubDerivate')"/>
+                </v:var>
+                <v:var name="CpuMaxFrequency" type="STRING">
+                    <a:a name="DESC"
+                         value="EN: Cpu maximum frequency."/>
+                  <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID"
+                       value="ECUC:31505abb-2290-4c99-bdb7-d0959f0440f2"/>
+                  <a:da name="EDITABLE" value="false"/>
+                  <a:da name="DEFAULT" type="XPath" expr="ecu:get('Chip.Core.MaxFrequency')"/>
+                </v:var>
+                <v:ctr name="CoreList" type="IDENTIFIABLE">
+                  <a:a name="ENABLE" value="true"/>
+                  <a:a name="DESC" value="EN: Display the core matrix."/>
+                  <v:var name="CR5_SF" type="BOOLEAN">
+                    <a:a name="DESC" value="EN: Display if the SF core exist."/>
+                    <a:da name="EDITABLE" value="false"/>
+                    <a:a name="ENABLE" type="XPath" expr="text:contains(ecu:get('Chip.Core'), 'CR5_SF')"/>
+                    <a:da name="DEFAULT" value="true" />
+                  </v:var>
+                  <v:var name="CR5_SX" type="BOOLEAN">
+                    <a:a name="DESC" value="EN: Display if the SX core exist."/>
+                    <a:da name="EDITABLE" value="false"/>
+                    <a:a name="ENABLE" type="XPath" expr="text:contains(ecu:get('Chip.Core'), 'CR5_SX')"/>
+                    <a:da name="DEFAULT" value="true" />
+                  </v:var>
+                  <v:var name="CR5_SP" type="BOOLEAN">
+                    <a:a name="DESC" value="EN: Display if the SP core exist."/>
+                    <a:da name="EDITABLE" value="false"/>
+                    <a:a name="ENABLE" type="XPath" expr="text:contains(ecu:get('Chip.Core'), 'CR5_SP')"/>
+                    <a:da name="DEFAULT" value="true" />
+                  </v:var>
+                </v:ctr>
+              </v:ctr>
+              <v:ctr name="LinkerFileConfig" type="IDENTIFIABLE">
+                <a:a name="ENABLE" value="true"/>
+                <a:a name="DESC" value="EN: Used for generating linker file."/>
+                <v:var name="ROM_LOCATION" type="ENUMERATION">
+                    <a:a name="DESC"
+                         value="EN: Select the rom location iram/flash."/>
+                  <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID"
+                       value="ECUC:31505abb-2290-4c99-bdb7-d0959f0440f2"/>
+                  <a:da name="DEFAULT" value="IRAM"/>
+                  <a:da name="RANGE">
+                    <a:v>IRAM</a:v>
+                    <a:v>FLASH</a:v>
+                  </a:da>
+                </v:var>
+                <v:var name="StackSize" type="INTEGER">
+                    <a:a name="DESC"
+                         value="EN: Select the rom location iram/flash."/>
+                  <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID"
+                       value="ECUC:31505abb-2290-4c99-bdb7-d0959f0440f2"/>
+                  <a:a name="DEFAULT_RADIX" value="HEX" />
+                  <a:da name="DEFAULT" value="81920"/>
+                </v:var>
+                <v:var name="FlashBase" type="INTEGER">
+                    <a:a name="DESC"
+                         value="EN: Define the Flash Start Address of Linker file."/>
+                  <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID"
+                       value="ECUC:31505abb-2290-4c99-bdb7-d0959f0440f2"/>
+                  <a:a name="DEFAULT_RADIX" value="HEX" />
+                  <a:da name="DEFAULT" value="268468224"/>
+                </v:var>
+                <v:var name="FlashSize" type="INTEGER">
+                    <a:a name="DESC"
+                         value="EN: Define the Flash Size of Linker file."/>
+                  <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID"
+                       value="ECUC:31505abb-2290-4c99-bdb7-d0959f0440f2"/>
+                  <a:a name="DEFAULT_RADIX" value="HEX" />
+                  <a:da name="DEFAULT" value="5210112"/>
+                </v:var>
+                <v:var name="IramBase" type="INTEGER">
+                    <a:a name="DESC"
+                         value="EN: Define the Iram Start Address of Linker file."/>
+                  <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID"
+                       value="ECUC:31505abb-2290-4c99-bdb7-d0959f0440f2"/>
+                  <a:da name="EDITABLE" type="XPath" expr="num:inttohex(node:value(.)) != num:inttohex(num:hextoint(ecu:get('Chip.Memory.IRAM.Base')) + 16384)"/>
+                  <a:a name="DEFAULT_RADIX" value="HEX" />
+                  <a:da name="DEFAULT" type="XPath" expr="num:inttohex(num:hextoint(ecu:get('Chip.Memory.IRAM.Base')) + 16384)" />
+                  <a:da name="INVALID"
+                        type="XPath"
+                        expr="num:inttohex(node:value(.)) = num:inttohex(num:hextoint(ecu:get('Chip.Memory.IRAM.Base')) + 16384)"
+                        false="Please click to auto-calculate"/>
+                </v:var>
+                <v:var name="IramSize" type="STRING">
+                    <a:a name="DESC"
+                         value="EN: Define the IRAM Size of Linker file."/>
+                  <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                  <a:a name="SCOPE" value="LOCAL"/>
+                  <a:da name="EDITABLE" value="false"/>
+                  <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                  <a:a name="UUID"
+                       value="ECUC:31505abb-2290-4c99-bdb7-d0959f0440f2"/>
+                  <a:da name="DEFAULT" type="XPath" expr="ecu:get('Chip.Memory.IRAM.Size')"/>
+                </v:var>
+              </v:ctr>
+              <v:lst name="ResMMcalCore" type="MAP">
+                <a:da name="MIN" value="0"/>
+                <a:da name="MAX" value="5"/>
+                <v:ctr name="ResMMcalCore" type="IDENTIFIABLE">
+                  <a:a name="UUID" value="c03229fe-4dca-445e-a47c-1ae21e6c1832"/>
+                  <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                   type="IMPLEMENTATIONCONFIGCLASS">
+                    <icc:v mclass="PreCompile">VariantPreCompile</icc:v>
+                  </a:a>
+                  <a:a name="DESC"
+                 value="EN:General container to allocate Mcal resources to cores"/>
+                  <icc:v mclass="PreCompile">VariantPreCompile</icc:v>
+                  <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                  <v:var name="ResMCoreID" type="ENUMERATION">
+                      <a:a name="DESC"
+                        value="EN: Select Master core."/>
+                      <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                      type="IMPLEMENTATIONCONFIGCLASS">
+                       <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                      </a:a>
+                      <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                      <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                      <a:a name="SCOPE" value="LOCAL"/>
+                      <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                      <a:a name="UUID"
+                          value="ECUC:c67e7cf8-3daf-455b-a213-95ae94b248d8"/>
+                      <a:da name="DEFAULT" value="CR5_SF"/>
+                      <a:da name="RANGE" type="XPath" expr="ecu:list('Chip.Core')"/>
+                      <a:da name="INVALID" type="XPath">
+                        <a:tst expr="text:uniq(../../*/ResMCoreID,.)"  false="Cores must be unique in this list."/>
+                      </a:da>
+                  </v:var>
+                  <v:lst name="ResMAllocation" type="MAP">
+                      <a:da name="MIN" value="1"/>
+                      <v:ctr name="ResMAllocation" type="IDENTIFIABLE">
+                        <a:a name="UUID" value="08f7956c-d857-438f-9504-12df1ba10e73"/>
+                        <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                         type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v mclass="PreCompile">VariantPreCompile</icc:v>
+                        </a:a>
+                        <a:a name="DESC"
+                                value="EN: Container to allocate module resources."/>
+                        <icc:v mclass="PreCompile">VariantPreCompile</icc:v>
+                        <a:a name="POSTBUILDVARIANTMULTIPLICITY" value="false"/>
+                         <v:var name="ResMModuleName" type="ENUMERATION">
+                             <a:a name="DESC"
+                                  value="EN: Module name."/>
+                          <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                          type="IMPLEMENTATIONCONFIGCLASS">
+                          <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                          </a:a>
+                           <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                           <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                           <a:a name="SCOPE" value="LOCAL"/>
+                           <a:a name="SYMBOLICNAMEVALUE" value="false"/>
+                           <a:a name="UUID"
+                                value="ECUC:7aa61340-e385-4037-b899-40ce3e5957544"/>
+                            <a:da name="DEFAULT" value="ADC"/>
+                           <a:da name="RANGE" type="XPath" expr="ecu:list('Chip.Module')"/>
+                         </v:var>
+                         <v:ref name="ResMResourceRef" type="CHOICE-REFERENCE">
+                           <a:a name="DESC"
+                                value="EN: This parameter contains reference to resource"/>
+                           <a:a name="IMPLEMENTATIONCONFIGCLASS"
+                           type="IMPLEMENTATIONCONFIGCLASS">
+                           <icc:v vclass="PreCompile">VariantPreCompile</icc:v>
+                           </a:a>
+                           <a:a name="POSTBUILDVARIANTVALUE" value="false"/>
+                           <a:a name="ORIGIN" value="SEMIDRIVE"/>
+                           <a:a name="SCOPE" value="ECU"/>
+                           <a:a name="UUID"
+                                value="ECUC:ea7f8f6d-5d98-4bc4-808e-dc02c4c233ea"/>
+                             <a:da name="REF">
+                             <a:v>ASPathDataOfSchema:/AUTOSAR/EcucDefs/Pwm/PwmChannelConfigSet/PwmController</a:v>
+                             <a:v>ASPathDataOfSchema:/AUTOSAR/EcucDefs/Icu/IcuConfigSet/IcuChannel</a:v>
+                             <a:v>ASPathDataOfSchema:/AUTOSAR/EcucDefs/Gpt/GptChannelConfigSet/GptChannelConfiguration</a:v>
+                             <a:v>ASPathDataOfSchema:/AUTOSAR/EcucDefs/Adc/AdcConfigSet/AdcHwUnit</a:v>
+                             <a:v>ASPathDataOfSchema:/AUTOSAR/EcucDefs/Eth/EthConfigSet/EthCtrlConfig</a:v>
+                             <a:v>ASPathDataOfSchema:/AUTOSAR/EcucDefs/Wdg/WdgSettingsConfig</a:v>
+                             <a:v>ASPathDataOfSchema:/AUTOSAR/EcucDefs/EthTrcv/EthTrcvConfigSet/EthTrcvConfig</a:v>
+                             <a:v>ASPathDataOfSchema:/AUTOSAR/EcucDefs/Spi/SpiDriver/SpiHwUnit</a:v>
+                             <a:v>ASPathDataOfSchema:/AUTOSAR/EcucDefs/SpiSlave/SpiSlaveDriver/SpiSlaveHwUnit</a:v>
+                             <a:v>ASPathDataOfSchema:/AUTOSAR/EcucDefs/Dma/DmaConfigSet/DmaHwUnit</a:v>
+                             </a:da>
+                             <a:da name="INVALID" type="XPath">
+                               <a:tst expr="text:uniq(../../../../*/ResMAllocation/*/ResMResourceRef,.)" false="ResMResourceRef should be unique.Enter different reference"/>
+                               <a:tst expr=" (../ResMModuleName='PWM') and not(contains(.,'/Pwm/'))" true="Failed to refer to PWM module"/>
+                               <a:tst expr=" (../ResMModuleName='ICU') and not(contains(.,'/Icu/'))" true="Failed to refer to ICU module"/>
+                               <a:tst expr=" (../ResMModuleName='GPT') and not(contains(.,'/Gpt/'))" true="Failed to refer to GPT module"/>
+                               <a:tst expr=" (../ResMModuleName='ADC') and not(contains(.,'/Adc/'))" true="Failed to refer to ADC module"/>
+                               <a:tst expr=" (../ResMModuleName='ETH') and not(contains(.,'/Eth/'))" true="Failed to refer to ETH module"/>
+                               <a:tst expr=" (../ResMModuleName='WDG') and not(contains(.,'/Wdg/'))" true="Failed to refer to WDG module"/>
+                               <a:tst expr=" (../ResMModuleName='ETHTRCV') and not(contains(.,'/EthTrcv/'))" true="Failed to refer to EthTrcv module"/>
+                               <a:tst expr=" (../ResMModuleName='SPI') and not(contains(.,'/Spi'))" true="Failed to refer to Spi module"/>
+                               <a:tst expr=" (../ResMModuleName='DMA') and not(contains(.,'/Dma/'))" true="Failed to refer to Dma module"/>
+                               <a:tst expr=" node:refvalid(.)" false="The configured node does not exist or may not be referenced."/>
+                               <!-- if(is GPT cfg) {
+                                  gpt_cfgs = get gpt_cfg from other core
+                                  if (gpt_cfgs.btm contains(current_cfg.btm)) {
+                                     return fasle
+                                  } else {
+                                     return true;
+                                  }
+                               } else {
+                                  return true
+                               }
+                               -->>
+                               <a:tst expr=" node:when(../ResMModuleName='GPT',not(text:contains(node:refs(node:difference(node:filter(../../../../*/ResMAllocation/*, &quot;node:value(./ResMModuleName)='GPT'&quot;), node:filter(../../../ResMAllocation/*,&quot;node:value(./ResMModuleName)='GPT'&quot;))/ResMResourceRef)/GptHwModule, node:ref(.)/GptHwModule)), 'true' )" false=" Same BTM module's channels was disaptch different core. "/>
+                             </a:da>
+                         </v:ref>
+                      </v:ctr>
+                  </v:lst>
+                </v:ctr>
+              </v:lst>
+            </v:ctr>
+          </d:chc>
+        </d:lst>
+      </d:ctr>
+    </d:lst>
+  </d:ctr>
+</datamodel>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flash_board>
+    <pass>
+        <loader>sx0.flash</loader>
+        <range>CODE 0x404000 0x7FFFFF</range>
+        <abs_offset>0x10440000</abs_offset>
+        <args>
+            4
+            1
+            0x500000
+        </args>
+    </pass>
+</flash_board>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flash_board>
+    <pass>
+        <loader>E3210HyperFlash.flash</loader>
+        <range>CODE 0x10000000 0x17ffffff</range>
+        <abs_offset>0x100C1000</abs_offset>
+        <args>
+            0
+            1
+        </args>
+    </pass>
+</flash_board>

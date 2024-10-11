@@ -1,0 +1,224 @@
+{
+	"tag": "0x53465301",
+	"init_act_t": [{
+			"header": "(((0) << 6) | ((0) << 3) | ((0) << 0))",
+			"command": 0,
+			"addr": "0x0",
+			"data0": 0,
+			"data1": 0
+		},
+		{
+			"header": "(((0) << 6) | ((0) << 3) | ((0) << 0))",
+			"command": "0x0",
+			"addr": "0x0",
+			"data0": "0x0",
+			"data1": 0
+		}
+	],
+
+	"xfer_attr_t": {
+		"cmd": "0xFD",
+		"cinst_type": 0,
+		"caddr_type": 3,
+		"cdata_type": 3,
+		"caddr_size": 4,
+		"cmode": 0,
+		"cdummy_size": 16,
+		"cflag": "0x1",
+		"rsvd": [0, 0, 0, 0, 0, 0, 0, 0]
+	},
+
+	"ip_settings_t": {
+		"flags": "0x0",
+		"rx_delay": "0xF",
+		"kunlun": "+++",
+			"tx_delay": 0,
+			"csda": 0,
+			"csdada": 0,
+			"cseot": 0,
+			"cssot": 0,
+			"min_rx_win": 0,
+			"rx_training_step": 0,
+		"kunlun": "---",
+		"ctrl_misc": 0,
+		"rsvd": [0, 0, 0, 0, 0]
+	},
+	"freq": 2,
+	"sw_reset_info": 39,
+	"training_pattern": ["0x5a", "0xa5", "0xf0", "0x0f", "0x0f", "0xf0", "0xa5", "0x5a"],
+
+	"_comments": {
+		"init_act_t": {
+			"des": "INIT_ACT array, Initialization action array which includes 10 INIT_ACT at most.",
+			"size": "6*10 bytes, below is valid defined",
+			"header": "(((act_type) << 6) | ((a_sz) << 3) | ((d_sz) << 0))",
+			"command": "1byte",
+			"addr": "2bytes",
+			"data0": "1byte",
+			"data1": "1byte",
+			"act_type": {
+				"REG_WR(0x01)": "ACT_REG_WR(cmd, a_sz, d_sz, a, d) : (ACT_HDR(1, a_sz, d_sz), cmd, a, (d)&0xff, ((d)>>8)&0xff)); e.g. ACT_REG_WR(0x81, 3, 1, 0, 0xe7)",
+				"REG_POLL(0x02)": "ACT_REG_POLL(cmd, bit, v) : (ACT_HDR(2, 0, 1), cmd, 0, bit, v); e.g. ACT_REG_POLL(0x05, 0, 0)",
+				"CTL_SYNC(0x03)": "ACT_SYNC(io, edge) : (ACT_HDR(3, 0, 0), 0, 0, io, edge); e.g. ACT_SYNC(2, 0)"
+			}
+		},
+
+		"xfer_attr_t": {
+			"des": "Read XFER Configuration",
+			"size": "16 bytes",
+			"cmd": {
+				"des": "The command code for read",
+				"size": "1byte"
+			},
+			"cinst_type": {
+				"des": "IO type of CMD",
+				"size": "1byte, below is valid data",
+				"0": "Single IO",
+				"1": "Dual IO",
+				"2": "Quad IO",
+				"3": "Octal IO"
+			},
+			"caddr_type": {
+				"des": "IO type of Adress",
+				"size": "1byte, below is valid data",
+				"0": "Single IO",
+				"1": "Dual IO",
+				"2": "Quad IO",
+				"3": "Octal IO"
+			},
+			"cdata_type": {
+				"des": "IO type of Data",
+				"size": "1byte, below is valid data",
+				"0": "Single IO",
+				"1": "Dual IO",
+				"2": "Quad IO",
+				"3": "Octal IO"
+			},
+			"caddr_size": {
+				"des": "Address size",
+				"size": "1byte, below is valid data",
+				"3": "3bytes addressing",
+				"4": "4bytes addressing"
+			},
+			"cmode": {
+				"des": "Mode, The Mode value to be sent, Valid only if MODE_VALID set in Flag",
+				"size": "1byte"
+			},
+			"cdummy_size": {
+				"des": "Dummy size, The number of the dummy cycles",
+				"size": "1byte"
+			},
+			"cflag": {
+				"des": "Flag",
+				"size": "1byte, below is valid defined",
+				"Bit0": "DDR, indicating this read xfer is in DDR mode",
+				"Bit1": "DQS, indicating this read xfer shall use DQS",
+				"Bit2": "DTR, indicating this read xfer is in DTR(Double Data Rate) protocol",
+				"Bit3": "DUAL_OPCODE_INV",
+				"Bit4": "Data Flip",
+				"Bit5": "MODE_VALID",
+				"Bit6": "ECC_EN,For safety ROM only,If set, Rom code setup ECC_FAIL pad and enbale ECC_FAIL IRQ",
+				"Bit7": "CRC_EN,For safety ROM only,If set, Rom code enables CRC feature of OSPI controller and also enable RX_CRC_MASK_IRQ"
+			},
+			"rsvd": {
+				"des": "Reserved",
+				"size": "8bytes, Shall be 0"
+			}
+		},
+
+		"ip_settings_t": {
+			"des": "IP(XSPI controller) specific settings",
+			"size": "16 bytes",
+			"flags": {
+				"des": "IPS_FLAG",
+				"size": "2bytes, below is valid defined",
+				"taishan": {
+					"Bit0": "IPS_LPBK,If set, SCLK loopback is desired as sample clock",
+					"Bit5": "IPS_RX_DLL_BYPASS,map to (RX DLL Bypass bit) of PHY_CONFIGURATION register"
+				},
+				"kunlun": {
+					"Bit0": "IPS_LPBK",
+					"Bit1": "IPS_DLL_BYPASS_MODE",
+					"Bit2": "IPS_TAPMODE",
+					"Bit3": "IPS_PHY_TRAINING",
+					"Bit4": "IPS_PHY_FIFO_POP_DELAY",
+					"Bit5": "IPS_RX_DLL_BYPASS",
+					"Bit10-8": "IPS_PHY_DLL_PHASE_DETECT_SEL Map to bit[22:20] of register PHY_DLL_MASTER_CONTROL register, Valid for phy mode only",
+					"Bit14": "IPS_DEVDLY_VALID",
+					"Bit15": "IPS_RXTX_DELAY_VALID. indicating RX delay and TX delay are valid"
+				}
+			},
+			"rx_delay": {
+				"des": "RX delay, if non-zero, used to override DLL_CTRL and DLL1_CTRL SLV_TARGET",
+				"size": "1byte"
+			},
+
+			"kunlun": {
+				"tx_delay": {
+					"des": "TX delay, Valid if IPS_RXTX_DELAY_VALID set",
+					"size": "1byte"
+				},
+				"csda": {
+					"des": "CSDA, Mapped to OSPI device delay register CSDA field,Valid if IPS_DEVDLY_VALID set",
+					"size": "1byte"
+				},
+				"csdada": {
+					"des": "CSDADA, Mapped to OSPI device delay register CSDADA field,Valid if IPS_DEVDLY_VALID set",
+					"size": "1byte"
+				},
+				"cseot": {
+					"des": "CSEOT, Mapped to OSPI device delay register CSEOT field,Valid if IPS_DEVDLY_VALID set",
+					"size": "1byte"
+				},
+				"cssot": {
+					"des": "CSSOT, Mapped to OSPI device delay register CSSOT field,Valid if IPS_DEVDLY_VALID set",
+					"size": "1byte"
+				},
+				"min_rx_win": {
+					"des": "Mininum RX Delay valid window size for PHY training",
+					"size": "1byte"
+				},
+				"rx_training_step": {
+					"des": "RX DLY Training Step, The step used for phy training, Shall <=4, if 0, ROM set traning step as 1",
+					"size": "1byte"
+				}
+			},
+
+			"ctrl_misc": {
+				"des": "Valid if LPS_LPBK of IPS_FLAG set",
+				"size": "1byte",
+				"0": "SCLK loopback",
+				"2": "DQS loopback"
+			},
+			"rsvd": {
+				"des": "Reserved",
+				"size": "5byte, Shall be 0"
+			}
+		},
+
+		"freq": {
+			"des": "Freq, The SCLK frequency desired",
+			"size": "1byte, below is valid data",
+			"taishan": {
+				"0": "Freq0,25MHz on Taishan",
+				"1": "Freq1,50MHz on Taishan",
+				"2": "Freq2,66MHz on Taishan",
+				"3": "Freq3,100MHz on Taishan",
+				"4": "Freq4,125MHz on Taishan"
+			},
+			"kunlun": {
+				"0": "Freq0,25MHz",
+				"1": "Freq1,50MHz",
+				"2": "Freq2,100MHz",
+				"3": "Freq3,133MHz"
+			}
+		},
+		"reserved": "reserved 6 bytes",
+		"sw_reset_info": "1byte, if valid, Boot ROM write this value info Boot ROM Flag resgister and Boot ROM will issue SW reset to NOR flash if (HW reset) fuse was not blown",
+		"training_pattern": "8bytes, 0x5AA5F00F_0FF0A55A is recommended",
+		"normal_iamge_addr": "4bytes, shall be 4KB aligned",
+		"backup_image_addr": "4bytes, shall be 4KB aligned",
+		"third_image_addr": "4bytes, shall be 4KB aligned, just for taishan",
+		"crc": "4bytes, bytes, automatic calculation"
+	}
+}

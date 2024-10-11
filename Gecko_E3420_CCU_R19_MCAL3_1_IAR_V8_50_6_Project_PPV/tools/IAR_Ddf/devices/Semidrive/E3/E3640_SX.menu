@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<optionMenuItem>
+  <tag>E3640_SX</tag>
+  <display>SemiDrive E3640_SX</display>
+  <data>$CUR_DIR$/E3640_SX.i79</data>
+</optionMenuItem>
