@@ -1,0 +1,13 @@
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\bin\armproc.dll" 
+
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\bin\armjlink2.dll" 
+
+"D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project_noabswp_xcpiram\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\iar\iar_v850\E3_ref_gateway_E3420_xip\Debug_withRemap\Exe\E3_ref_gateway_E3420_xip.elf" 
+
+--plugin="C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\arm\bin\armbat.dll" 
+
+--flash_loader="D:\wwq\Software_lib\Gecko_E3420_CCU_R19_MCAL3_1__IAR_V8_50_6_Project\tools\IAR_Ddf\flashloader\SemiDrive\3420\xip\hyperflash\iar_flashboardcfg_bootloader.board" 
+
+
+
+

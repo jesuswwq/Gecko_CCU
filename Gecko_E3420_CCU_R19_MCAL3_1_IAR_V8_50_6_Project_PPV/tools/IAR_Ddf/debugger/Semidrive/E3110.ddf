@@ -1,0 +1,41 @@
+
+;; Memory information ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Used to define address zones within the ARM address space (Memory).
+;;
+;;   Name      may be almost anything
+;;   AdrSpace  must be Memory
+;;   StartAdr  start of memory block
+;;   EndAdr    end of memory block
+;;   AccType   type of access, read-only (R), read-write (RW) or SFR (W)
+
+[Memory]
+;;         Name             AdrSpace    StartAdr    EndAdr      AccType   Width
+Memory =  ROM              Memory      0x00000000  0x0001FFFF  R  
+Memory =  IRAM1            Memory      0x00400000  0x004FFFFF  RW 
+Memory =  IRAM1_ECC        Memory      0x00860000  0x0087FFFF  RW 
+Memory =  IRAM1_ECC_Alias  Memory      0x00B80000  0x00B9FFFF  RW 
+Memory =  IRAM1_Alias      Memory      0x00C00000  0x00CFFFFF  RW 
+Memory =  SF_CACHE         Memory      0x01930000  0x0194FFFF  RW 
+Memory =  SF_TCM           Memory      0x01970000  0x0197FFFF  RW 
+Memory =  MAILBOX_Alias    Memory      0x02000000  0x02009FFF  W  
+Memory =  SEIP_TCM         Memory      0x02100000  0x0213FFFF  RW 
+Memory =  SEIP_Periph      Memory      0x02140000  0x02200FFF  W  
+Memory =  Flash            Memory      0x10000000  0x1FFFFFFF  R  
+Memory =  PeriphAPB1       Memory      0xF0000000  0xF00AFFFF  W  
+Memory =  PeriphAPB2       Memory      0xF0400000  0xF07FFFFF  W  
+Memory =  PeriphAPB3       Memory      0xF0800000  0xF0BFFFFF  W  
+Memory =  PeriphAPB4       Memory      0xF0C00000  0xF0FEFFFF  W  
+Memory =  VIC1             Memory      0xF1C00000  0xF1C0FFFF  W  
+Memory =  VIC3             Memory      0xF1C20000  0xF1C3FFFF  W  
+Memory =  VIC2             Memory      0xF2C00000  0xF2C1FFFF  W  
+Memory =  PeriphAPB5       Memory      0xF2000000  0xF218FFFF  W  
+Memory =  PeriphAPB6       Memory      0xF3000000  0xF31FFFFF  W  
+Memory =  PeriphAPB7       Memory      0xF3400000  0xF34CFFFF  W  
+Memory =  MAILBOX          Memory      0xF4000000  0xF4009FFF  W  
+
+TrustedRanges = true
+UseSfrFilter = true
+
+[SfrInclude]
+File = E3Regs.ddf

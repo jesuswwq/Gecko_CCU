@@ -1,0 +1,30 @@
+[FILEFORMAT]
+rev=1.6
+
+[CHIP]
+name=V9xR5_SP
+endiansupport=le
+thumbsupport=true
+armsupport=true
+fpu=VFPv3
+SIMD=false
+
+DeviceMacros=$TOOLKIT_DIR$/config/debugger/SemiDrive/V9G9xR5.dmac
+ProbeConfigFile=$TOOLKIT_DIR$/config/debugger/SemiDrive/V9G9xR5_SP.ProbeConfig
+
+JTAG=true
+RTCK=false
+SWD=true
+SWO_TraceD0=false
+
+[CORE]
+name=Cortex-R5
+
+[DDF FILE]
+name=SemiDrive/V9xR5_SP.ddf
+
+[LINKER FILE]
+name=$TOOLKIT_DIR$/config/linker/SemiDrive/V9G9xR5.icf
+
+[FLASH LOADER]
+little=$TOOLKIT_DIR$/config/flashloader/SemiDrive/FlashV9x.board

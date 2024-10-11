@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<flash_device>
+  <exe>flashloader.out</exe>
+  <macro>../iar_flashmacro.mac</macro>
+  <page>256</page>
+  <block>128 0x1000</block>
+  <flash_base>0x10008000</flash_base>
+  <aggregate>1</aggregate>
+</flash_device>

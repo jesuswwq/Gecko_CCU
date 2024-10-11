@@ -1,0 +1,1787 @@
+/*============================================================================*/
+/*  Copyright (C) iSOFT   (2022), iSOFT INFRASTRUCTURE SOFTWARE CO.,LTD.
+ *  
+ *  All rights reserved. This software is iSOFT property. Duplication 
+ *  or disclosure without iSOFT written authorization is prohibited.
+ *  
+ *  @file       <Rte_Data.h>
+ *  @brief      <>
+ *  
+ *  <MCU:E3420>
+ *  
+ *  @author     <>
+ *  @date       <2024-10-10 14:07:58>
+ */
+/*============================================================================*/
+
+/* Rte_Data.h */
+
+#ifndef RTE_DATA_H
+#define RTE_DATA_H
+
+/*******************************************************************************
+ **                        Revision Control History                           **
+******************************************************************************/
+
+/*******************************************************************************
+ **                        Version Information                                **
+******************************************************************************/
+
+/*******************************************************************************
+ **                        Include Section                                    **
+******************************************************************************/
+#include "Rte_Type.h"
+#include "Os_Types.h"
+
+/*******************************************************************************
+ **                        Global Variable Declarations                       **
+******************************************************************************/
+
+extern ACCM_Version_BOD Rte_Buf_Runbl_IpmCanRx_100ms_ACCM_Version_BOD_ACCM_Version_BOD;
+
+extern AlmSysCtl Irv_AppSwcBcm_AlmSysCtl_Bus;
+
+extern AlmSysCtl Irv_AppSwcBcm_AppSwcBcm_Init_AlmSysCtl_Bus;
+
+extern AlmSysCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_AlmSysCtl_Bus;
+
+extern AlmSysCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_AlmSysCtl_Bus;
+
+extern AlmSysCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_AlmSysCtl_Bus;
+
+extern AlmSysCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_AlmSysCtl_Bus;
+
+extern BMS_10_DC_ChargeStates_EPT Rte_Buf_Runbl_IpmCanRx_20ms_BMS_10_DC_ChargeStates_EPT_BMS_10_DC_ChargeStates_EPT;
+
+extern BMS_1_MainState_EPT Rte_Buf_Runbl_IpmCanRx_20ms_BMS_1_MainState_EPT_BMS_1_MainState_EPT;
+
+extern BMS_2_BatState_EPT Rte_Buf_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState_EPT;
+
+extern BMS_3_DC_ChargeState_EPT Rte_Buf_Runbl_IpmCanRx_20ms_BMS_3_DC_ChargeState_EPT_BMS_3_DC_ChargeState_EPT;
+
+extern BMS_4_AC_ChargeState_EPT Rte_Buf_Runbl_IpmCanRx_20ms_BMS_4_AC_ChargeState_EPT_BMS_4_AC_ChargeState_EPT;
+
+extern BMS_5_BatTemp_EPT Rte_Buf_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT;
+
+extern BMS_6_DischrgRecup_EPT Rte_Buf_Runbl_IpmCanRx_20ms_BMS_6_DischrgRecup_EPT_BMS_6_DischrgRecup_EPT;
+
+extern BMS_7_CellVolt_EPT Rte_Buf_Runbl_IpmCanRx_20ms_BMS_7_CellVolt_EPT_BMS_7_CellVolt_EPT;
+
+extern BMS_9_BattInfo_EPT Rte_Buf_Runbl_IpmCanRx_100ms_BMS_9_BattInfo_EPT_BMS_9_BattInfo_EPT;
+
+extern BatSaveCtl Irv_AppSwcBcm_BatSaveCtl_Bus;
+
+extern BatSaveCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_BatSaveCtl_Bus;
+
+extern BatSaveCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_BatSaveCtl_Bus;
+
+extern Boolean Rte_Buf_Task_100ms_AcPMP_PumpDryRunningSta_AcPMP_PumpDryRunningSta;
+
+extern Boolean Rte_Buf_Task_100ms_AcPMP_RESP_ERROR_AcPMP_RESP_ERROR;
+
+extern Boolean Rte_Buf_Task_100ms_BAT_EXV_ResponseError_B_BAT_EXV_ResponseError_B;
+
+extern Boolean Rte_Buf_Task_100ms_BAT_EXV_RunState_B_BAT_EXV_RunState_B;
+
+extern Boolean Rte_Buf_Task_100ms_BAT_EXV_SupplierLabel_BAT_EXV_SupplierLabel;
+
+extern Boolean Rte_Buf_Task_100ms_BAT_EXV_Warning_OverTemp_BAT_EXV_Warning_OverTemp;
+
+extern Boolean Rte_Buf_Task_100ms_BatPMP_PumpDryRunningSta_BatPMP_PumpDryRunningSta;
+
+extern Boolean Rte_Buf_Task_100ms_BatPMP_RESP_ERROR_BatPMP_RESP_ERROR;
+
+extern Boolean Rte_Buf_Task_100ms_C3WV_ErrResp_C3WV_ErrResp;
+
+extern Boolean Rte_Buf_Task_100ms_C3WV_RunSts_C3WV_RunSts;
+
+extern Boolean Rte_Buf_Task_100ms_C5WVRunSts_C5WVRunSts;
+
+extern Boolean Rte_Buf_Task_100ms_EXV_ResponseError_EXV_ResponseError;
+
+extern Boolean Rte_Buf_Task_100ms_EXV_RunState_EXV_RunState;
+
+extern Boolean Rte_Buf_Task_100ms_ErrRespC5WV_ErrRespC5WV;
+
+extern Boolean Rte_Buf_Task_100ms_HP_EXV_ResponseError_B_HP_EXV_ResponseError_B;
+
+extern Boolean Rte_Buf_Task_100ms_HP_EXV_RunState_B_HP_EXV_RunState_B;
+
+extern Boolean Rte_Buf_Task_100ms_HP_EXV_SupplierLabel_HP_EXV_SupplierLabel;
+
+extern Boolean Rte_Buf_Task_100ms_HP_EXV_Warning_OverTemp_HP_EXV_Warning_OverTemp;
+
+extern Boolean Rte_Buf_Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta;
+
+extern Boolean Rte_Buf_Task_100ms_MotPMP_RESP_ERROR_MotPMP_RESP_ERROR;
+
+extern CCP_PanelStatus_BOD Rte_Buf_Runbl_IpmCanRx_50ms_CCP_PanelStatus_BOD_CCP_PanelStatus_BOD;
+
+extern COMP_AC_BOD Rte_Buf_Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD;
+
+extern CRRR_A_CHA Rte_Buf_Runbl_IpmCanRx_20ms_CRRR_A_CHA_CRRR_A_CHA;
+
+extern DAG_Comm_outputs Rte_Buf_Runbl_IpmMsgActv_10ms_DAG_Comm_outputs_DAG_Comm_outputs;
+
+extern DAG_Comm_outputs Irv_AppSwcVcu_DAG_Comm_outputsIRV;
+
+extern DAG_Comm_outputs Irv_AppSwcVcu_AppSwcVcu_Init_DAG_Comm_outputsIRV;
+
+extern DAG_Comm_outputs Irv_AppSwcVcu_Runbl_DAG_20ms_DAG_Comm_outputsIRV;
+
+extern DAG_Comm_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_DAG_Comm_outputsIRV;
+
+extern DAG_FltActn_outputs Irv_AppSwcVcu_DAG_FltActn_outputs;
+
+extern DAG_FltActn_outputs Irv_AppSwcVcu_AppSwcVcu_Init_DAG_FltActn_outputs;
+
+extern DAG_FltActn_outputs Irv_AppSwcVcu_Runbl_DAG_20ms_DAG_FltActn_outputs;
+
+extern DAG_FltActn_outputs Irv_AppSwcVcu_Runbl_EMS_20ms_DAG_FltActn_outputs;
+
+extern DAG_FltActn_outputs Irv_AppSwcVcu_Runbl_GSM_20ms_DAG_FltActn_outputs;
+
+extern DAG_FltActn_outputs Irv_AppSwcVcu_Runbl_HMI_100ms_DAG_FltActn_outputs;
+
+extern DAG_FltActn_outputs Irv_AppSwcVcu_Runbl_HVM_20ms_DAG_FltActn_outputs;
+
+extern DAG_FltActn_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_DAG_FltActn_outputs;
+
+extern DAG_FltActn_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_DAG_FltActn_outputs;
+
+extern DAG_Other_outputs Irv_AppSwcVcu_DAG_Other_outputs;
+
+extern DAG_Other_outputs Irv_AppSwcVcu_AppSwcVcu_Init_DAG_Other_outputs;
+
+extern DAG_Other_outputs Irv_AppSwcVcu_Runbl_DAG_20ms_DAG_Other_outputs;
+
+extern DAG_Other_outputs Irv_AppSwcVcu_Runbl_HMI_100ms_DAG_Other_outputs;
+
+extern DAG_Sensor10ms_outputs Irv_AppSwcVcu_DAG_Sensor10ms_outputs;
+
+extern DAG_Sensor10ms_outputs Irv_AppSwcVcu_AppSwcVcu_Init_DAG_Sensor10ms_outputs;
+
+extern DAG_Sensor10ms_outputs Irv_AppSwcVcu_Runbl_DAG_20ms_DAG_Sensor10ms_outputs;
+
+extern DAG_Sensor10ms_outputs Irv_AppSwcVcu_Runbl_GSM_20ms_DAG_Sensor10ms_outputs;
+
+extern DAG_Sensor10ms_outputs Irv_AppSwcVcu_Runbl_HVM_20ms_DAG_Sensor10ms_outputs;
+
+extern DAG_Sensor10ms_outputs Irv_AppSwcVcu_Runbl_IPC_10ms_DAG_Sensor10ms_outputs;
+
+extern DSA_outputs Irv_AppSwcVcu_DSA_outputs;
+
+extern DSA_outputs Irv_AppSwcVcu_Runbl_DSA_100ms_DSA_outputs;
+
+extern DSA_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_DSA_outputs;
+
+extern DT_Bcm2OpmBAC_outputs Rte_Buf_Runbl_OpmRx_10ms_Bcm2OpmBAC_outputs_Bcm2OpmBAC_outputs;
+
+extern DT_Bcm2OpmBAC_outputs Irv_AppSwcOpm_Bcm2OpmBAC_outputs;
+
+extern DT_Bcm2OpmBAC_outputs Irv_AppSwcOpm_Runbl_OpmCanTx_100ms_Bcm2OpmBAC_outputs;
+
+extern DT_Bcm2OpmBAC_outputs Irv_AppSwcOpm_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs;
+
+extern DT_Bcm2OpmBAC_outputs Irv_AppSwcOpm_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs;
+
+extern DT_Bcm2OpmBAC_outputs Irv_AppSwcOpm_Runbl_OpmRx_10ms_Bcm2OpmBAC_outputs;
+
+extern DT_Bcm2OpmEPT_outputs Rte_Buf_Runbl_OpmCanTx_100ms_Bcm2OpmEPT_outputs_Bcm2OpmEPT_outputs;
+
+extern DT_Bcm2OpmOBD_outputs Rte_Buf_Runbl_OpmCanTx_100ms_Bcm2OpmOBD_outputs_Bcm2OpmOBD_outputs;
+
+extern DT_Bcm2VcuTms_outputs Rte_Buf_Task_100ms_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs;
+
+extern DT_Bcm2VcuTms_outputs Rte_Buf_Runbl_VcuRx_10ms_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs;
+
+extern DT_Bcm2VcuTms_outputs Irv_AppSwcVcu_Bcm2VcuTms_outputs;
+
+extern DT_Bcm2VcuTms_outputs Irv_AppSwcVcu_Runbl_GSM_20ms_Bcm2VcuTms_outputs;
+
+extern DT_Bcm2VcuTms_outputs Irv_AppSwcVcu_Runbl_HVM_20ms_Bcm2VcuTms_outputs;
+
+extern DT_Bcm2VcuTms_outputs Irv_AppSwcVcu_Runbl_TBOX_100ms_Bcm2VcuTms_outputs;
+
+extern DT_Bcm2VcuTms_outputs Irv_AppSwcVcu_Runbl_VcuRx_10ms_Bcm2VcuTms_outputs;
+
+extern DT_Bcm2VcuTms_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_Bcm2VcuTms_outputs;
+
+extern DT_CANCommCRCFlt Rte_Buf_Runbl_DAG_20ms_CANCommCRCFlt_outputs_CANCommCRCFlt_outputs;
+
+extern DT_CANCommCRCFlt Irv_AppSwcIpm_CANCommCRCFlt_outputsIRV;
+
+extern DT_CANCommCRCFlt Irv_AppSwcIpm_Runbl_IpmCanRx_100ms_CANCommCRCFlt_outputsIRV;
+
+extern DT_CANCommCRCFlt Irv_AppSwcIpm_Runbl_IpmCanRx_10ms_CANCommCRCFlt_outputsIRV;
+
+extern DT_CANCommCRCFlt Irv_AppSwcIpm_Runbl_IpmCanRx_20ms_CANCommCRCFlt_outputsIRV;
+
+extern DT_CANCommCRCFlt Irv_AppSwcIpm_Runbl_IpmCanRx_50ms_CANCommCRCFlt_outputsIRV;
+
+extern DT_CANCommCRCFlt Irv_AppSwcIpm_Runbl_IpmMsgActv_10ms_CANCommCRCFlt_outputsIRV;
+
+extern DT_CANCommErr Rte_Buf_Runbl_VcuRx_10ms_CANCommErr_outputs_CANCommErr_outputs;
+
+extern DT_CANCommErr Irv_AppSwcVcu_CANCommErr_outputs;
+
+extern DT_CANCommErr Irv_AppSwcVcu_Runbl_DAG_20ms_CANCommErr_outputs;
+
+extern DT_CANCommErr Irv_AppSwcVcu_Runbl_RME_100ms_CANCommErr_outputs;
+
+extern DT_CANCommErr Irv_AppSwcVcu_Runbl_TBOX_100ms_CANCommErr_outputs;
+
+extern DT_CANCommErr Irv_AppSwcVcu_Runbl_VcuRx_10ms_CANCommErr_outputs;
+
+extern DT_HardWire_Input_VCU Irv_AppSwcVcu_HardWire_Input_VCU;
+
+extern DT_HardWire_Input_VCU Irv_AppSwcVcu_Runbl_DAG_20ms_HardWire_Input_VCU;
+
+extern DT_HardWire_Input_VCU Irv_AppSwcVcu_Runbl_GSM_20ms_HardWire_Input_VCU;
+
+extern DT_HardWire_Input_VCU Irv_AppSwcVcu_Runbl_HMI_100ms_HardWire_Input_VCU;
+
+extern DT_HardWire_Input_VCU Irv_AppSwcVcu_Runbl_HVM_20ms_HardWire_Input_VCU;
+
+extern DT_HardWire_Input_VCU Irv_AppSwcVcu_Runbl_IBS_100ms_HardWire_Input_VCU;
+
+extern DT_HardWire_Input_VCU Irv_AppSwcVcu_Runbl_IPC_10ms_HardWire_Input_VCU;
+
+extern DT_HardWire_Input_VCU Irv_AppSwcVcu_Runbl_VTM_10ms_HardWire_Input_VCU;
+
+extern DT_HardWire_Input_VCU Irv_AppSwcVcu_Runbl_VcuRx_10ms_HardWire_Input_VCU;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Rte_Buf_Task_100ms_IPM_BMS_10_DC_ChargeStates_EPT_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_BMS_10_DC_ChargeStates_EPT_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Irv_AppSwcVcu_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Irv_AppSwcVcu_Runbl_GSM_20ms_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Irv_AppSwcVcu_Runbl_HMI_100ms_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Irv_AppSwcVcu_Runbl_TBOX_100ms_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_10_DC_ChargeStates_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_BMS_10_DC_ChargeStates_EPT;
+
+extern DT_IPM_BMS_1_MainState_EPT Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_BMS_1_MainState_EPT_IPM_BMS_1_MainState_EPT;
+
+extern DT_IPM_BMS_1_MainState_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_BMS_1_MainState_EPT_IPM_BMS_1_MainState_EPT;
+
+extern DT_IPM_BMS_1_MainState_EPT Irv_AppSwcVcu_IPM_BMS_1_MainState_EPT;
+
+extern DT_IPM_BMS_1_MainState_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_BMS_1_MainState_EPT;
+
+extern DT_IPM_BMS_1_MainState_EPT Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_BMS_1_MainState_EPT;
+
+extern DT_IPM_BMS_1_MainState_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_BMS_1_MainState_EPT;
+
+extern DT_IPM_BMS_1_MainState_EPT Irv_AppSwcVcu_Runbl_RME_100ms_IPM_BMS_1_MainState_EPT;
+
+extern DT_IPM_BMS_1_MainState_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_BMS_1_MainState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Rte_Buf_Task_100ms_IPM_BMS_2_BatState_EPT_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_BMS_2_BatState_EPT_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_HMI_100ms_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_IBS_100ms_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_RME_100ms_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_3_DC_ChargeState_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_BMS_3_DC_ChargeState_EPT_IPM_BMS_3_DC_ChargeState_EPT;
+
+extern DT_IPM_BMS_3_DC_ChargeState_EPT Irv_AppSwcVcu_IPM_BMS_3_DC_ChargeState_EPT;
+
+extern DT_IPM_BMS_3_DC_ChargeState_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_BMS_3_DC_ChargeState_EPT;
+
+extern DT_IPM_BMS_3_DC_ChargeState_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_BMS_3_DC_ChargeState_EPT;
+
+extern DT_IPM_BMS_3_DC_ChargeState_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_BMS_3_DC_ChargeState_EPT;
+
+extern DT_IPM_BMS_4_AC_ChargeState_EPT Rte_Buf_Task_100ms_IPM_BMS_4_AC_ChargeState_EPT_IPM_BMS_4_AC_ChargeState_EPT;
+
+extern DT_IPM_BMS_4_AC_ChargeState_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_BMS_4_AC_ChargeState_EPT_IPM_BMS_4_AC_ChargeState_EPT;
+
+extern DT_IPM_BMS_4_AC_ChargeState_EPT Irv_AppSwcVcu_IPM_BMS_4_AC_ChargeState_EPT;
+
+extern DT_IPM_BMS_4_AC_ChargeState_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_BMS_4_AC_ChargeState_EPT;
+
+extern DT_IPM_BMS_4_AC_ChargeState_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_BMS_4_AC_ChargeState_EPT;
+
+extern DT_IPM_BMS_4_AC_ChargeState_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_BMS_4_AC_ChargeState_EPT;
+
+extern DT_IPM_BMS_5_BatTemp_EPT Rte_Buf_Task_100ms_IPM_BMS_5_BatTemp_EPT_IPM_BMS_5_BatTemp_EPT;
+
+extern DT_IPM_BMS_5_BatTemp_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_BMS_5_BatTemp_EPT_IPM_BMS_5_BatTemp_EPT;
+
+extern DT_IPM_BMS_5_BatTemp_EPT Irv_AppSwcVcu_IPM_BMS_5_BatTemp_EPT;
+
+extern DT_IPM_BMS_5_BatTemp_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_BMS_5_BatTemp_EPT;
+
+extern DT_IPM_BMS_5_BatTemp_EPT Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_BMS_5_BatTemp_EPT;
+
+extern DT_IPM_BMS_5_BatTemp_EPT Irv_AppSwcVcu_Runbl_HMI_100ms_IPM_BMS_5_BatTemp_EPT;
+
+extern DT_IPM_BMS_5_BatTemp_EPT Irv_AppSwcVcu_Runbl_RME_100ms_IPM_BMS_5_BatTemp_EPT;
+
+extern DT_IPM_BMS_5_BatTemp_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_BMS_5_BatTemp_EPT;
+
+extern DT_IPM_BMS_6_DischrgRecup_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_BMS_6_DischrgRecup_EPT_IPM_BMS_6_DischrgRecup_EPT;
+
+extern DT_IPM_BMS_6_DischrgRecup_EPT Irv_AppSwcVcu_IPM_BMS_6_DischrgRecup_EPT;
+
+extern DT_IPM_BMS_6_DischrgRecup_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_BMS_6_DischrgRecup_EPT;
+
+extern DT_IPM_BMS_6_DischrgRecup_EPT Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_BMS_6_DischrgRecup_EPT;
+
+extern DT_IPM_BMS_6_DischrgRecup_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_BMS_6_DischrgRecup_EPT;
+
+extern DT_IPM_BMS_6_DischrgRecup_EPT Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_BMS_6_DischrgRecup_EPT;
+
+extern DT_IPM_BMS_6_DischrgRecup_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_BMS_6_DischrgRecup_EPT;
+
+extern DT_IPM_BMS_7_CellVolt_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_BMS_7_CellVolt_EPT_IPM_BMS_7_CellVolt_EPT;
+
+extern DT_IPM_BMS_7_CellVolt_EPT Irv_AppSwcVcu_IPM_BMS_7_CellVolt_EPT;
+
+extern DT_IPM_BMS_7_CellVolt_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_BMS_7_CellVolt_EPT;
+
+extern DT_IPM_BMS_7_CellVolt_EPT Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_BMS_7_CellVolt_EPT;
+
+extern DT_IPM_BMS_7_CellVolt_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_BMS_7_CellVolt_EPT;
+
+extern DT_IPM_BMS_7_CellVolt_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_BMS_7_CellVolt_EPT;
+
+extern DT_IPM_BMS_9_BattInfo_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_BMS_9_BattInfo_EPT_IPM_BMS_9_BattInfo_EPT;
+
+extern DT_IPM_BMS_9_BattInfo_EPT Irv_AppSwcVcu_IPM_BMS_9_BattInfo_EPT;
+
+extern DT_IPM_BMS_9_BattInfo_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_BMS_9_BattInfo_EPT;
+
+extern DT_IPM_BMS_9_BattInfo_EPT Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_BMS_9_BattInfo_EPT;
+
+extern DT_IPM_BMS_9_BattInfo_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_BMS_9_BattInfo_EPT;
+
+extern DT_IPM_BMS_9_BattInfo_EPT Irv_AppSwcVcu_Runbl_IBS_100ms_IPM_BMS_9_BattInfo_EPT;
+
+extern DT_IPM_BMS_9_BattInfo_EPT Irv_AppSwcVcu_Runbl_RME_100ms_IPM_BMS_9_BattInfo_EPT;
+
+extern DT_IPM_BMS_9_BattInfo_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_BMS_9_BattInfo_EPT;
+
+extern DT_IPM_CCP_PanelStatus_BOD Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_CCP_PanelStatus_BOD Rte_Buf_Task_100ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_CCP_PanelStatus_BOD Rte_Buf_Runbl_VcuRx_10ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_CCP_PanelStatus_BOD Irv_AppSwcBcm_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_CCP_PanelStatus_BOD Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_CCP_PanelStatus_BOD Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_CCP_PanelStatus_BOD Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_CCP_PanelStatus_BOD Irv_AppSwcVcu_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_CCP_PanelStatus_BOD Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_CCP_PanelStatus_BOD Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_CCP_PanelStatus_BOD Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_CCP_PanelStatus_BOD;
+
+extern DT_IPM_COMP_AC_BOD Rte_Buf_Task_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD;
+
+extern DT_IPM_CRRR_A_CHA Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA;
+
+extern DT_IPM_EHB_A_CHA Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA;
+
+extern DT_IPM_EHB_A_CHA Rte_Buf_Runbl_VcuRx_10ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA;
+
+extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_IPM_EHB_A_CHA;
+
+extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_EHB_A_CHA;
+
+extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_EHB_A_CHA;
+
+extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_EHB_A_CHA;
+
+extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_EHB_A_CHA;
+
+extern DT_IPM_EHB_B_CHA Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA;
+
+extern DT_IPM_EHB_B_CHA Rte_Buf_Runbl_VcuRx_10ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA;
+
+extern DT_IPM_EHB_B_CHA Irv_AppSwcVcu_IPM_EHB_B_CHA;
+
+extern DT_IPM_EHB_B_CHA Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_EHB_B_CHA;
+
+extern DT_IPM_EHB_B_CHA Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_EHB_B_CHA;
+
+extern DT_IPM_EHB_B_CHA Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_EHB_B_CHA;
+
+extern DT_IPM_EHB_B_CHA Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_EHB_B_CHA;
+
+extern DT_IPM_ESCL_ESCLStatus_BOD Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_ESCL_ESCLStatus_BOD_IPM_ESCL_ESCLStatus_BOD;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Rte_Buf_Task_100ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Rte_Buf_Runbl_VcuRx_10ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcBcm_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_DSA_100ms_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_A_CHA Rte_Buf_Runbl_VcuRx_10ms_IPM_ESC_A_CHA_IPM_ESC_A_CHA;
+
+extern DT_IPM_ESC_A_CHA Irv_AppSwcVcu_IPM_ESC_A_CHA;
+
+extern DT_IPM_ESC_A_CHA Irv_AppSwcVcu_Runbl_HMI_100ms_IPM_ESC_A_CHA;
+
+extern DT_IPM_ESC_A_CHA Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_ESC_A_CHA;
+
+extern DT_IPM_ESC_A_CHA Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_ESC_A_CHA;
+
+extern DT_IPM_ESC_A_CHA Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_ESC_A_CHA;
+
+extern DT_IPM_ESC_A_CHA Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_ESC_A_CHA;
+
+extern DT_IPM_FCM_B_CHA Rte_Buf_Runbl_OpmCanTx_10ms_IPM_FCM_B_CHA_IPM_FCM_B_CHA;
+
+extern DT_IPM_FCM_B_CHA Rte_Buf_Runbl_VcuRx_10ms_IPM_FCM_B_CHA_IPM_FCM_B_CHA;
+
+extern DT_IPM_FCM_B_CHA Irv_AppSwcVcu_IPM_FCM_B_CHA;
+
+extern DT_IPM_FCM_B_CHA Irv_AppSwcVcu_Runbl_GSM_20ms_IPM_FCM_B_CHA;
+
+extern DT_IPM_FCM_B_CHA Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_FCM_B_CHA;
+
+extern DT_IPM_FCM_B_CHA Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_FCM_B_CHA;
+
+extern DT_IPM_HU_B_BAC Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_HU_B_BAC_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Rte_Buf_Task_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Rte_Buf_Runbl_VcuRx_10ms_IPM_HU_B_BAC_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Irv_AppSwcBcm_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Irv_AppSwcVcu_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Irv_AppSwcVcu_Runbl_TBOX_100ms_IPM_HU_B_BAC;
+
+extern DT_IPM_HU_B_BAC Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_HU_B_BAC;
+
+extern DT_IPM_HVCH_Status1_BOD Rte_Buf_Task_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD;
+
+extern DT_IPM_HVCH_Status2_BOD Rte_Buf_Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD;
+
+extern DT_IPM_INV_1_Value_EPT Rte_Buf_Runbl_OpmCanTx_10ms_IPM_INV_1_Value_EPT_IPM_INV_1_Value_EPT;
+
+extern DT_IPM_INV_1_Value_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_INV_1_Value_EPT_IPM_INV_1_Value_EPT;
+
+extern DT_IPM_INV_1_Value_EPT Irv_AppSwcVcu_IPM_INV_1_Value_EPT;
+
+extern DT_IPM_INV_1_Value_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_INV_1_Value_EPT;
+
+extern DT_IPM_INV_1_Value_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_INV_1_Value_EPT;
+
+extern DT_IPM_INV_1_Value_EPT Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_INV_1_Value_EPT;
+
+extern DT_IPM_INV_1_Value_EPT Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_INV_1_Value_EPT;
+
+extern DT_IPM_INV_1_Value_EPT Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_INV_1_Value_EPT;
+
+extern DT_IPM_INV_1_Value_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_INV_1_Value_EPT;
+
+extern DT_IPM_INV_2_Value_EPT Rte_Buf_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT;
+
+extern DT_IPM_INV_2_Value_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT;
+
+extern DT_IPM_INV_2_Value_EPT Irv_AppSwcVcu_IPM_INV_2_Value_EPT;
+
+extern DT_IPM_INV_2_Value_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_INV_2_Value_EPT;
+
+extern DT_IPM_INV_2_Value_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_INV_2_Value_EPT;
+
+extern DT_IPM_INV_2_Value_EPT Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_INV_2_Value_EPT;
+
+extern DT_IPM_INV_2_Value_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_INV_2_Value_EPT;
+
+extern DT_IPM_INV_2_Value_EPT Irv_AppSwcVcu_Runbl_VcuTx_10ms_IPM_INV_2_Value_EPT;
+
+extern DT_IPM_INV_3_Value_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_INV_3_Value_EPT_IPM_INV_3_Value_EPT;
+
+extern DT_IPM_INV_3_Value_EPT Irv_AppSwcVcu_IPM_INV_3_Value_EPT;
+
+extern DT_IPM_INV_3_Value_EPT Irv_AppSwcVcu_Runbl_DSA_100ms_IPM_INV_3_Value_EPT;
+
+extern DT_IPM_INV_3_Value_EPT Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_INV_3_Value_EPT;
+
+extern DT_IPM_INV_3_Value_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_INV_3_Value_EPT;
+
+extern DT_IPM_INV_4_Value_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_INV_4_Value_EPT_IPM_INV_4_Value_EPT;
+
+extern DT_IPM_INV_4_Value_EPT Irv_AppSwcVcu_IPM_INV_4_Value_EPT;
+
+extern DT_IPM_INV_4_Value_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_INV_4_Value_EPT;
+
+extern DT_IPM_INV_4_Value_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_INV_4_Value_EPT;
+
+extern DT_IPM_INV_4_Value_EPT Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_INV_4_Value_EPT;
+
+extern DT_IPM_INV_4_Value_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_INV_4_Value_EPT;
+
+extern DT_IPM_INV_IMMO_Req_EPT Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT;
+
+extern DT_IPM_IPU_DCC_1_State_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_IPU_DCC_1_State_EPT_IPM_IPU_DCC_1_State_EPT;
+
+extern DT_IPM_IPU_DCC_1_State_EPT Irv_AppSwcVcu_IPM_IPU_DCC_1_State_EPT;
+
+extern DT_IPM_IPU_DCC_1_State_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_IPU_DCC_1_State_EPT;
+
+extern DT_IPM_IPU_DCC_1_State_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_IPU_DCC_1_State_EPT;
+
+extern DT_IPM_IPU_DCC_1_State_EPT Irv_AppSwcVcu_Runbl_IBS_100ms_IPM_IPU_DCC_1_State_EPT;
+
+extern DT_IPM_IPU_DCC_1_State_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_IPU_DCC_1_State_EPT;
+
+extern DT_IPM_IPU_DCC_2_ChrgInValue_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_IPU_DCC_2_ChrgInValue_EPT_IPM_IPU_DCC_2_ChrgInValue_EPT;
+
+extern DT_IPM_IPU_DCC_2_ChrgInValue_EPT Irv_AppSwcVcu_IPM_IPU_DCC_2_ChrgInValue_EPT;
+
+extern DT_IPM_IPU_DCC_2_ChrgInValue_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_IPU_DCC_2_ChrgInValue_EPT;
+
+extern DT_IPM_IPU_DCC_2_ChrgInValue_EPT Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_IPU_DCC_2_ChrgInValue_EPT;
+
+extern DT_IPM_IPU_DCC_2_ChrgInValue_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_IPU_DCC_2_ChrgInValue_EPT;
+
+extern DT_IPM_IPU_DCC_2_ChrgInValue_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_IPU_DCC_2_ChrgInValue_EPT;
+
+extern DT_IPM_IPU_OBC_1_State_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_IPU_OBC_1_State_EPT_IPM_IPU_OBC_1_State_EPT;
+
+extern DT_IPM_IPU_OBC_1_State_EPT Irv_AppSwcVcu_IPM_IPU_OBC_1_State_EPT;
+
+extern DT_IPM_IPU_OBC_1_State_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_IPU_OBC_1_State_EPT;
+
+extern DT_IPM_IPU_OBC_1_State_EPT Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_IPU_OBC_1_State_EPT;
+
+extern DT_IPM_IPU_OBC_1_State_EPT Irv_AppSwcVcu_Runbl_GSM_20ms_IPM_IPU_OBC_1_State_EPT;
+
+extern DT_IPM_IPU_OBC_1_State_EPT Irv_AppSwcVcu_Runbl_HMI_100ms_IPM_IPU_OBC_1_State_EPT;
+
+extern DT_IPM_IPU_OBC_1_State_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_IPU_OBC_1_State_EPT;
+
+extern DT_IPM_IPU_OBC_1_State_EPT Irv_AppSwcVcu_Runbl_TBOX_100ms_IPM_IPU_OBC_1_State_EPT;
+
+extern DT_IPM_IPU_OBC_1_State_EPT Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_IPU_OBC_1_State_EPT;
+
+extern DT_IPM_IPU_OBC_1_State_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_IPU_OBC_1_State_EPT;
+
+extern DT_IPM_IPU_OBC_2_Inlet_EPT Rte_Buf_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT;
+
+extern DT_IPM_IPU_OBC_2_Inlet_EPT Rte_Buf_Runbl_VcuRx_10ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT;
+
+extern DT_IPM_IPU_OBC_2_Inlet_EPT Irv_AppSwcVcu_IPM_IPU_OBC_2_Inlet_EPT;
+
+extern DT_IPM_IPU_OBC_2_Inlet_EPT Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_IPU_OBC_2_Inlet_EPT;
+
+extern DT_IPM_IPU_OBC_2_Inlet_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_IPU_OBC_2_Inlet_EPT;
+
+extern DT_IPM_IPU_OBC_2_Inlet_EPT Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_IPU_OBC_2_Inlet_EPT;
+
+extern DT_IPM_SCS_LeSwitchSts_BOD Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_SCS_LeSwitchSts_BOD_IPM_SCS_LeSwitchSts_BOD;
+
+extern DT_IPM_SCS_RiSwitchSts_BOD Rte_Buf_Runbl_VcuRx_10ms_IPM_SCS_RiSwitchSts_BOD_IPM_SCS_RiSwitchSts_BOD;
+
+extern DT_IPM_SCS_RiSwitchSts_BOD Irv_AppSwcVcu_IPM_SCS_RiSwitchSts_BOD;
+
+extern DT_IPM_SCS_RiSwitchSts_BOD Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_SCS_RiSwitchSts_BOD;
+
+extern DT_IPM_SCS_RiSwitchSts_BOD Irv_AppSwcVcu_Runbl_GSM_20ms_IPM_SCS_RiSwitchSts_BOD;
+
+extern DT_IPM_SCS_RiSwitchSts_BOD Irv_AppSwcVcu_Runbl_HMI_100ms_IPM_SCS_RiSwitchSts_BOD;
+
+extern DT_IPM_SCS_RiSwitchSts_BOD Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_SCS_RiSwitchSts_BOD;
+
+extern DT_IPM_SCS_RiSwitchSts_BOD Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_SCS_RiSwitchSts_BOD;
+
+extern DT_IPM_SRS_1_Status_CHA Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA;
+
+extern DT_IPM_SRS_1_Status_CHA Rte_Buf_Runbl_VcuRx_10ms_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA;
+
+extern DT_IPM_SRS_1_Status_CHA Irv_AppSwcVcu_IPM_SRS_1_Status_CHA;
+
+extern DT_IPM_SRS_1_Status_CHA Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_SRS_1_Status_CHA;
+
+extern DT_IPM_SRS_1_Status_CHA Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_SRS_1_Status_CHA;
+
+extern DT_IPM_SRS_1_Status_CHA Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_SRS_1_Status_CHA;
+
+extern DT_IPM_TBOX_BJS_Time_BAC Rte_Buf_Runbl_DAG_20ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC;
+
+extern DT_MsgActv Rte_Buf_Runbl_VcuRx_10ms_MsgActv_outputs_MsgActv_outputs;
+
+extern DT_MsgActv Irv_AppSwcIpm_MsgActv_outputsIRV;
+
+extern DT_MsgActv Irv_AppSwcIpm_Runbl_IpmCanRx_100ms_MsgActv_outputsIRV;
+
+extern DT_MsgActv Irv_AppSwcIpm_Runbl_IpmCanRx_10ms_MsgActv_outputsIRV;
+
+extern DT_MsgActv Irv_AppSwcIpm_Runbl_IpmCanRx_20ms_MsgActv_outputsIRV;
+
+extern DT_MsgActv Irv_AppSwcIpm_Runbl_IpmCanRx_50ms_MsgActv_outputsIRV;
+
+extern DT_MsgActv Irv_AppSwcIpm_Runbl_IpmMsgActv_10ms_MsgActv_outputsIRV;
+
+extern DT_MsgActv Irv_AppSwcVcu_MsgActv_outputs;
+
+extern DT_MsgActv Irv_AppSwcVcu_Runbl_DAG_20ms_MsgActv_outputs;
+
+extern DT_MsgActv Irv_AppSwcVcu_Runbl_VTM_10ms_MsgActv_outputs;
+
+extern DT_MsgActv Irv_AppSwcVcu_Runbl_VcuRx_10ms_MsgActv_outputs;
+
+extern DT_SIBS_Output Irv_AppSwcVcu_SIBS_Output;
+
+extern DT_SIBS_Output Irv_AppSwcVcu_Runbl_DAG_20ms_SIBS_Output;
+
+extern DT_SIBS_Output Irv_AppSwcVcu_Runbl_HVM_20ms_SIBS_Output;
+
+extern DT_SIBS_Output Irv_AppSwcVcu_Runbl_IBS_100ms_SIBS_Output;
+
+extern DT_SIBS_Output Irv_AppSwcVcu_Runbl_VcuTx_10ms_SIBS_Output;
+
+extern DT_Vcu2BcmTms_outputs Rte_Buf_Runbl_AppSwcBcm_20ms_Vcu2BcmTms_outputs_Vcu2BcmTms_outputs;
+
+extern DT_Vcu2BcmTms_outputs Rte_Buf_Task_100ms_Vcu2BcmTms_outputs_Vcu2BcmTms_outputs;
+
+extern DT_Vcu2BcmTms_outputs Irv_AppSwcBcm_Vcu2BcmTms_outputs;
+
+extern DT_Vcu2BcmTms_outputs Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_Vcu2BcmTms_outputs;
+
+extern DT_Vcu2BcmTms_outputs Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_Vcu2BcmTms_outputs;
+
+extern DT_Vcu2BcmTms_outputs Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_Vcu2BcmTms_outputs;
+
+extern DT_Vcu2OpmBAC_outputs Rte_Buf_Runbl_OpmRx_10ms_Vcu2OpmBAC_outputs_Vcu2OpmBAC_outputs;
+
+extern DT_Vcu2OpmBAC_outputs Irv_AppSwcOpm_Vcu2OpmBAC_outputs;
+
+extern DT_Vcu2OpmBAC_outputs Irv_AppSwcOpm_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs;
+
+extern DT_Vcu2OpmBAC_outputs Irv_AppSwcOpm_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs;
+
+extern DT_Vcu2OpmBAC_outputs Irv_AppSwcOpm_Runbl_OpmRx_10ms_Vcu2OpmBAC_outputs;
+
+extern DT_Vcu2OpmCHA_outputs Rte_Buf_Runbl_OpmRx_10ms_Vcu2OpmCHA_outputs_Vcu2OpmCHA_outputs;
+
+extern DT_Vcu2OpmCHA_outputs Irv_AppSwcOpm_Vcu2OpmCHA_outputs;
+
+extern DT_Vcu2OpmCHA_outputs Irv_AppSwcOpm_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs;
+
+extern DT_Vcu2OpmCHA_outputs Irv_AppSwcOpm_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs;
+
+extern DT_Vcu2OpmCHA_outputs Irv_AppSwcOpm_Runbl_OpmRx_10ms_Vcu2OpmCHA_outputs;
+
+extern DT_Vcu2OpmEPT_outputs Rte_Buf_Runbl_OpmRx_10ms_Vcu2OpmEPT_outputs_Vcu2OpmEPT_outputs;
+
+extern DT_Vcu2OpmEPT_outputs Irv_AppSwcOpm_Vcu2OpmEPT_outputs;
+
+extern DT_Vcu2OpmEPT_outputs Irv_AppSwcOpm_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs;
+
+extern DT_Vcu2OpmEPT_outputs Irv_AppSwcOpm_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs;
+
+extern DT_Vcu2OpmEPT_outputs Irv_AppSwcOpm_Runbl_OpmRx_10ms_Vcu2OpmEPT_outputs;
+
+extern DoorLckCtl Irv_AppSwcBcm_DoorLckCtl_Bus;
+
+extern DoorLckCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_DoorLckCtl_Bus;
+
+extern DoorLckCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_DoorLckCtl_Bus;
+
+extern DoorLckCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_DoorLckCtl_Bus;
+
+extern DoorLckCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus;
+
+extern DynDID Irv_AppSwcBcm_DynDID_Bus;
+
+extern DynDID Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_DynDID_Bus;
+
+extern DynDID Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_DynDID_Bus;
+
+extern EEReadCtl Irv_AppSwcBcm_EEReadCtl_Bus;
+
+extern EEReadCtl Irv_AppSwcBcm_AppSwcBcm_Init_EEReadCtl_Bus;
+
+extern EEReadCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_EEReadCtl_Bus;
+
+extern EEReadCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_EEReadCtl_Bus;
+
+extern EHB_A_CHA Rte_Buf_Runbl_IpmCanRx_20ms_EHB_A_CHA_EHB_A_CHA;
+
+extern EHB_B_CHA Rte_Buf_Runbl_IpmCanRx_10ms_EHB_B_CHA_EHB_B_CHA;
+
+extern EMS_outputs Irv_AppSwcVcu_EMS_outputs;
+
+extern EMS_outputs Irv_AppSwcVcu_Runbl_DSA_100ms_EMS_outputs;
+
+extern EMS_outputs Irv_AppSwcVcu_Runbl_EMS_20ms_EMS_outputs;
+
+extern EMS_outputs Irv_AppSwcVcu_Runbl_HMI_100ms_EMS_outputs;
+
+extern EMS_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_EMS_outputs;
+
+extern EMS_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_EMS_outputs;
+
+extern EPS_2_StrWhlAng_CHA Rte_Buf_Runbl_IpmCanRx_10ms_EPS_2_StrWhlAng_CHA_EPS_2_StrWhlAng_CHA;
+
+extern ESCLCtl Irv_AppSwcBcm_ESCLCtl_Bus;
+
+extern ESCLCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_ESCLCtl_Bus;
+
+extern ESCLCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_ESCLCtl_Bus;
+
+extern ESCL_ESCLStatus_BOD Rte_Buf_Runbl_IpmCanRx_50ms_ESCL_ESCLStatus_BOD_ESCL_ESCLStatus_BOD;
+
+extern ESC_7_FuncStatus_CHA Rte_Buf_Runbl_IpmCanRx_10ms_ESC_7_FuncStatus_CHA_ESC_7_FuncStatus_CHA;
+
+extern ESC_A_CHA Rte_Buf_Runbl_IpmCanRx_10ms_ESC_A_CHA_ESC_A_CHA;
+
+extern FCM_B_CHA Rte_Buf_Runbl_IpmCanRx_20ms_FCM_B_CHA_FCM_B_CHA;
+
+extern GSM_outputs Irv_AppSwcVcu_GSM_outputs;
+
+extern GSM_outputs Irv_AppSwcVcu_Runbl_DAG_20ms_GSM_outputs;
+
+extern GSM_outputs Irv_AppSwcVcu_Runbl_DSA_100ms_GSM_outputs;
+
+extern GSM_outputs Irv_AppSwcVcu_Runbl_GSM_20ms_GSM_outputs;
+
+extern GSM_outputs Irv_AppSwcVcu_Runbl_HMI_100ms_GSM_outputs;
+
+extern GSM_outputs Irv_AppSwcVcu_Runbl_HVM_20ms_GSM_outputs;
+
+extern GSM_outputs Irv_AppSwcVcu_Runbl_IPC_10ms_GSM_outputs;
+
+extern GSM_outputs Irv_AppSwcVcu_Runbl_RME_100ms_GSM_outputs;
+
+extern GSM_outputs Irv_AppSwcVcu_Runbl_VSO_10ms_GSM_outputs;
+
+extern GSM_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_GSM_outputs;
+
+extern GSM_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_GSM_outputs;
+
+extern HMI_outputs Irv_AppSwcVcu_HMI_outputs;
+
+extern HMI_outputs Irv_AppSwcVcu_Runbl_HMI_100ms_HMI_outputs;
+
+extern HMI_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_HMI_outputs;
+
+extern HU_B_BAC Rte_Buf_Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC;
+
+extern HVCH_Status1_BOD Rte_Buf_Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD;
+
+extern HVCH_Status2_BOD Rte_Buf_Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD;
+
+extern HVM_outputs Irv_AppSwcVcu_HVM_outputs;
+
+extern HVM_outputs Irv_AppSwcVcu_Runbl_DAG_20ms_HVM_outputs;
+
+extern HVM_outputs Irv_AppSwcVcu_Runbl_DSA_100ms_HVM_outputs;
+
+extern HVM_outputs Irv_AppSwcVcu_Runbl_EMS_20ms_HVM_outputs;
+
+extern HVM_outputs Irv_AppSwcVcu_Runbl_GSM_20ms_HVM_outputs;
+
+extern HVM_outputs Irv_AppSwcVcu_Runbl_HMI_100ms_HVM_outputs;
+
+extern HVM_outputs Irv_AppSwcVcu_Runbl_HVM_20ms_HVM_outputs;
+
+extern HVM_outputs Irv_AppSwcVcu_Runbl_IBS_100ms_HVM_outputs;
+
+extern HVM_outputs Irv_AppSwcVcu_Runbl_RME_100ms_HVM_outputs;
+
+extern HVM_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_HVM_outputs;
+
+extern HVM_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_HVM_outputs;
+
+extern HornCtl Irv_AppSwcBcm_HornCtl_Bus;
+
+extern HornCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_HornCtl_Bus;
+
+extern HornCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_HornCtl_Bus;
+
+extern HornCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_HornCtl_Bus;
+
+extern IMMOCtl Irv_AppSwcBcm_IMMOCtl_Bus;
+
+extern IMMOCtl Irv_AppSwcBcm_AppSwcBcm_Init_IMMOCtl_Bus;
+
+extern IMMOCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_IMMOCtl_Bus;
+
+extern IMMOCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IMMOCtl_Bus;
+
+extern INV_1_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_1_Value_EPT_INV_1_Value_EPT;
+
+extern INV_2_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_2_Value_EPT_INV_2_Value_EPT;
+
+extern INV_3_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_3_Value_EPT_INV_3_Value_EPT;
+
+extern INV_4_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_4_Value_EPT_INV_4_Value_EPT;
+
+extern INV_IMMO_Req_EPT Rte_Buf_Runbl_IpmCanRx_100ms_INV_IMMO_Req_EPT_INV_IMMO_Req_EPT;
+
+extern IODID Irv_AppSwcBcm_IODID_Bus;
+
+extern IODID Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_IODID_Bus;
+
+extern IODID Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_IODID_Bus;
+
+extern IODID Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IODID_Bus;
+
+extern IPC_outputs Irv_AppSwcVcu_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_DAG_20ms_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_DSA_100ms_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_GSM_20ms_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_HMI_100ms_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_HVM_20ms_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_IPC_10ms_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_RME_100ms_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_TBOX_100ms_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_VSO_10ms_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_IPC_outputs;
+
+extern IPC_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_IPC_outputs;
+
+extern IPU_DCC_1_State_EPT Rte_Buf_Runbl_IpmCanRx_100ms_IPU_DCC_1_State_EPT_IPU_DCC_1_State_EPT;
+
+extern IPU_DCC_2_ChrgInValue_EPT Rte_Buf_Runbl_IpmCanRx_100ms_IPU_DCC_2_ChrgInValue_EPT_IPU_DCC_2_ChrgInValue_EPT;
+
+extern IPU_OBC_1_State_EPT Rte_Buf_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT;
+
+extern IPU_OBC_2_Inlet_EPT Rte_Buf_Runbl_IpmCanRx_100ms_IPU_OBC_2_Inlet_EPT_IPU_OBC_2_Inlet_EPT;
+
+extern LampCtl Irv_AppSwcBcm_LampCtl_Bus;
+
+extern LampCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_LampCtl_Bus;
+
+extern LampCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_LampCtl_Bus;
+
+extern LampCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_LampCtl_Bus;
+
+extern LampCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_LampCtl_Bus;
+
+extern NVM_outputs Irv_AppSwcVcu_NVM_outputs;
+
+extern NVM_outputs Irv_AppSwcVcu_AppSwcVcu_Init_NVM_outputs;
+
+extern NVM_outputs Irv_AppSwcVcu_Runbl_IBS_100ms_NVM_outputs;
+
+extern NVM_outputs Irv_AppSwcVcu_Runbl_IPC_10ms_NVM_outputs;
+
+extern NVM_outputs Irv_AppSwcVcu_Runbl_RME_100ms_NVM_outputs;
+
+extern NVM_outputs Irv_AppSwcVcu_Runbl_VSO_10ms_NVM_outputs;
+
+extern NVM_outputs Irv_AppSwcVcu_Runbl_VcuRx_10ms_NVM_outputs;
+
+extern NVM_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_NVM_outputs;
+
+extern PDUCtl Irv_AppSwcBcm_PDUCtl_Bus;
+
+extern PDUCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_PDUCtl_Bus;
+
+extern PDUCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_PDUCtl_Bus;
+
+extern PDUCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_PDUCtl_Bus;
+
+extern PDUCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_PDUCtl_Bus;
+
+extern PEPSCtl Irv_AppSwcBcm_PEPSCtl_Bus;
+
+extern PEPSCtl Irv_AppSwcBcm_AppSwcBcm_Init_PEPSCtl_Bus;
+
+extern PEPSCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_PEPSCtl_Bus;
+
+extern PEPSCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_PEPSCtl_Bus;
+
+extern PEPSCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_PEPSCtl_Bus;
+
+extern RME_outputs Irv_AppSwcVcu_RME_outputs;
+
+extern RME_outputs Irv_AppSwcVcu_Runbl_RME_100ms_RME_outputs;
+
+extern RME_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_RME_outputs;
+
+extern RVMCtl Irv_AppSwcBcm_RVMCtl_Bus;
+
+extern RVMCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_RVMCtl_Bus;
+
+extern RVMCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_RVMCtl_Bus;
+
+extern SCS_LeSwitchSts_BOD Rte_Buf_Runbl_IpmCanRx_50ms_SCS_LeSwitchSts_BOD_SCS_LeSwitchSts_BOD;
+
+extern SCS_RiSwitchSts_BOD Rte_Buf_Runbl_IpmCanRx_20ms_SCS_RiSwitchSts_BOD_SCS_RiSwitchSts_BOD;
+
+extern SRS_1_Status_CHA Rte_Buf_Runbl_IpmCanRx_50ms_SRS_1_Status_CHA_SRS_1_Status_CHA;
+
+extern SeatCtl Irv_AppSwcBcm_SeatCtl_Bus;
+
+extern SeatCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_SeatCtl_Bus;
+
+extern SeatCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_SeatCtl_Bus;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_FCLL_TiWngSt_FCLL_TiWngSt_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_FCLR_TiWngSt_FCLR_TiWngSt_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_BMS_1_MainState_EPT_IPM_BMS_1_MainState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_EHB_A_CHA_IPM_EHB_A_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_EHB_B_CHA_IPM_EHB_B_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_HU_B_BAC_IPM_HU_B_BAC_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_SCS_LeSwitchSts_BOD_IPM_SCS_LeSwitchSts_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_Vcu2BcmTms_outputs_Vcu2BcmTms_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_ESCL_ESCLStatus_BOD_IPM_ESCL_ESCLStatus_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_ACCM_Version_BOD_ACCM_Version_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_9_BattInfo_EPT_BMS_9_BattInfo_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_COMP_AC_BOD_COMP_AC_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_HU_B_BAC_HU_B_BAC_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_HVCH_Status1_BOD_HVCH_Status1_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_HVCH_Status2_BOD_HVCH_Status2_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_INV_IMMO_Req_EPT_INV_IMMO_Req_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_IPU_DCC_1_State_EPT_IPU_DCC_1_State_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_IPU_DCC_2_ChrgInValue_EPT_IPU_DCC_2_ChrgInValue_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_IPU_OBC_1_State_EPT_IPU_OBC_1_State_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_IPU_OBC_2_Inlet_EPT_IPU_OBC_2_Inlet_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_TBOX_BJS_Time_BAC_TBOX_BJS_Time_BAC_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_EHB_B_CHA_EHB_B_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_EPS_2_StrWhlAng_CHA_EPS_2_StrWhlAng_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_ESC_7_FuncStatus_CHA_ESC_7_FuncStatus_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_ESC_A_CHA_ESC_A_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_INV_1_Value_EPT_INV_1_Value_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_INV_2_Value_EPT_INV_2_Value_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_INV_3_Value_EPT_INV_3_Value_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_INV_4_Value_EPT_INV_4_Value_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_10_DC_ChargeStates_EPT_BMS_10_DC_ChargeStates_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_1_MainState_EPT_BMS_1_MainState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_2_BatState_EPT_BMS_2_BatState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_3_DC_ChargeState_EPT_BMS_3_DC_ChargeState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_4_AC_ChargeState_EPT_BMS_4_AC_ChargeState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_6_DischrgRecup_EPT_BMS_6_DischrgRecup_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_7_CellVolt_EPT_BMS_7_CellVolt_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_CRRR_A_CHA_CRRR_A_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_EHB_A_CHA_EHB_A_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_FCM_B_CHA_FCM_B_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_SCS_RiSwitchSts_BOD_SCS_RiSwitchSts_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_CCP_PanelStatus_BOD_CCP_PanelStatus_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_ESCL_ESCLStatus_BOD_ESCL_ESCLStatus_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_SCS_LeSwitchSts_BOD_SCS_LeSwitchSts_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_SRS_1_Status_CHA_SRS_1_Status_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_DAG_Comm_outputs_DAG_Comm_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_Bcm2OpmEPT_outputs_Bcm2OpmEPT_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_Bcm2OpmOBD_outputs_Bcm2OpmOBD_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_AC_1_Command_Outputs_TMS2VCU_AC_1_Command_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_AC_3_State_Outputs_TMS2VCU_AC_3_State_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_AC_8_status_Outputs_TMS2VCU_AC_8_status_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_AC_ACStatuts_Outputs_TMS2VCU_AC_ACStatuts_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_AC_COMP_Outputs_TMS2VCU_AC_COMP_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_HVCH_Command_Outputs_TMS2VCU_HVCH_Command_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_TMS_LINTestData1_Outputs_TMS2VCU_TMS_LINTestData1_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_TMS_LINTestData2_Outputs_TMS2VCU_TMS_LINTestData2_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_TMS_LINTestData3_Outputs_TMS2VCU_TMS_LINTestData3_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_IPM_FCM_B_CHA_IPM_FCM_B_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_IPM_INV_1_Value_EPT_IPM_INV_1_Value_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_Bcm2OpmBAC_outputs_Bcm2OpmBAC_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_TMS2VCU_PPV_outputs_TMS2VCU_PPV_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_Vcu2OpmBAC_outputs_Vcu2OpmBAC_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_Vcu2OpmCHA_outputs_Vcu2OpmCHA_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Opm_Vcu2OpmEPT_outputs_Vcu2OpmEPT_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_HWVersion_AcPMP_HWVersion_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_PartNumber_AcPMP_PartNumber_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_ProjectCode1_AcPMP_ProjectCode1_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_ProjectCode2_AcPMP_ProjectCode2_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_PumpDryRunningSta_AcPMP_PumpDryRunningSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_PumpInputVolt_AcPMP_PumpInputVolt_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_PumpMotorSta_AcPMP_PumpMotorSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_PumpPowerSta_AcPMP_PumpPowerSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_PumpTempSta_AcPMP_PumpTempSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_RESP_ERROR_AcPMP_RESP_ERROR_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_RealRPM_AcPMP_RealRPM_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_SWVersion_Main_AcPMP_SWVersion_Main_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_SWVersion_Patch_AcPMP_SWVersion_Patch_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_SWVersion_Sub_AcPMP_SWVersion_Sub_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_AcPMP_SupplierNumber_AcPMP_SupplierNumber_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BAT_EXV_CurrentPosition_B_BAT_EXV_CurrentPosition_B_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BAT_EXV_FaultState_B_BAT_EXV_FaultState_B_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BAT_EXV_ResponseError_B_BAT_EXV_ResponseError_B_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BAT_EXV_RunState_B_BAT_EXV_RunState_B_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BAT_EXV_SupplierLabel_BAT_EXV_SupplierLabel_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BAT_EXV_VoltageState_B_BAT_EXV_VoltageState_B_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BAT_EXV_Warning_OverTemp_BAT_EXV_Warning_OverTemp_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BAT_EXV_initialize_status_BAT_EXV_initialize_status_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BatPMP_PumpDryRunningSta_BatPMP_PumpDryRunningSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BatPMP_PumpInputVolt_BatPMP_PumpInputVolt_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BatPMP_PumpMotorSta_BatPMP_PumpMotorSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BatPMP_PumpPowerSta_BatPMP_PumpPowerSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BatPMP_PumpTempSta_BatPMP_PumpTempSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BatPMP_RESP_ERROR_BatPMP_RESP_ERROR_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_BatPMP_RealRPM_BatPMP_RealRPM_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_Bat_EXV_HWVersion_Bat_EXV_HWVersion_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_Bat_EXV_PartNumber_Bat_EXV_PartNumber_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_Bat_EXV_ProjectCode1_Bat_EXV_ProjectCode1_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_Bat_EXV_ProjectCode2_Bat_EXV_ProjectCode2_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_Bat_EXV_SWVersion_Main_Bat_EXV_SWVersion_Main_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_Bat_EXV_SWVersion_Patch_Bat_EXV_SWVersion_Patch_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_Bat_EXV_SWVersion_Sub_Bat_EXV_SWVersion_Sub_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_Bat_EXV_SupplierNumber_Bat_EXV_SupplierNumber_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C3WV_ErrResp_C3WV_ErrResp_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C3WV_FltSts_C3WV_FltSts_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C3WV_Mode_C3WV_Mode_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C3WV_PosRec_C3WV_PosRec_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C3WV_RunSts_C3WV_RunSts_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C3WV_SpdLvl_C3WV_SpdLvl_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C3WV_TempSts_C3WV_TempSts_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C3WV_VoltSts_C3WV_VoltSts_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C5WVFltSts_C5WVFltSts_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C5WVMode_C5WVMode_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C5WVPosRec_C5WVPosRec_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C5WVRunSts_C5WVRunSts_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C5WVSpdLvl_C5WVSpdLvl_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C5WVTempSts_C5WVTempSts_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_C5WVVoltSts_C5WVVoltSts_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_EXV_CurrentInitState_EXV_CurrentInitState_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_EXV_CurrentPosition_EXV_CurrentPosition_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_EXV_FaultState_EXV_FaultState_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_EXV_ResponseError_EXV_ResponseError_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_EXV_RunState_EXV_RunState_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_EXV_TemperatureWarn_EXV_TemperatureWarn_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_EXV_VoltageState_EXV_VoltageState_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_ErrRespC5WV_ErrRespC5WV_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_CurrentPosition_B_HP_EXV_CurrentPosition_B_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_FaultState_B_HP_EXV_FaultState_B_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_HWVersion_HP_EXV_HWVersion_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_PartNumber_HP_EXV_PartNumber_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_ProjectCode1_HP_EXV_ProjectCode1_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_ProjectCode2_HP_EXV_ProjectCode2_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_ResponseError_B_HP_EXV_ResponseError_B_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_RunState_B_HP_EXV_RunState_B_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_SWVersion_Main_HP_EXV_SWVersion_Main_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_SWVersion_Patch_HP_EXV_SWVersion_Patch_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_SWVersion_Sub_HP_EXV_SWVersion_Sub_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_SupplierLabel_HP_EXV_SupplierLabel_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_SupplierNumber_HP_EXV_SupplierNumber_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_VoltageState_B_HP_EXV_VoltageState_B_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_Warning_OverTemp_HP_EXV_Warning_OverTemp_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_HP_EXV_initialize_status_HP_EXV_initialize_status_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_BMS_10_DC_ChargeStates_EPT_IPM_BMS_10_DC_ChargeStates_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_BMS_2_BatState_EPT_IPM_BMS_2_BatState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_BMS_4_AC_ChargeState_EPT_IPM_BMS_4_AC_ChargeState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_BMS_5_BatTemp_EPT_IPM_BMS_5_BatTemp_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_HU_B_BAC_IPM_HU_B_BAC_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_MotPMP_PumpInputVolt_MotPMP_PumpInputVolt_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_MotPMP_PumpMotorSta_MotPMP_PumpMotorSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_MotPMP_PumpPowerSta_MotPMP_PumpPowerSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_MotPMP_PumpTempSta_MotPMP_PumpTempSta_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_MotPMP_RESP_ERROR_MotPMP_RESP_ERROR_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_MotPMP_RealRPM_MotPMP_RealRPM_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Tms_Vcu2BcmTms_outputs_Vcu2BcmTms_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_CANCommCRCFlt_outputs_CANCommCRCFlt_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_TMS2VCU_AC_3_State_Outputs_TMS2VCU_AC_3_State_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_CANCommErr_outputs_CANCommErr_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_BMS_10_DC_ChargeStates_EPT_IPM_BMS_10_DC_ChargeStates_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_BMS_1_MainState_EPT_IPM_BMS_1_MainState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_BMS_2_BatState_EPT_IPM_BMS_2_BatState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_BMS_3_DC_ChargeState_EPT_IPM_BMS_3_DC_ChargeState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_BMS_4_AC_ChargeState_EPT_IPM_BMS_4_AC_ChargeState_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_BMS_5_BatTemp_EPT_IPM_BMS_5_BatTemp_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_BMS_6_DischrgRecup_EPT_IPM_BMS_6_DischrgRecup_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_BMS_7_CellVolt_EPT_IPM_BMS_7_CellVolt_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_BMS_9_BattInfo_EPT_IPM_BMS_9_BattInfo_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_EHB_A_CHA_IPM_EHB_A_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_EHB_B_CHA_IPM_EHB_B_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_ESC_A_CHA_IPM_ESC_A_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_FCM_B_CHA_IPM_FCM_B_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_HU_B_BAC_IPM_HU_B_BAC_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_INV_1_Value_EPT_IPM_INV_1_Value_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_INV_3_Value_EPT_IPM_INV_3_Value_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_INV_4_Value_EPT_IPM_INV_4_Value_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_IPU_DCC_1_State_EPT_IPM_IPU_DCC_1_State_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_IPU_DCC_2_ChrgInValue_EPT_IPM_IPU_DCC_2_ChrgInValue_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_IPU_OBC_1_State_EPT_IPM_IPU_OBC_1_State_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_SCS_RiSwitchSts_BOD_IPM_SCS_RiSwitchSts_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_MsgActv_outputs_MsgActv_outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_Tms2Vcu_Info_Tms2Vcu_Info_ibuffer_status;
+
+extern SteerWhlCtl Irv_AppSwcBcm_SteerWhlCtl_Bus;
+
+extern SteerWhlCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_SteerWhlCtl_Bus;
+
+extern SteerWhlCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_SteerWhlCtl_Bus;
+
+extern TBOX_BJS_Time_BAC Rte_Buf_Runbl_IpmCanRx_100ms_TBOX_BJS_Time_BAC_TBOX_BJS_Time_BAC;
+
+extern TBOX_outputs Irv_AppSwcVcu_TBOX_outputs;
+
+extern TBOX_outputs Irv_AppSwcVcu_Runbl_TBOX_100ms_TBOX_outputs;
+
+extern TBOX_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_TBOX_outputs;
+
+extern TMS2VCU_AC_1_Command_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_AC_1_Command_Outputs_TMS2VCU_AC_1_Command_Outputs;
+
+extern TMS2VCU_AC_2_State_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs;
+
+extern TMS2VCU_AC_2_State_Outputs Rte_Buf_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs;
+
+extern TMS2VCU_AC_2_State_Outputs Irv_AppSwcVcu_TMS2VCU_AC_2_State_Outputs;
+
+extern TMS2VCU_AC_2_State_Outputs Irv_AppSwcVcu_Runbl_EMS_20ms_TMS2VCU_AC_2_State_Outputs;
+
+extern TMS2VCU_AC_2_State_Outputs Irv_AppSwcVcu_Runbl_HMI_100ms_TMS2VCU_AC_2_State_Outputs;
+
+extern TMS2VCU_AC_2_State_Outputs Irv_AppSwcVcu_Runbl_HVM_20ms_TMS2VCU_AC_2_State_Outputs;
+
+extern TMS2VCU_AC_2_State_Outputs Irv_AppSwcVcu_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs;
+
+extern TMS2VCU_AC_3_State_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_AC_3_State_Outputs_TMS2VCU_AC_3_State_Outputs;
+
+extern TMS2VCU_AC_3_State_Outputs Rte_Buf_Runbl_IBS_100ms_TMS2VCU_AC_3_State_Outputs_TMS2VCU_AC_3_State_Outputs;
+
+extern TMS2VCU_AC_8_status_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_AC_8_status_Outputs_TMS2VCU_AC_8_status_Outputs;
+
+extern TMS2VCU_AC_ACStatuts_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_AC_ACStatuts_Outputs_TMS2VCU_AC_ACStatuts_Outputs;
+
+extern TMS2VCU_AC_COMP_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_AC_COMP_Outputs_TMS2VCU_AC_COMP_Outputs;
+
+extern TMS2VCU_HVCH_Command_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_HVCH_Command_Outputs_TMS2VCU_HVCH_Command_Outputs;
+
+extern TMS2VCU_PPVAddSignalGroup_Outputs Rte_Buf_Runbl_OpmRx_10ms_TMS2VCU_PPV_outputs_TMS2VCU_PPV_outputs;
+
+extern TMS2VCU_PPVAddSignalGroup_Outputs Irv_AppSwcOpm_TMS2VCU_PPV_outputs;
+
+extern TMS2VCU_PPVAddSignalGroup_Outputs Irv_AppSwcOpm_Runbl_OpmCanTx_100ms_TMS2VCU_PPV_outputs;
+
+extern TMS2VCU_PPVAddSignalGroup_Outputs Irv_AppSwcOpm_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs;
+
+extern TMS2VCU_PPVAddSignalGroup_Outputs Irv_AppSwcOpm_Runbl_OpmRx_10ms_TMS2VCU_PPV_outputs;
+
+extern TMS2VCU_TMS_LINTestData1_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_TMS_LINTestData1_Outputs_TMS2VCU_TMS_LINTestData1_Outputs;
+
+extern TMS2VCU_TMS_LINTestData2_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_TMS_LINTestData2_Outputs_TMS2VCU_TMS_LINTestData2_Outputs;
+
+extern TMS2VCU_TMS_LINTestData3_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_TMS_LINTestData3_Outputs_TMS2VCU_TMS_LINTestData3_Outputs;
+
+extern Tms2Vcu_Info Rte_Buf_Runbl_VcuTx_10ms_Tms2Vcu_Info_Tms2Vcu_Info;
+
+extern UInt16 Rte_Buf_Task_100ms_BAT_EXV_CurrentPosition_B_BAT_EXV_CurrentPosition_B;
+
+extern UInt16 Rte_Buf_Task_100ms_C3WV_PosRec_C3WV_PosRec;
+
+extern UInt16 Rte_Buf_Task_100ms_C5WVPosRec_C5WVPosRec;
+
+extern UInt16 Rte_Buf_Task_100ms_EXV_CurrentPosition_EXV_CurrentPosition;
+
+extern UInt16 Rte_Buf_Task_100ms_HP_EXV_CurrentPosition_B_HP_EXV_CurrentPosition_B;
+
+extern UInt16 Irv_AppSwcVcu_VDAG_VCUErrCode_enum;
+
+extern UInt16 Irv_AppSwcVcu_Runbl_DAG_20ms_VDAG_VCUErrCode_enum;
+
+extern UInt16 Irv_AppSwcVcu_Runbl_VcuTx_10ms_VDAG_VCUErrCode_enum;
+
+extern UInt8 Rte_Buf_Runbl_AppSwcBcm_20ms_FCLL_TiWngSt_FCLL_TiWngSt;
+
+extern UInt8 Rte_Buf_Runbl_AppSwcBcm_20ms_FCLR_TiWngSt_FCLR_TiWngSt;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_HWVersion_AcPMP_HWVersion;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_PartNumber_AcPMP_PartNumber;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_ProjectCode1_AcPMP_ProjectCode1;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_ProjectCode2_AcPMP_ProjectCode2;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_PumpInputVolt_AcPMP_PumpInputVolt;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_PumpMotorSta_AcPMP_PumpMotorSta;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_PumpPowerSta_AcPMP_PumpPowerSta;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_PumpTempSta_AcPMP_PumpTempSta;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_RealRPM_AcPMP_RealRPM;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_SWVersion_Main_AcPMP_SWVersion_Main;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_SWVersion_Patch_AcPMP_SWVersion_Patch;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_SWVersion_Sub_AcPMP_SWVersion_Sub;
+
+extern UInt8 Rte_Buf_Task_100ms_AcPMP_SupplierNumber_AcPMP_SupplierNumber;
+
+extern UInt8 Rte_Buf_Task_100ms_BAT_EXV_FaultState_B_BAT_EXV_FaultState_B;
+
+extern UInt8 Rte_Buf_Task_100ms_BAT_EXV_VoltageState_B_BAT_EXV_VoltageState_B;
+
+extern UInt8 Rte_Buf_Task_100ms_BAT_EXV_initialize_status_BAT_EXV_initialize_status;
+
+extern UInt8 Rte_Buf_Task_100ms_BatPMP_PumpInputVolt_BatPMP_PumpInputVolt;
+
+extern UInt8 Rte_Buf_Task_100ms_BatPMP_PumpMotorSta_BatPMP_PumpMotorSta;
+
+extern UInt8 Rte_Buf_Task_100ms_BatPMP_PumpPowerSta_BatPMP_PumpPowerSta;
+
+extern UInt8 Rte_Buf_Task_100ms_BatPMP_PumpTempSta_BatPMP_PumpTempSta;
+
+extern UInt8 Rte_Buf_Task_100ms_BatPMP_RealRPM_BatPMP_RealRPM;
+
+extern UInt8 Rte_Buf_Task_100ms_Bat_EXV_HWVersion_Bat_EXV_HWVersion;
+
+extern UInt8 Rte_Buf_Task_100ms_Bat_EXV_PartNumber_Bat_EXV_PartNumber;
+
+extern UInt8 Rte_Buf_Task_100ms_Bat_EXV_ProjectCode1_Bat_EXV_ProjectCode1;
+
+extern UInt8 Rte_Buf_Task_100ms_Bat_EXV_ProjectCode2_Bat_EXV_ProjectCode2;
+
+extern UInt8 Rte_Buf_Task_100ms_Bat_EXV_SWVersion_Main_Bat_EXV_SWVersion_Main;
+
+extern UInt8 Rte_Buf_Task_100ms_Bat_EXV_SWVersion_Patch_Bat_EXV_SWVersion_Patch;
+
+extern UInt8 Rte_Buf_Task_100ms_Bat_EXV_SWVersion_Sub_Bat_EXV_SWVersion_Sub;
+
+extern UInt8 Rte_Buf_Task_100ms_Bat_EXV_SupplierNumber_Bat_EXV_SupplierNumber;
+
+extern UInt8 Rte_Buf_Task_100ms_C3WV_FltSts_C3WV_FltSts;
+
+extern UInt8 Rte_Buf_Task_100ms_C3WV_Mode_C3WV_Mode;
+
+extern UInt8 Rte_Buf_Task_100ms_C3WV_SpdLvl_C3WV_SpdLvl;
+
+extern UInt8 Rte_Buf_Task_100ms_C3WV_TempSts_C3WV_TempSts;
+
+extern UInt8 Rte_Buf_Task_100ms_C3WV_VoltSts_C3WV_VoltSts;
+
+extern UInt8 Rte_Buf_Task_100ms_C5WVFltSts_C5WVFltSts;
+
+extern UInt8 Rte_Buf_Task_100ms_C5WVMode_C5WVMode;
+
+extern UInt8 Rte_Buf_Task_100ms_C5WVSpdLvl_C5WVSpdLvl;
+
+extern UInt8 Rte_Buf_Task_100ms_C5WVTempSts_C5WVTempSts;
+
+extern UInt8 Rte_Buf_Task_100ms_C5WVVoltSts_C5WVVoltSts;
+
+extern UInt8 Rte_Buf_Task_100ms_EXV_CurrentInitState_EXV_CurrentInitState;
+
+extern UInt8 Rte_Buf_Task_100ms_EXV_FaultState_EXV_FaultState;
+
+extern UInt8 Rte_Buf_Task_100ms_EXV_TemperatureWarn_EXV_TemperatureWarn;
+
+extern UInt8 Rte_Buf_Task_100ms_EXV_VoltageState_EXV_VoltageState;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_FaultState_B_HP_EXV_FaultState_B;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_HWVersion_HP_EXV_HWVersion;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_PartNumber_HP_EXV_PartNumber;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_ProjectCode1_HP_EXV_ProjectCode1;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_ProjectCode2_HP_EXV_ProjectCode2;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_SWVersion_Main_HP_EXV_SWVersion_Main;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_SWVersion_Patch_HP_EXV_SWVersion_Patch;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_SWVersion_Sub_HP_EXV_SWVersion_Sub;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_SupplierNumber_HP_EXV_SupplierNumber;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_VoltageState_B_HP_EXV_VoltageState_B;
+
+extern UInt8 Rte_Buf_Task_100ms_HP_EXV_initialize_status_HP_EXV_initialize_status;
+
+extern UInt8 Rte_Buf_Task_100ms_MotPMP_PumpInputVolt_MotPMP_PumpInputVolt;
+
+extern UInt8 Rte_Buf_Task_100ms_MotPMP_PumpMotorSta_MotPMP_PumpMotorSta;
+
+extern UInt8 Rte_Buf_Task_100ms_MotPMP_PumpPowerSta_MotPMP_PumpPowerSta;
+
+extern UInt8 Rte_Buf_Task_100ms_MotPMP_PumpTempSta_MotPMP_PumpTempSta;
+
+extern UInt8 Rte_Buf_Task_100ms_MotPMP_RealRPM_MotPMP_RealRPM;
+
+extern UInt8 Irv_AppSwcVcu_VDAG_VCUFltLvl_enum;
+
+extern UInt8 Irv_AppSwcVcu_AppSwcVcu_Init_VDAG_VCUFltLvl_enum;
+
+extern UInt8 Irv_AppSwcVcu_Runbl_DAG_20ms_VDAG_VCUFltLvl_enum;
+
+extern UInt8 Irv_AppSwcVcu_Runbl_VcuTx_10ms_VDAG_VCUFltLvl_enum;
+
+extern VSO_outputs Irv_AppSwcVcu_VSO_outputs;
+
+extern VSO_outputs Irv_AppSwcVcu_AppSwcVcu_Init_VSO_outputs;
+
+extern VSO_outputs Irv_AppSwcVcu_Runbl_VSO_10ms_VSO_outputs;
+
+extern VSO_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_VSO_outputs;
+
+extern VSO_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_VSO_outputs;
+
+extern VTM_outputs Irv_AppSwcVcu_VTM_outputs;
+
+extern VTM_outputs Irv_AppSwcVcu_AppSwcVcu_Init_VTM_outputs;
+
+extern VTM_outputs Irv_AppSwcVcu_Runbl_DAG_20ms_VTM_outputs;
+
+extern VTM_outputs Irv_AppSwcVcu_Runbl_DSA_100ms_VTM_outputs;
+
+extern VTM_outputs Irv_AppSwcVcu_Runbl_GSM_20ms_VTM_outputs;
+
+extern VTM_outputs Irv_AppSwcVcu_Runbl_HMI_100ms_VTM_outputs;
+
+extern VTM_outputs Irv_AppSwcVcu_Runbl_VSO_10ms_VTM_outputs;
+
+extern VTM_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_VTM_outputs;
+
+extern VTM_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_VTM_outputs;
+
+extern VehCfg_outputs Irv_AppSwcVcu_VehCfg_outputs;
+
+extern VehCfg_outputs Irv_AppSwcVcu_Runbl_IPC_10ms_VehCfg_outputs;
+
+extern VehCfg_outputs Irv_AppSwcVcu_Runbl_VcuRx_10ms_VehCfg_outputs;
+
+extern WakeUpCtl Irv_AppSwcBcm_WakeUpCtl_Bus;
+
+extern WakeUpCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_WakeUpCtl_Bus;
+
+extern WakeUpCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_WakeUpCtl_Bus;
+
+extern WinCtl Irv_AppSwcBcm_WinCtl_Bus;
+
+extern WinCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_WinCtl_Bus;
+
+extern WinCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_WinCtl_Bus;
+
+extern WinCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_WinCtl_Bus;
+
+extern WiperCtl Irv_AppSwcBcm_Wiper_Bus;
+
+extern WiperCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_Wiper_Bus;
+
+extern WiperCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_Wiper_Bus;
+
+extern WiperCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_Wiper_Bus;
+
+/*******************************************************************************
+ **                        Global Function Declarations                       **
+******************************************************************************/
+
+void rte_memcpy(uint8 * pDest, const uint8 * pSrc, uint32 length);
+
+void *rte_memset(void * pDest, uint8 set, sint32 length);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_AppSwcBcm_20ms_Bcm2OpmBAC_outputs_Bcm2OpmBAC_outputs(DT_Bcm2OpmBAC_outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_AppSwcBcm_20ms_Bcm2OpmEPT_outputs_Bcm2OpmEPT_outputs(DT_Bcm2OpmEPT_outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_AppSwcBcm_20ms_Bcm2OpmOBD_outputs_Bcm2OpmOBD_outputs(DT_Bcm2OpmOBD_outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_AppSwcBcm_20ms_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs(DT_Bcm2VcuTms_outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_BMS_5_BatTemp_EPT_IPM_BMS_5_BatTemp_EPT(DT_IPM_BMS_5_BatTemp_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_BMS_9_BattInfo_EPT_IPM_BMS_9_BattInfo_EPT(DT_IPM_BMS_9_BattInfo_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD(DT_IPM_COMP_AC_BOD value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC(DT_IPM_HU_B_BAC value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD(DT_IPM_HVCH_Status1_BOD value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD(DT_IPM_HVCH_Status2_BOD value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT(DT_IPM_INV_IMMO_Req_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_IPU_DCC_1_State_EPT_IPM_IPU_DCC_1_State_EPT(DT_IPM_IPU_DCC_1_State_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_IPU_DCC_2_ChrgInValue_EPT_IPM_IPU_DCC_2_ChrgInValue_EPT(DT_IPM_IPU_DCC_2_ChrgInValue_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_IPU_OBC_1_State_EPT_IPM_IPU_OBC_1_State_EPT(DT_IPM_IPU_OBC_1_State_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT(DT_IPM_IPU_OBC_2_Inlet_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC(DT_IPM_TBOX_BJS_Time_BAC value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_10ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA(DT_IPM_EHB_B_CHA value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_10ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA(DT_IPM_ESC_7_FuncStatus_CHA value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_10ms_IPM_ESC_A_CHA_IPM_ESC_A_CHA(DT_IPM_ESC_A_CHA value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_10ms_IPM_INV_1_Value_EPT_IPM_INV_1_Value_EPT(DT_IPM_INV_1_Value_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_10ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT(DT_IPM_INV_2_Value_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_10ms_IPM_INV_3_Value_EPT_IPM_INV_3_Value_EPT(DT_IPM_INV_3_Value_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_10ms_IPM_INV_4_Value_EPT_IPM_INV_4_Value_EPT(DT_IPM_INV_4_Value_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_BMS_10_DC_ChargeStates_EPT_IPM_BMS_10_DC_ChargeStates_EPT(DT_IPM_BMS_10_DC_ChargeStates_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_BMS_1_MainState_EPT_IPM_BMS_1_MainState_EPT(DT_IPM_BMS_1_MainState_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_BMS_2_BatState_EPT_IPM_BMS_2_BatState_EPT(DT_IPM_BMS_2_BatState_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_BMS_3_DC_ChargeState_EPT_IPM_BMS_3_DC_ChargeState_EPT(DT_IPM_BMS_3_DC_ChargeState_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_BMS_4_AC_ChargeState_EPT_IPM_BMS_4_AC_ChargeState_EPT(DT_IPM_BMS_4_AC_ChargeState_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_BMS_6_DischrgRecup_EPT_IPM_BMS_6_DischrgRecup_EPT(DT_IPM_BMS_6_DischrgRecup_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_BMS_7_CellVolt_EPT_IPM_BMS_7_CellVolt_EPT(DT_IPM_BMS_7_CellVolt_EPT value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_CRRR_A_CHA_IPM_CRRR_A_CHA(DT_IPM_CRRR_A_CHA value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA(DT_IPM_EHB_A_CHA value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_FCM_B_CHA_IPM_FCM_B_CHA(DT_IPM_FCM_B_CHA value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_20ms_IPM_SCS_RiSwitchSts_BOD_IPM_SCS_RiSwitchSts_BOD(DT_IPM_SCS_RiSwitchSts_BOD value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_50ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD(DT_IPM_CCP_PanelStatus_BOD value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_50ms_IPM_ESCL_ESCLStatus_BOD_IPM_ESCL_ESCLStatus_BOD(DT_IPM_ESCL_ESCLStatus_BOD value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_50ms_IPM_SCS_LeSwitchSts_BOD_IPM_SCS_LeSwitchSts_BOD(DT_IPM_SCS_LeSwitchSts_BOD value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_50ms_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA(DT_IPM_SRS_1_Status_CHA value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmMsgActv_10ms_CANCommCRCFlt_outputs_CANCommCRCFlt_outputs(DT_CANCommCRCFlt value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmMsgActv_10ms_CANCommErr_outputs_CANCommErr_outputs(DT_CANCommErr value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmMsgActv_10ms_MsgActv_outputs_MsgActv_outputs(DT_MsgActv value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_VcuTx_10ms_DAG_Comm_outputs_DAG_Comm_outputs(DAG_Comm_outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_VcuTx_10ms_Vcu2BcmTms_outputs_Vcu2BcmTms_outputs(DT_Vcu2BcmTms_outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_VcuTx_10ms_Vcu2OpmBAC_outputs_Vcu2OpmBAC_outputs(DT_Vcu2OpmBAC_outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_VcuTx_10ms_Vcu2OpmCHA_outputs_Vcu2OpmCHA_outputs(DT_Vcu2OpmCHA_outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_VcuTx_10ms_Vcu2OpmEPT_outputs_Vcu2OpmEPT_outputs(DT_Vcu2OpmEPT_outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_AC_1_Command_Outputs_TMS2VCU_AC_1_Command_Outputs(TMS2VCU_AC_1_Command_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs(TMS2VCU_AC_2_State_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_AC_3_State_Outputs_TMS2VCU_AC_3_State_Outputs(TMS2VCU_AC_3_State_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_AC_8_status_Outputs_TMS2VCU_AC_8_status_Outputs(TMS2VCU_AC_8_status_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_AC_ACStatuts_Outputs_TMS2VCU_AC_ACStatuts_Outputs(TMS2VCU_AC_ACStatuts_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_AC_COMP_Outputs_TMS2VCU_AC_COMP_Outputs(TMS2VCU_AC_COMP_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_HVCH_Command_Outputs_TMS2VCU_HVCH_Command_Outputs(TMS2VCU_HVCH_Command_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_PPV_outputs_TMS2VCU_PPV_outputs(TMS2VCU_PPVAddSignalGroup_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_TMS_LINTestData1_Outputs_TMS2VCU_TMS_LINTestData1_Outputs(TMS2VCU_TMS_LINTestData1_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_TMS_LINTestData2_Outputs_TMS2VCU_TMS_LINTestData2_Outputs(TMS2VCU_TMS_LINTestData2_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_TMS2VCU_TMS_LINTestData3_Outputs_TMS2VCU_TMS_LINTestData3_Outputs(TMS2VCU_TMS_LINTestData3_Outputs value);
+
+void Rte_WriteBuffer_Rte_Buf_Task_100ms_Tms2Vcu_Info_Tms2Vcu_Info(Tms2Vcu_Info value);
+
+#endif
+

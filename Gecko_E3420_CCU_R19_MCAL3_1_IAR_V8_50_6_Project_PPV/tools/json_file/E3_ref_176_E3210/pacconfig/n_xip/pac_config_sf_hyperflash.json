@@ -1,0 +1,41 @@
+{
+	"description": "e3 pac information file",
+	"pac": [
+		{
+			"flash_type": "hyperflash",
+			"downloader_type": "both",				
+			"type": "ospi",
+			"boot_package_num": "3",
+			"key": "TestRSA2048_ossl.pem",
+			"ctl": "none",
+			"uuid": "none",
+			"core": {
+				"sf_mode": "lockstep",
+				"sp_mode": "None",
+				"sx_mode": "None",
+				"sf_entry": "0x404000",
+
+				"sf_pad_size": "0x1000"
+			},
+			"sfs": {
+				"name": "s26h-hyperflash.json",
+				"boot0_addr": "0xc0000",
+				"boot1_addr": "0x4c0000",
+				"boot2_addr": "0x8c0000"
+			},
+			"encryption": {
+				"encryption_on": "false",
+				"rfd": [
+					{
+						"pvk3": "112233445566778899aabbccddeeff00",
+						"iv": "0d090d09",
+						"start": "0xc0000",
+						"end": "0x4c0000",
+						"boot":"true"
+					}
+				]
+			},
+			"rfd": "xspi_wrap_rfd_blk_pvk1_ks.rfd"
+		}
+	]
+}

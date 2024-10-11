@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<optionMenuItem>
+  <tag>E3110</tag>
+  <display>SemiDrive E3110</display>
+  <data>$CUR_DIR$/E3110.i79</data>
+</optionMenuItem>

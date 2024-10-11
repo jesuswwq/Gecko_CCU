@@ -1,0 +1,46 @@
+/*********************************************************************
+*            (c) 1995 - 2019 SEGGER Microcontroller GmbH             *
+*                        The Embedded Experts                        *
+*                           www.segger.com                           *
+**********************************************************************
+
+/*********************************************************************
+*
+*       Global functions
+*
+**********************************************************************
+*/
+
+/*********************************************************************
+*
+*       ConfigTargetSettings()
+*
+*  Function description
+*    Called before InitTarget(). Mainly used to set some global DLL variables to customize the normal connect procedure.
+*    For ARM CoreSight devices this may be specifying the base address of some CoreSight components (ETM, ...)
+*    that cannot be automatically detected by J-Link due to erroneous ROM tables etc.
+*    May also be used to specify the device name in case debugger does not pass it to the DLL.
+*
+*  Return value
+*    >= 0  O.K.
+*     < 0  Error
+*
+*  Notes
+*    (1) May not, under absolutely NO circumstances, call any API functions that perform target communication.
+*    (2) Should only set some global DLL variables
+*/
+int ConfigTargetSettings(void) {
+  //
+  // Access Port map specfication
+  // Core type
+  // Access Port to use 
+  // Specify core base address 
+  // Specify CTI base address  
+  JLINK_SYS_Report("----------------J-Link script: ConfigTargetSettings() For Semdrive E3 SP1 Cortex-R5---------------");     
+  JLINK_CPU                       = CORTEX_R5;               
+  // JLINK_CORESIGHT_IndexAPBAPToUse = 0;
+  JLINK_CORESIGHT_CoreBaseAddr    = 0xF2083000;
+  return 0;
+}
+/*************************** end of file ****************************/
+
