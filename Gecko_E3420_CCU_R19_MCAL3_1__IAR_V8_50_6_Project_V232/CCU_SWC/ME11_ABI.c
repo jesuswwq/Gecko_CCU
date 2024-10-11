@@ -47,7 +47,7 @@ uint8 key_word[256] = {0};
 boolean INV_IMMO_Req_EPT_RevFlag =0;
 //================BSWversion============================
 uint8  VBSW_BswVer0_cnt = 23;
-uint8  VBSW_BswVer1_cnt = 7;
+uint8  VBSW_BswVer1_cnt = 8;
 //======================================================
 
 
