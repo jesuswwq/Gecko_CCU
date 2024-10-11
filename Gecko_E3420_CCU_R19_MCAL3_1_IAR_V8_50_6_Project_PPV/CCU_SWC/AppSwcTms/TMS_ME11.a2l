@@ -6714,7 +6714,7 @@
       /begin AXIS_DESCR                 
         /* Description of X-Axis Points */
         /* Axis Type            */      COM_AXIS
-        /* Reference to Input   */      BMS_HVBatCellTempMax
+        /* Reference to Input   */      ACSen_sEnvTempCor
         /* Conversion Method    */      ME11_CM_single_C
         /* Number of Axis Pts   */      5
         /* Lower Limit          */      -40.0
@@ -6727,7 +6727,7 @@
       /* Name                   */      cal_DLTRNotDCBatMaxExitTempC_1X
       /* Long Identifier        */      ""
       /* ECU Address            */      0x0000 /* @ECU_Address@cal_DLTRNotDCBatMaxExitTempC_1X@ */
-      /* Input Quantity         */      BMS_HVBatCellTempMax
+      /* Input Quantity         */      ACSen_sEnvTempCor
       /* Record Layout          */      Lookup1D_X_FLOAT32_IEEE
       /* Maximum Difference     */      0
       /* Conversion Method      */      ME11_CM_single_C
@@ -17401,6 +17401,19 @@
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      cal_tLTROnMotInletTemp  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@cal_tLTROnMotInletTemp@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      ME11_CM_single_C 
+      /* Lower Limit            */      -40.0 
+      /* Upper Limit            */      100.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      cal_tLTROnMotTemp  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -24501,6 +24514,32 @@
     
     
     /begin MEASUREMENT
+      /* Name                   */      SOMCtl_eMotorHeatBatFlg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      ME11_CM_uint8_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@SOMCtl_eMotorHeatBatFlg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      SOMCtl_eMotorHeatBat2Flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      ME11_CM_uint8_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0
+      /* Upper limit            */      255
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@SOMCtl_eMotorHeatBat2Flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      SOMCtl_eNmlBatLTROnFlg
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -25459,32 +25498,6 @@
       /* Lower limit            */      0
       /* Upper limit            */      255
       ECU_ADDRESS                       0x0000 /* @ECU_Address@TMS_VersionNumber@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      SOMCtl_eMotorHeatBatFlg
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      ME11_CM_uint8_flg
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      255
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@SOMCtl_eMotorHeatBatFlg@ */
-    /end MEASUREMENT
-    
-    
-    /begin MEASUREMENT
-      /* Name                   */      SOMCtl_eMotorHeatBat2Flg
-      /* Long identifier        */      ""
-      /* Data type              */      UBYTE
-      /* Conversion method      */      ME11_CM_uint8_flg
-      /* Resolution (Not used)  */      0
-      /* Accuracy (Not used)    */      0
-      /* Lower limit            */      0
-      /* Upper limit            */      255
-      ECU_ADDRESS                       0x0000 /* @ECU_Address@SOMCtl_eMotorHeatBat2Flg@ */
     /end MEASUREMENT
     
     
@@ -30977,8 +30990,8 @@
       /* Name                   */       S33_Cabin
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/Cabin"
       /begin SUB_GROUP
-        S1739_Cabin
-        S1739_Override_HvPartModed
+        S1740_Cabin
+        S1740_Override_HvPartModed
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ADCVCCVal
@@ -30996,8 +31009,8 @@
       /* Name                   */       S33_FaceDuct
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/FaceDuct"
       /begin SUB_GROUP
-        S1741_Face
-        S1741_Override_DuctTemp
+        S1742_Face
+        S1742_Override_DuctTemp
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ADCVCCVal
@@ -31014,8 +31027,8 @@
       /* Name                   */       S33_FootDuct
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/FootDuct"
       /begin SUB_GROUP
-        S1742_Foot
-        S1742_Override_DuctTemp
+        S1743_Foot
+        S1743_Override_DuctTemp
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ADCVCCVal
@@ -31032,8 +31045,8 @@
       /* Name                   */       S33_LoPress
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/LoPress"
       /begin SUB_GROUP
-        S1743_Override_HvPartModed
-        S1743_SenDiagnostic
+        S1744_Override_HvPartModed
+        S1744_SenDiagnostic
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_LoPressRaw_CUR
@@ -31050,8 +31063,8 @@
       /* Name                   */       S33_MixDoor
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/MixDoor"
       /begin SUB_GROUP
-        S1744_Override_HvPartModed
-        S1744_SenDiagnostic
+        S1745_Override_HvPartModed
+        S1745_SenDiagnostic
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_MixDoorPerc_CUR
@@ -31068,8 +31081,8 @@
       /* Name                   */       S33_ModeMotor
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/ModeMotor"
       /begin SUB_GROUP
-        S1745_Override_HvPartModed
-        S1745_SenDiagnostic
+        S1746_Override_HvPartModed
+        S1746_SenDiagnostic
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ModeDoorVolAmend_CUR
@@ -31084,8 +31097,8 @@
       /* Name                   */       S33_Recirc
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/Recirc"
       /begin SUB_GROUP
-        S1746_Override_HvPartModed
-        S1746_SenDiagnostic
+        S1747_Override_HvPartModed
+        S1747_SenDiagnostic
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_RecirActVal_CUR
@@ -31101,8 +31114,8 @@
       /* Name                   */       S33_Solar
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/Solar"
       /begin SUB_GROUP
-        S1747_Override_HvPartModed
-        S1747_SenDiagnostic
+        S1748_Override_HvPartModed
+        S1748_SenDiagnostic
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_SolarValRaw_CUR
@@ -31119,8 +31132,8 @@
       /* Name                   */       S33_TempChiller
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempChiller"
       /begin SUB_GROUP
-        S1748_ChiTemp
-        S1748_Chiller
+        S1749_ChiTemp
+        S1749_Chiller
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ADCVCCVal
@@ -31137,8 +31150,8 @@
       /* Name                   */       S33_TempEvap
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempEvap"
       /begin SUB_GROUP
-        S1749_EVAP
-        S1749_EvapTemp
+        S1750_EVAP
+        S1750_EvapTemp
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ADCVCCVal
@@ -31155,8 +31168,8 @@
       /* Name                   */       S33_TempEvapSurface
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempEvapSurface"
       /begin SUB_GROUP
-        S1750_EvapSurface
-        S1750_Override_HvPartModed
+        S1751_EvapSurface
+        S1751_Override_HvPartModed
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ADCVCCVal
@@ -31173,8 +31186,8 @@
       /* Name                   */       S33_TempOHX
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempOHX"
       /begin SUB_GROUP
-        S1751_Env
-        S1751_OHXTemp
+        S1752_Env
+        S1752_OHXTemp
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ADCVCCVal
@@ -31191,8 +31204,8 @@
       /* Name                   */       S33_WCCHiTemp
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/WCCHiTemp"
       /begin SUB_GROUP
-        S1752_Env
-        S1752_WCCTemp
+        S1753_Env
+        S1753_WCCTemp
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ADCVCCVal
@@ -31209,8 +31222,8 @@
       /* Name                   */       S33_pressWCCHi
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/pressWCCHi"
       /begin SUB_GROUP
-        S1753_Override_HvPartModed
-        S1753_SenDiagnostic
+        S1754_Override_HvPartModed
+        S1754_SenDiagnostic
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_HPHighLmtVal
@@ -31228,8 +31241,8 @@
       /* Name                   */       S33_tempACCMHi
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/tempACCMHi"
       /begin SUB_GROUP
-        S1754_ACCMHi
-        S1754_ACCMHiTemp
+        S1755_ACCMHi
+        S1755_ACCMHiTemp
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ACCMHighTempVolAmend_CUR
@@ -32328,8 +32341,8 @@
       /* Name                   */       S1312_MD2_DHMD1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD2_DHMD1"
       /begin SUB_GROUP
-        S1678_Enter
-        S1678_Exit
+        S1679_Enter
+        S1679_Exit
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         SOMCtl_bMD2DHMD1Flg
@@ -32355,8 +32368,8 @@
       /* Name                   */       S1312_MD3_DHMD2
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD3_DHMD2"
       /begin SUB_GROUP
-        S1680_Enter
-        S1680_Exit
+        S1681_Enter
+        S1681_Exit
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         SOMCtl_bMD3DHMD2Flg
@@ -32391,7 +32404,7 @@
       /* Name                   */       S1312_ModeDisplay
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/ModeDisplay"
       /begin SUB_GROUP
-        S1683_Override_CabinModed
+        S1684_Override_CabinModed
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_ACCMForbidCtrl
@@ -32478,10 +32491,10 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1739_Cabin
+      /* Name                   */       S1740_Cabin
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/Cabin/Cabin"
       /begin SUB_GROUP
-        S1755_SenDiagnostic
+        S1756_SenDiagnostic
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         ACSen_eCabinSenSts
@@ -32489,7 +32502,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1739_Override_HvPartModed
+      /* Name                   */       S1740_Override_HvPartModed
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/Cabin/Override_HvPartModed"
       /begin REF_CHARACTERISTIC
         cal_CabinTempData
@@ -32501,10 +32514,10 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1741_Face
+      /* Name                   */       S1742_Face
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/FaceDuct/Face"
       /begin SUB_GROUP
-        S1768_SenDiagnostic
+        S1769_SenDiagnostic
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         ACSen_eFaceDuctSenSts
@@ -32512,7 +32525,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1741_Override_DuctTemp
+      /* Name                   */       S1742_Override_DuctTemp
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/FaceDuct/Override_DuctTemp"
       /begin REF_CHARACTERISTIC
         cal_FaceDuctTempData
@@ -32524,10 +32537,10 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1742_Foot
+      /* Name                   */       S1743_Foot
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/FootDuct/Foot"
       /begin SUB_GROUP
-        S1778_SenDiagnostic
+        S1779_SenDiagnostic
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         ACSen_eFootDuctSenSts
@@ -32535,7 +32548,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1742_Override_DuctTemp
+      /* Name                   */       S1743_Override_DuctTemp
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/FootDuct/Override_DuctTemp"
       /begin REF_CHARACTERISTIC
         cal_FootDuctTempData
@@ -32547,7 +32560,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1743_Override_HvPartModed
+      /* Name                   */       S1744_Override_HvPartModed
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/LoPress/Override_HvPartModed"
       /begin REF_CHARACTERISTIC
         cal_LoPressData
@@ -32559,7 +32572,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1743_SenDiagnostic
+      /* Name                   */       S1744_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/LoPress/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorVolDownFlg
@@ -32568,7 +32581,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1744_Override_HvPartModed
+      /* Name                   */       S1745_Override_HvPartModed
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/MixDoor/Override_HvPartModed"
       /begin REF_CHARACTERISTIC
         cal_MixDoorPercData
@@ -32580,7 +32593,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1744_SenDiagnostic
+      /* Name                   */       S1745_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/MixDoor/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorVolDownFlg
@@ -32589,7 +32602,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1745_Override_HvPartModed
+      /* Name                   */       S1746_Override_HvPartModed
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/ModeMotor/Override_HvPartModed"
       /begin REF_CHARACTERISTIC
         cal_MotorModeData
@@ -32601,7 +32614,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1745_SenDiagnostic
+      /* Name                   */       S1746_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/ModeMotor/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorVolDownFlg
@@ -32610,7 +32623,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1746_Override_HvPartModed
+      /* Name                   */       S1747_Override_HvPartModed
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/Recirc/Override_HvPartModed"
       /begin REF_CHARACTERISTIC
         cal_AirInletPerData
@@ -32622,7 +32635,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1746_SenDiagnostic
+      /* Name                   */       S1747_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/Recirc/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorVolDownFlg
@@ -32631,7 +32644,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1747_Override_HvPartModed
+      /* Name                   */       S1748_Override_HvPartModed
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/Solar/Override_HvPartModed"
       /begin REF_CHARACTERISTIC
         cal_SolarData
@@ -32643,7 +32656,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1747_SenDiagnostic
+      /* Name                   */       S1748_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/Solar/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorVolDownFlg
@@ -32652,7 +32665,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1748_ChiTemp
+      /* Name                   */       S1749_ChiTemp
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempChiller/ChiTemp"
       /begin REF_CHARACTERISTIC
         cal_ChiTempData
@@ -32664,10 +32677,10 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1748_Chiller
+      /* Name                   */       S1749_Chiller
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempChiller/Chiller"
       /begin SUB_GROUP
-        S1818_SenDiagnostic
+        S1819_SenDiagnostic
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         ACSen_eChillerTSenSts
@@ -32675,10 +32688,10 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1749_EVAP
+      /* Name                   */       S1750_EVAP
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempEvap/EVAP"
       /begin SUB_GROUP
-        S1826_SenDiagnostic
+        S1827_SenDiagnostic
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         ACSen_eEVAPTSenSts
@@ -32686,7 +32699,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1749_EvapTemp
+      /* Name                   */       S1750_EvapTemp
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempEvap/EvapTemp"
       /begin REF_CHARACTERISTIC
         cal_EvapTempData
@@ -32698,10 +32711,10 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1750_EvapSurface
+      /* Name                   */       S1751_EvapSurface
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempEvapSurface/EvapSurface"
       /begin SUB_GROUP
-        S1836_SenDiagnostic
+        S1837_SenDiagnostic
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         ACSen_eEVAPSurfTSenSts
@@ -32709,7 +32722,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1750_Override_HvPartModed
+      /* Name                   */       S1751_Override_HvPartModed
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempEvapSurface/Override_HvPartModed"
       /begin REF_CHARACTERISTIC
         cal_EvapSurTempData
@@ -32721,10 +32734,10 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1751_Env
+      /* Name                   */       S1752_Env
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempOHX/Env"
       /begin SUB_GROUP
-        S1845_SenDiagnostic
+        S1846_SenDiagnostic
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         ACSen_eOHXTSenSts
@@ -32732,7 +32745,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1751_OHXTemp
+      /* Name                   */       S1752_OHXTemp
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempOHX/OHXTemp"
       /begin REF_CHARACTERISTIC
         cal_OHXTempData
@@ -32744,10 +32757,10 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1752_Env
+      /* Name                   */       S1753_Env
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/WCCHiTemp/Env"
       /begin SUB_GROUP
-        S1854_SenDiagnostic
+        S1855_SenDiagnostic
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         ACSen_eWCCHTSenSts
@@ -32755,7 +32768,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1752_WCCTemp
+      /* Name                   */       S1753_WCCTemp
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/WCCHiTemp/WCCTemp"
       /begin REF_CHARACTERISTIC
         cal_WCCTempData
@@ -32767,7 +32780,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1753_Override_HvPartModed
+      /* Name                   */       S1754_Override_HvPartModed
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/pressWCCHi/Override_HvPartModed"
       /begin REF_CHARACTERISTIC
         cal_HiPressData
@@ -32779,7 +32792,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1753_SenDiagnostic
+      /* Name                   */       S1754_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/pressWCCHi/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorVolDownFlg
@@ -32788,10 +32801,10 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1754_ACCMHi
+      /* Name                   */       S1755_ACCMHi
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/tempACCMHi/ACCMHi"
       /begin SUB_GROUP
-        S1870_SenDiagnostic
+        S1871_SenDiagnostic
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         ACSen_eACCMHTSenSts
@@ -32799,7 +32812,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1754_ACCMHiTemp
+      /* Name                   */       S1755_ACCMHiTemp
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/tempACCMHi/ACCMHiTemp"
       /begin REF_CHARACTERISTIC
         cal_ACCMHiTempData
@@ -34106,10 +34119,10 @@
       /* Name                   */       S1319_B1_B21
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B1_B21"
       /begin SUB_GROUP
-        S1390_ConditionABC
-        S1390_ConditionE
-        S1390_ConditionF
-        S1390_Judge
+        S1392_ConditionABC
+        S1392_ConditionE
+        S1392_ConditionF
+        S1392_Judge
       /end SUB_GROUP
     /end GROUP
     
@@ -34117,10 +34130,10 @@
       /* Name                   */       S1319_B1_B22
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B1_B22"
       /begin SUB_GROUP
-        S1391_ConditionB
-        S1391_ConditionD
-        S1391_ConditionE
-        S1391_Judge
+        S1393_ConditionB
+        S1393_ConditionD
+        S1393_ConditionE
+        S1393_Judge
       /end SUB_GROUP
     /end GROUP
     
@@ -34128,10 +34141,10 @@
       /* Name                   */       S1319_B2_B1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B2_B1"
       /begin SUB_GROUP
-        S1392_ConditionA
-        S1392_ConditionD
-        S1392_ConditionGHI
-        S1392_Judge
+        S1394_ConditionA
+        S1394_ConditionD
+        S1394_ConditionGHI
+        S1394_Judge
       /end SUB_GROUP
     /end GROUP
     
@@ -34151,10 +34164,10 @@
       /* Name                   */       S1320_B1_B33
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/DLTR/B1_B33"
       /begin SUB_GROUP
-        S1437_B
-        S1437_B1C1
-        S1437_C
-        S1437_D
+        S1439_B
+        S1439_B1C1
+        S1439_C
+        S1439_D
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_VehHeatSOCOn
@@ -34171,9 +34184,9 @@
       /* Name                   */       S1320_B33_B1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/DLTR/B33_B1"
       /begin SUB_GROUP
-        S1438_A
-        S1438_B
-        S1438_D
+        S1440_A
+        S1440_B
+        S1440_D
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_VehHeatSOCOff
@@ -34201,11 +34214,11 @@
       /* Name                   */       S1322_B1_B41
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B41"
       /begin SUB_GROUP
-        S1474_ConditionAorB
-        S1474_ConditionCorD
-        S1474_ConditionE
-        S1474_ConditionF
-        S1474_Judge
+        S1476_ConditionAorB
+        S1476_ConditionCorD
+        S1476_ConditionE
+        S1476_ConditionF
+        S1476_Judge
       /end SUB_GROUP
     /end GROUP
     
@@ -34213,11 +34226,11 @@
       /* Name                   */       S1322_B1_B42
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B42"
       /begin SUB_GROUP
-        S1475_ConditionB
-        S1475_ConditionD
-        S1475_ConditionE
-        S1475_ConditionF
-        S1475_Judge
+        S1477_ConditionB
+        S1477_ConditionD
+        S1477_ConditionE
+        S1477_ConditionF
+        S1477_Judge
       /end SUB_GROUP
     /end GROUP
     
@@ -34225,11 +34238,11 @@
       /* Name                   */       S1322_B41_B1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B41_B1"
       /begin SUB_GROUP
-        S1476_ConditionA
-        S1476_ConditionB
-        S1476_ConditionD
-        S1476_ConditionHIJ
-        S1476_Judge
+        S1478_ConditionA
+        S1478_ConditionB
+        S1478_ConditionD
+        S1478_ConditionHIJ
+        S1478_Judge
       /end SUB_GROUP
     /end GROUP
     
@@ -34249,10 +34262,10 @@
       /* Name                   */       S1322_calTemp
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/calTemp"
       /begin SUB_GROUP
-        S1479_ACCharge
-        S1479_DCCharge
-        S1479_Discharge
-        S1479_HeatTrgTemp
+        S1481_ACCharge
+        S1481_DCCharge
+        S1481_Discharge
+        S1481_HeatTrgTemp
       /end SUB_GROUP
       /begin REF_MEASUREMENT
         SOMCtl_bCalTempBatHeatFlg
@@ -34265,13 +34278,13 @@
       /* Name                   */       S1324_Enter
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Enter"
       /begin SUB_GROUP
-        S1539_A1
-        S1539_B
-        S1539_B1
-        S1539_B1C1
-        S1539_C
-        S1539_C1
-        S1539_D
+        S1541_A1
+        S1541_B
+        S1541_B1
+        S1541_B1C1
+        S1541_C
+        S1541_C1
+        S1541_D
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_tLTROnIPUTemp
@@ -34288,10 +34301,10 @@
       /* Name                   */       S1324_Exit
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Exit"
       /begin SUB_GROUP
-        S1540_A
-        S1540_BC
-        S1540_D
-        S1540_E
+        S1542_A
+        S1542_BC
+        S1542_D
+        S1542_E
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_DLTRIPUTempExitVal
@@ -34409,10 +34422,10 @@
       /* Name                   */       S1327_B33_B1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/B33_B1"
       /begin SUB_GROUP
-        S1632_C
-        S1632_D
-        S1632_E
-        S1632_I
+        S1633_C
+        S1633_D
+        S1633_E
+        S1633_I
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_BatBalCellTemp2
@@ -34430,10 +34443,10 @@
       /* Name                   */       S1327_Balance
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/Balance"
       /begin SUB_GROUP
-        S1633_A
-        S1633_B
-        S1633_C
-        S1633_D
+        S1634_A
+        S1634_B
+        S1634_C
+        S1634_D
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -34448,10 +34461,11 @@
       /* Name                   */       S1327_LTR
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/LTR"
       /begin SUB_GROUP
-        S1636_D
+        S1637_D
       /end SUB_GROUP
       /begin REF_CHARACTERISTIC
         cal_LTRMotorMaxEntTemp
+        cal_tLTROnMotInletTemp
         cal_tLTROnMotTemp
       /end REF_CHARACTERISTIC
       /begin REF_MEASUREMENT
@@ -34460,26 +34474,26 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1678_Enter
+      /* Name                   */       S1679_Enter
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD2_DHMD1/Enter"
       /begin SUB_GROUP
-        S1694_EnterCondition1
-        S1694_EnterCondition2
+        S1695_EnterCondition1
+        S1695_EnterCondition2
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1678_Exit
+      /* Name                   */       S1679_Exit
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD2_DHMD1/Exit"
       /begin SUB_GROUP
-        S1695_Condition1And2
-        S1695_Condition3
-        S1695_Contidion4
+        S1696_Condition1And2
+        S1696_Condition3
+        S1696_Contidion4
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1680_Enter
+      /* Name                   */       S1681_Enter
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD3_DHMD2/Enter"
       /begin REF_CHARACTERISTIC
         cal_CabinMD2F2MaxEnvTemp
@@ -34488,17 +34502,17 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1680_Exit
+      /* Name                   */       S1681_Exit
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD3_DHMD2/Exit"
       /begin SUB_GROUP
-        S1710_Condition1
-        S1710_Condition2
-        S1710_Contidion3
+        S1711_Condition1
+        S1711_Condition2
+        S1711_Contidion3
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1683_Override_CabinModed
+      /* Name                   */       S1684_Override_CabinModed
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/ModeDisplay/Override_CabinModed"
       /begin REF_CHARACTERISTIC
         cal_CabinModeData
@@ -34510,7 +34524,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1755_SenDiagnostic
+      /* Name                   */       S1756_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/Cabin/Cabin/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorTempDownFlg
@@ -34519,7 +34533,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1768_SenDiagnostic
+      /* Name                   */       S1769_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/FaceDuct/Face/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorTempDownFlg
@@ -34528,7 +34542,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1778_SenDiagnostic
+      /* Name                   */       S1779_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/FootDuct/Foot/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorTempDownFlg
@@ -34537,7 +34551,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1818_SenDiagnostic
+      /* Name                   */       S1819_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempChiller/Chiller/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorTempDownFlg
@@ -34546,7 +34560,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1826_SenDiagnostic
+      /* Name                   */       S1827_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempEvap/EVAP/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorTempDownFlg
@@ -34555,7 +34569,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1836_SenDiagnostic
+      /* Name                   */       S1837_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempEvapSurface/EvapSurface/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorTempDownFlg
@@ -34564,7 +34578,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1845_SenDiagnostic
+      /* Name                   */       S1846_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/TempOHX/Env/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorTempDownFlg
@@ -34573,7 +34587,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1854_SenDiagnostic
+      /* Name                   */       S1855_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/WCCHiTemp/Env/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorTempDownFlg
@@ -34582,7 +34596,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1870_SenDiagnostic
+      /* Name                   */       S1871_SenDiagnostic
       /* Long identifier        */       "ME11/ME11_TMS/Sensor/tempACCMHi/ACCMHi/SenDiagnostic"
       /begin REF_CHARACTERISTIC
         cal_SensorTempDownFlg
@@ -36044,7 +36058,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1390_ConditionABC
+      /* Name                   */       S1392_ConditionABC
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B1_B21/ConditionABC"
       /begin REF_CHARACTERISTIC
         cal_tACBatCoolCellTempOn
@@ -36053,7 +36067,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1390_ConditionE
+      /* Name                   */       S1392_ConditionE
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B1_B21/ConditionE"
       /begin REF_CHARACTERISTIC
         cal_HeatPwrOn
@@ -36061,7 +36075,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1390_ConditionF
+      /* Name                   */       S1392_ConditionF
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B1_B21/ConditionF"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -36069,7 +36083,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1390_Judge
+      /* Name                   */       S1392_Judge
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B1_B21/Judge"
       /begin REF_MEASUREMENT
         SOMCtl_eBatCoolB1tB21
@@ -36077,7 +36091,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1391_ConditionB
+      /* Name                   */       S1393_ConditionB
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B1_B22/ConditionB"
       /begin REF_CHARACTERISTIC
         cal_tBatCoolCellTempOn
@@ -36085,7 +36099,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1391_ConditionD
+      /* Name                   */       S1393_ConditionD
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B1_B22/ConditionD"
       /begin REF_CHARACTERISTIC
         cal_HeatPwrOn
@@ -36093,7 +36107,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1391_ConditionE
+      /* Name                   */       S1393_ConditionE
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B1_B22/ConditionE"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -36101,7 +36115,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1391_Judge
+      /* Name                   */       S1393_Judge
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B1_B22/Judge"
       /begin REF_MEASUREMENT
         SOMCtl_eBatCoolB1tB22
@@ -36109,7 +36123,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1392_ConditionA
+      /* Name                   */       S1394_ConditionA
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B2_B1/ConditionA"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -36117,7 +36131,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1392_ConditionD
+      /* Name                   */       S1394_ConditionD
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B2_B1/ConditionD"
       /begin REF_CHARACTERISTIC
         cal_BatHeatPwrLoLmt
@@ -36125,7 +36139,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1392_ConditionGHI
+      /* Name                   */       S1394_ConditionGHI
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B2_B1/ConditionGHI"
       /begin REF_CHARACTERISTIC
         cal_tBatCoolACChrgCellTempOff
@@ -36135,7 +36149,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1392_Judge
+      /* Name                   */       S1394_Judge
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Cool/B2_B1/Judge"
       /begin REF_MEASUREMENT
         SOMCtl_eBatCoolB2tB1
@@ -36143,7 +36157,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1437_B
+      /* Name                   */       S1439_B
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/DLTR/B1_B33/B"
       /begin REF_CHARACTERISTIC
         cal_BatBalCellTemp2
@@ -36152,7 +36166,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1437_B1C1
+      /* Name                   */       S1439_B1C1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/DLTR/B1_B33/B1C1"
       /begin REF_CHARACTERISTIC
         cal_tLTROnDCChrgMaxCellTemp
@@ -36161,7 +36175,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1437_C
+      /* Name                   */       S1439_C
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/DLTR/B1_B33/C"
       /begin REF_CHARACTERISTIC
         cal_tLTROnMaxCellToMotDiff
@@ -36169,7 +36183,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1437_D
+      /* Name                   */       S1439_D
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/DLTR/B1_B33/D"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -36177,7 +36191,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1438_A
+      /* Name                   */       S1440_A
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/DLTR/B33_B1/A"
       /begin REF_CHARACTERISTIC
         cal_BatBalCellTemp2
@@ -36186,7 +36200,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1438_B
+      /* Name                   */       S1440_B
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/DLTR/B33_B1/B"
       /begin REF_CHARACTERISTIC
         cal_LTRExitBatMaxCellTemp
@@ -36194,7 +36208,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1438_D
+      /* Name                   */       S1440_D
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/DLTR/B33_B1/D"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -36202,7 +36216,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1474_ConditionAorB
+      /* Name                   */       S1476_ConditionAorB
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B41/ConditionAorB"
       /begin REF_CHARACTERISTIC
         cal_ACChgBatHighSOCHeat
@@ -36217,7 +36231,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1474_ConditionCorD
+      /* Name                   */       S1476_ConditionCorD
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B41/ConditionCorD"
       /begin REF_MEASUREMENT
         SOMCtl_bBatHeatChrgFlgCD
@@ -36225,7 +36239,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1474_ConditionE
+      /* Name                   */       S1476_ConditionE
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B41/ConditionE"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -36236,7 +36250,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1474_ConditionF
+      /* Name                   */       S1476_ConditionF
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B41/ConditionF"
       /begin REF_CHARACTERISTIC
         cal_HeatPwrOn
@@ -36247,7 +36261,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1474_Judge
+      /* Name                   */       S1476_Judge
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B41/Judge"
       /begin REF_MEASUREMENT
         SOMCtl_bBatB1TB41Flg
@@ -36255,7 +36269,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1475_ConditionB
+      /* Name                   */       S1477_ConditionB
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B42/ConditionB"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatVehReadyCellTempOn
@@ -36263,7 +36277,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1475_ConditionD
+      /* Name                   */       S1477_ConditionD
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B42/ConditionD"
       /begin REF_CHARACTERISTIC
         cal_VehHeatSOCOn
@@ -36271,7 +36285,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1475_ConditionE
+      /* Name                   */       S1477_ConditionE
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B42/ConditionE"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -36279,7 +36293,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1475_ConditionF
+      /* Name                   */       S1477_ConditionF
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B42/ConditionF"
       /begin REF_CHARACTERISTIC
         cal_HeatPwrOn
@@ -36287,7 +36301,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1475_Judge
+      /* Name                   */       S1477_Judge
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B1_B42/Judge"
       /begin REF_MEASUREMENT
         SOMCtl_bBatB1TB42Flg
@@ -36295,7 +36309,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1476_ConditionA
+      /* Name                   */       S1478_ConditionA
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B41_B1/ConditionA"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -36303,7 +36317,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1476_ConditionB
+      /* Name                   */       S1478_ConditionB
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B41_B1/ConditionB"
       /begin REF_CHARACTERISTIC
         cal_BatHeatPwrLoLmt
@@ -36311,7 +36325,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1476_ConditionD
+      /* Name                   */       S1478_ConditionD
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B41_B1/ConditionD"
       /begin REF_CHARACTERISTIC
         cal_VehHeatSOCOff
@@ -36319,7 +36333,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1476_ConditionHIJ
+      /* Name                   */       S1478_ConditionHIJ
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B41_B1/ConditionHIJ"
       /begin REF_CHARACTERISTIC
         cal_ACChgBatHighSOCHeat
@@ -36332,7 +36346,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1476_Judge
+      /* Name                   */       S1478_Judge
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/B41_B1/Judge"
       /begin REF_MEASUREMENT
         SOMCtl_bBatHeatOffFlg
@@ -36341,7 +36355,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1479_ACCharge
+      /* Name                   */       S1481_ACCharge
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/calTemp/ACCharge"
       /begin REF_CHARACTERISTIC
         cal_ACBatHeatEnvTemp
@@ -36353,7 +36367,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1479_DCCharge
+      /* Name                   */       S1481_DCCharge
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/calTemp/DCCharge"
       /begin REF_CHARACTERISTIC
         cal_DCBatHeatEnvTemp
@@ -36365,7 +36379,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1479_Discharge
+      /* Name                   */       S1481_Discharge
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/calTemp/Discharge"
       /begin REF_CHARACTERISTIC
         cal_NmlBatHeatEnvTemp
@@ -36377,7 +36391,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1479_HeatTrgTemp
+      /* Name                   */       S1481_HeatTrgTemp
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/Heat/calTemp/HeatTrgTemp"
       /begin REF_CHARACTERISTIC
         cal_ACChrgBatHeatTrgTemp_CUR
@@ -36392,7 +36406,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1539_A1
+      /* Name                   */       S1541_A1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Enter/A1"
       /begin REF_CHARACTERISTIC
         cal_DLTRDCBatMaxEntTempB_CUR
@@ -36400,7 +36414,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1539_B
+      /* Name                   */       S1541_B
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Enter/B"
       /begin REF_CHARACTERISTIC
         cal_BatBalCellTemp2
@@ -36409,7 +36423,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1539_B1
+      /* Name                   */       S1541_B1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Enter/B1"
       /begin REF_CHARACTERISTIC
         cal_DLTRDCBatMaxEntTempB_CUR
@@ -36417,7 +36431,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1539_B1C1
+      /* Name                   */       S1541_B1C1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Enter/B1C1"
       /begin REF_CHARACTERISTIC
         cal_tLTROnDCChrgMaxCellTemp
@@ -36426,7 +36440,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1539_C
+      /* Name                   */       S1541_C
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Enter/C"
       /begin REF_CHARACTERISTIC
         cal_tLTROnMaxCellToMotDiff
@@ -36434,7 +36448,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1539_C1
+      /* Name                   */       S1541_C1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Enter/C1"
       /begin REF_CHARACTERISTIC
         cal_tLTROnMaxCellToMotDiff
@@ -36442,7 +36456,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1539_D
+      /* Name                   */       S1541_D
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Enter/D"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -36450,7 +36464,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1540_A
+      /* Name                   */       S1542_A
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Exit/A"
       /begin REF_CHARACTERISTIC
         cal_BatBalCellTemp2
@@ -36459,7 +36473,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1540_BC
+      /* Name                   */       S1542_BC
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Exit/BC"
       /begin REF_CHARACTERISTIC
         cal_DLTRDCBatMaxExitTempB_CUR
@@ -36468,7 +36482,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1540_D
+      /* Name                   */       S1542_D
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Exit/D"
       /begin REF_CHARACTERISTIC
         cal_DLTRBatInlet2MaxTempDiff
@@ -36476,7 +36490,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1540_E
+      /* Name                   */       S1542_E
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorAndBatLTR/Exit/E"
       /begin REF_CHARACTERISTIC
         cal_tBatHeatExitMaxToMinCellDiff
@@ -36484,7 +36498,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1632_C
+      /* Name                   */       S1633_C
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/B33_B1/C"
       /begin REF_CHARACTERISTIC
         cal_TSDCBatMinExitTempK
@@ -36492,7 +36506,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1632_D
+      /* Name                   */       S1633_D
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/B33_B1/D"
       /begin REF_CHARACTERISTIC
         cal_ACChgBatHighSOCHeat
@@ -36501,7 +36515,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1632_E
+      /* Name                   */       S1633_E
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/B33_B1/E"
       /begin REF_CHARACTERISTIC
         cal_ACChgBatLowSOCHeat
@@ -36510,7 +36524,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1632_I
+      /* Name                   */       S1633_I
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/B33_B1/I"
       /begin REF_CHARACTERISTIC
         cal_TSIPUExitTempI
@@ -36518,7 +36532,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1633_A
+      /* Name                   */       S1634_A
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/Balance/A"
       /begin REF_CHARACTERISTIC
         cal_ACChgBatLowSOCHeat
@@ -36528,7 +36542,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1633_B
+      /* Name                   */       S1634_B
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/Balance/B"
       /begin REF_CHARACTERISTIC
         cal_ACChgBatHighSOCHeat
@@ -36538,7 +36552,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1633_C
+      /* Name                   */       S1634_C
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/Balance/C"
       /begin REF_CHARACTERISTIC
         cal_ACChgBatHighSOCHeat
@@ -36548,7 +36562,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1633_D
+      /* Name                   */       S1634_D
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/Balance/D"
       /begin REF_CHARACTERISTIC
         cal_ACChgBatHighSOCHeat
@@ -36558,7 +36572,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1636_D
+      /* Name                   */       S1637_D
       /* Long identifier        */       "ME11/ME11_TMS/SOM/BattaryMode/MotorLTRAndBatBalance/LTR/D"
       /begin REF_CHARACTERISTIC
         cal_BatBalCellTemp2
@@ -36566,7 +36580,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1694_EnterCondition1
+      /* Name                   */       S1695_EnterCondition1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD2_DHMD1/Enter/EnterCondition1"
       /begin REF_CHARACTERISTIC
         cal_CabinMD2F2MaxEnvTemp
@@ -36575,7 +36589,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1694_EnterCondition2
+      /* Name                   */       S1695_EnterCondition2
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD2_DHMD1/Enter/EnterCondition2"
       /begin REF_CHARACTERISTIC
         cal_CabinMD2F2MaxEnvTemp
@@ -36584,7 +36598,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1695_Condition1And2
+      /* Name                   */       S1696_Condition1And2
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD2_DHMD1/Exit/Condition1And2"
       /begin REF_CHARACTERISTIC
         cal_CabinHys1TempOffset
@@ -36595,7 +36609,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1695_Condition3
+      /* Name                   */       S1696_Condition3
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD2_DHMD1/Exit/Condition3"
       /begin REF_CHARACTERISTIC
         cal_CabinHys1TempOffset
@@ -36606,7 +36620,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1695_Contidion4
+      /* Name                   */       S1696_Contidion4
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD2_DHMD1/Exit/Contidion4"
       /begin REF_CHARACTERISTIC
         cal_CabinHys1TempOffset
@@ -36615,7 +36629,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1710_Condition1
+      /* Name                   */       S1711_Condition1
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD3_DHMD2/Exit/Condition1"
       /begin REF_CHARACTERISTIC
         cal_CabinHys1TempOffset
@@ -36624,7 +36638,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1710_Condition2
+      /* Name                   */       S1711_Condition2
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD3_DHMD2/Exit/Condition2"
       /begin REF_CHARACTERISTIC
         cal_CabinHys1TempOffset
@@ -36635,7 +36649,7 @@
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S1710_Contidion3
+      /* Name                   */       S1711_Contidion3
       /* Long identifier        */       "ME11/ME11_TMS/SOM/Cabin/MD3_DHMD2/Exit/Contidion3"
       /begin REF_CHARACTERISTIC
         cal_CabinHys1TempOffset
