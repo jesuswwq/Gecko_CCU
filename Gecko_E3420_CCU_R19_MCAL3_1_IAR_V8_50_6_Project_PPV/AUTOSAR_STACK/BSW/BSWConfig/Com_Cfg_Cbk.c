@@ -22,13 +22,122 @@
 *******************************************************************************/
 #include "ComStack_Types.h"
 #include "Com_Cfg_Cbk.h"
+#include "DIAG_ABI.h"
+
+/* *************************************************************************************** */
+//uint8 HU_A_BAC_AliveCnt[7] = {15,15,15,15,15,15,15};    //ChksumByte  {0,8,16,24,32,40,48}
+uint8 HU_B_BAC_AliveCnt[3] = {15,15,15};    //ChksumByte  {0,8,16}
+//uint8 HU_C_BAC_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 ICU_2_Odo_BAC_AliveCnt[1] = {15};    //ChksumByte  {255}
+uint8 ICU_Info_BAC_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 TBOX_BJS_Time_BAC_AliveCnt[1] = {15};    //ChksumByte  {0}
+
+//uint8 ACCM_Version_BOD_AliveCnt[1] = {15};    //ChksumByte  {255}
+//uint8 AVAS_State_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 CCP_PanelStatus_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 COMP_AC_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 ESCL_ESCLStatus_BOD_AliveCnt[1] = {15};    //ChksumByte  {255}
+uint8 HVCH_Status1_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 HVCH_Status2_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 SCS_LeSwitchSts_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 SCS_RiSwitchSts_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 TPMS_Info_BOD_AliveCnt[1] = {15};    //ChksumByte  {255}
+
+//uint8 CRRR_10_Posn_CHA_AliveCnt[2] = {15,15};    //ChksumByte  {0,8}
+uint8 CRRR_A_CHA_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 EHB_A_CHA_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 EHB_B_CHA_AliveCnt[3] = {15,15,15};    //ChksumByte  {0,8,16}
+//uint8 EPS_1_Status_CHA_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 EPS_2_StrWhlAng_CHA_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 EPS_3_LatDrvAndEPSSts_CHA_AliveCnt[2] = {15,15};    //ChksumByte  {0,8}
+uint8 ESC_7_FuncStatus_CHA_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 ESC_A_CHA_AliveCnt[7] = {15,15,15,15,15,15,15};    //ChksumByte  {0,8,16,24,32,40,48}
+//uint8 ESC_WheelPulseTime_CHA_AliveCnt[1] = {15};    //ChksumByte  {255}
+//uint8 FCM_23_Obj0109_CHA_AliveCnt[8] = {15,15,15,15,15,15,15,15};    //ChksumByte  {0,8,16,24,32,40,48,56}
+//uint8 FCM_24_Obj1018_CHA_AliveCnt[8] = {15,15,15,15,15,15,15,15};    //ChksumByte  {0,8,16,24,32,40,48,56}
+//uint8 FCM_25_Line123_CHA_AliveCnt[6] = {15,15,15,15,15,15};    //ChksumByte  {0,8,16,24,32,40}
+//uint8 FCM_A_CHA_AliveCnt[6] = {15,15,15,15,15,15};    //ChksumByte  {0,8,16,24,32,40}
+uint8 FCM_B_CHA_AliveCnt[5] = {15,15,15,15,15};    //ChksumByte  {0,8,16,24,32}
+uint8 PP_InformAndStatus_CHA_AliveCnt[5] = {15,15,15,15,15};    //ChksumByte  {0,8,16,24,32}
+uint8 SRS_1_Status_CHA_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 SRS_2_YRSOriginalSts_CHA_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 SRS_3_YRSActualSts_CHA_AliveCnt[1] = {15};    //ChksumByte  {0}
+
+//uint8 BMS_1_MainState_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 BMS_10_DC_ChargeStates_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 BMS_2_BatState_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 BMS_3_DC_ChargeState_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 BMS_4_AC_ChargeState_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 BMS_5_BatTemp_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 BMS_6_DischrgRecup_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+//uint8 BMS_7_CellVolt_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+//uint8 BMS_8_TempVoltLimit_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+//uint8 BMS_9_BattInfo_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+//uint8 BMS_A_GB_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+//uint8 BMS_B_GB_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+//uint8 BMS_C_GB_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+//uint8 BMS_D_GB_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+//uint8 BMS_HMI_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 INV_1_Value_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 INV_2_Value_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 INV_3_Value_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 INV_4_Value_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 INV_5_Values_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 INV_IMMO_Req_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+uint8 IPU_DCC_1_State_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 IPU_DCC_2_ChrgInValue_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 IPU_OBC_1_State_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 IPU_OBC_2_Inlet_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 IPU_OBC_3_CP_CC_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+//uint8 IPU_OBC_4_state_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+
+uint8 AC_3_State_BAC_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 AC_ACStatuts_BAC_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 BCM_B_Package_BAC_AliveCnt[7] = {15,15,15,15,15,15,15};    //ChksumByte  {0,8,16,24,32,40,48}
+uint8 BCM_HFSData_BAC_AliveCnt[1] = {15};    //ChksumByte  {255}
+uint8 CCU_VehInfo_BAC_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 VCU_B_AcclPedal_BAC_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 VCU_DispInfo_BAC_AliveCnt[5] = {15,15,15,15,15};    //ChksumByte  {0,8,16,24,32}
+
+uint8 AC_1_Command_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 AC_2_State_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 AC_3_State_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 AC_8_status_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 AC_ACStatuts_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 AC_COMP_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 BCM_ESCLCommand_BOD_AliveCnt[1] = {15};    //ChksumByte  {255}
+uint8 CCU_VehInfo_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 HVCH_Command_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 TMS_LINTestData1_BOD_AliveCnt[1] = {15};    //ChksumByte  {255}
+uint8 TMS_LINTestData2_BOD_AliveCnt[1] = {15};    //ChksumByte  {255}
+uint8 TMS_LINTestData3_BOD_AliveCnt[1] = {15};    //ChksumByte  {255}
+
+uint8 AC_3_State_CHA_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 BCM_B_Package_CHA_AliveCnt[7] = {15,15,15,15,15,15,15};    //ChksumByte  {0,8,16,24,32,40,48}
+uint8 CCU_VehInfo_CHA_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 VCU_10_Torque_CHA_AliveCnt[4] = {15,15,15,15};    //ChksumByte  {0,8,16,24}
+uint8 VCU_D_Status_CHA_AliveCnt[4] = {15,15,15,15};    //ChksumByte  {0,8,16,24}
+
+uint8 BCM_IMMOAuthResp1_EPT_AliveCnt[1] = {15};    //ChksumByte  {255}
+uint8 CCU_VehInfo_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 VCU_0_Value_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 VCU_1_InvCmd_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 VCU_3_OprtCmd_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 VCU_4_ChrgCmd_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 VCU_B_AcclPedal_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+uint8 VCU_C_OprtCmd_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+/* *************************************************************************************** */
+
 boolean IPDU_COM_VCU_0_Value_EPT_TxCallout(
     PduIdType PduId,
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = VCU_0_Value_EPT_ChksumByte;
+    uint8* AliveCntPtr = &VCU_0_Value_EPT_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_VCU_10_Torque_CHA_TxCallout(
@@ -36,8 +145,11 @@ boolean IPDU_COM_VCU_10_Torque_CHA_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = VCU_10_Torque_CHA_ChksumByte;
+    uint8* AliveCntPtr = &VCU_10_Torque_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_AC_3_State_CHA_TxCallout(
@@ -45,8 +157,11 @@ boolean IPDU_COM_AC_3_State_CHA_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = AC_3_State_CHA_ChksumByte;
+    uint8* AliveCntPtr = &AC_3_State_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_AC_ACStatuts_BOD_TxCallout(
@@ -54,8 +169,11 @@ boolean IPDU_COM_AC_ACStatuts_BOD_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = AC_ACStatuts_BOD_ChksumByte;
+    uint8* AliveCntPtr = &AC_ACStatuts_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_AC_COMP_BOD_TxCallout(
@@ -63,8 +181,11 @@ boolean IPDU_COM_AC_COMP_BOD_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = AC_COMP_BOD_ChksumByte;
+    uint8* AliveCntPtr = &AC_COMP_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_AC_1_Command_BOD_TxCallout(
@@ -72,8 +193,11 @@ boolean IPDU_COM_AC_1_Command_BOD_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = AC_1_Command_BOD_ChksumByte;
+    uint8* AliveCntPtr = &AC_1_Command_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_HVCH_Command_BOD_TxCallout(
@@ -81,8 +205,11 @@ boolean IPDU_COM_HVCH_Command_BOD_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = HVCH_Command_BOD_ChksumByte;
+    uint8* AliveCntPtr = &HVCH_Command_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_AC_3_State_BOD_TxCallout(
@@ -90,8 +217,11 @@ boolean IPDU_COM_AC_3_State_BOD_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = AC_3_State_BOD_ChksumByte;
+    uint8* AliveCntPtr = &AC_3_State_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_AC_2_State_BOD_TxCallout(
@@ -99,8 +229,11 @@ boolean IPDU_COM_AC_2_State_BOD_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = AC_2_State_BOD_ChksumByte;
+    uint8* AliveCntPtr = &AC_2_State_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TMS_LINTestData1_BOD_TxCallout(
@@ -135,8 +268,11 @@ boolean IPDU_COM_VCU_3_OprtCmd_EPT_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = VCU_3_OprtCmd_EPT_ChksumByte;
+    uint8* AliveCntPtr = &VCU_3_OprtCmd_EPT_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_VCU_B_AcclPedal_EPT_TxCallout(
@@ -144,8 +280,11 @@ boolean IPDU_COM_VCU_B_AcclPedal_EPT_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = VCU_B_AcclPedal_EPT_ChksumByte;
+    uint8* AliveCntPtr = &VCU_B_AcclPedal_EPT_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_VCU_1_InvCmd_EPT_TxCallout(
@@ -153,8 +292,11 @@ boolean IPDU_COM_VCU_1_InvCmd_EPT_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = VCU_1_InvCmd_EPT_ChksumByte;
+    uint8* AliveCntPtr = &VCU_1_InvCmd_EPT_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_VCU_C_OprtCmd_EPT_TxCallout(
@@ -162,8 +304,11 @@ boolean IPDU_COM_VCU_C_OprtCmd_EPT_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = VCU_C_OprtCmd_EPT_ChksumByte;
+    uint8* AliveCntPtr = &VCU_C_OprtCmd_EPT_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_BCM_IMMOAuthResp1_EPT_TxCallout(
@@ -180,8 +325,11 @@ boolean IPDU_COM_AC_ACStatuts_BAC_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = AC_ACStatuts_BAC_ChksumByte;
+    uint8* AliveCntPtr = &AC_ACStatuts_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_AC_3_State_BAC_TxCallout(
@@ -189,8 +337,11 @@ boolean IPDU_COM_AC_3_State_BAC_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = AC_3_State_BAC_ChksumByte;
+    uint8* AliveCntPtr = &AC_3_State_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_BCM_HFSData_BAC_TxCallout(
@@ -243,8 +394,11 @@ boolean IPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = VCU_DispInfo_BAC_ChksumByte;
+    uint8* AliveCntPtr = &VCU_DispInfo_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_BCM_ESCLCommand_BOD_CANFD5_BOD_CAN6_TxCallout(
@@ -261,8 +415,11 @@ boolean IPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = VCU_B_AcclPedal_BAC_ChksumByte;
+    uint8* AliveCntPtr = &VCU_B_AcclPedal_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_CCU_VehInfo_CHA_CANFD3_CHA_CAN5_TxCallout(
@@ -270,8 +427,11 @@ boolean IPDU_COM_TX_CCU_VehInfo_CHA_CANFD3_CHA_CAN5_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = CCU_VehInfo_CHA_ChksumByte;
+    uint8* AliveCntPtr = &CCU_VehInfo_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5_TxCallout(
@@ -279,8 +439,11 @@ boolean IPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = VCU_D_Status_CHA_ChksumByte;
+    uint8* AliveCntPtr = &VCU_D_Status_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5_TxCallout(
@@ -288,8 +451,11 @@ boolean IPDU_COM_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = BCM_B_Package_CHA_ChksumByte;
+    uint8* AliveCntPtr = &BCM_B_Package_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_CCU_VehInfo_BOD_CANFD4_BOD_CAN4_TxCallout(
@@ -297,8 +463,11 @@ boolean IPDU_COM_TX_CCU_VehInfo_BOD_CANFD4_BOD_CAN4_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = CCU_VehInfo_BOD_ChksumByte;
+    uint8* AliveCntPtr = &CCU_VehInfo_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_AC_8_status_BOD_CANFD4_BOD_CAN4_TxCallout(
@@ -306,8 +475,11 @@ boolean IPDU_COM_TX_AC_8_status_BOD_CANFD4_BOD_CAN4_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = AC_8_status_BOD_ChksumByte;
+    uint8* AliveCntPtr = &AC_8_status_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_VCU_4_ChrgCmd_EPT_CANFD6_EPT_CAN2_TxCallout(
@@ -315,8 +487,11 @@ boolean IPDU_COM_TX_VCU_4_ChrgCmd_EPT_CANFD6_EPT_CAN2_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = VCU_4_ChrgCmd_EPT_ChksumByte;
+    uint8* AliveCntPtr = &VCU_4_ChrgCmd_EPT_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_CCU_VehInfo_EPT_CANFD6_EPT_CAN2_TxCallout(
@@ -324,8 +499,11 @@ boolean IPDU_COM_TX_CCU_VehInfo_EPT_CANFD6_EPT_CAN2_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = CCU_VehInfo_EPT_ChksumByte;
+    uint8* AliveCntPtr = &CCU_VehInfo_EPT_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
@@ -333,8 +511,11 @@ boolean IPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = CCU_VehInfo_BAC_ChksumByte;
+    uint8* AliveCntPtr = &CCU_VehInfo_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_BCM_B_Package_BAC_CANFD8_BAC_CAN1_TxCallout(
@@ -342,8 +523,11 @@ boolean IPDU_COM_TX_BCM_B_Package_BAC_CANFD8_BAC_CAN1_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = BCM_B_Package_BAC_ChksumByte;
+    uint8* AliveCntPtr = &BCM_B_Package_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_FCM_23_Obj0109_CHA_RxCallout(
@@ -405,8 +589,11 @@ boolean IPDU_COM_EPS_2_StrWhlAng_CHA_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = EPS_2_StrWhlAng_CHA_ChksumByte;
+    uint8* AliveCntPtr = &EPS_2_StrWhlAng_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_EPS_1_Status_CHA_RxCallout(
@@ -423,8 +610,11 @@ boolean IPDU_COM_CRRR_A_CHA_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = CRRR_A_CHA_ChksumByte;
+    uint8* AliveCntPtr = &CRRR_A_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_CRRR_10_Posn_CHA_RxCallout(
@@ -441,8 +631,11 @@ boolean IPDU_COM_CCP_PanelStatus_BOD_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = CCP_PanelStatus_BOD_ChksumByte;
+    uint8* AliveCntPtr = &CCP_PanelStatus_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_SCS_LeSwitchSts_BOD_RxCallout(
@@ -486,8 +679,11 @@ boolean IPDU_COM_COMP_AC_BOD_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = COMP_AC_BOD_ChksumByte;
+    uint8* AliveCntPtr = &COMP_AC_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_ACCM_Version_BOD_RxCallout(
@@ -504,8 +700,11 @@ boolean IPDU_COM_HVCH_Status1_BOD_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = HVCH_Status1_BOD_ChksumByte;
+    uint8* AliveCntPtr = &HVCH_Status1_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_HVCH_Status2_BOD_RxCallout(
@@ -522,8 +721,11 @@ boolean IPDU_COM_BMS_2_BatState_EPT_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = BMS_2_BatState_EPT_ChksumByte;
+    uint8* AliveCntPtr = &BMS_2_BatState_EPT_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_BMS_3_DC_ChargeState_EPT_RxCallout(
@@ -630,8 +832,11 @@ boolean IPDU_COM_IPU_DCC_1_State_EPT_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = IPU_DCC_1_State_EPT_ChksumByte;
+    uint8* AliveCntPtr = &IPU_DCC_1_State_EPT_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_IPU_OBC_1_State_EPT_RxCallout(
@@ -675,8 +880,11 @@ boolean IPDU_COM_INV_1_Value_EPT_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = INV_1_Value_EPT_ChksumByte;
+    uint8* AliveCntPtr = &INV_1_Value_EPT_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_INV_2_Value_EPT_RxCallout(
@@ -729,8 +937,11 @@ boolean IPDU_COM_ICU_Info_BAC_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = ICU_Info_BAC_ChksumByte;
+    uint8* AliveCntPtr = &ICU_Info_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_ICU_2_Odo_BAC_RxCallout(
@@ -756,8 +967,11 @@ boolean IPDU_COM_TBOX_BJS_Time_BAC_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = TBOX_BJS_Time_BAC_ChksumByte;
+    uint8* AliveCntPtr = &TBOX_BJS_Time_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_RxCallout(
@@ -765,8 +979,11 @@ boolean IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = HU_B_BAC_ChksumByte;
+    uint8* AliveCntPtr = &HU_B_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_RX_SCS_RiSwitchSts_BOD_CANFD5_BOD_CAN6_RxCallout(
@@ -774,8 +991,11 @@ boolean IPDU_COM_RX_SCS_RiSwitchSts_BOD_CANFD5_BOD_CAN6_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = SCS_RiSwitchSts_BOD_ChksumByte;
+    uint8* AliveCntPtr = &SCS_RiSwitchSts_BOD_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_RxCallout(
@@ -792,8 +1012,11 @@ boolean IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANFD3_CHA_CAN5_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = ESC_7_FuncStatus_CHA_ChksumByte;
+    uint8* AliveCntPtr = &ESC_7_FuncStatus_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_RxCallout(
@@ -801,8 +1024,11 @@ boolean IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = EHB_B_CHA_ChksumByte;
+    uint8* AliveCntPtr = &EHB_B_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_RX_SRS_1_Status_CHA_CANFD3_CHA_CAN5_RxCallout(
@@ -810,8 +1036,11 @@ boolean IPDU_COM_RX_SRS_1_Status_CHA_CANFD3_CHA_CAN5_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = SRS_1_Status_CHA_ChksumByte;
+    uint8* AliveCntPtr = &SRS_1_Status_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_RX_PP_InformAndStatus_CHA_CANFD3_CHA_CAN5_RxCallout(
@@ -819,8 +1048,11 @@ boolean IPDU_COM_RX_PP_InformAndStatus_CHA_CANFD3_CHA_CAN5_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = PP_InformAndStatus_CHA_ChksumByte;
+    uint8* AliveCntPtr = &PP_InformAndStatus_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_RX_BMS_HMI_EPT_CANFD6_EPT_CAN2_RxCallout(
@@ -837,8 +1069,11 @@ boolean IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5_RxCallout(
     const PduInfoType* PduInfoPtr
 )
 {
-boolean ret = TRUE;
-return ret;
+    uint8 ChksumAtByte[] = FCM_B_CHA_ChksumByte;
+    uint8* AliveCntPtr = &FCM_B_CHA_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_RxChksumAliveCnt_Check(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_RX_FCM_A_CHA_CANFD3_CHA_CAN5_RxCallout(
