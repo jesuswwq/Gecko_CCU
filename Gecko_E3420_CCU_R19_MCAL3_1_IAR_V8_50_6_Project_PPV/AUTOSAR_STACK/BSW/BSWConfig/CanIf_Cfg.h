@@ -13,7 +13,7 @@
 **                                                                            **
 **  FILENAME    : CanIf_Cfg.h                                                 **
 **                                                                            **
-**  Created on  : 2024/08/01 15:24:55                                         **
+**  Created on  : 2024/10/14 16:49:33                                         **
 **  Author      : zhengfei.li                                                 **
 **  Vendor      :                                                             **
 **  DESCRIPTION : cfg parameter declaration of CanIf                          **
@@ -309,7 +309,7 @@
 #define CANIF_TXPDU_BCM_IMMOAuthResp1_EPT         45u
 #define CANIF_TXPDU_TBOX_BJS_Time_EPT         46u
 #define CANIF_TXPDU_INV_1_Value_BAC         47u
-#define CANIF_TXPDU_VCU_DispInfo_BAC         48u
+#define CANIF_TXPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1         48u
 #define CANIF_TXPDU_BMS_1_MainState_BAC         49u
 #define CANIF_TXPDU_ESC_7_FuncStatus_BAC         50u
 #define CANIF_TXPDU_BMS_2_BatState_BAC         51u

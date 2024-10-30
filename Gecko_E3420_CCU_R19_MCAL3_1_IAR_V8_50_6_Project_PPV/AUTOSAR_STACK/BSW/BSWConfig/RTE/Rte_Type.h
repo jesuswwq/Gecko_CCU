@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-10 14:04:36>
+ *  @date       <2024-10-27 01:08:46>
  */
 /*============================================================================*/
 
@@ -957,6 +957,8 @@ typedef struct
     Boolean VIPM_HwEmgcyShutOff_flg;
     Boolean VIPM_HwVehCrash_flg;
     Boolean VIPM_HwCrpModeSw_flg;
+    Float VIPM_HwHVIL1Volt_mV;
+    Float VIPM_HwHVIL2Volt_mV;
 } DT_HardWire_Input_VCU;
 
 #define _DEFINED_TYPEDEF_FOR_DT_HardWire_Input_VCU_
@@ -1865,6 +1867,7 @@ typedef struct
     Boolean VVcuTx_ParkSwSta_flg;
     UInt8 VGSM_EPBApplyFbd_enum;
     UInt8 VVTM_ACCStat_enum;
+    Boolean VVTM_AccReqStandstill_flg;
 } DT_Vcu2OpmCHA_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_DT_Vcu2OpmCHA_outputs_
@@ -1990,6 +1993,14 @@ typedef struct
     rt_Array_UInt8_10 RemoteStartFailRecord;
     rt_Array_UInt8_10 TrunkOpRecord;
     UInt8 TrunkLckSw;
+    UInt8 DriverDoorLckSw;
+    UInt8 DoorAjarFLSw;
+    UInt8 DoorAjarFRSw;
+    UInt8 TrunkSw;
+    UInt8 DoorAjarRLSw;
+    UInt8 DoorAjarRRSw;
+    UInt8 TrunkAjarSw;
+    UInt8 DrvSeatSw;
 } EEReadCtl;
 
 #define _DEFINED_TYPEDEF_FOR_EEReadCtl_
@@ -2692,6 +2703,17 @@ typedef struct
 
 typedef struct
 {
+    Boolean VNVM_EEImdtReadOK_flg;
+    Boolean VNVM_VCUVerFb_flg;
+    UInt8 VNVM_VCUSpdLimSt_enum;
+    Boolean VNVM_TBOXOffline_flg;
+} NVM_Imdt_outputs;
+
+#define _DEFINED_TYPEDEF_FOR_NVM_Imdt_outputs_
+
+typedef struct
+{
+    Boolean VNVM_EE01ReadOK_flg;
     UInt8 VBSW_WakeupReasn_enum;
     UInt8 VNVM_IBSChrgNum_cnt;
     UInt8 VNVM_IBSChrgFailNum_cnt;
@@ -2883,6 +2905,9 @@ typedef struct
     Boolean VTBX_VCUOprtLicFb_flg;
     Boolean VTBX_VCUChrgngCondsFb_flg;
     UInt8 VTBX_VCULckVehWrn_enum;
+    Boolean VTBX_ReqLimpHome_flg;
+    Boolean VTBX_TBOXOffline_flg;
+    UInt8 VTBX_VCUSpdLimSt_enum;
 } TBOX_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_TBOX_outputs_
@@ -3363,6 +3388,7 @@ typedef struct
     Boolean VVTM_EnblEHBBrkRun_flg;
     Float VVTM_MstrCylPresrReq_Bar;
     UInt8 VVTM_ACCStat_enum;
+    Boolean VVTM_AccReqStandstill_flg;
 } VTM_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_VTM_outputs_
@@ -3408,6 +3434,8 @@ typedef struct
     Boolean PsgWinUpProt;
     Boolean DrvWinDnProt;
     Boolean PsgWinDnProt;
+    Boolean DrvWinMotorLocked;
+    Boolean PsgWinMotorLocked;
 } WinCtl;
 
 #define _DEFINED_TYPEDEF_FOR_WinCtl_

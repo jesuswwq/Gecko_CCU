@@ -441,7 +441,7 @@ Dio_LevelType IoExp_TCA9539_GetChannelOutputSt(TCA9539_ChipID_e_ ChipID, TCA9539
     return InputLevel;
     
 }
-
+#pragma default_function_attributes = @".iram_func"
 void Gpio_TCA9539_ReadValue()
 {
 	uint8 channel_id =0;//only for input chip 
@@ -468,3 +468,4 @@ void Gpio_TCA9539_ReadValue()
         }
 	}
 }
+#pragma default_function_attributes =

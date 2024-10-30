@@ -15,7 +15,7 @@
 #define adsize_4067A 11
 #define adsize_4067B 4
 #define adsize_4067C 1
-#define adsize_4067D 9 //移除掉4,5,6channel；
+#define adsize_4067D 10 //移除掉4,5,6channel；
 #define adsize_4067E 10
 
 extern void Adc_rte_init(void);

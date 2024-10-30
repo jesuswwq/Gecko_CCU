@@ -61,13 +61,12 @@ void BswM_PowerON_KL15_Check_Callout(void)
         sdrv_btm_hw_writel(0xF0010000, 0x48, 0xAA); /**Flag for Power on which is no data in RTC ram**/
         do
         {
-                while (E_NOT_OK == Read_9539_All(&TCA9539SumSingleTriger))
-                        ;
-                Delay1ms();
-                (void)Read_9539_All(&TCA9539SumSingleTriger);
-        } while ((FALSE == TCA9539SumSingleTriger.TCA9539Triger[0].used) || (FALSE == TCA9539SumSingleTriger.TCA9539Triger[1].used));
-        Ret = Compare_9539_All(&TCA9539SumSingleTriger, &TrigerValue, 1);
-        if (0x02 & Mcu_Ip_PmuGetWakeupSource()) /****wakeup by RealTimeCounter periodic interrupt****/
+           while(E_NOT_OK == Read_9539_All(&TCA9539SumSingleTriger));  
+           Delay1ms();
+           (void)Read_9539_All(&TCA9539SumSingleTriger);         
+        } while ((FALSE == TCA9539SumSingleTriger.TCA9539Triger[0].used)||(FALSE == TCA9539SumSingleTriger.TCA9539Triger[1].used)); 
+        Ret = Compare_9539_All(&TCA9539SumSingleTriger,&TrigerValue,1);
+        if(0x02 & Mcu_Ip_PmuGetWakeupSource()) /****wakeup by RealTimeCounter periodic interrupt****/
         {
                 CCUWakeupReturnValue = 0x22;
                 TRIGGER_SET_BIT(18, TCA9539SumTrigerReadResult);
@@ -281,7 +280,7 @@ Std_ReturnType Compare_9539_All(TCA9539SumTrigerType *TCA9539SumTrigerInfo, uint
                 return E_NOT_OK;
         }
 }
-
+#pragma default_function_attributes = @".iram_func"
 void Cycle_HW_NM_Check(void)
 {
         uint32 TrigerValue = 0;
@@ -311,7 +310,8 @@ void Cycle_HW_NM_Check(void)
                 TRIGGER_SET_BIT(17, TCA9539SumTrigerReadResult);
         }
         /****************ComM0,1,2,3,5 for NM Channel**************************/
-        if ((NM_STATE_BUS_SLEEP == CanNm_ChRunTime[0].canNmState) && (NM_STATE_BUS_SLEEP == CanNm_ChRunTime[1].canNmState) && (NM_STATE_BUS_SLEEP == CanNm_ChRunTime[2].canNmState) && (NM_STATE_BUS_SLEEP == CanNm_ChRunTime[3].canNmState))
+        if((NM_STATE_BUS_SLEEP == CanNm_ChRunTime[0].canNmState)&&(NM_STATE_BUS_SLEEP == CanNm_ChRunTime[1].canNmState)
+                &&(NM_STATE_BUS_SLEEP == CanNm_ChRunTime[2].canNmState)&&(NM_STATE_BUS_SLEEP == CanNm_ChRunTime[3].canNmState))
         {
                 if ((100 <= FirstWakeUpSource500ms) && (FALSE == NvM_WriteAllFlag) && (1 == NvM_InitReadAll_Flag))
                 {
@@ -334,6 +334,7 @@ void Cycle_HW_NM_Check(void)
                 {
                         BswM_RequestMode(NVM_TIMER_START, 0xAA);
                         NvM_CancelWriteAll();
+                        Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, DEM_CYCLE_STATE_START);
                         NvM_WriteAllFlag = FALSE;
                 }
                 // if((NM_STATE_PREPARE_BUS_SLEEP == CanNm_ChRunTime[0].canNmState)&&(NM_STATE_PREPARE_BUS_SLEEP == CanNm_ChRunTime[1].canNmState)
@@ -412,6 +413,7 @@ void Cycle_ComM_Manage(void)
                 }
         }
 }
+#pragma default_function_attributes =
 void NM_UserDataPackup(void)
 {
         uint8 tempBMS = 0, tempIGN = 0, tempOBC = 0, tempOthers = 0;
@@ -561,6 +563,7 @@ void BswM_ReadAllFinish_CallOut(void)
 void BswM_WriteAllFinish_CallOut(void)
 {
         NvM_CancelWriteAll();
+        Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, DEM_CYCLE_STATE_START);
         NvM_WriteAllFlag = FALSE;
         BswM_RequestMode(NVM_TIMER_START, 0xAA);
 }

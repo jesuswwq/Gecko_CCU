@@ -966,7 +966,7 @@ Dcm_StartOfReception(
 #if (STD_ON == DCM_REQUEST_QUEUED_ENABLED)
                     else
                     {
-                        Dcm_MemoryCopy(info->SduDataPtr, (uint8 *)&Dcm_RequestQueuedBuffer, info->SduLength);
+                        Dcm_MemoryCopy(info->SduDataPtr, Dcm_RequestQueuedBuffer, info->SduLength);
                         Dcm_QueuedRequestCtrl[Dcm_QueuedIndex].Dcm_QueuedRequestBufferCunrentPosition +=
                             info->SduLength;
                         bufRet = BUFREQ_OK;

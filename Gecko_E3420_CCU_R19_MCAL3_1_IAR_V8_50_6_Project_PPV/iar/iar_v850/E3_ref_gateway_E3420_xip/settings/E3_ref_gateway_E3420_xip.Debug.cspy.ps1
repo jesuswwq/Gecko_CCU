@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "D:\wwq\gitlib\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1_IAR_V8_50_6_Project_PPV\iar\iar_v850\E3_ref_gateway_E3420_xip\settings\E3_ref_gateway_E3420_xip.Debug.general.xcl" --backend -f "D:\wwq\gitlib\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1_IAR_V8_50_6_Project_PPV\iar\iar_v850\E3_ref_gateway_E3420_xip\settings\E3_ref_gateway_E3420_xip.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "D:\wwq\github\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1_IAR_V8_50_6_Project_PPV\iar\iar_v850\E3_ref_gateway_E3420_xip\settings\E3_ref_gateway_E3420_xip.Debug.general.xcl" --backend -f "D:\wwq\github\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1_IAR_V8_50_6_Project_PPV\iar\iar_v850\E3_ref_gateway_E3420_xip\settings\E3_ref_gateway_E3420_xip.Debug.driver.xcl" 
 }
 else
 {
-& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "D:\wwq\gitlib\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1_IAR_V8_50_6_Project_PPV\iar\iar_v850\E3_ref_gateway_E3420_xip\settings\E3_ref_gateway_E3420_xip.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\wwq\gitlib\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1_IAR_V8_50_6_Project_PPV\iar\iar_v850\E3_ref_gateway_E3420_xip\settings\E3_ref_gateway_E3420_xip.Debug.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.4\common\bin\cspybat" -f "D:\wwq\github\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1_IAR_V8_50_6_Project_PPV\iar\iar_v850\E3_ref_gateway_E3420_xip\settings\E3_ref_gateway_E3420_xip.Debug.general.xcl" --debug_file=$debugfile --backend -f "D:\wwq\github\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1_IAR_V8_50_6_Project_PPV\iar\iar_v850\E3_ref_gateway_E3420_xip\settings\E3_ref_gateway_E3420_xip.Debug.driver.xcl" 
 }

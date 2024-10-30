@@ -140,7 +140,7 @@ static const VAR(Can_ControllerConfigType, CAN_VAR) Can_ControllerConfig[] = {
         INTERRUPT,  /* wakeupProcType */
         0U,  /* controllerId */
         14U,  /* maxMBNum */
-        (1U << 2) | (1U << 4) | (1U << 5), /* option */
+        (1U << 4) | (1U << 5), /* option */
         0U,   /* defaultBaudRateId */
         1U,  /* baudRateConfigCount */
         Can0_BaudRateConfig, /* baudRateConfig */
@@ -158,7 +158,7 @@ static const VAR(Can_ControllerConfigType, CAN_VAR) Can_ControllerConfig[] = {
         INTERRUPT,  /* wakeupProcType */
         1U,  /* controllerId */
         64U,  /* maxMBNum */
-        (1U << 2) | (1U << 4) | (1U << 5), /* option */
+        (1U << 4) | (1U << 5), /* option */
         0U,   /* defaultBaudRateId */
         1U,  /* baudRateConfigCount */
         Can1_BaudRateConfig, /* baudRateConfig */
@@ -176,7 +176,7 @@ static const VAR(Can_ControllerConfigType, CAN_VAR) Can_ControllerConfig[] = {
         INTERRUPT,  /* wakeupProcType */
         2U,  /* controllerId */
         14U,  /* maxMBNum */
-        (1U << 2) | (1U << 4) | (1U << 5), /* option */
+        (1U << 4) | (1U << 5), /* option */
         0U,   /* defaultBaudRateId */
         1U,  /* baudRateConfigCount */
         Can2_BaudRateConfig, /* baudRateConfig */
@@ -194,7 +194,7 @@ static const VAR(Can_ControllerConfigType, CAN_VAR) Can_ControllerConfig[] = {
         INTERRUPT,  /* wakeupProcType */
         3U,  /* controllerId */
         64U,  /* maxMBNum */
-        (1U << 2) | (1U << 4) | (1U << 5), /* option */
+        (1U << 4) | (1U << 5), /* option */
         0U,   /* defaultBaudRateId */
         1U,  /* baudRateConfigCount */
         Can3_BaudRateConfig, /* baudRateConfig */
@@ -212,7 +212,7 @@ static const VAR(Can_ControllerConfigType, CAN_VAR) Can_ControllerConfig[] = {
         INTERRUPT,  /* wakeupProcType */
         4U,  /* controllerId */
         39U,  /* maxMBNum */
-        (1U << 2) | (1U << 4) | (1U << 5), /* option */
+        (1U << 4) | (1U << 5), /* option */
         0U,   /* defaultBaudRateId */
         1U,  /* baudRateConfigCount */
         Can4_BaudRateConfig, /* baudRateConfig */
@@ -230,7 +230,7 @@ static const VAR(Can_ControllerConfigType, CAN_VAR) Can_ControllerConfig[] = {
         INTERRUPT,  /* wakeupProcType */
         5U,  /* controllerId */
         19U,  /* maxMBNum */
-        (1U << 2) | (1U << 4) | (1U << 5), /* option */
+        (1U << 4) | (1U << 5), /* option */
         0U,   /* defaultBaudRateId */
         1U,  /* baudRateConfigCount */
         Can5_BaudRateConfig, /* baudRateConfig */

@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcIpm'.
  *
- * Model version                  : 9.209
+ * Model version                  : 9.212
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Sep 24 13:50:26 2024
+ * C/C++ source code generated on : Mon Oct 28 18:01:57 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -127,6 +127,7 @@ extern MONPRM volatile boolean VIPM_CCPHDCKeyVld_flg;/* '<S359>/Logical Operator
 extern MONPRM volatile boolean VIPM_CCPHDCKey_flg;/* '<S359>/Switch4' */
 extern MONPRM volatile boolean VIPM_CCPHzrdKeyVld_flg;/* '<S360>/Logical Operator3' */
 extern MONPRM volatile boolean VIPM_CCPHzrdKey_flg;/* '<S360>/Switch4' */
+extern MONPRM volatile boolean VIPM_CCPLostComm_flg;/* '<S381>/Switch20' */
 extern MONPRM volatile boolean VIPM_CCPModeKeyVld_flg;/* '<S361>/Logical Operator3' */
 extern MONPRM volatile boolean VIPM_CCPModeKey_flg;/* '<S361>/Switch4' */
 extern MONPRM volatile boolean VIPM_CCPPwrRecupLvlKeyVld_flg;/* '<S362>/Logical Operator3' */
@@ -223,6 +224,7 @@ extern MONPRM volatile boolean VIPM_EHBFltLvlVld_flg;/* '<S180>/Logical Operator
 extern MONPRM volatile uint8 VIPM_EHBFltLvl_enum;/* '<S180>/Switch4' */
 extern MONPRM volatile boolean VIPM_EHBHDCFucFaultVld_flg;/* '<S275>/Logical Operator3' */
 extern MONPRM volatile boolean VIPM_EHBHDCFucFault_flg;/* '<S275>/Switch4' */
+extern MONPRM volatile boolean VIPM_EHBLostComm_flg;/* '<S381>/Switch18' */
 extern MONPRM volatile boolean VIPM_EHBReqBrkLiOnVld_flg;/* '<S181>/Logical Operator3' */
 extern MONPRM volatile boolean VIPM_EHBReqBrkLiOn_flg;/* '<S181>/Switch4' */
 extern MONPRM volatile boolean VIPM_EHB_B_CRCFlt_flg;/* '<S380>/Logical Operator8' */
@@ -524,6 +526,7 @@ extern MONPRM volatile boolean VIPM_SCSLeTrnLmpSwStVld_flg;/* '<S372>/Logical Op
 extern MONPRM volatile boolean VIPM_SCSLeTrnLmpSwSt_flg;/* '<S372>/Switch4' */
 extern MONPRM volatile boolean VIPM_SCSLoBeamSwStVld_flg;/* '<S373>/Logical Operator3' */
 extern MONPRM volatile boolean VIPM_SCSLoBeamSwSt_flg;/* '<S373>/Switch4' */
+extern MONPRM volatile boolean VIPM_SCSLostComm_flg;/* '<S381>/Switch19' */
 extern MONPRM volatile boolean VIPM_SCSOvrVehBeamSwStVld_flg;/* '<S374>/Logical Operator3' */
 extern MONPRM volatile boolean VIPM_SCSOvrVehBeamSwSt_flg;/* '<S374>/Switch4' */
 extern MONPRM volatile boolean VIPM_SCSPstnLghtSwStVld_flg;/* '<S375>/Logical Operator3' */

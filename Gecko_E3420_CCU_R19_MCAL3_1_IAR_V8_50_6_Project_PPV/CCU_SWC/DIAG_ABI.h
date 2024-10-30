@@ -72,14 +72,54 @@ extern uint8 Buffer_DcmDspData_F180[19];
 extern uint8 Buffer_DcmDspData_F163[19];
 
 
+/* 20241025新增DTC设置 */
+extern void App_Call_Event_DTC_0x10A796_SetEventStatus(uint8 FaultStatus);  //ESC 1级故障
+extern void App_Call_Event_DTC_0x10A896_SetEventStatus(uint8 FaultStatus);  //ESC 2级故障
+extern void App_Call_Event_DTC_0x10A996_SetEventStatus(uint8 FaultStatus);  //ESC 3级故障
+extern void App_Call_Event_DTC_0x10AA96_SetEventStatus(uint8 FaultStatus);  //ESC 4级故障
+extern void App_Call_Event_DTC_0x10AB96_SetEventStatus(uint8 FaultStatus);  //ESC 5级故障
+extern void App_Call_Event_DTC_0x10A296_SetEventStatus(uint8 FaultStatus);  //EHB 1级故障
+extern void App_Call_Event_DTC_0x10A396_SetEventStatus(uint8 FaultStatus);  //EHB 2级故障
+extern void App_Call_Event_DTC_0x10A496_SetEventStatus(uint8 FaultStatus);  //EHB 3级故障
+extern void App_Call_Event_DTC_0x10A596_SetEventStatus(uint8 FaultStatus);  //EHB 4级故障
+extern void App_Call_Event_DTC_0x10A696_SetEventStatus(uint8 FaultStatus);  //EHB 5级故障
+extern void App_Call_Event_DTC_0x100496_SetEventStatus(uint8 FaultStatus);  //互锁故障-压缩机（次要互锁）
+extern void App_Call_Event_DTC_0x100F16_SetEventStatus(uint8 FaultStatus);  //互锁信号错误-电路电压低于阈值（次要互锁）
+extern void App_Call_Event_DTC_0x100D16_SetEventStatus(uint8 FaultStatus);  //互锁信号错误-电路电压低于阈值或BMS互锁（主要互锁）
+extern void App_Call_Event_DTC_0x100F17_SetEventStatus(uint8 FaultStatus);  //互锁信号错误-电路电压高于阈值（次要互锁）
+extern void App_Call_Event_DTC_0x100E17_SetEventStatus(uint8 FaultStatus);  //互锁信号错误-电路电压高于阈值（主要互锁）
+extern void App_Call_Event_DTC_0x10AC83_SetEventStatus(uint8 FaultStatus);  //P挡检测失效
+
+extern void App_Call_Event_DTC_0xC11282_SetEventStatus(uint8 FaultStatus);  //BMS Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xC12282_SetEventStatus(uint8 FaultStatus);  //ESC Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xD10282_SetEventStatus(uint8 FaultStatus);  //FCM Checksum or AliveCnt faill
+extern void App_Call_Event_DTC_0xD11282_SetEventStatus(uint8 FaultStatus);  //CRRR Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xD10E82_SetEventStatus(uint8 FaultStatus);  //PP Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xC13082_SetEventStatus(uint8 FaultStatus);  //EPS Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xC15182_SetEventStatus(uint8 FaultStatus);  //SRS Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xD11682_SetEventStatus(uint8 FaultStatus);  //ICU Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xC19882_SetEventStatus(uint8 FaultStatus);  //TBOX Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xD10882_SetEventStatus(uint8 FaultStatus);  //MCU Checksum or AliveCnt faill
+extern void App_Call_Event_DTC_0xC10F82_SetEventStatus(uint8 FaultStatus);  //ACCM Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xC23082_SetEventStatus(uint8 FaultStatus);  //PTC Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xD11D82_SetEventStatus(uint8 FaultStatus);  //HU Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xC14682_SetEventStatus(uint8 FaultStatus);  //IPU Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xC13182_SetEventStatus(uint8 FaultStatus);  //EHB Checksum or AliveCnt fail
+extern void App_Call_Event_DTC_0xC24082_SetEventStatus(uint8 FaultStatus);  //SCS Checksum or AliveCnt faill
+extern void App_Call_Event_DTC_0xC27082_SetEventStatus(uint8 FaultStatus);  //CCP Checksum or AliveCnt faill
+
+/* 20241025新增DTC获取，通信诊断相关 */
+extern uint8 App_Call_Event_DTC_0xC13187_GetEventStatus(void); // Lost Communication with EHB 
+extern uint8 App_Call_Event_DTC_0xC24087_GetEventStatus(void); // Lost Communication with SCS
+extern uint8 App_Call_Event_DTC_0xC27087_GetEventStatus(void); // Lost Communication with CCP
+
+
 /* DTC 状态设置 */
 extern void App_Call_Event_DTC_0x100083_SetEventStatus(uint8 FaultStatus);  //加速踏板信号采集差异故障
 extern void App_Call_Event_DTC_0x100116_SetEventStatus(uint8 FaultStatus);  //加速踏板1电压采集过低
 extern void App_Call_Event_DTC_0x100117_SetEventStatus(uint8 FaultStatus);  //加速踏板1电压采集过高
 extern void App_Call_Event_DTC_0x100316_SetEventStatus(uint8 FaultStatus);  //加速踏板2电压采集过低
 extern void App_Call_Event_DTC_0x100317_SetEventStatus(uint8 FaultStatus);  //加速踏板2电压采集过高
-extern void App_Call_Event_DTC_0x100D16_SetEventStatus(uint8 FaultStatus);  //联锁信号错误-电路电压低于阈值
-extern void App_Call_Event_DTC_0x100D17_SetEventStatus(uint8 FaultStatus);  //联锁信号错误-电路电压高于阈值
 extern void App_Call_Event_DTC_0x101201_SetEventStatus(uint8 FaultStatus);  //传感器供电电压误差(5V1,5V2)-一般电气故障
 extern void App_Call_Event_DTC_0x101501_SetEventStatus(uint8 FaultStatus);  //数字输出错误-一般电气故障
 extern void App_Call_Event_DTC_0x101601_SetEventStatus(uint8 FaultStatus);  //PWM碰撞故障

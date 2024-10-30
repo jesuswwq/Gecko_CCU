@@ -54,9 +54,9 @@ const TCA6424_Ctrl_t TCA6424_CrtlList[TCA6424_CHIP_NUM] =
         .I2C_Channel        = I2cConf_I2cChannel_I2cChannel_I2C2,
 //        .I2C_CtrlBlock      = I2c_adap_dev_tca6424[TCA6424_CHIP_D],
         .Device_Addr        = TCA6424A_D_ADDRESS,
-        .Port0Dir           = TCA6424_PORTDIRALLOUT,
-        .Port1Dir           = TCA6424_PORTDIRALLOUT,
-        .Port2Dir           = TCA6424_PORTDIRALLOUT,
+        .Port0Dir           = TCA6424_D_PORT0DIR,
+        .Port1Dir           = TCA6424_D_PORT1DIR,
+        .Port2Dir           = TCA6424_D_PORT2DIR,
         .RstPin             = DioConf_DioChannel_RESET_6424_BD_9539,
     },
 
@@ -173,12 +173,39 @@ static void IoExp_TCA6242_InitPortDir(void)
     {
         /* clear contrl REG at first to set all port not output */
         buf_w[0] = TCA6424A_OUTPUT_REG0 | TCA6424_CMD_WRIRE;
-        buf_w[1] = 0x00;
-    	buf_w[2] = 0x00;
-    	buf_w[3] = 0x00;
-        if(chipid == TCA6424_CHIP_D)
+        switch (chipid)
         {
-            buf_w[3] = 0x80;
+            case TCA6424_CHIP_A:
+                buf_w[1] = 0xC0;
+                buf_w[2] = 0xFF;
+                buf_w[2] = 0x3F;
+                break;
+            case TCA6424_CHIP_B:
+                buf_w[1] = 0x00;
+                buf_w[2] = 0x00;
+                buf_w[2] = 0x00;
+                break;
+            case TCA6424_CHIP_C:
+                buf_w[1] = 0xC0;
+                buf_w[2] = 0x00;
+                buf_w[2] = 0x7;
+                break;            
+            case TCA6424_CHIP_D:
+                buf_w[1] = 0x00;
+                buf_w[2] = 0x00;
+                buf_w[3] = 0x80;
+                break;
+            case TCA6424_CHIP_E:
+                buf_w[1] = 0x00;
+                buf_w[2] = 0x00;
+                buf_w[2] = 0x00;
+                break;
+            
+            default:
+                buf_w[1] = 0x00;
+                buf_w[2] = 0x00;
+                buf_w[2] = 0x00;
+                break;
         }
         I2c_write(I2c_adap_dev_tca6424[chipid], 
                  TCA6424_CrtlList[chipid].Device_Addr, buf_w, 4);

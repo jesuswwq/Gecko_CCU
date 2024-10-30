@@ -12,7 +12,7 @@
 **                                                                            **
 **  FILENAME    : PduR_PBcfg.c                                                **
 **                                                                            **
-**  Created on  : 2024/09/17 09:42:28                                         **
+**  Created on  : 2024/10/14 16:49:42                                         **
 **  Author      : zhengfei.li                                                 **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Configuration parameter of PDUR                             **
@@ -178,16 +178,16 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
-        PDUR_DESTPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
+        PDUR_DESTPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
         PDUR_UNUSED_UINT16,
         PDUR_UNUSED_UINT16,
         FALSE,
         TRUE,
-        PDUR_SRCPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
-        COM_TXPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
-        PDUR_COM,
+        PDUR_SRCPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
+        CANIF_TXPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
+        PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -1828,15 +1828,15 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
-        PDUR_DESTPDU_VCU_DispInfo_BAC,
+        PDUR_DESTPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
         PDUR_UNUSED_UINT16,
         PDUR_UNUSED_UINT16,
         FALSE,
         TRUE,
-        PDUR_SRCPDU_COM_VCU_DispInfo_BAC,
-        CANIF_TXPDU_VCU_DispInfo_BAC,
+        PDUR_SRCPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
+        CANIF_TXPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
         PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
@@ -4248,11 +4248,11 @@ PduR_SrcPduConfigData[PDUR_SRC_PDU_SUM] =
 
     },
     {
-        PDUR_SRCPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
+        PDUR_SRCPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
         TRUE,
         PDUR_UNUSED_UINT16,
-        CANIF_TXPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
-        PDUR_CANIF,
+        COM_TXPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
+        PDUR_COM,
 
     },
     {
@@ -4864,10 +4864,10 @@ PduR_SrcPduConfigData[PDUR_SRC_PDU_SUM] =
 
     },
     {
-        PDUR_SRCPDU_COM_VCU_DispInfo_BAC,
+        PDUR_SRCPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
         TRUE,
         PDUR_UNUSED_UINT16,
-        COM_TXPDU_COM_VCU_DispInfo_BAC,
+        COM_TXPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
         PDUR_COM,
 
     },
@@ -5920,7 +5920,7 @@ PduR_PDUR_ROUTING_CCU_VehInfo_CHA[1] =
 static CONST(uint16,PDUR_CONST)
 PduR_PDUR_ROUTING_VCU_D_Status_CHA[1] =
 {
-    PDUR_DESTPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
+    PDUR_DESTPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6646,7 +6646,7 @@ PduR_PDUR_ROUTING_INV_IMMO_Req_EPT[1] =
 static CONST(uint16,PDUR_CONST)
 PduR_PDUR_ROUTING_VCU_DispInfo_BAC[1] =
 {
-    PDUR_DESTPDU_VCU_DispInfo_BAC,
+    PDUR_DESTPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -7845,7 +7845,7 @@ PduR_RoutingPathConfigData0[207] =
         PDUR_UNUSED_UINT16
     },
     {
-        PDUR_SRCPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
+        PDUR_SRCPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
         1u,
         PduR_PDUR_ROUTING_VCU_D_Status_CHA,
         FALSE,
@@ -8461,7 +8461,7 @@ PduR_RoutingPathConfigData0[207] =
         PDUR_UNUSED_UINT16
     },
     {
-        PDUR_SRCPDU_COM_VCU_DispInfo_BAC,
+        PDUR_SRCPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
         1u,
         PduR_PDUR_ROUTING_VCU_DispInfo_BAC,
         FALSE,

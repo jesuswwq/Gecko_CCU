@@ -2,7 +2,7 @@
 
 "--cpu=Cortex-R5" 
 
-"--jlink_script_file=D:\wwq\gitlib\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1_IAR_V8_50_6_Project_PPV\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\tools\JLINK\e3_sf.JLinkScript" 
+"--jlink_script_file=D:\wwq\github\Gecko_CCU\Gecko_E3420_CCU_R19_MCAL3_1_IAR_V8_50_6_Project_PPV\iar\iar_v850\E3_ref_gateway_E3420_xip\..\..\..\tools\JLINK\e3_sf.JLinkScript" 
 
 "--fpu=VFPv3" 
 
