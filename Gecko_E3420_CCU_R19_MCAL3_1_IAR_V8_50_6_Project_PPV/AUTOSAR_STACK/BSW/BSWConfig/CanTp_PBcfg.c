@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-01-08 09:33:17>
+ *  @date       <2024-10-14 18:05:47>
  */
 /*============================================================================*/
 
@@ -69,15 +69,15 @@ static CONST(CanTp_RxNSduType, CANTP_CONST) CanTp_Ch0RxNSdus[2] =
         0xFFu,
         0xFFu,
         0u,
-        8u,
+        64u,
         CANTP_PADDING_ON,
-        CANTP_FUNCTIONAL_RX,
+        CANTP_CANFD_FUNCTIONAL,
         &CanTp_Ch0RxSdu_CANTP_CANTP_RX_Diag_FuncReq_OBD_RxWftMax,
         &CanTp_Ch0RxSdu_CANTP_CANTP_RX_Diag_FuncReq_OBD_STmin,
         NULL_PTR,
         NULL_PTR,
         NULL_PTR,
-        CAN20_tp,
+        CAN_FD,
     },
     {
         &CanTp_Ch0RxSdu_CANTP_CANTP_RX_Diag_PhyReq_CCU_OBD_Bs,
@@ -91,15 +91,15 @@ static CONST(CanTp_RxNSduType, CANTP_CONST) CanTp_Ch0RxNSdus[2] =
         CANTP_CANIF_TX_Diag_Resp_CCU_OBD,
         CANIF_TXPDU_CANIF_TX_Diag_Resp_CCU_OBD,
         0u,
-        8u,
+        64u,
         CANTP_PADDING_ON,
-        CANTP_PHYSICAL_RX,
+        CANTP_CANFD_PHYSICAL,
         &CanTp_Ch0RxSdu_CANTP_CANTP_RX_Diag_PhyReq_CCU_OBD_RxWftMax,
         &CanTp_Ch0RxSdu_CANTP_CANTP_RX_Diag_PhyReq_CCU_OBD_STmin,
         NULL_PTR,
         NULL_PTR,
         NULL_PTR,
-        CAN20_tp,
+        CAN_FD,
     },
 };
 #define CANTP_STOP_SEC_CONST_UNSPECIFIED
@@ -128,13 +128,13 @@ static CONST(CanTp_TxNSduType, CANTP_CONST) CanTp_Ch0TxNSdus[1] =
         CANTP_CANIF_RX_Diag_PhyReq_CCU_OBD,
         CANIF_TXPDU_CANIF_TX_Diag_Resp_CCU_OBD,
         0u,
-        8u,
+        64u,
         CANTP_PADDING_ON,
         CANTP_PHYSICAL_TX,
         NULL_PTR,
         NULL_PTR,
         NULL_PTR,
-        CAN20_tp,
+        CAN_FD,
     },
 };
 #define CANTP_STOP_SEC_CONST_UNSPECIFIED

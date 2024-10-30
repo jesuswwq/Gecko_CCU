@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-10 14:07:58>
+ *  @date       <2024-10-28 18:09:26>
  */
 /*============================================================================*/
 
@@ -40,6 +40,7 @@
 typedef struct
 {
     P2VAR(Rte_DE_DT_CANCommCRCFlt_status, AUTOMATIC, RTE_DATA)  Runbl_DAG_20ms_CANCommCRCFlt_outputs_CANCommCRCFlt_outputs;
+    P2VAR(Rte_DE_DT_IPM_COMP_AC_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_DAG_20ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD;
     P2VAR(Rte_DE_DT_IPM_TBOX_BJS_Time_BAC_status, AUTOMATIC, RTE_DATA)  Runbl_DAG_20ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC;
     P2VAR(Rte_DE_TMS2VCU_AC_3_State_Outputs_status, AUTOMATIC, RTE_DATA)  Runbl_IBS_100ms_TMS2VCU_AC_3_State_Outputs_TMS2VCU_AC_3_State_Outputs;
     P2VAR(Rte_DE_DT_Bcm2VcuTms_outputs_status, AUTOMATIC, RTE_DATA)  Runbl_VcuRx_10ms_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs;
@@ -101,6 +102,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IrvIRead_Runbl_VcuTx_10ms_Bcm2VcuTms_outputs Rte_IrvIRead_Runbl_VcuTx_10ms_Bcm2VcuTms_outputs
 
 #define Rte_IrvIRead_Runbl_DAG_20ms_CANCommErr_outputs Rte_IrvIRead_Runbl_DAG_20ms_CANCommErr_outputs
+
+#define Rte_IrvIRead_Runbl_GSM_20ms_CANCommErr_outputs Rte_IrvIRead_Runbl_GSM_20ms_CANCommErr_outputs
 
 #define Rte_IrvIRead_Runbl_RME_100ms_CANCommErr_outputs Rte_IrvIRead_Runbl_RME_100ms_CANCommErr_outputs
 
@@ -252,6 +255,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #define Rte_IrvIRead_Runbl_HVM_20ms_IPM_BMS_10_DC_ChargeStates_EPT Rte_IrvIRead_Runbl_HVM_20ms_IPM_BMS_10_DC_ChargeStates_EPT
 
+#define Rte_IrvIRead_Runbl_RME_100ms_IPM_BMS_10_DC_ChargeStates_EPT Rte_IrvIRead_Runbl_RME_100ms_IPM_BMS_10_DC_ChargeStates_EPT
+
 #define Rte_IrvIRead_Runbl_TBOX_100ms_IPM_BMS_10_DC_ChargeStates_EPT Rte_IrvIRead_Runbl_TBOX_100ms_IPM_BMS_10_DC_ChargeStates_EPT
 
 #define Rte_IrvIRead_Runbl_VTM_10ms_IPM_BMS_10_DC_ChargeStates_EPT Rte_IrvIRead_Runbl_VTM_10ms_IPM_BMS_10_DC_ChargeStates_EPT
@@ -312,8 +317,6 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #define Rte_IrvIRead_Runbl_HVM_20ms_IPM_BMS_6_DischrgRecup_EPT Rte_IrvIRead_Runbl_HVM_20ms_IPM_BMS_6_DischrgRecup_EPT
 
-#define Rte_IrvIRead_Runbl_VTM_10ms_IPM_BMS_6_DischrgRecup_EPT Rte_IrvIRead_Runbl_VTM_10ms_IPM_BMS_6_DischrgRecup_EPT
-
 #define Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_BMS_6_DischrgRecup_EPT Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_BMS_6_DischrgRecup_EPT
 
 #define Rte_IrvIRead_Runbl_DAG_20ms_IPM_BMS_7_CellVolt_EPT Rte_IrvIRead_Runbl_DAG_20ms_IPM_BMS_7_CellVolt_EPT
@@ -335,8 +338,6 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IrvIRead_Runbl_RME_100ms_IPM_BMS_9_BattInfo_EPT Rte_IrvIRead_Runbl_RME_100ms_IPM_BMS_9_BattInfo_EPT
 
 #define Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_BMS_9_BattInfo_EPT Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_BMS_9_BattInfo_EPT
-
-#define Rte_IrvIRead_Runbl_VSO_10ms_IPM_CCP_PanelStatus_BOD Rte_IrvIRead_Runbl_VSO_10ms_IPM_CCP_PanelStatus_BOD
 
 #define Rte_IrvIRead_Runbl_VTM_10ms_IPM_CCP_PanelStatus_BOD Rte_IrvIRead_Runbl_VTM_10ms_IPM_CCP_PanelStatus_BOD
 
@@ -389,6 +390,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IrvIRead_Runbl_IPC_10ms_IPM_HU_B_BAC Rte_IrvIRead_Runbl_IPC_10ms_IPM_HU_B_BAC
 
 #define Rte_IrvIRead_Runbl_TBOX_100ms_IPM_HU_B_BAC Rte_IrvIRead_Runbl_TBOX_100ms_IPM_HU_B_BAC
+
+#define Rte_IrvIRead_Runbl_VSO_10ms_IPM_HU_B_BAC Rte_IrvIRead_Runbl_VSO_10ms_IPM_HU_B_BAC
 
 #define Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_HU_B_BAC Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_HU_B_BAC
 
@@ -454,6 +457,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #define Rte_IrvIRead_Runbl_HVM_20ms_IPM_IPU_OBC_1_State_EPT Rte_IrvIRead_Runbl_HVM_20ms_IPM_IPU_OBC_1_State_EPT
 
+#define Rte_IrvIRead_Runbl_RME_100ms_IPM_IPU_OBC_1_State_EPT Rte_IrvIRead_Runbl_RME_100ms_IPM_IPU_OBC_1_State_EPT
+
 #define Rte_IrvIRead_Runbl_TBOX_100ms_IPM_IPU_OBC_1_State_EPT Rte_IrvIRead_Runbl_TBOX_100ms_IPM_IPU_OBC_1_State_EPT
 
 #define Rte_IrvIRead_Runbl_VTM_10ms_IPM_IPU_OBC_1_State_EPT Rte_IrvIRead_Runbl_VTM_10ms_IPM_IPU_OBC_1_State_EPT
@@ -465,8 +470,6 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IrvIRead_Runbl_HVM_20ms_IPM_IPU_OBC_2_Inlet_EPT Rte_IrvIRead_Runbl_HVM_20ms_IPM_IPU_OBC_2_Inlet_EPT
 
 #define Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_IPU_OBC_2_Inlet_EPT Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_IPU_OBC_2_Inlet_EPT
-
-#define Rte_IrvIRead_Runbl_DAG_20ms_IPM_SCS_RiSwitchSts_BOD Rte_IrvIRead_Runbl_DAG_20ms_IPM_SCS_RiSwitchSts_BOD
 
 #define Rte_IrvIRead_Runbl_GSM_20ms_IPM_SCS_RiSwitchSts_BOD Rte_IrvIRead_Runbl_GSM_20ms_IPM_SCS_RiSwitchSts_BOD
 
@@ -487,6 +490,12 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IrvIRead_Runbl_VTM_10ms_MsgActv_outputs Rte_IrvIRead_Runbl_VTM_10ms_MsgActv_outputs
 
 #define Rte_IrvIWrite_Runbl_VcuRx_10ms_MsgActv_outputs Rte_IrvIWrite_Runbl_VcuRx_10ms_MsgActv_outputs
+
+#define Rte_IrvIWrite_AppSwcVcu_Init_NVM_Imdt_outputs Rte_IrvIWrite_AppSwcVcu_Init_NVM_Imdt_outputs
+
+#define Rte_IrvIRead_Runbl_TBOX_100ms_NVM_Imdt_outputs Rte_IrvIRead_Runbl_TBOX_100ms_NVM_Imdt_outputs
+
+#define Rte_IrvIWrite_Runbl_VcuRx_10ms_NVM_Imdt_outputs Rte_IrvIWrite_Runbl_VcuRx_10ms_NVM_Imdt_outputs
 
 #define Rte_IrvIWrite_AppSwcVcu_Init_NVM_outputs Rte_IrvIWrite_AppSwcVcu_Init_NVM_outputs
 
@@ -515,6 +524,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IrvIRead_Runbl_VcuTx_10ms_SIBS_Output Rte_IrvIRead_Runbl_VcuTx_10ms_SIBS_Output
 
 #define Rte_IrvIWrite_Runbl_TBOX_100ms_TBOX_outputs Rte_IrvIWrite_Runbl_TBOX_100ms_TBOX_outputs
+
+#define Rte_IrvIRead_Runbl_VTM_10ms_TBOX_outputs Rte_IrvIRead_Runbl_VTM_10ms_TBOX_outputs
 
 #define Rte_IrvIRead_Runbl_VcuTx_10ms_TBOX_outputs Rte_IrvIRead_Runbl_VcuTx_10ms_TBOX_outputs
 
@@ -565,6 +576,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IrvIWrite_Runbl_VcuRx_10ms_VehCfg_outputs Rte_IrvIWrite_Runbl_VcuRx_10ms_VehCfg_outputs
 
 #define Rte_IRead_Runbl_DAG_20ms_CANCommCRCFlt_outputs_CANCommCRCFlt_outputs() (&Rte_Inst_AppSwcVcu.Runbl_DAG_20ms_CANCommCRCFlt_outputs_CANCommCRCFlt_outputs->value)
+
+#define Rte_IRead_Runbl_DAG_20ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD() (&Rte_Inst_AppSwcVcu.Runbl_DAG_20ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD->value)
 
 #define Rte_IRead_Runbl_DAG_20ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC() (&Rte_Inst_AppSwcVcu.Runbl_DAG_20ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC->value)
 
@@ -703,6 +716,8 @@ DT_Bcm2VcuTms_outputs * Rte_IrvIWriteRef_Runbl_VcuRx_10ms_Bcm2VcuTms_outputs(voi
 DT_Bcm2VcuTms_outputs* Rte_IrvIRead_Runbl_VcuTx_10ms_Bcm2VcuTms_outputs(void);
 
 DT_CANCommErr* Rte_IrvIRead_Runbl_DAG_20ms_CANCommErr_outputs(void);
+
+DT_CANCommErr* Rte_IrvIRead_Runbl_GSM_20ms_CANCommErr_outputs(void);
 
 DT_CANCommErr* Rte_IrvIRead_Runbl_RME_100ms_CANCommErr_outputs(void);
 
@@ -886,6 +901,8 @@ DT_IPM_BMS_10_DC_ChargeStates_EPT* Rte_IrvIRead_Runbl_HMI_100ms_IPM_BMS_10_DC_Ch
 
 DT_IPM_BMS_10_DC_ChargeStates_EPT* Rte_IrvIRead_Runbl_HVM_20ms_IPM_BMS_10_DC_ChargeStates_EPT(void);
 
+DT_IPM_BMS_10_DC_ChargeStates_EPT* Rte_IrvIRead_Runbl_RME_100ms_IPM_BMS_10_DC_ChargeStates_EPT(void);
+
 DT_IPM_BMS_10_DC_ChargeStates_EPT* Rte_IrvIRead_Runbl_TBOX_100ms_IPM_BMS_10_DC_ChargeStates_EPT(void);
 
 DT_IPM_BMS_10_DC_ChargeStates_EPT* Rte_IrvIRead_Runbl_VTM_10ms_IPM_BMS_10_DC_ChargeStates_EPT(void);
@@ -958,8 +975,6 @@ DT_IPM_BMS_6_DischrgRecup_EPT* Rte_IrvIRead_Runbl_EMS_20ms_IPM_BMS_6_DischrgRecu
 
 DT_IPM_BMS_6_DischrgRecup_EPT* Rte_IrvIRead_Runbl_HVM_20ms_IPM_BMS_6_DischrgRecup_EPT(void);
 
-DT_IPM_BMS_6_DischrgRecup_EPT* Rte_IrvIRead_Runbl_VTM_10ms_IPM_BMS_6_DischrgRecup_EPT(void);
-
 void Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_BMS_6_DischrgRecup_EPT(DT_IPM_BMS_6_DischrgRecup_EPT* data);
 
 DT_IPM_BMS_6_DischrgRecup_EPT * Rte_IrvIWriteRef_Runbl_VcuRx_10ms_IPM_BMS_6_DischrgRecup_EPT(void);
@@ -987,8 +1002,6 @@ DT_IPM_BMS_9_BattInfo_EPT* Rte_IrvIRead_Runbl_RME_100ms_IPM_BMS_9_BattInfo_EPT(v
 void Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_BMS_9_BattInfo_EPT(DT_IPM_BMS_9_BattInfo_EPT* data);
 
 DT_IPM_BMS_9_BattInfo_EPT * Rte_IrvIWriteRef_Runbl_VcuRx_10ms_IPM_BMS_9_BattInfo_EPT(void);
-
-DT_IPM_CCP_PanelStatus_BOD* Rte_IrvIRead_Runbl_VSO_10ms_IPM_CCP_PanelStatus_BOD(void);
 
 DT_IPM_CCP_PanelStatus_BOD* Rte_IrvIRead_Runbl_VTM_10ms_IPM_CCP_PanelStatus_BOD(void);
 
@@ -1053,6 +1066,8 @@ DT_IPM_HU_B_BAC* Rte_IrvIRead_Runbl_HVM_20ms_IPM_HU_B_BAC(void);
 DT_IPM_HU_B_BAC* Rte_IrvIRead_Runbl_IPC_10ms_IPM_HU_B_BAC(void);
 
 DT_IPM_HU_B_BAC* Rte_IrvIRead_Runbl_TBOX_100ms_IPM_HU_B_BAC(void);
+
+DT_IPM_HU_B_BAC* Rte_IrvIRead_Runbl_VSO_10ms_IPM_HU_B_BAC(void);
 
 void Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_HU_B_BAC(DT_IPM_HU_B_BAC* data);
 
@@ -1132,6 +1147,8 @@ DT_IPM_IPU_OBC_1_State_EPT* Rte_IrvIRead_Runbl_HMI_100ms_IPM_IPU_OBC_1_State_EPT
 
 DT_IPM_IPU_OBC_1_State_EPT* Rte_IrvIRead_Runbl_HVM_20ms_IPM_IPU_OBC_1_State_EPT(void);
 
+DT_IPM_IPU_OBC_1_State_EPT* Rte_IrvIRead_Runbl_RME_100ms_IPM_IPU_OBC_1_State_EPT(void);
+
 DT_IPM_IPU_OBC_1_State_EPT* Rte_IrvIRead_Runbl_TBOX_100ms_IPM_IPU_OBC_1_State_EPT(void);
 
 DT_IPM_IPU_OBC_1_State_EPT* Rte_IrvIRead_Runbl_VTM_10ms_IPM_IPU_OBC_1_State_EPT(void);
@@ -1147,8 +1164,6 @@ DT_IPM_IPU_OBC_2_Inlet_EPT* Rte_IrvIRead_Runbl_HVM_20ms_IPM_IPU_OBC_2_Inlet_EPT(
 void Rte_IrvIWrite_Runbl_VcuRx_10ms_IPM_IPU_OBC_2_Inlet_EPT(DT_IPM_IPU_OBC_2_Inlet_EPT* data);
 
 DT_IPM_IPU_OBC_2_Inlet_EPT * Rte_IrvIWriteRef_Runbl_VcuRx_10ms_IPM_IPU_OBC_2_Inlet_EPT(void);
-
-DT_IPM_SCS_RiSwitchSts_BOD* Rte_IrvIRead_Runbl_DAG_20ms_IPM_SCS_RiSwitchSts_BOD(void);
 
 DT_IPM_SCS_RiSwitchSts_BOD* Rte_IrvIRead_Runbl_GSM_20ms_IPM_SCS_RiSwitchSts_BOD(void);
 
@@ -1175,6 +1190,16 @@ DT_MsgActv* Rte_IrvIRead_Runbl_VTM_10ms_MsgActv_outputs(void);
 void Rte_IrvIWrite_Runbl_VcuRx_10ms_MsgActv_outputs(DT_MsgActv* data);
 
 DT_MsgActv * Rte_IrvIWriteRef_Runbl_VcuRx_10ms_MsgActv_outputs(void);
+
+void Rte_IrvIWrite_AppSwcVcu_Init_NVM_Imdt_outputs(NVM_Imdt_outputs* data);
+
+NVM_Imdt_outputs * Rte_IrvIWriteRef_AppSwcVcu_Init_NVM_Imdt_outputs(void);
+
+NVM_Imdt_outputs* Rte_IrvIRead_Runbl_TBOX_100ms_NVM_Imdt_outputs(void);
+
+void Rte_IrvIWrite_Runbl_VcuRx_10ms_NVM_Imdt_outputs(NVM_Imdt_outputs* data);
+
+NVM_Imdt_outputs * Rte_IrvIWriteRef_Runbl_VcuRx_10ms_NVM_Imdt_outputs(void);
 
 void Rte_IrvIWrite_AppSwcVcu_Init_NVM_outputs(NVM_outputs* data);
 
@@ -1213,6 +1238,8 @@ DT_SIBS_Output* Rte_IrvIRead_Runbl_VcuTx_10ms_SIBS_Output(void);
 void Rte_IrvIWrite_Runbl_TBOX_100ms_TBOX_outputs(TBOX_outputs* data);
 
 TBOX_outputs * Rte_IrvIWriteRef_Runbl_TBOX_100ms_TBOX_outputs(void);
+
+TBOX_outputs* Rte_IrvIRead_Runbl_VTM_10ms_TBOX_outputs(void);
 
 TBOX_outputs* Rte_IrvIRead_Runbl_VcuTx_10ms_TBOX_outputs(void);
 
@@ -1281,6 +1308,8 @@ void Rte_IrvIWrite_Runbl_VcuRx_10ms_VehCfg_outputs(VehCfg_outputs* data);
 VehCfg_outputs * Rte_IrvIWriteRef_Runbl_VcuRx_10ms_VehCfg_outputs(void);
 
 Std_ReturnType Rte_IStatus_Runbl_DAG_20ms_CANCommCRCFlt_outputs_CANCommCRCFlt_outputs(void);
+
+Std_ReturnType Rte_IStatus_Runbl_DAG_20ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD(void);
 
 Std_ReturnType Rte_IStatus_Runbl_DAG_20ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC(void);
 

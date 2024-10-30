@@ -487,7 +487,7 @@ static FUNC(Std_ReturnType, XCP_CODE) Xcp_SendDaqFrame(P2VAR(Xcp_DaqType, AUTOMA
     PduIdType pduId;
     Std_ReturnType ret = E_OK;
 
-    SuspendOSInterrupts();
+    //SuspendOSInterrupts();
     if (XCP_DAQ_MOD_RUNNING != (XCP_DAQ_MOD_RUNNING & (daqPtr->mode)))
     {
         Xcp_SendStatus &= (uint8)(~XCP_DAQ_REQUEST);
@@ -601,7 +601,7 @@ static FUNC(Std_ReturnType, XCP_CODE) Xcp_SendDaqFrame(P2VAR(Xcp_DaqType, AUTOMA
             }
         }
     }
-    ResumeOSInterrupts();
+    //ResumeOSInterrupts();
     if(ret == E_OK)
     {
         if (Xcp_GlobalCfgPtr->XcpDaqList[DaqNum].XcpDto != NULL_PTR)

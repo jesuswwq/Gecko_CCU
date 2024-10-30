@@ -12,6 +12,7 @@
 #define  DataLength_BCM_PD_NVMData  10u
 #define  DataLength_TMS_NVMData 256u
 #define  DataLength_VCU_NVMData 64u
+#define  DataLength_VCU_IMM128_NVMData 64u
 // #define RTC_TEST   /*for test RTC wakeup*/
 #define SWCTimer_Min 0U 
 #define SWCTimer_Max 65535U
@@ -46,10 +47,24 @@ uint8 u8Key_Match_flg;
 uint8 key_word[256] = {0};
 boolean INV_IMMO_Req_EPT_RevFlag =0;
 //================BSWversion============================
-uint8  VBSW_BswVer0_cnt = 23;
-uint8  VBSW_BswVer1_cnt = 7;
+uint8  VBSW_BswVer0_cnt = 24;
+uint8  VBSW_BswVer1_cnt = 2;
 //======================================================
 
+/*新增高压互锁电压20241025*/
+uint16 GetHw_FirsttInterLckVolt(void)  //主要高压互锁
+{
+	float ad_V = 0.0;
+	ad_V = ((float)AD4067Evalue[9]) / 4095.0 * 3300.0 * 98.0 / 30.0;
+	return ad_V;																		
+}
+
+uint16 GetHw_SecondInterLckVolt(void)  //次要高压互锁
+{
+	float ad_V = 0.0;
+	ad_V = ((float)AD4067Dvalue[9]) / 4095.0 * 3300.0 * 98.0 / 30.0;
+	return ad_V; 																
+}
 
 // 制动踏板 IN_IAN25
 // 加速踏板油门踏板2信号 IN_IAN24
@@ -258,18 +273,21 @@ uint16 GetHw_ShftPstnSwSts(void)//换挡开关输入	IN_IAN30
 	float ad_V = 0.0;
 	uint16 ad_R = 0;
 	ad_V =(uint16)((float)AD4067Dvalue[4] / 4095.0 * 3300.0 * 6.0 / 5.0);
-
-	if (ad_V > 2600)
+	//ad_V = ((float)(AD4067Dvalue[4] / 4095.0 * 3300.0)); /*PPV IAN30 change*/
+	if (ad_V > 2600)/*ppv ian30 need to 2100*/
 	{
 		ad_R = 0xffff;
 	}
+	#if 1 /*if you wanna change ian30 , you should cancle the else if*/
 	else if(ad_V > 2350)
 	{
 		ad_R = 38000;
 	}
+	#endif
 	else
 	{
 		ad_R = (uint16)(ad_V / (VCC - ad_V) * 2000.0);
+		//ad_R = (uint16)(ad_V / (VCC - ad_V) * 15000.0);/*PPV IAN30 change*/
 	}
 
 	return ad_R;
@@ -1384,6 +1402,47 @@ Std_ReturnType NvmBcmBlock02WriteData(uint8 *data, uint8 Length)
     return E_OK;
 
 }
+/*add nvm block of vcu*/
+uint8 *olddata = NULL;
+Std_ReturnType NvmVcuBlockImdtWriteData(uint8 *data, uint8 Length)
+{
+    uint8  index = 0;
+    if(Length >DataLength_VCU_IMM128_NVMData)
+    {
+        return E_NOT_OK;
+    }
+    for(index = 0; index < Length; index++)
+    {
+		if(olddata[index] == data[index])
+		{
+			/*nothing to do*/
+		}
+		else
+		{
+			*(NvM_BlockDescriptor[NvMBlock_Swc_VCU_02_128 - 1].NvmRamBlockDataAddress + index) = data[index];
+			olddata[index] = data[index];
+			NvM_WriteBlock(NvMBlock_Swc_VCU_02_128, NULL_PTR);
+		}
+        
+    }
+	
+    return E_OK;
+}
+
+Std_ReturnType NvmVcuBlockImdtReadData(uint8 *data, uint8 Length)
+{
+	uint8  index = 0;
+    for(index = 0;index < Length;index++)
+    {
+        data[index] = *(NvM_BlockDescriptor[NvMBlock_Swc_VCU_02_128 - 1].NvmRamBlockDataAddress + index);
+    }
+
+    return E_OK;
+
+}
+
+
+
 //上电唤醒原因
 uint8 Get_EcuWakeupReasn(void)
 {

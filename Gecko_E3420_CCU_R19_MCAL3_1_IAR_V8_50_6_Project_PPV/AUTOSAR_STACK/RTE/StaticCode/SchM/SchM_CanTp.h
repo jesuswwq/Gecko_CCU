@@ -43,8 +43,8 @@ extern "C"
 #define CANTP_EXCLUSIVE_AREA_CHANNEL 0
 #define CANTP_EXCLUSIVE_AREA_STATE   1
 
-#define SchM_Enter_CanTp(InstanceID, ExclusiceArea) SuspendAllInterrupts()
-#define SchM_Exit_CanTp(InstanceID, ExclusiceArea)  ResumeAllInterrupts()
+#define SchM_Enter_CanTp(InstanceID, ExclusiceArea)
+#define SchM_Exit_CanTp(InstanceID, ExclusiceArea)
     /*=======[T Y P E   D E F I N I T I O N S]====================================*/
 
     /*=======[E X T E R N A L   D A T A]==========================================*/

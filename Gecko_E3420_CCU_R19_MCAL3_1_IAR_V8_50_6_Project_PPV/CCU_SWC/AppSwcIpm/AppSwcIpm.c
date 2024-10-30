@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcIpm'.
  *
- * Model version                  : 9.209
+ * Model version                  : 9.212
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Sep 24 13:50:26 2024
+ * C/C++ source code generated on : Mon Oct 28 18:01:57 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -16687,12 +16687,34 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
      (!(Rte_IRead_Runbl_IpmMsgActv_10ms_DAG_Comm_outputs_DAG_Comm_outputs())
       ->VDAG_FCMCRCChkFlt_flg));
 
+  /* CCaller: '<S381>/DTC_0xC13187_ErrCode377' */
+  rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC13187_GetEventStatus();
+
+  /* Switch: '<S381>/Switch18' incorporates:
+   *  Constant: '<S381>/KIPC_LimpHomeOvrdSw_flg37'
+   */
+  if (KIPM_EHBLostCommOvrdSw_flg) {
+    /* Switch: '<S381>/Switch18' incorporates:
+     *  Constant: '<S381>/KIPC_LimpHomeOvrdSw_flg38'
+     */
+    VIPM_EHBLostComm_flg = KIPM_EHBLostCommOvrdVal_flg;
+  } else {
+    /* Switch: '<S381>/Switch18' incorporates:
+     *  DataTypeConversion: '<S381>/Data Type Conversion18'
+     *  S-Function (sfix_bitop): '<S381>/Bitwise AND18'
+     */
+    VIPM_EHBLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
+  }
+
+  /* End of Switch: '<S381>/Switch18' */
+
   /* Logic: '<S382>/Logical Operator17' incorporates:
    *  Inport: '<Root>/DAG_Comm_outputs'
+   *  Switch: '<S381>/Switch18'
    *  Switch: '<S381>/Switch3'
    */
   AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_EHBMsgActv_flg =
-    ((!VIPM_CHACANBusOff_flg) &&
+    ((!VIPM_CHACANBusOff_flg) && (!VIPM_EHBLostComm_flg) &&
      (!(Rte_IRead_Runbl_IpmMsgActv_10ms_DAG_Comm_outputs_DAG_Comm_outputs())
       ->VDAG_EHBCRCChkFlt_flg));
 
@@ -16826,32 +16848,78 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  Switch: '<S381>/Switch1'
    *  Switch: '<S381>/Switch14'
    */
-  MsgActv_outputs_tmp = !VIPM_BODCANBusOff_flg;
-  AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_ACCMMsgActv_flg = (MsgActv_outputs_tmp
-    && (!VIPM_ACCMLostComm_flg) &&
-    (!(Rte_IRead_Runbl_IpmMsgActv_10ms_DAG_Comm_outputs_DAG_Comm_outputs())
-     ->VDAG_ACCMCRCChkFlt_flg));
+  AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_ACCMMsgActv_flg =
+    ((!VIPM_BODCANBusOff_flg) && (!VIPM_ACCMLostComm_flg) &&
+     (!(Rte_IRead_Runbl_IpmMsgActv_10ms_DAG_Comm_outputs_DAG_Comm_outputs())
+      ->VDAG_ACCMCRCChkFlt_flg));
+
+  /* CCaller: '<S381>/DTC_0xC24087_ErrCode252' */
+  rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC24087_GetEventStatus();
+
+  /* Switch: '<S381>/Switch19' incorporates:
+   *  Constant: '<S381>/KIPC_LimpHomeOvrdSw_flg39'
+   */
+  if (KIPM_SCSLostCommOvrdSw_flg) {
+    /* Switch: '<S381>/Switch19' incorporates:
+     *  Constant: '<S381>/KIPC_LimpHomeOvrdSw_flg40'
+     */
+    VIPM_SCSLostComm_flg = KIPM_SCSLostCommOvrdVal_flg;
+  } else {
+    /* Switch: '<S381>/Switch19' incorporates:
+     *  DataTypeConversion: '<S381>/Data Type Conversion19'
+     *  S-Function (sfix_bitop): '<S381>/Bitwise AND19'
+     */
+    VIPM_SCSLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
+  }
+
+  /* End of Switch: '<S381>/Switch19' */
 
   /* Logic: '<S382>/Logical Operator18' incorporates:
    *  Inport: '<Root>/DAG_Comm_outputs'
-   *  Logic: '<S382>/Logical Operator10'
+   *  Switch: '<S381>/Switch1'
+   *  Switch: '<S381>/Switch19'
    */
-  AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_SCSMsgActv_flg = (MsgActv_outputs_tmp &&
-    (!(Rte_IRead_Runbl_IpmMsgActv_10ms_DAG_Comm_outputs_DAG_Comm_outputs())
-     ->VDAG_SCSCRCChkFlt_flg));
+  AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_SCSMsgActv_flg =
+    ((!VIPM_BODCANBusOff_flg) && (!VIPM_SCSLostComm_flg) &&
+     (!(Rte_IRead_Runbl_IpmMsgActv_10ms_DAG_Comm_outputs_DAG_Comm_outputs())
+      ->VDAG_SCSCRCChkFlt_flg));
+
+  /* CCaller: '<S381>/DTC_0xC27087_ErrCode373' */
+  rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xC27087_GetEventStatus();
+
+  /* Switch: '<S381>/Switch20' incorporates:
+   *  Constant: '<S381>/KIPC_LimpHomeOvrdSw_flg41'
+   */
+  if (KIPM_CCPLostCommOvrdSw_flg) {
+    /* Switch: '<S381>/Switch20' incorporates:
+     *  Constant: '<S381>/KIPC_LimpHomeOvrdSw_flg42'
+     */
+    VIPM_CCPLostComm_flg = KIPM_CCPLostCommOvrdVal_flg;
+  } else {
+    /* Switch: '<S381>/Switch20' incorporates:
+     *  DataTypeConversion: '<S381>/Data Type Conversion20'
+     *  S-Function (sfix_bitop): '<S381>/Bitwise AND20'
+     */
+    VIPM_CCPLostComm_flg = ((rtb_DTC_0xC04688_ErrCode368 & 1U) != 0U);
+  }
+
+  /* End of Switch: '<S381>/Switch20' */
 
   /* Logic: '<S382>/Logical Operator19' incorporates:
    *  Inport: '<Root>/DAG_Comm_outputs'
-   *  Logic: '<S382>/Logical Operator10'
+   *  Switch: '<S381>/Switch1'
+   *  Switch: '<S381>/Switch20'
    */
-  AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_CCPMsgActv_flg = (MsgActv_outputs_tmp &&
-    (!(Rte_IRead_Runbl_IpmMsgActv_10ms_DAG_Comm_outputs_DAG_Comm_outputs())
-     ->VDAG_CCPCRCChkFlt_flg));
+  AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_CCPMsgActv_flg =
+    ((!VIPM_BODCANBusOff_flg) && (!VIPM_CCPLostComm_flg) &&
+     (!(Rte_IRead_Runbl_IpmMsgActv_10ms_DAG_Comm_outputs_DAG_Comm_outputs())
+      ->VDAG_CCPCRCChkFlt_flg));
 
   /* Logic: '<S382>/Logical Operator13' incorporates:
-   *  Logic: '<S382>/Logical Operator10'
+   *  Switch: '<S381>/Switch1'
    */
-  AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_ESCLMsgActv_flg = MsgActv_outputs_tmp;
+  AppSwcIpm_ARID_DEF.MsgActv_outputs.VIPM_ESCLMsgActv_flg =
+    !VIPM_BODCANBusOff_flg;
 
   /* CCaller: '<S381>/DTC_0xD11D87_ErrCode360' */
   rtb_DTC_0xC04688_ErrCode368 = App_Call_Event_DTC_0xD11D87_GetEventStatus();
@@ -17015,7 +17083,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector'
    */
-  VIPM_HU_B_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[80] && KIPM_HUCRCChkEnbl_flg);
+  VIPM_HU_B_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[89] && KIPM_HUCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator1' incorporates:
    *  Constant: '<S380>/Cnst1'
@@ -17023,7 +17091,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector1'
    */
-  VIPM_ICU_Info_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[48] &&
+  VIPM_ICU_Info_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[43] &&
     KIPM_ICUCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator2' incorporates:
@@ -17032,7 +17100,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector2'
    */
-  VIPM_TBOX_BJS_Time_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[51] &&
+  VIPM_TBOX_BJS_Time_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[45] &&
     KIPM_TBOXCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator3' incorporates:
@@ -17041,7 +17109,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector3'
    */
-  VIPM_CCP_PanelStatus_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[13] &&
+  VIPM_CCP_PanelStatus_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[11] &&
     KIPM_CCPCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator4' incorporates:
@@ -17050,7 +17118,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector4'
    */
-  VIPM_COMP_AC_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[18] &&
+  VIPM_COMP_AC_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[16] &&
     KIPM_ACCMCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator5' incorporates:
@@ -17059,7 +17127,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector5'
    */
-  VIPM_HVCH_Status1_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[20] &&
+  VIPM_HVCH_Status1_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[18] &&
     KIPM_PTCCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator6' incorporates:
@@ -17068,7 +17136,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector6'
    */
-  VIPM_SCS_RiSwitchSts_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[82] &&
+  VIPM_SCS_RiSwitchSts_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[74] &&
     KIPM_SCSCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator7' incorporates:
@@ -17077,7 +17145,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector7'
    */
-  VIPM_CRRR_A_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[11] &&
+  VIPM_CRRR_A_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[9] &&
     KIPM_CRRRCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator8' incorporates:
@@ -17086,7 +17154,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector8'
    */
-  VIPM_EHB_B_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[88] &&
+  VIPM_EHB_B_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[77] &&
     KIPM_EHBCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator9' incorporates:
@@ -17095,7 +17163,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector9'
    */
-  VIPM_EPS_2_StrWhlAng_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[9] &&
+  VIPM_EPS_2_StrWhlAng_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[7] &&
     KIPM_EPSCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator10' incorporates:
@@ -17104,7 +17172,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector10'
    */
-  VIPM_ESC_7_FuncStatus_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[87] &&
+  VIPM_ESC_7_FuncStatus_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[76] &&
     KIPM_ESCCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator11' incorporates:
@@ -17113,7 +17181,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector11'
    */
-  VIPM_FCM_B_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[84] &&
+  VIPM_FCM_B_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[81] &&
     KIPM_FCMCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator12' incorporates:
@@ -17122,7 +17190,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector12'
    */
-  VIPM_PP_InformAndStatus_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[91] &&
+  VIPM_PP_InformAndStatus_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[79] &&
     KIPM_PPCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator13' incorporates:
@@ -17131,7 +17199,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector13'
    */
-  VIPM_SRS_1_Status_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[90] &&
+  VIPM_SRS_1_Status_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[78] &&
     KIPM_SRSCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator14' incorporates:
@@ -17140,7 +17208,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector14'
    */
-  VIPM_BMS_2_BatState_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[23] &&
+  VIPM_BMS_2_BatState_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[20] &&
     KIPM_BMSCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator15' incorporates:
@@ -17149,7 +17217,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector15'
    */
-  VIPM_INV_1_Value_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[42] &&
+  VIPM_INV_1_Value_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[37] &&
     KIPM_INVCRCChkEnbl_flg);
 
   /* Logic: '<S380>/Logical Operator16' incorporates:
@@ -17158,7 +17226,7 @@ void Runbl_IpmMsgActv_10ms(void)      /* Explicit Task: Runbl_IpmMsgActv_10ms */
    *  DataStoreRead: '<S380>/Data Store Read'
    *  Selector: '<S380>/Selector16'
    */
-  VIPM_IPU_DCC_1_State_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[37] &&
+  VIPM_IPU_DCC_1_State_CRCFlt_flg = (VBSW_CANComCRCInstFlt_flg[32] &&
     KIPM_IPUCRCChkEnbl_flg);
 
   /* BusCreator: '<S380>/Bus Creator' incorporates:

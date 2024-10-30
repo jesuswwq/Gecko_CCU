@@ -3761,7 +3761,7 @@ static CONST(CanIf_RxPduConfigType,CANIF_CONST) CanIf_RxPduConfigData[CANIF_RXPD
         0x1d0u,
         0x7ffu,
         CANIF_RX_STANDARD_FD_CAN,
-        16u,
+        32u,
         CANIF_HOH0_HRH_75,
         FALSE,
         &PduR_CanIfRxIndication,
@@ -4178,7 +4178,7 @@ static CONST(CanIfTxPduRefType,CANIF_CONST_PBCFG) CanIf_TxPduRef[CANIF_TXPDU_NUM
         8u
     },
     {
-        PDUR_SRCPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
+        PDUR_DESTPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5,
         FALSE,
         32u
     },
@@ -4368,9 +4368,9 @@ static CONST(CanIfTxPduRefType,CANIF_CONST_PBCFG) CanIf_TxPduRef[CANIF_TXPDU_NUM
         8u
     },
     {
-        PDUR_DESTPDU_VCU_DispInfo_BAC,
+        PDUR_DESTPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
         FALSE,
-        32u
+        48u
     },
     {
         PDUR_DESTPDU_BMS_1_MainState_BAC,
@@ -4605,7 +4605,7 @@ static CONST(CanIfTxPduRefType,CANIF_CONST_PBCFG) CanIf_TxPduRef[CANIF_TXPDU_NUM
     {
         CANTP_CANIF_TX_Diag_Resp_CCU_OBD,
         FALSE,
-        8u
+        64u
     },
     {
         PDUR_DESTPDU_CANIF_TX_Diag_Resp_BMS_OBD,
@@ -5537,12 +5537,12 @@ static CONST(CanIf_TxPduConfigType,CANIF_CONST) CanIf_TxPduConfigData[CANIF_TXPD
         &CanIf_TxPduRef[47],
     },
     {
-        CANIF_TXPDU_VCU_DispInfo_BAC,
+        CANIF_TXPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
         0x106u,
         0x7ffu,
         CANIF_TX_STANDARD_FD_CAN,
-        CANIF_HOH0_HTH_2,
-        0u,
+        CANIF_HOH0_HTH_3,
+        6u,
         CANID_STATIC,
         0xffffu,
         &PduR_CanIfTxConfirmation,
@@ -6946,301 +6946,301 @@ static CONST(CanIf_TxPduConfigType,CANIF_CONST) CanIf_TxPduConfigData[CANIF_TXPD
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer0[32];
+static uint8 TxPduBuffer0[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer1[32];
+static uint8 TxPduBuffer1[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer2[32];
+static uint8 TxPduBuffer2[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer3[32];
+static uint8 TxPduBuffer3[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer4[32];
+static uint8 TxPduBuffer4[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer5[32];
+static uint8 TxPduBuffer5[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer6[32];
+static uint8 TxPduBuffer6[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer7[32];
+static uint8 TxPduBuffer7[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer8[32];
+static uint8 TxPduBuffer8[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer9[32];
+static uint8 TxPduBuffer9[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer10[32];
+static uint8 TxPduBuffer10[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer11[32];
+static uint8 TxPduBuffer11[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer12[32];
+static uint8 TxPduBuffer12[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer13[32];
+static uint8 TxPduBuffer13[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer14[32];
+static uint8 TxPduBuffer14[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer15[32];
+static uint8 TxPduBuffer15[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer16[32];
+static uint8 TxPduBuffer16[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer17[32];
+static uint8 TxPduBuffer17[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer18[32];
+static uint8 TxPduBuffer18[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer19[32];
+static uint8 TxPduBuffer19[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer20[32];
+static uint8 TxPduBuffer20[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer21[32];
+static uint8 TxPduBuffer21[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer22[32];
+static uint8 TxPduBuffer22[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer23[32];
+static uint8 TxPduBuffer23[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer24[32];
+static uint8 TxPduBuffer24[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer25[32];
+static uint8 TxPduBuffer25[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer26[32];
+static uint8 TxPduBuffer26[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer27[32];
+static uint8 TxPduBuffer27[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer28[32];
+static uint8 TxPduBuffer28[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer29[32];
+static uint8 TxPduBuffer29[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer30[32];
+static uint8 TxPduBuffer30[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer31[32];
+static uint8 TxPduBuffer31[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer32[32];
+static uint8 TxPduBuffer32[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer33[32];
+static uint8 TxPduBuffer33[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer34[32];
+static uint8 TxPduBuffer34[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer35[32];
+static uint8 TxPduBuffer35[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer36[32];
+static uint8 TxPduBuffer36[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer37[32];
+static uint8 TxPduBuffer37[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer38[32];
+static uint8 TxPduBuffer38[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer39[32];
+static uint8 TxPduBuffer39[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer40[32];
+static uint8 TxPduBuffer40[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer41[32];
+static uint8 TxPduBuffer41[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer42[32];
+static uint8 TxPduBuffer42[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer43[32];
+static uint8 TxPduBuffer43[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer44[32];
+static uint8 TxPduBuffer44[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer45[32];
+static uint8 TxPduBuffer45[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer46[32];
+static uint8 TxPduBuffer46[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer47[32];
+static uint8 TxPduBuffer47[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer48[32];
+static uint8 TxPduBuffer48[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 
 #define CANIF_START_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
-static uint8 TxPduBuffer49[32];
+static uint8 TxPduBuffer49[16];
 #define CANIF_STOP_SEC_VAR_NO_INIT_8
 #include "CanIf_MemMap.h"
 

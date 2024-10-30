@@ -611,17 +611,17 @@ static FUNC(BswM_RuleStateType, BSWM_CODE) BswM_Rule3Expression_Core0_Par0(void)
 {
     BswM_RuleStateType result = BSWM_FALSE;
     /* PRQA S 3415 ++*/ /* MISRA Rule 13.5 */    
-    if((5u == BswM_GetGeneRqstStatus(0))
+    if((5 == BswM_GetGeneRqstStatus(0))
     && (ECUM_STATE_APP_RUN == BswM_GetEcuMState())
     && (CANSM_BSWM_NO_COMMUNICATION == BswM_GetCanSmIndStatus(3))
     && (CANSM_BSWM_NO_COMMUNICATION == BswM_GetCanSmIndStatus(0))
     && (CANSM_BSWM_NO_COMMUNICATION == BswM_GetCanSmIndStatus(5))
     && (CANSM_BSWM_NO_COMMUNICATION == BswM_GetCanSmIndStatus(4))
     && (BSWM_TIMER_EXPIRED == BswM_GerTimerStatus(0))
-    && (85u != BswM_GetGeneRqstStatus(1))
-    && (85u == BswM_GetGeneRqstStatus(2))
+    && (85 != BswM_GetGeneRqstStatus(1))
+    && (85 == BswM_GetGeneRqstStatus(2))
     && (CANSM_BSWM_NO_COMMUNICATION == BswM_GetCanSmIndStatus(2))
-    && (1u == BswM_GetGeneRqstStatus(3))
+    && (1 == BswM_GetGeneRqstStatus(3))
     && (BSWM_TRUE == BswM_RefLE_WriteAll_Finish_Core0_Par0()))
     /* PRQA S 3415 --*/ /* MISRA Rule 13.5 */
     {
@@ -1556,7 +1556,7 @@ static CONST(BswM_ActionListIndexType, BSWM_CONST) BswM_Rule40TrueActList_Core0_
 static FUNC(BswM_RuleStateType, BSWM_CODE) BswM_Rule41Expression_Core0_Par0(void)
 {
     BswM_RuleStateType result = BSWM_FALSE;
-    if(2u == BswM_GetGeneRqstStatus(3))
+    if(2 == BswM_GetGeneRqstStatus(3))
     {
         result = BSWM_TRUE;
     }
@@ -1579,7 +1579,7 @@ static CONST(BswM_ActionListIndexType, BSWM_CONST) BswM_Rule41TrueActList_Core0_
 static FUNC(BswM_RuleStateType, BSWM_CODE) BswM_Rule42Expression_Core0_Par0(void)
 {
     BswM_RuleStateType result = BSWM_FALSE;
-    if(3u == BswM_GetGeneRqstStatus(3))
+    if(3 == BswM_GetGeneRqstStatus(3))
     {
         result = BSWM_TRUE;
     }
@@ -1710,7 +1710,7 @@ static CONST(BswM_ActionListIndexType, BSWM_CONST) BswM_Rule46TrueActList_Core0_
 static FUNC(BswM_RuleStateType, BSWM_CODE) BswM_Rule47Expression_Core0_Par0(void)
 {
     BswM_RuleStateType result = BSWM_FALSE;
-    if(85u == BswM_GetGeneRqstStatus(4))
+    if(85 == BswM_GetGeneRqstStatus(4))
     {
         result = BSWM_TRUE;
     }
@@ -1733,7 +1733,7 @@ static CONST(BswM_ActionListIndexType, BSWM_CONST) BswM_Rule47TrueActList_Core0_
 static FUNC(BswM_RuleStateType, BSWM_CODE) BswM_Rule48Expression_Core0_Par0(void)
 {
     BswM_RuleStateType result = BSWM_FALSE;
-    if(170u == BswM_GetGeneRqstStatus(4))
+    if(170 == BswM_GetGeneRqstStatus(4))
     {
         result = BSWM_TRUE;
     }

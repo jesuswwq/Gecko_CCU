@@ -8271,23 +8271,6 @@ static  CONST(Dcm_DsdSubServiceCfgType,DCM_CONST)Dcm_DcmDsdServiceTable_DsdSubSe
 #include "Dcm_MemMap.h"
 
 /*DcmDsdService_31 SubService*/
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x31_1_SesRef[1] = {3u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x31_2_SesRef[1] = {3u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x31_3_SesRef[1] = {3u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
 
 #define   DCM_START_SEC_CONST_UNSPECIFIED
 #include  "Dcm_MemMap.h"
@@ -8300,8 +8283,8 @@ static  CONST(Dcm_DsdSubServiceCfgType,DCM_CONST)Dcm_DcmDsdServiceTable_DsdSubSe
         NULL_PTR,    /*DcmDsdSubServiceModeRuleRef*/
         NULL_PTR,    /*DcmDsdSubServiceSecurityLevelRef*/
         0u,    /*DcmDsdSubServiceSecurityLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x31_1_SesRef[0],    /*DcmDsdSubServiceSessionLevelRef*/
-        1u    /*DcmDsdSubServiceSessionLevel_Num*/
+        NULL_PTR,    /*DcmDsdSubServiceSessionLevelRef*/
+        0u    /*DcmDsdSubServiceSessionLevel_Num*/
     },
     {
         NULL_PTR,    /*DcmDsdSubServiceFnc*/
@@ -8310,8 +8293,8 @@ static  CONST(Dcm_DsdSubServiceCfgType,DCM_CONST)Dcm_DcmDsdServiceTable_DsdSubSe
         NULL_PTR,    /*DcmDsdSubServiceModeRuleRef*/
         NULL_PTR,    /*DcmDsdSubServiceSecurityLevelRef*/
         0u,    /*DcmDsdSubServiceSecurityLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x31_2_SesRef[0],    /*DcmDsdSubServiceSessionLevelRef*/
-        1u    /*DcmDsdSubServiceSessionLevel_Num*/
+        NULL_PTR,    /*DcmDsdSubServiceSessionLevelRef*/
+        0u    /*DcmDsdSubServiceSessionLevel_Num*/
     },
     {
         NULL_PTR,    /*DcmDsdSubServiceFnc*/
@@ -8320,8 +8303,8 @@ static  CONST(Dcm_DsdSubServiceCfgType,DCM_CONST)Dcm_DcmDsdServiceTable_DsdSubSe
         NULL_PTR,    /*DcmDsdSubServiceModeRuleRef*/
         NULL_PTR,    /*DcmDsdSubServiceSecurityLevelRef*/
         0u,    /*DcmDsdSubServiceSecurityLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x31_3_SesRef[0],    /*DcmDsdSubServiceSessionLevelRef*/
-        1u    /*DcmDsdSubServiceSessionLevel_Num*/
+        NULL_PTR,    /*DcmDsdSubServiceSessionLevelRef*/
+        0u    /*DcmDsdSubServiceSessionLevel_Num*/
     }
 };
 #define  DCM_STOP_SEC_CONST_UNSPECIFIED
@@ -8465,11 +8448,6 @@ static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x27_SesRef[2] = {3u, 2u
 #define   DCM_START_SEC_CONST_UNSPECIFIED
 #include  "Dcm_MemMap.h"
 static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x28_SesRef[1] = {3u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x31_SesRef[1] = {3u};
 #define  DCM_STOP_SEC_CONST_UNSPECIFIED
 #include "Dcm_MemMap.h"
 #define   DCM_START_SEC_CONST_UNSPECIFIED
@@ -8673,8 +8651,8 @@ static  CONST(Dcm_DsdServiceCfgType,DCM_CONST)DcmDsdServiceTable_Service[17] =
         NULL_PTR,    /*DcmDsdModeRuleRef*/
         0u, /*DcmDsdSecurityLevel_Num*/
         NULL_PTR,    /*pDcmDsdSecurityLevelRef*/
-        1u,    /*DcmDsdSessionLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x31_SesRef[0],    /*pDcmDsdSessionLevelRef*/
+        0u,    /*DcmDsdSessionLevel_Num*/
+        NULL_PTR,    /*pDcmDsdSessionLevelRef*/
         3u,    /*DcmDsdSubService_Num*/
         &Dcm_DcmDsdServiceTable_DsdSubService_UDS0x31[0],    /*DcmDsdSubService*/
     },

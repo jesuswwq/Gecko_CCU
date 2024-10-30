@@ -12,7 +12,7 @@
 **                                                                            **
 **  FILENAME    : PduR_PBcfg.h                                                **
 **                                                                            **
-**  Created on  : 2024/09/17 09:42:28                                         **
+**  Created on  : 2024/10/14 16:49:42                                         **
 **  Author      : zhengfei.li                                                 **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Configuration parameter of PDUR                             **
@@ -51,7 +51,7 @@
 #define PDUR_SRCPDU_Com_CAN1_CANFD8_user          4u
 #define PDUR_SRCPDU_COM_VCU_10_Torque_CHA          5u
 #define PDUR_SRCPDU_COM_TX_CCU_VehInfo_CHA_CANFD3_CHA_CAN5          6u
-#define PDUR_SRCPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5          7u
+#define PDUR_SRCPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5          7u
 #define PDUR_SRCPDU_COM_AC_3_State_CHA          8u
 #define PDUR_SRCPDU_CANIF_RX_FCM_B_CHA_CANFD3_CHA_CAN5          9u
 #define PDUR_SRCPDU_CANIF_RX_FCM_A_CHA_CANFD3_CHA_CAN5          10u
@@ -128,7 +128,7 @@
 #define PDUR_SRCPDU_INV_4_Value_EPT          81u
 #define PDUR_SRCPDU_INV_5_Values_EPT          82u
 #define PDUR_SRCPDU_INV_IMMO_Req_EPT          83u
-#define PDUR_SRCPDU_COM_VCU_DispInfo_BAC          84u
+#define PDUR_SRCPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1          84u
 #define PDUR_SRCPDU_COM_CCU_VehInfo_BAC          85u
 #define PDUR_SRCPDU_COM_AC_ACStatuts_BAC          86u
 #define PDUR_SRCPDU_COM_BCM_B_Package_BAC          87u
@@ -265,7 +265,7 @@
 #define PDUR_DESTPDU_CanNm_CAN1_CANFD8_user          4u
 #define PDUR_DESTPDU_VCU_10_Torque_CHA          5u
 #define PDUR_DESTPDU_CANIF_TX_CCU_VehInfo_CHA_CANFD3_CHA_CAN5          6u
-#define PDUR_DESTPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5          7u
+#define PDUR_DESTPDU_CANIF_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5          7u
 #define PDUR_DESTPDU_AC_3_State_CHA          8u
 #define PDUR_DESTPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5          9u
 #define PDUR_DESTPDU_FCM_A_CHA_2_BAC          10u
@@ -375,7 +375,7 @@
 #define PDUR_DESTPDU_CANIF_TX_INV_4_Value_BAC_CANFD8_BAC_CAN1          114u
 #define PDUR_DESTPDU_COM_INV_5_Values_EPT          115u
 #define PDUR_DESTPDU_COM_INV_IMMO_Req_EPT          116u
-#define PDUR_DESTPDU_VCU_DispInfo_BAC          117u
+#define PDUR_DESTPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1          117u
 #define PDUR_DESTPDU_CCU_VehInfo_BAC          118u
 #define PDUR_DESTPDU_AC_ACStatuts_BAC          119u
 #define PDUR_DESTPDU_BCM_B_Package_BAC          120u

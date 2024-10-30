@@ -4,7 +4,7 @@
 static uint8 AD4067Achannel[adsize_4067A] = {1, 5, 6, 7, 8, 9, 10, 11, 13,14, 15}; 
 static uint8 AD4067Bchannel[adsize_4067B] = {6, 12, 13, 14};
 static uint8 AD4067Cchannel[adsize_4067C] = {6};
-static uint8 AD4067Dchannel[adsize_4067D] = {0, 1, 2, 3, 7, 8, 6, 12 ,13};
+static uint8 AD4067Dchannel[adsize_4067D] = {0, 1, 2, 3, 7, 8, 6, 12 ,13, 5};
 static uint8 AD4067Echannel[adsize_4067E] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 uint8 AD4067Ccount = 0;
 uint8 AD4067Bcount = 0;

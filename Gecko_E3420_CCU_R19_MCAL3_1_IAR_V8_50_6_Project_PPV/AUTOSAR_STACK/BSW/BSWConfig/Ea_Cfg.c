@@ -614,6 +614,14 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
         0u,
         0u
     },
+    {
+        5440U,
+        1196U,
+        160U,
+        FALSE,
+        0u,
+        0u
+    },
 };
 
 static CONST(Ea_BlockCfgType, EA_CONST) Ea_BlockCfg =

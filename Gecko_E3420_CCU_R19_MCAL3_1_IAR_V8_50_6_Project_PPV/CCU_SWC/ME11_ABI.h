@@ -114,6 +114,11 @@ extern void SetHw_IG2RlyCls(uint8 state);
 extern void SetHw_WakeupBMS(uint8 state);
 extern uint16 GetHw_BrkPedVolt(void);
 
+
+/* 新增高压互锁电压20241025*/
+extern uint16 GetHw_FirsttInterLckVolt(void); //主要高压互锁
+extern uint16 GetHw_SecondInterLckVolt(void); //次要高压互锁
+
 //-------------------------------------------------------------------//
 /*#######################  New Definition  #########################*/
 //------------------------------------------------------------------//
@@ -282,6 +287,8 @@ extern Std_ReturnType NvmBCmBlock_Imm_ReadData(uint8 *data, uint8 Length) ;
 extern Std_ReturnType  NvmBcmBlock_Imm_WriteData(uint8 *data, uint8 Length);//即时存
 extern Std_ReturnType NvmBcmBlock02ReadData(uint8 *data, uint8 Length);
 extern Std_ReturnType NvmBcmBlock02WriteData(uint8 *data, uint8 Length);
+extern Std_ReturnType NvmVcuBlockImdtWriteData(uint8 *data, uint8 Length);
+extern Std_ReturnType NvmVcuBlockImdtReadData(uint8 *data, uint8 Length);
 extern boolean BCM_IMMOAuthResp1_EPT_Send_Notication(uint8 *data);//确认0x330 发送
 extern boolean INV_IMMO_Req_EPT_Rec_callout();//确认接收到0x338
 extern boolean INV_IMMO_Req_EPT_Rec_ClaerFlg();//取消0x338接收标志位 

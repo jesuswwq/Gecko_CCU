@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-06-12 13:49:49>
+ *  @date       <2024-10-14 11:01:21>
  */
 /*============================================================================*/
 
@@ -53,7 +53,7 @@
 #define  DCM_DSL_TX_ID_NUM                          (3u)
 #define  DCM_DSLDIAGRESP_FORCERESPENDEN             (STD_ON) /*Enable/Disable application directly trigger response Pending*/
 
-#define  DCM_FRAME_LENGTH                           (8u)
+#define  DCM_FRAME_LENGTH                           (64u)
 
 #define DCM_DCM_RX_Diag_FuncReq_OBD                                    0x0 /*RxPdu Id*/
 #define DCM_DCM_RX_Phy_Diag_PhyReq_CCU_OBD                                    0x1 /*RxPdu Id*/

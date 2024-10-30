@@ -97,13 +97,15 @@ Mcu_ResetType resetreason;
 #endif
 
 /*=======[T A S K S]==========================================*/
+uint8 Test_100ms_count;
+uint8 Test_20ms_count;
+uint8 Test_5ms_count;
+uint8 Test_10ms_count;
+uint8 Test_50ms_count;
 TASK(OsTask__Core0_100ms)
 {
     /* please insert your code here ... */    
-
     Xcp_EventIndication(3);
-    //Test_DV_Code();
-    //VcuDVTest_step();
     Os_TaskEntry_Rte_OsTask__Core0_100ms();
     if (E_OK != TerminateTask())
     {
@@ -235,19 +237,18 @@ TASK(OsTask__Core0_20ms)
 {
     /* please insert your code here ... */
 
+  
     ADC2_ReadGroup0();
     ADC2_ReadGroup1();
     Gpio_TCA9539_ReadValue();
     Gpio_Run();
-
-  
-
     EcuM_MainFunction();
     BswM_MainFunction();
    // iolevel = IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,tmpchannel);
     Xcp_EventIndication(1);
     NM_UserDataPackup();
-    
+    //ME11_TMSADCSampleFunc();
+    //ME11_TMSIODriverFunc();
     Os_TaskEntry_Rte_OsTask__Core0_20ms();
     if (E_OK != TerminateTask())
     {
@@ -273,7 +274,9 @@ TASK(OsTask__Core0_2ms)
 }
 TASK(OsTask__Core0_50ms)
 {
+
     /* please insert your code here ... */
+    
 	Xcp_EventIndication(2);
 	Os_TaskEntry_Rte_OsTask__Core0_50ms();
     if (E_OK != TerminateTask())
@@ -285,7 +288,8 @@ TASK(OsTask__Core0_50ms)
     }
 }
 TASK(OsTask__Core0_5ms)
-{  
+{
+
   if(100 >= FirstWakeUpSource500ms)
   {
      FirstWakeUpSource500ms++;

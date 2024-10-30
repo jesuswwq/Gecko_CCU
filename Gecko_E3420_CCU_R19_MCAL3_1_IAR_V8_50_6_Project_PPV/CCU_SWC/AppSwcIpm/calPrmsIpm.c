@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcIpm'.
  *
- * Model version                  : 9.209
+ * Model version                  : 9.212
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Sep 24 13:50:26 2024
+ * C/C++ source code generated on : Mon Oct 28 18:01:57 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -231,6 +231,10 @@ CALDATA const volatile boolean KIPM_CCPHDCKey_flg_ovrdval = false;/* Referenced 
 CALDATA const volatile boolean KIPM_CCPHzrdKeyDflt_flg = false;/* Referenced by: '<S360>/sat5' */
 CALDATA const volatile boolean KIPM_CCPHzrdKey_flg_ovrdflg = false;/* Referenced by: '<S360>/sat3' */
 CALDATA const volatile boolean KIPM_CCPHzrdKey_flg_ovrdval = false;/* Referenced by: '<S360>/sat4' */
+CALDATA const volatile boolean KIPM_CCPLostCommOvrdSw_flg = false;
+                         /* Referenced by: '<S381>/KIPC_LimpHomeOvrdSw_flg41' */
+CALDATA const volatile boolean KIPM_CCPLostCommOvrdVal_flg = false;
+                         /* Referenced by: '<S381>/KIPC_LimpHomeOvrdSw_flg42' */
 CALDATA const volatile boolean KIPM_CCPModeKeyDflt_flg = false;/* Referenced by: '<S361>/sat5' */
 CALDATA const volatile boolean KIPM_CCPModeKey_flg_ovrdflg = false;/* Referenced by: '<S361>/sat3' */
 CALDATA const volatile boolean KIPM_CCPModeKey_flg_ovrdval = false;/* Referenced by: '<S361>/sat4' */
@@ -403,6 +407,10 @@ CALDATA const volatile uint8 KIPM_EHBFltLvl_enum_ovrdval = 0U;/* Referenced by: 
 CALDATA const volatile boolean KIPM_EHBHDCFucFaultDflt_flg = false;/* Referenced by: '<S275>/sat5' */
 CALDATA const volatile boolean KIPM_EHBHDCFucFault_flg_ovrdflg = false;/* Referenced by: '<S275>/sat3' */
 CALDATA const volatile boolean KIPM_EHBHDCFucFault_flg_ovrdval = false;/* Referenced by: '<S275>/sat4' */
+CALDATA const volatile boolean KIPM_EHBLostCommOvrdSw_flg = false;
+                         /* Referenced by: '<S381>/KIPC_LimpHomeOvrdSw_flg37' */
+CALDATA const volatile boolean KIPM_EHBLostCommOvrdVal_flg = false;
+                         /* Referenced by: '<S381>/KIPC_LimpHomeOvrdSw_flg38' */
 CALDATA const volatile boolean KIPM_EHBReqBrkLiOnDflt_flg = false;/* Referenced by: '<S181>/sat5' */
 CALDATA const volatile boolean KIPM_EHBReqBrkLiOn_flg_ovrdflg = false;/* Referenced by: '<S181>/sat3' */
 CALDATA const volatile boolean KIPM_EHBReqBrkLiOn_flg_ovrdval = false;/* Referenced by: '<S181>/sat4' */
@@ -975,6 +983,10 @@ CALDATA const volatile boolean KIPM_SCSLeTrnLmpSwSt_flg_ovrdval = false;/* Refer
 CALDATA const volatile boolean KIPM_SCSLoBeamSwStDflt_flg = false;/* Referenced by: '<S373>/sat5' */
 CALDATA const volatile boolean KIPM_SCSLoBeamSwSt_flg_ovrdflg = false;/* Referenced by: '<S373>/sat3' */
 CALDATA const volatile boolean KIPM_SCSLoBeamSwSt_flg_ovrdval = false;/* Referenced by: '<S373>/sat4' */
+CALDATA const volatile boolean KIPM_SCSLostCommOvrdSw_flg = false;
+                         /* Referenced by: '<S381>/KIPC_LimpHomeOvrdSw_flg39' */
+CALDATA const volatile boolean KIPM_SCSLostCommOvrdVal_flg = false;
+                         /* Referenced by: '<S381>/KIPC_LimpHomeOvrdSw_flg40' */
 CALDATA const volatile boolean KIPM_SCSOvrVehBeamSwStDflt_flg = false;/* Referenced by: '<S374>/sat5' */
 CALDATA const volatile boolean KIPM_SCSOvrVehBeamSwSt_flg_ovrdflg = false;/* Referenced by: '<S374>/sat3' */
 CALDATA const volatile boolean KIPM_SCSOvrVehBeamSwSt_flg_ovrdval = false;/* Referenced by: '<S374>/sat4' */

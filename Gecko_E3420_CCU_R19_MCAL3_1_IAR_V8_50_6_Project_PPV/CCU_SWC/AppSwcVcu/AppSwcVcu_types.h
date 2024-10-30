@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcVcu'.
  *
- * Model version                  : 9.584
+ * Model version                  : 9.604
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Wed Oct  9 14:32:43 2024
+ * C/C++ source code generated on : Wed Oct 30 14:09:32 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -223,6 +223,33 @@ typedef uint8 EnumIBSChrgSt;
 #define EnumIBSChrgSt_Fail             ((EnumIBSChrgSt)3U)
 #endif
 
+#ifndef DEFINED_TYPEDEF_FOR_EnumTBOXLimSt_
+#define DEFINED_TYPEDEF_FOR_EnumTBOXLimSt_
+
+/* N/A */
+typedef uint8 EnumTBOXLimSt;
+
+/* enum EnumTBOXLimSt */
+#define EnumTBOXLimSt_Normal           ((EnumTBOXLimSt)0U)       /* Default value */
+#define EnumTBOXLimSt_Level1           ((EnumTBOXLimSt)1U)
+#define EnumTBOXLimSt_Level2           ((EnumTBOXLimSt)2U)
+#define EnumTBOXLimSt_Level3           ((EnumTBOXLimSt)3U)
+#define EnumTBOXLimSt_Storage          ((EnumTBOXLimSt)4U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_EnumTBOXLimGrd_
+#define DEFINED_TYPEDEF_FOR_EnumTBOXLimGrd_
+
+/* N/A */
+typedef uint8 EnumTBOXLimGrd;
+
+/* enum EnumTBOXLimGrd */
+#define EnumTBOXLimGrd_Normal          ((EnumTBOXLimGrd)0U)      /* Default value */
+#define EnumTBOXLimGrd_Level1          ((EnumTBOXLimGrd)1U)
+#define EnumTBOXLimGrd_Level2          ((EnumTBOXLimGrd)2U)
+#define EnumTBOXLimGrd_Level3          ((EnumTBOXLimGrd)3U)
+#endif
+
 #ifndef DEFINED_TYPEDEF_FOR_EnumXWhlDistErrRefSt_
 #define DEFINED_TYPEDEF_FOR_EnumXWhlDistErrRefSt_
 
@@ -373,8 +400,8 @@ typedef uint8 EnumTgtGearPstn;
 #define EnumTgtGearPstn_R              ((EnumTgtGearPstn)4U)
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_struct_gZ3Jji9zYGkvib1mzVexoG_
-#define DEFINED_TYPEDEF_FOR_struct_gZ3Jji9zYGkvib1mzVexoG_
+#ifndef DEFINED_TYPEDEF_FOR_struct_4t2rZ1ShKYtehtDWB50ACH_
+#define DEFINED_TYPEDEF_FOR_struct_4t2rZ1ShKYtehtDWB50ACH_
 
 typedef struct {
   float32 VDAG_LVBatActVolt_V;
@@ -384,8 +411,9 @@ typedef struct {
   boolean VDAG_HWWakeUp_flg;
   boolean VDAG_WakeUp_flg;
   boolean VDAG_StandStillPN_flg;
+  boolean VDAG_VehSpdLo_flg;
   boolean VDAG_ClrDTCReq_flg;
-} struct_gZ3Jji9zYGkvib1mzVexoG;
+} struct_4t2rZ1ShKYtehtDWB50ACH;
 
 #endif
 
@@ -436,8 +464,8 @@ typedef struct {
 
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_struct_At6FSu1IZZVjQLF0E3QcpF_
-#define DEFINED_TYPEDEF_FOR_struct_At6FSu1IZZVjQLF0E3QcpF_
+#ifndef DEFINED_TYPEDEF_FOR_struct_kyba7AjMdSuKPQINgiZQQE_
+#define DEFINED_TYPEDEF_FOR_struct_kyba7AjMdSuKPQINgiZQQE_
 
 typedef struct {
   float32 VDAC_DrvAsstTqTgt_Nm;
@@ -452,6 +480,8 @@ typedef struct {
   uint8 VDAC_VirtAccPedPstnSta_enum;
   boolean VDAC_TqRespFastReq_flg;
   boolean VDAC_CruzMainSwOn_flg;
+  boolean VDAC_AccReqStandstill_flg;
+  uint8 VDAC_ACCStat_enum;
   boolean VDAC_OPDAvail_flg;
   boolean VDAC_OPDActv_flg;
   uint8 VDAC_AutoBrkReq_enum;
@@ -459,7 +489,7 @@ typedef struct {
   boolean VDAC_EnblEHBBrkRun_flg;
   float32 VDAC_MstrCylPresrReq_bar;
   uint8 VDAC_HDCSt_enum;
-} struct_At6FSu1IZZVjQLF0E3QcpF;
+} struct_kyba7AjMdSuKPQINgiZQQE;
 
 #endif
 

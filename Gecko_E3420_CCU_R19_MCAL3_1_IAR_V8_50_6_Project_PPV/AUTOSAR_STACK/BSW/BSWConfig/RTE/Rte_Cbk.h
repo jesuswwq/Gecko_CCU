@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-10 14:06:49>
+ *  @date       <2024-10-26 17:51:02>
  */
 /*============================================================================*/
 
@@ -72,6 +72,8 @@ void Rte_COMCbkRxTOut_ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC(void);
 
 void Rte_COMCbkRxTOut_ICU_Info_BAC_IPDU_COM_ICU_Info_BAC(void);
 
+void Rte_COMCbkRxTOut_INV_1_Value_EPT_IPDU_COM_INV_1_Value_EPT(void);
+
 void Rte_COMCbkRxTOut_IPU_DCC_1_State_EPT_IPDU_COM_IPU_DCC_1_State_EPT(void);
 
 void Rte_COMCbkRxTOut_IPU_OBC_1_State_EPT_IPDU_COM_IPU_OBC_1_State_EPT(void);
@@ -80,7 +82,7 @@ void Rte_COMCbkRxTOut_PP_InformAndStatus_CHA_IPDU_COM_RX_PP_InformAndStatus_CHA_
 
 void Rte_COMCbkRxTOut_SCS_LeSwitchSts_BOD_IPDU_COM_SCS_LeSwitchSts_BOD(void);
 
-void Rte_COMCbkRxTOut_SCS_RiSwitchSts_BOD_IPDU_COM_RX_SCS_RiSwitchSts_BOD_CANFD5_BOD_CAN6(void);
+void Rte_COMCbkRxTOut_SCS_RiSwitchSts_BOD_IPDU_COM_RX_SCS_RiSwitchSts_BOD_CANFD4_BOD_CAN4(void);
 
 void Rte_COMCbkRxTOut_SRS_1_Status_CHA_IPDU_COM_RX_SRS_1_Status_CHA_CANFD3_CHA_CAN5(void);
 
@@ -464,7 +466,7 @@ void Rte_COMCbk_PP_InformAndStatus_CHA_IPDU_COM_RX_PP_InformAndStatus_CHA_CANFD3
 
 void Rte_COMCbk_SCS_LeSwitchSts_BOD_IPDU_COM_SCS_LeSwitchSts_BOD(void);
 
-void Rte_COMCbk_SCS_RiSwitchSts_BOD_IPDU_COM_RX_SCS_RiSwitchSts_BOD_CANFD5_BOD_CAN6(void);
+void Rte_COMCbk_SCS_RiSwitchSts_BOD_IPDU_COM_RX_SCS_RiSwitchSts_BOD_CANFD4_BOD_CAN4(void);
 
 void Rte_COMCbk_SRS_1_Status_CHA_IPDU_COM_RX_SRS_1_Status_CHA_CANFD3_CHA_CAN5(void);
 

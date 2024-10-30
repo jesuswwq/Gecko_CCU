@@ -6,6 +6,449 @@
 #include "Crc.h"
 
 boolean VBSW_CANComCRCInstFlt_flg[100] = {0};
+boolean CHA_CAN_BUSOFF_flg = FALSE;
+boolean BAC_CAN_BUSOFF_flg = FALSE;
+boolean BOD_CAN_BUSOFF_flg = FALSE;
+boolean EPT_CAN_BUSOFF_flg = FALSE;
+
+/* 20241025新增DTC设置 */
+void App_Call_Event_DTC_0x10A796_SetEventStatus(uint8 FaultStatus)  //ESC 1级故障
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A796,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A796,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0x10A896_SetEventStatus(uint8 FaultStatus)  //ESC 2级故障
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A896,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A896,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0x10A996_SetEventStatus(uint8 FaultStatus)  //ESC 3级故障
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A996,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A996,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0x10AA96_SetEventStatus(uint8 FaultStatus)  //ESC 4级故障
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10AA96,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10AA96,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0x10AB96_SetEventStatus(uint8 FaultStatus)  //ESC 5级故障
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10AB96,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10AB96,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0x10A296_SetEventStatus(uint8 FaultStatus)  //EHB 1级故障
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A296,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A296,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0x10A396_SetEventStatus(uint8 FaultStatus)  //EHB 2级故障
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A396,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A396,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0x10A496_SetEventStatus(uint8 FaultStatus)  //EHB 3级故障
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A496,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A496,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+
+void App_Call_Event_DTC_0x10A596_SetEventStatus(uint8 FaultStatus)  //EHB 4级故障
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A596,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A596,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0x10A696_SetEventStatus(uint8 FaultStatus)  //EHB 5级故障
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A696,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10A696,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0x100496_SetEventStatus(uint8 FaultStatus)  //互锁故障-压缩机（次要互锁）
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100496,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100496,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0x100F16_SetEventStatus(uint8 FaultStatus)  //互锁信号错误-电路电压低于阈值（次要互锁）
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100F16,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100F16,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0x100D16_SetEventStatus(uint8 FaultStatus)  //互锁信号错误-电路电压低于阈值或BMS互锁（主要互锁）
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100D16,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100D16,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0x100F17_SetEventStatus(uint8 FaultStatus)  //互锁信号错误-电路电压高于阈值（次要互锁）
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100F17,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100F17,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0x100E17_SetEventStatus(uint8 FaultStatus)  //互锁信号错误-电路电压高于阈值（主要互锁）
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100E17,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100E17,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0x10AC83_SetEventStatus(uint8 FaultStatus)  //P挡检测失效
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10AC83,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x10AC83,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0xC11282_SetEventStatus(uint8 FaultStatus)  //BMS Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC11282,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC11282,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0xC12282_SetEventStatus(uint8 FaultStatus)  //ESC Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC12282,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC12282,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0xD10282_SetEventStatus(uint8 FaultStatus)  //FCM Checksum or AliveCnt faill
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD10282,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD10282,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0xD11282_SetEventStatus(uint8 FaultStatus)  //CRRR Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD11282,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD11282,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0xD10E82_SetEventStatus(uint8 FaultStatus)  //PP Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD10E82,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD10E82,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0xC13082_SetEventStatus(uint8 FaultStatus)  //EPS Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC13082,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC13082,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0xC15182_SetEventStatus(uint8 FaultStatus)  //SRS Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC15182,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC15182,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0xD11682_SetEventStatus(uint8 FaultStatus)  //ICU Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD11682,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD11682,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0xC19882_SetEventStatus(uint8 FaultStatus)  //TBOX Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC19882,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC19882,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0xD10882_SetEventStatus(uint8 FaultStatus)  //MCU Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD10882,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD10882,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0xC10F82_SetEventStatus(uint8 FaultStatus)  //ACCM Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC10F82,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC10F82,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0xC23082_SetEventStatus(uint8 FaultStatus)  //PTC Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC23082,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC23082,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0xD11D82_SetEventStatus(uint8 FaultStatus)  //HU Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD11D82,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xD11D82,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0xC14682_SetEventStatus(uint8 FaultStatus)  //IPU Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC14682,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC14682,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+void App_Call_Event_DTC_0xC13182_SetEventStatus(uint8 FaultStatus)  //EHB Checksum or AliveCnt fail
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC13182,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC13182,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0xC24082_SetEventStatus(uint8 FaultStatus)  //SCS Checksum or AliveCnt faill
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC24082,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC24082,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+void App_Call_Event_DTC_0xC27082_SetEventStatus(uint8 FaultStatus)  //CCP Checksum or AliveCnt faill
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC27082,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0xC27082,DEM_EVENT_STATUS_FAILED);
+	}
+}
+
+
+/* 20241025新增DTC获取，通信诊断相关 */
+uint8 App_Call_Event_DTC_0xC13187_GetEventStatus(void) //  Lost Communication with EHB
+{
+	Dem_UdsStatusByteType DTCStatus;
+	Dem_GetEventStatus(DemEventParameter_0xC13187, &DTCStatus);
+	return DTCStatus;
+}
+
+uint8 App_Call_Event_DTC_0xC24087_GetEventStatus(void) //  Lost Communication with SCS
+{
+	Dem_UdsStatusByteType DTCStatus;
+	Dem_GetEventStatus(DemEventParameter_0xC24087, &DTCStatus);
+	return DTCStatus;
+}
+
+uint8 App_Call_Event_DTC_0xC27087_GetEventStatus(void) //   Lost Communication with CCP
+{
+	Dem_UdsStatusByteType DTCStatus;
+	Dem_GetEventStatus(DemEventParameter_0xC27087, &DTCStatus);
+	return DTCStatus;
+}
+
 
 
 /* DTC 状态设置 */
@@ -69,29 +512,6 @@ void App_Call_Event_DTC_0x100317_SetEventStatus(uint8 FaultStatus)  //加速踏�
 	}
 }
 
-void App_Call_Event_DTC_0x100D16_SetEventStatus(uint8 FaultStatus)  //联锁信号错误-电路电压低于阈值
-{
-	if (0 == FaultStatus)
-	{
-		Dem_SetEventStatus(DemEventParameter_0x100D16,DEM_EVENT_STATUS_PASSED);
-	}
-	else
-	{
-		Dem_SetEventStatus(DemEventParameter_0x100D16,DEM_EVENT_STATUS_FAILED);
-	}
-}
-
-void App_Call_Event_DTC_0x100D17_SetEventStatus(uint8 FaultStatus)  //联锁信号错误-电路电压高于阈值
-{
-	if (0 == FaultStatus)
-	{
-		Dem_SetEventStatus(DemEventParameter_0x100E17,DEM_EVENT_STATUS_PASSED);
-	}
-	else
-	{
-		Dem_SetEventStatus(DemEventParameter_0x100E17,DEM_EVENT_STATUS_FAILED);
-	}
-}
 
 
 void App_Call_Event_DTC_0x101201_SetEventStatus(uint8 FaultStatus)  //传感器供电电压误差(5V1,5V2)-一般电气故障

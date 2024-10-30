@@ -6039,6 +6039,7 @@ extern uint8 volatile VOPM_BCMSysPwrMode_enum;
 extern uint8 volatile VIPM_EHBEPBActuatorStR_enum;
 extern uint8 volatile VIPM_EHBEPBActuatorStL_enum;
 extern float32 volatile VIPM_ESCVehSpd_kph;
+extern uint8 volatile  VVTM_VehActGrPstn_enum;
 Std_ReturnType  Rte_Call_Dcm_RoutineServices_DcmDspRoutine_0xFF02_Start(
     /* PRQA S 3432++ */ /* MISRA Rule 20.7 */
     P2CONST(uint8,AUTOMATIC,DCM_VAR)InBuffer,
@@ -6369,54 +6370,158 @@ Std_ReturnType RTE_PreConditonCheck(uint8 SID, uint8* ReqDataPtr)
     {
         /* impl your rules there if pass the return E_OK,
         else return E_NOT_OK, then ECU will response NRC22 */
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
 
     }
     else if(0x11 == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
 
     }
     else if(0x28 == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         
     }
     else if(0x27 == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         /* nothing to-do */
     }
     else if(0x85 == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         
     }
     else if(0x22 == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         
     }
     else if(0x2e == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         
     }
     else if(0x2a == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         
     }
     else if(0x2c == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         
     }
     else if(0x14 == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         
     }
     else if(0x2F == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         
     }
     else if(0x31 == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         
     }
     else if(0x34 == SID)
     {
+        if((VIPM_ESCVehSpd_kph > 5.0) || (VVTM_VehActGrPstn_enum != 0x0))
+        {
+            Dcm_Rte_PreConditonCheck = E_NOT_OK;
+        }
+        else
+        {
+            Dcm_Rte_PreConditonCheck = E_OK;   
+        }
         
     }
     return Dcm_Rte_PreConditonCheck;

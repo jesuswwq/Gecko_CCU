@@ -4,9 +4,9 @@
  *
  * Code generation for model "AppSwcIpm".
  *
- * Model version              : 9.209
+ * Model version              : 9.212
  * Simulink Coder version : 9.8 (R2022b) 13-May-2022
- * C source code generated on : Tue Sep 24 13:50:26 2024
+ * C source code generated on : Mon Oct 28 18:01:57 2024
  * 
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -5497,6 +5497,32 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_CCPLostCommOvrdSw_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_CCPLostCommOvrdSw_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_CCPLostCommOvrdVal_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_CCPLostCommOvrdVal_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_CCPModeKeyDflt_flg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -6645,6 +6671,32 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_EHBHDCFucFault_flg_ovrdval@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_EHBLostCommOvrdSw_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_EHBLostCommOvrdSw_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_EHBLostCommOvrdVal_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_EHBLostCommOvrdVal_flg@ */ 
       /* Record Layout          */      Scalar_BOOLEAN 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
@@ -9622,6 +9674,32 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
       /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_SCSLoBeamSwSt_flg_ovrdval@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_SCSLostCommOvrdSw_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_SCSLostCommOvrdSw_flg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_SCSLostCommOvrdVal_flg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_SCSLostCommOvrdVal_flg@ */ 
       /* Record Layout          */      Scalar_BOOLEAN 
       /* Maximum Difference     */      0 
       /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
@@ -15053,6 +15131,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
+      /* Name                   */      VIPM_EHBLostComm_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_EHBLostComm_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      VIPM_BACCANBusOff_flg
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -15114,6 +15205,32 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      0.0
       /* Upper limit            */      1.0
       ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_ACCMLostComm_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_SCSLostComm_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_SCSLostComm_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_CCPLostComm_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_CCPLostComm_flg@ */
     /end MEASUREMENT
     
     
@@ -20999,12 +21116,16 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         KIPM_BMSLostCommOvrdVal_flg
         KIPM_BODCANBusOffOvrdSw_flg
         KIPM_BODCANBusOffOvrdVal_flg
+        KIPM_CCPLostCommOvrdSw_flg
+        KIPM_CCPLostCommOvrdVal_flg
         KIPM_CDCLostCommOvrdSw_flg
         KIPM_CDCLostCommOvrdVal_flg
         KIPM_CHACANBusOffOvrdSw_flg
         KIPM_CHACANBusOffOvrdVal_flg
         KIPM_CRRRLostCommOvrdSw_flg
         KIPM_CRRRLostCommOvrdVal_flg
+        KIPM_EHBLostCommOvrdSw_flg
+        KIPM_EHBLostCommOvrdVal_flg
         KIPM_EPSLostCommOvrdSw_flg
         KIPM_EPSLostCommOvrdVal_flg
         KIPM_EPTCANBusOffOvrdSw_flg
@@ -21023,6 +21144,8 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         KIPM_PPLostCommOvrdVal_flg
         KIPM_PTCLostCommOvrdSw_flg
         KIPM_PTCLostCommOvrdVal_flg
+        KIPM_SCSLostCommOvrdSw_flg
+        KIPM_SCSLostCommOvrdVal_flg
         KIPM_SRSLostCommOvrdSw_flg
         KIPM_SRSLostCommOvrdVal_flg
         KIPM_TBOXLostCommOvrdSw_flg
@@ -21033,9 +21156,11 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         VIPM_BACCANBusOff_flg
         VIPM_BMSLostComm_flg
         VIPM_BODCANBusOff_flg
+        VIPM_CCPLostComm_flg
         VIPM_CDCLostComm_flg
         VIPM_CHACANBusOff_flg
         VIPM_CRRRLostComm_flg
+        VIPM_EHBLostComm_flg
         VIPM_EPSLostComm_flg
         VIPM_EPTCANBusOff_flg
         VIPM_ESCLostComm_flg
@@ -21045,6 +21170,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
         VIPM_MCULostComm_flg
         VIPM_PPLostComm_flg
         VIPM_PTCLostComm_flg
+        VIPM_SCSLostComm_flg
         VIPM_SRSLostComm_flg
         VIPM_TBOXLostComm_flg
       /end REF_MEASUREMENT

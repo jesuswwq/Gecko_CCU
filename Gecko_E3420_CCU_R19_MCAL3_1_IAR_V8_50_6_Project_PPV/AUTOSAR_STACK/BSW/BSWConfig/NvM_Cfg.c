@@ -13,7 +13,7 @@
 **                                                                            **
 **  FILENAME    : NvM_Cfg.c                                                   **
 **                                                                            **
-**  Created on  : 2024/10/10 15:41:04                                 **
+**  Created on  : 2024/10/18 18:26:02                                 **
 **  Author      : <>                                                          **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Post-build configuration parameter of NvM                   **
@@ -116,6 +116,7 @@ VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer69[256];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[128];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer71[10];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer72[256];
+VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer73[128];
 /* PRQA S 1504-- */ /* MISRA Rule 8.7 */
 #define NVM_STOP_SEC_VAR_CLEARED_8
 #include "NvM_MemMap.h"
@@ -577,7 +578,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x3c,
+        0x1c,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 
@@ -617,7 +618,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x3c,
+        0x1c,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 
@@ -657,7 +658,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x3c,
+        0x1c,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 
@@ -697,7 +698,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x3c,
+        0x1c,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 
@@ -3003,6 +3004,46 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         0,    /*NvMWriteVerificationDataSize*/
          /* PRQA S 3432++ */ /* MISRA Rule 20.7 */
         (P2VAR(uint8, AUTOMATIC, NVM_APPL_CODE))(NvMBlockRamBuffer72),    /*NvMRamBlockDataAddress*/
+        NULL_PTR,   /*NvMRomBlockDataAddress*/
+        /* PRQA S 3432-- */ /* MISRA Rule 20.7 */
+        NULL_PTR,   /*NvMInitBlockCallback*/
+        NULL_PTR,    /*NvmSingleBlockCallback*/
+        NULL_PTR,    /*NvM_ReadRamBlockFromNvmCallbackType*/
+        NULL_PTR,       /*NvM_WriteRamBlockToNvmCallbackType*/
+    },
+    /*NvMBlock_Swc_VCU_02_128*/
+    {
+        0,    /*NvMNvramDeviceId*/
+        NVM_BLOCK_NATIVE,    /*NvmBlockManagementType*/
+        #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
+        1,      /*NvmBlockJobPriority*/
+        #endif
+        0x224,
+        /*
+         * Bit 0:NvmWriteBlockOnce
+         * Bit 1:NvmBlockWriteProt 
+         * Bit 2:NvmCalcRamBlockCrc
+         * Bit 3:NvmResistantToChangedSw 
+         * Bit 4:NvmSelectBlockForReadall 
+         * Bit 5:NvmSelectBlockForWriteall 
+         * Bit 6:NvMStaticBlockIDCheck
+         * Bit 7:NvMWriteVerification
+         * Bit 8:NvMBlockUseAutoValidation
+         * Bit 9:NvMBlockUseCRCCompMechanism
+         * Bit 10:NvMBlockUseSetRamBlockStatus
+         * Bit 11:NvMBlockUseSyncMechanism
+         * Bit 12:NvMBswMBlockStatusInformation
+         */    
+        NVM_CRC16,    /*NvmBlockCRCType*/
+        299,    /*NvmNvBlockBaseNumber*/
+        128,    /*NvmNvBlockLength*/
+        1,    /*NvmNvBlockNum*/
+        0,    /*NvmRomBlockNum*/
+        3,    /*NvMMaxNumOfReadRetries*/
+        3,    /*NvMMaxNumOfWriteRetries*/
+        0,    /*NvMWriteVerificationDataSize*/
+         /* PRQA S 3432++ */ /* MISRA Rule 20.7 */
+        (P2VAR(uint8, AUTOMATIC, NVM_APPL_CODE))(NvMBlockRamBuffer73),    /*NvMRamBlockDataAddress*/
         NULL_PTR,   /*NvMRomBlockDataAddress*/
         /* PRQA S 3432-- */ /* MISRA Rule 20.7 */
         NULL_PTR,   /*NvMInitBlockCallback*/

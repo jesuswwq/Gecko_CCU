@@ -69,7 +69,20 @@
 
 #define TCA6424_C_PORT2DIR (uint8)((TCA6424_PORTDIR_INPUT<<7)|(TCA6424_PORTDIR_INPUT<<6)|(TCA6424_PORTDIR_INPUT<<5) \
                                   |(TCA6424_PORTDIR_INPUT<<4)|(TCA6424_PORTDIR_INPUT<<3)|(TCA6424_PORTDIR_OUTPUT<<2) \
-                                  |(TCA6424_PORTDIR_OUTPUT<<1)|(TCA6424_PORTDIR_OUTPUT<<0))                               
+                                  |(TCA6424_PORTDIR_OUTPUT<<1)|(TCA6424_PORTDIR_OUTPUT<<0)) 
+
+//TCA6424_CHIP_D
+#define TCA6424_D_PORT0DIR (uint8)((TCA6424_PORTDIR_OUTPUT<<7)|(TCA6424_PORTDIR_OUTPUT<<6)|(TCA6424_PORTDIR_OUTPUT<<5) \
+                                  |(TCA6424_PORTDIR_OUTPUT<<4)|(TCA6424_PORTDIR_OUTPUT<<3)|(TCA6424_PORTDIR_OUTPUT<<2) \
+                                  |(TCA6424_PORTDIR_OUTPUT<<1)|(TCA6424_PORTDIR_OUTPUT<<0))
+
+#define TCA6424_D_PORT1DIR (uint8)((TCA6424_PORTDIR_OUTPUT<<7)|(TCA6424_PORTDIR_INPUT<<6)|(TCA6424_PORTDIR_OUTPUT<<5) \
+                                  |(TCA6424_PORTDIR_OUTPUT<<4)|(TCA6424_PORTDIR_OUTPUT<<3)|(TCA6424_PORTDIR_OUTPUT<<2) \
+                                  |(TCA6424_PORTDIR_OUTPUT<<1)|(TCA6424_PORTDIR_OUTPUT<<0)) 
+
+#define TCA6424_D_PORT2DIR (uint8)((TCA6424_PORTDIR_OUTPUT<<7)|(TCA6424_PORTDIR_OUTPUT<<6)|(TCA6424_PORTDIR_OUTPUT<<5) \
+                                  |(TCA6424_PORTDIR_OUTPUT<<4)|(TCA6424_PORTDIR_OUTPUT<<3)|(TCA6424_PORTDIR_OUTPUT<<2) \
+                                  |(TCA6424_PORTDIR_OUTPUT<<1)|(TCA6424_PORTDIR_OUTPUT<<0))                             
 /**************************************************************************************************************/
 /***                                        Type  Define                                                    ***/
 /*****                                                                                                     ****/

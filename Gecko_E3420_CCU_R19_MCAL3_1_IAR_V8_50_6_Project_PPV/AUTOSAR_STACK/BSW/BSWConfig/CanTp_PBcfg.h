@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2023-11-13 14:42:40>
+ *  @date       <2024-10-14 18:05:47>
  */
 /*============================================================================*/
 
@@ -42,32 +42,32 @@
 /* -------------------- CanTpChannel -------------------- */
 
 /* CanTpRxNSdu_FuncReq */    
-#define CANTP_CANTP_RX_Diag_FuncReq_OBD                                0xedu/*RxNSdu Id*/
-#define CANTP_CANIF_RX_Diag_FuncReq_OBD                                 0xeau/*RxNPdu Id*/
+#define CANTP_CANTP_RX_Diag_FuncReq_OBD                                0xe7u/*RxNSdu Id*/
+#define CANTP_CANIF_RX_Diag_FuncReq_OBD                                 0xe4u/*RxNPdu Id*/
 
 /* CanTpRxNSdu_PhyReq */    
-#define CANTP_CANTP_RX_Diag_PhyReq_CCU_OBD                                0xecu/*RxNSdu Id*/
-#define CANTP_CANIF_RX_Diag_PhyReq_CCU_OBD                                 0xe9u/*RxNPdu Id*/
-#define CANTP_CANIF_TX_Diag_Resp_CCU_OBD                               0xe8u/*TxFcNPdu Id*/
+#define CANTP_CANTP_RX_Diag_PhyReq_CCU_OBD                                0xe6u/*RxNSdu Id*/
+#define CANTP_CANIF_RX_Diag_PhyReq_CCU_OBD                                 0xe3u/*RxNPdu Id*/
+#define CANTP_CANIF_TX_Diag_Resp_CCU_OBD                               0xe2u/*TxFcNPdu Id*/
 
 /* CanTpTxNSdu_PhyResp */    
-#define CANTP_CANTP_TX_Diag_Resp_CCU_OBD                                0xebu/*TxNSdu Id*/
-#define CANTP_CANIF_TX_Diag_Resp_CCU_OBD                                 0xe8u/*TxNPdu Id*/
-#define CANTP_CANIF_RX_Diag_PhyReq_CCU_OBD                               0xe9u/*RxFcNPdu Id*/
+#define CANTP_CANTP_TX_Diag_Resp_CCU_OBD                                0xe5u/*TxNSdu Id*/
+#define CANTP_CANIF_TX_Diag_Resp_CCU_OBD                                 0xe2u/*TxNPdu Id*/
+#define CANTP_CANIF_RX_Diag_PhyReq_CCU_OBD                               0xe3u/*RxFcNPdu Id*/
 /* -------------------- CanTpChannel_BAC -------------------- */
 
 /* CanTpRxNSdu_FuncReq */    
-#define CANTP_CANTP_RX_Diag_FuncReq_BAC                                0x1d6u/*RxNSdu Id*/
-#define CANTP_CANIF_RX_Diag_FuncReq_BAC                                 0x152u/*RxNPdu Id*/
+#define CANTP_CANTP_RX_Diag_FuncReq_BAC                                0x1d0u/*RxNSdu Id*/
+#define CANTP_CANIF_RX_Diag_FuncReq_BAC                                 0x14cu/*RxNPdu Id*/
 
 /* CanTpRxNSdu_PhyReq */    
-#define CANTP_CANTP_RX_Diag_PhyReq_BAC                                0x1d5u/*RxNSdu Id*/
-#define CANTP_CANIF_RX_Diag_PhyReq_BAC                                 0x1d3u/*RxNPdu Id*/
-#define CANTP_CANIF_TX_Diag_Resp_BAC                               0x1d4u/*TxFcNPdu Id*/
+#define CANTP_CANTP_RX_Diag_PhyReq_BAC                                0x1cfu/*RxNSdu Id*/
+#define CANTP_CANIF_RX_Diag_PhyReq_BAC                                 0x1cdu/*RxNPdu Id*/
+#define CANTP_CANIF_TX_Diag_Resp_BAC                               0x1ceu/*TxFcNPdu Id*/
 
 /* CanTpTxNSdu_PhyResp */    
-#define CANTP_CANTP_TX_Diag_Resp_BAC                                0x1d7u/*TxNSdu Id*/
-#define CANTP_CANIF_TX_Diag_Resp_BAC                                 0x1d4u/*TxNPdu Id*/
-#define CANTP_CANIF_RX_Diag_PhyReq_BAC                               0x1d3u/*RxFcNPdu Id*/
+#define CANTP_CANTP_TX_Diag_Resp_BAC                                0x1d1u/*TxNSdu Id*/
+#define CANTP_CANIF_TX_Diag_Resp_BAC                                 0x1ceu/*TxNPdu Id*/
+#define CANTP_CANIF_RX_Diag_PhyReq_BAC                               0x1cdu/*RxFcNPdu Id*/
 
 #endif /* CANTP_PBCFG_H */
