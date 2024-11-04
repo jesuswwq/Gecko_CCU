@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-28 18:07:42>
+ *  @date       <2024-11-04 14:08:09>
  */
 /*============================================================================*/
 
@@ -101,7 +101,7 @@ BMS_2_BatState_EPT Rte_Buf_Runbl_IpmCanRx_20ms_BMS_2_BatState_EPT_BMS_2_BatState
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-BMS_3_DC_ChargeState_EPT Rte_Buf_Runbl_IpmCanRx_20ms_BMS_3_DC_ChargeState_EPT_BMS_3_DC_ChargeState_EPT = {0, 0, 65, 0, 0, 0, 0, 0, 0, 0, 0};
+BMS_3_DC_ChargeState_EPT Rte_Buf_Runbl_IpmCanRx_20ms_BMS_3_DC_ChargeState_EPT_BMS_3_DC_ChargeState_EPT = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 65};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -1487,7 +1487,7 @@ DT_IPM_HU_B_BAC Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_HU_B_BAC = {0,0,0,0,0,0,0,0,0,0
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-DT_IPM_HU_B_BAC Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_HU_B_BAC = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,101,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+DT_IPM_HU_B_BAC Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_HU_B_BAC = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2249,13 +2249,13 @@ EEReadCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_EEReadCtl_Bus = {0,0,0,0,0,0,0,0,0,
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-EHB_A_CHA Rte_Buf_Runbl_IpmCanRx_20ms_EHB_A_CHA_EHB_A_CHA = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+EHB_A_CHA Rte_Buf_Runbl_IpmCanRx_20ms_EHB_A_CHA_EHB_A_CHA = {0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-EHB_B_CHA Rte_Buf_Runbl_IpmCanRx_10ms_EHB_B_CHA_EHB_B_CHA = {0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+EHB_B_CHA Rte_Buf_Runbl_IpmCanRx_10ms_EHB_B_CHA_EHB_B_CHA = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2297,7 +2297,7 @@ EMS_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_EMS_outputs = {0,0,0,0,0,0};
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-EPS_2_StrWhlAng_CHA Rte_Buf_Runbl_IpmCanRx_10ms_EPS_2_StrWhlAng_CHA_EPS_2_StrWhlAng_CHA = {0, 0, 7800, 0, 10240, 0, 0, 0};
+EPS_2_StrWhlAng_CHA Rte_Buf_Runbl_IpmCanRx_10ms_EPS_2_StrWhlAng_CHA_EPS_2_StrWhlAng_CHA = {0, 0, 0, 10240, 7800, 0, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2327,19 +2327,19 @@ ESCL_ESCLStatus_BOD Rte_Buf_Runbl_IpmCanRx_50ms_ESCL_ESCLStatus_BOD_ESCL_ESCLSta
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-ESC_7_FuncStatus_CHA Rte_Buf_Runbl_IpmCanRx_10ms_ESC_7_FuncStatus_CHA_ESC_7_FuncStatus_CHA = {0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+ESC_7_FuncStatus_CHA Rte_Buf_Runbl_IpmCanRx_10ms_ESC_7_FuncStatus_CHA_ESC_7_FuncStatus_CHA = {0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-ESC_A_CHA Rte_Buf_Runbl_IpmCanRx_10ms_ESC_A_CHA_ESC_A_CHA = {0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24800, 0, 24800};
+ESC_A_CHA Rte_Buf_Runbl_IpmCanRx_10ms_ESC_A_CHA_ESC_A_CHA = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 2, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24800, 0, 24800, 0, 1};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-FCM_B_CHA Rte_Buf_Runbl_IpmCanRx_20ms_FCM_B_CHA_FCM_B_CHA = {0, 0, 0, 0, 7800, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12400, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+FCM_B_CHA Rte_Buf_Runbl_IpmCanRx_20ms_FCM_B_CHA_FCM_B_CHA = {0, 0, 0, 0, 0, 0, 12400, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7800, 0, 0, 0, 0, 0, 0, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2429,7 +2429,7 @@ HMI_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_HMI_outputs = {0,0};
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-HU_B_BAC Rte_Buf_Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 101, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+HU_B_BAC Rte_Buf_Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 101, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2561,25 +2561,25 @@ IMMOCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IMMOCtl_Bus = {{0,0,0,0,0,0,0,0},0,{0
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-INV_1_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_1_Value_EPT_INV_1_Value_EPT = {0, 0, 0, 8192, 0, 12000, 0, 0, 0, 0, 0, 0, 0};
+INV_1_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_1_Value_EPT_INV_1_Value_EPT = {0, 8192, 0, 0, 0, 0, 12000, 0, 0, 0, 0, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-INV_2_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_2_Value_EPT_INV_2_Value_EPT = {0, 0, 0, 0, 0, 8192, 0};
+INV_2_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_2_Value_EPT_INV_2_Value_EPT = {0, 0, 0, 8192, 0, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-INV_3_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_3_Value_EPT_INV_3_Value_EPT = {0, 0, 0, 0, 1000, 500};
+INV_3_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_3_Value_EPT_INV_3_Value_EPT = {0, 0, 1000, 0, 0, 500};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-INV_4_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_4_Value_EPT_INV_4_Value_EPT = {0, 0, 0, 0, 16384, 16384};
+INV_4_Value_EPT Rte_Buf_Runbl_IpmCanRx_10ms_INV_4_Value_EPT_INV_4_Value_EPT = {0, 0, 0, 16384, 16384, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2687,7 +2687,7 @@ IPC_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-IPU_DCC_1_State_EPT Rte_Buf_Runbl_IpmCanRx_100ms_IPU_DCC_1_State_EPT_IPU_DCC_1_State_EPT = {0, 0, 0, 0, 4096, 0, 0, 0, 0, 0, 0};
+IPU_DCC_1_State_EPT Rte_Buf_Runbl_IpmCanRx_100ms_IPU_DCC_1_State_EPT_IPU_DCC_1_State_EPT = {0, 0, 0, 0, 0, 4096, 0, 0, 0, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2705,7 +2705,7 @@ IPU_OBC_1_State_EPT Rte_Buf_Runbl_IpmCanRx_100ms_IPU_OBC_1_State_EPT_IPU_OBC_1_S
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-IPU_OBC_2_Inlet_EPT Rte_Buf_Runbl_IpmCanRx_100ms_IPU_OBC_2_Inlet_EPT_IPU_OBC_2_Inlet_EPT = {0, 0, 0, 0, 0, 0, 0, 512, 0, 0, 0};
+IPU_OBC_2_Inlet_EPT Rte_Buf_Runbl_IpmCanRx_100ms_IPU_OBC_2_Inlet_EPT_IPU_OBC_2_Inlet_EPT = {0, 0, 0, 512, 0, 0, 0, 0, 0, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2921,7 +2921,7 @@ SCS_RiSwitchSts_BOD Rte_Buf_Runbl_IpmCanRx_20ms_SCS_RiSwitchSts_BOD_SCS_RiSwitch
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-SRS_1_Status_CHA Rte_Buf_Runbl_IpmCanRx_50ms_SRS_1_Status_CHA_SRS_1_Status_CHA = {0, 0, 0, 0, 1, 1, 1, 1, 0, 2, 0, 0, 2, 0, 0, 0};
+SRS_1_Status_CHA Rte_Buf_Runbl_IpmCanRx_50ms_SRS_1_Status_CHA_SRS_1_Status_CHA = {0, 0, 0, 0, 0, 0, 0, 1, 1, 2, 0, 2, 1, 1, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -4181,7 +4181,7 @@ SteerWhlCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_SteerWhlCtl_Bus = {0,0,0};
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-TBOX_BJS_Time_BAC Rte_Buf_Runbl_IpmCanRx_100ms_TBOX_BJS_Time_BAC_TBOX_BJS_Time_BAC = {0, 0, 0, 1, 1, 0, 0, 0};
+TBOX_BJS_Time_BAC Rte_Buf_Runbl_IpmCanRx_100ms_TBOX_BJS_Time_BAC_TBOX_BJS_Time_BAC = {0, 0, 1, 0, 0, 1, 0, 0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
