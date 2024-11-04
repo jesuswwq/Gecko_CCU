@@ -1261,7 +1261,7 @@ void SetHw_BackLightDrv(uint8 frq,uint8 duty)  // 背光灯驱动
 uint16 GetHw_DrvSeatTempFrb(void)   // 座椅加热温度反馈
 {
   	float ad_V = 0.0;
-	ad_V = ((float)AD4067Avalue[6]) / 4095.0 * 3300.0* 6.0 / 5.0;
+	ad_V = ((float)AD4067Avalue[7]) / 4095.0 * 3300.0* 6.0 / 5.0;
 	return (uint16)ad_V;
 }
 void SetHw_DrvSeatHeat(uint8 frq,uint8 duty)  // 座椅加热PWM驱动
