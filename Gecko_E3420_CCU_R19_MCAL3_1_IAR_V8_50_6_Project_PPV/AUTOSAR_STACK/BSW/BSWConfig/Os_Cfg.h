@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-01-30 09:58:25>
+ *  @date       <2024-11-06 18:24:50>
  */
 /*============================================================================*/
 
@@ -175,8 +175,8 @@
 #define     OsTask_Core2_Init                                   ((Os_TaskType)0x2008U)
 #define     OS_TASK_IDLE_CORE2                      ((Os_TaskType)0x2009U)
 /* --------------------ISR Definition-------------------- */
-#define     CFG_ISR_MAX                             20U
-#define     CFG_ISR2_MAX                            20U
+#define     CFG_ISR_MAX                             21U
+#define     CFG_ISR2_MAX                            21U
 /* wether support interrupt nest */
 #define     CFG_INT_NEST_ENABLE                     FALSE
 /* highest ISR2 interrupt priority */   
@@ -185,8 +185,8 @@
 #define     CFG_ISR2_IPL_MAX_CORE2          10U
 
 /* Core0 */
-#define     CFG_ISR_MAX_CORE0                       16U
-#define     CFG_ISR2_MAX_CORE0                      16U
+#define     CFG_ISR_MAX_CORE0                       17U
+#define     CFG_ISR2_MAX_CORE0                      17U
 #define     CFG_SYS_TIMER_CORE0_ID                  0x0000U   /*system timer*/
 #define     CFG_REMOTECALL_CORE0_ID                    0x0001U    /*Remote Call Software interrupt*/
 #define     CFG_ISR_CANFD3_CANFD_ID                 0x0002U
@@ -195,14 +195,15 @@
 #define     CFG_ISR_CANFD6_CANFD_ID                 0x0005U
 #define     CFG_ISR_CANFD7_CANFD_ID                 0x0006U
 #define     CFG_ISR_CANFD8_CANFD_ID                 0x0007U
-#define     CFG_ISR_GPIO_AP_SYNC_DGPIO_ID                   0x0008U
-#define     CFG_ISR_SADC1_O_SADC_ID                 0x0009U
-#define     CFG_ISR_SADC2_O_SADC_ID                 0x000aU
-#define     CFG_ISR_SPI7_SPI_ID                 0x000bU
-#define     CFG_ISR_UART3_ID                    0x000cU
-#define     CFG_ISR_UART11_ID                   0x000dU
-#define     CFG_ISR_UART14_ID                   0x000eU
-#define     CFG_ISR_WDT1_WDT_ID                 0x000fU
+#define     CFG_ISR_ETMR2_CHN_B_ID                  0x0008U
+#define     CFG_ISR_GPIO_AP_SYNC_DGPIO_ID                   0x0009U
+#define     CFG_ISR_SADC1_O_SADC_ID                 0x000aU
+#define     CFG_ISR_SADC2_O_SADC_ID                 0x000bU
+#define     CFG_ISR_SPI7_SPI_ID                 0x000cU
+#define     CFG_ISR_UART3_ID                    0x000dU
+#define     CFG_ISR_UART11_ID                   0x000eU
+#define     CFG_ISR_UART14_ID                   0x000fU
+#define     CFG_ISR_WDT1_WDT_ID                 0x0010U
 /* Core1 */
 #define     CFG_ISR_MAX_CORE1                       2U
 #define     CFG_ISR2_MAX_CORE1                      2U

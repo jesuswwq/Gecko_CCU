@@ -48,10 +48,9 @@ extern "C" {
 #define SENT_LOW_PULSE_DETECT (STD_OFF)
 
 
-#define SENT_NUM_CHANNELS   (2U)
+#define SENT_NUM_CHANNELS   (1U)
 
 #define SentConf_SentChannel_SentChannel_0 (0u)
-#define SentConf_SentChannel_SentChannel_1 (1u)
 
 extern CONST(Sent_ConfigType, SENT_CONST) Sent_Config;
 

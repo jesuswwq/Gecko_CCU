@@ -61,6 +61,7 @@
 #include "Adc_rte.h"
 #include "HBridge_rte.h"
 #include "Pwm_rte.h"
+#include "Icu.h"
 Com_IpduGroupVector g_ComIpduGroupVector;
 /*lin*/
 ComM_ModeType old_LinSM0_State = COMM_NO_COMMUNICATION;
@@ -184,12 +185,6 @@ TASK(OsTask__Core0_1ms)
 {
     //Counter1ms++;
     CanSM_MainFunction();
-    if(0 == NvM_InitReadAll_Flag)
-    {
-        NvM_MainFunction();
-        Ea_MainFunction();
-        Eep_62_MainFunction();
-    }
 
     /* please insert your code here ... */
     if (E_OK != TerminateTask())
@@ -294,6 +289,12 @@ TASK(OsTask__Core0_5ms)
   {
      FirstWakeUpSource500ms++;
   }
+  if(0 == NvM_InitReadAll_Flag)
+    {
+        NvM_MainFunction();
+        Ea_MainFunction();
+        Eep_62_MainFunction();
+    }
     /* please insert your code here ... */
     CanTp_MainFunction();
     CanNm_MainFunction();
@@ -318,7 +319,7 @@ TASK(OsTask_Core0_Init)
     EcuM_StartupTwo();
     
     NvM_InitReadAll_Flag = 0;
-
+  
     resetreason = Mcu_GetResetReason();
     if(resetreason == MCU_WATCHDOG_RESET)
     {
@@ -328,6 +329,10 @@ TASK(OsTask_Core0_Init)
     }
 /*CDD initial start*/
     Dio_WriteChannel(DioConf_DioChannel_DioChannel_GPIO_D3_SYSERR_EN,1);//add system_err_EN
+    //Icu_SetActivationCondition(IcuConf_IcuChannel_IcuChannel_Crash_sig,ICU_RISING_EDGE);
+    Icu_EnableNotification(IcuConf_IcuChannel_IcuChannel_Crash_sig);
+    //Icu_EnableEdgeDetection(IcuConf_IcuChannel_IcuChannel_Crash_sig);
+    Icu_StartSignalMeasurement(IcuConf_IcuChannel_IcuChannel_Crash_sig);
     BTS7020_Init();
     BTS7120_Init();
     TCA6408_Init();
@@ -709,6 +714,12 @@ ISR(ISR_GPIO_AP_SYNC_DGPIO)
 /* ISR_WDT1_WDT: Core0(CPU0) */
 ISR(ISR_WDT1_WDT)
 {
+    /* please insert your code here ... */
+}
+/* ISR_ETMR2_CHN_B: Core0(CPU0) */
+ISR(ISR_ETMR2_CHN_B)
+{
+  Icu_IrqCommon(ICU_INDEX_ETIMER2);
     /* please insert your code here ... */
 }
 /*=======[E N D   O F   F I L E]==============================================*/

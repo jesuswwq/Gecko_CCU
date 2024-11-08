@@ -39,12 +39,7 @@ extern const Xtrg_DeviceType Xtrg_DeviceCfg;
 
 #define XTRG_SAFETY_ENABLE                    (STD_OFF)
 
-extern const Xtrg_SignalType SmuxConfig_0;
-extern const Xtrg_SignalType SmuxConfig_1;
-extern const Xtrg_SignalType SmuxConfig_2;
-extern const Xtrg_SignalType SmuxConfig_3;
-extern const Xtrg_SignalType SmuxConfig_4;
-extern const Xtrg_SignalType SmuxConfig_5;
+extern const Xtrg_SignalType SmuxConfig_crashsig;
 
 
 
