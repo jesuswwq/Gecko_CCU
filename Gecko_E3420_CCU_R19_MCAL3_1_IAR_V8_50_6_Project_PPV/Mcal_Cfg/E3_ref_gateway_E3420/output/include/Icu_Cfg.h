@@ -74,15 +74,15 @@ extern "C" {
 /** \brief Enable/disable ICU det_error report */
 #define ICU_DEV_ERROR_DETECT (STD_ON)
 /** \brief Enable/disable ICU safety_error report */
-#define ICU_SAFETY_ENABLE   (STD_ON)
+#define ICU_SAFETY_ENABLE   (STD_OFF)
 /** \brief Enable/disable ICU dma mode */
-#define ICU_DMA_SUPPORT (STD_ON)
+#define ICU_DMA_SUPPORT (STD_OFF)
 /** \brief Enable/disable ICU cache maintain */
 #define ICU_NON_CACHE_NEEDED (STD_OFF)
 /** \brief Enable/disable ICU multi capture mode */
 #define ICU_MULTI_CAPTURE_SUPPORT (STD_ON)
 /** \brief Enable/disable ICU multi capture mode with dma */
-#define ICU_MULTI_CAPTURE_DMA_MODE (STD_ON)
+#define ICU_MULTI_CAPTURE_DMA_MODE (STD_OFF)
 /** \brief Enable/disable ICU get version info API */
 #define ICU_GET_VERSIONINFO_API (STD_OFF)
 /** \brief Enable/disable ICU deinit API */
@@ -106,15 +106,6 @@ extern "C" {
 
 
 
-/** \brief Burst transfer data length in single capture mode with dma */
-#define ICU_RX_BURST_LEN    (256U)
-/** \brief Dma watermark level in single capture mode with dma */
-#define ICU_RX_FIFO_WML    (8U)
-
-/** \brief Burst transfer data length in multi capture mode with dma */
-#define MULTI_CPT_BURST_LEN     (256U)
-
-
 
 /** \brief Icu Pre Compile Switch */
 
@@ -126,8 +117,8 @@ extern "C" {
 /** \} */
 /* end of ICU service enable/diable macro */
 
-/** \brief Shorter Symbolic name for ICU single capture channel : IcuChannel_0 */
-#define IcuConf_IcuChannel_IcuChannel_0 (0U)
+/** \brief Shorter Symbolic name for ICU single capture channel : IcuChannel_Crash_sig */
+#define IcuConf_IcuChannel_IcuChannel_Crash_sig (0U)
 /** \brief Shorter Symbolic name for ICU single capture channel : IcuChannel_1 */
 #define IcuConf_IcuChannel_IcuChannel_1 (1U)
 /** \brief Shorter Symbolic name for ICU single capture channel : IcuChannel_2 */

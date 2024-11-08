@@ -60,6 +60,7 @@
 #include "Xtrg_Cfg.h"
 #include "xtrg.h"
 #include "PEPS_ABI.h"
+#include "Icu.h"
 /*******************************************************************************
 **                      Imported Compiler Switch Check                        **
 *******************************************************************************/
@@ -214,7 +215,8 @@ EcuM_AL_DriverInitOne(
     Adc_Init(&Adc_Config);
     Can_Init(pbCfg->canPbCfg);
     Lin_Init(pbCfg->linPbCfg);
-
+    Icu_Init(&Icu_ConfigSet);
+    Xtrg_SignalMutiplex(&Xtrg_DeviceCfg,&SmuxConfig_crashsig);
     Spi_Init(Spi_Config);
     I2c_Init();
     Pwm_Init(&Pwm_Config);

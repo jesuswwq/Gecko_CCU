@@ -269,6 +269,7 @@ extern uint16 GetHw_Lightlntst(void);
 extern void SetHw_PwrSup(uint8 Sts);
 extern void SetHw_RearMirrorHeat(uint8 Sts);
 extern void SetHw_BoxLampSta(uint8 Sts);
+extern boolean GetHw_CrashSig_Flag(void);
 
 //  12V蓄电池电压
 extern uint16 GetHw_LowBatValtage();

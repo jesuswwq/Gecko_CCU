@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-01-30 09:58:26>
+ *  @date       <2024-11-06 18:24:50>
  */
 /*============================================================================*/
 
@@ -109,6 +109,12 @@ FUNC(void, OS_CODE_FAST) Os_ISR_CANFD8_CANFD(void)
 {
     OS_ARCH_ISR2_PROLOGUE(Os_GetObjLocalId(CFG_ISR_CANFD8_CANFD_ID));
     ISR_CANFD8_CANFD();
+    OS_ARCH_ISR2_EPILOGUE();
+}
+FUNC(void, OS_CODE_FAST) Os_ISR_ETMR2_CHN_B(void)
+{
+    OS_ARCH_ISR2_PROLOGUE(Os_GetObjLocalId(CFG_ISR_ETMR2_CHN_B_ID));
+    ISR_ETMR2_CHN_B();
     OS_ARCH_ISR2_EPILOGUE();
 }
 FUNC(void, OS_CODE_FAST) Os_ISR_GPIO_AP_SYNC_DGPIO(void)
@@ -214,6 +220,7 @@ FUNC(void, OS_CODE) Os_ArchInitIntPrio(void)
                     Os_InterruptInstall(CANFD6_CANFD, 5U, 0, Os_ISR_CANFD6_CANFD);
                     Os_InterruptInstall(CANFD7_CANFD, 5U, 0, Os_ISR_CANFD7_CANFD);
                     Os_InterruptInstall(CANFD8_CANFD, 5U, 0, Os_ISR_CANFD8_CANFD);
+                    Os_InterruptInstall(ETMR2_CHN_B, 4U, 0, Os_ISR_ETMR2_CHN_B);
                     Os_InterruptInstall(GPIO_AP_SYNC_DGPIO, 5U, 0, Os_ISR_GPIO_AP_SYNC_DGPIO);
                     Os_InterruptInstall(SADC1_O_SADC, 5U, 0, Os_ISR_SADC1_O_SADC);
                     Os_InterruptInstall(SADC2_O_SADC, 5U, 0, Os_ISR_SADC2_O_SADC);

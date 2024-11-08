@@ -18,7 +18,7 @@
 /**
  * @file  Sent_PBCfg.c
  * @brief Semidrive. MCAL Sent
- * @date 2024-03-08 16:29:00
+ * @date 2024-11-07 16:30:31
  */
 
 #ifdef __cplusplus
@@ -55,14 +55,12 @@ extern "C" {
 /* Version Check End */
 /* Version and Check End */
 
-extern FUNC (void, SENT_CODE) Sent_frameover_test0(void);
-extern FUNC (void, SENT_CODE) Sent_frameover_test1(void);
 
 #define SENT_START_SEC_CONST_UNSPECIFIED
 #include "Sent_MemMap.h"
 
 static CONST(Sent_HwChannelConfigType, SENT_CONST) HwChannelConfig0 = {
-    .u8TimerModule = (SENT_INDEX_ETIMER2),
+    .u8TimerModule = (SENT_INDEX_ETIMER1),
     .u8HwChannel = (SENT_HW_CPT_A),
     .eFastChannel = (SENT_STANDARD_FORMAT),
     .eDataBitNum = (SENT_DATA_WIDTH_24_BIT),
@@ -72,33 +70,15 @@ static CONST(Sent_HwChannelConfigType, SENT_CONST) HwChannelConfig0 = {
     .u8SampleInterval = (4),
     .u8FiterBandwidth = (7),
     .bPausePulse = (TRUE),
-    .bNotifyFrameOver = TRUE,
-    .pfFrameOverNotification = Sent_frameover_test0,
-};
-static CONST(Sent_HwChannelConfigType, SENT_CONST) HwChannelConfig1 = {
-    .u8TimerModule = (SENT_INDEX_ETIMER2),
-    .u8HwChannel = (SENT_HW_CPT_B),
-    .eFastChannel = (SENT_STANDARD_FORMAT),
-    .eDataBitNum = (SENT_DATA_WIDTH_12_BIT),
-    .u8LowPulseWid = (5),
-    .u8FifoWml = (7),
-    .bFiterEnable = (TRUE),
-    .u8SampleInterval = (4),
-    .u8FiterBandwidth = (7),
-    .bPausePulse = (FALSE),
-    .bNotifyFrameOver = TRUE,
-    .pfFrameOverNotification = Sent_frameover_test1,
+    .bNotifyFrameOver = FALSE,
+    .pfFrameOverNotification = NULL_PTR,
 };
 
-static CONST(Sent_ChannelConfigType, SENT_CONST) Sent_ChannelConfigs[2] =
+static CONST(Sent_ChannelConfigType, SENT_CONST) Sent_ChannelConfigs[1] =
 {
     {
-        (50000),
+        (0),
         &HwChannelConfig0
-    },
-    {
-        (200000),
-        &HwChannelConfig1
     },
 };
 

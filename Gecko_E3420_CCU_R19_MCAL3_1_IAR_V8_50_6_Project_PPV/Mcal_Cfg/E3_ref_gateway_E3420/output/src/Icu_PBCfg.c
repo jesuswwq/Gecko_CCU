@@ -19,7 +19,7 @@
  *                                                                                                      *
  * <table>                                                                                              *
  * <tr><th>Date                 <th>Version                                                             *
- * <tr><td>2024-03-08 16:29:00      <td>1.0.0 R                                            *
+ * <tr><td>2024-11-06 18:16:26      <td>1.0.0 R                                            *
  * </table>                                                                                             *
  *******************************************************************************************************/
 
@@ -34,9 +34,10 @@ extern "C" {
 
 extern void Icu_irq_test1(void);
 
-extern void Icu_irq_test0(void);
-
-
+void Icu_irq_test1(void)
+{
+    /* Add your code here */
+}
 
 #define ICU_START_SEC_CONST_UNSPECIFIED
 /** Traceability       : SWSR_ICU_005 */
@@ -44,10 +45,10 @@ extern void Icu_irq_test0(void);
 
 static const Icu_HwChannelConfigType HwChannelConfig0 =
 {
-    .timerModule = (ICU_INDEX_ETIMER3),
+    .timerModule = (ICU_INDEX_ETIMER2),
     .timerPrescaler = (0),
     .timerClock = (ICU_SEL_HF_CLK),
-    .timerChannel = (ICU_HW_CPT_A),
+    .timerChannel = (ICU_HW_CPT_B),
     .multiCptChanNum = 1
 
 };
@@ -92,11 +93,7 @@ static const Icu_HwChannelConfigType HwChannelConfig4 =
 
 static const Icu_MeasureModeParamType Icu_MeasureModeParam0 =
 {
-    .Icu_SignalEdgeDetection  =
-    {
-        .sigNotifyFuncPtr = Icu_irq_test0,            
-        .notifyEdgeDetDefault = TRUE        
-    }
+    .sigMeasureProperty = ICU_DUTY_CYCLE
 };
 static const Icu_MeasureModeParamType Icu_MeasureModeParam1 =
 {
@@ -237,7 +234,7 @@ static const Icu_ChannelConfigType Icu_ChannelConfigs[5] =
         .icuChannel = (0u),
         .multiCaptureEnable = FALSE,
         .icuDefaultStartEdge = (ICU_RISING_EDGE),
-        .icuMeasurementMode = (ICU_MODE_SIGNAL_EDGE_DETECT),
+        .icuMeasurementMode = (ICU_MODE_SIGNAL_MEASUREMENT),
         .icuFilterLevel = (0),
         .measureParamPtr = &Icu_MeasureModeParam0,
         .icuHwChanCfgPtr = &HwChannelConfig0,

@@ -6,6 +6,7 @@
 #include <__regs_base_E3.h>
 #include "IoExp_TCA6408_Api.h"
 #include "TLE75242_Api.h"
+#include "Icu.h"
 
 #define VCC 2600.0
 #define  DataLength_BCM_IMM_NVMData 128u
@@ -1751,6 +1752,25 @@ uint8 GetHw_CreepModeSw(void) // 蠕行
 
 	return (uint8)IDX_Sta;
 }
+boolean GetHw_CrashSig_Flag(void)//Crash signal flag
+{
+	Icu_DutyCycleType Crash_sig;
+	uint32 Duty_value;
+	Icu_GetDutyCycleValues(IcuConf_IcuChannel_IcuChannel_Crash_sig,&Crash_sig);
+	Duty_value = ((uint64)Crash_sig.ActiveTime * 100) / Crash_sig.PeriodTime;
+	if((Duty_value > 82) && (Duty_value < 84))
+	{
+		return FALSE;
+	}
+	else if ((Duty_value > 16) && (Duty_value < 18))
+	{
+		return TRUE;
+	}
+	else{
+		//nothing todo;
+	}
+}
+	
 #if 1
 uint8 GetHw_HiBeamDigSts(void)
 {

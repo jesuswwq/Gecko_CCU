@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-01-09 10:15:05>
+ *  @date       <2024-11-06 18:24:50>
  */
 /*============================================================================*/
 
@@ -566,6 +566,11 @@ static VAR(Os_StackDataType, OS_VAR) Os_CANFD8_CANFD_Stack_Core0[256];
 #include "Os_MemMap.h"
 #define OS_START_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
+static VAR(Os_StackDataType, OS_VAR) Os_ETMR2_CHN_B_Stack_Core0[256];
+#define OS_STOP_SEC_VAR_STACK_CORE0
+#include "Os_MemMap.h"
+#define OS_START_SEC_VAR_STACK_CORE0
+#include "Os_MemMap.h"
 static VAR(Os_StackDataType, OS_VAR) Os_GPIO_AP_SYNC_DGPIO_Stack_Core0[256];
 #define OS_STOP_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
@@ -617,6 +622,7 @@ CONST(Os_StackType, OS_CONST) Os_ISR2StackCore0[CFG_ISR2_MAX_CORE0] =
     {OS_STACK_TOP(Os_CANFD6_CANFD_Stack_Core0), OS_STACK_BOTTOM(Os_CANFD6_CANFD_Stack_Core0)},
     {OS_STACK_TOP(Os_CANFD7_CANFD_Stack_Core0), OS_STACK_BOTTOM(Os_CANFD7_CANFD_Stack_Core0)},
     {OS_STACK_TOP(Os_CANFD8_CANFD_Stack_Core0), OS_STACK_BOTTOM(Os_CANFD8_CANFD_Stack_Core0)},
+    {OS_STACK_TOP(Os_ETMR2_CHN_B_Stack_Core0), OS_STACK_BOTTOM(Os_ETMR2_CHN_B_Stack_Core0)},
     {OS_STACK_TOP(Os_GPIO_AP_SYNC_DGPIO_Stack_Core0), OS_STACK_BOTTOM(Os_GPIO_AP_SYNC_DGPIO_Stack_Core0)},
     {OS_STACK_TOP(Os_SADC1_O_SADC_Stack_Core0), OS_STACK_BOTTOM(Os_SADC1_O_SADC_Stack_Core0)},
     {OS_STACK_TOP(Os_SADC2_O_SADC_Stack_Core0), OS_STACK_BOTTOM(Os_SADC2_O_SADC_Stack_Core0)},
@@ -1374,6 +1380,12 @@ CONST(Os_IsrCfgType, OS_CONST) Os_IsrCfgCore0[CFG_ISR_MAX_CORE0] =
     {
         OS_ISR_CATEGORY2,   /*OsIsrCatType*/
         FALSE,  /*OsNestedEnable*/
+        ETMR2_CHN_B,    /*OsIsrSrc*/
+        OS_ARCH_INT_CPU0, /*OsIsrSrcType*/
+    },
+    {
+        OS_ISR_CATEGORY2,   /*OsIsrCatType*/
+        FALSE,  /*OsNestedEnable*/
         GPIO_AP_SYNC_DGPIO, /*OsIsrSrc*/
         OS_ARCH_INT_CPU0, /*OsIsrSrcType*/
     },
@@ -1452,6 +1464,10 @@ CONST(uint16, OS_CONST) Os_ResourceAccessMask_ISR_CANFD8_CANFD[1] =
 {
     0x0U,
 };
+CONST(uint16, OS_CONST) Os_ResourceAccessMask_ISR_ETMR2_CHN_B[1] =
+{
+    0x0U,
+};
 CONST(uint16, OS_CONST) Os_ResourceAccessMask_ISR_GPIO_AP_SYNC_DGPIO[1] =
 {
     0x0U,
@@ -1494,6 +1510,7 @@ P2CONST(uint16, OS_VAR, OS_CONST) Os_IsrResourceAccessMaskCore0[CFG_ISR2_MAX_COR
     Os_ResourceAccessMask_ISR_CANFD6_CANFD,
     Os_ResourceAccessMask_ISR_CANFD7_CANFD,
     Os_ResourceAccessMask_ISR_CANFD8_CANFD,
+    Os_ResourceAccessMask_ISR_ETMR2_CHN_B,
     Os_ResourceAccessMask_ISR_GPIO_AP_SYNC_DGPIO,
     Os_ResourceAccessMask_ISR_SADC1_O_SADC,
     Os_ResourceAccessMask_ISR_SADC2_O_SADC,

@@ -35,28 +35,8 @@ extern "C" {
 
 #define XTRG_START_SEC_CONST_UNSPECIFIED
 #include "Xtrg_MemMap.h"
-const Xtrg_SignalType SmuxConfig_0 = {
-    .signalInput = EPWM1_CMP_A1,
-    .signalOutput = ETIMER3_CPT_A0,
-};
-const Xtrg_SignalType SmuxConfig_1 = {
-    .signalInput = EPWM1_CMP_B0,
-    .signalOutput = ETIMER3_CPT_B0,
-};
-const Xtrg_SignalType SmuxConfig_2 = {
-    .signalInput = EPWM1_CMP_C0,
-    .signalOutput = ETIMER3_CPT_C0,
-};
-const Xtrg_SignalType SmuxConfig_3 = {
-    .signalInput = EPWM1_CMP_D0,
-    .signalOutput = ETIMER3_CPT_D0,
-};
-const Xtrg_SignalType SmuxConfig_4 = {
-    .signalInput = IO_I_11,
-    .signalOutput = ETIMER2_CPT_A0,
-};
-const Xtrg_SignalType SmuxConfig_5 = {
-    .signalInput = IO_I_11,
+const Xtrg_SignalType SmuxConfig_crashsig = {
+    .signalInput = IO_I_34,
     .signalOutput = ETIMER2_CPT_B0,
 };
 const Xtrg_SignalType IOOutConfig_M1 = {
