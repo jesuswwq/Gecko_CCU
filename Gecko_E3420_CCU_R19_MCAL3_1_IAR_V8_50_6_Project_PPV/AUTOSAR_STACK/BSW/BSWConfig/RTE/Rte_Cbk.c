@@ -411,7 +411,7 @@ void Rte_COMCbkRxTOut_FCM_25_Line123_CHA_IPDU_COM_RX_FCM_25_Line123_CHA_CANFD3_C
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5(void)
 {
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE)) && (NvMBlockRamBuffer3[28] & 0x1))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD10287, &tmp))
@@ -447,7 +447,7 @@ void Rte_COMCbkRxTOut_FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1(void)
 {
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE)) && (((NvMBlockRamBuffer3[23] & 0x20) == 0x20) ? 1 : 0 || ((NvMBlockRamBuffer3[23] & 0x30) == 0x30) ? 1 : 0))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11D87, &tmp))
@@ -543,7 +543,7 @@ void Rte_COMCbkRxTOut_ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_ICU_Info_BAC_IPDU_COM_ICU_Info_BAC(void)
 {
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE)) && (((NvMBlockRamBuffer3[23] & 0x10) == 0x10 ? 1 : 0) && ((NvMBlockRamBuffer3[23] & 0x30) == 0x30 ? 0 : 1)))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11687, &tmp))
