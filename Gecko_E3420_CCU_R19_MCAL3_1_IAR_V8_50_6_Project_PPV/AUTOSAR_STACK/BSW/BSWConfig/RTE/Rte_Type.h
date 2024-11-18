@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-27 01:08:46>
+ *  @date       <2024-11-14 16:56:11>
  */
 /*============================================================================*/
 
@@ -65,6 +65,10 @@ typedef uint64 UINT64;
 typedef uint16 UInt16;
 
 #define _DEFINED_TYPEDEF_FOR_UInt16_
+
+typedef uint32 UInt32;
+
+#define _DEFINED_TYPEDEF_FOR_UInt32_
 
 typedef uint8 UInt8;
 
@@ -887,6 +891,7 @@ typedef struct
     UInt8 BCM_NMReq_flg;
     UInt8 BCM_SleepAllwd_flg;
     UInt8 BCM_RearMirrorHeatSts;
+    UInt8 BCM_BodyWarnSts;
 } DT_Bcm2VcuTms_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_DT_Bcm2VcuTms_outputs_
@@ -934,6 +939,9 @@ typedef struct
     Boolean VIPM_PTCLostComm_flg;
     Boolean VIPM_CDCLostComm_flg;
     Boolean VIPM_IPULostComm_flg;
+    Boolean VIPM_EHBLostComm_flg;
+    Boolean VIPM_SCSLostComm_flg;
+    Boolean VIPM_CCPLostComm_flg;
 } DT_CANCommErr;
 
 #define _DEFINED_TYPEDEF_FOR_DT_CANCommErr_
@@ -1497,6 +1505,14 @@ typedef struct
 
 typedef struct
 {
+    Float VIPM_ICUTotOdo_km;
+    Boolean VIPM_ICUTotOdoVld_flg;
+} DT_IPM_ICU_2_Odo_BAC;
+
+#define _DEFINED_TYPEDEF_FOR_DT_IPM_ICU_2_Odo_BAC_
+
+typedef struct
+{
     Float VIPM_INV1MotSpd_rpm;
     Boolean VIPM_INV1MotSpdVld_flg;
     Float VIPM_INV1ActTorq_Nm;
@@ -1761,6 +1777,9 @@ typedef struct
     Float VEMS_HeatCoolMaxPwrCmsp_kW;
     UInt8 VBSW_WakeupReasn_enum;
     UInt8 VIPC_VehHiddenMode_enum;
+    Boolean VTBX_VCURmtACCtrlReq_flg;
+    Boolean VTBX_VCURmtACDefrstReq_flg;
+    UInt8 VTBX_VCURmtACCtrlSt_enum;
 } DT_Vcu2BcmTms_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_DT_Vcu2BcmTms_outputs_
@@ -1966,6 +1985,10 @@ typedef struct
     Boolean TrunkRkEUnlck;
     Boolean TrunkHUUnlck;
     Boolean TrunkAutoLck;
+    Boolean TboxLck;
+    Boolean TboxUnlck;
+    Boolean TrunkTboxUnlck;
+    UInt8 RemoteLockFb;
 } DoorLckCtl;
 
 #define _DEFINED_TYPEDEF_FOR_DoorLckCtl_
@@ -2001,6 +2024,7 @@ typedef struct
     UInt8 DoorAjarRRSw;
     UInt8 TrunkAjarSw;
     UInt8 DrvSeatSw;
+    UInt8 RemotePwrLckSta;
 } EEReadCtl;
 
 #define _DEFINED_TYPEDEF_FOR_EEReadCtl_
@@ -2407,6 +2431,7 @@ typedef struct
     UInt8 VHVM_ACChrgMaxCurrFb_A;
     Float VHVM_DCCBuckLVVolt_V;
     Boolean VHVM_OTAModeSts_flg;
+    UInt8 VHVM_ACChrgModeFb_enum;
 } HVM_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_HVM_outputs_
@@ -2426,6 +2451,15 @@ typedef struct
 } HornCtl;
 
 #define _DEFINED_TYPEDEF_FOR_HornCtl_
+
+typedef struct
+{
+    UInt32 ICU_ICUTotalOdometer;
+    UInt32 ICU_ICUTripAOdometer;
+    UInt32 ICU_ICUTripBOdometer;
+} ICU_2_Odo_BAC;
+
+#define _DEFINED_TYPEDEF_FOR_ICU_2_Odo_BAC_
 
 typedef UInt8 rt_Array_UInt8_8[8];
 
@@ -2663,7 +2697,7 @@ typedef struct
     UInt8 DomeLampPwmDuty;
     Boolean TurnIndcrRSta;
     Boolean TurnIndcrLSta;
-    Boolean VehSeekSta;
+    UInt8 VehSeekSta;
     Boolean ThermalrunawaySta;
     Boolean EmerSta;
     Boolean ArmedSta;
@@ -2697,6 +2731,7 @@ typedef struct
     Boolean TrunkWarnSta;
     Boolean LowBeamShortToBat;
     Boolean HiBeamShortToBat;
+    UInt8 VehSeekStaFb;
 } LampCtl;
 
 #define _DEFINED_TYPEDEF_FOR_LampCtl_
@@ -2728,6 +2763,8 @@ typedef struct
     Float VNVM_DynRmnMilEst_km;
     Float VNVM_AvgPwrCnsm_kWh100km;
     Float VNVM_AvgSOCCnsmWght_pctp100km;
+    UInt8 VNVM_ACChrgMaxCurrFb_A;
+    UInt8 VNVM_ACChrgModeFb_enum;
 } NVM_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_NVM_outputs_
@@ -2745,6 +2782,9 @@ typedef struct
     UInt8 SysPwrModeAct;
     Boolean StartReq;
     Boolean IGRlyIIgCls;
+    UInt8 RemotePwrLckSta;
+    Boolean RemotePwrLckFb;
+    UInt8 RemotePwrCtlFb;
 } PDUCtl;
 
 #define _DEFINED_TYPEDEF_FOR_PDUCtl_
@@ -2869,6 +2909,9 @@ typedef struct
     UInt8 MaiDrvSeatStFb;
     UInt8 CN167DrvSeatHtPWM;
     SInt8 DrvSeatTemp;
+    Boolean DrvNTCShort;
+    Boolean DrvNTCOpen;
+    UInt8 RemtHeatFb;
 } SeatCtl;
 
 #define _DEFINED_TYPEDEF_FOR_SeatCtl_
@@ -2878,6 +2921,7 @@ typedef struct
     UInt8 SteerWhlHeatSts;
     Boolean J447SteerWhlHt;
     SInt8 SteerWhlTemp;
+    UInt8 RemtHeatFb;
 } SteerWhlCtl;
 
 #define _DEFINED_TYPEDEF_FOR_SteerWhlCtl_
@@ -2908,6 +2952,10 @@ typedef struct
     Boolean VTBX_ReqLimpHome_flg;
     Boolean VTBX_TBOXOffline_flg;
     UInt8 VTBX_VCUSpdLimSt_enum;
+    Boolean VTBX_VCURmtACCtrlReq_flg;
+    Boolean VTBX_VCURmtACDefrstReq_flg;
+    UInt8 VTBX_VCURmtACCtrlSt_enum;
+    Boolean VTBX_RmtACPwrReq_flg;
 } TBOX_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_TBOX_outputs_
@@ -3335,9 +3383,8 @@ typedef struct
     UInt8 VVSO_XWhlDistErrRefStat_enum;
     Boolean VVSO_iTPMSWrng_flg;
     Float VVSO_VehMassEst_kg;
-    Boolean VVSO_WghConfdence_flg;
-    Float VVSO_WghEst_kg;
-    UInt8 VVSO_WghDistb_enum;
+    Boolean VVSO_VehMassConf_flg;
+    UInt8 VVSO_VehMassDistb_enum;
     Float VVSO_RoadSlopEst_pct;
     Float VVSO_RoadSlopTqEst_Nm;
     Float VVSO_VehDrvResistTq_Nm;
@@ -3491,6 +3538,7 @@ typedef struct
     rt_Array_UInt8_5 DynDID_0xF236DigtOutSampleValue;
     UInt8 DynDID_0xF237PwrModeSta;
     rt_Array_UInt8_5 DynDID_0xF235DigtInSampleValue;
+    UInt8 DynDID_DoorOpRecord;
 } DynDID;
 
 #define _DEFINED_TYPEDEF_FOR_DynDID_

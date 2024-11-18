@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcVcu'.
  *
- * Model version                  : 9.604
+ * Model version                  : 9.619
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Wed Oct 30 14:09:32 2024
+ * C/C++ source code generated on : Thu Nov 14 16:25:54 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -417,37 +417,45 @@ typedef struct {
 
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_struct_5I7CPV2nExsUTWfznia47E_
-#define DEFINED_TYPEDEF_FOR_struct_5I7CPV2nExsUTWfznia47E_
+#ifndef DEFINED_TYPEDEF_FOR_struct_11mA3pBF0WJgD7qpwLWW6B_
+#define DEFINED_TYPEDEF_FOR_struct_11mA3pBF0WJgD7qpwLWW6B_
 
 typedef struct {
+  float32 VVSO_YawRateBas_degps;
+  boolean VVSO_YawRateBasVld_flg;
+  float32 VVSO_ALgtSnsr_mps2;
+  boolean VVSO_ALgtSnsrVld_flg;
+  float32 VVSO_ALatSnsr_mps2;
+  boolean VVSO_ALatSnsrVld_flg;
+  float32 VVSO_WhlAcceltnFL_mps2;
+  float32 VVSO_WhlAcceltnFR_mps2;
+  float32 VVSO_WhlAcceltnRL_mps2;
+  float32 VVSO_WhlAcceltnRR_mps2;
+} struct_11mA3pBF0WJgD7qpwLWW6B;
+
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_struct_TL7bRvi8fo8bvtPg3PDUfH_
+#define DEFINED_TYPEDEF_FOR_struct_TL7bRvi8fo8bvtPg3PDUfH_
+
+typedef struct {
+  float32 VVSO_RoadSlopEst_pct;
+  boolean VVSO_RoadSlopEstVld_flg;
   float32 VVSO_RoadSlopTqEst_Nm;
   float32 VVSO_VehDrvResistTq_Nm;
-  float32 VVSO_RoadSlopEst_pct;
-} struct_5I7CPV2nExsUTWfznia47E;
+} struct_TL7bRvi8fo8bvtPg3PDUfH;
 
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_struct_re25InxpOg7ER5ZMfX73G_
-#define DEFINED_TYPEDEF_FOR_struct_re25InxpOg7ER5ZMfX73G_
-
-typedef struct {
-  EnumiTPMSSt VVSO_iTPMSState_enum;
-  float32 VVSO_XWhlDistErrRef_mpkm;
-  EnumXWhlDistErrRefSt VVSO_XWhlDistErrRefStat_enum;
-  boolean VVSO_iTPMSWrng_flg;
-  float32 VVSO_VehSpd_kph;
-} struct_re25InxpOg7ER5ZMfX73G;
-
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_struct_Lc69I9Ed8rbc4PclVcHtHB_
-#define DEFINED_TYPEDEF_FOR_struct_Lc69I9Ed8rbc4PclVcHtHB_
+#ifndef DEFINED_TYPEDEF_FOR_struct_BM6Id6DOB8B86XPfiqSZiD_
+#define DEFINED_TYPEDEF_FOR_struct_BM6Id6DOB8B86XPfiqSZiD_
 
 typedef struct {
   float32 VVSO_VehMassEst_kg;
-  float32 VVSO_SlopEst_rat;
-} struct_Lc69I9Ed8rbc4PclVcHtHB;
+  boolean VVSO_VehMassConf_flg;
+  uint8 VVSO_VehMassDistb_enum;
+  float32 VVSO_VehSpd_mps;
+} struct_BM6Id6DOB8B86XPfiqSZiD;
 
 #endif
 

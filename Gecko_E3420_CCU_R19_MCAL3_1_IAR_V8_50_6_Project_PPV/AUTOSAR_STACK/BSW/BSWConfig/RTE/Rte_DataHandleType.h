@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-10 14:06:29>
+ *  @date       <2024-11-13 17:38:35>
  */
 /*============================================================================*/
 
@@ -178,6 +178,12 @@ typedef struct
 
 typedef struct
 {
+    ICU_2_Odo_BAC value;
+    Std_ReturnType status;
+} Rte_DE_ICU_2_Odo_BAC_status;
+
+typedef struct
+{
     INV_IMMO_Req_EPT value;
     Std_ReturnType status;
 } Rte_DE_INV_IMMO_Req_EPT_status;
@@ -247,6 +253,12 @@ typedef struct
     DT_IPM_HVCH_Status2_BOD value;
     Std_ReturnType status;
 } Rte_DE_DT_IPM_HVCH_Status2_BOD_status;
+
+typedef struct
+{
+    DT_IPM_ICU_2_Odo_BAC value;
+    Std_ReturnType status;
+} Rte_DE_DT_IPM_ICU_2_Odo_BAC_status;
 
 typedef struct
 {

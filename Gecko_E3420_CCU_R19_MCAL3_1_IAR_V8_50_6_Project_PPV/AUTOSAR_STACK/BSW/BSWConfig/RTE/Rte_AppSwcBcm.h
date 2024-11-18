@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-09-19 16:46:32>
+ *  @date       <2024-11-13 17:39:59>
  */
 /*============================================================================*/
 
@@ -98,6 +98,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcBcm, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #define Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DynDID_Bus Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DynDID_Bus
 
+#define Rte_IrvIRead_Runbl_AppSwcBcm_20ms_DynDID_Bus Rte_IrvIRead_Runbl_AppSwcBcm_20ms_DynDID_Bus
+
 #define Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DynDID_Bus Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DynDID_Bus
 
 #define Rte_IrvIWrite_AppSwcBcm_Init_EEReadCtl_Bus Rte_IrvIWrite_AppSwcBcm_Init_EEReadCtl_Bus
@@ -135,8 +137,6 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcBcm, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IrvIRead_Runbl_AppSwcBcm_50ms_IPM_CCP_PanelStatus_BOD Rte_IrvIRead_Runbl_AppSwcBcm_50ms_IPM_CCP_PanelStatus_BOD
 
 #define Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA
-
-#define Rte_IrvIRead_Runbl_AppSwcBcm_50ms_IPM_ESC_7_FuncStatus_CHA Rte_IrvIRead_Runbl_AppSwcBcm_50ms_IPM_ESC_7_FuncStatus_CHA
 
 #define Rte_IrvIRead_Runbl_AppSwcBcm_100ms_IPM_HU_B_BAC Rte_IrvIRead_Runbl_AppSwcBcm_100ms_IPM_HU_B_BAC
 
@@ -318,6 +318,8 @@ DoorLckCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus(void);
 
 DynDID* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DynDID_Bus(void);
 
+DynDID* Rte_IrvIRead_Runbl_AppSwcBcm_20ms_DynDID_Bus(void);
+
 void Rte_IrvIWrite_Runbl_AppSwcBcm_50ms_DynDID_Bus(DynDID* data);
 
 DynDID * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_DynDID_Bus(void);
@@ -375,8 +377,6 @@ DT_IPM_CCP_PanelStatus_BOD* Rte_IrvIRead_Runbl_AppSwcBcm_50ms_IPM_CCP_PanelStatu
 void Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA(DT_IPM_ESC_7_FuncStatus_CHA* data);
 
 DT_IPM_ESC_7_FuncStatus_CHA * Rte_IrvIWriteRef_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA(void);
-
-DT_IPM_ESC_7_FuncStatus_CHA* Rte_IrvIRead_Runbl_AppSwcBcm_50ms_IPM_ESC_7_FuncStatus_CHA(void);
 
 DT_IPM_HU_B_BAC* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_IPM_HU_B_BAC(void);
 

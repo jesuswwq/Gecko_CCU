@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-10 14:07:58>
+ *  @date       <2024-11-13 17:39:59>
  */
 /*============================================================================*/
 
@@ -46,6 +46,7 @@ typedef struct
     P2VAR(Rte_DE_HU_B_BAC_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC;
     P2VAR(Rte_DE_HVCH_Status1_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD;
     P2VAR(Rte_DE_HVCH_Status2_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD;
+    P2VAR(Rte_DE_ICU_2_Odo_BAC_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC;
     P2VAR(Rte_DE_INV_IMMO_Req_EPT_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_INV_IMMO_Req_EPT_INV_IMMO_Req_EPT;
     P2VAR(Rte_DE_IPU_DCC_1_State_EPT_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPU_DCC_1_State_EPT_IPU_DCC_1_State_EPT;
     P2VAR(Rte_DE_IPU_DCC_2_ChrgInValue_EPT_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPU_DCC_2_ChrgInValue_EPT_IPU_DCC_2_ChrgInValue_EPT;
@@ -83,6 +84,7 @@ typedef struct
     P2VAR(Rte_DE_DT_IPM_HU_B_BAC_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC;
     P2VAR(Rte_DE_DT_IPM_HVCH_Status1_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD;
     P2VAR(Rte_DE_DT_IPM_HVCH_Status2_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD;
+    P2VAR(Rte_DE_DT_IPM_ICU_2_Odo_BAC_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC;
     P2VAR(Rte_DE_DT_IPM_INV_IMMO_Req_EPT_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT;
     P2VAR(Rte_DE_DT_IPM_IPU_DCC_1_State_EPT_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_IPU_DCC_1_State_EPT_IPM_IPU_DCC_1_State_EPT;
     P2VAR(Rte_DE_DT_IPM_IPU_DCC_2_ChrgInValue_EPT_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_IPU_DCC_2_ChrgInValue_EPT_IPM_IPU_DCC_2_ChrgInValue_EPT;
@@ -161,6 +163,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcIpm, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #define Rte_IRead_Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD->value)
 
+#define Rte_IRead_Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC->value)
+
 #define Rte_IRead_Runbl_IpmCanRx_100ms_INV_IMMO_Req_EPT_INV_IMMO_Req_EPT() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_INV_IMMO_Req_EPT_INV_IMMO_Req_EPT->value)
 
 #define Rte_IRead_Runbl_IpmCanRx_100ms_IPU_DCC_1_State_EPT_IPU_DCC_1_State_EPT() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPU_DCC_1_State_EPT_IPU_DCC_1_State_EPT->value)
@@ -200,6 +204,10 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcIpm, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IWrite_Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD(data) (Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD->value = *(data))
 
 #define Rte_IWriteRef_Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD->value)
+
+#define Rte_IWrite_Runbl_IpmCanRx_100ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC(data) (Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC->value = *(data))
+
+#define Rte_IWriteRef_Runbl_IpmCanRx_100ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC->value)
 
 #define Rte_IWrite_Runbl_IpmCanRx_100ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT(data) (Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT->value = *(data))
 
@@ -434,6 +442,8 @@ Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC(void);
 Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD(void);
 
 Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD(void);
+
+Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC(void);
 
 Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_INV_IMMO_Req_EPT_INV_IMMO_Req_EPT(void);
 

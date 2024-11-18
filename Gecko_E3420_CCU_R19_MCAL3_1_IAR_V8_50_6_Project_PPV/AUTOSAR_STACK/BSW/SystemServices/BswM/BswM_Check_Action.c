@@ -14,6 +14,7 @@
 #include "EcuM_Cbk.h"
 #include "Mcu.h"
 #include "PEPS_ABI.h"
+#include "RegBase.h"
 
 #define WAKEUP_CHECK_SWTICH 1
 #define TRIGGER_SET_BIT(bitindex, Value) Value = (Value | (0x00000001 < bitindex))
@@ -51,13 +52,16 @@ TCA9539SumTrigerType TCA9539SumSingleTriger = {{{FALSE, 0}, {FALSE, 0}}, 0};
 uint32 TCA9539SumTrigerReadResult = 0;
 static Std_ReturnType Read_9539_All(TCA9539SumTrigerType *TCA9539SumTrigerInfo);
 static void Delay1ms(void);
-
+        Mcu_RtcSleepTimeType RTC_SleepTime;
+        Mcu_RtcTimerModeType RTC_TimerMode = RTC_TIMER_MODE_MIN;
 void BswM_PowerON_KL15_Check_Callout(void)
 {
         Std_ReturnType Ret = E_NOT_OK;
         uint32 TrigerValue = 0;
         uint32 RTC_MemoryFlag = sdrv_btm_hw_readl(0xF0010000, 0x48);
         CCUWakeupReturnValue = 0xFF;
+
+        Mcu_Ip_RtcGetSleepTime(APB_RTC1_BASE, &RTC_SleepTime, &RTC_TimerMode);
         sdrv_btm_hw_writel(0xF0010000, 0x48, 0xAA); /**Flag for Power on which is no data in RTC ram**/
         do
         {

@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-09-19 16:45:37>
+ *  @date       <2024-11-13 17:39:08>
  */
 /*============================================================================*/
 
@@ -124,6 +124,7 @@ static void Rte_PRE_Runbl_AppSwcBcm_20ms(void)
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_AlmSysCtl_Bus, (uint8*)&Irv_AppSwcBcm_AlmSysCtl_Bus, sizeof(AlmSysCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_BatSaveCtl_Bus, (uint8*)&Irv_AppSwcBcm_BatSaveCtl_Bus, sizeof(BatSaveCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_DoorLckCtl_Bus, (uint8*)&Irv_AppSwcBcm_DoorLckCtl_Bus, sizeof(DoorLckCtl));
+        rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_DynDID_Bus, (uint8*)&Irv_AppSwcBcm_DynDID_Bus, sizeof(DynDID));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_ESCLCtl_Bus, (uint8*)&Irv_AppSwcBcm_ESCLCtl_Bus, sizeof(ESCLCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_IMMOCtl_Bus, (uint8*)&Irv_AppSwcBcm_IMMOCtl_Bus, sizeof(IMMOCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_IODID_Bus, (uint8*)&Irv_AppSwcBcm_IODID_Bus, sizeof(IODID));
@@ -153,7 +154,6 @@ static void Rte_PRE_Runbl_AppSwcBcm_50ms(void)
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_HornCtl_Bus, (uint8*)&Irv_AppSwcBcm_HornCtl_Bus, sizeof(HornCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IODID_Bus, (uint8*)&Irv_AppSwcBcm_IODID_Bus, sizeof(IODID));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IPM_CCP_PanelStatus_BOD, (uint8*)&Irv_AppSwcBcm_IPM_CCP_PanelStatus_BOD, sizeof(DT_IPM_CCP_PanelStatus_BOD));
-        rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IPM_ESC_7_FuncStatus_CHA, (uint8*)&Irv_AppSwcBcm_IPM_ESC_7_FuncStatus_CHA, sizeof(DT_IPM_ESC_7_FuncStatus_CHA));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IPM_HU_B_BAC, (uint8*)&Irv_AppSwcBcm_IPM_HU_B_BAC, sizeof(DT_IPM_HU_B_BAC));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_LampCtl_Bus, (uint8*)&Irv_AppSwcBcm_LampCtl_Bus, sizeof(LampCtl));
         rte_memcpy((uint8*)&Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_PEPSCtl_Bus, (uint8*)&Irv_AppSwcBcm_PEPSCtl_Bus, sizeof(PEPSCtl));
@@ -764,6 +764,28 @@ DoorLckCtl * Rte_IrvIWriteRef_Runbl_AppSwcBcm_50ms_DoorLckCtl_Bus(void)
 DynDID* Rte_IrvIRead_Runbl_AppSwcBcm_100ms_DynDID_Bus(void)
 {
     return &Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_DynDID_Bus;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_AppSwcBcm_20ms_DynDID_Bus
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               DynDID*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+DynDID* Rte_IrvIRead_Runbl_AppSwcBcm_20ms_DynDID_Bus(void)
+{
+    return &Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_DynDID_Bus;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -1432,28 +1454,6 @@ void Rte_IrvIWrite_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA(DT_IPM_ESC_7_Fu
 DT_IPM_ESC_7_FuncStatus_CHA * Rte_IrvIWriteRef_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA(void)
 {
     return &Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA;
-}
-#define RTE_STOP_SEC_CODE
-#include "Rte_MemMap.h"
-
-/*******************************************************************************
-*Function-Name        Rte_IrvIRead_Runbl_AppSwcBcm_50ms_IPM_ESC_7_FuncStatus_CHA
-*Service ID           <None>
-*Sync/Async           <Synchronous>
-*Reentrancy           <Non Reentrant>
-*param-Name[in]       <None>
-*Param-Name[out]      <None>
-*Param-Name[in/out]   <None>
-*return               DT_IPM_ESC_7_FuncStatus_CHA*
-*PreCondition         <None>
-*CallByAPI            <None>
-******************************************************************************/
-
-#define RTE_START_SEC_CODE
-#include "Rte_MemMap.h"
-DT_IPM_ESC_7_FuncStatus_CHA* Rte_IrvIRead_Runbl_AppSwcBcm_50ms_IPM_ESC_7_FuncStatus_CHA(void)
-{
-    return &Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IPM_ESC_7_FuncStatus_CHA;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
