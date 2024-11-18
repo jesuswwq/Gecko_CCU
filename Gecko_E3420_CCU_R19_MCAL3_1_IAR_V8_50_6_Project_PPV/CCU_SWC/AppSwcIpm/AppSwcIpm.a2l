@@ -4,9 +4,9 @@
  *
  * Code generation for model "AppSwcIpm".
  *
- * Model version              : 9.212
+ * Model version              : 9.219
  * Simulink Coder version : 9.8 (R2022b) 13-May-2022
- * C source code generated on : Mon Oct 28 18:01:57 2024
+ * C source code generated on : Wed Nov 13 16:55:17 2024
  * 
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -2763,6 +2763,58 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Conversion Method      */      AppSwcIpm_CM_single_kW 
       /* Lower Limit            */      -100000.0 
       /* Upper Limit            */      100000.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_ICUTotOdoDflt_km  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_ICUTotOdoDflt_km@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_single_km 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0E+7
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_ICUTotOdoHi_km  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_ICUTotOdoHi_km@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_single_km 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0E+7
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_ICUTotOdoLo_km  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_ICUTotOdoLo_km@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_single_km 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0E+7
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
+      /* Name                   */      KIPM_ICUTotOdo_km_ovrdval  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_ICUTotOdo_km_ovrdval@ */ 
+      /* Record Layout          */      Scalar_FLOAT32_IEEE 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_single_km 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0E+7
     /end CHARACTERISTIC
     
     
@@ -8643,6 +8695,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin CHARACTERISTIC
+      /* Name                   */      KIPM_ICUTotOdo_km_ovrdflg  
+      /* Long Identifier        */      ""
+      /* Type                   */      VALUE 
+      /* ECU Address            */      0x0000 /* @ECU_Address@KIPM_ICUTotOdo_km_ovrdflg@ */ 
+      /* Record Layout          */      Scalar_BOOLEAN 
+      /* Maximum Difference     */      0 
+      /* Conversion Method      */      AppSwcIpm_CM_boolean_flg 
+      /* Lower Limit            */      0.0 
+      /* Upper Limit            */      1.0
+    /end CHARACTERISTIC
+    
+    
+    /begin CHARACTERISTIC
       /* Name                   */      KIPM_INV1ActMode_enum_ovrdflg  
       /* Long Identifier        */      ""
       /* Type                   */      VALUE 
@@ -13619,6 +13684,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Lower limit            */      -100000.0
       /* Upper limit            */      100000.0
       ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_BMSHVBatCellTempAve_C@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
+      /* Name                   */      VIPM_ICUTotOdo_km
+      /* Long identifier        */      ""
+      /* Data type              */      FLOAT32_IEEE
+      /* Conversion method      */      AppSwcIpm_CM_single_km
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0E+7
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_ICUTotOdo_km@ */
     /end MEASUREMENT
     
     
@@ -19226,6 +19304,19 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     
     
     /begin MEASUREMENT
+      /* Name                   */      VIPM_ICUTotOdoVld_flg
+      /* Long identifier        */      ""
+      /* Data type              */      UBYTE
+      /* Conversion method      */      AppSwcIpm_CM_boolean_flg
+      /* Resolution (Not used)  */      0
+      /* Accuracy (Not used)    */      0
+      /* Lower limit            */      0.0
+      /* Upper limit            */      1.0
+      ECU_ADDRESS                       0x0000 /* @ECU_Address@VIPM_ICUTotOdoVld_flg@ */
+    /end MEASUREMENT
+    
+    
+    /begin MEASUREMENT
       /* Name                   */      VIPM_TBOXBJSTimeYearVld_flg
       /* Long identifier        */      ""
       /* Data type              */      UBYTE
@@ -20307,6 +20398,15 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end COMPU_METHOD
     
     /begin COMPU_METHOD
+      /* Name of CompuMethod    */      AppSwcIpm_CM_single_km
+      /* Long identifier        */      "Q = V"
+      /* Conversion Type        */      RAT_FUNC
+      /* Format                 */      "%8.6"
+      /* Units                  */      "km"
+      /* Coefficients           */      COEFFS 0 1 0 0 0 1
+    /end COMPU_METHOD
+    
+    /begin COMPU_METHOD
       /* Name of CompuMethod    */      AppSwcIpm_CM_uint16_enum
       /* Long identifier        */      "Q = V"
       /* Conversion Type        */      RAT_FUNC
@@ -20956,6 +21056,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S2_BacCAN_IN_100ms
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms"
       /begin SUB_GROUP
+        S10_Msg_BMS_9_BattInfo_EPT
         S10_Msg_HU_B_BAC
       /end SUB_GROUP
     /end GROUP
@@ -20992,10 +21093,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S3_CHACAN_IN_10ms
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms"
       /begin SUB_GROUP
-        S168_Msg_EHB_B_CHA
-        S168_Msg_EPS_2_StrWhlAng_CHA
-        S168_Msg_ESC_7_FuncStatus_CHA
-        S168_Msg_ESC_A_CHA
+        S171_Msg_EHB_B_CHA
+        S171_Msg_EPS_2_StrWhlAng_CHA
+        S171_Msg_ESC_7_FuncStatus_CHA
+        S171_Msg_ESC_A_CHA
       /end SUB_GROUP
     /end GROUP
     
@@ -21003,10 +21104,10 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S3_EPTCAN_IN_10ms
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms"
       /begin SUB_GROUP
-        S169_Msg_INV_1_Value_EPT
-        S169_Msg_INV_2_Value_EPT
-        S169_Msg_INV_3_Value_EPT
-        S169_Msg_INV_4_Value_EPT
+        S172_Msg_INV_1_Value_EPT
+        S172_Msg_INV_2_Value_EPT
+        S172_Msg_INV_3_Value_EPT
+        S172_Msg_INV_4_Value_EPT
       /end SUB_GROUP
     /end GROUP
     
@@ -21014,7 +21115,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S4_BodCAN_IN_20ms
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/BodCAN_IN_20ms"
       /begin SUB_GROUP
-        S252_Msg_SCS_RiSwitchSts_BOD
+        S255_Msg_SCS_RiSwitchSts_BOD
       /end SUB_GROUP
     /end GROUP
     
@@ -21022,9 +21123,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S4_ChaCAN_IN_20ms
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms"
       /begin SUB_GROUP
-        S253_Msg_CRRR_A_CHA
-        S253_Msg_EHB_A_CHA
-        S253_Msg_FCM_B_CHA
+        S256_Msg_CRRR_A_CHA
+        S256_Msg_EHB_A_CHA
+        S256_Msg_FCM_B_CHA
       /end SUB_GROUP
     /end GROUP
     
@@ -21032,13 +21133,13 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S4_EptCAN_IN_20ms
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms"
       /begin SUB_GROUP
-        S254_Msg_BMS_10_DC_ChargeStates_EPT
-        S254_Msg_BMS_1_MainState_EPT
-        S254_Msg_BMS_2_BatState_EPT
-        S254_Msg_BMS_3_DC_ChargeState_EPT
-        S254_Msg_BMS_4_AC_ChargeState_EPT
-        S254_Msg_BMS_6_DischrgRecup_EPT
-        S254_Msg_BMS_7_CellVolt_EPT
+        S257_Msg_BMS_10_DC_ChargeStates_EPT
+        S257_Msg_BMS_1_MainState_EPT
+        S257_Msg_BMS_2_BatState_EPT
+        S257_Msg_BMS_3_DC_ChargeState_EPT
+        S257_Msg_BMS_4_AC_ChargeState_EPT
+        S257_Msg_BMS_6_DischrgRecup_EPT
+        S257_Msg_BMS_7_CellVolt_EPT
       /end SUB_GROUP
     /end GROUP
     
@@ -21046,9 +21147,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S5_BodCAN_IN_50ms
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms"
       /begin SUB_GROUP
-        S342_Msg_CCP_PanelStatus_BOD
-        S342_Msg_ESCL_ESCLStatus_BOD
-        S342_Msg_SCS_LeSwitchSts_BOD
+        S345_Msg_CCP_PanelStatus_BOD
+        S345_Msg_ESCL_ESCLStatus_BOD
+        S345_Msg_SCS_LeSwitchSts_BOD
       /end SUB_GROUP
     /end GROUP
     
@@ -21056,7 +21157,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S5_CHACAN_IN_50ms
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/CHACAN_IN_50ms"
       /begin SUB_GROUP
-        S343_Msg_SRS_1_Status_CHA
+        S346_Msg_SRS_1_Status_CHA
       /end SUB_GROUP
     /end GROUP
     
@@ -21253,53 +21354,61 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
+      /* Name                   */       S10_Msg_BMS_9_BattInfo_EPT
+      /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_BMS_9_BattInfo_EPT"
+      /begin SUB_GROUP
+        S71_Subsys_VIPM_ICUTotOdo_km
+      /end SUB_GROUP
+    /end GROUP
+    
+    /begin GROUP
       /* Name                   */       S10_Msg_HU_B_BAC
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC"
       /begin SUB_GROUP
-        S71_Subsys_VIPM_CDCBackLadjval_enum
-        S71_Subsys_VIPM_HUACAutoCtl_enum
-        S71_Subsys_VIPM_HUACPwrCtl_enum
-        S71_Subsys_VIPM_HUACUnlckVentSet_enum
-        S71_Subsys_VIPM_HUAirInletModeSet_enum
-        S71_Subsys_VIPM_HUBlwrModeSet_enum
-        S71_Subsys_VIPM_HUChgWiprMtMdSwSet_enum
-        S71_Subsys_VIPM_HUChrgngReq_enum
-        S71_Subsys_VIPM_HUChrgngmode_enum
-        S71_Subsys_VIPM_HUCstRecupModeSel_enum
-        S71_Subsys_VIPM_HUDrvModeSel_enum
-        S71_Subsys_VIPM_HUDrvPwrSet_cnt
-        S71_Subsys_VIPM_HUFlwrMeHmCtrl_enum
-        S71_Subsys_VIPM_HUFrntFanSpdSet_enum
-        S71_Subsys_VIPM_HUHybEcoModeSet_enum
-        S71_Subsys_VIPM_HUIllmndEntrySts_enum
-        S71_Subsys_VIPM_HUIllmndLckSts_enum
-        S71_Subsys_VIPM_HUIllmndUnlckSts_enum
-        S71_Subsys_VIPM_HULckHornOnSt_enum
-        S71_Subsys_VIPM_HULeftTempSet_enum
-        S71_Subsys_VIPM_HUMaiDrvrSeatHeat_enum
-        S71_Subsys_VIPM_HUManlDefrstCtl_enum
-        S71_Subsys_VIPM_HUOvrspdCntrlLckSet_enum
-        S71_Subsys_VIPM_HUParkAutoUnlckSet_enum
-        S71_Subsys_VIPM_HUPeristalsisModeEnbl_enum
-        S71_Subsys_VIPM_HUPwrOffReq_flg
-        S71_Subsys_VIPM_HURecupPwrSet_pct
-        S71_Subsys_VIPM_HURrMirrHeat_enum
-        S71_Subsys_VIPM_HUSteerWhlHeat_enum
-        S71_Subsys_VIPM_HUTPMSRstReq_flg
-        S71_Subsys_VIPM_HUTrnkLckSwCtrl_enum
-        S71_Subsys_VIPM_HUVehMaxCurr_A
-        S71_Subsys_VIPM_HUWiprIntlTmSet_enum
-        S71_Subsys_VIPM_TBOXACRemtCtrlFlg_enum
-        S71_Subsys_VIPM_TBOXACTempSet_enum
-        S71_Subsys_VIPM_TBOXRmtPwrLck_enum
-        S71_Subsys_VIPM_TBOXVCUCCMSpdLimLvl_enum
-        S71_Subsys_VIPM_TBOXVCUChrgngConds_flg
-        S71_Subsys_VIPM_TBOXVCUOprtLic_flg
-        S71_Subsys_VIPM_TBOXVCUVer_flg
-        S71_Subsys_VIPM_TBoxOpenVentn_enum
-        S71_Subsys_VIPM_TBoxRmtCarSearch_enum
-        S71_Subsys_VIPM_TBoxRmtLck_enum
-        S71_Subsys_VIPM_TboxRmtDefrstCtl_enum
+        S72_Subsys_VIPM_CDCBackLadjval_enum
+        S72_Subsys_VIPM_HUACAutoCtl_enum
+        S72_Subsys_VIPM_HUACPwrCtl_enum
+        S72_Subsys_VIPM_HUACUnlckVentSet_enum
+        S72_Subsys_VIPM_HUAirInletModeSet_enum
+        S72_Subsys_VIPM_HUBlwrModeSet_enum
+        S72_Subsys_VIPM_HUChgWiprMtMdSwSet_enum
+        S72_Subsys_VIPM_HUChrgngReq_enum
+        S72_Subsys_VIPM_HUChrgngmode_enum
+        S72_Subsys_VIPM_HUCstRecupModeSel_enum
+        S72_Subsys_VIPM_HUDrvModeSel_enum
+        S72_Subsys_VIPM_HUDrvPwrSet_cnt
+        S72_Subsys_VIPM_HUFlwrMeHmCtrl_enum
+        S72_Subsys_VIPM_HUFrntFanSpdSet_enum
+        S72_Subsys_VIPM_HUHybEcoModeSet_enum
+        S72_Subsys_VIPM_HUIllmndEntrySts_enum
+        S72_Subsys_VIPM_HUIllmndLckSts_enum
+        S72_Subsys_VIPM_HUIllmndUnlckSts_enum
+        S72_Subsys_VIPM_HULckHornOnSt_enum
+        S72_Subsys_VIPM_HULeftTempSet_enum
+        S72_Subsys_VIPM_HUMaiDrvrSeatHeat_enum
+        S72_Subsys_VIPM_HUManlDefrstCtl_enum
+        S72_Subsys_VIPM_HUOvrspdCntrlLckSet_enum
+        S72_Subsys_VIPM_HUParkAutoUnlckSet_enum
+        S72_Subsys_VIPM_HUPeristalsisModeEnbl_enum
+        S72_Subsys_VIPM_HUPwrOffReq_flg
+        S72_Subsys_VIPM_HURecupPwrSet_pct
+        S72_Subsys_VIPM_HURrMirrHeat_enum
+        S72_Subsys_VIPM_HUSteerWhlHeat_enum
+        S72_Subsys_VIPM_HUTPMSRstReq_flg
+        S72_Subsys_VIPM_HUTrnkLckSwCtrl_enum
+        S72_Subsys_VIPM_HUVehMaxCurr_A
+        S72_Subsys_VIPM_HUWiprIntlTmSet_enum
+        S72_Subsys_VIPM_TBOXACRemtCtrlFlg_enum
+        S72_Subsys_VIPM_TBOXACTempSet_enum
+        S72_Subsys_VIPM_TBOXRmtPwrLck_enum
+        S72_Subsys_VIPM_TBOXVCUCCMSpdLimLvl_enum
+        S72_Subsys_VIPM_TBOXVCUChrgngConds_flg
+        S72_Subsys_VIPM_TBOXVCUOprtLic_flg
+        S72_Subsys_VIPM_TBOXVCUVer_flg
+        S72_Subsys_VIPM_TBoxOpenVentn_enum
+        S72_Subsys_VIPM_TBoxRmtCarSearch_enum
+        S72_Subsys_VIPM_TBoxRmtLck_enum
+        S72_Subsys_VIPM_TboxRmtDefrstCtl_enum
       /end SUB_GROUP
     /end GROUP
     
@@ -21307,9 +21416,9 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S11_Msg_BMS_5_BatTemp_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_BMS_5_BatTemp_EPT"
       /begin SUB_GROUP
-        S116_Subsys_VIPM_BMSHVBatCellTempAve_C
-        S116_Subsys_VIPM_BMSHVBatCellTempMax_C
-        S116_Subsys_VIPM_BMSHVBatCellTempMin_C
+        S119_Subsys_VIPM_BMSHVBatCellTempAve_C
+        S119_Subsys_VIPM_BMSHVBatCellTempMax_C
+        S119_Subsys_VIPM_BMSHVBatCellTempMin_C
       /end SUB_GROUP
     /end GROUP
     
@@ -21317,14 +21426,14 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S11_Msg_INV_IMMO_Req_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_INV_IMMO_Req_EPT"
       /begin SUB_GROUP
-        S117_Subsys_VIPM_INVLrngData02_nu
-        S117_Subsys_VIPM_INVLrngData03_nu
-        S117_Subsys_VIPM_INVLrngData04_nu
-        S117_Subsys_VIPM_INVLrngData05_nu
-        S117_Subsys_VIPM_INVLrngData06_nu
-        S117_Subsys_VIPM_INVLrngData07_nu
-        S117_Subsys_VIPM_INVLrngSts_enum
-        S117_Subsys_VIPM_INVLrngSubID_cnt
+        S120_Subsys_VIPM_INVLrngData02_nu
+        S120_Subsys_VIPM_INVLrngData03_nu
+        S120_Subsys_VIPM_INVLrngData04_nu
+        S120_Subsys_VIPM_INVLrngData05_nu
+        S120_Subsys_VIPM_INVLrngData06_nu
+        S120_Subsys_VIPM_INVLrngData07_nu
+        S120_Subsys_VIPM_INVLrngSts_enum
+        S120_Subsys_VIPM_INVLrngSubID_cnt
       /end SUB_GROUP
     /end GROUP
     
@@ -21332,11 +21441,11 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S11_Msg_IPU_DCC_1_State_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_DCC_1_State_EPT"
       /begin SUB_GROUP
-        S118_Subsys_VIPM_IPUDCCActOprtMode_enum
-        S118_Subsys_VIPM_IPUDCCLoVoltActCurnt_A
-        S118_Subsys_VIPM_IPUDCCLoVoltActVolt_V
-        S118_Subsys_VIPM_IPUDCCSysFailSta_enum
-        S118_Subsys_VIPM_IPUHVILFailSt_flg
+        S121_Subsys_VIPM_IPUDCCActOprtMode_enum
+        S121_Subsys_VIPM_IPUDCCLoVoltActCurnt_A
+        S121_Subsys_VIPM_IPUDCCLoVoltActVolt_V
+        S121_Subsys_VIPM_IPUDCCSysFailSta_enum
+        S121_Subsys_VIPM_IPUHVILFailSt_flg
       /end SUB_GROUP
     /end GROUP
     
@@ -21344,8 +21453,8 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S11_Msg_IPU_DCC_2_ChrgInValue_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_DCC_2_ChrgInValue_EPT"
       /begin SUB_GROUP
-        S119_Subsys_VIPM_IPUDCCHiVoltActCurnt_A
-        S119_Subsys_VIPM_IPUDCCHiVoltActVolt_V
+        S122_Subsys_VIPM_IPUDCCHiVoltActCurnt_A
+        S122_Subsys_VIPM_IPUDCCHiVoltActVolt_V
       /end SUB_GROUP
     /end GROUP
     
@@ -21353,14 +21462,14 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S11_Msg_IPU_OBC_1_State_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_OBC_1_State_EPT"
       /begin SUB_GROUP
-        S120_Subsys_VIPM_IPUOBCActOprtMode_enum
-        S120_Subsys_VIPM_IPUOBCConnectMainSta_flg
-        S120_Subsys_VIPM_IPUOBCHVDCActCur_A
-        S120_Subsys_VIPM_IPUOBCHVDCActVol_V
-        S120_Subsys_VIPM_IPUOBCInletActPwr_kW
-        S120_Subsys_VIPM_IPUOBCInletConnectSta_enum
-        S120_Subsys_VIPM_IPUOBCReq_enum
-        S120_Subsys_VIPM_IPUOBCSysFailSta_enum
+        S123_Subsys_VIPM_IPUOBCActOprtMode_enum
+        S123_Subsys_VIPM_IPUOBCConnectMainSta_flg
+        S123_Subsys_VIPM_IPUOBCHVDCActCur_A
+        S123_Subsys_VIPM_IPUOBCHVDCActVol_V
+        S123_Subsys_VIPM_IPUOBCInletActPwr_kW
+        S123_Subsys_VIPM_IPUOBCInletConnectSta_enum
+        S123_Subsys_VIPM_IPUOBCReq_enum
+        S123_Subsys_VIPM_IPUOBCSysFailSta_enum
       /end SUB_GROUP
     /end GROUP
     
@@ -21368,11 +21477,11 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S12_Msg_IPU_OBC_2_Inlet_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_200ms/Msg_IPU_OBC_2_Inlet_EPT"
       /begin SUB_GROUP
-        S156_Subsys_VIPM_IPUDeviceIntTemp_C
-        S156_Subsys_VIPM_IPUOBCACMaxPwrAllow_kW
-        S156_Subsys_VIPM_IPUOBCS2State_flg
-        S156_Subsys_VIPM_IPUOBCTempInt_C
-        S156_Subsys_VIPM_IPUOBCWakeUpMode_enum
+        S159_Subsys_VIPM_IPUDeviceIntTemp_C
+        S159_Subsys_VIPM_IPUOBCACMaxPwrAllow_kW
+        S159_Subsys_VIPM_IPUOBCS2State_flg
+        S159_Subsys_VIPM_IPUOBCTempInt_C
+        S159_Subsys_VIPM_IPUOBCWakeUpMode_enum
       /end SUB_GROUP
     /end GROUP
     
@@ -21380,312 +21489,312 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
       /* Name                   */       S13_Msg_BMS_9_BattInfo_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_500ms/Msg_BMS_9_BattInfo_EPT"
       /begin SUB_GROUP
-        S165_Subsys_VIPM_BMSBatCapcty_Ah
-        S165_Subsys_VIPM_BMSPackID_enum
+        S168_Subsys_VIPM_BMSBatCapcty_Ah
+        S168_Subsys_VIPM_BMSPackID_enum
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S168_Msg_EHB_B_CHA
+      /* Name                   */       S171_Msg_EHB_B_CHA
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EHB_B_CHA"
       /begin SUB_GROUP
-        S170_Subsys_VIPM_EHBBrkPedlValPerc_pct
-        S170_Subsys_VIPM_EHBBrkPwrRecupTarWhlTqSts_enum
-        S170_Subsys_VIPM_EHBBrkPwrRecupTarWhlTq_Nm
-        S170_Subsys_VIPM_EHBCDDActv_flg
-        S170_Subsys_VIPM_EHBEPBActuatorStR_enum
-        S170_Subsys_VIPM_EHBEPBDynAppSt_enum
-        S170_Subsys_VIPM_EHBFltLvl_enum
-        S170_Subsys_VIPM_EHBReqBrkLiOn_flg
+        S173_Subsys_VIPM_EHBBrkPedlValPerc_pct
+        S173_Subsys_VIPM_EHBBrkPwrRecupTarWhlTqSts_enum
+        S173_Subsys_VIPM_EHBBrkPwrRecupTarWhlTq_Nm
+        S173_Subsys_VIPM_EHBCDDActv_flg
+        S173_Subsys_VIPM_EHBEPBActuatorStR_enum
+        S173_Subsys_VIPM_EHBEPBDynAppSt_enum
+        S173_Subsys_VIPM_EHBFltLvl_enum
+        S173_Subsys_VIPM_EHBReqBrkLiOn_flg
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S168_Msg_EPS_2_StrWhlAng_CHA
+      /* Name                   */       S171_Msg_EPS_2_StrWhlAng_CHA
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EPS_2_StrWhlAng_CHA"
       /begin SUB_GROUP
-        S171_Subsys_VIPM_EPSRotSpd_degps
-        S171_Subsys_VIPM_EPSSteerWhlAngCald_flg
-        S171_Subsys_VIPM_EPSSteerWhlAngFailr_flg
-        S171_Subsys_VIPM_EPSSteerWhlAng_deg
+        S174_Subsys_VIPM_EPSRotSpd_degps
+        S174_Subsys_VIPM_EPSSteerWhlAngCald_flg
+        S174_Subsys_VIPM_EPSSteerWhlAngFailr_flg
+        S174_Subsys_VIPM_EPSSteerWhlAng_deg
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S168_Msg_ESC_7_FuncStatus_CHA
+      /* Name                   */       S171_Msg_ESC_7_FuncStatus_CHA
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA"
       /begin SUB_GROUP
-        S172_Subsys_VIPM_ESCABSActvSta_flg
-        S172_Subsys_VIPM_ESCCDPActv_flg
-        S172_Subsys_VIPM_ESCEBDActv_flg
-        S172_Subsys_VIPM_ESCESPActvSta_flg
-        S172_Subsys_VIPM_ESCESSActv_flg
-        S172_Subsys_VIPM_ESCFltLvl_enum
-        S172_Subsys_VIPM_ESCReqBrkLghtOn_flg
-        S172_Subsys_VIPM_ESCSlopPct_pct
-        S172_Subsys_VIPM_ESCTCSActvSta_flg
-        S172_Subsys_VIPM_ESCVehSpd_kph
+        S175_Subsys_VIPM_ESCABSActvSta_flg
+        S175_Subsys_VIPM_ESCCDPActv_flg
+        S175_Subsys_VIPM_ESCEBDActv_flg
+        S175_Subsys_VIPM_ESCESPActvSta_flg
+        S175_Subsys_VIPM_ESCESSActv_flg
+        S175_Subsys_VIPM_ESCFltLvl_enum
+        S175_Subsys_VIPM_ESCReqBrkLghtOn_flg
+        S175_Subsys_VIPM_ESCSlopPct_pct
+        S175_Subsys_VIPM_ESCTCSActvSta_flg
+        S175_Subsys_VIPM_ESCVehSpd_kph
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S168_Msg_ESC_A_CHA
+      /* Name                   */       S171_Msg_ESC_A_CHA
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA"
       /begin SUB_GROUP
-        S173_Subsys_VIPM_ESCLatAccSnsrVal_g
-        S173_Subsys_VIPM_ESCLongAccSnsrVal_g
-        S173_Subsys_VIPM_ESCMstrCylPresr_bar
-        S173_Subsys_VIPM_ESCVehStandStillSta_enum
-        S173_Subsys_VIPM_ESCWhlDirctnFL_enum
-        S173_Subsys_VIPM_ESCWhlDirctnFR_enum
-        S173_Subsys_VIPM_ESCWhlDirctnRL_enum
-        S173_Subsys_VIPM_ESCWhlDirctnRR_enum
-        S173_Subsys_VIPM_ESCWhlSpdKphFL_kph
-        S173_Subsys_VIPM_ESCWhlSpdKphFR_kph
-        S173_Subsys_VIPM_ESCWhlSpdKphRL_kph
-        S173_Subsys_VIPM_ESCWhlSpdKphRR_kph
-        S173_Subsys_VIPM_ESCWhlTqDecReqActv_flg
-        S173_Subsys_VIPM_ESCWhlTqDecReqVal_Nm
-        S173_Subsys_VIPM_ESCWhlTqIncReqActv_flg
-        S173_Subsys_VIPM_ESCWhlTqIncReqVal_Nm
-        S173_Subsys_VIPM_ESCYawRate_degps
+        S176_Subsys_VIPM_ESCLatAccSnsrVal_g
+        S176_Subsys_VIPM_ESCLongAccSnsrVal_g
+        S176_Subsys_VIPM_ESCMstrCylPresr_bar
+        S176_Subsys_VIPM_ESCVehStandStillSta_enum
+        S176_Subsys_VIPM_ESCWhlDirctnFL_enum
+        S176_Subsys_VIPM_ESCWhlDirctnFR_enum
+        S176_Subsys_VIPM_ESCWhlDirctnRL_enum
+        S176_Subsys_VIPM_ESCWhlDirctnRR_enum
+        S176_Subsys_VIPM_ESCWhlSpdKphFL_kph
+        S176_Subsys_VIPM_ESCWhlSpdKphFR_kph
+        S176_Subsys_VIPM_ESCWhlSpdKphRL_kph
+        S176_Subsys_VIPM_ESCWhlSpdKphRR_kph
+        S176_Subsys_VIPM_ESCWhlTqDecReqActv_flg
+        S176_Subsys_VIPM_ESCWhlTqDecReqVal_Nm
+        S176_Subsys_VIPM_ESCWhlTqIncReqActv_flg
+        S176_Subsys_VIPM_ESCWhlTqIncReqVal_Nm
+        S176_Subsys_VIPM_ESCYawRate_degps
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S169_Msg_INV_1_Value_EPT
+      /* Name                   */       S172_Msg_INV_1_Value_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_1_Value_EPT"
       /begin SUB_GROUP
-        S227_Subsys_VIPM_INV1ActMode_enum
-        S227_Subsys_VIPM_INV1ActTorq_Nm
-        S227_Subsys_VIPM_INV1AntithftAuthRslt_enum
-        S227_Subsys_VIPM_INV1MotSpd_rpm
-        S227_Subsys_VIPM_INV1PreChrgAllwd_enum
-        S227_Subsys_VIPM_INV1PreprogmFlg_flg
-        S227_Subsys_VIPM_INV1ShutdownAllwd_enum
+        S230_Subsys_VIPM_INV1ActMode_enum
+        S230_Subsys_VIPM_INV1ActTorq_Nm
+        S230_Subsys_VIPM_INV1AntithftAuthRslt_enum
+        S230_Subsys_VIPM_INV1MotSpd_rpm
+        S230_Subsys_VIPM_INV1PreChrgAllwd_enum
+        S230_Subsys_VIPM_INV1PreprogmFlg_flg
+        S230_Subsys_VIPM_INV1ShutdownAllwd_enum
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S169_Msg_INV_2_Value_EPT
+      /* Name                   */       S172_Msg_INV_2_Value_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_2_Value_EPT"
       /begin SUB_GROUP
-        S228_Subsys_VIPM_INV2IgbtMaxTemp_C
-        S228_Subsys_VIPM_INV2InpCurnt_A
-        S228_Subsys_VIPM_INV2InpVolt_V
-        S228_Subsys_VIPM_INV2MotorMaxTemp_C
+        S231_Subsys_VIPM_INV2IgbtMaxTemp_C
+        S231_Subsys_VIPM_INV2InpCurnt_A
+        S231_Subsys_VIPM_INV2InpVolt_V
+        S231_Subsys_VIPM_INV2MotorMaxTemp_C
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S169_Msg_INV_3_Value_EPT
+      /* Name                   */       S172_Msg_INV_3_Value_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_3_Value_EPT"
       /begin SUB_GROUP
-        S229_Subsys_VIPM_INV3DrvTqAllwdMax_Nm
-        S229_Subsys_VIPM_INV3RecupTqAllwdMax_Nm
+        S232_Subsys_VIPM_INV3DrvTqAllwdMax_Nm
+        S232_Subsys_VIPM_INV3RecupTqAllwdMax_Nm
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S169_Msg_INV_4_Value_EPT
+      /* Name                   */       S172_Msg_INV_4_Value_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_4_Value_EPT"
       /begin SUB_GROUP
-        S230_Subsys_VIPM_INV4FltLvl_enum
+        S233_Subsys_VIPM_INV4FltLvl_enum
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S252_Msg_SCS_RiSwitchSts_BOD
+      /* Name                   */       S255_Msg_SCS_RiSwitchSts_BOD
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/BodCAN_IN_20ms/Msg_SCS_RiSwitchSts_BOD"
       /begin SUB_GROUP
-        S255_Subsys_VIPM_SCSGrShftLvrPstnReq_enum
-        S255_Subsys_VIPM_SCSRght11Sw_flg
-        S255_Subsys_VIPM_SCSRght12Sw_flg
-        S255_Subsys_VIPM_SCSRght13Sw_flg
-        S255_Subsys_VIPM_SCSRghtSwVldty_flg
+        S258_Subsys_VIPM_SCSGrShftLvrPstnReq_enum
+        S258_Subsys_VIPM_SCSRght11Sw_flg
+        S258_Subsys_VIPM_SCSRght12Sw_flg
+        S258_Subsys_VIPM_SCSRght13Sw_flg
+        S258_Subsys_VIPM_SCSRghtSwVldty_flg
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S253_Msg_CRRR_A_CHA
+      /* Name                   */       S256_Msg_CRRR_A_CHA
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_CRRR_A_CHA"
       /begin SUB_GROUP
-        S261_Subsys_VIPM_CRRRBSDWarnLt_enum
-        S261_Subsys_VIPM_CRRRBSDWarnRt_enum
-        S261_Subsys_VIPM_CRRRDOWWarnLt_enum
-        S261_Subsys_VIPM_CRRRDOWWarnRt_enum
-        S261_Subsys_VIPM_CRRRRCTAWarnLt_enum
-        S261_Subsys_VIPM_CRRRRCTAWarnRt_enum
+        S264_Subsys_VIPM_CRRRBSDWarnLt_enum
+        S264_Subsys_VIPM_CRRRBSDWarnRt_enum
+        S264_Subsys_VIPM_CRRRDOWWarnLt_enum
+        S264_Subsys_VIPM_CRRRDOWWarnRt_enum
+        S264_Subsys_VIPM_CRRRRCTAWarnLt_enum
+        S264_Subsys_VIPM_CRRRRCTAWarnRt_enum
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S253_Msg_EHB_A_CHA
+      /* Name                   */       S256_Msg_EHB_A_CHA
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_EHB_A_CHA"
       /begin SUB_GROUP
-        S262_Subsys_VIPM_EHBAVHAppldSt_enum
-        S262_Subsys_VIPM_EHBBLA_flg
-        S262_Subsys_VIPM_EHBEPBActuatorStL_enum
-        S262_Subsys_VIPM_EHBEPBSwitchSts_enum
-        S262_Subsys_VIPM_EHBEPBSysSt_enum
-        S262_Subsys_VIPM_EHBHDCFucFault_flg
+        S265_Subsys_VIPM_EHBAVHAppldSt_enum
+        S265_Subsys_VIPM_EHBBLA_flg
+        S265_Subsys_VIPM_EHBEPBActuatorStL_enum
+        S265_Subsys_VIPM_EHBEPBSwitchSts_enum
+        S265_Subsys_VIPM_EHBEPBSysSt_enum
+        S265_Subsys_VIPM_EHBHDCFucFault_flg
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S253_Msg_FCM_B_CHA
+      /* Name                   */       S256_Msg_FCM_B_CHA
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA"
       /begin SUB_GROUP
-        S263_Subsys_VIPM_FCMACCSdnMode_enum
-        S263_Subsys_VIPM_FCMACCWhlDece_mps2
-        S263_Subsys_VIPM_FCMACCWhlTqReqActv_flg
-        S263_Subsys_VIPM_FCMACCWhlTqReqVal_Nm
-        S263_Subsys_VIPM_FCMAEBReq_flg
-        S263_Subsys_VIPM_FCMAccMode_enum
-        S263_Subsys_VIPM_FCMAccReqDriveOff_flg
-        S263_Subsys_VIPM_FCMAccReqStandstill_flg
-        S263_Subsys_VIPM_FCMAccTarAccrnReqActv_flg
-        S263_Subsys_VIPM_FCMAccTarAccrn_mps2
-        S263_Subsys_VIPM_FCMAccTgtAxReq_flg
-        S263_Subsys_VIPM_FCMAccTgtAx_mps2
-        S263_Subsys_VIPM_FCMEPBReq_enum
-        S263_Subsys_VIPM_FCMTrnLampReq_enum
+        S266_Subsys_VIPM_FCMACCSdnMode_enum
+        S266_Subsys_VIPM_FCMACCWhlDece_mps2
+        S266_Subsys_VIPM_FCMACCWhlTqReqActv_flg
+        S266_Subsys_VIPM_FCMACCWhlTqReqVal_Nm
+        S266_Subsys_VIPM_FCMAEBReq_flg
+        S266_Subsys_VIPM_FCMAccMode_enum
+        S266_Subsys_VIPM_FCMAccReqDriveOff_flg
+        S266_Subsys_VIPM_FCMAccReqStandstill_flg
+        S266_Subsys_VIPM_FCMAccTarAccrnReqActv_flg
+        S266_Subsys_VIPM_FCMAccTarAccrn_mps2
+        S266_Subsys_VIPM_FCMAccTgtAxReq_flg
+        S266_Subsys_VIPM_FCMAccTgtAx_mps2
+        S266_Subsys_VIPM_FCMEPBReq_enum
+        S266_Subsys_VIPM_FCMTrnLampReq_enum
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S254_Msg_BMS_10_DC_ChargeStates_EPT
+      /* Name                   */       S257_Msg_BMS_10_DC_ChargeStates_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_10_DC_ChargeStates_EPT"
       /begin SUB_GROUP
-        S294_Subsys_VIPM_BMSDCSActOprtMode_enum
-        S294_Subsys_VIPM_BMSDCSInletConnectSta_flg
+        S297_Subsys_VIPM_BMSDCSActOprtMode_enum
+        S297_Subsys_VIPM_BMSDCSInletConnectSta_flg
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S254_Msg_BMS_1_MainState_EPT
+      /* Name                   */       S257_Msg_BMS_1_MainState_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_1_MainState_EPT"
       /begin SUB_GROUP
-        S295_Subsys_VIPM_BMSActExchgCurnt_A
-        S295_Subsys_VIPM_BMSChrgInterlockSta_enum
-        S295_Subsys_VIPM_BMSDchrgInterlockSta_enum
-        S295_Subsys_VIPM_BMSEmgcySdnReq_flg
-        S295_Subsys_VIPM_BMSPwrTrainConnectSta_enum
-        S295_Subsys_VIPM_BMSRunSta_enum
-        S295_Subsys_VIPM_BMSSysFailSta_enum
-        S295_Subsys_VIPM_BMSThermrunawayWrn_enum
+        S298_Subsys_VIPM_BMSActExchgCurnt_A
+        S298_Subsys_VIPM_BMSChrgInterlockSta_enum
+        S298_Subsys_VIPM_BMSDchrgInterlockSta_enum
+        S298_Subsys_VIPM_BMSEmgcySdnReq_flg
+        S298_Subsys_VIPM_BMSPwrTrainConnectSta_enum
+        S298_Subsys_VIPM_BMSRunSta_enum
+        S298_Subsys_VIPM_BMSSysFailSta_enum
+        S298_Subsys_VIPM_BMSThermrunawayWrn_enum
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S254_Msg_BMS_2_BatState_EPT
+      /* Name                   */       S257_Msg_BMS_2_BatState_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_2_BatState_EPT"
       /begin SUB_GROUP
-        S296_Subsys_VIPM_BMSBatSOCAct_pct
-        S296_Subsys_VIPM_BMSBatSOCRpt_pct
-        S296_Subsys_VIPM_BMSBatSOH_pct
-        S296_Subsys_VIPM_BMSHVBatActVolt_V
+        S299_Subsys_VIPM_BMSBatSOCAct_pct
+        S299_Subsys_VIPM_BMSBatSOCRpt_pct
+        S299_Subsys_VIPM_BMSBatSOH_pct
+        S299_Subsys_VIPM_BMSHVBatActVolt_V
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S254_Msg_BMS_3_DC_ChargeState_EPT
+      /* Name                   */       S257_Msg_BMS_3_DC_ChargeState_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_3_DC_ChargeState_EPT"
       /begin SUB_GROUP
-        S297_Subsys_VIPM_BMSDCSChrgReq_flg
+        S300_Subsys_VIPM_BMSDCSChrgReq_flg
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S254_Msg_BMS_4_AC_ChargeState_EPT
+      /* Name                   */       S257_Msg_BMS_4_AC_ChargeState_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_4_AC_ChargeState_EPT"
       /begin SUB_GROUP
-        S298_Subsys_VIPM_BMSACChrgAtclSta_enum
-        S298_Subsys_VIPM_BMSInletCooltActlTemp_C
-        S298_Subsys_VIPM_BMSIsoResist_MOhm
-        S298_Subsys_VIPM_BMSMaxChrgCurntAC_A
-        S298_Subsys_VIPM_BMSMaxChrgVoltAC_V
-        S298_Subsys_VIPM_BMSOutlCooltActlTemp_C
+        S301_Subsys_VIPM_BMSACChrgAtclSta_enum
+        S301_Subsys_VIPM_BMSInletCooltActlTemp_C
+        S301_Subsys_VIPM_BMSIsoResist_MOhm
+        S301_Subsys_VIPM_BMSMaxChrgCurntAC_A
+        S301_Subsys_VIPM_BMSMaxChrgVoltAC_V
+        S301_Subsys_VIPM_BMSOutlCooltActlTemp_C
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S254_Msg_BMS_6_DischrgRecup_EPT
+      /* Name                   */       S257_Msg_BMS_6_DischrgRecup_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_6_DischrgRecup_EPT"
       /begin SUB_GROUP
-        S299_Subsys_VIPM_BMSMaxConChrgCurnt_A
-        S299_Subsys_VIPM_BMSMaxConDisCurnt_A
-        S299_Subsys_VIPM_BMSMaxInsChrgCurnt_A
-        S299_Subsys_VIPM_BMSMaxInsDisCurnt_A
+        S302_Subsys_VIPM_BMSMaxConChrgCurnt_A
+        S302_Subsys_VIPM_BMSMaxConDisCurnt_A
+        S302_Subsys_VIPM_BMSMaxInsChrgCurnt_A
+        S302_Subsys_VIPM_BMSMaxInsDisCurnt_A
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S254_Msg_BMS_7_CellVolt_EPT
+      /* Name                   */       S257_Msg_BMS_7_CellVolt_EPT
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_7_CellVolt_EPT"
       /begin SUB_GROUP
-        S300_Subsys_VIPM_BMSCellVoltMax_mV
-        S300_Subsys_VIPM_BMSCellVoltMin_mV
+        S303_Subsys_VIPM_BMSCellVoltMax_mV
+        S303_Subsys_VIPM_BMSCellVoltMin_mV
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S342_Msg_CCP_PanelStatus_BOD
+      /* Name                   */       S345_Msg_CCP_PanelStatus_BOD
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD"
       /begin SUB_GROUP
-        S344_Subsys_VIPM_CCPACAutoKey_flg
-        S344_Subsys_VIPM_CCPACSwKey_flg
-        S344_Subsys_VIPM_CCPAVASOffKey_flg
-        S344_Subsys_VIPM_CCPAVHKey_flg
-        S344_Subsys_VIPM_CCPAirInletModeKey_flg
-        S344_Subsys_VIPM_CCPBlwngModeNextKey_flg
-        S344_Subsys_VIPM_CCPBlwngModePrevKey_flg
-        S344_Subsys_VIPM_CCPBlwrLvlAddKey_flg
-        S344_Subsys_VIPM_CCPBlwrLvlDecKey_flg
-        S344_Subsys_VIPM_CCPCenLckKey_flg
-        S344_Subsys_VIPM_CCPESCOffKey_flg
-        S344_Subsys_VIPM_CCPFrntWindDefrstKey_flg
-        S344_Subsys_VIPM_CCPHDCKey_flg
-        S344_Subsys_VIPM_CCPHzrdKey_flg
-        S344_Subsys_VIPM_CCPModeKey_flg
-        S344_Subsys_VIPM_CCPPwrRecupLvlKey_flg
-        S344_Subsys_VIPM_CCPRrViewMirrHeatgKey_flg
-        S344_Subsys_VIPM_CCPTPMSKey_flg
-        S344_Subsys_VIPM_CCPTempAddKey_flg
-        S344_Subsys_VIPM_CCPTempDecKey_flg
+        S347_Subsys_VIPM_CCPACAutoKey_flg
+        S347_Subsys_VIPM_CCPACSwKey_flg
+        S347_Subsys_VIPM_CCPAVASOffKey_flg
+        S347_Subsys_VIPM_CCPAVHKey_flg
+        S347_Subsys_VIPM_CCPAirInletModeKey_flg
+        S347_Subsys_VIPM_CCPBlwngModeNextKey_flg
+        S347_Subsys_VIPM_CCPBlwngModePrevKey_flg
+        S347_Subsys_VIPM_CCPBlwrLvlAddKey_flg
+        S347_Subsys_VIPM_CCPBlwrLvlDecKey_flg
+        S347_Subsys_VIPM_CCPCenLckKey_flg
+        S347_Subsys_VIPM_CCPESCOffKey_flg
+        S347_Subsys_VIPM_CCPFrntWindDefrstKey_flg
+        S347_Subsys_VIPM_CCPHDCKey_flg
+        S347_Subsys_VIPM_CCPHzrdKey_flg
+        S347_Subsys_VIPM_CCPModeKey_flg
+        S347_Subsys_VIPM_CCPPwrRecupLvlKey_flg
+        S347_Subsys_VIPM_CCPRrViewMirrHeatgKey_flg
+        S347_Subsys_VIPM_CCPTPMSKey_flg
+        S347_Subsys_VIPM_CCPTempAddKey_flg
+        S347_Subsys_VIPM_CCPTempDecKey_flg
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S342_Msg_ESCL_ESCLStatus_BOD
+      /* Name                   */       S345_Msg_ESCL_ESCLStatus_BOD
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_ESCL_ESCLStatus_BOD"
       /begin SUB_GROUP
-        S345_Subsys_VIPM_ESCLUnOrLockfeedback_nu
+        S348_Subsys_VIPM_ESCLUnOrLockfeedback_nu
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S342_Msg_SCS_LeSwitchSts_BOD
+      /* Name                   */       S345_Msg_SCS_LeSwitchSts_BOD
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_SCS_LeSwitchSts_BOD"
       /begin SUB_GROUP
-        S346_Subsys_VIPM_SCSFrntWiprSwtSt_enum
-        S346_Subsys_VIPM_SCSFrntWshrSwtSt_flg
-        S346_Subsys_VIPM_SCSHiBeamSwSt_flg
-        S346_Subsys_VIPM_SCSLampAutoSt_flg
-        S346_Subsys_VIPM_SCSLeTrnLmpSwSt_flg
-        S346_Subsys_VIPM_SCSLoBeamSwSt_flg
-        S346_Subsys_VIPM_SCSOvrVehBeamSwSt_flg
-        S346_Subsys_VIPM_SCSPstnLghtSwSt_flg
-        S346_Subsys_VIPM_SCSRiTrnLmpSwSt_flg
+        S349_Subsys_VIPM_SCSFrntWiprSwtSt_enum
+        S349_Subsys_VIPM_SCSFrntWshrSwtSt_flg
+        S349_Subsys_VIPM_SCSHiBeamSwSt_flg
+        S349_Subsys_VIPM_SCSLampAutoSt_flg
+        S349_Subsys_VIPM_SCSLeTrnLmpSwSt_flg
+        S349_Subsys_VIPM_SCSLoBeamSwSt_flg
+        S349_Subsys_VIPM_SCSOvrVehBeamSwSt_flg
+        S349_Subsys_VIPM_SCSPstnLghtSwSt_flg
+        S349_Subsys_VIPM_SCSRiTrnLmpSwSt_flg
       /end SUB_GROUP
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S343_Msg_SRS_1_Status_CHA
+      /* Name                   */       S346_Msg_SRS_1_Status_CHA
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/CHACAN_IN_50ms/Msg_SRS_1_Status_CHA"
       /begin SUB_GROUP
-        S377_Subsys_VIPM_SRSCrashOutputSts_enum
-        S377_Subsys_VIPM_SRSDrvSeatbeltBkld_flg
+        S380_Subsys_VIPM_SRSCrashOutputSts_enum
+        S380_Subsys_VIPM_SRSDrvSeatbeltBkld_flg
       /end SUB_GROUP
     /end GROUP
     
@@ -22284,7 +22393,23 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_CDCBackLadjval_enum
+      /* Name                   */       S71_Subsys_VIPM_ICUTotOdo_km
+      /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_BMS_9_BattInfo_EPT/Subsys_VIPM_ICUTotOdo_km"
+      /begin REF_CHARACTERISTIC
+        KIPM_ICUTotOdoDflt_km
+        KIPM_ICUTotOdoHi_km
+        KIPM_ICUTotOdoLo_km
+        KIPM_ICUTotOdo_km_ovrdflg
+        KIPM_ICUTotOdo_km_ovrdval
+      /end REF_CHARACTERISTIC
+      /begin REF_MEASUREMENT
+        VIPM_ICUTotOdoVld_flg
+        VIPM_ICUTotOdo_km
+      /end REF_MEASUREMENT
+    /end GROUP
+    
+    /begin GROUP
+      /* Name                   */       S72_Subsys_VIPM_CDCBackLadjval_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_CDCBackLadjval_enum"
       /begin REF_CHARACTERISTIC
         KIPM_CDCBackLadjvalDflt_enum
@@ -22298,7 +22423,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUACAutoCtl_enum
+      /* Name                   */       S72_Subsys_VIPM_HUACAutoCtl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUACAutoCtl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUACAutoCtlDflt_enum
@@ -22312,7 +22437,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUACPwrCtl_enum
+      /* Name                   */       S72_Subsys_VIPM_HUACPwrCtl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUACPwrCtl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUACPwrCtlDflt_enum
@@ -22326,7 +22451,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUACUnlckVentSet_enum
+      /* Name                   */       S72_Subsys_VIPM_HUACUnlckVentSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUACUnlckVentSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUACUnlckVentSetDflt_enum
@@ -22340,7 +22465,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUAirInletModeSet_enum
+      /* Name                   */       S72_Subsys_VIPM_HUAirInletModeSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUAirInletModeSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUAirInletModeSetDflt_enum
@@ -22354,7 +22479,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUBlwrModeSet_enum
+      /* Name                   */       S72_Subsys_VIPM_HUBlwrModeSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUBlwrModeSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUBlwrModeSetDflt_enum
@@ -22368,7 +22493,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUChgWiprMtMdSwSet_enum
+      /* Name                   */       S72_Subsys_VIPM_HUChgWiprMtMdSwSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUChgWiprMtMdSwSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUChgWiprMtMdSwSetDflt_enum
@@ -22382,7 +22507,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUChrgngReq_enum
+      /* Name                   */       S72_Subsys_VIPM_HUChrgngReq_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUChrgngReq_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUChrgngReqDflt_enum
@@ -22396,7 +22521,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUChrgngmode_enum
+      /* Name                   */       S72_Subsys_VIPM_HUChrgngmode_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUChrgngmode_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUChrgngmodeDflt_enum
@@ -22410,7 +22535,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUCstRecupModeSel_enum
+      /* Name                   */       S72_Subsys_VIPM_HUCstRecupModeSel_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUCstRecupModeSel_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUCstRecupModeSelDflt_enum
@@ -22424,7 +22549,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUDrvModeSel_enum
+      /* Name                   */       S72_Subsys_VIPM_HUDrvModeSel_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUDrvModeSel_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUDrvModeSelDflt_enum
@@ -22438,7 +22563,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUDrvPwrSet_cnt
+      /* Name                   */       S72_Subsys_VIPM_HUDrvPwrSet_cnt
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUDrvPwrSet_cnt"
       /begin REF_CHARACTERISTIC
         KIPM_HUDrvPwrSetDflt_cnt
@@ -22452,7 +22577,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUFlwrMeHmCtrl_enum
+      /* Name                   */       S72_Subsys_VIPM_HUFlwrMeHmCtrl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUFlwrMeHmCtrl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUFlwrMeHmCtrlDflt_enum
@@ -22466,7 +22591,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUFrntFanSpdSet_enum
+      /* Name                   */       S72_Subsys_VIPM_HUFrntFanSpdSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUFrntFanSpdSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUFrntFanSpdSetDflt_enum
@@ -22480,7 +22605,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUHybEcoModeSet_enum
+      /* Name                   */       S72_Subsys_VIPM_HUHybEcoModeSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUHybEcoModeSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUHybEcoModeSetDflt_enum
@@ -22494,7 +22619,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUIllmndEntrySts_enum
+      /* Name                   */       S72_Subsys_VIPM_HUIllmndEntrySts_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUIllmndEntrySts_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUIllmndEntryStsDflt_enum
@@ -22508,7 +22633,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUIllmndLckSts_enum
+      /* Name                   */       S72_Subsys_VIPM_HUIllmndLckSts_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUIllmndLckSts_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUIllmndLckStsDflt_enum
@@ -22522,7 +22647,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUIllmndUnlckSts_enum
+      /* Name                   */       S72_Subsys_VIPM_HUIllmndUnlckSts_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUIllmndUnlckSts_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUIllmndUnlckStsDflt_enum
@@ -22536,7 +22661,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HULckHornOnSt_enum
+      /* Name                   */       S72_Subsys_VIPM_HULckHornOnSt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HULckHornOnSt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HULckHornOnStDflt_enum
@@ -22550,7 +22675,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HULeftTempSet_enum
+      /* Name                   */       S72_Subsys_VIPM_HULeftTempSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HULeftTempSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HULeftTempSetDflt_enum
@@ -22564,7 +22689,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUMaiDrvrSeatHeat_enum
+      /* Name                   */       S72_Subsys_VIPM_HUMaiDrvrSeatHeat_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUMaiDrvrSeatHeat_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUMaiDrvrSeatHeatDflt_enum
@@ -22578,7 +22703,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUManlDefrstCtl_enum
+      /* Name                   */       S72_Subsys_VIPM_HUManlDefrstCtl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUManlDefrstCtl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUManlDefrstCtlDflt_enum
@@ -22592,7 +22717,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUOvrspdCntrlLckSet_enum
+      /* Name                   */       S72_Subsys_VIPM_HUOvrspdCntrlLckSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUOvrspdCntrlLckSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUOvrspdCntrlLckSetDflt_enum
@@ -22606,7 +22731,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUParkAutoUnlckSet_enum
+      /* Name                   */       S72_Subsys_VIPM_HUParkAutoUnlckSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUParkAutoUnlckSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUParkAutoUnlckSetDflt_enum
@@ -22620,7 +22745,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUPeristalsisModeEnbl_enum
+      /* Name                   */       S72_Subsys_VIPM_HUPeristalsisModeEnbl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUPeristalsisModeEnbl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUPeristalsisModeEnblDflt_enum
@@ -22634,7 +22759,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUPwrOffReq_flg
+      /* Name                   */       S72_Subsys_VIPM_HUPwrOffReq_flg
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUPwrOffReq_flg"
       /begin REF_CHARACTERISTIC
         KIPM_HUPwrOffReqDflt_flg
@@ -22648,7 +22773,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HURecupPwrSet_pct
+      /* Name                   */       S72_Subsys_VIPM_HURecupPwrSet_pct
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HURecupPwrSet_pct"
       /begin REF_CHARACTERISTIC
         KIPM_HURecupPwrSetDflt_pct
@@ -22662,7 +22787,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HURrMirrHeat_enum
+      /* Name                   */       S72_Subsys_VIPM_HURrMirrHeat_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HURrMirrHeat_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HURrMirrHeatDflt_enum
@@ -22676,7 +22801,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUSteerWhlHeat_enum
+      /* Name                   */       S72_Subsys_VIPM_HUSteerWhlHeat_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUSteerWhlHeat_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUSteerWhlHeatDflt_enum
@@ -22690,7 +22815,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUTPMSRstReq_flg
+      /* Name                   */       S72_Subsys_VIPM_HUTPMSRstReq_flg
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUTPMSRstReq_flg"
       /begin REF_CHARACTERISTIC
         KIPM_HUTPMSRstReqDflt_flg
@@ -22704,7 +22829,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUTrnkLckSwCtrl_enum
+      /* Name                   */       S72_Subsys_VIPM_HUTrnkLckSwCtrl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUTrnkLckSwCtrl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUTrnkLckSwCtrlDflt_enum
@@ -22718,7 +22843,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUVehMaxCurr_A
+      /* Name                   */       S72_Subsys_VIPM_HUVehMaxCurr_A
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUVehMaxCurr_A"
       /begin REF_CHARACTERISTIC
         KIPM_HUVehMaxCurrDflt_A
@@ -22732,7 +22857,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_HUWiprIntlTmSet_enum
+      /* Name                   */       S72_Subsys_VIPM_HUWiprIntlTmSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_HUWiprIntlTmSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_HUWiprIntlTmSetDflt_enum
@@ -22746,7 +22871,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TBOXACRemtCtrlFlg_enum
+      /* Name                   */       S72_Subsys_VIPM_TBOXACRemtCtrlFlg_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TBOXACRemtCtrlFlg_enum"
       /begin REF_CHARACTERISTIC
         KIPM_TBOXACRemtCtrlFlgDflt_enum
@@ -22760,7 +22885,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TBOXACTempSet_enum
+      /* Name                   */       S72_Subsys_VIPM_TBOXACTempSet_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TBOXACTempSet_enum"
       /begin REF_CHARACTERISTIC
         KIPM_TBOXACTempSetDflt_enum
@@ -22774,7 +22899,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TBOXRmtPwrLck_enum
+      /* Name                   */       S72_Subsys_VIPM_TBOXRmtPwrLck_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TBOXRmtPwrLck_enum"
       /begin REF_CHARACTERISTIC
         KIPM_TBOXRmtPwrLckDflt_enum
@@ -22788,7 +22913,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TBOXVCUCCMSpdLimLvl_enum
+      /* Name                   */       S72_Subsys_VIPM_TBOXVCUCCMSpdLimLvl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TBOXVCUCCMSpdLimLvl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_TBOXVCUCCMSpdLimLvlDflt_enum
@@ -22802,7 +22927,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TBOXVCUChrgngConds_flg
+      /* Name                   */       S72_Subsys_VIPM_TBOXVCUChrgngConds_flg
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TBOXVCUChrgngConds_flg"
       /begin REF_CHARACTERISTIC
         KIPM_TBOXVCUChrgngCondsDflt_flg
@@ -22816,7 +22941,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TBOXVCUOprtLic_flg
+      /* Name                   */       S72_Subsys_VIPM_TBOXVCUOprtLic_flg
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TBOXVCUOprtLic_flg"
       /begin REF_CHARACTERISTIC
         KIPM_TBOXVCUOprtLicDflt_flg
@@ -22830,7 +22955,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TBOXVCUVer_flg
+      /* Name                   */       S72_Subsys_VIPM_TBOXVCUVer_flg
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TBOXVCUVer_flg"
       /begin REF_CHARACTERISTIC
         KIPM_TBOXVCUVerDflt_flg
@@ -22844,7 +22969,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TBoxOpenVentn_enum
+      /* Name                   */       S72_Subsys_VIPM_TBoxOpenVentn_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TBoxOpenVentn_enum"
       /begin REF_CHARACTERISTIC
         KIPM_TBoxOpenVentnDflt_enum
@@ -22858,7 +22983,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TBoxRmtCarSearch_enum
+      /* Name                   */       S72_Subsys_VIPM_TBoxRmtCarSearch_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TBoxRmtCarSearch_enum"
       /begin REF_CHARACTERISTIC
         KIPM_TBoxRmtCarSearchDflt_enum
@@ -22872,7 +22997,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TBoxRmtLck_enum
+      /* Name                   */       S72_Subsys_VIPM_TBoxRmtLck_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TBoxRmtLck_enum"
       /begin REF_CHARACTERISTIC
         KIPM_TBoxRmtLckDflt_enum
@@ -22886,7 +23011,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S71_Subsys_VIPM_TboxRmtDefrstCtl_enum
+      /* Name                   */       S72_Subsys_VIPM_TboxRmtDefrstCtl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/BacCAN_IN_100ms/Msg_HU_B_BAC/Subsys_VIPM_TboxRmtDefrstCtl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_TboxRmtDefrstCtlDflt_enum
@@ -22900,7 +23025,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S116_Subsys_VIPM_BMSHVBatCellTempAve_C
+      /* Name                   */       S119_Subsys_VIPM_BMSHVBatCellTempAve_C
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_BMS_5_BatTemp_EPT/Subsys_VIPM_BMSHVBatCellTempAve_C"
       /begin REF_CHARACTERISTIC
         KIPM_BMSHVBatCellTempAveDflt_C
@@ -22916,7 +23041,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S116_Subsys_VIPM_BMSHVBatCellTempMax_C
+      /* Name                   */       S119_Subsys_VIPM_BMSHVBatCellTempMax_C
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_BMS_5_BatTemp_EPT/Subsys_VIPM_BMSHVBatCellTempMax_C"
       /begin REF_CHARACTERISTIC
         KIPM_BMSHVBatCellTempMaxDflt_C
@@ -22932,7 +23057,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S116_Subsys_VIPM_BMSHVBatCellTempMin_C
+      /* Name                   */       S119_Subsys_VIPM_BMSHVBatCellTempMin_C
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_BMS_5_BatTemp_EPT/Subsys_VIPM_BMSHVBatCellTempMin_C"
       /begin REF_CHARACTERISTIC
         KIPM_BMSHVBatCellTempMinDflt_C
@@ -22948,7 +23073,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S117_Subsys_VIPM_INVLrngData02_nu
+      /* Name                   */       S120_Subsys_VIPM_INVLrngData02_nu
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_INV_IMMO_Req_EPT/Subsys_VIPM_INVLrngData02_nu"
       /begin REF_CHARACTERISTIC
         KIPM_INVLrngData02Dflt_nu
@@ -22962,7 +23087,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S117_Subsys_VIPM_INVLrngData03_nu
+      /* Name                   */       S120_Subsys_VIPM_INVLrngData03_nu
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_INV_IMMO_Req_EPT/Subsys_VIPM_INVLrngData03_nu"
       /begin REF_CHARACTERISTIC
         KIPM_INVLrngData03Dflt_nu
@@ -22976,7 +23101,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S117_Subsys_VIPM_INVLrngData04_nu
+      /* Name                   */       S120_Subsys_VIPM_INVLrngData04_nu
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_INV_IMMO_Req_EPT/Subsys_VIPM_INVLrngData04_nu"
       /begin REF_CHARACTERISTIC
         KIPM_INVLrngData04Dflt_nu
@@ -22990,7 +23115,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S117_Subsys_VIPM_INVLrngData05_nu
+      /* Name                   */       S120_Subsys_VIPM_INVLrngData05_nu
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_INV_IMMO_Req_EPT/Subsys_VIPM_INVLrngData05_nu"
       /begin REF_CHARACTERISTIC
         KIPM_INVLrngData05Dflt_nu
@@ -23004,7 +23129,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S117_Subsys_VIPM_INVLrngData06_nu
+      /* Name                   */       S120_Subsys_VIPM_INVLrngData06_nu
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_INV_IMMO_Req_EPT/Subsys_VIPM_INVLrngData06_nu"
       /begin REF_CHARACTERISTIC
         KIPM_INVLrngData06Dflt_nu
@@ -23018,7 +23143,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S117_Subsys_VIPM_INVLrngData07_nu
+      /* Name                   */       S120_Subsys_VIPM_INVLrngData07_nu
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_INV_IMMO_Req_EPT/Subsys_VIPM_INVLrngData07_nu"
       /begin REF_CHARACTERISTIC
         KIPM_INVLrngData07Dflt_nu
@@ -23032,7 +23157,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S117_Subsys_VIPM_INVLrngSts_enum
+      /* Name                   */       S120_Subsys_VIPM_INVLrngSts_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_INV_IMMO_Req_EPT/Subsys_VIPM_INVLrngSts_enum"
       /begin REF_CHARACTERISTIC
         KIPM_INVLrngStsDflt_enum
@@ -23046,7 +23171,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S117_Subsys_VIPM_INVLrngSubID_cnt
+      /* Name                   */       S120_Subsys_VIPM_INVLrngSubID_cnt
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_INV_IMMO_Req_EPT/Subsys_VIPM_INVLrngSubID_cnt"
       /begin REF_CHARACTERISTIC
         KIPM_INVLrngSubIDDflt_cnt
@@ -23060,7 +23185,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S118_Subsys_VIPM_IPUDCCActOprtMode_enum
+      /* Name                   */       S121_Subsys_VIPM_IPUDCCActOprtMode_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_DCC_1_State_EPT/Subsys_VIPM_IPUDCCActOprtMode_enum"
       /begin REF_CHARACTERISTIC
         KIPM_IPUDCCActOprtModeDflt_enum
@@ -23074,7 +23199,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S118_Subsys_VIPM_IPUDCCLoVoltActCurnt_A
+      /* Name                   */       S121_Subsys_VIPM_IPUDCCLoVoltActCurnt_A
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_DCC_1_State_EPT/Subsys_VIPM_IPUDCCLoVoltActCurnt_A"
       /begin REF_CHARACTERISTIC
         KIPM_IPUDCCLoVoltActCurntDflt_A
@@ -23090,7 +23215,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S118_Subsys_VIPM_IPUDCCLoVoltActVolt_V
+      /* Name                   */       S121_Subsys_VIPM_IPUDCCLoVoltActVolt_V
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_DCC_1_State_EPT/Subsys_VIPM_IPUDCCLoVoltActVolt_V"
       /begin REF_CHARACTERISTIC
         KIPM_IPUDCCLoVoltActVoltDflt_V
@@ -23106,7 +23231,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S118_Subsys_VIPM_IPUDCCSysFailSta_enum
+      /* Name                   */       S121_Subsys_VIPM_IPUDCCSysFailSta_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_DCC_1_State_EPT/Subsys_VIPM_IPUDCCSysFailSta_enum"
       /begin REF_CHARACTERISTIC
         KIPM_IPUDCCSysFailStaDflt_enum
@@ -23120,7 +23245,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S118_Subsys_VIPM_IPUHVILFailSt_flg
+      /* Name                   */       S121_Subsys_VIPM_IPUHVILFailSt_flg
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_DCC_1_State_EPT/Subsys_VIPM_IPUHVILFailSt_flg"
       /begin REF_CHARACTERISTIC
         KIPM_IPUHVILFailStDflt_flg
@@ -23134,7 +23259,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S119_Subsys_VIPM_IPUDCCHiVoltActCurnt_A
+      /* Name                   */       S122_Subsys_VIPM_IPUDCCHiVoltActCurnt_A
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_DCC_2_ChrgInValue_EPT/Subsys_VIPM_IPUDCCHiVoltActCurnt_A"
       /begin REF_CHARACTERISTIC
         KIPM_IPUDCCHiVoltActCurntDflt_A
@@ -23150,7 +23275,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S119_Subsys_VIPM_IPUDCCHiVoltActVolt_V
+      /* Name                   */       S122_Subsys_VIPM_IPUDCCHiVoltActVolt_V
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_DCC_2_ChrgInValue_EPT/Subsys_VIPM_IPUDCCHiVoltActVolt_V"
       /begin REF_CHARACTERISTIC
         KIPM_IPUDCCHiVoltActVoltDflt_V
@@ -23166,7 +23291,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S120_Subsys_VIPM_IPUOBCActOprtMode_enum
+      /* Name                   */       S123_Subsys_VIPM_IPUOBCActOprtMode_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_OBC_1_State_EPT/Subsys_VIPM_IPUOBCActOprtMode_enum"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCActOprtModeDflt_enum
@@ -23180,7 +23305,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S120_Subsys_VIPM_IPUOBCConnectMainSta_flg
+      /* Name                   */       S123_Subsys_VIPM_IPUOBCConnectMainSta_flg
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_OBC_1_State_EPT/Subsys_VIPM_IPUOBCConnectMainSta_flg"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCConnectMainStaDflt_flg
@@ -23194,7 +23319,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S120_Subsys_VIPM_IPUOBCHVDCActCur_A
+      /* Name                   */       S123_Subsys_VIPM_IPUOBCHVDCActCur_A
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_OBC_1_State_EPT/Subsys_VIPM_IPUOBCHVDCActCur_A"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCHVDCActCurDflt_A
@@ -23210,7 +23335,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S120_Subsys_VIPM_IPUOBCHVDCActVol_V
+      /* Name                   */       S123_Subsys_VIPM_IPUOBCHVDCActVol_V
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_OBC_1_State_EPT/Subsys_VIPM_IPUOBCHVDCActVol_V"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCHVDCActVolDflt_V
@@ -23226,7 +23351,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S120_Subsys_VIPM_IPUOBCInletActPwr_kW
+      /* Name                   */       S123_Subsys_VIPM_IPUOBCInletActPwr_kW
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_OBC_1_State_EPT/Subsys_VIPM_IPUOBCInletActPwr_kW"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCInletActPwrDflt_kW
@@ -23242,7 +23367,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S120_Subsys_VIPM_IPUOBCInletConnectSta_enum
+      /* Name                   */       S123_Subsys_VIPM_IPUOBCInletConnectSta_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_OBC_1_State_EPT/Subsys_VIPM_IPUOBCInletConnectSta_enum"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCInletConnectStaDflt_enum
@@ -23256,7 +23381,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S120_Subsys_VIPM_IPUOBCReq_enum
+      /* Name                   */       S123_Subsys_VIPM_IPUOBCReq_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_OBC_1_State_EPT/Subsys_VIPM_IPUOBCReq_enum"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCReqDflt_enum
@@ -23270,7 +23395,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S120_Subsys_VIPM_IPUOBCSysFailSta_enum
+      /* Name                   */       S123_Subsys_VIPM_IPUOBCSysFailSta_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_100ms/Msg_IPU_OBC_1_State_EPT/Subsys_VIPM_IPUOBCSysFailSta_enum"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCSysFailStaDflt_enum
@@ -23284,7 +23409,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S156_Subsys_VIPM_IPUDeviceIntTemp_C
+      /* Name                   */       S159_Subsys_VIPM_IPUDeviceIntTemp_C
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_200ms/Msg_IPU_OBC_2_Inlet_EPT/Subsys_VIPM_IPUDeviceIntTemp_C"
       /begin REF_CHARACTERISTIC
         KIPM_IPUDeviceIntTempDflt_C
@@ -23300,7 +23425,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S156_Subsys_VIPM_IPUOBCACMaxPwrAllow_kW
+      /* Name                   */       S159_Subsys_VIPM_IPUOBCACMaxPwrAllow_kW
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_200ms/Msg_IPU_OBC_2_Inlet_EPT/Subsys_VIPM_IPUOBCACMaxPwrAllow_kW"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCACMaxPwrAllowDflt_kW
@@ -23316,7 +23441,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S156_Subsys_VIPM_IPUOBCS2State_flg
+      /* Name                   */       S159_Subsys_VIPM_IPUOBCS2State_flg
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_200ms/Msg_IPU_OBC_2_Inlet_EPT/Subsys_VIPM_IPUOBCS2State_flg"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCS2StateDflt_flg
@@ -23330,7 +23455,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S156_Subsys_VIPM_IPUOBCTempInt_C
+      /* Name                   */       S159_Subsys_VIPM_IPUOBCTempInt_C
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_200ms/Msg_IPU_OBC_2_Inlet_EPT/Subsys_VIPM_IPUOBCTempInt_C"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCTempIntDflt_C
@@ -23346,7 +23471,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S156_Subsys_VIPM_IPUOBCWakeUpMode_enum
+      /* Name                   */       S159_Subsys_VIPM_IPUOBCWakeUpMode_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_200ms/Msg_IPU_OBC_2_Inlet_EPT/Subsys_VIPM_IPUOBCWakeUpMode_enum"
       /begin REF_CHARACTERISTIC
         KIPM_IPUOBCWakeUpModeDflt_enum
@@ -23360,7 +23485,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S165_Subsys_VIPM_BMSBatCapcty_Ah
+      /* Name                   */       S168_Subsys_VIPM_BMSBatCapcty_Ah
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_500ms/Msg_BMS_9_BattInfo_EPT/Subsys_VIPM_BMSBatCapcty_Ah"
       /begin REF_CHARACTERISTIC
         KIPM_BMSBatCapctyDflt_Ah
@@ -23374,7 +23499,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S165_Subsys_VIPM_BMSPackID_enum
+      /* Name                   */       S168_Subsys_VIPM_BMSPackID_enum
       /* Long identifier        */       "AppSwcIpm/Ipm100ms/EptCAN_IN_500ms/Msg_BMS_9_BattInfo_EPT/Subsys_VIPM_BMSPackID_enum"
       /begin REF_CHARACTERISTIC
         KIPM_BMSPackIDDflt_enum
@@ -23388,7 +23513,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S170_Subsys_VIPM_EHBBrkPedlValPerc_pct
+      /* Name                   */       S173_Subsys_VIPM_EHBBrkPedlValPerc_pct
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EHB_B_CHA/Subsys_VIPM_EHBBrkPedlValPerc_pct"
       /begin REF_CHARACTERISTIC
         KIPM_EHBBrkPedlValPercDflt_pct
@@ -23404,7 +23529,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S170_Subsys_VIPM_EHBBrkPwrRecupTarWhlTqSts_enum
+      /* Name                   */       S173_Subsys_VIPM_EHBBrkPwrRecupTarWhlTqSts_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EHB_B_CHA/Subsys_VIPM_EHBBrkPwrRecupTarWhlTqSts_enum"
       /begin REF_CHARACTERISTIC
         KIPM_EHBBrkPwrRecupTarWhlTqStsDflt_enum
@@ -23418,7 +23543,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S170_Subsys_VIPM_EHBBrkPwrRecupTarWhlTq_Nm
+      /* Name                   */       S173_Subsys_VIPM_EHBBrkPwrRecupTarWhlTq_Nm
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EHB_B_CHA/Subsys_VIPM_EHBBrkPwrRecupTarWhlTq_Nm"
       /begin REF_CHARACTERISTIC
         KIPM_EHBBrkPwrRecupTarWhlTqDflt_Nm
@@ -23434,7 +23559,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S170_Subsys_VIPM_EHBCDDActv_flg
+      /* Name                   */       S173_Subsys_VIPM_EHBCDDActv_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EHB_B_CHA/Subsys_VIPM_EHBCDDActv_flg"
       /begin REF_CHARACTERISTIC
         KIPM_EHBCDDActvDflt_flg
@@ -23448,7 +23573,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S170_Subsys_VIPM_EHBEPBActuatorStR_enum
+      /* Name                   */       S173_Subsys_VIPM_EHBEPBActuatorStR_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EHB_B_CHA/Subsys_VIPM_EHBEPBActuatorStR_enum"
       /begin REF_CHARACTERISTIC
         KIPM_EHBEPBActuatorStRDflt_enum
@@ -23462,7 +23587,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S170_Subsys_VIPM_EHBEPBDynAppSt_enum
+      /* Name                   */       S173_Subsys_VIPM_EHBEPBDynAppSt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EHB_B_CHA/Subsys_VIPM_EHBEPBDynAppSt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_EHBEPBDynAppStDflt_enum
@@ -23476,7 +23601,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S170_Subsys_VIPM_EHBFltLvl_enum
+      /* Name                   */       S173_Subsys_VIPM_EHBFltLvl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EHB_B_CHA/Subsys_VIPM_EHBFltLvl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_EHBFltLvlDflt_enum
@@ -23490,7 +23615,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S170_Subsys_VIPM_EHBReqBrkLiOn_flg
+      /* Name                   */       S173_Subsys_VIPM_EHBReqBrkLiOn_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EHB_B_CHA/Subsys_VIPM_EHBReqBrkLiOn_flg"
       /begin REF_CHARACTERISTIC
         KIPM_EHBReqBrkLiOnDflt_flg
@@ -23504,7 +23629,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S171_Subsys_VIPM_EPSRotSpd_degps
+      /* Name                   */       S174_Subsys_VIPM_EPSRotSpd_degps
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EPS_2_StrWhlAng_CHA/Subsys_VIPM_EPSRotSpd_degps"
       /begin REF_CHARACTERISTIC
         KIPM_EPSRotSpdDflt_degps
@@ -23520,7 +23645,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S171_Subsys_VIPM_EPSSteerWhlAngCald_flg
+      /* Name                   */       S174_Subsys_VIPM_EPSSteerWhlAngCald_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EPS_2_StrWhlAng_CHA/Subsys_VIPM_EPSSteerWhlAngCald_flg"
       /begin REF_CHARACTERISTIC
         KIPM_EPSSteerWhlAngCaldDflt_flg
@@ -23534,7 +23659,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S171_Subsys_VIPM_EPSSteerWhlAngFailr_flg
+      /* Name                   */       S174_Subsys_VIPM_EPSSteerWhlAngFailr_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EPS_2_StrWhlAng_CHA/Subsys_VIPM_EPSSteerWhlAngFailr_flg"
       /begin REF_CHARACTERISTIC
         KIPM_EPSSteerWhlAngFailrDflt_flg
@@ -23548,7 +23673,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S171_Subsys_VIPM_EPSSteerWhlAng_deg
+      /* Name                   */       S174_Subsys_VIPM_EPSSteerWhlAng_deg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_EPS_2_StrWhlAng_CHA/Subsys_VIPM_EPSSteerWhlAng_deg"
       /begin REF_CHARACTERISTIC
         KIPM_EPSSteerWhlAngDflt_deg
@@ -23564,7 +23689,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S172_Subsys_VIPM_ESCABSActvSta_flg
+      /* Name                   */       S175_Subsys_VIPM_ESCABSActvSta_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA/Subsys_VIPM_ESCABSActvSta_flg"
       /begin REF_CHARACTERISTIC
         KIPM_ESCABSActvStaDflt_flg
@@ -23578,7 +23703,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S172_Subsys_VIPM_ESCCDPActv_flg
+      /* Name                   */       S175_Subsys_VIPM_ESCCDPActv_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA/Subsys_VIPM_ESCCDPActv_flg"
       /begin REF_CHARACTERISTIC
         KIPM_ESCCDPActvDflt_flg
@@ -23592,7 +23717,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S172_Subsys_VIPM_ESCEBDActv_flg
+      /* Name                   */       S175_Subsys_VIPM_ESCEBDActv_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA/Subsys_VIPM_ESCEBDActv_flg"
       /begin REF_CHARACTERISTIC
         KIPM_ESCEBDActvDflt_flg
@@ -23606,7 +23731,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S172_Subsys_VIPM_ESCESPActvSta_flg
+      /* Name                   */       S175_Subsys_VIPM_ESCESPActvSta_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA/Subsys_VIPM_ESCESPActvSta_flg"
       /begin REF_CHARACTERISTIC
         KIPM_ESCESPActvStaDflt_flg
@@ -23620,7 +23745,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S172_Subsys_VIPM_ESCESSActv_flg
+      /* Name                   */       S175_Subsys_VIPM_ESCESSActv_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA/Subsys_VIPM_ESCESSActv_flg"
       /begin REF_CHARACTERISTIC
         KIPM_ESCESSActvDflt_flg
@@ -23634,7 +23759,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S172_Subsys_VIPM_ESCFltLvl_enum
+      /* Name                   */       S175_Subsys_VIPM_ESCFltLvl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA/Subsys_VIPM_ESCFltLvl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_ESCFltLvlDflt_enum
@@ -23648,7 +23773,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S172_Subsys_VIPM_ESCReqBrkLghtOn_flg
+      /* Name                   */       S175_Subsys_VIPM_ESCReqBrkLghtOn_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA/Subsys_VIPM_ESCReqBrkLghtOn_flg"
       /begin REF_CHARACTERISTIC
         KIPM_ESCReqBrkLghtOnDflt_flg
@@ -23662,7 +23787,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S172_Subsys_VIPM_ESCSlopPct_pct
+      /* Name                   */       S175_Subsys_VIPM_ESCSlopPct_pct
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA/Subsys_VIPM_ESCSlopPct_pct"
       /begin REF_CHARACTERISTIC
         KIPM_ESCSlopPctDflt_pct
@@ -23678,7 +23803,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S172_Subsys_VIPM_ESCTCSActvSta_flg
+      /* Name                   */       S175_Subsys_VIPM_ESCTCSActvSta_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA/Subsys_VIPM_ESCTCSActvSta_flg"
       /begin REF_CHARACTERISTIC
         KIPM_ESCTCSActvStaDflt_flg
@@ -23692,7 +23817,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S172_Subsys_VIPM_ESCVehSpd_kph
+      /* Name                   */       S175_Subsys_VIPM_ESCVehSpd_kph
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_7_FuncStatus_CHA/Subsys_VIPM_ESCVehSpd_kph"
       /begin REF_CHARACTERISTIC
         KIPM_ESCVehSpdDflt_kph
@@ -23708,7 +23833,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCLatAccSnsrVal_g
+      /* Name                   */       S176_Subsys_VIPM_ESCLatAccSnsrVal_g
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCLatAccSnsrVal_g"
       /begin REF_CHARACTERISTIC
         KIPM_ESCLatAccSnsrValDflt_g
@@ -23724,7 +23849,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCLongAccSnsrVal_g
+      /* Name                   */       S176_Subsys_VIPM_ESCLongAccSnsrVal_g
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCLongAccSnsrVal_g"
       /begin REF_CHARACTERISTIC
         KIPM_ESCLongAccSnsrValDflt_g
@@ -23740,7 +23865,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCMstrCylPresr_bar
+      /* Name                   */       S176_Subsys_VIPM_ESCMstrCylPresr_bar
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCMstrCylPresr_bar"
       /begin REF_CHARACTERISTIC
         KIPM_ESCMstrCylPresrDflt_bar
@@ -23756,7 +23881,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCVehStandStillSta_enum
+      /* Name                   */       S176_Subsys_VIPM_ESCVehStandStillSta_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCVehStandStillSta_enum"
       /begin REF_CHARACTERISTIC
         KIPM_ESCVehStandStillStaDflt_enum
@@ -23770,7 +23895,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlDirctnFL_enum
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlDirctnFL_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlDirctnFL_enum"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlDirctnFLDflt_enum
@@ -23784,7 +23909,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlDirctnFR_enum
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlDirctnFR_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlDirctnFR_enum"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlDirctnFRDflt_enum
@@ -23798,7 +23923,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlDirctnRL_enum
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlDirctnRL_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlDirctnRL_enum"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlDirctnRLDflt_enum
@@ -23812,7 +23937,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlDirctnRR_enum
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlDirctnRR_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlDirctnRR_enum"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlDirctnRRDflt_enum
@@ -23826,7 +23951,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlSpdKphFL_kph
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlSpdKphFL_kph
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlSpdKphFL_kph"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlSpdKphFLDflt_kph
@@ -23842,7 +23967,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlSpdKphFR_kph
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlSpdKphFR_kph
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlSpdKphFR_kph"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlSpdKphFRDflt_kph
@@ -23858,7 +23983,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlSpdKphRL_kph
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlSpdKphRL_kph
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlSpdKphRL_kph"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlSpdKphRLDflt_kph
@@ -23874,7 +23999,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlSpdKphRR_kph
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlSpdKphRR_kph
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlSpdKphRR_kph"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlSpdKphRRDflt_kph
@@ -23890,7 +24015,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlTqDecReqActv_flg
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlTqDecReqActv_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlTqDecReqActv_flg"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlTqDecReqActvDflt_flg
@@ -23904,7 +24029,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlTqDecReqVal_Nm
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlTqDecReqVal_Nm
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlTqDecReqVal_Nm"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlTqDecReqValDflt_Nm
@@ -23920,7 +24045,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlTqIncReqActv_flg
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlTqIncReqActv_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlTqIncReqActv_flg"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlTqIncReqActvDflt_flg
@@ -23934,7 +24059,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCWhlTqIncReqVal_Nm
+      /* Name                   */       S176_Subsys_VIPM_ESCWhlTqIncReqVal_Nm
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCWhlTqIncReqVal_Nm"
       /begin REF_CHARACTERISTIC
         KIPM_ESCWhlTqIncReqValDflt_Nm
@@ -23950,7 +24075,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S173_Subsys_VIPM_ESCYawRate_degps
+      /* Name                   */       S176_Subsys_VIPM_ESCYawRate_degps
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/CHACAN_IN_10ms/Msg_ESC_A_CHA/Subsys_VIPM_ESCYawRate_degps"
       /begin REF_CHARACTERISTIC
         KIPM_ESCYawRateDflt_degps
@@ -23966,7 +24091,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S227_Subsys_VIPM_INV1ActMode_enum
+      /* Name                   */       S230_Subsys_VIPM_INV1ActMode_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_1_Value_EPT/Subsys_VIPM_INV1ActMode_enum"
       /begin REF_CHARACTERISTIC
         KIPM_INV1ActModeDflt_enum
@@ -23980,7 +24105,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S227_Subsys_VIPM_INV1ActTorq_Nm
+      /* Name                   */       S230_Subsys_VIPM_INV1ActTorq_Nm
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_1_Value_EPT/Subsys_VIPM_INV1ActTorq_Nm"
       /begin REF_CHARACTERISTIC
         KIPM_INV1ActTorqDflt_Nm
@@ -23996,7 +24121,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S227_Subsys_VIPM_INV1AntithftAuthRslt_enum
+      /* Name                   */       S230_Subsys_VIPM_INV1AntithftAuthRslt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_1_Value_EPT/Subsys_VIPM_INV1AntithftAuthRslt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_INV1AntithftAuthRsltDflt_enum
@@ -24010,7 +24135,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S227_Subsys_VIPM_INV1MotSpd_rpm
+      /* Name                   */       S230_Subsys_VIPM_INV1MotSpd_rpm
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_1_Value_EPT/Subsys_VIPM_INV1MotSpd_rpm"
       /begin REF_CHARACTERISTIC
         KIPM_INV1MotSpdDflt_rpm
@@ -24026,7 +24151,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S227_Subsys_VIPM_INV1PreChrgAllwd_enum
+      /* Name                   */       S230_Subsys_VIPM_INV1PreChrgAllwd_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_1_Value_EPT/Subsys_VIPM_INV1PreChrgAllwd_enum"
       /begin REF_CHARACTERISTIC
         KIPM_INV1PreChrgAllwdDflt_enum
@@ -24040,7 +24165,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S227_Subsys_VIPM_INV1PreprogmFlg_flg
+      /* Name                   */       S230_Subsys_VIPM_INV1PreprogmFlg_flg
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_1_Value_EPT/Subsys_VIPM_INV1PreprogmFlg_flg"
       /begin REF_CHARACTERISTIC
         KIPM_INV1PreprogmFlgDflt_flg
@@ -24054,7 +24179,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S227_Subsys_VIPM_INV1ShutdownAllwd_enum
+      /* Name                   */       S230_Subsys_VIPM_INV1ShutdownAllwd_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_1_Value_EPT/Subsys_VIPM_INV1ShutdownAllwd_enum"
       /begin REF_CHARACTERISTIC
         KIPM_INV1ShutdownAllwdDflt_enum
@@ -24068,7 +24193,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S228_Subsys_VIPM_INV2IgbtMaxTemp_C
+      /* Name                   */       S231_Subsys_VIPM_INV2IgbtMaxTemp_C
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_2_Value_EPT/Subsys_VIPM_INV2IgbtMaxTemp_C"
       /begin REF_CHARACTERISTIC
         KIPM_INV2IgbtMaxTempDflt_C
@@ -24084,7 +24209,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S228_Subsys_VIPM_INV2InpCurnt_A
+      /* Name                   */       S231_Subsys_VIPM_INV2InpCurnt_A
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_2_Value_EPT/Subsys_VIPM_INV2InpCurnt_A"
       /begin REF_CHARACTERISTIC
         KIPM_INV2InpCurntDflt_A
@@ -24100,7 +24225,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S228_Subsys_VIPM_INV2InpVolt_V
+      /* Name                   */       S231_Subsys_VIPM_INV2InpVolt_V
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_2_Value_EPT/Subsys_VIPM_INV2InpVolt_V"
       /begin REF_CHARACTERISTIC
         KIPM_INV2InpVoltDflt_V
@@ -24116,7 +24241,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S228_Subsys_VIPM_INV2MotorMaxTemp_C
+      /* Name                   */       S231_Subsys_VIPM_INV2MotorMaxTemp_C
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_2_Value_EPT/Subsys_VIPM_INV2MotorMaxTemp_C"
       /begin REF_CHARACTERISTIC
         KIPM_INV2MotorMaxTempDflt_C
@@ -24132,7 +24257,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S229_Subsys_VIPM_INV3DrvTqAllwdMax_Nm
+      /* Name                   */       S232_Subsys_VIPM_INV3DrvTqAllwdMax_Nm
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_3_Value_EPT/Subsys_VIPM_INV3DrvTqAllwdMax_Nm"
       /begin REF_CHARACTERISTIC
         KIPM_INV3DrvTqAllwdMaxDflt_Nm
@@ -24148,7 +24273,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S229_Subsys_VIPM_INV3RecupTqAllwdMax_Nm
+      /* Name                   */       S232_Subsys_VIPM_INV3RecupTqAllwdMax_Nm
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_3_Value_EPT/Subsys_VIPM_INV3RecupTqAllwdMax_Nm"
       /begin REF_CHARACTERISTIC
         KIPM_INV3RecupTqAllwdMaxDflt_Nm
@@ -24164,7 +24289,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S230_Subsys_VIPM_INV4FltLvl_enum
+      /* Name                   */       S233_Subsys_VIPM_INV4FltLvl_enum
       /* Long identifier        */       "AppSwcIpm/Ipm10ms/EPTCAN_IN_10ms/Msg_INV_4_Value_EPT/Subsys_VIPM_INV4FltLvl_enum"
       /begin REF_CHARACTERISTIC
         KIPM_INV4FltLvlDflt_enum
@@ -24178,7 +24303,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S255_Subsys_VIPM_SCSGrShftLvrPstnReq_enum
+      /* Name                   */       S258_Subsys_VIPM_SCSGrShftLvrPstnReq_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/BodCAN_IN_20ms/Msg_SCS_RiSwitchSts_BOD/Subsys_VIPM_SCSGrShftLvrPstnReq_enum"
       /begin REF_CHARACTERISTIC
         KIPM_SCSGrShftLvrPstnReqDflt_enum
@@ -24192,7 +24317,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S255_Subsys_VIPM_SCSRght11Sw_flg
+      /* Name                   */       S258_Subsys_VIPM_SCSRght11Sw_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/BodCAN_IN_20ms/Msg_SCS_RiSwitchSts_BOD/Subsys_VIPM_SCSRght11Sw_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSRght11SwDflt_flg
@@ -24206,7 +24331,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S255_Subsys_VIPM_SCSRght12Sw_flg
+      /* Name                   */       S258_Subsys_VIPM_SCSRght12Sw_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/BodCAN_IN_20ms/Msg_SCS_RiSwitchSts_BOD/Subsys_VIPM_SCSRght12Sw_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSRght12SwDflt_flg
@@ -24220,7 +24345,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S255_Subsys_VIPM_SCSRght13Sw_flg
+      /* Name                   */       S258_Subsys_VIPM_SCSRght13Sw_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/BodCAN_IN_20ms/Msg_SCS_RiSwitchSts_BOD/Subsys_VIPM_SCSRght13Sw_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSRght13SwDflt_flg
@@ -24234,7 +24359,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S255_Subsys_VIPM_SCSRghtSwVldty_flg
+      /* Name                   */       S258_Subsys_VIPM_SCSRghtSwVldty_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/BodCAN_IN_20ms/Msg_SCS_RiSwitchSts_BOD/Subsys_VIPM_SCSRghtSwVldty_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSRghtSwVldtyDflt_flg
@@ -24248,7 +24373,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S261_Subsys_VIPM_CRRRBSDWarnLt_enum
+      /* Name                   */       S264_Subsys_VIPM_CRRRBSDWarnLt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_CRRR_A_CHA/Subsys_VIPM_CRRRBSDWarnLt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_CRRRBSDWarnLtDflt_enum
@@ -24262,7 +24387,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S261_Subsys_VIPM_CRRRBSDWarnRt_enum
+      /* Name                   */       S264_Subsys_VIPM_CRRRBSDWarnRt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_CRRR_A_CHA/Subsys_VIPM_CRRRBSDWarnRt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_CRRRBSDWarnRtDflt_enum
@@ -24276,7 +24401,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S261_Subsys_VIPM_CRRRDOWWarnLt_enum
+      /* Name                   */       S264_Subsys_VIPM_CRRRDOWWarnLt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_CRRR_A_CHA/Subsys_VIPM_CRRRDOWWarnLt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_CRRRDOWWarnLtDflt_enum
@@ -24290,7 +24415,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S261_Subsys_VIPM_CRRRDOWWarnRt_enum
+      /* Name                   */       S264_Subsys_VIPM_CRRRDOWWarnRt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_CRRR_A_CHA/Subsys_VIPM_CRRRDOWWarnRt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_CRRRDOWWarnRtDflt_enum
@@ -24304,7 +24429,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S261_Subsys_VIPM_CRRRRCTAWarnLt_enum
+      /* Name                   */       S264_Subsys_VIPM_CRRRRCTAWarnLt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_CRRR_A_CHA/Subsys_VIPM_CRRRRCTAWarnLt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_CRRRRCTAWarnLtDflt_enum
@@ -24318,7 +24443,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S261_Subsys_VIPM_CRRRRCTAWarnRt_enum
+      /* Name                   */       S264_Subsys_VIPM_CRRRRCTAWarnRt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_CRRR_A_CHA/Subsys_VIPM_CRRRRCTAWarnRt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_CRRRRCTAWarnRtDflt_enum
@@ -24332,7 +24457,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S262_Subsys_VIPM_EHBAVHAppldSt_enum
+      /* Name                   */       S265_Subsys_VIPM_EHBAVHAppldSt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_EHB_A_CHA/Subsys_VIPM_EHBAVHAppldSt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_EHBAVHAppldStDflt_enum
@@ -24346,7 +24471,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S262_Subsys_VIPM_EHBBLA_flg
+      /* Name                   */       S265_Subsys_VIPM_EHBBLA_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_EHB_A_CHA/Subsys_VIPM_EHBBLA_flg"
       /begin REF_CHARACTERISTIC
         KIPM_EHBBLADflt_flg
@@ -24360,7 +24485,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S262_Subsys_VIPM_EHBEPBActuatorStL_enum
+      /* Name                   */       S265_Subsys_VIPM_EHBEPBActuatorStL_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_EHB_A_CHA/Subsys_VIPM_EHBEPBActuatorStL_enum"
       /begin REF_CHARACTERISTIC
         KIPM_EHBEPBActuatorStLDflt_enum
@@ -24374,7 +24499,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S262_Subsys_VIPM_EHBEPBSwitchSts_enum
+      /* Name                   */       S265_Subsys_VIPM_EHBEPBSwitchSts_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_EHB_A_CHA/Subsys_VIPM_EHBEPBSwitchSts_enum"
       /begin REF_CHARACTERISTIC
         KIPM_EHBEPBSwitchStsDflt_enum
@@ -24388,7 +24513,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S262_Subsys_VIPM_EHBEPBSysSt_enum
+      /* Name                   */       S265_Subsys_VIPM_EHBEPBSysSt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_EHB_A_CHA/Subsys_VIPM_EHBEPBSysSt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_EHBEPBSysStDflt_enum
@@ -24402,7 +24527,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S262_Subsys_VIPM_EHBHDCFucFault_flg
+      /* Name                   */       S265_Subsys_VIPM_EHBHDCFucFault_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_EHB_A_CHA/Subsys_VIPM_EHBHDCFucFault_flg"
       /begin REF_CHARACTERISTIC
         KIPM_EHBHDCFucFaultDflt_flg
@@ -24416,7 +24541,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMACCSdnMode_enum
+      /* Name                   */       S266_Subsys_VIPM_FCMACCSdnMode_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMACCSdnMode_enum"
       /begin REF_CHARACTERISTIC
         KIPM_FCMACCSdnModeDflt_enum
@@ -24430,7 +24555,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMACCWhlDece_mps2
+      /* Name                   */       S266_Subsys_VIPM_FCMACCWhlDece_mps2
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMACCWhlDece_mps2"
       /begin REF_CHARACTERISTIC
         KIPM_FCMACCWhlDeceDflt_mps2
@@ -24446,7 +24571,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMACCWhlTqReqActv_flg
+      /* Name                   */       S266_Subsys_VIPM_FCMACCWhlTqReqActv_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMACCWhlTqReqActv_flg"
       /begin REF_CHARACTERISTIC
         KIPM_FCMACCWhlTqReqActvDflt_flg
@@ -24460,7 +24585,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMACCWhlTqReqVal_Nm
+      /* Name                   */       S266_Subsys_VIPM_FCMACCWhlTqReqVal_Nm
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMACCWhlTqReqVal_Nm"
       /begin REF_CHARACTERISTIC
         KIPM_FCMACCWhlTqReqValDflt_Nm
@@ -24476,7 +24601,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMAEBReq_flg
+      /* Name                   */       S266_Subsys_VIPM_FCMAEBReq_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMAEBReq_flg"
       /begin REF_CHARACTERISTIC
         KIPM_FCMAEBReqDflt_flg
@@ -24490,7 +24615,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMAccMode_enum
+      /* Name                   */       S266_Subsys_VIPM_FCMAccMode_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMAccMode_enum"
       /begin REF_CHARACTERISTIC
         KIPM_FCMAccModeDflt_enum
@@ -24504,7 +24629,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMAccReqDriveOff_flg
+      /* Name                   */       S266_Subsys_VIPM_FCMAccReqDriveOff_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMAccReqDriveOff_flg"
       /begin REF_CHARACTERISTIC
         KIPM_FCMAccReqDriveOffDflt_flg
@@ -24518,7 +24643,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMAccReqStandstill_flg
+      /* Name                   */       S266_Subsys_VIPM_FCMAccReqStandstill_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMAccReqStandstill_flg"
       /begin REF_CHARACTERISTIC
         KIPM_FCMAccReqStandstillDflt_flg
@@ -24532,7 +24657,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMAccTarAccrnReqActv_flg
+      /* Name                   */       S266_Subsys_VIPM_FCMAccTarAccrnReqActv_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMAccTarAccrnReqActv_flg"
       /begin REF_CHARACTERISTIC
         KIPM_FCMAccTarAccrnReqActvDflt_flg
@@ -24546,7 +24671,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMAccTarAccrn_mps2
+      /* Name                   */       S266_Subsys_VIPM_FCMAccTarAccrn_mps2
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMAccTarAccrn_mps2"
       /begin REF_CHARACTERISTIC
         KIPM_FCMAccTarAccrnDflt_mps2
@@ -24562,7 +24687,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMAccTgtAxReq_flg
+      /* Name                   */       S266_Subsys_VIPM_FCMAccTgtAxReq_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMAccTgtAxReq_flg"
       /begin REF_CHARACTERISTIC
         KIPM_FCMAccTgtAxReqDflt_flg
@@ -24576,7 +24701,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMAccTgtAx_mps2
+      /* Name                   */       S266_Subsys_VIPM_FCMAccTgtAx_mps2
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMAccTgtAx_mps2"
       /begin REF_CHARACTERISTIC
         KIPM_FCMAccTgtAxDflt_mps2
@@ -24592,7 +24717,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMEPBReq_enum
+      /* Name                   */       S266_Subsys_VIPM_FCMEPBReq_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMEPBReq_enum"
       /begin REF_CHARACTERISTIC
         KIPM_FCMEPBReqDflt_enum
@@ -24606,7 +24731,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S263_Subsys_VIPM_FCMTrnLampReq_enum
+      /* Name                   */       S266_Subsys_VIPM_FCMTrnLampReq_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/ChaCAN_IN_20ms/Msg_FCM_B_CHA/Subsys_VIPM_FCMTrnLampReq_enum"
       /begin REF_CHARACTERISTIC
         KIPM_FCMTrnLampReqDflt_enum
@@ -24620,7 +24745,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S294_Subsys_VIPM_BMSDCSActOprtMode_enum
+      /* Name                   */       S297_Subsys_VIPM_BMSDCSActOprtMode_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_10_DC_ChargeStates_EPT/Subsys_VIPM_BMSDCSActOprtMode_enum"
       /begin REF_CHARACTERISTIC
         KIPM_BMSDCSActOprtModeDflt_enum
@@ -24634,7 +24759,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S294_Subsys_VIPM_BMSDCSInletConnectSta_flg
+      /* Name                   */       S297_Subsys_VIPM_BMSDCSInletConnectSta_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_10_DC_ChargeStates_EPT/Subsys_VIPM_BMSDCSInletConnectSta_flg"
       /begin REF_CHARACTERISTIC
         KIPM_BMSDCSInletConnectStaDflt_flg
@@ -24648,7 +24773,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S295_Subsys_VIPM_BMSActExchgCurnt_A
+      /* Name                   */       S298_Subsys_VIPM_BMSActExchgCurnt_A
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_1_MainState_EPT/Subsys_VIPM_BMSActExchgCurnt_A"
       /begin REF_CHARACTERISTIC
         KIPM_BMSActExchgCurntDflt_A
@@ -24664,7 +24789,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S295_Subsys_VIPM_BMSChrgInterlockSta_enum
+      /* Name                   */       S298_Subsys_VIPM_BMSChrgInterlockSta_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_1_MainState_EPT/Subsys_VIPM_BMSChrgInterlockSta_enum"
       /begin REF_CHARACTERISTIC
         KIPM_BMSChrgInterlockStaDflt_enum
@@ -24678,7 +24803,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S295_Subsys_VIPM_BMSDchrgInterlockSta_enum
+      /* Name                   */       S298_Subsys_VIPM_BMSDchrgInterlockSta_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_1_MainState_EPT/Subsys_VIPM_BMSDchrgInterlockSta_enum"
       /begin REF_CHARACTERISTIC
         KIPM_BMSDchrgInterlockStaDflt_enum
@@ -24692,7 +24817,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S295_Subsys_VIPM_BMSEmgcySdnReq_flg
+      /* Name                   */       S298_Subsys_VIPM_BMSEmgcySdnReq_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_1_MainState_EPT/Subsys_VIPM_BMSEmgcySdnReq_flg"
       /begin REF_CHARACTERISTIC
         KIPM_BMSEmgcySdnReqDflt_flg
@@ -24706,7 +24831,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S295_Subsys_VIPM_BMSPwrTrainConnectSta_enum
+      /* Name                   */       S298_Subsys_VIPM_BMSPwrTrainConnectSta_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_1_MainState_EPT/Subsys_VIPM_BMSPwrTrainConnectSta_enum"
       /begin REF_CHARACTERISTIC
         KIPM_BMSPwrTrainConnectStaDflt_enum
@@ -24720,7 +24845,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S295_Subsys_VIPM_BMSRunSta_enum
+      /* Name                   */       S298_Subsys_VIPM_BMSRunSta_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_1_MainState_EPT/Subsys_VIPM_BMSRunSta_enum"
       /begin REF_CHARACTERISTIC
         KIPM_BMSRunStaDflt_enum
@@ -24734,7 +24859,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S295_Subsys_VIPM_BMSSysFailSta_enum
+      /* Name                   */       S298_Subsys_VIPM_BMSSysFailSta_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_1_MainState_EPT/Subsys_VIPM_BMSSysFailSta_enum"
       /begin REF_CHARACTERISTIC
         KIPM_BMSSysFailStaDflt_enum
@@ -24748,7 +24873,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S295_Subsys_VIPM_BMSThermrunawayWrn_enum
+      /* Name                   */       S298_Subsys_VIPM_BMSThermrunawayWrn_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_1_MainState_EPT/Subsys_VIPM_BMSThermrunawayWrn_enum"
       /begin REF_CHARACTERISTIC
         KIPM_BMSThermrunawayWrnDflt_enum
@@ -24762,7 +24887,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S296_Subsys_VIPM_BMSBatSOCAct_pct
+      /* Name                   */       S299_Subsys_VIPM_BMSBatSOCAct_pct
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_2_BatState_EPT/Subsys_VIPM_BMSBatSOCAct_pct"
       /begin REF_CHARACTERISTIC
         KIPM_BMSBatSOCActDflt_pct
@@ -24778,7 +24903,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S296_Subsys_VIPM_BMSBatSOCRpt_pct
+      /* Name                   */       S299_Subsys_VIPM_BMSBatSOCRpt_pct
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_2_BatState_EPT/Subsys_VIPM_BMSBatSOCRpt_pct"
       /begin REF_CHARACTERISTIC
         KIPM_BMSBatSOCRptDflt_pct
@@ -24794,7 +24919,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S296_Subsys_VIPM_BMSBatSOH_pct
+      /* Name                   */       S299_Subsys_VIPM_BMSBatSOH_pct
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_2_BatState_EPT/Subsys_VIPM_BMSBatSOH_pct"
       /begin REF_CHARACTERISTIC
         KIPM_BMSBatSOHDflt_pct
@@ -24810,7 +24935,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S296_Subsys_VIPM_BMSHVBatActVolt_V
+      /* Name                   */       S299_Subsys_VIPM_BMSHVBatActVolt_V
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_2_BatState_EPT/Subsys_VIPM_BMSHVBatActVolt_V"
       /begin REF_CHARACTERISTIC
         KIPM_BMSHVBatActVoltDflt_V
@@ -24826,7 +24951,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S297_Subsys_VIPM_BMSDCSChrgReq_flg
+      /* Name                   */       S300_Subsys_VIPM_BMSDCSChrgReq_flg
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_3_DC_ChargeState_EPT/Subsys_VIPM_BMSDCSChrgReq_flg"
       /begin REF_CHARACTERISTIC
         KIPM_BMSDCSChrgReqDflt_flg
@@ -24840,7 +24965,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S298_Subsys_VIPM_BMSACChrgAtclSta_enum
+      /* Name                   */       S301_Subsys_VIPM_BMSACChrgAtclSta_enum
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_4_AC_ChargeState_EPT/Subsys_VIPM_BMSACChrgAtclSta_enum"
       /begin REF_CHARACTERISTIC
         KIPM_BMSACChrgAtclStaDflt_enum
@@ -24854,7 +24979,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S298_Subsys_VIPM_BMSInletCooltActlTemp_C
+      /* Name                   */       S301_Subsys_VIPM_BMSInletCooltActlTemp_C
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_4_AC_ChargeState_EPT/Subsys_VIPM_BMSInletCooltActlTemp_C"
       /begin REF_CHARACTERISTIC
         KIPM_BMSInletCooltActlTempDflt_C
@@ -24870,7 +24995,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S298_Subsys_VIPM_BMSIsoResist_MOhm
+      /* Name                   */       S301_Subsys_VIPM_BMSIsoResist_MOhm
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_4_AC_ChargeState_EPT/Subsys_VIPM_BMSIsoResist_MOhm"
       /begin REF_CHARACTERISTIC
         KIPM_BMSIsoResistDflt_MOhm
@@ -24886,7 +25011,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S298_Subsys_VIPM_BMSMaxChrgCurntAC_A
+      /* Name                   */       S301_Subsys_VIPM_BMSMaxChrgCurntAC_A
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_4_AC_ChargeState_EPT/Subsys_VIPM_BMSMaxChrgCurntAC_A"
       /begin REF_CHARACTERISTIC
         KIPM_BMSMaxChrgCurntACDflt_A
@@ -24902,7 +25027,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S298_Subsys_VIPM_BMSMaxChrgVoltAC_V
+      /* Name                   */       S301_Subsys_VIPM_BMSMaxChrgVoltAC_V
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_4_AC_ChargeState_EPT/Subsys_VIPM_BMSMaxChrgVoltAC_V"
       /begin REF_CHARACTERISTIC
         KIPM_BMSMaxChrgVoltACDflt_V
@@ -24918,7 +25043,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S298_Subsys_VIPM_BMSOutlCooltActlTemp_C
+      /* Name                   */       S301_Subsys_VIPM_BMSOutlCooltActlTemp_C
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_4_AC_ChargeState_EPT/Subsys_VIPM_BMSOutlCooltActlTemp_C"
       /begin REF_CHARACTERISTIC
         KIPM_BMSOutlCooltActlTempDflt_C
@@ -24934,7 +25059,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S299_Subsys_VIPM_BMSMaxConChrgCurnt_A
+      /* Name                   */       S302_Subsys_VIPM_BMSMaxConChrgCurnt_A
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_6_DischrgRecup_EPT/Subsys_VIPM_BMSMaxConChrgCurnt_A"
       /begin REF_CHARACTERISTIC
         KIPM_BMSMaxConChrgCurntDflt_A
@@ -24950,7 +25075,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S299_Subsys_VIPM_BMSMaxConDisCurnt_A
+      /* Name                   */       S302_Subsys_VIPM_BMSMaxConDisCurnt_A
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_6_DischrgRecup_EPT/Subsys_VIPM_BMSMaxConDisCurnt_A"
       /begin REF_CHARACTERISTIC
         KIPM_BMSMaxConDisCurntDflt_A
@@ -24966,7 +25091,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S299_Subsys_VIPM_BMSMaxInsChrgCurnt_A
+      /* Name                   */       S302_Subsys_VIPM_BMSMaxInsChrgCurnt_A
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_6_DischrgRecup_EPT/Subsys_VIPM_BMSMaxInsChrgCurnt_A"
       /begin REF_CHARACTERISTIC
         KIPM_BMSMaxInsChrgCurntDflt_A
@@ -24982,7 +25107,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S299_Subsys_VIPM_BMSMaxInsDisCurnt_A
+      /* Name                   */       S302_Subsys_VIPM_BMSMaxInsDisCurnt_A
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_6_DischrgRecup_EPT/Subsys_VIPM_BMSMaxInsDisCurnt_A"
       /begin REF_CHARACTERISTIC
         KIPM_BMSMaxInsDisCurntDflt_A
@@ -24998,7 +25123,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S300_Subsys_VIPM_BMSCellVoltMax_mV
+      /* Name                   */       S303_Subsys_VIPM_BMSCellVoltMax_mV
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_7_CellVolt_EPT/Subsys_VIPM_BMSCellVoltMax_mV"
       /begin REF_CHARACTERISTIC
         KIPM_BMSCellVoltMaxDflt_mV
@@ -25014,7 +25139,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S300_Subsys_VIPM_BMSCellVoltMin_mV
+      /* Name                   */       S303_Subsys_VIPM_BMSCellVoltMin_mV
       /* Long identifier        */       "AppSwcIpm/Ipm20ms/EptCAN_IN_20ms/Msg_BMS_7_CellVolt_EPT/Subsys_VIPM_BMSCellVoltMin_mV"
       /begin REF_CHARACTERISTIC
         KIPM_BMSCellVoltMinDflt_mV
@@ -25030,7 +25155,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPACAutoKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPACAutoKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPACAutoKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPACAutoKeyDflt_flg
@@ -25044,7 +25169,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPACSwKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPACSwKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPACSwKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPACSwKeyDflt_flg
@@ -25058,7 +25183,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPAVASOffKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPAVASOffKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPAVASOffKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPAVASOffKeyDflt_flg
@@ -25072,7 +25197,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPAVHKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPAVHKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPAVHKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPAVHKeyDflt_flg
@@ -25086,7 +25211,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPAirInletModeKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPAirInletModeKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPAirInletModeKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPAirInletModeKeyDflt_flg
@@ -25100,7 +25225,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPBlwngModeNextKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPBlwngModeNextKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPBlwngModeNextKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPBlwngModeNextKeyDflt_flg
@@ -25114,7 +25239,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPBlwngModePrevKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPBlwngModePrevKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPBlwngModePrevKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPBlwngModePrevKeyDflt_flg
@@ -25128,7 +25253,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPBlwrLvlAddKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPBlwrLvlAddKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPBlwrLvlAddKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPBlwrLvlAddKeyDflt_flg
@@ -25142,7 +25267,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPBlwrLvlDecKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPBlwrLvlDecKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPBlwrLvlDecKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPBlwrLvlDecKeyDflt_flg
@@ -25156,7 +25281,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPCenLckKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPCenLckKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPCenLckKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPCenLckKeyDflt_flg
@@ -25170,7 +25295,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPESCOffKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPESCOffKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPESCOffKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPESCOffKeyDflt_flg
@@ -25184,7 +25309,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPFrntWindDefrstKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPFrntWindDefrstKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPFrntWindDefrstKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPFrntWindDefrstKeyDflt_flg
@@ -25198,7 +25323,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPHDCKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPHDCKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPHDCKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPHDCKeyDflt_flg
@@ -25212,7 +25337,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPHzrdKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPHzrdKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPHzrdKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPHzrdKeyDflt_flg
@@ -25226,7 +25351,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPModeKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPModeKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPModeKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPModeKeyDflt_flg
@@ -25240,7 +25365,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPPwrRecupLvlKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPPwrRecupLvlKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPPwrRecupLvlKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPPwrRecupLvlKeyDflt_flg
@@ -25254,7 +25379,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPRrViewMirrHeatgKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPRrViewMirrHeatgKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPRrViewMirrHeatgKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPRrViewMirrHeatgKeyDflt_flg
@@ -25268,7 +25393,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPTPMSKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPTPMSKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPTPMSKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPTPMSKeyDflt_flg
@@ -25282,7 +25407,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPTempAddKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPTempAddKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPTempAddKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPTempAddKeyDflt_flg
@@ -25296,7 +25421,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S344_Subsys_VIPM_CCPTempDecKey_flg
+      /* Name                   */       S347_Subsys_VIPM_CCPTempDecKey_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_CCP_PanelStatus_BOD/Subsys_VIPM_CCPTempDecKey_flg"
       /begin REF_CHARACTERISTIC
         KIPM_CCPTempDecKeyDflt_flg
@@ -25310,7 +25435,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S345_Subsys_VIPM_ESCLUnOrLockfeedback_nu
+      /* Name                   */       S348_Subsys_VIPM_ESCLUnOrLockfeedback_nu
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_ESCL_ESCLStatus_BOD/Subsys_VIPM_ESCLUnOrLockfeedback_nu"
       /begin REF_CHARACTERISTIC
         KIPM_ESCLUnOrLockfeedback_nu_ovrdflg
@@ -25321,7 +25446,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S346_Subsys_VIPM_SCSFrntWiprSwtSt_enum
+      /* Name                   */       S349_Subsys_VIPM_SCSFrntWiprSwtSt_enum
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_SCS_LeSwitchSts_BOD/Subsys_VIPM_SCSFrntWiprSwtSt_enum"
       /begin REF_CHARACTERISTIC
         KIPM_SCSFrntWiprSwtStDflt_enum
@@ -25335,7 +25460,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S346_Subsys_VIPM_SCSFrntWshrSwtSt_flg
+      /* Name                   */       S349_Subsys_VIPM_SCSFrntWshrSwtSt_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_SCS_LeSwitchSts_BOD/Subsys_VIPM_SCSFrntWshrSwtSt_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSFrntWshrSwtStDflt_flg
@@ -25349,7 +25474,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S346_Subsys_VIPM_SCSHiBeamSwSt_flg
+      /* Name                   */       S349_Subsys_VIPM_SCSHiBeamSwSt_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_SCS_LeSwitchSts_BOD/Subsys_VIPM_SCSHiBeamSwSt_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSHiBeamSwStDflt_flg
@@ -25363,7 +25488,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S346_Subsys_VIPM_SCSLampAutoSt_flg
+      /* Name                   */       S349_Subsys_VIPM_SCSLampAutoSt_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_SCS_LeSwitchSts_BOD/Subsys_VIPM_SCSLampAutoSt_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSLampAutoStDflt_flg
@@ -25377,7 +25502,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S346_Subsys_VIPM_SCSLeTrnLmpSwSt_flg
+      /* Name                   */       S349_Subsys_VIPM_SCSLeTrnLmpSwSt_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_SCS_LeSwitchSts_BOD/Subsys_VIPM_SCSLeTrnLmpSwSt_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSLeTrnLmpSwStDflt_flg
@@ -25391,7 +25516,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S346_Subsys_VIPM_SCSLoBeamSwSt_flg
+      /* Name                   */       S349_Subsys_VIPM_SCSLoBeamSwSt_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_SCS_LeSwitchSts_BOD/Subsys_VIPM_SCSLoBeamSwSt_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSLoBeamSwStDflt_flg
@@ -25405,7 +25530,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S346_Subsys_VIPM_SCSOvrVehBeamSwSt_flg
+      /* Name                   */       S349_Subsys_VIPM_SCSOvrVehBeamSwSt_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_SCS_LeSwitchSts_BOD/Subsys_VIPM_SCSOvrVehBeamSwSt_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSOvrVehBeamSwStDflt_flg
@@ -25419,7 +25544,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S346_Subsys_VIPM_SCSPstnLghtSwSt_flg
+      /* Name                   */       S349_Subsys_VIPM_SCSPstnLghtSwSt_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_SCS_LeSwitchSts_BOD/Subsys_VIPM_SCSPstnLghtSwSt_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSPstnLghtSwStDflt_flg
@@ -25433,7 +25558,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S346_Subsys_VIPM_SCSRiTrnLmpSwSt_flg
+      /* Name                   */       S349_Subsys_VIPM_SCSRiTrnLmpSwSt_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/BodCAN_IN_50ms/Msg_SCS_LeSwitchSts_BOD/Subsys_VIPM_SCSRiTrnLmpSwSt_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SCSRiTrnLmpSwStDflt_flg
@@ -25447,7 +25572,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S377_Subsys_VIPM_SRSCrashOutputSts_enum
+      /* Name                   */       S380_Subsys_VIPM_SRSCrashOutputSts_enum
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/CHACAN_IN_50ms/Msg_SRS_1_Status_CHA/Subsys_VIPM_SRSCrashOutputSts_enum"
       /begin REF_CHARACTERISTIC
         KIPM_SRSCrashOutputStsDflt_enum
@@ -25461,7 +25586,7 @@ ASAP2_VERSION  1 31   /* Version 1.31 */
     /end GROUP
     
     /begin GROUP
-      /* Name                   */       S377_Subsys_VIPM_SRSDrvSeatbeltBkld_flg
+      /* Name                   */       S380_Subsys_VIPM_SRSDrvSeatbeltBkld_flg
       /* Long identifier        */       "AppSwcIpm/Ipm50ms/CHACAN_IN_50ms/Msg_SRS_1_Status_CHA/Subsys_VIPM_SRSDrvSeatbeltBkld_flg"
       /begin REF_CHARACTERISTIC
         KIPM_SRSDrvSeatbeltBkldDflt_flg

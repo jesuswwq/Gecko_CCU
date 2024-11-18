@@ -70,7 +70,7 @@ int I2c_get_initstate(I2c_adap_dev_t *adap)
 int I2c_transfer(I2c_adap_dev_t *adap, struct I2c_msg *msgs, int num)
 {
 
-    int ret = 0, try = 0;
+    int ret = 1, try = 0;
     boolean busyFlag = FALSE;
 
     if ((NULL_PTR == adap) || (NULL_PTR == msgs) || (num < 1) || (num > SDRV_I2C_MSG_NUM_MAX)) {
@@ -110,6 +110,7 @@ int I2c_transfer(I2c_adap_dev_t *adap, struct I2c_msg *msgs, int num)
     }
             else
         {
+            //while(adap->adap_State == I2C_ADAP_BUSY)
             ret = 1;
         }
     return ret;

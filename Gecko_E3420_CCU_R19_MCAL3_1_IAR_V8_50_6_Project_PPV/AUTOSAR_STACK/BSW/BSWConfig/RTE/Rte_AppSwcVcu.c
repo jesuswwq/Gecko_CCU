@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-28 18:09:26>
+ *  @date       <2024-11-14 16:59:32>
  */
 /*============================================================================*/
 
@@ -109,6 +109,7 @@ static void Rte_PRE_Runbl_DAG_20ms(void)
         SuspendAllInterrupts();
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcVcu.Runbl_DAG_20ms_CANCommCRCFlt_outputs_CANCommCRCFlt_outputs->value), (uint8*)&Rte_Buf_Runbl_DAG_20ms_CANCommCRCFlt_outputs_CANCommCRCFlt_outputs, sizeof(DT_CANCommCRCFlt));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcVcu.Runbl_DAG_20ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD->value), (uint8*)&Rte_Buf_Runbl_DAG_20ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD, sizeof(DT_IPM_COMP_AC_BOD));
+        rte_memcpy((uint8*)&(Rte_Inst_AppSwcVcu.Runbl_DAG_20ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC->value), (uint8*)&Rte_Buf_Runbl_DAG_20ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC, sizeof(DT_IPM_ICU_2_Odo_BAC));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcVcu.Runbl_DAG_20ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC->value), (uint8*)&Rte_Buf_Runbl_DAG_20ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC, sizeof(DT_IPM_TBOX_BJS_Time_BAC));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_DAG_20ms_CANCommErr_outputs, (uint8*)&Irv_AppSwcVcu_CANCommErr_outputs, sizeof(DT_CANCommErr));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_DAG_20ms_GSM_outputs, (uint8*)&Irv_AppSwcVcu_GSM_outputs, sizeof(GSM_outputs));
@@ -136,6 +137,7 @@ static void Rte_PRE_Runbl_DAG_20ms(void)
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_SRS_1_Status_CHA, (uint8*)&Irv_AppSwcVcu_IPM_SRS_1_Status_CHA, sizeof(DT_IPM_SRS_1_Status_CHA));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_DAG_20ms_MsgActv_outputs, (uint8*)&Irv_AppSwcVcu_MsgActv_outputs, sizeof(DT_MsgActv));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_DAG_20ms_SIBS_Output, (uint8*)&Irv_AppSwcVcu_SIBS_Output, sizeof(DT_SIBS_Output));
+        rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_DAG_20ms_TBOX_outputs, (uint8*)&Irv_AppSwcVcu_TBOX_outputs, sizeof(TBOX_outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_DAG_20ms_VTM_outputs, (uint8*)&Irv_AppSwcVcu_VTM_outputs, sizeof(VTM_outputs));
         ResumeAllInterrupts();
     }
@@ -170,6 +172,7 @@ static void Rte_PRE_Runbl_EMS_20ms(void)
     if (RteInitState == RTE_INITED)
     {
         SuspendAllInterrupts();
+        rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_EMS_20ms_Bcm2VcuTms_outputs, (uint8*)&Irv_AppSwcVcu_Bcm2VcuTms_outputs, sizeof(DT_Bcm2VcuTms_outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_EMS_20ms_DAG_FltActn_outputs, (uint8*)&Irv_AppSwcVcu_DAG_FltActn_outputs, sizeof(DAG_FltActn_outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_EMS_20ms_HVM_outputs, (uint8*)&Irv_AppSwcVcu_HVM_outputs, sizeof(HVM_outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_BMS_10_DC_ChargeStates_EPT, (uint8*)&Irv_AppSwcVcu_IPM_BMS_10_DC_ChargeStates_EPT, sizeof(DT_IPM_BMS_10_DC_ChargeStates_EPT));
@@ -181,6 +184,7 @@ static void Rte_PRE_Runbl_EMS_20ms(void)
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_BMS_9_BattInfo_EPT, (uint8*)&Irv_AppSwcVcu_IPM_BMS_9_BattInfo_EPT, sizeof(DT_IPM_BMS_9_BattInfo_EPT));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_IPU_DCC_2_ChrgInValue_EPT, (uint8*)&Irv_AppSwcVcu_IPM_IPU_DCC_2_ChrgInValue_EPT, sizeof(DT_IPM_IPU_DCC_2_ChrgInValue_EPT));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_EMS_20ms_IPM_IPU_OBC_1_State_EPT, (uint8*)&Irv_AppSwcVcu_IPM_IPU_OBC_1_State_EPT, sizeof(DT_IPM_IPU_OBC_1_State_EPT));
+        rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_EMS_20ms_TBOX_outputs, (uint8*)&Irv_AppSwcVcu_TBOX_outputs, sizeof(TBOX_outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_EMS_20ms_TMS2VCU_AC_2_State_Outputs, (uint8*)&Irv_AppSwcVcu_TMS2VCU_AC_2_State_Outputs, sizeof(TMS2VCU_AC_2_State_Outputs));
         ResumeAllInterrupts();
     }
@@ -270,6 +274,7 @@ static void Rte_PRE_Runbl_HVM_20ms(void)
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_IPU_DCC_2_ChrgInValue_EPT, (uint8*)&Irv_AppSwcVcu_IPM_IPU_DCC_2_ChrgInValue_EPT, sizeof(DT_IPM_IPU_DCC_2_ChrgInValue_EPT));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_IPU_OBC_1_State_EPT, (uint8*)&Irv_AppSwcVcu_IPM_IPU_OBC_1_State_EPT, sizeof(DT_IPM_IPU_OBC_1_State_EPT));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_IPU_OBC_2_Inlet_EPT, (uint8*)&Irv_AppSwcVcu_IPM_IPU_OBC_2_Inlet_EPT, sizeof(DT_IPM_IPU_OBC_2_Inlet_EPT));
+        rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_HVM_20ms_NVM_outputs, (uint8*)&Irv_AppSwcVcu_NVM_outputs, sizeof(NVM_outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_HVM_20ms_SIBS_Output, (uint8*)&Irv_AppSwcVcu_SIBS_Output, sizeof(DT_SIBS_Output));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_HVM_20ms_TMS2VCU_AC_2_State_Outputs, (uint8*)&Irv_AppSwcVcu_TMS2VCU_AC_2_State_Outputs, sizeof(TMS2VCU_AC_2_State_Outputs));
         ResumeAllInterrupts();
@@ -353,10 +358,13 @@ static void Rte_PRE_Runbl_TBOX_100ms(void)
     if (RteInitState == RTE_INITED)
     {
         SuspendAllInterrupts();
+        rte_memcpy((uint8*)&(Rte_Inst_AppSwcVcu.Runbl_TBOX_100ms_TMS2VCU_PPV_outputs_TMS2VCU_PPV_outputs->value), (uint8*)&Rte_Buf_Runbl_TBOX_100ms_TMS2VCU_PPV_outputs_TMS2VCU_PPV_outputs, sizeof(TMS2VCU_PPVAddSignalGroup_Outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_TBOX_100ms_Bcm2VcuTms_outputs, (uint8*)&Irv_AppSwcVcu_Bcm2VcuTms_outputs, sizeof(DT_Bcm2VcuTms_outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_TBOX_100ms_CANCommErr_outputs, (uint8*)&Irv_AppSwcVcu_CANCommErr_outputs, sizeof(DT_CANCommErr));
+        rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_TBOX_100ms_HVM_outputs, (uint8*)&Irv_AppSwcVcu_HVM_outputs, sizeof(HVM_outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_TBOX_100ms_IPC_outputs, (uint8*)&Irv_AppSwcVcu_IPC_outputs, sizeof(IPC_outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_TBOX_100ms_IPM_BMS_10_DC_ChargeStates_EPT, (uint8*)&Irv_AppSwcVcu_IPM_BMS_10_DC_ChargeStates_EPT, sizeof(DT_IPM_BMS_10_DC_ChargeStates_EPT));
+        rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_TBOX_100ms_IPM_BMS_2_BatState_EPT, (uint8*)&Irv_AppSwcVcu_IPM_BMS_2_BatState_EPT, sizeof(DT_IPM_BMS_2_BatState_EPT));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_TBOX_100ms_IPM_HU_B_BAC, (uint8*)&Irv_AppSwcVcu_IPM_HU_B_BAC, sizeof(DT_IPM_HU_B_BAC));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_TBOX_100ms_IPM_IPU_OBC_1_State_EPT, (uint8*)&Irv_AppSwcVcu_IPM_IPU_OBC_1_State_EPT, sizeof(DT_IPM_IPU_OBC_1_State_EPT));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_TBOX_100ms_NVM_Imdt_outputs, (uint8*)&Irv_AppSwcVcu_NVM_Imdt_outputs, sizeof(NVM_Imdt_outputs));
@@ -375,7 +383,7 @@ static void Rte_PRE_Runbl_VSO_10ms(void)
         SuspendAllInterrupts();
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_VSO_10ms_GSM_outputs, (uint8*)&Irv_AppSwcVcu_GSM_outputs, sizeof(GSM_outputs));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_VSO_10ms_IPC_outputs, (uint8*)&Irv_AppSwcVcu_IPC_outputs, sizeof(IPC_outputs));
-        rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_EHB_A_CHA, (uint8*)&Irv_AppSwcVcu_IPM_EHB_A_CHA, sizeof(DT_IPM_EHB_A_CHA));
+        rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_ESC_7_FuncStatus_CHA, (uint8*)&Irv_AppSwcVcu_IPM_ESC_7_FuncStatus_CHA, sizeof(DT_IPM_ESC_7_FuncStatus_CHA));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_ESC_A_CHA, (uint8*)&Irv_AppSwcVcu_IPM_ESC_A_CHA, sizeof(DT_IPM_ESC_A_CHA));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_HU_B_BAC, (uint8*)&Irv_AppSwcVcu_IPM_HU_B_BAC, sizeof(DT_IPM_HU_B_BAC));
         rte_memcpy((uint8*)&Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_INV_1_Value_EPT, (uint8*)&Irv_AppSwcVcu_IPM_INV_1_Value_EPT, sizeof(DT_IPM_INV_1_Value_EPT));
@@ -1163,6 +1171,28 @@ void Rte_AppSwcVcu_Init(void)
         AppSwcVcu_Init();
     }
     Rte_POST_AppSwcVcu_Init();
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_EMS_20ms_Bcm2VcuTms_outputs
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               DT_Bcm2VcuTms_outputs*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+DT_Bcm2VcuTms_outputs* Rte_IrvIRead_Runbl_EMS_20ms_Bcm2VcuTms_outputs(void)
+{
+    return &Irv_AppSwcVcu_Runbl_EMS_20ms_Bcm2VcuTms_outputs;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -2775,6 +2805,28 @@ HVM_outputs* Rte_IrvIRead_Runbl_RME_100ms_HVM_outputs(void)
 #include "Rte_MemMap.h"
 
 /*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_TBOX_100ms_HVM_outputs
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               HVM_outputs*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+HVM_outputs* Rte_IrvIRead_Runbl_TBOX_100ms_HVM_outputs(void)
+{
+    return &Irv_AppSwcVcu_Runbl_TBOX_100ms_HVM_outputs;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
 *Function-Name        Rte_IrvIRead_Runbl_VTM_10ms_HVM_outputs
 *Service ID           <None>
 *Sync/Async           <Synchronous>
@@ -3777,6 +3829,28 @@ DT_IPM_BMS_2_BatState_EPT* Rte_IrvIRead_Runbl_RME_100ms_IPM_BMS_2_BatState_EPT(v
 #include "Rte_MemMap.h"
 
 /*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_TBOX_100ms_IPM_BMS_2_BatState_EPT
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               DT_IPM_BMS_2_BatState_EPT*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+DT_IPM_BMS_2_BatState_EPT* Rte_IrvIRead_Runbl_TBOX_100ms_IPM_BMS_2_BatState_EPT(void)
+{
+    return &Irv_AppSwcVcu_Runbl_TBOX_100ms_IPM_BMS_2_BatState_EPT;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
 *Function-Name        Rte_IrvIRead_Runbl_VTM_10ms_IPM_BMS_2_BatState_EPT
 *Service ID           <None>
 *Sync/Async           <Synchronous>
@@ -4637,28 +4711,6 @@ DT_IPM_EHB_A_CHA* Rte_IrvIRead_Runbl_IPC_10ms_IPM_EHB_A_CHA(void)
 #include "Rte_MemMap.h"
 
 /*******************************************************************************
-*Function-Name        Rte_IrvIRead_Runbl_VSO_10ms_IPM_EHB_A_CHA
-*Service ID           <None>
-*Sync/Async           <Synchronous>
-*Reentrancy           <Non Reentrant>
-*param-Name[in]       <None>
-*Param-Name[out]      <None>
-*Param-Name[in/out]   <None>
-*return               DT_IPM_EHB_A_CHA*
-*PreCondition         <None>
-*CallByAPI            <None>
-******************************************************************************/
-
-#define RTE_START_SEC_CODE
-#include "Rte_MemMap.h"
-DT_IPM_EHB_A_CHA* Rte_IrvIRead_Runbl_VSO_10ms_IPM_EHB_A_CHA(void)
-{
-    return &Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_EHB_A_CHA;
-}
-#define RTE_STOP_SEC_CODE
-#include "Rte_MemMap.h"
-
-/*******************************************************************************
 *Function-Name        Rte_IrvIRead_Runbl_VTM_10ms_IPM_EHB_A_CHA
 *Service ID           <None>
 *Sync/Async           <Synchronous>
@@ -4902,6 +4954,28 @@ DT_IPM_ESC_7_FuncStatus_CHA* Rte_IrvIRead_Runbl_DSA_100ms_IPM_ESC_7_FuncStatus_C
 DT_IPM_ESC_7_FuncStatus_CHA* Rte_IrvIRead_Runbl_IPC_10ms_IPM_ESC_7_FuncStatus_CHA(void)
 {
     return &Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_ESC_7_FuncStatus_CHA;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_VSO_10ms_IPM_ESC_7_FuncStatus_CHA
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               DT_IPM_ESC_7_FuncStatus_CHA*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+DT_IPM_ESC_7_FuncStatus_CHA* Rte_IrvIRead_Runbl_VSO_10ms_IPM_ESC_7_FuncStatus_CHA(void)
+{
+    return &Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_ESC_7_FuncStatus_CHA;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -6831,6 +6905,28 @@ NVM_outputs * Rte_IrvIWriteRef_AppSwcVcu_Init_NVM_outputs(void)
 #include "Rte_MemMap.h"
 
 /*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_HVM_20ms_NVM_outputs
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               NVM_outputs*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+NVM_outputs* Rte_IrvIRead_Runbl_HVM_20ms_NVM_outputs(void)
+{
+    return &Irv_AppSwcVcu_Runbl_HVM_20ms_NVM_outputs;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
 *Function-Name        Rte_IrvIRead_Runbl_IBS_100ms_NVM_outputs
 *Service ID           <None>
 *Sync/Async           <Synchronous>
@@ -7165,6 +7261,50 @@ DT_SIBS_Output * Rte_IrvIWriteRef_Runbl_IBS_100ms_SIBS_Output(void)
 DT_SIBS_Output* Rte_IrvIRead_Runbl_VcuTx_10ms_SIBS_Output(void)
 {
     return &Irv_AppSwcVcu_Runbl_VcuTx_10ms_SIBS_Output;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_DAG_20ms_TBOX_outputs
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               TBOX_outputs*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+TBOX_outputs* Rte_IrvIRead_Runbl_DAG_20ms_TBOX_outputs(void)
+{
+    return &Irv_AppSwcVcu_Runbl_DAG_20ms_TBOX_outputs;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IrvIRead_Runbl_EMS_20ms_TBOX_outputs
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               TBOX_outputs*
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+TBOX_outputs* Rte_IrvIRead_Runbl_EMS_20ms_TBOX_outputs(void)
+{
+    return &Irv_AppSwcVcu_Runbl_EMS_20ms_TBOX_outputs;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
@@ -8036,6 +8176,28 @@ Std_ReturnType Rte_IStatus_Runbl_DAG_20ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD(void)
 #include "Rte_MemMap.h"
 
 /*******************************************************************************
+*Function-Name        Rte_IStatus_Runbl_DAG_20ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               Std_ReturnType
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+Std_ReturnType Rte_IStatus_Runbl_DAG_20ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC(void)
+{
+    return Rte_Inst_AppSwcVcu.Runbl_DAG_20ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC->status;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
 *Function-Name        Rte_IStatus_Runbl_DAG_20ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC
 *Service ID           <None>
 *Sync/Async           <Synchronous>
@@ -8075,6 +8237,28 @@ Std_ReturnType Rte_IStatus_Runbl_DAG_20ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Tim
 Std_ReturnType Rte_IStatus_Runbl_IBS_100ms_TMS2VCU_AC_3_State_Outputs_TMS2VCU_AC_3_State_Outputs(void)
 {
     return Rte_Inst_AppSwcVcu.Runbl_IBS_100ms_TMS2VCU_AC_3_State_Outputs_TMS2VCU_AC_3_State_Outputs->status;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IStatus_Runbl_TBOX_100ms_TMS2VCU_PPV_outputs_TMS2VCU_PPV_outputs
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               Std_ReturnType
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+Std_ReturnType Rte_IStatus_Runbl_TBOX_100ms_TMS2VCU_PPV_outputs_TMS2VCU_PPV_outputs(void)
+{
+    return Rte_Inst_AppSwcVcu.Runbl_TBOX_100ms_TMS2VCU_PPV_outputs_TMS2VCU_PPV_outputs->status;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"

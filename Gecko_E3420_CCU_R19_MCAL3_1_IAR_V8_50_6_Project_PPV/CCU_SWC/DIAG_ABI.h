@@ -32,6 +32,13 @@
 #define DID_0xF216    29U
 #define DID_0xF228    47U
 
+#define DID_0xF204    5U
+#define DID_0xF214    27U
+#define DID_0xF21D    36U
+#define DID_0xF21E    37U
+#define DID_0xF21F    38U
+#define DID_0xF220    39U
+
 /* 静态数据DID */
 #define DID_0xF187    3U
 #define DID_0xF191    4U
@@ -70,7 +77,12 @@ extern uint8 Buffer_DcmDspData_F191[21];
 extern uint8 Buffer_DcmDspData_F188[19];
 extern uint8 Buffer_DcmDspData_F180[19];
 extern uint8 Buffer_DcmDspData_F163[19];
-
+extern uint8 Buffer_DcmDspData_0xF204H[3];
+extern uint8 Buffer_DcmDspData_0xF220H[1];
+extern uint8 Buffer_DcmDspData_0xF21DH[1];
+extern uint8 Buffer_DcmDspData_0xF21EH[1];
+extern uint8 Buffer_DcmDspData_0xF21FH[1];
+extern uint8 Buffer_DcmDspData_0xF214H[2];
 
 /* 20241025新增DTC设置 */
 extern void App_Call_Event_DTC_0x10A796_SetEventStatus(uint8 FaultStatus);  //ESC 1级故障
@@ -120,6 +132,8 @@ extern void App_Call_Event_DTC_0x100116_SetEventStatus(uint8 FaultStatus);  //�
 extern void App_Call_Event_DTC_0x100117_SetEventStatus(uint8 FaultStatus);  //加速踏板1电压采集过高
 extern void App_Call_Event_DTC_0x100316_SetEventStatus(uint8 FaultStatus);  //加速踏板2电压采集过低
 extern void App_Call_Event_DTC_0x100317_SetEventStatus(uint8 FaultStatus);  //加速踏板2电压采集过高
+extern void App_Call_Event_DTC_0x100D16_SetEventStatus(uint8 FaultStatus);  //联锁信号错误-电路电压低于阈值
+extern void App_Call_Event_DTC_0x100D17_SetEventStatus(uint8 FaultStatus);  //联锁信号错误-电路电压高于阈值
 extern void App_Call_Event_DTC_0x101201_SetEventStatus(uint8 FaultStatus);  //传感器供电电压误差(5V1,5V2)-一般电气故障
 extern void App_Call_Event_DTC_0x101501_SetEventStatus(uint8 FaultStatus);  //数字输出错误-一般电气故障
 extern void App_Call_Event_DTC_0x101601_SetEventStatus(uint8 FaultStatus);  //PWM碰撞故障

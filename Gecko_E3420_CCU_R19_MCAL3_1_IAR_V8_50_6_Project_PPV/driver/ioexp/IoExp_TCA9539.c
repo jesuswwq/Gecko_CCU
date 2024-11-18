@@ -203,6 +203,7 @@ static void I2c_Init_Device(void)
     {
 //        TCA9539_CrtlList[chipid].I2C_CtrlBlock = I2cGlobalDev[TCA9539_CrtlList[chipid].I2C_Channel];
         I2c_adap_dev_TCA9539[chipid] = I2cGlobalDev[TCA9539_CrtlList[chipid].I2C_Channel];
+        I2c_adap_dev_TCA9539[chipid]->retry = 3;
     }
     //release reset pin
     //Dio_WriteChannel(TCA9539_CrtlList[TCA9539_CHIP_A].RstPin,STD_HIGH);

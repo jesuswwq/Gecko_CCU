@@ -4,12 +4,13 @@
 *******************************************************************************/
 #include "DIAG_ABI.h"
 #include "Crc.h"
-
+#include "Dem.h"
 boolean VBSW_CANComCRCInstFlt_flg[100] = {0};
 boolean CHA_CAN_BUSOFF_flg = FALSE;
 boolean BAC_CAN_BUSOFF_flg = FALSE;
 boolean BOD_CAN_BUSOFF_flg = FALSE;
 boolean EPT_CAN_BUSOFF_flg = FALSE;
+
 
 /* 20241025新增DTC设置 */
 void App_Call_Event_DTC_0x10A796_SetEventStatus(uint8 FaultStatus)  //ESC 1级故障
@@ -512,6 +513,19 @@ void App_Call_Event_DTC_0x100317_SetEventStatus(uint8 FaultStatus)  //加速踏�
 	}
 }
 
+
+
+void App_Call_Event_DTC_0x100D17_SetEventStatus(uint8 FaultStatus)  //联锁信号错误-电路电压高于阈值
+{
+	if (0 == FaultStatus)
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100E17,DEM_EVENT_STATUS_PASSED);
+	}
+	else
+	{
+		Dem_SetEventStatus(DemEventParameter_0x100E17,DEM_EVENT_STATUS_FAILED);
+	}
+}
 
 
 void App_Call_Event_DTC_0x101201_SetEventStatus(uint8 FaultStatus)  //传感器供电电压误差(5V1,5V2)-一般电气故障
@@ -1809,6 +1823,22 @@ void UpdateDIDData(uint8 data,uint8 didId)
 	case DID_0xF228:
 		Buffer_DcmDspData_0xF228H[0]=data;
 		break;
+		
+	case DID_0xF21D:
+		Buffer_DcmDspData_0xF21DH[0]=data;
+		break;
+
+    case DID_0xF21E:
+		Buffer_DcmDspData_0xF21EH[0]=data;
+		break;
+
+	case DID_0xF21F:
+		Buffer_DcmDspData_0xF21FH[0]=data;
+		break;
+
+	case DID_0xF220:
+		Buffer_DcmDspData_0xF220H[0]=data;
+		break;
 
 	default:
 	    break;
@@ -1967,6 +1997,26 @@ void UpdateDIDDataArray(uint8 *data, uint8 Length,uint8 didId)
 			for (index = 0;index < Length;index++)
 			{
 				Buffer_DcmDspData_0xF216H[index] = data[index];
+			}
+		}
+		break;
+
+	case DID_0xF204:
+		if (Length <= sizeof(Buffer_DcmDspData_0xF204H))
+		{
+			for (index = 0;index < Length;index++)
+			{
+				Buffer_DcmDspData_0xF204H[index] = data[index];
+			}
+		}
+		break;
+
+	case DID_0xF214:
+		if (Length <= sizeof(Buffer_DcmDspData_0xF214H))
+		{
+			for (index = 0;index < Length;index++)
+			{
+				Buffer_DcmDspData_0xF214H[index] = data[index];
 			}
 		}
 		break;

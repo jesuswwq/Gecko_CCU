@@ -1404,7 +1404,7 @@ Std_ReturnType NvmBcmBlock02WriteData(uint8 *data, uint8 Length)
 
 }
 /*add nvm block of vcu*/
-uint8 *olddata = NULL;
+uint8 olddata[128] = {0};
 Std_ReturnType NvmVcuBlockImdtWriteData(uint8 *data, uint8 Length)
 {
     uint8  index = 0;

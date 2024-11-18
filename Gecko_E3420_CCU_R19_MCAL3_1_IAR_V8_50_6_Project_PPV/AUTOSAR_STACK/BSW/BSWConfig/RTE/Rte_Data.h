@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-22 15:20:32>
+ *  @date       <2024-11-14 16:59:32>
  */
 /*============================================================================*/
 
@@ -197,6 +197,8 @@ extern DT_Bcm2VcuTms_outputs Rte_Buf_Runbl_VcuRx_10ms_Bcm2VcuTms_outputs_Bcm2Vcu
 
 extern DT_Bcm2VcuTms_outputs Irv_AppSwcVcu_Bcm2VcuTms_outputs;
 
+extern DT_Bcm2VcuTms_outputs Irv_AppSwcVcu_Runbl_EMS_20ms_Bcm2VcuTms_outputs;
+
 extern DT_Bcm2VcuTms_outputs Irv_AppSwcVcu_Runbl_GSM_20ms_Bcm2VcuTms_outputs;
 
 extern DT_Bcm2VcuTms_outputs Irv_AppSwcVcu_Runbl_HVM_20ms_Bcm2VcuTms_outputs;
@@ -310,6 +312,8 @@ extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_HVM_20ms_IPM_BMS_2_BatState
 extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_IBS_100ms_IPM_BMS_2_BatState_EPT;
 
 extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_RME_100ms_IPM_BMS_2_BatState_EPT;
+
+extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_TBOX_100ms_IPM_BMS_2_BatState_EPT;
 
 extern DT_IPM_BMS_2_BatState_EPT Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_BMS_2_BatState_EPT;
 
@@ -427,8 +431,6 @@ extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_IPM_EHB_A_CHA;
 
 extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_EHB_A_CHA;
 
-extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_EHB_A_CHA;
-
 extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_EHB_A_CHA;
 
 extern DT_IPM_EHB_A_CHA Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_EHB_A_CHA;
@@ -459,8 +461,6 @@ extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcBcm_IPM_ESC_7_FuncStatus_CHA;
 
 extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA;
 
-extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IPM_ESC_7_FuncStatus_CHA;
-
 extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_IPM_ESC_7_FuncStatus_CHA;
 
 extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_ESC_7_FuncStatus_CHA;
@@ -468,6 +468,8 @@ extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_DAG_20ms_IPM_ESC_7_FuncSt
 extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_DSA_100ms_IPM_ESC_7_FuncStatus_CHA;
 
 extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_IPC_10ms_IPM_ESC_7_FuncStatus_CHA;
+
+extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_VSO_10ms_IPM_ESC_7_FuncStatus_CHA;
 
 extern DT_IPM_ESC_7_FuncStatus_CHA Irv_AppSwcVcu_Runbl_VTM_10ms_IPM_ESC_7_FuncStatus_CHA;
 
@@ -530,6 +532,8 @@ extern DT_IPM_HU_B_BAC Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_HU_B_BAC;
 extern DT_IPM_HVCH_Status1_BOD Rte_Buf_Task_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD;
 
 extern DT_IPM_HVCH_Status2_BOD Rte_Buf_Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD;
+
+extern DT_IPM_ICU_2_Odo_BAC Rte_Buf_Runbl_DAG_20ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC;
 
 extern DT_IPM_INV_1_Value_EPT Rte_Buf_Runbl_OpmCanTx_10ms_IPM_INV_1_Value_EPT_IPM_INV_1_Value_EPT;
 
@@ -763,6 +767,8 @@ extern DynDID Irv_AppSwcBcm_DynDID_Bus;
 
 extern DynDID Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_DynDID_Bus;
 
+extern DynDID Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_DynDID_Bus;
+
 extern DynDID Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_DynDID_Bus;
 
 extern EEReadCtl Irv_AppSwcBcm_EEReadCtl_Bus;
@@ -857,6 +863,8 @@ extern HVM_outputs Irv_AppSwcVcu_Runbl_IBS_100ms_HVM_outputs;
 
 extern HVM_outputs Irv_AppSwcVcu_Runbl_RME_100ms_HVM_outputs;
 
+extern HVM_outputs Irv_AppSwcVcu_Runbl_TBOX_100ms_HVM_outputs;
+
 extern HVM_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_HVM_outputs;
 
 extern HVM_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_HVM_outputs;
@@ -868,6 +876,8 @@ extern HornCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_HornCtl_Bus;
 extern HornCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_HornCtl_Bus;
 
 extern HornCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_HornCtl_Bus;
+
+extern ICU_2_Odo_BAC Rte_Buf_Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC;
 
 extern IMMOCtl Irv_AppSwcBcm_IMMOCtl_Bus;
 
@@ -948,6 +958,8 @@ extern NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VcuRx_10ms_NVM_Imdt_outputs;
 extern NVM_outputs Irv_AppSwcVcu_NVM_outputs;
 
 extern NVM_outputs Irv_AppSwcVcu_AppSwcVcu_Init_NVM_outputs;
+
+extern NVM_outputs Irv_AppSwcVcu_Runbl_HVM_20ms_NVM_outputs;
 
 extern NVM_outputs Irv_AppSwcVcu_Runbl_IBS_100ms_NVM_outputs;
 
@@ -1046,6 +1058,8 @@ extern Std_ReturnType Rte_swComponentPrototype_Ipm_HU_B_BAC_HU_B_BAC_ibuffer_sta
 extern Std_ReturnType Rte_swComponentPrototype_Ipm_HVCH_Status1_BOD_HVCH_Status1_BOD_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_Ipm_HVCH_Status2_BOD_HVCH_Status2_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_ICU_2_Odo_BAC_ICU_2_Odo_BAC_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_Ipm_INV_IMMO_Req_EPT_INV_IMMO_Req_EPT_ibuffer_status;
 
@@ -1345,9 +1359,13 @@ extern Std_ReturnType Rte_swComponentPrototype_VCU_CANCommCRCFlt_outputs_CANComm
 
 extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD_ibuffer_status;
 
+extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC_ibuffer_status;
+
 extern Std_ReturnType Rte_swComponentPrototype_VCU_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_VCU_TMS2VCU_AC_3_State_Outputs_TMS2VCU_AC_3_State_Outputs_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_VCU_TMS2VCU_PPV_outputs_TMS2VCU_PPV_outputs_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_VCU_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs_ibuffer_status;
 
@@ -1421,6 +1439,10 @@ extern TBOX_BJS_Time_BAC Rte_Buf_Runbl_IpmCanRx_100ms_TBOX_BJS_Time_BAC_TBOX_BJS
 
 extern TBOX_outputs Irv_AppSwcVcu_TBOX_outputs;
 
+extern TBOX_outputs Irv_AppSwcVcu_Runbl_DAG_20ms_TBOX_outputs;
+
+extern TBOX_outputs Irv_AppSwcVcu_Runbl_EMS_20ms_TBOX_outputs;
+
 extern TBOX_outputs Irv_AppSwcVcu_Runbl_TBOX_100ms_TBOX_outputs;
 
 extern TBOX_outputs Irv_AppSwcVcu_Runbl_VTM_10ms_TBOX_outputs;
@@ -1464,6 +1486,8 @@ extern TMS2VCU_PPVAddSignalGroup_Outputs Irv_AppSwcOpm_Runbl_OpmCanTx_100ms_TMS2
 extern TMS2VCU_PPVAddSignalGroup_Outputs Irv_AppSwcOpm_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs;
 
 extern TMS2VCU_PPVAddSignalGroup_Outputs Irv_AppSwcOpm_Runbl_OpmRx_10ms_TMS2VCU_PPV_outputs;
+
+extern TMS2VCU_PPVAddSignalGroup_Outputs Rte_Buf_Runbl_TBOX_100ms_TMS2VCU_PPV_outputs_TMS2VCU_PPV_outputs;
 
 extern TMS2VCU_TMS_LINTestData1_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_TMS_LINTestData1_Outputs_TMS2VCU_TMS_LINTestData1_Outputs;
 
@@ -1702,6 +1726,8 @@ void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC(DT_I
 void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD(DT_IPM_HVCH_Status1_BOD value);
 
 void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD(DT_IPM_HVCH_Status2_BOD value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC(DT_IPM_ICU_2_Odo_BAC value);
 
 void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT(DT_IPM_INV_IMMO_Req_EPT value);
 

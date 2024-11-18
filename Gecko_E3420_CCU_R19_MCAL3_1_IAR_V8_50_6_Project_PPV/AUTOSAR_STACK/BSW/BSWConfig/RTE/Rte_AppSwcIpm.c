@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-10 14:07:07>
+ *  @date       <2024-11-14 16:58:40>
  */
 /*============================================================================*/
 
@@ -77,6 +77,7 @@ static void Rte_PRE_Runbl_IpmCanRx_100ms(void)
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC, sizeof(HU_B_BAC));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD, sizeof(HVCH_Status1_BOD));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD, sizeof(HVCH_Status2_BOD));
+        rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC, sizeof(ICU_2_Odo_BAC));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_INV_IMMO_Req_EPT_INV_IMMO_Req_EPT->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_INV_IMMO_Req_EPT_INV_IMMO_Req_EPT, sizeof(INV_IMMO_Req_EPT));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPU_DCC_1_State_EPT_IPU_DCC_1_State_EPT->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_IPU_DCC_1_State_EPT_IPU_DCC_1_State_EPT, sizeof(IPU_DCC_1_State_EPT));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPU_DCC_2_ChrgInValue_EPT_IPU_DCC_2_ChrgInValue_EPT->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_IPU_DCC_2_ChrgInValue_EPT_IPU_DCC_2_ChrgInValue_EPT, sizeof(IPU_DCC_2_ChrgInValue_EPT));
@@ -520,6 +521,7 @@ static void Rte_POST_Runbl_IpmCanRx_100ms(void)
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC->value);
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD->value);
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD->value);
+        Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_ICU_2_Odo_BAC_IPM_ICU_2_Odo_BAC->value);
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT->value);
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_IPU_DCC_1_State_EPT_IPM_IPU_DCC_1_State_EPT(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_IPU_DCC_1_State_EPT_IPM_IPU_DCC_1_State_EPT->value);
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_IPU_DCC_2_ChrgInValue_EPT_IPM_IPU_DCC_2_ChrgInValue_EPT(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_IPU_DCC_2_ChrgInValue_EPT_IPM_IPU_DCC_2_ChrgInValue_EPT->value);
@@ -1195,6 +1197,28 @@ Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BO
 Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD(void)
 {
     return Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD->status;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IStatus_Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               Std_ReturnType
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC(void)
+{
+    return Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC->status;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"
