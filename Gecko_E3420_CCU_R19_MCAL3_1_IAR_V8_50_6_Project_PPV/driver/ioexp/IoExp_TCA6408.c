@@ -224,7 +224,7 @@ Dio_LevelType IoExp_TCA6408_GetChannelOutputSt(TCA6408_Channel_e_ Channel)
     Dio_LevelType InputLevel = STD_LOW;
     uint8 channelPos = 0;
     uint8 regAddr_u8 = 0;
-    
+    uint8 retrytime = 2;
     if(Channel < IOEXP_TCA6408_PORT_NUM)
     {
         channelPos = Channel;
@@ -232,6 +232,17 @@ Dio_LevelType IoExp_TCA6408_GetChannelOutputSt(TCA6408_Channel_e_ Channel)
 
         I2c_read_reg(I2c6_adap_dev_TCA6408, 
                         TCA6408_CrtlList[TCA6408_CHIP_A].Device_Addr,regAddr_u8, &regVal_u8);
+        #if 0
+        while(I2c_read_reg(I2c6_adap_dev_TCA6408, TCA6408_CrtlList[TCA6408_CHIP_A].Device_Addr,regAddr_u8, &regVal_u8) != 0)
+        {
+            //wait until i2c read success,but retry time is 2;
+            retrytime--;
+            if(retrytime == 0)
+            {
+                break;
+            }
+        }
+        #endif
                         
         if((regVal_u8 & (1<<channelPos))!= 0u)
         {

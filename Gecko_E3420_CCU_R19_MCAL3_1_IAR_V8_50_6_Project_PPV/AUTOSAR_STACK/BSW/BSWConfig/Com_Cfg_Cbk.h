@@ -24,6 +24,7 @@
 #ifndef  COM_CFG_CBK_H
 #define  COM_CFG_CBK_H
 
+#define TEST_Periodic_Time_swtich  STD_ON
 #include "ComStack_Types.h"
 
 boolean IPDU_COM_VCU_0_Value_EPT_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);

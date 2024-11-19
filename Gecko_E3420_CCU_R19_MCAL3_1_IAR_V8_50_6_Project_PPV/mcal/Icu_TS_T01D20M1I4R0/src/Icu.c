@@ -260,6 +260,7 @@ uint32 Icu_MulChancBuffer[MULTI_CPT_MODULE_NUM][MULTI_CPT_BURST_LEN * 2U]
  *******************************************************************************************************/
 
 /* memap infomation */
+#pragma default_function_attributes = @".iram_func"
 #define ICU_START_SEC_CODE
 #include "Icu_MemMap.h"
 
@@ -3709,7 +3710,7 @@ void Icu_MultiCptDmaIrqHandler(Dma_ControllerStatusType dmaTransSta, void* arg)
 /* memap infomation */
 #define ICU_STOP_SEC_CODE
 #include "Icu_MemMap.h"
-
+#pragma default_function_attributes =
 #ifdef __cplusplus
 }
 #endif

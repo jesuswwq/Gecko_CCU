@@ -203,7 +203,6 @@ static void I2c_Init_Device(void)
     {
 //        TCA9539_CrtlList[chipid].I2C_CtrlBlock = I2cGlobalDev[TCA9539_CrtlList[chipid].I2C_Channel];
         I2c_adap_dev_TCA9539[chipid] = I2cGlobalDev[TCA9539_CrtlList[chipid].I2C_Channel];
-        I2c_adap_dev_TCA9539[chipid]->retry = 3;
     }
     //release reset pin
     //Dio_WriteChannel(TCA9539_CrtlList[TCA9539_CHIP_A].RstPin,STD_HIGH);
@@ -449,11 +448,33 @@ void Gpio_TCA9539_ReadValue()
 	uint8  pin_id=0;
     uint8  pin_id_post =0;
 	uint8 regVal_u8[2] = {0};
+    uint8 retrytimes = 2;
+    uint8 retrytimes1 = 2;
 	Std_ReturnType ret = E_NOT_OK;
 	for(channel_id = 0; channel_id < CHANNEL_NUM; channel_id ++)
 	{
         ret = IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP0,&regVal_u8[0]);
+        #if 0 
+        while(IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP0,&regVal_u8[0])!= E_OK)
+        {
+            retrytimes--;
+            if(retrytimes == 0)
+            {
+                break;
+            }
+        }
+        #endif
         ret|= IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP1,&regVal_u8[1]);
+       #if 0
+        while(IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP1,&regVal_u8[1]) != E_OK)
+        {
+            retrytimes1--;
+            if(retrytimes1 == 0)
+            {
+                break;
+            }
+        }
+        #endif
 		if(E_NOT_OK== ret) return ;
         for(pin_id =0; pin_id< CHIP_PIN_ID ; pin_id++)
         {

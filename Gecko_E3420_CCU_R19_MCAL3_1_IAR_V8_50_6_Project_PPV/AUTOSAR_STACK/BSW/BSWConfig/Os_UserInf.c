@@ -62,6 +62,7 @@
 #include "HBridge_rte.h"
 #include "Pwm_rte.h"
 #include "Icu.h"
+#include "Com_Cfg_Cbk.h"
 Com_IpduGroupVector g_ComIpduGroupVector;
 /*lin*/
 ComM_ModeType old_LinSM0_State = COMM_NO_COMMUNICATION;
@@ -98,14 +99,23 @@ Mcu_ResetType resetreason;
 #endif
 
 /*=======[T A S K S]==========================================*/
+#if TEST_Periodic_Time_swtich
 uint8 Test_100ms_count;
 uint8 Test_20ms_count;
 uint8 Test_5ms_count;
 uint8 Test_10ms_count;
 uint8 Test_50ms_count;
+#endif
 TASK(OsTask__Core0_100ms)
 {
-    /* please insert your code here ... */    
+    /* please insert your code here ... */
+    #if TEST_Periodic_Time_swtich 
+        Test_100ms_count++;
+        if(Test_100ms_count >= 200)
+        {
+            Test_100ms_count = 0;
+        }
+    #endif   
     Xcp_EventIndication(3);
     Os_TaskEntry_Rte_OsTask__Core0_100ms();
     if (E_OK != TerminateTask())
@@ -118,6 +128,13 @@ TASK(OsTask__Core0_100ms)
 }
 TASK(OsTask__Core0_10ms)
 {
+    #if TEST_Periodic_Time_swtich 
+        Test_10ms_count++;
+        if(Test_10ms_count >= 200)
+        {
+            Test_10ms_count = 0;
+        }
+    #endif 
     if(60 >NM_Sleep_Counter)
     {
             NM_Sleep_Counter++; 
@@ -231,7 +248,13 @@ TASK(OsTask__Core0_1s)
 TASK(OsTask__Core0_20ms)
 {
     /* please insert your code here ... */
-
+#if TEST_Periodic_Time_swtich 
+        Test_20ms_count++;
+        if(Test_20ms_count >= 200)
+        {
+            Test_20ms_count = 0;
+        }
+    #endif 
   
     ADC2_ReadGroup0();
     ADC2_ReadGroup1();
@@ -270,6 +293,13 @@ TASK(OsTask__Core0_2ms)
 TASK(OsTask__Core0_50ms)
 {
 
+#if TEST_Periodic_Time_swtich 
+        Test_50ms_count++;
+        if(Test_50ms_count >= 200)
+        {
+            Test_50ms_count = 0;
+        }
+    #endif 
     /* please insert your code here ... */
     
 	Xcp_EventIndication(2);
@@ -284,6 +314,13 @@ TASK(OsTask__Core0_50ms)
 }
 TASK(OsTask__Core0_5ms)
 {
+    #if TEST_Periodic_Time_swtich 
+        Test_5ms_count++;
+        if(Test_5ms_count >= 200)
+        {
+            Test_5ms_count = 0;
+        }
+    #endif 
 
   if(100 >= FirstWakeUpSource500ms)
   {

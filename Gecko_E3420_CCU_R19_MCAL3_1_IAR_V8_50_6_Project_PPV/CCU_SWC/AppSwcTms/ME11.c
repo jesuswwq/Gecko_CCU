@@ -623,6 +623,7 @@ const ConstP_ME11_T ME11_ConstP = {
 
 /* PublicStructure Variables for Internal Data */
 ARID_DEF_ME11_T ME11_ARID_DEF;
+//#pragma default_function_attributes = @".iram_func"
 static uint16 look2_iflftu16Dfdf_binlca(float32 u0, float32 u1, const float32
   bp0[], const float32 bp1[], const uint16 table[], const uint32 maxIndex[],
   uint32 stride);
@@ -9580,11 +9581,11 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
      *  Outport: '<S11>/HMICtl_bACAuto'
      *
      * Block description for '<S11>/HMICtl_bACAuto':
-     *  AC_stAutoFun¶¨Òå£º
-     *  0   È«ÊÖ¶¯
-     *  7  È«×Ô¶¯
-     *  8  ¹Ø±Õ
-     *  15 ³ýËª
+     *  AC_stAutoFunï¿½ï¿½ï¿½å£º
+     *  0   È«ï¿½Ö¶ï¿½
+     *  7  È«ï¿½Ô¶ï¿½
+     *  8  ï¿½Ø±ï¿½
+     *  15 ï¿½ï¿½Ëª
      */
     HMICtl_bACAuto = false;
 
@@ -9753,7 +9754,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
       if (ME11_ARID_DEF.i >= 5) {
         ME11_ARID_DEF.is_c4_ME11Lib = ME11_IN_Middle;
 
-        /*  ¼ÆËãÖÐÎ»Öµ  */
+        /*  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»Öµ  */
         ME11_ARID_DEF.i = 0U;
         while (ME11_ARID_DEF.i < 5) {
           for (b_previousEvent = 0; b_previousEvent < ME11_ARID_DEF.i;
@@ -15186,7 +15187,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/EXV_ResponseError'
    *
    * Block description for '<Root>/EXV_ResponseError':
-   *  Response ErrorÏìÓ¦´íÎó
+   *  Response Errorï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
    */
   EXV_ResponseError = Rte_IRead_Task_100ms_EXV_ResponseError_EXV_ResponseError();
 
@@ -15194,7 +15195,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/EXV_FaultState'
    *
    * Block description for '<Root>/EXV_FaultState':
-   *  Fault State¹ÊÕÏ×´Ì¬
+   *  Fault Stateï¿½ï¿½ï¿½ï¿½×´Ì¬
    */
   EXV_FaultState = Rte_IRead_Task_100ms_EXV_FaultState_EXV_FaultState();
 
@@ -15202,7 +15203,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/EXV_VoltageState'
    *
    * Block description for '<Root>/EXV_VoltageState':
-   *  Voltage StateµçÑ¹×´Ì¬
+   *  Voltage Stateï¿½ï¿½Ñ¹×´Ì¬
    */
   EXV_VoltageState = Rte_IRead_Task_100ms_EXV_VoltageState_EXV_VoltageState();
 
@@ -15210,7 +15211,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/EXV_TemperatureWarn'
    *
    * Block description for '<Root>/EXV_TemperatureWarn':
-   *  Temperature WarnÎÂ¶È¾¯±¨
+   *  Temperature Warnï¿½Â¶È¾ï¿½ï¿½ï¿½
    */
   EXV_TemperatureWarn =
     Rte_IRead_Task_100ms_EXV_TemperatureWarn_EXV_TemperatureWarn();
@@ -15326,7 +15327,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/BatPMP_RESP_ERROR'
    *
    * Block description for '<Root>/BatPMP_RESP_ERROR':
-   *  Ë®±ÃLINÏìÓ¦´íÎó
+   *  Ë®ï¿½ï¿½LINï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
    */
   BatPMP_RESP_ERROR = Rte_IRead_Task_100ms_BatPMP_RESP_ERROR_BatPMP_RESP_ERROR();
 
@@ -15334,7 +15335,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/BatPMP_PumpMotorSta'
    *
    * Block description for '<Root>/BatPMP_PumpMotorSta':
-   *  Ë®±Ãµç»ú×´Ì¬
+   *  Ë®ï¿½Ãµï¿½ï¿½×´Ì¬
    */
   BatPMP_PumpMotorSta =
     Rte_IRead_Task_100ms_BatPMP_PumpMotorSta_BatPMP_PumpMotorSta();
@@ -15343,7 +15344,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/BatPMP_PumpDryRunningSta'
    *
    * Block description for '<Root>/BatPMP_PumpDryRunningSta':
-   *  Ë®±Ã¸ÉÔËÐÐ×´Ì¬
+   *  Ë®ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
    */
   BatPMP_PumpDryRunningSta =
     Rte_IRead_Task_100ms_BatPMP_PumpDryRunningSta_BatPMP_PumpDryRunningSta();
@@ -15352,7 +15353,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/BatPMP_PumpPowerSta'
    *
    * Block description for '<Root>/BatPMP_PumpPowerSta':
-   *  µçÔ´µçÑ¹¹ÊÕÏ×´Ì¬
+   *  ï¿½ï¿½Ô´ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½×´Ì¬
    */
   BatPMP_PumpPowerSta =
     Rte_IRead_Task_100ms_BatPMP_PumpPowerSta_BatPMP_PumpPowerSta();
@@ -15361,7 +15362,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/BatPMP_PumpTempSta'
    *
    * Block description for '<Root>/BatPMP_PumpTempSta':
-   *  Ë®±Ã¿ØÖÆÆ÷ÄÚ²¿ÎÂ¶È×´Ì¬
+   *  Ë®ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½Â¶ï¿½×´Ì¬
    */
   BatPMP_PumpTempSta =
     Rte_IRead_Task_100ms_BatPMP_PumpTempSta_BatPMP_PumpTempSta();
@@ -15773,7 +15774,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/MotPMP_RESP_ERROR'
    *
    * Block description for '<Root>/MotPMP_RESP_ERROR':
-   *  Ë®±ÃLINÏìÓ¦´íÎó
+   *  Ë®ï¿½ï¿½LINï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
    */
   MotPMP_RESP_ERROR = Rte_IRead_Task_100ms_MotPMP_RESP_ERROR_MotPMP_RESP_ERROR();
 
@@ -15781,7 +15782,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/MotPMP_PumpMotorSta'
    *
    * Block description for '<Root>/MotPMP_PumpMotorSta':
-   *  Ë®±Ãµç»ú×´Ì¬
+   *  Ë®ï¿½Ãµï¿½ï¿½×´Ì¬
    */
   MotPMP_PumpMotorSta =
     Rte_IRead_Task_100ms_MotPMP_PumpMotorSta_MotPMP_PumpMotorSta();
@@ -15790,7 +15791,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/MotPMP_PumpDryRunningSta'
    *
    * Block description for '<Root>/MotPMP_PumpDryRunningSta':
-   *  Ë®±Ã¸ÉÔËÐÐ×´Ì¬
+   *  Ë®ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
    */
   MotPMP_PumpDryRunningSta =
     Rte_IRead_Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta();
@@ -15799,7 +15800,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/MotPMP_PumpPowerSta'
    *
    * Block description for '<Root>/MotPMP_PumpPowerSta':
-   *  µçÔ´µçÑ¹¹ÊÕÏ×´Ì¬
+   *  ï¿½ï¿½Ô´ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½×´Ì¬
    */
   MotPMP_PumpPowerSta =
     Rte_IRead_Task_100ms_MotPMP_PumpPowerSta_MotPMP_PumpPowerSta();
@@ -15808,7 +15809,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/MotPMP_PumpTempSta'
    *
    * Block description for '<Root>/MotPMP_PumpTempSta':
-   *  Ë®±Ã¿ØÖÆÆ÷ÄÚ²¿ÎÂ¶È×´Ì¬
+   *  Ë®ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½Â¶ï¿½×´Ì¬
    */
   MotPMP_PumpTempSta =
     Rte_IRead_Task_100ms_MotPMP_PumpTempSta_MotPMP_PumpTempSta();
@@ -16281,7 +16282,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_RESP_ERROR'
    *
    * Block description for '<Root>/AcPMP_RESP_ERROR':
-   *  Ë®±ÃLINÏìÓ¦´íÎó
+   *  Ë®ï¿½ï¿½LINï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½
    */
   AcPMP_RESP_ERROR = Rte_IRead_Task_100ms_AcPMP_RESP_ERROR_AcPMP_RESP_ERROR();
 
@@ -16289,7 +16290,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_PumpMotorSta'
    *
    * Block description for '<Root>/AcPMP_PumpMotorSta':
-   *  Ë®±Ãµç»ú×´Ì¬
+   *  Ë®ï¿½Ãµï¿½ï¿½×´Ì¬
    */
   AcPMP_PumpMotorSta =
     Rte_IRead_Task_100ms_AcPMP_PumpMotorSta_AcPMP_PumpMotorSta();
@@ -16298,7 +16299,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_PumpDryRunningSta'
    *
    * Block description for '<Root>/AcPMP_PumpDryRunningSta':
-   *  Ë®±Ã¸ÉÔËÐÐ×´Ì¬
+   *  Ë®ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
    */
   AcPMP_PumpDryRunningSta =
     Rte_IRead_Task_100ms_AcPMP_PumpDryRunningSta_AcPMP_PumpDryRunningSta();
@@ -16307,7 +16308,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_PumpPowerSta'
    *
    * Block description for '<Root>/AcPMP_PumpPowerSta':
-   *  µçÔ´µçÑ¹¹ÊÕÏ×´Ì¬
+   *  ï¿½ï¿½Ô´ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½×´Ì¬
    */
   AcPMP_PumpPowerSta =
     Rte_IRead_Task_100ms_AcPMP_PumpPowerSta_AcPMP_PumpPowerSta();
@@ -16316,7 +16317,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_PumpTempSta'
    *
    * Block description for '<Root>/AcPMP_PumpTempSta':
-   *  Ë®±Ã¿ØÖÆÆ÷ÄÚ²¿ÎÂ¶È×´Ì¬
+   *  Ë®ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½Â¶ï¿½×´Ì¬
    */
   AcPMP_PumpTempSta = Rte_IRead_Task_100ms_AcPMP_PumpTempSta_AcPMP_PumpTempSta();
 
@@ -16945,7 +16946,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
     ME11_ARID_DEF.is_active_c133_ME11 = 1U;
 
     /* /_
-       0x0:OFF£»
+       0x0:OFFï¿½ï¿½
        0x1:Cool
        0x2:thermal storage
        0x3:motor heat battary
@@ -17545,7 +17546,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
     ME11_ARID_DEF.is_active_c76_ME11 = 1U;
 
     /* /_
-       0x0:OFF£»
+       0x0:OFFï¿½ï¿½
        0x1:Cool
        0x2:thermal storage
        0x3:motor heat battary
@@ -20781,10 +20782,10 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
     /*
        0:Off
        1:Cool
-       2:´®Áª³ýÊªÀäÄýÆ÷
-       3:´®Áª³ýÊªÕô·¢Æ÷
-       4:ÈÈ±Ã
-       6:Í¨·ç
+       2:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+       3:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+       4:ï¿½È±ï¿½
+       6:Í¨ï¿½ï¿½
        7:Standby
      */
     ME11_ARID_DEF.is_c18_ME11 = ME11_IN_Off_a;
@@ -21193,19 +21194,19 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
     ME11_ARID_DEF.ACSOM_eRefModes = RefModes_Def;
 
     /*
-       0£ºOFF
-       1£º³ËÔ±²ÕÖÆÀä
-       2£ºµç³ØÖÆÀä
-       3£ºË«ÖÆÀä
-       4£º³ËÔ±²Õ¼ÓÈÈ
-       5£ºµç³Ø¼ÓÈÈ
-       6£ºË«ÖÆÈÈ
-       7£º´®Áª³ýÊª£¨ohx×öÀäÄýÆ÷£©
-       8£º´®Áª³ýÊª£¨ohx×öÕô·¢Æ÷£©
-       9£º²¢Áª³ýÊª
-       10£º»¯Ëª
-       11£º³ýÎí
-       14£º´®Áª³ýÊª+µç³ØÖÆÀä£ºDehAndBatCool
+       0ï¿½ï¿½OFF
+       1ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+       2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+       3ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½
+       4ï¿½ï¿½ï¿½ï¿½Ô±ï¿½Õ¼ï¿½ï¿½ï¿½
+       5ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ï¿½ï¿½
+       6ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½
+       7ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êªï¿½ï¿½ohxï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+       8ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êªï¿½ï¿½ohxï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+       9ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êª
+       10ï¿½ï¿½ï¿½ï¿½Ëª
+       11ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+       14ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êª+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä£ºDehAndBatCool
      */
   } else if ((rtb_Add_jq == CabinMode_MD4_HP) && (rtb_Delay_gt == 1)) {
     ME11_ARID_DEF.ACSOM_eRefModes = RefModes_CoolBatAHeatCabin;
@@ -23129,7 +23130,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
   /* Chart: '<S4>/stExhaustFunCheck' incorporates:
    *  RelationalOperator: '<S4>/Relational Operator9'
    */
-  /* Ö÷¶¯ÅÅÆø¹¦ÄÜ */
+  /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
   if (ME11_ARID_DEF.is_active_c57_ME11 == 0U) {
     ME11_ARID_DEF.is_active_c57_ME11 = 1U;
     if (rtb_FixPtRelationalOperator_ka && rtb_Compare_nd3 &&
@@ -23197,7 +23198,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/EXV_CurrentPosition'
    *
    * Block description for '<Root>/EXV_CurrentPosition':
-   *  EXVÅòÕÍ·§¿ª¶È:µ±Ç°Î»ÖÃ
+   *  EXVï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½Ç°Î»ï¿½ï¿½
    */
   rtb_Add_nm0 = Rte_IRead_Task_100ms_EXV_CurrentPosition_EXV_CurrentPosition();
 
@@ -23208,7 +23209,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/EXV_CurrentPosition'
    *
    * Block description for '<Root>/EXV_CurrentPosition':
-   *  EXVÅòÕÍ·§¿ª¶È:µ±Ç°Î»ÖÃ
+   *  EXVï¿½ï¿½ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½:ï¿½ï¿½Ç°Î»ï¿½ï¿½
    */
   Buffer_DcmDspData_F27DH[0] = (uint8)rtb_Add_nm0;
   Buffer_DcmDspData_F27DH[1] = (uint8)((uint32)rtb_Add_nm0 >> 8);
@@ -23220,7 +23221,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/EXV_CurrentInitState'
    *
    * Block description for '<Root>/EXV_CurrentInitState':
-   *  Current Init Stateµ±Ç°³õÊ¼»¯×´Ì¬
+   *  Current Init Stateï¿½ï¿½Ç°ï¿½ï¿½Ê¼ï¿½ï¿½×´Ì¬
    */
   EXV_CurrentInitState =
     Rte_IRead_Task_100ms_EXV_CurrentInitState_EXV_CurrentInitState();
@@ -23229,7 +23230,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/EXV_RunState'
    *
    * Block description for '<Root>/EXV_RunState':
-   *  Run Stateµ±Ç°ÔËÐÐ×´Ì¬
+   *  Run Stateï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½×´Ì¬
    */
   EXV_RunState = Rte_IRead_Task_100ms_EXV_RunState_EXV_RunState();
 
@@ -23290,7 +23291,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/Bat_EXV_ProjectCode1'
    *
    * Block description for '<Root>/Bat_EXV_ProjectCode1':
-   *  ÏîÄ¿±àºÅ1
+   *  ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½1
    */
   Bat_EXV_ProjectCode1 =
     Rte_IRead_Task_100ms_Bat_EXV_ProjectCode1_Bat_EXV_ProjectCode1();
@@ -23299,7 +23300,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/Bat_EXV_ProjectCode2'
    *
    * Block description for '<Root>/Bat_EXV_ProjectCode2':
-   *  ÏîÄ¿±àºÅ1
+   *  ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½1
    */
   Bat_EXV_ProjectCode2 =
     Rte_IRead_Task_100ms_Bat_EXV_ProjectCode2_Bat_EXV_ProjectCode2();
@@ -23308,7 +23309,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/Bat_EXV_SupplierNumber'
    *
    * Block description for '<Root>/Bat_EXV_SupplierNumber':
-   *  ¹©Ó¦ÉÌºÅ
+   *  ï¿½ï¿½Ó¦ï¿½Ìºï¿½
    */
   Bat_EXV_SupplierNumber =
     Rte_IRead_Task_100ms_Bat_EXV_SupplierNumber_Bat_EXV_SupplierNumber();
@@ -23317,7 +23318,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/Bat_EXV_PartNumber'
    *
    * Block description for '<Root>/Bat_EXV_PartNumber':
-   *  Áã¼þ°æ±¾ºÅ
+   *  ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½
    */
   Bat_EXV_PartNumber =
     Rte_IRead_Task_100ms_Bat_EXV_PartNumber_Bat_EXV_PartNumber();
@@ -23326,7 +23327,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/Bat_EXV_HWVersion'
    *
    * Block description for '<Root>/Bat_EXV_HWVersion':
-   *  Ó²¼þ°æ±¾ºÅ
+   *  Ó²ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½
    */
   Bat_EXV_HWVersion = Rte_IRead_Task_100ms_Bat_EXV_HWVersion_Bat_EXV_HWVersion();
 
@@ -23334,7 +23335,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/Bat_EXV_SWVersion_Main'
    *
    * Block description for '<Root>/Bat_EXV_SWVersion_Main':
-   *  Èí¼þ°æ±¾ºÅ-Ö÷
+   *  ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½-ï¿½ï¿½
    */
   Bat_EXV_SWVersion_Main =
     Rte_IRead_Task_100ms_Bat_EXV_SWVersion_Main_Bat_EXV_SWVersion_Main();
@@ -23343,7 +23344,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/Bat_EXV_SWVersion_Sub'
    *
    * Block description for '<Root>/Bat_EXV_SWVersion_Sub':
-   *  Èí¼þ°æ±¾ºÅ-´Î
+   *  ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½-ï¿½ï¿½
    */
   Bat_EXV_SWVersion_Sub =
     Rte_IRead_Task_100ms_Bat_EXV_SWVersion_Sub_Bat_EXV_SWVersion_Sub();
@@ -23352,7 +23353,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/Bat_EXV_SWVersion_Patch'
    *
    * Block description for '<Root>/Bat_EXV_SWVersion_Patch':
-   *  Èí¼þ°æ±¾ºÅ-²¹¶¡
+   *  ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½
    */
   Bat_EXV_SWVersion_Patch =
     Rte_IRead_Task_100ms_Bat_EXV_SWVersion_Patch_Bat_EXV_SWVersion_Patch();
@@ -23395,7 +23396,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/HP_EXV_ProjectCode1'
    *
    * Block description for '<Root>/HP_EXV_ProjectCode1':
-   *  ÏîÄ¿±àºÅ1
+   *  ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½1
    */
   HP_EXV_ProjectCode1 =
     Rte_IRead_Task_100ms_HP_EXV_ProjectCode1_HP_EXV_ProjectCode1();
@@ -23404,7 +23405,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/HP_EXV_ProjectCode2'
    *
    * Block description for '<Root>/HP_EXV_ProjectCode2':
-   *  ÏîÄ¿±àºÅ1
+   *  ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½1
    */
   HP_EXV_ProjectCode2 =
     Rte_IRead_Task_100ms_HP_EXV_ProjectCode2_HP_EXV_ProjectCode2();
@@ -23413,7 +23414,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/HP_EXV_SupplierNumber'
    *
    * Block description for '<Root>/HP_EXV_SupplierNumber':
-   *  ¹©Ó¦ÉÌºÅ
+   *  ï¿½ï¿½Ó¦ï¿½Ìºï¿½
    */
   HP_EXV_SupplierNumber =
     Rte_IRead_Task_100ms_HP_EXV_SupplierNumber_HP_EXV_SupplierNumber();
@@ -23422,7 +23423,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/HP_EXV_PartNumber'
    *
    * Block description for '<Root>/HP_EXV_PartNumber':
-   *  Áã¼þ°æ±¾ºÅ
+   *  ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½
    */
   HP_EXV_PartNumber = Rte_IRead_Task_100ms_HP_EXV_PartNumber_HP_EXV_PartNumber();
 
@@ -23430,7 +23431,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/HP_EXV_HWVersion'
    *
    * Block description for '<Root>/HP_EXV_HWVersion':
-   *  Ó²¼þ°æ±¾ºÅ
+   *  Ó²ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½
    */
   HP_EXV_HWVersion = Rte_IRead_Task_100ms_HP_EXV_HWVersion_HP_EXV_HWVersion();
 
@@ -23438,7 +23439,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/HP_EXV_SWVersion_Main'
    *
    * Block description for '<Root>/HP_EXV_SWVersion_Main':
-   *  Èí¼þ°æ±¾ºÅ-Ö÷
+   *  ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½-ï¿½ï¿½
    */
   HP_EXV_SWVersion_Main =
     Rte_IRead_Task_100ms_HP_EXV_SWVersion_Main_HP_EXV_SWVersion_Main();
@@ -23447,7 +23448,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/HP_EXV_SWVersion_Sub'
    *
    * Block description for '<Root>/HP_EXV_SWVersion_Sub':
-   *  Èí¼þ°æ±¾ºÅ-´Î
+   *  ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½-ï¿½ï¿½
    */
   HP_EXV_SWVersion_Sub =
     Rte_IRead_Task_100ms_HP_EXV_SWVersion_Sub_HP_EXV_SWVersion_Sub();
@@ -23456,7 +23457,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/HP_EXV_SWVersion_Patch'
    *
    * Block description for '<Root>/HP_EXV_SWVersion_Patch':
-   *  Èí¼þ°æ±¾ºÅ-²¹¶¡
+   *  ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½
    */
   HP_EXV_SWVersion_Patch =
     Rte_IRead_Task_100ms_HP_EXV_SWVersion_Patch_HP_EXV_SWVersion_Patch();
@@ -25375,7 +25376,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_RealRPM'
    *
    * Block description for '<Root>/AcPMP_RealRPM':
-   *  Ë®±Ãµ±Ç°×ªËÙ
+   *  Ë®ï¿½Ãµï¿½Ç°×ªï¿½ï¿½
    */
   AcPMP_RealRPM = 0.400390625F * (float32)
     Rte_IRead_Task_100ms_AcPMP_RealRPM_AcPMP_RealRPM();
@@ -26424,7 +26425,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/BatPMP_RealRPM'
    *
    * Block description for '<Root>/BatPMP_RealRPM':
-   *  Ë®±Ãµ±Ç°×ªËÙ
+   *  Ë®ï¿½Ãµï¿½Ç°×ªï¿½ï¿½
    */
   BatPMP_RealRPM = 0.400390625F * (float32)
     Rte_IRead_Task_100ms_BatPMP_RealRPM_BatPMP_RealRPM();
@@ -26434,7 +26435,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
     ME11_ARID_DEF.is_active_c145_ME11 = 1U;
 
     /* /_
-       0x0:OFF£»
+       0x0:OFFï¿½ï¿½
        0x1:Cool
        0x2:thermal storage
        0x3:motor heat battary
@@ -26530,12 +26531,12 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    */
   /*
      0x0:default
-     0x1:LTRÉ¢ÈÈ(£¨µç³Ø+µçÇý£©)
-     0x2:µçÇýLTR+µç³ØÖÆÀä/¼ÓÈÈ
-     0x3:µçÇýÓàÈÈ»ØÊÕ+µç³Ø¾ùÎÂ
-     0x4:µçÇýLTR+µç³Ø¾ùÎÂ
-     0x5:µç»ú¼ÓÈÈµç³Ø
-     0x6:£¨µç»ú+µç³Ø£©ÓàÈÈ»ØÊÕ
+     0x1:LTRÉ¢ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+     0x2:ï¿½ï¿½ï¿½ï¿½LTR+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½
+     0x3:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½+ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
+     0x4:ï¿½ï¿½ï¿½ï¿½LTR+ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
+     0x5:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½
+     0x6:ï¿½ï¿½ï¿½ï¿½ï¿½+ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½
    */
   if (cal_WaterModeEnb) {
     /* Switch: '<S1703>/Switch' incorporates:
@@ -34471,7 +34472,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/MotPMP_RealRPM'
    *
    * Block description for '<Root>/MotPMP_RealRPM':
-   *  Ë®±Ãµ±Ç°×ªËÙ
+   *  Ë®ï¿½Ãµï¿½Ç°×ªï¿½ï¿½
    */
   MotPMP_RealRPM = 0.400390625F * (float32)
     Rte_IRead_Task_100ms_MotPMP_RealRPM_MotPMP_RealRPM();
@@ -35248,7 +35249,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_PumpInputVolt'
    *
    * Block description for '<Root>/AcPMP_PumpInputVolt':
-   *  Ë®±Ãµ±Ç°µçÑ¹
+   *  Ë®ï¿½Ãµï¿½Ç°ï¿½ï¿½Ñ¹
    */
   AcPMP_PumpInputVolt =
     Rte_IRead_Task_100ms_AcPMP_PumpInputVolt_AcPMP_PumpInputVolt();
@@ -35257,7 +35258,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_ProjectCode1'
    *
    * Block description for '<Root>/AcPMP_ProjectCode1':
-   *  ÏîÄ¿±àºÅ1
+   *  ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½1
    */
   AcPMP_ProjectCode1 =
     Rte_IRead_Task_100ms_AcPMP_ProjectCode1_AcPMP_ProjectCode1();
@@ -35266,7 +35267,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_ProjectCode2'
    *
    * Block description for '<Root>/AcPMP_ProjectCode2':
-   *  ÏîÄ¿±àºÅ1
+   *  ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½1
    */
   AcPMP_ProjectCode2 =
     Rte_IRead_Task_100ms_AcPMP_ProjectCode2_AcPMP_ProjectCode2();
@@ -35275,7 +35276,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_SupplierNumber'
    *
    * Block description for '<Root>/AcPMP_SupplierNumber':
-   *  ¹©Ó¦ÉÌºÅ
+   *  ï¿½ï¿½Ó¦ï¿½Ìºï¿½
    */
   AcPMP_SupplierNumber =
     Rte_IRead_Task_100ms_AcPMP_SupplierNumber_AcPMP_SupplierNumber();
@@ -35284,7 +35285,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_PartNumber'
    *
    * Block description for '<Root>/AcPMP_PartNumber':
-   *  Áã¼þ°æ±¾ºÅ
+   *  ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½
    */
   AcPMP_PartNumber = Rte_IRead_Task_100ms_AcPMP_PartNumber_AcPMP_PartNumber();
 
@@ -35292,7 +35293,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_HWVersion'
    *
    * Block description for '<Root>/AcPMP_HWVersion':
-   *  Ó²¼þ°æ±¾ºÅ
+   *  Ó²ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½
    */
   AcPMP_HWVersion = Rte_IRead_Task_100ms_AcPMP_HWVersion_AcPMP_HWVersion();
 
@@ -35300,7 +35301,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_SWVersion_Main'
    *
    * Block description for '<Root>/AcPMP_SWVersion_Main':
-   *  Èí¼þ°æ±¾ºÅ-Ö÷
+   *  ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½-ï¿½ï¿½
    */
   AcPMP_SWVersion_Main =
     Rte_IRead_Task_100ms_AcPMP_SWVersion_Main_AcPMP_SWVersion_Main();
@@ -35309,7 +35310,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_SWVersion_Sub'
    *
    * Block description for '<Root>/AcPMP_SWVersion_Sub':
-   *  Èí¼þ°æ±¾ºÅ-´Î
+   *  ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½-ï¿½ï¿½
    */
   AcPMP_SWVersion_Sub =
     Rte_IRead_Task_100ms_AcPMP_SWVersion_Sub_AcPMP_SWVersion_Sub();
@@ -35318,7 +35319,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/AcPMP_SWVersion_Patch'
    *
    * Block description for '<Root>/AcPMP_SWVersion_Patch':
-   *  Èí¼þ°æ±¾ºÅ-²¹¶¡
+   *  ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½-ï¿½ï¿½ï¿½ï¿½
    */
   AcPMP_SWVersion_Patch =
     Rte_IRead_Task_100ms_AcPMP_SWVersion_Patch_AcPMP_SWVersion_Patch();
@@ -35386,7 +35387,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/BatPMP_PumpInputVolt'
    *
    * Block description for '<Root>/BatPMP_PumpInputVolt':
-   *  Ë®±Ãµ±Ç°µçÑ¹
+   *  Ë®ï¿½Ãµï¿½Ç°ï¿½ï¿½Ñ¹
    */
   BatPMP_PumpInputVolt =
     Rte_IRead_Task_100ms_BatPMP_PumpInputVolt_BatPMP_PumpInputVolt();
@@ -35430,7 +35431,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Inport: '<Root>/MotPMP_PumpInputVolt'
    *
    * Block description for '<Root>/MotPMP_PumpInputVolt':
-   *  Ë®±Ãµ±Ç°µçÑ¹
+   *  Ë®ï¿½Ãµï¿½Ç°ï¿½ï¿½Ñ¹
    */
   MotPMP_PumpInputVolt =
     Rte_IRead_Task_100ms_MotPMP_PumpInputVolt_MotPMP_PumpInputVolt();
@@ -36219,7 +36220,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
    *  Gain: '<S30>/Gain1'
    *
    * Block description for '<Root>/TMM_EXV_PositionRequest':
-   *  EXV Position RequestEXV ÉèÖÃ¿ª¶ÈÇëÇó
+   *  EXV Position RequestEXV ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
    */
   Rte_IWrite_Task_100ms_TMM_EXV_PositionRequest_TMM_EXV_PositionRequest
     (rtb_Gain1_j_0);
@@ -36229,7 +36230,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
   /* Outport: '<Root>/TMM_EXV_EnableRequest'
    *
    * Block description for '<Root>/TMM_EXV_EnableRequest':
-   *  EXV Enable RequestEXV Ê¹ÄÜÇëÇó
+   *  EXV Enable RequestEXV Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
    */
   Rte_IWrite_Task_100ms_TMM_EXV_EnableRequest_TMM_EXV_EnableRequest
     (rtb_Compare_nd3);
@@ -36237,7 +36238,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
   /* Outport: '<Root>/TMM_EXV_initRequest'
    *
    * Block description for '<Root>/TMM_EXV_initRequest':
-   *  EXV Init RequestEXV ³õÊ¼»¯ÇëÇó
+   *  EXV Init RequestEXV ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
    */
   Rte_IWrite_Task_100ms_TMM_EXV_initRequest_TMM_EXV_initRequest
     (rtb_IFreezFlag_jz);
@@ -36347,21 +36348,21 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
   /* Outport: '<Root>/AcPMP_SpdSet'
    *
    * Block description for '<Root>/AcPMP_SpdSet':
-   *  ²ÉÅ¯Ë®±Ã×ªËÙÉè¶¨,Ë®±ÃÄ¿±ê×ªËÙ
+   *  ï¿½ï¿½Å¯Ë®ï¿½ï¿½×ªï¿½ï¿½ï¿½è¶¨,Ë®ï¿½ï¿½Ä¿ï¿½ï¿½×ªï¿½ï¿½
    */
   Rte_IWrite_Task_100ms_AcPMP_SpdSet_AcPMP_SpdSet(rtb_Add3_do);
 
   /* Outport: '<Root>/BatPMP_SpdSet'
    *
    * Block description for '<Root>/BatPMP_SpdSet':
-   *  µç³ØË®±Ã×ªËÙÉè¶¨,Ë®±ÃÄ¿±ê×ªËÙ
+   *  ï¿½ï¿½ï¿½Ë®ï¿½ï¿½×ªï¿½ï¿½ï¿½è¶¨,Ë®ï¿½ï¿½Ä¿ï¿½ï¿½×ªï¿½ï¿½
    */
   Rte_IWrite_Task_100ms_BatPMP_SpdSet_BatPMP_SpdSet(rtb_Add6_d);
 
   /* Outport: '<Root>/MotPMP_SpdSet'
    *
    * Block description for '<Root>/MotPMP_SpdSet':
-   *  µç»úË®±Ã×ªËÙÉè¶¨,Ë®±ÃÄ¿±ê×ªËÙ
+   *  ï¿½ï¿½ï¿½Ë®ï¿½ï¿½×ªï¿½ï¿½ï¿½è¶¨,Ë®ï¿½ï¿½Ä¿ï¿½ï¿½×ªï¿½ï¿½
    */
   Rte_IWrite_Task_100ms_MotPMP_SpdSet_MotPMP_SpdSet(rtb_DataTypeConversion2_a);
 }
@@ -37136,7 +37137,7 @@ void ME11_Init(void)
     /* End of ConstCode for RootInportFunctionCallGenerator generated from: '<Root>/TMS_Task' */
   }
 }
-
+// #pragma default_function_attributes =
 /*
  * File trailer for generated code.
  *
