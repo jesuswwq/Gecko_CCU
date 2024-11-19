@@ -49,7 +49,7 @@ uint8 key_word[256] = {0};
 boolean INV_IMMO_Req_EPT_RevFlag =0;
 //================BSWversion============================
 uint8  VBSW_BswVer0_cnt = 24;
-uint8  VBSW_BswVer1_cnt = 2;
+uint8  VBSW_BswVer1_cnt = 3;
 //======================================================
 
 /*新增高压互锁电压20241025*/
@@ -273,13 +273,13 @@ uint16 GetHw_ShftPstnSwSts(void)//换挡开关输入	IN_IAN30
 {
 	float ad_V = 0.0;
 	uint16 ad_R = 0;
-	ad_V =(uint16)((float)AD4067Dvalue[4] / 4095.0 * 3300.0 * 6.0 / 5.0);
-	//ad_V = ((float)(AD4067Dvalue[4] / 4095.0 * 3300.0)); /*PPV IAN30 change*/
-	if (ad_V > 2600)/*ppv ian30 need to 2100*/
+	//ad_V =(uint16)((float)AD4067Dvalue[4] / 4095.0 * 3300.0 * 6.0 / 5.0);
+	ad_V = ((float)(AD4067Dvalue[4] / 4095.0 * 3300.0)); /*PPV IAN30 change*/
+	if (ad_V > 2100)/*ppv ian30 need to 2100，initial value is 2600*/
 	{
 		ad_R = 0xffff;
 	}
-	#if 1 /*if you wanna change ian30 , you should cancle the else if*/
+	#if 0 /*if you wanna change ian30 , you should cancle the else if*/
 	else if(ad_V > 2350)
 	{
 		ad_R = 38000;
@@ -287,8 +287,8 @@ uint16 GetHw_ShftPstnSwSts(void)//换挡开关输入	IN_IAN30
 	#endif
 	else
 	{
-		ad_R = (uint16)(ad_V / (VCC - ad_V) * 2000.0);
-		//ad_R = (uint16)(ad_V / (VCC - ad_V) * 15000.0);/*PPV IAN30 change*/
+		//ad_R = (uint16)(ad_V / (VCC - ad_V) * 2000.0);
+		ad_R = (uint16)(ad_V / (VCC - ad_V) * 15000.0);/*PPV IAN30 change*/
 	}
 
 	return ad_R;
@@ -1347,6 +1347,7 @@ Std_ReturnType NvmBCmBlock_Imm_ReadData(uint8 *data, uint8 Length)
 Std_ReturnType  NvmBcmBlock_Imm_WriteData(uint8 *data, uint8 Length)//即时存
 {
     uint8  index = 0;
+	static uint8 bcm_old_data[128];
     NvM_RequestResultType NvmStatus = 0;
     if(Length >DataLength_BCM_IMM_NVMData)
     {
@@ -1355,30 +1356,20 @@ Std_ReturnType  NvmBcmBlock_Imm_WriteData(uint8 *data, uint8 Length)//即时存
             
     for(index = 0; index < Length; index++)
     {
-    *(NvM_BlockDescriptor[NvMBlock_Swc_BCM_IMM_20 - 1].NvmRamBlockDataAddress + index) = data[index];
-    }	
-    NvM_WriteBlock(NvMBlock_Swc_BCM_IMM_20, NULL_PTR);
-//    NvM_GetErrorStatus(NvMBlock_Swc_BCM_IMM_10,&NvmStatus);
-//    if(NvmStatus != NVM_REQ_PENDING)
-//    {
-//            NvM_WriteBlock(NvMBlock_Swc_BCM_IMM_10, NULL_PTR);
-//    }
-//    else if(NVM_REQ_OK == NvmStatus)
-//    {
-//    
-      return E_OK;
-//
-//    }
-//    else
-//    {
-//        NvM_CancelJobs(NvMBlock_Swc_BCM_IMM_10);
-//        NvM_WriteBlock(NvMBlock_Swc_BCM_IMM_10, NULL_PTR);
-//    }
-  
+		if(bcm_old_data[index] == data[index])
+		{
+			/*nothing to do*/
+		}
+		else
+		{
+			*(NvM_BlockDescriptor[NvMBlock_Swc_BCM_IMM_20 - 1].NvmRamBlockDataAddress + index) = data[index];
+			bcm_old_data[index] = data[index];
+			NvM_WriteBlock(NvMBlock_Swc_BCM_IMM_20, NULL_PTR);
+			return E_OK;
+		}
+    }
+}	
 
-
-
-}
 Std_ReturnType NvmBcmBlock02ReadData(uint8 *data, uint8 Length)
 {
     uint8  index = 0;
@@ -1404,10 +1395,14 @@ Std_ReturnType NvmBcmBlock02WriteData(uint8 *data, uint8 Length)
 
 }
 /*add nvm block of vcu*/
-uint8 olddata[128] = {0};
+uint8 olddata[128];
+
+#pragma default_function_attributes = @".iram_func"
 Std_ReturnType NvmVcuBlockImdtWriteData(uint8 *data, uint8 Length)
 {
     uint8  index = 0;
+	static uint8 testcounter;
+	testcounter++;
     if(Length >DataLength_VCU_IMM128_NVMData)
     {
         return E_NOT_OK;
@@ -1420,9 +1415,11 @@ Std_ReturnType NvmVcuBlockImdtWriteData(uint8 *data, uint8 Length)
 		}
 		else
 		{
+			#if 1
 			*(NvM_BlockDescriptor[NvMBlock_Swc_VCU_02_128 - 1].NvmRamBlockDataAddress + index) = data[index];
 			olddata[index] = data[index];
 			NvM_WriteBlock(NvMBlock_Swc_VCU_02_128, NULL_PTR);
+			#endif
 		}
         
     }
@@ -1441,7 +1438,7 @@ Std_ReturnType NvmVcuBlockImdtReadData(uint8 *data, uint8 Length)
     return E_OK;
 
 }
-
+#pragma default_function_attributes =
 
 
 //上电唤醒原因
@@ -1752,8 +1749,10 @@ uint8 GetHw_CreepModeSw(void) // 蠕行
 
 	return (uint8)IDX_Sta;
 }
+#pragma default_function_attributes = @".iram_func"
 boolean GetHw_CrashSig_Flag(void)//Crash signal flag
 {
+	#if 1
 	Icu_DutyCycleType Crash_sig;
 	uint32 Duty_value;
 	Icu_GetDutyCycleValues(IcuConf_IcuChannel_IcuChannel_Crash_sig,&Crash_sig);
@@ -1769,7 +1768,9 @@ boolean GetHw_CrashSig_Flag(void)//Crash signal flag
 	else{
 		//nothing todo;
 	}
+	#endif
 }
+#pragma default_function_attributes =
 	
 #if 1
 uint8 GetHw_HiBeamDigSts(void)

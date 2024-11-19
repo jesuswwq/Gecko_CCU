@@ -388,11 +388,13 @@ boolean IPDU_COM_TX_NM_ASR_CCU_EPT_CANFD6_EPT_CAN2_TxCallout(
 boolean ret = TRUE;
 return ret;
 }
+#if TEST_Periodic_Time_swtich
 extern uint8 Test_100ms_count;
 extern uint8 Test_20ms_count;
 extern uint8 Test_5ms_count;
 extern uint8 Test_10ms_count;
 extern uint8 Test_50ms_count;
+#endif
 boolean IPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
     PduIdType PduId,
     PduInfoType* PduInfoPtr
@@ -402,7 +404,7 @@ boolean IPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
     uint8* AliveCntPtr = &VCU_DispInfo_BAC_AliveCnt[0];
     uint8 ChksumLen = sizeof(ChksumAtByte);
     Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr); 
-    #if 0
+    #if TEST_Periodic_Time_swtich
     *(PduInfoPtr->SduDataPtr) = Test_100ms_count;
     *((PduInfoPtr->SduDataPtr) + 8) = Test_50ms_count;
     *((PduInfoPtr->SduDataPtr) + 16) = Test_20ms_count;
