@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcVcu'.
  *
- * Model version                  : 9.619
+ * Model version                  : 9.642
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Thu Nov 14 16:25:54 2024
+ * C/C++ source code generated on : Wed Nov 20 11:28:45 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -16,6 +16,20 @@
 #ifndef RTW_HEADER_AppSwcVcu_types_h_
 #define RTW_HEADER_AppSwcVcu_types_h_
 #include "rtwtypes.h"
+#ifndef DEFINED_TYPEDEF_FOR_EnumPGearSwSts_
+#define DEFINED_TYPEDEF_FOR_EnumPGearSwSts_
+
+/* N/A */
+typedef uint8 EnumPGearSwSts;
+
+/* enum EnumPGearSwSts */
+#define EnumPGearSwSts_Reld            ((EnumPGearSwSts)0U)      /* Default value */
+#define EnumPGearSwSts_Prsd            ((EnumPGearSwSts)1U)
+#define EnumPGearSwSts_ShtGnd          ((EnumPGearSwSts)2U)
+#define EnumPGearSwSts_ShtBat          ((EnumPGearSwSts)3U)
+#define EnumPGearSwSts_Unknown         ((EnumPGearSwSts)4U)
+#endif
+
 #ifndef DEFINED_TYPEDEF_FOR_EnumDrvModeAct_
 #define DEFINED_TYPEDEF_FOR_EnumDrvModeAct_
 
@@ -58,77 +72,55 @@ typedef uint8 EnumiTPMSSt;
 #define EnumiTPMSSt_Fault              ((EnumiTPMSSt)6U)
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_EnumPGearSwSts_
-#define DEFINED_TYPEDEF_FOR_EnumPGearSwSts_
+#ifndef DEFINED_TYPEDEF_FOR_EnumTBOXLimSt_
+#define DEFINED_TYPEDEF_FOR_EnumTBOXLimSt_
 
 /* N/A */
-typedef uint8 EnumPGearSwSts;
+typedef uint8 EnumTBOXLimSt;
 
-/* enum EnumPGearSwSts */
-#define EnumPGearSwSts_Reld            ((EnumPGearSwSts)0U)      /* Default value */
-#define EnumPGearSwSts_Prsd            ((EnumPGearSwSts)1U)
-#define EnumPGearSwSts_ShtGnd          ((EnumPGearSwSts)2U)
-#define EnumPGearSwSts_ShtBat          ((EnumPGearSwSts)3U)
-#define EnumPGearSwSts_Unknown         ((EnumPGearSwSts)4U)
+/* enum EnumTBOXLimSt */
+#define EnumTBOXLimSt_Normal           ((EnumTBOXLimSt)0U)       /* Default value */
+#define EnumTBOXLimSt_Level1           ((EnumTBOXLimSt)1U)
+#define EnumTBOXLimSt_Level2           ((EnumTBOXLimSt)2U)
+#define EnumTBOXLimSt_Level3           ((EnumTBOXLimSt)3U)
+#define EnumTBOXLimSt_Storage          ((EnumTBOXLimSt)4U)
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_EnumOBCOprtCmd_
-#define DEFINED_TYPEDEF_FOR_EnumOBCOprtCmd_
+#ifndef DEFINED_TYPEDEF_FOR_EnumXWhlDistErrRefSt_
+#define DEFINED_TYPEDEF_FOR_EnumXWhlDistErrRefSt_
 
 /* N/A */
-typedef uint8 EnumOBCOprtCmd;
+typedef uint8 EnumXWhlDistErrRefSt;
 
-/* enum EnumOBCOprtCmd */
-#define EnumOBCOprtCmd_Standby         ((EnumOBCOprtCmd)0U)      /* Default value */
-#define EnumOBCOprtCmd_Charge          ((EnumOBCOprtCmd)1U)
-#define EnumOBCOprtCmd_Rsrvd           ((EnumOBCOprtCmd)2U)
-#define EnumOBCOprtCmd_ChrgCmpl        ((EnumOBCOprtCmd)3U)
-#define EnumOBCOprtCmd_Discharge       ((EnumOBCOprtCmd)4U)
-#define EnumOBCOprtCmd_DchaCmpl        ((EnumOBCOprtCmd)5U)
-#define EnumOBCOprtCmd_ChrgAftOTA      ((EnumOBCOprtCmd)6U)
+/* enum EnumXWhlDistErrRefSt */
+#define EnumXWhlDistErrRefSt_Init      ((EnumXWhlDistErrRefSt)0U) /* Default value */
+#define EnumXWhlDistErrRefSt_Uncmplt   ((EnumXWhlDistErrRefSt)1U)
+#define EnumXWhlDistErrRefSt_Cmpltd    ((EnumXWhlDistErrRefSt)2U)
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_EnumVCUMode_
-#define DEFINED_TYPEDEF_FOR_EnumVCUMode_
+#ifndef DEFINED_TYPEDEF_FOR_EnumRegenModeAct_
+#define DEFINED_TYPEDEF_FOR_EnumRegenModeAct_
 
 /* N/A */
-typedef uint8 EnumVCUMode;
+typedef uint8 EnumRegenModeAct;
 
-/* enum EnumVCUMode */
-#define EnumVCUMode_PwrOff             ((EnumVCUMode)0U)         /* Default value */
-#define EnumVCUMode_WakeUp             ((EnumVCUMode)1U)
-#define EnumVCUMode_PwrUp              ((EnumVCUMode)2U)
-#define EnumVCUMode_PwrOnDrv           ((EnumVCUMode)3U)
-#define EnumVCUMode_PwrOnDCChrg        ((EnumVCUMode)4U)
-#define EnumVCUMode_PwrOnACChrg        ((EnumVCUMode)5U)
-#define EnumVCUMode_PwrOnACDcha        ((EnumVCUMode)6U)
-#define EnumVCUMode_PwrDwn             ((EnumVCUMode)7U)
+/* enum EnumRegenModeAct */
+#define EnumRegenModeAct_Off           ((EnumRegenModeAct)0U)    /* Default value */
+#define EnumRegenModeAct_Weak          ((EnumRegenModeAct)1U)
+#define EnumRegenModeAct_Strong        ((EnumRegenModeAct)2U)
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_EnumBMSSdnCmd_
-#define DEFINED_TYPEDEF_FOR_EnumBMSSdnCmd_
+#ifndef DEFINED_TYPEDEF_FOR_EnumIBSChrgSt_
+#define DEFINED_TYPEDEF_FOR_EnumIBSChrgSt_
 
 /* N/A */
-typedef uint8 EnumBMSSdnCmd;
+typedef uint8 EnumIBSChrgSt;
 
-/* enum EnumBMSSdnCmd */
-#define EnumBMSSdnCmd_Normal           ((EnumBMSSdnCmd)0U)       /* Default value */
-#define EnumBMSSdnCmd_Shutdwn          ((EnumBMSSdnCmd)1U)
-#define EnumBMSSdnCmd_EmgcySdn         ((EnumBMSSdnCmd)2U)
-#define EnumBMSSdnCmd_Rsrvd            ((EnumBMSSdnCmd)3U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_EnumChrgAllwCmd_
-#define DEFINED_TYPEDEF_FOR_EnumChrgAllwCmd_
-
-/* N/A */
-typedef uint8 EnumChrgAllwCmd;
-
-/* enum EnumChrgAllwCmd */
-#define EnumChrgAllwCmd_NotAllwd       ((EnumChrgAllwCmd)0U)     /* Default value */
-#define EnumChrgAllwCmd_DCChrg         ((EnumChrgAllwCmd)1U)
-#define EnumChrgAllwCmd_ACChrg         ((EnumChrgAllwCmd)2U)
-#define EnumChrgAllwCmd_ACDcha         ((EnumChrgAllwCmd)3U)
+/* enum EnumIBSChrgSt */
+#define EnumIBSChrgSt_Idle             ((EnumIBSChrgSt)0U)       /* Default value */
+#define EnumIBSChrgSt_Charging         ((EnumIBSChrgSt)1U)
+#define EnumIBSChrgSt_ChrgCmpld        ((EnumIBSChrgSt)2U)
+#define EnumIBSChrgSt_Fail             ((EnumIBSChrgSt)3U)
 #endif
 
 #ifndef DEFINED_TYPEDEF_FOR_EnumSysSta_
@@ -159,84 +151,6 @@ typedef uint8 EnumSysSta;
 #define EnumSysSta_EmgcyPwrDwn         ((EnumSysSta)73U)
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_EnumPTActMd_
-#define DEFINED_TYPEDEF_FOR_EnumPTActMd_
-
-/* N/A */
-typedef uint8 EnumPTActMd;
-
-/* enum EnumPTActMd */
-#define EnumPTActMd_OFF                ((EnumPTActMd)0U)         /* Default value */
-#define EnumPTActMd_Standby            ((EnumPTActMd)1U)
-#define EnumPTActMd_Ready              ((EnumPTActMd)2U)
-#define EnumPTActMd_EmgcySdn           ((EnumPTActMd)3U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_EnumDCCOprtCmd_
-#define DEFINED_TYPEDEF_FOR_EnumDCCOprtCmd_
-
-/* N/A */
-typedef uint8 EnumDCCOprtCmd;
-
-/* enum EnumDCCOprtCmd */
-#define EnumDCCOprtCmd_Off             ((EnumDCCOprtCmd)4U)      /* Default value */
-#define EnumDCCOprtCmd_Standby         ((EnumDCCOprtCmd)0U)
-#define EnumDCCOprtCmd_Buck            ((EnumDCCOprtCmd)2U)
-#define EnumDCCOprtCmd_Boost           ((EnumDCCOprtCmd)3U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_EnumBMSWakeUpMd_
-#define DEFINED_TYPEDEF_FOR_EnumBMSWakeUpMd_
-
-/* N/A */
-typedef uint8 EnumBMSWakeUpMd;
-
-/* enum EnumBMSWakeUpMd */
-#define EnumBMSWakeUpMd_Invld          ((EnumBMSWakeUpMd)0U)     /* Default value */
-#define EnumBMSWakeUpMd_ACChrg         ((EnumBMSWakeUpMd)1U)
-#define EnumBMSWakeUpMd_ACDcha         ((EnumBMSWakeUpMd)2U)
-#define EnumBMSWakeUpMd_DisChrg        ((EnumBMSWakeUpMd)3U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_EnumRegenModeAct_
-#define DEFINED_TYPEDEF_FOR_EnumRegenModeAct_
-
-/* N/A */
-typedef uint8 EnumRegenModeAct;
-
-/* enum EnumRegenModeAct */
-#define EnumRegenModeAct_Off           ((EnumRegenModeAct)0U)    /* Default value */
-#define EnumRegenModeAct_Weak          ((EnumRegenModeAct)1U)
-#define EnumRegenModeAct_Strong        ((EnumRegenModeAct)2U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_EnumIBSChrgSt_
-#define DEFINED_TYPEDEF_FOR_EnumIBSChrgSt_
-
-/* N/A */
-typedef uint8 EnumIBSChrgSt;
-
-/* enum EnumIBSChrgSt */
-#define EnumIBSChrgSt_Idle             ((EnumIBSChrgSt)0U)       /* Default value */
-#define EnumIBSChrgSt_Charging         ((EnumIBSChrgSt)1U)
-#define EnumIBSChrgSt_ChrgCmpld        ((EnumIBSChrgSt)2U)
-#define EnumIBSChrgSt_Fail             ((EnumIBSChrgSt)3U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_EnumTBOXLimSt_
-#define DEFINED_TYPEDEF_FOR_EnumTBOXLimSt_
-
-/* N/A */
-typedef uint8 EnumTBOXLimSt;
-
-/* enum EnumTBOXLimSt */
-#define EnumTBOXLimSt_Normal           ((EnumTBOXLimSt)0U)       /* Default value */
-#define EnumTBOXLimSt_Level1           ((EnumTBOXLimSt)1U)
-#define EnumTBOXLimSt_Level2           ((EnumTBOXLimSt)2U)
-#define EnumTBOXLimSt_Level3           ((EnumTBOXLimSt)3U)
-#define EnumTBOXLimSt_Storage          ((EnumTBOXLimSt)4U)
-#endif
-
 #ifndef DEFINED_TYPEDEF_FOR_EnumTBOXLimGrd_
 #define DEFINED_TYPEDEF_FOR_EnumTBOXLimGrd_
 
@@ -248,18 +162,6 @@ typedef uint8 EnumTBOXLimGrd;
 #define EnumTBOXLimGrd_Level1          ((EnumTBOXLimGrd)1U)
 #define EnumTBOXLimGrd_Level2          ((EnumTBOXLimGrd)2U)
 #define EnumTBOXLimGrd_Level3          ((EnumTBOXLimGrd)3U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_EnumXWhlDistErrRefSt_
-#define DEFINED_TYPEDEF_FOR_EnumXWhlDistErrRefSt_
-
-/* N/A */
-typedef uint8 EnumXWhlDistErrRefSt;
-
-/* enum EnumXWhlDistErrRefSt */
-#define EnumXWhlDistErrRefSt_Init      ((EnumXWhlDistErrRefSt)0U) /* Default value */
-#define EnumXWhlDistErrRefSt_Uncmplt   ((EnumXWhlDistErrRefSt)1U)
-#define EnumXWhlDistErrRefSt_Cmpltd    ((EnumXWhlDistErrRefSt)2U)
 #endif
 
 #ifndef DEFINED_TYPEDEF_FOR_EnumCruiseStatus_
@@ -361,6 +263,104 @@ typedef uint8 EnumTZXStat;
 #define EnumTZXStat_PZ                 ((EnumTZXStat)8U)
 #endif
 
+#ifndef DEFINED_TYPEDEF_FOR_EnumOBCOprtCmd_
+#define DEFINED_TYPEDEF_FOR_EnumOBCOprtCmd_
+
+/* N/A */
+typedef uint8 EnumOBCOprtCmd;
+
+/* enum EnumOBCOprtCmd */
+#define EnumOBCOprtCmd_Standby         ((EnumOBCOprtCmd)0U)      /* Default value */
+#define EnumOBCOprtCmd_Charge          ((EnumOBCOprtCmd)1U)
+#define EnumOBCOprtCmd_Rsrvd           ((EnumOBCOprtCmd)2U)
+#define EnumOBCOprtCmd_ChrgCmpl        ((EnumOBCOprtCmd)3U)
+#define EnumOBCOprtCmd_Discharge       ((EnumOBCOprtCmd)4U)
+#define EnumOBCOprtCmd_DchaCmpl        ((EnumOBCOprtCmd)5U)
+#define EnumOBCOprtCmd_ChrgAftOTA      ((EnumOBCOprtCmd)6U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_EnumVCUMode_
+#define DEFINED_TYPEDEF_FOR_EnumVCUMode_
+
+/* N/A */
+typedef uint8 EnumVCUMode;
+
+/* enum EnumVCUMode */
+#define EnumVCUMode_PwrOff             ((EnumVCUMode)0U)         /* Default value */
+#define EnumVCUMode_WakeUp             ((EnumVCUMode)1U)
+#define EnumVCUMode_PwrUp              ((EnumVCUMode)2U)
+#define EnumVCUMode_PwrOnDrv           ((EnumVCUMode)3U)
+#define EnumVCUMode_PwrOnDCChrg        ((EnumVCUMode)4U)
+#define EnumVCUMode_PwrOnACChrg        ((EnumVCUMode)5U)
+#define EnumVCUMode_PwrOnACDcha        ((EnumVCUMode)6U)
+#define EnumVCUMode_PwrDwn             ((EnumVCUMode)7U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_EnumBMSSdnCmd_
+#define DEFINED_TYPEDEF_FOR_EnumBMSSdnCmd_
+
+/* N/A */
+typedef uint8 EnumBMSSdnCmd;
+
+/* enum EnumBMSSdnCmd */
+#define EnumBMSSdnCmd_Normal           ((EnumBMSSdnCmd)0U)       /* Default value */
+#define EnumBMSSdnCmd_Shutdwn          ((EnumBMSSdnCmd)1U)
+#define EnumBMSSdnCmd_EmgcySdn         ((EnumBMSSdnCmd)2U)
+#define EnumBMSSdnCmd_Rsrvd            ((EnumBMSSdnCmd)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_EnumChrgAllwCmd_
+#define DEFINED_TYPEDEF_FOR_EnumChrgAllwCmd_
+
+/* N/A */
+typedef uint8 EnumChrgAllwCmd;
+
+/* enum EnumChrgAllwCmd */
+#define EnumChrgAllwCmd_NotAllwd       ((EnumChrgAllwCmd)0U)     /* Default value */
+#define EnumChrgAllwCmd_DCChrg         ((EnumChrgAllwCmd)1U)
+#define EnumChrgAllwCmd_ACChrg         ((EnumChrgAllwCmd)2U)
+#define EnumChrgAllwCmd_ACDcha         ((EnumChrgAllwCmd)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_EnumPTActMd_
+#define DEFINED_TYPEDEF_FOR_EnumPTActMd_
+
+/* N/A */
+typedef uint8 EnumPTActMd;
+
+/* enum EnumPTActMd */
+#define EnumPTActMd_OFF                ((EnumPTActMd)0U)         /* Default value */
+#define EnumPTActMd_Standby            ((EnumPTActMd)1U)
+#define EnumPTActMd_Ready              ((EnumPTActMd)2U)
+#define EnumPTActMd_EmgcySdn           ((EnumPTActMd)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_EnumDCCOprtCmd_
+#define DEFINED_TYPEDEF_FOR_EnumDCCOprtCmd_
+
+/* N/A */
+typedef uint8 EnumDCCOprtCmd;
+
+/* enum EnumDCCOprtCmd */
+#define EnumDCCOprtCmd_Off             ((EnumDCCOprtCmd)4U)      /* Default value */
+#define EnumDCCOprtCmd_Standby         ((EnumDCCOprtCmd)0U)
+#define EnumDCCOprtCmd_Buck            ((EnumDCCOprtCmd)2U)
+#define EnumDCCOprtCmd_Boost           ((EnumDCCOprtCmd)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_EnumBMSWakeUpMd_
+#define DEFINED_TYPEDEF_FOR_EnumBMSWakeUpMd_
+
+/* N/A */
+typedef uint8 EnumBMSWakeUpMd;
+
+/* enum EnumBMSWakeUpMd */
+#define EnumBMSWakeUpMd_Invld          ((EnumBMSWakeUpMd)0U)     /* Default value */
+#define EnumBMSWakeUpMd_ACChrg         ((EnumBMSWakeUpMd)1U)
+#define EnumBMSWakeUpMd_ACDcha         ((EnumBMSWakeUpMd)2U)
+#define EnumBMSWakeUpMd_DisChrg        ((EnumBMSWakeUpMd)3U)
+#endif
+
 #ifndef DEFINED_TYPEDEF_FOR_EnumEPBReq_
 #define DEFINED_TYPEDEF_FOR_EnumEPBReq_
 
@@ -398,23 +398,6 @@ typedef uint8 EnumTgtGearPstn;
 #define EnumTgtGearPstn_N              ((EnumTgtGearPstn)2U)
 #define EnumTgtGearPstn_D              ((EnumTgtGearPstn)3U)
 #define EnumTgtGearPstn_R              ((EnumTgtGearPstn)4U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_struct_4t2rZ1ShKYtehtDWB50ACH_
-#define DEFINED_TYPEDEF_FOR_struct_4t2rZ1ShKYtehtDWB50ACH_
-
-typedef struct {
-  float32 VDAG_LVBatActVolt_V;
-  boolean HW_KL15_flg;
-  boolean OBC_WakeUp_flg;
-  boolean BMS_WakeUp_flg;
-  boolean VDAG_HWWakeUp_flg;
-  boolean VDAG_WakeUp_flg;
-  boolean VDAG_StandStillPN_flg;
-  boolean VDAG_VehSpdLo_flg;
-  boolean VDAG_ClrDTCReq_flg;
-} struct_4t2rZ1ShKYtehtDWB50ACH;
-
 #endif
 
 #ifndef DEFINED_TYPEDEF_FOR_struct_11mA3pBF0WJgD7qpwLWW6B_
@@ -574,6 +557,23 @@ typedef struct {
   float32 VVTM_DrvPwrIntnsty_pct;
   float32 VVTM_RegenPwrIntnsty_pct;
 } struct_khZ7q4WM2i0FlIv5GQIv3F;
+
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_struct_4t2rZ1ShKYtehtDWB50ACH_
+#define DEFINED_TYPEDEF_FOR_struct_4t2rZ1ShKYtehtDWB50ACH_
+
+typedef struct {
+  float32 VDAG_LVBatActVolt_V;
+  boolean HW_KL15_flg;
+  boolean OBC_WakeUp_flg;
+  boolean BMS_WakeUp_flg;
+  boolean VDAG_HWWakeUp_flg;
+  boolean VDAG_WakeUp_flg;
+  boolean VDAG_StandStillPN_flg;
+  boolean VDAG_VehSpdLo_flg;
+  boolean VDAG_ClrDTCReq_flg;
+} struct_4t2rZ1ShKYtehtDWB50ACH;
 
 #endif
 #endif                                 /* RTW_HEADER_AppSwcVcu_types_h_ */
