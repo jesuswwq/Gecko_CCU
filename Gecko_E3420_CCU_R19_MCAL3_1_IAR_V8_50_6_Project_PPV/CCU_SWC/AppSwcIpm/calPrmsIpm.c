@@ -22,7 +22,7 @@
 #include "XcpTest_types.h"
 
 /* Definition for custom storage class: CalParam */
-CALDATA const volatile boolean KIPM_ACCMCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst4' */
+CALDATA const volatile boolean KIPM_ACCMCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst4' */
 CALDATA const volatile boolean KIPM_ACCMLostCommOvrdSw_flg = false;
                          /* Referenced by: '<S384>/KIPC_LimpHomeOvrdSw_flg29' */
 CALDATA const volatile boolean KIPM_ACCMLostCommOvrdVal_flg = false;
@@ -65,7 +65,7 @@ CALDATA const volatile float32 KIPM_BMSBatSOHHi_pct = 100000.0F;/* Referenced by
 CALDATA const volatile float32 KIPM_BMSBatSOHLo_pct = -100000.0F;/* Referenced by: '<S317>/sat7' */
 CALDATA const volatile boolean KIPM_BMSBatSOH_pct_ovrdflg = false;/* Referenced by: '<S317>/sat3' */
 CALDATA const volatile float32 KIPM_BMSBatSOH_pct_ovrdval = 0.0F;/* Referenced by: '<S317>/sat4' */
-CALDATA const volatile boolean KIPM_BMSCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst14' */
+CALDATA const volatile boolean KIPM_BMSCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst14' */
 CALDATA const volatile float32 KIPM_BMSCellVoltMaxDflt_mV = 0.0F;/* Referenced by: '<S343>/sat5' */
 CALDATA const volatile float32 KIPM_BMSCellVoltMaxHi_mV = 100000.0F;/* Referenced by: '<S343>/sat6' */
 CALDATA const volatile float32 KIPM_BMSCellVoltMaxLo_mV = -100000.0F;/* Referenced by: '<S343>/sat7' */
@@ -215,7 +215,7 @@ CALDATA const volatile boolean KIPM_CCPBlwrLvlAddKey_flg_ovrdval = false;/* Refe
 CALDATA const volatile boolean KIPM_CCPBlwrLvlDecKeyDflt_flg = false;/* Referenced by: '<S358>/sat5' */
 CALDATA const volatile boolean KIPM_CCPBlwrLvlDecKey_flg_ovrdflg = false;/* Referenced by: '<S358>/sat3' */
 CALDATA const volatile boolean KIPM_CCPBlwrLvlDecKey_flg_ovrdval = false;/* Referenced by: '<S358>/sat4' */
-CALDATA const volatile boolean KIPM_CCPCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst3' */
+CALDATA const volatile boolean KIPM_CCPCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst3' */
 CALDATA const volatile boolean KIPM_CCPCenLckKeyDflt_flg = false;/* Referenced by: '<S359>/sat5' */
 CALDATA const volatile boolean KIPM_CCPCenLckKey_flg_ovrdflg = false;/* Referenced by: '<S359>/sat3' */
 CALDATA const volatile boolean KIPM_CCPCenLckKey_flg_ovrdval = false;/* Referenced by: '<S359>/sat4' */
@@ -329,7 +329,7 @@ CALDATA const volatile uint8 KIPM_CRRRBSDWarnLt_enum_ovrdval = 0U;/* Referenced 
 CALDATA const volatile uint8 KIPM_CRRRBSDWarnRtDflt_enum = 0U;/* Referenced by: '<S268>/sat5' */
 CALDATA const volatile boolean KIPM_CRRRBSDWarnRt_enum_ovrdflg = false;/* Referenced by: '<S268>/sat3' */
 CALDATA const volatile uint8 KIPM_CRRRBSDWarnRt_enum_ovrdval = 0U;/* Referenced by: '<S268>/sat4' */
-CALDATA const volatile boolean KIPM_CRRRCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst7' */
+CALDATA const volatile boolean KIPM_CRRRCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst7' */
 CALDATA const volatile uint8 KIPM_CRRRDOWWarnLtDflt_enum = 0U;/* Referenced by: '<S269>/sat5' */
 CALDATA const volatile boolean KIPM_CRRRDOWWarnLt_enum_ovrdflg = false;/* Referenced by: '<S269>/sat3' */
 CALDATA const volatile uint8 KIPM_CRRRDOWWarnLt_enum_ovrdval = 0U;/* Referenced by: '<S269>/sat4' */
@@ -377,7 +377,7 @@ CALDATA const volatile float32 KIPM_EHBBrkPwrRecupTarWhlTq_Nm_ovrdval = 0.0F;/* 
 CALDATA const volatile boolean KIPM_EHBCDDActvDflt_flg = false;/* Referenced by: '<S180>/sat5' */
 CALDATA const volatile boolean KIPM_EHBCDDActv_flg_ovrdflg = false;/* Referenced by: '<S180>/sat3' */
 CALDATA const volatile boolean KIPM_EHBCDDActv_flg_ovrdval = false;/* Referenced by: '<S180>/sat4' */
-CALDATA const volatile boolean KIPM_EHBCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst8' */
+CALDATA const volatile boolean KIPM_EHBCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst8' */
 CALDATA const volatile EnumEPBState KIPM_EHBEPBActuatorStLDflt_enum =
   EnumEPBState_Releasing;              /* Referenced by: '<S275>/sat5' */
 CALDATA const volatile boolean KIPM_EHBEPBActuatorStL_enum_ovrdflg = false;/* Referenced by: '<S275>/sat3' */
@@ -414,7 +414,7 @@ CALDATA const volatile boolean KIPM_EHBLostCommOvrdVal_flg = false;
 CALDATA const volatile boolean KIPM_EHBReqBrkLiOnDflt_flg = false;/* Referenced by: '<S184>/sat5' */
 CALDATA const volatile boolean KIPM_EHBReqBrkLiOn_flg_ovrdflg = false;/* Referenced by: '<S184>/sat3' */
 CALDATA const volatile boolean KIPM_EHBReqBrkLiOn_flg_ovrdval = false;/* Referenced by: '<S184>/sat4' */
-CALDATA const volatile boolean KIPM_EPSCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst9' */
+CALDATA const volatile boolean KIPM_EPSCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst9' */
 CALDATA const volatile boolean KIPM_EPSLostCommOvrdSw_flg = false;
                          /* Referenced by: '<S384>/KIPC_LimpHomeOvrdSw_flg19' */
 CALDATA const volatile boolean KIPM_EPSLostCommOvrdVal_flg = false;
@@ -445,7 +445,7 @@ CALDATA const volatile boolean KIPM_ESCABSActvSta_flg_ovrdval = false;/* Referen
 CALDATA const volatile boolean KIPM_ESCCDPActvDflt_flg = false;/* Referenced by: '<S193>/sat5' */
 CALDATA const volatile boolean KIPM_ESCCDPActv_flg_ovrdflg = false;/* Referenced by: '<S193>/sat3' */
 CALDATA const volatile boolean KIPM_ESCCDPActv_flg_ovrdval = false;/* Referenced by: '<S193>/sat4' */
-CALDATA const volatile boolean KIPM_ESCCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst10' */
+CALDATA const volatile boolean KIPM_ESCCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst10' */
 CALDATA const volatile boolean KIPM_ESCEBDActvDflt_flg = false;/* Referenced by: '<S194>/sat5' */
 CALDATA const volatile boolean KIPM_ESCEBDActv_flg_ovrdflg = false;/* Referenced by: '<S194>/sat3' */
 CALDATA const volatile boolean KIPM_ESCEBDActv_flg_ovrdval = false;/* Referenced by: '<S194>/sat4' */
@@ -597,7 +597,7 @@ CALDATA const volatile boolean KIPM_FCMAccTgtAxReq_flg_ovrdflg = false;/* Refere
 CALDATA const volatile boolean KIPM_FCMAccTgtAxReq_flg_ovrdval = false;/* Referenced by: '<S289>/sat4' */
 CALDATA const volatile boolean KIPM_FCMAccTgtAx_mps2_ovrdflg = false;/* Referenced by: '<S290>/sat3' */
 CALDATA const volatile float32 KIPM_FCMAccTgtAx_mps2_ovrdval = 0.0F;/* Referenced by: '<S290>/sat4' */
-CALDATA const volatile boolean KIPM_FCMCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst11' */
+CALDATA const volatile boolean KIPM_FCMCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst11' */
 CALDATA const volatile uint8 KIPM_FCMEPBReqDflt_enum = 0U;/* Referenced by: '<S291>/sat5' */
 CALDATA const volatile boolean KIPM_FCMEPBReq_enum_ovrdflg = false;/* Referenced by: '<S291>/sat3' */
 CALDATA const volatile uint8 KIPM_FCMEPBReq_enum_ovrdval = 0U;/* Referenced by: '<S291>/sat4' */
@@ -623,7 +623,7 @@ CALDATA const volatile uint8 KIPM_HUAirInletModeSet_enum_ovrdval = 0U;/* Referen
 CALDATA const volatile uint8 KIPM_HUBlwrModeSetDflt_enum = 0U;/* Referenced by: '<S80>/sat5' */
 CALDATA const volatile boolean KIPM_HUBlwrModeSet_enum_ovrdflg = false;/* Referenced by: '<S80>/sat3' */
 CALDATA const volatile uint8 KIPM_HUBlwrModeSet_enum_ovrdval = 0U;/* Referenced by: '<S80>/sat4' */
-CALDATA const volatile boolean KIPM_HUCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst' */
+CALDATA const volatile boolean KIPM_HUCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst' */
 CALDATA const volatile uint8 KIPM_HUChgWiprMtMdSwSetDflt_enum = 0U;/* Referenced by: '<S81>/sat5' */
 CALDATA const volatile boolean KIPM_HUChgWiprMtMdSwSet_enum_ovrdflg = false;/* Referenced by: '<S81>/sat3' */
 CALDATA const volatile uint8 KIPM_HUChgWiprMtMdSwSet_enum_ovrdval = 0U;/* Referenced by: '<S81>/sat4' */
@@ -762,7 +762,7 @@ CALDATA const volatile uint8 KIPM_HwVerMax_enum_ovrdval = 0U;/* Referenced by: '
 CALDATA const volatile uint8 KIPM_HwVerMinDflt_enum = 0U;/* Referenced by: '<S20>/sat5' */
 CALDATA const volatile boolean KIPM_HwVerMin_enum_ovrdflg = false;/* Referenced by: '<S20>/sat3' */
 CALDATA const volatile uint8 KIPM_HwVerMin_enum_ovrdval = 0U;/* Referenced by: '<S20>/sat4' */
-CALDATA const volatile boolean KIPM_ICUCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst1' */
+CALDATA const volatile boolean KIPM_ICUCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst1' */
 CALDATA const volatile boolean KIPM_ICULostCommOvrdSw_flg = false;
                          /* Referenced by: '<S384>/KIPC_LimpHomeOvrdSw_flg23' */
 CALDATA const volatile boolean KIPM_ICULostCommOvrdVal_flg = false;
@@ -832,7 +832,7 @@ CALDATA const volatile float32 KIPM_INV3RecupTqAllwdMax_Nm_ovrdval = 0.0F;/* Ref
 CALDATA const volatile uint8 KIPM_INV4FltLvlDflt_enum = 0U;/* Referenced by: '<S254>/sat5' */
 CALDATA const volatile boolean KIPM_INV4FltLvl_enum_ovrdflg = false;/* Referenced by: '<S254>/sat3' */
 CALDATA const volatile uint8 KIPM_INV4FltLvl_enum_ovrdval = 0U;/* Referenced by: '<S254>/sat4' */
-CALDATA const volatile boolean KIPM_INVCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst15' */
+CALDATA const volatile boolean KIPM_INVCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst15' */
 CALDATA const volatile uint8 KIPM_INVLrngData02Dflt_nu = 0U;/* Referenced by: '<S130>/sat5' */
 CALDATA const volatile boolean KIPM_INVLrngData02_nu_ovrdflg = false;/* Referenced by: '<S130>/sat3' */
 CALDATA const volatile uint8 KIPM_INVLrngData02_nu_ovrdval = 0U;/* Referenced by: '<S130>/sat4' */
@@ -857,7 +857,7 @@ CALDATA const volatile uint8 KIPM_INVLrngSts_enum_ovrdval = 0U;/* Referenced by:
 CALDATA const volatile uint8 KIPM_INVLrngSubIDDflt_cnt = 0U;/* Referenced by: '<S137>/sat5' */
 CALDATA const volatile boolean KIPM_INVLrngSubID_cnt_ovrdflg = false;/* Referenced by: '<S137>/sat3' */
 CALDATA const volatile uint8 KIPM_INVLrngSubID_cnt_ovrdval = 0U;/* Referenced by: '<S137>/sat4' */
-CALDATA const volatile boolean KIPM_IPUCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst16' */
+CALDATA const volatile boolean KIPM_IPUCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst16' */
 CALDATA const volatile EnumDCCActMd KIPM_IPUDCCActOprtModeDflt_enum =
   EnumDCCActMd_Init;                   /* Referenced by: '<S138>/sat5' */
 CALDATA const volatile boolean KIPM_IPUDCCActOprtMode_enum_ovrdflg = false;/* Referenced by: '<S138>/sat3' */
@@ -954,17 +954,17 @@ CALDATA const volatile boolean KIPM_MCULostCommOvrdSw_flg = false;
                          /* Referenced by: '<S384>/KIPC_LimpHomeOvrdSw_flg27' */
 CALDATA const volatile boolean KIPM_MCULostCommOvrdVal_flg = false;
                          /* Referenced by: '<S384>/KIPC_LimpHomeOvrdSw_flg28' */
-CALDATA const volatile boolean KIPM_PPCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst12' */
+CALDATA const volatile boolean KIPM_PPCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst12' */
 CALDATA const volatile boolean KIPM_PPLostCommOvrdSw_flg = false;
                          /* Referenced by: '<S384>/KIPC_LimpHomeOvrdSw_flg17' */
 CALDATA const volatile boolean KIPM_PPLostCommOvrdVal_flg = false;
                          /* Referenced by: '<S384>/KIPC_LimpHomeOvrdSw_flg18' */
-CALDATA const volatile boolean KIPM_PTCCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst5' */
+CALDATA const volatile boolean KIPM_PTCCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst5' */
 CALDATA const volatile boolean KIPM_PTCLostCommOvrdSw_flg = false;
                          /* Referenced by: '<S384>/KIPC_LimpHomeOvrdSw_flg31' */
 CALDATA const volatile boolean KIPM_PTCLostCommOvrdVal_flg = false;
                          /* Referenced by: '<S384>/KIPC_LimpHomeOvrdSw_flg32' */
-CALDATA const volatile boolean KIPM_SCSCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst6' */
+CALDATA const volatile boolean KIPM_SCSCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst6' */
 CALDATA const volatile uint8 KIPM_SCSFrntWiprSwtStDflt_enum = 0U;/* Referenced by: '<S371>/sat5' */
 CALDATA const volatile boolean KIPM_SCSFrntWiprSwtSt_enum_ovrdflg = false;/* Referenced by: '<S371>/sat3' */
 CALDATA const volatile uint8 KIPM_SCSFrntWiprSwtSt_enum_ovrdval = 0U;/* Referenced by: '<S371>/sat4' */
@@ -1013,7 +1013,7 @@ CALDATA const volatile boolean KIPM_SCSRghtSwVldty_flg_ovrdval = false;/* Refere
 CALDATA const volatile boolean KIPM_SCSRiTrnLmpSwStDflt_flg = false;/* Referenced by: '<S379>/sat5' */
 CALDATA const volatile boolean KIPM_SCSRiTrnLmpSwSt_flg_ovrdflg = false;/* Referenced by: '<S379>/sat3' */
 CALDATA const volatile boolean KIPM_SCSRiTrnLmpSwSt_flg_ovrdval = false;/* Referenced by: '<S379>/sat4' */
-CALDATA const volatile boolean KIPM_SRSCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst13' */
+CALDATA const volatile boolean KIPM_SRSCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst13' */
 CALDATA const volatile uint8 KIPM_SRSCrashOutputStsDflt_enum = 0U;/* Referenced by: '<S381>/sat5' */
 CALDATA const volatile boolean KIPM_SRSCrashOutputSts_enum_ovrdflg = false;/* Referenced by: '<S381>/sat3' */
 CALDATA const volatile uint8 KIPM_SRSCrashOutputSts_enum_ovrdval = 0U;/* Referenced by: '<S381>/sat4' */
@@ -1048,7 +1048,7 @@ CALDATA const volatile uint8 KIPM_TBOXBJSTimeSec_nu_ovrdval = 0U;/* Referenced b
 CALDATA const volatile uint16 KIPM_TBOXBJSTimeYearDflt_nu = 0U;/* Referenced by: '<S69>/sat5' */
 CALDATA const volatile boolean KIPM_TBOXBJSTimeYear_nu_ovrdflg = false;/* Referenced by: '<S69>/sat3' */
 CALDATA const volatile uint16 KIPM_TBOXBJSTimeYear_nu_ovrdval = 0U;/* Referenced by: '<S69>/sat4' */
-CALDATA const volatile boolean KIPM_TBOXCRCChkEnbl_flg = false;/* Referenced by: '<S383>/Cnst2' */
+CALDATA const volatile boolean KIPM_TBOXCRCChkEnbl_flg = true;/* Referenced by: '<S383>/Cnst2' */
 CALDATA const volatile boolean KIPM_TBOXLostCommOvrdSw_flg = false;
                          /* Referenced by: '<S384>/KIPC_LimpHomeOvrdSw_flg25' */
 CALDATA const volatile boolean KIPM_TBOXLostCommOvrdVal_flg = false;

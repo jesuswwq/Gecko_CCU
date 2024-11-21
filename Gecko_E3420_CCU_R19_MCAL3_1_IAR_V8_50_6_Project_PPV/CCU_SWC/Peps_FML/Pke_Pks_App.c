@@ -32,7 +32,7 @@ uint8 u8HitagAuthPass = 0;	 //?????????
 struct LF_Auth_Buff sLf_Auth_TransmitterInfo;
 struct LF_FobLocate_Buff sLf_FobLocate_TransmitterInfo;
 
-static uint8 u8Lf_Tx_Cnt = 0; // 锟斤拷锟节碉拷频锟斤拷锟竭猴�?
+static uint8 u8Lf_Tx_Cnt = 0; // 锟斤拷锟节碉拷频锟斤拷锟竭猴�?
 static uint8 u8Arr_Mac[2];
 
 BITBYTE tsLfAntDiagStatus;
@@ -82,7 +82,7 @@ static uint32_t u32Rf_CurRssi_Index = 0;
 
 static uint8 Vehicle_Calibration_Work = 0;
 static uint16 Vehicle_Calibration_Num = 0;
-
+#pragma default_function_attributes = @".iram_func"
 void Change_Njj29c0_WorkStatus(lf_handle_state sta)
 {
 	lfapp_work_sta = sta;
@@ -219,7 +219,7 @@ void SetVehicleCalibrationPara(uint8 *para)
 		}
 		else if (para[1] == 0xA4)
 		{
-			// 复位控制�?
+			// 复位控制�?
 #ifdef DEBUG
 			// VeKYM_KeySrhReq_enum = 4;
 
@@ -228,7 +228,7 @@ void SetVehicleCalibrationPara(uint8 *para)
 		}
 		else if (para[1] == 0xA5)
 		{
-			// 复位控制�?
+			// 复位控制�?
 #ifdef DEBUG
 			VeKYM_KeySrhReq_enum = 6;
 #endif
@@ -284,21 +284,21 @@ static void App_Monitor_Lf_Work_Status(void)
 		u16Incar_Ant_DriveCurrent = (uint16_t)u32calc;
 	}
 
-	if (u16LPEAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
+	if (u16LPEAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
 	{
 		u32calc = (uint32_t)(Lf_DoorAnt_Rssi_Limit * 100.0);
 
 		u16Left_Door_Ant_Rssi_Limit = (uint16_t)u32calc;
 	}
 
-	if (u16RPEAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
+	if (u16RPEAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
 	{
 		u32calc = (uint32_t)(Rf_DoorAnt_Rssi_Limit * 100.0);
 
 		u16Right_Door_Ant_Rssi_Limit = (uint16_t)u32calc;
 	}
 
-	if (u16PSAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
+	if (u16PSAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
 	{
 		u32calc = (uint32_t)(Ps_Ant_Rssi_Limit * 100.0);
 
@@ -376,9 +376,9 @@ static void App_Monitor_Lf_Work_Status(void)
 }
 
 /*******************************************************************************
- * 锟斤拷锟斤拷锟斤�? : LfAuthTransmitterInfoInit
+ * 锟斤拷锟斤拷锟斤�? : LfAuthTransmitterInfoInit
  * 锟斤拷锟斤拷	 : 锟斤拷频锟斤拷锟斤拷锟斤拷息锟侥筹拷始锟斤拷
- * 锟斤拷锟斤拷	 : cmd:锟斤拷频锟斤拷锟酵碉拷锟斤拷锟斤�?
+ * 锟斤拷锟斤拷	 : cmd:锟斤拷频锟斤拷锟酵碉拷锟斤拷锟斤�?
  * 锟斤拷锟斤拷	 : NONE
  *******************************************************************************/
 static void LfAuthTransmitterInfoInit(uint8 cmd, uint32 Uid)
@@ -421,9 +421,9 @@ static void LfAuthTransmitterInfoInit(uint8 cmd, uint32 Uid)
 }
 
 /*******************************************************************************
- * 锟斤拷锟斤拷锟斤�? : LFGetRssiTransmitterInfoInit
- * 锟斤拷锟斤拷	 : 锟斤拷频锟斤拷贸锟角恐碉拷锟接︼拷锟斤拷锟斤拷锟较拷某锟绞硷拷�?
- * 锟斤拷锟斤拷	 : cmd:锟斤拷频锟斤拷锟酵碉拷锟斤拷锟斤�?
+ * 锟斤拷锟斤拷锟斤�? : LFGetRssiTransmitterInfoInit
+ * 锟斤拷锟斤拷	 : 锟斤拷频锟斤拷贸锟角恐碉拷锟接︼拷锟斤拷锟斤拷锟较拷某锟绞硷拷�?
+ * 锟斤拷锟斤拷	 : cmd:锟斤拷频锟斤拷锟酵碉拷锟斤拷锟斤�?
  * 锟斤拷锟斤拷	 : NONE
  *******************************************************************************/
 static void LFGetRssiTransmitterInfoInit(uint8 cmd)
@@ -523,7 +523,7 @@ void ScanBodyInputSign(void)
 	//============================锟斤拷锟斤拷驶锟脚帮拷锟街帮拷锟斤拷锟斤拷锟?============================
 	if (!Dio_ReadChannel(GPIO_D0))
 	{
-		if (bDrDoor_Button_State == TRUE) // 锟斤拷驶锟斤拷锟脚帮拷锟斤拷 锟铰斤拷锟斤�?
+		if (bDrDoor_Button_State == TRUE) // 锟斤拷驶锟斤拷锟脚帮拷锟斤拷 锟铰斤拷锟斤�?
 		{
 			u8DrDoorButton_Cnt++;
 
@@ -543,7 +543,7 @@ void ScanBodyInputSign(void)
 
 	if (!Dio_ReadChannel(GPIO_D1))
 	{
-		if (bDrDoor_Button_State01 == TRUE) // 锟斤拷驶锟斤拷锟脚帮拷锟斤拷 锟铰斤拷锟斤�?
+		if (bDrDoor_Button_State01 == TRUE) // 锟斤拷驶锟斤拷锟脚帮拷锟斤拷 锟铰斤拷锟斤�?
 		{
 			u8DrDoorButton_Cnt01++;
 
@@ -563,7 +563,7 @@ void ScanBodyInputSign(void)
 
 	if (!Dio_ReadChannel(GPIO_D2))
 	{
-		if (bDrDoor_Button_State02 == TRUE) // 锟斤拷驶锟斤拷锟脚帮拷锟斤拷 锟铰斤拷锟斤�?
+		if (bDrDoor_Button_State02 == TRUE) // 锟斤拷驶锟斤拷锟脚帮拷锟斤拷 锟铰斤拷锟斤�?
 		{
 			u8DrDoorButton_Cnt02++;
 
@@ -583,7 +583,7 @@ void ScanBodyInputSign(void)
 
 	if (!Dio_ReadChannel(GPIO_D3))
 	{
-		if (bDrDoor_Button_State03 == TRUE) // 锟斤拷驶锟斤拷锟脚帮拷锟斤拷 锟铰斤拷锟斤�?
+		if (bDrDoor_Button_State03 == TRUE) // 锟斤拷驶锟斤拷锟脚帮拷锟斤拷 锟铰斤拷锟斤�?
 		{
 			u8DrDoorButton_Cnt03++;
 
@@ -1091,7 +1091,7 @@ static int8_t WelcomeGuest_Auth(uint8 use_fobkey_num)
 	return fun_sta;
 }
 
-static int8_t NJJ29C0_WelcomeGuest_SearchTrack_Key(uint8_t Carrier_En, uint16_t cycle) // 钥锟阶轨迹锟斤拷锟斤�?
+static int8_t NJJ29C0_WelcomeGuest_SearchTrack_Key(uint8_t Carrier_En, uint16_t cycle) // 钥锟阶轨迹锟斤拷锟斤�?
 {
 	uint8 spitxFrame[32] = {0};
 	LONG_UNION Rand_Val;
@@ -1358,7 +1358,7 @@ void NJJ29C0_PollingUnlock_Process(void)
 			u16PollingUnlockWaitMaxTime++;
 			if (u16PollingUnlockWaitMaxTime >= 250)
 			{
-				// 500ms未锟斤拷锟秸碉拷强锟饺凤拷锟斤拷值锟斤拷钥锟斤拷锟斤拷失锟斤拷Z4锟斤拷锟津，伙拷钥锟斤拷一直锟斤拷锟斤拷锟脚ｏ拷锟斤拷锟斤拷失锟斤�?
+				// 500ms未锟斤拷锟秸碉拷强锟饺凤拷锟斤拷值锟斤拷钥锟斤拷锟斤拷失锟斤拷Z4锟斤拷锟津，伙拷钥锟斤拷一直锟斤拷锟斤拷锟脚ｏ拷锟斤拷锟斤拷失锟斤�?
 				JOKER_WakeUp();
 				u8PollingUnlockStep = 0; // 锟斤拷锟铰斤拷锟斤拷却锟?
 				return;
@@ -1403,7 +1403,7 @@ void NJJ29C0_PollingUnlock_Process(void)
 			{
 				if (FobKey_Tracking_Positioning_Algorithm(u32Lf_Door_CurRssi, u32Lf_CurRssi_Index, 200) == UPWARD)
 				{
-					// 强锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤�?
+					// 强锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤�?
 					JOKER_WakeUp();
 					u8PollingUnlockStep++;
 					u8WakeUpFobsIndex = 0;
@@ -1413,7 +1413,7 @@ void NJJ29C0_PollingUnlock_Process(void)
 			{
 				if (FobKey_Tracking_Positioning_Algorithm(u32Lf_Door_CurRssi, u32Lf_CurRssi_Index, 1) == UPWARD)
 				{
-					// 强锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤�?
+					// 强锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤�?
 					u8Welcome_Function_Request = 1; // Polling light Request
 				}
 			}
@@ -1455,7 +1455,7 @@ void NJJ29C0_PollingUnlock_Process(void)
 			{
 				if (FobKey_Tracking_Positioning_Algorithm(u32Rf_Door_CurRssi, u32Rf_CurRssi_Index, 200) == UPWARD)
 				{
-					// 强锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤�?
+					// 强锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤�?
 					JOKER_WakeUp();
 					u8PollingUnlockStep++;
 					u8WakeUpFobsIndex = 1;
@@ -1465,7 +1465,7 @@ void NJJ29C0_PollingUnlock_Process(void)
 			{
 				if (FobKey_Tracking_Positioning_Algorithm(u32Rf_Door_CurRssi, u32Rf_CurRssi_Index, 1) == UPWARD)
 				{
-					// 强锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤�?
+					// 强锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤�?
 					u8Welcome_Function_Request = 1; // Polling light Request
 				}
 			}
@@ -1660,7 +1660,7 @@ void NJJ29C0_PollingLock_Process(void)
 			{
 				if (FobKey_Tracking_Positioning_Algorithm(u32Lf_Door_CurRssi, u32Lf_CurRssi_Index, 200) == DOWNWARD)
 				{
-					// 强锟斤拷锟斤拷锟铰斤拷锟斤拷锟斤�?
+					// 强锟斤拷锟斤拷锟铰斤拷锟斤拷锟斤�?
 					JOKER_WakeUp();
 					u8PollingLockStep++;
 					u8WakeUpFobsIndex = 0;
@@ -1703,7 +1703,7 @@ void NJJ29C0_PollingLock_Process(void)
 			{
 				if (FobKey_Tracking_Positioning_Algorithm(u32Rf_Door_CurRssi, u32Rf_CurRssi_Index, 200) == DOWNWARD)
 				{
-					// 强锟斤拷锟斤拷锟铰斤拷锟斤拷锟斤�?
+					// 强锟斤拷锟斤拷锟铰斤拷锟斤拷锟斤�?
 					JOKER_WakeUp();
 					u8PollingLockStep++;
 					u8WakeUpFobsIndex = 1;
@@ -1927,14 +1927,14 @@ void NJJ29C0_Task(void)
 			else if (3 == u8PollingFuncRequest)
 			{
 				Change_Njj29c0_WorkStatus(lf_polling_unlock);
-				u8PollingFuncRequestBak = 0; // 锟斤拷锟?锟斤�?
+				u8PollingFuncRequestBak = 0; // 锟斤拷锟?锟斤�?
 				u16DiagCycleTime = LF_DIAG_CYCYE;
 			}
 			else if (4 == u8PollingFuncRequest)
 			{
 				Change_Njj29c0_WorkStatus(lf_polling_unlock);
 				u16DiagCycleTime = LF_DIAG_CYCYE;
-				u8PollingFuncRequestBak = 1; // 锟斤�?锟斤�?
+				u8PollingFuncRequestBak = 1; // 锟斤�?锟斤�?
 			}
 			else if (1 == u8FobKeyEnterWorkState)
 			{
@@ -2085,7 +2085,7 @@ void Nck2910_Task(void)
 	UhfRxHandler();
 }
 
-// RKE_PKE模锟斤拷锟绞硷拷�?
+// RKE_PKE模锟斤拷锟绞硷拷�?
 void PEPS_Module_Init(void)
 {
 	_NCK2910_Hal_Init();
@@ -2102,3 +2102,4 @@ void Spi2_Test(void)
 
 	(void)NJJ29C0_Spi_ReadWrite(u8txbuf, NULL, 2);
 }
+#pragma default_function_attributes =
