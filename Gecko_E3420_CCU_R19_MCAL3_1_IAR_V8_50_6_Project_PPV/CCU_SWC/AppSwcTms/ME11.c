@@ -34875,7 +34875,7 @@ void Task_100ms(void)                  /* Explicit Task: TMS_Task */
   IOCtl_PwrNmReqFlg = (rtb_Add3_do != 0);
 
   /* BusCreator: '<S8>/Bus Creator' */
-  rtb_BusCreator.AppSwcTmsVersion = 1U;
+  rtb_BusCreator.AppSwcTmsVersion = 3U;
   rtb_BusCreator.TMS_NMReq_flg = IOCtl_PwrNmReqFlg;
 
   /* Switch: '<S33>/Switch' incorporates:

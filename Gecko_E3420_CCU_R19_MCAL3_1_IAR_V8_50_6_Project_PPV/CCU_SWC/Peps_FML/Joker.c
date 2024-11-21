@@ -220,10 +220,11 @@ uint8 NJJ29C0_COM_ReadWriteFrame(uint8 *sendFrame, uint8 *recvFrame, uint8 sendF
 ** @param	pu8ResBuff	: Respond buff
 ** @param	u8ParamLen	: param bytes len
 ** @param	u32DelayUs	: Delay between CMD & Respond @spec
-** @retval	u8Res    : SPIï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ï¿½ï¿?:ï¿½É¹ï¿½ï¿½ï¿½1:Ê§ï¿½ï¿½
+** @retval	u8Res    : SPIï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ï¿½ï¿½?:ï¿½É¹ï¿½ï¿½ï¿½1:Ê§ï¿½ï¿½
 *********************************************************************************************************/
 static uint8_t _JOKER_CmdTransmit(uint8_t u8CMD, uint8_t *pu8Param, uint8_t *pu8ResBuff, uint8_t u8ParamLen, uint32_t u32DelayUs)
 {
+    SuspendAllInterrupts();
     uint8_t u8CmdBuff[255];
     uint8_t u8ResBuff[255];
 
@@ -231,7 +232,7 @@ static uint8_t _JOKER_CmdTransmit(uint8_t u8CMD, uint8_t *pu8Param, uint8_t *pu8
 
     uint8_t i = 0x00;
 
-    /* ï¿½ï¿½ä·¢ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    /* ï¿½ï¿½ä·¢ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[0] = u8ParamLen;
     u8CmdBuff[1] = u8CMD;
 
@@ -278,6 +279,7 @@ static uint8_t _JOKER_CmdTransmit(uint8_t u8CMD, uint8_t *pu8Param, uint8_t *pu8
     {
         u8Err = 1;
     }
+    ResumeAllInterrupts();
     return u8Err;
 }
 
@@ -292,7 +294,7 @@ static uint8_t _JOKER_CmdTransmit(uint8_t u8CMD, uint8_t *pu8Param, uint8_t *pu8
 *********************************************************************************************************/
 stat_t JOKER_GetVersion(njj29c0_version_t *psVersion)
 {
-    uint8_t u8CmdBuff[1];  /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1];  /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[12]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -320,7 +322,7 @@ stat_t JOKER_GetVersion(njj29c0_version_t *psVersion)
 *********************************************************************************************************/
 stat_t JOKER_ConfigDevice(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -349,7 +351,7 @@ stat_t JOKER_ConfigDevice(void)
 *********************************************************************************************************/
 stat_t JOKER_ConfigAdvanced(void)
 {
-    uint8_t u8CmdBuff[10]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[10]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -384,7 +386,7 @@ stat_t JOKER_ConfigAdvanced(void)
 *********************************************************************************************************/
 stat_t JOKER_SetPor(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -407,7 +409,7 @@ stat_t JOKER_SetPor(void)
 *********************************************************************************************************/
 stat_t JOKER_GetPorStatus(uint8_t *u8PorF)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -432,12 +434,12 @@ stat_t JOKER_GetPorStatus(uint8_t *u8PorF)
 *********************************************************************************************************/
 stat_t JOKER_ClearPorStatus(uint8_t u8ProC)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
     i = 0x00;
-    u8CmdBuff[0] = u8ProC & 0x7F; /**< \brief ï¿½ï¿½Ö¾Î»È«ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[0] = u8ProC & 0x7F; /**< \brief ï¿½ï¿½Ö¾Î»È«ï¿½ï¿½ï¿½ï¿½ï¿½?*/
 
     while (_JOKER_CmdTransmit(CLEAR_POR_STATUS_CMD, u8CmdBuff, u8ResBuff, 0x03, 300) != 0)
     {
@@ -460,7 +462,7 @@ stat_t JOKER_ClearPorStatus(uint8_t u8ProC)
 *********************************************************************************************************/
 stat_t JOKER_StartSleep(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -484,7 +486,7 @@ stat_t JOKER_StartSleep(void)
 *********************************************************************************************************/
 stat_t JOKER_StartSleepForced(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -509,7 +511,7 @@ stat_t JOKER_StartSleepForced(void)
 void JOKER_WakeUp(void)
 {
 #if 1
-    uint8_t u8CmdBuff[1] = {0}; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1] = {0}; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     _JOKER_SpiWrite(u8CmdBuff, 0);
     delay_ms(1);
 #else
@@ -532,7 +534,7 @@ void JOKER_WakeUp(void)
 *********************************************************************************************************/
 stat_t JOKER_ConfigBoost(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -565,7 +567,7 @@ stat_t JOKER_ConfigBoost(void)
 #if 1
 stat_t JOKER_ConfigLfDriver(uint8_t ch2_CURSi, uint8_t ch3_CURSi, uint8_t ch4_CURSi)
 {
-    uint8_t u8CmdBuff[36]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[36]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -620,7 +622,7 @@ stat_t JOKER_ConfigLfDriver(uint8_t ch2_CURSi, uint8_t ch3_CURSi, uint8_t ch4_CU
 #else
 stat_t JOKER_ConfigLfDriver(void)
 {
-    uint8_t u8CmdBuff[36]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[36]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -676,7 +678,7 @@ stat_t JOKER_ConfigLfDriver(void)
 
 stat_t Lf_Use_ConfigLfDriver(uint8_t ant2_cur, uint8_t ant3_cur, uint8_t ant4_cur)
 {
-    uint8_t u8CmdBuff[36]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[36]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -739,7 +741,7 @@ stat_t Lf_Use_ConfigLfDriver(uint8_t ant2_cur, uint8_t ant3_cur, uint8_t ant4_cu
 *********************************************************************************************************/
 stat_t JOKER_ConfigLcDriver(void)
 {
-    uint8_t u8CmdBuff[12]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[12]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -790,7 +792,7 @@ stat_t JOKER_ConfigLcDriver(void)
 *********************************************************************************************************/
 stat_t JOKER_SetLfData(uint8_t u8DataIndex, uint8_t u8BytesLen, uint8_t *pu8DataBuff)
 {
-    uint8_t u8CmdBuff[18]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[18]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -818,7 +820,7 @@ stat_t JOKER_SetLfData(uint8_t u8DataIndex, uint8_t u8BytesLen, uint8_t *pu8Data
 
 stat_t JOKER_SetLfNrz(uint8_t u8DataIndex, uint8_t u8BytesLen, uint8_t *pu8DataBuff)
 {
-    uint8_t u8CmdBuff[18]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[18]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -854,7 +856,7 @@ stat_t JOKER_SetLfNrz(uint8_t u8DataIndex, uint8_t u8BytesLen, uint8_t *pu8DataB
 *********************************************************************************************************/
 stat_t JOKER_SetLfCarrier(uint8_t u8Index, carrier_t sCarrier, uint8_t u8Time)
 {
-    uint8_t u8CmdBuff[8]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[8]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -884,7 +886,7 @@ stat_t JOKER_SetLfCarrier(uint8_t u8Index, carrier_t sCarrier, uint8_t u8Time)
 *********************************************************************************************************/
 stat_t JOKER_StartLfTransmit(drpi_t sLfDRPi, drpi_t sLcDRPi, uint8_t u8BuffLen, uint8_t *pu8IndexBuff)
 {
-    uint8_t u8CmdBuff[20]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[20]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -918,7 +920,7 @@ stat_t JOKER_StartLfTransmit(drpi_t sLfDRPi, drpi_t sLcDRPi, uint8_t u8BuffLen, 
 *********************************************************************************************************/
 stat_t JOKER_StopLfTransmit(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -944,7 +946,7 @@ stat_t JOKER_StopLfTransmit(void)
 *********************************************************************************************************/
 stat_t JOKER_ConfigImmoDriver(void)
 {
-    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -980,7 +982,7 @@ stat_t JOKER_ConfigImmoDriver(void)
 *********************************************************************************************************/
 stat_t JOKER_ConfigImmoBPLM(void)
 {
-    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1015,7 +1017,7 @@ stat_t JOKER_ConfigImmoBPLM(void)
 *********************************************************************************************************/
 stat_t JOKER_ConfigImmoReceiver(void)
 {
-    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1046,7 +1048,7 @@ stat_t JOKER_ConfigImmoReceiver(void)
 *********************************************************************************************************/
 stat_t JOKER_StartImmo(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1068,7 +1070,7 @@ stat_t JOKER_StartImmo(void)
 *********************************************************************************************************/
 stat_t JOKER_StopImmo(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1091,7 +1093,7 @@ stat_t JOKER_StopImmo(void)
 *********************************************************************************************************/
 stat_t JOKER_StartImmoTransmit(uint8_t *pu8TagData, uint8_t u8BitsLen)
 {
-    uint8_t u8CmdBuff[50]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[50]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1122,7 +1124,7 @@ stat_t JOKER_StartImmoTransmit(uint8_t *pu8TagData, uint8_t u8BitsLen)
 *********************************************************************************************************/
 stat_t JOKER_StartImmoTransceive(uint8_t *pu8TagData, uint8_t u8TagBitsLen, uint16_t u8ResBitsLen)
 {
-    uint8_t u8CmdBuff[50]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[50]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1154,7 +1156,7 @@ stat_t JOKER_StartImmoTransceive(uint8_t *pu8TagData, uint8_t u8TagBitsLen, uint
 *********************************************************************************************************/
 stat_t JOKER_GetImmoResponse(uint8_t *pu8ResData, uint16_t u8ResBitsLen)
 {
-    uint8_t u8CmdBuff[1];  /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1];  /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[50]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t *p_resbuf = 0x00;
     uint8_t i;
@@ -1182,7 +1184,7 @@ stat_t JOKER_GetImmoResponse(uint8_t *pu8ResData, uint16_t u8ResBitsLen)
 *********************************************************************************************************/
 stat_t JOKER_ClearImmoStatus(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1205,7 +1207,7 @@ stat_t JOKER_ClearImmoStatus(void)
 *********************************************************************************************************/
 stat_t JOKER_SetImmoMask(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1231,7 +1233,7 @@ stat_t JOKER_SetImmoMask(void)
 *********************************************************************************************************/
 stat_t JOKER_MeasAntImp(drpi_t sDRPi)
 {
-    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1255,7 +1257,7 @@ stat_t JOKER_MeasAntImp(drpi_t sDRPi)
 *********************************************************************************************************/
 stat_t JOKER_MeasAntImpAdvanced(drpi_t sDRPi)
 {
-    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1279,36 +1281,36 @@ stat_t JOKER_MeasAntImpAdvanced(drpi_t sDRPi)
 *********************************************************************************************************/
 stat_t JOKER_SetAntImp(void)
 {
-    uint8_t u8CmdBuff[24]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[24]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[8];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
     u8CmdBuff[0] = DRID1; /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½1 */
-    u8CmdBuff[1] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[1] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[2] = 0x12;  /**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[3] = 0x80;  /**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
 
     u8CmdBuff[4] = DRID2; /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½2 */
-    u8CmdBuff[5] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[5] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[6] = 0x12;  /**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[7] = 0x80;  /**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
 
     u8CmdBuff[8] = DRID3; /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½3 */
-    u8CmdBuff[9] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[9] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[10] = 0x12; /**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[11] = 0x80; /**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
 
     u8CmdBuff[12] = DRID4; /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½4 */
-    u8CmdBuff[13] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[13] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[14] = 0x12;  /**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[15] = 0x80;  /**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
 #if 0	
     u8CmdBuff[16] = DRID5;	  /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½5 */
-    u8CmdBuff[17] = 0x23;		/**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[17] = 0x23;		/**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[18] = 0x12;		/**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[19] = 0x80;		/**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
     u8CmdBuff[20] = DRID6;	  /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½6 */
-    u8CmdBuff[21] = 0x23;		/**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[21] = 0x23;		/**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[22] = 0x12;		/**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[23] = 0x80;		/**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
 #endif
@@ -1331,7 +1333,7 @@ stat_t JOKER_SetAntImp(void)
 *********************************************************************************************************/
 stat_t JOKER_GetAntImp(drpi_t sDRPi, uint8_t *pu8AntImp)
 {
-    uint8_t u8CmdBuff[2];  /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[2];  /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[30]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
     uint8_t count = 0;
@@ -1372,7 +1374,7 @@ stat_t JOKER_GetAntImp(drpi_t sDRPi, uint8_t *pu8AntImp)
 *********************************************************************************************************/
 stat_t JOKER_GetAntImpEff(drpi_t sDRPi, uint8_t *pu8AntImp)
 {
-    uint8_t u8CmdBuff[2];  /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[2];  /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[30]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
     uint8_t count = 0;
@@ -1417,7 +1419,7 @@ stat_t JOKER_GetAntImpEff(drpi_t sDRPi, uint8_t *pu8AntImp)
 *********************************************************************************************************/
 stat_t JOKER_GetPortStatus(protfcm_t *psPortF, drpfcm_t *psDrpF)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[8]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1444,7 +1446,7 @@ stat_t JOKER_GetPortStatus(protfcm_t *psPortF, drpfcm_t *psDrpF)
 *********************************************************************************************************/
 stat_t JOKER_ClearProtStatus(protfcm_t sProtC, drpfcm_t sDrpC)
 {
-    uint8_t u8CmdBuff[3]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[3]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1471,7 +1473,7 @@ stat_t JOKER_ClearProtStatus(protfcm_t sProtC, drpfcm_t sDrpC)
 *********************************************************************************************************/
 stat_t JOKER_SetProtMask(protfcm_t sProtM, drpfcm_t sDrpM)
 {
-    uint8_t u8CmdBuff[3]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[3]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1501,7 +1503,7 @@ stat_t JOKER_SetProtMask(protfcm_t sProtM, drpfcm_t sDrpM)
 *********************************************************************************************************/
 stat_t JOKER_StartDiag(drpi_t sDRPi, diag_par_t sDiagPar)
 {
-    uint8_t u8CmdBuff[3]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[3]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1529,7 +1531,7 @@ stat_t JOKER_StartDiag(drpi_t sDRPi, diag_par_t sDiagPar)
 *********************************************************************************************************/
 stat_t JOKER_GetDiagStatus(drpi_t sDRPi, supfc_t *psSupF, uint8_t *psDiagF)
 {
-    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[2]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[8]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
     uint8_t count = 0;
@@ -1570,7 +1572,7 @@ stat_t JOKER_GetDiagStatus(drpi_t sDRPi, supfc_t *psSupF, uint8_t *psDiagF)
 *********************************************************************************************************/
 stat_t JOKER_ClearDiagStatus(void)
 {
-    uint8_t u8CmdBuff[13]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[13]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1608,7 +1610,7 @@ stat_t JOKER_ClearDiagStatus(void)
 *********************************************************************************************************/
 stat_t JOKER_ConfigSpi(void)
 {
-    uint8_t u8CmdBuff[13]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[13]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1636,7 +1638,7 @@ stat_t JOKER_ConfigSpi(void)
 *********************************************************************************************************/
 stat_t JOKER_ConfigWup(void)
 {
-    uint8_t u8CmdBuff[8]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[8]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1703,7 +1705,7 @@ stat_t JOKER_ConfigWup(void)
 *********************************************************************************************************/
 stat_t JOKER_GetWupStatus(wupfcm_t *psWupF)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1728,7 +1730,7 @@ stat_t JOKER_GetWupStatus(wupfcm_t *psWupF)
 *********************************************************************************************************/
 stat_t JOKER_ClearWupStatus(wupfcm_t sWupC)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1752,7 +1754,7 @@ stat_t JOKER_ClearWupStatus(wupfcm_t sWupC)
 *********************************************************************************************************/
 stat_t JOKER_SetWupMask(wupfcm_t sWupM)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1779,7 +1781,7 @@ stat_t JOKER_SetWupMask(wupfcm_t sWupM)
 *********************************************************************************************************/
 stat_t JOKER_ConfigWupPolling(void)
 {
-    uint8_t u8CmdBuff[15]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[15]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1818,7 +1820,7 @@ stat_t JOKER_ConfigWupPolling(void)
 *********************************************************************************************************/
 stat_t JOKER_ConfigTimerPolling(void)
 {
-    uint8_t u8CmdBuff[12]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[12]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1845,7 +1847,7 @@ stat_t JOKER_ConfigTimerPolling(void)
 
 stat_t NJJ29C0_ConfigTimerPolling(uint8_t drpi, uint16_t ptime, uint8_t len, uint8_t *dataid)
 {
-    uint8_t u8CmdBuff[12]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[12]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -1879,7 +1881,7 @@ stat_t NJJ29C0_ConfigTimerPolling(uint8_t drpi, uint16_t ptime, uint8_t len, uin
 
 stat_t Peps_Fun_ConfigTimerPolling(uint8_t Cmd, uint8_t Incar_Ant, uint16_t ptime0, uint8_t LfDoor_Ant, uint16_t ptime1, uint8_t RfDoor_Ant, uint16_t ptime2)
 {
-    uint8_t u8CmdBuff[32]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[32]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
     uint8_t txlen = 0;
@@ -2003,7 +2005,7 @@ stat_t Peps_Fun_ConfigTimerPolling(uint8_t Cmd, uint8_t Incar_Ant, uint16_t ptim
 
 stat_t WelcomeGuest_ConfigTimerPollingOne(uint8_t Incar_Ant, uint16_t ptime0, uint8_t LfDoor_Ant, uint16_t ptime1, uint8_t RfDoor_Ant, uint16_t ptime2)
 {
-    uint8_t u8CmdBuff[32]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[32]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
     uint8_t txlen = 0;
@@ -2055,7 +2057,7 @@ stat_t WelcomeGuest_ConfigTimerPollingOne(uint8_t Incar_Ant, uint16_t ptime0, ui
 
 stat_t WelcomeGuest_ConfigTimerPollingTwo(uint8_t wakeid_num, uint8_t drpi0, uint16_t ptime0, uint8_t drpi1, uint16_t ptime1, uint8_t Carrier_OnOff)
 {
-    uint8_t u8CmdBuff[32]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[32]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
     uint8_t txlen = 0;
@@ -2175,7 +2177,7 @@ stat_t WelcomeGuest_ConfigTimerPollingTwo(uint8_t wakeid_num, uint8_t drpi0, uin
 *********************************************************************************************************/
 stat_t JOKER_StartTimerPolling(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2202,7 +2204,7 @@ stat_t JOKER_StartTimerPolling(void)
 *********************************************************************************************************/
 stat_t JOKER_ConfigTemp(void)
 {
-    uint8_t u8CmdBuff[12]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[12]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2234,7 +2236,7 @@ stat_t JOKER_ConfigTemp(void)
 *********************************************************************************************************/
 stat_t JOKER_GetTempStatus(tempfcm_t *psTempF)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2259,7 +2261,7 @@ stat_t JOKER_GetTempStatus(tempfcm_t *psTempF)
 *********************************************************************************************************/
 stat_t JOKER_ClearTempStatus(void)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2283,7 +2285,7 @@ stat_t JOKER_ClearTempStatus(void)
 *********************************************************************************************************/
 stat_t JOKER_SetTempMask(tempfcm_t sTempM)
 {
-    uint8_t u8CmdBuff[3]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[3]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2310,7 +2312,7 @@ stat_t JOKER_SetTempMask(tempfcm_t sTempM)
 *********************************************************************************************************/
 stat_t JOKER_GetOpStatus(opfcm_t *psOpF)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2335,7 +2337,7 @@ stat_t JOKER_GetOpStatus(opfcm_t *psOpF)
 *********************************************************************************************************/
 stat_t JOKER_ClearOpStatus(opfcm_t sOpC)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2358,7 +2360,7 @@ stat_t JOKER_ClearOpStatus(opfcm_t sOpC)
 *********************************************************************************************************/
 stat_t JOKER_SetOpMask(opfcm_t sOpM)
 {
-    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[1]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2384,7 +2386,7 @@ stat_t JOKER_SetOpMask(opfcm_t sOpM)
 *********************************************************************************************************/
 stat_t JOKER_SetPremable(void)
 {
-    uint8_t u8CmdBuff[5]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[5]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2411,7 +2413,7 @@ stat_t JOKER_SetPremable(void)
 *********************************************************************************************************/
 stat_t JOKER_SetCodeViolation(void)
 {
-    uint8_t u8CmdBuff[8]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[8]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2421,7 +2423,7 @@ stat_t JOKER_SetCodeViolation(void)
     u8CmdBuff[2] = 0x12;       /**< \brief DATALEN : ï¿½ï¿½ï¿½Ý³ï¿½ï¿½È£ï¿½18(bit) */
     u8CmdBuff[3] = 0xE2;       /**< \brief DATA0   : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½Î»ï¿½È·ï¿½ */
     u8CmdBuff[4] = 0xCC;       /**< \brief DATA1   : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½Î»ï¿½È·ï¿½ */
-    u8CmdBuff[5] = 0x80;       /**< \brief DATA2   : ï¿½ï¿½Î»ï¿½È·ï¿½ï¿½ï¿½Ê£ï¿½ï¿½Äµï¿½Î»ï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[5] = 0x80;       /**< \brief DATA2   : ï¿½ï¿½Î»ï¿½È·ï¿½ï¿½ï¿½Ê£ï¿½ï¿½Äµï¿½Î»ï¿½ï¿½ï¿½ï¿½?*/
 
     while (_JOKER_CmdTransmit(SET_LF_DATA_CMD, u8CmdBuff, u8ResBuff, 0x08, 500) != 0)
     {
@@ -2686,7 +2688,7 @@ uint8_t cb_crccount(uint8_t *ptr, uint8_t len)
  */
 void njj29c0_set_datacontent_cb(uint8_t coordinate)
 {
-    uint8_t u8CmdBuff[6]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[6]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
@@ -2715,7 +2717,7 @@ void njj29c0_set_datacontent_cb(uint8_t coordinate)
  */
 void njj29c0_set_datacontent_check(void)
 {
-    uint8_t u8CmdBuff[5]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    uint8_t u8CmdBuff[5]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     uint8_t u8ResBuff[5]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     uint8_t i;
 
