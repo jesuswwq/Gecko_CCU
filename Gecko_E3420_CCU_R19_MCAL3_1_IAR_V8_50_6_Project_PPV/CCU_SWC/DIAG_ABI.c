@@ -5,11 +5,8 @@
 #include "DIAG_ABI.h"
 #include "Crc.h"
 #include "Dem.h"
+#include "Os.h"
 boolean VBSW_CANComCRCInstFlt_flg[100] = {0};
-boolean CHA_CAN_BUSOFF_flg = FALSE;
-boolean BAC_CAN_BUSOFF_flg = FALSE;
-boolean BOD_CAN_BUSOFF_flg = FALSE;
-boolean EPT_CAN_BUSOFF_flg = FALSE;
 
 
 /* 20241025新增DTC设置 */
@@ -432,21 +429,42 @@ void App_Call_Event_DTC_0xC27082_SetEventStatus(uint8 FaultStatus)  //CCP Checks
 uint8 App_Call_Event_DTC_0xC13187_GetEventStatus(void) //  Lost Communication with EHB
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC13187, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC13187, &DTCStatus);
+	}
+	else
+	{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC24087_GetEventStatus(void) //  Lost Communication with SCS
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC24087, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC24087, &DTCStatus);
+	}
+	else
+	{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC27087_GetEventStatus(void) //   Lost Communication with CCP
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC27087, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC27087, &DTCStatus);
+	}
+	else
+	{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
@@ -1557,168 +1575,325 @@ void App_Call_Event_DTC_0xF00117_SetEventStatus(uint8 FaultStatus)  //Battery vo
 uint8 App_Call_Event_DTC_0xC04688_GetEventStatus(void) // EPT_CAN Bus-off
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC04688, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC04688, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC05588_GetEventStatus(void) // BOD_CAN Bus-off
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC05588, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC05588, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}	
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC07388_GetEventStatus(void) // BAC_CAN Bus-off
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC07388, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC07388, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC06488_GetEventStatus(void) // CHA_CAN  Bus-off
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC06488, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC06488, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
+	
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC12287_GetEventStatus(void) // Lost Communication With ESC
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC12287, &DTCStatus);
+	if(NvM_InitReadAll_Flag ==1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC12287, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
+	
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD10287_GetEventStatus(void) // Lost Communication with FCM
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD10287, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD10287, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD11287_GetEventStatus(void) // Lost Communication with CRRR
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD11287, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD11287, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD10E87_GetEventStatus(void) // Lost Communication with PP
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD10E87, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD10E87, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC13087_GetEventStatus(void) // Lost Communication With EPS
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC13087, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC13087, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC15187_GetEventStatus(void) // Lost Communication With SRS
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC15187, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC15187, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD11687_GetEventStatus(void) // Lost Communication with ICU
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD11687, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD11687, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC19887_GetEventStatus(void) // Lost Communication With TBOX
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC19887, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC19887, &DTCStatus);	
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC11287_GetEventStatus(void) // Lost Communication with BMS
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC11287, &DTCStatus);
+
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC11287, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD10887_GetEventStatus(void) // Lost Communication with MCU
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD10887, &DTCStatus);
+
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD10887, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
+
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC10F87_GetEventStatus(void) // Lost Communication with ACCM
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC10F87, &DTCStatus);
+
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC10F87, &DTCStatus);
+	}
+	else{
+			DTCStatus = 0;
+	}
+
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC23087_GetEventStatus(void) // Lost Communication with PTC
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC23087, &DTCStatus);
+
+	if(NvM_InitReadAll_Flag == 1)
+	{
+			Dem_GetEventStatus(DemEventParameter_0xC23087, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD11D87_GetEventStatus(void) // Lost Communication with CDC
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD11D87, &DTCStatus);
+
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD11D87, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xC14687_GetEventStatus(void) // Lost Communication with IPU
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xC14687, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xC14687, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xE10005_GetEventStatus(void) // ECU Configuration Error
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xE10005, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xE10005, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
+
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD11F00_GetEventStatus(void) // Ethernet unexpected Link Loss with TBOX
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD11F00, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD11F00, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD11F87_GetEventStatus(void) // Lost TCP link communication with TBOX
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD11F87, &DTCStatus);
+
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD11F87, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
+
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD12014_GetEventStatus(void) // Ethernet signal lines short or open circuit
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD12014, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD12014, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
+
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD12100_GetEventStatus(void) // Insufficient SQI
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD12100, &DTCStatus);
+	if(NvM_InitReadAll_Flag ==1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD12100, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
 uint8 App_Call_Event_DTC_0xD12241_GetEventStatus(void) // Ethernet CRC Errors
 {
 	Dem_UdsStatusByteType DTCStatus;
-	Dem_GetEventStatus(DemEventParameter_0xD12241, &DTCStatus);
+	if(NvM_InitReadAll_Flag == 1)
+	{
+		Dem_GetEventStatus(DemEventParameter_0xD12241, &DTCStatus);
+	}
+	else{
+		DTCStatus = 0;
+	}
 	return DTCStatus;
 }
 
