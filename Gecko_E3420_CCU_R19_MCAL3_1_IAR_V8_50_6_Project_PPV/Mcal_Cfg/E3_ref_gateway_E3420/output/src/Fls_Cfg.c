@@ -20,7 +20,7 @@
  *                                                                                                     *
  * <table>                                                                                             *
  * <tr><th>Date           <th>Version                                                                  *
- * <tr><td>2024-03-08 16:29:00     <td>1.0.0                                                               *
+ * <tr><td>2024-05-26 15:51:10     <td>1.0.0                                                               *
  * </table>                                                                                             *
  *******************************************************************************************************/
 
@@ -72,6 +72,11 @@ static const Fls_SectorConfigType Fls_SectorList[1] =
 static const Fls_ProgramDescriptorType Fls_FlashProgDescriptor = {
     .jobEndNotification = NULL_PTR,
     .jobErrorNotification = NULL_PTR,
+    .clkOps = {
+        .getClkRate = NULL_PTR,
+        .setClkRate = NULL_PTR,
+    }
+
 };
 
 const Fls_ConfigType  Fls_ConfigData =
@@ -90,6 +95,7 @@ const Fls_ConfigType  Fls_ConfigData =
                 .devMode = FLS_BUS_DEV_SINGLE_MODE,
                 .hyperbusMode = TRUE,
                 .rfdEnable = 0,
+                .useRomConfig = FALSE,
             },
             .flashSpecialFlag = FLS_SPECIAL_AUTO,
             .pointerContex = &cor0Context,
@@ -97,7 +103,7 @@ const Fls_ConfigType  Fls_ConfigData =
     /* PRQA S 0686 1 */
     },
     .flashConfig = {
-        .callCycle = 100000,  /* in us */
+        .callCycle = 10,  /* in us */
         .defaultMode= MEMIF_MODE_SLOW,
         .maxReadFastMode = 256,
         .maxReadNormalMode = 4096,

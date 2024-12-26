@@ -69,6 +69,7 @@ typedef enum
 #define FLS_IP_A_SIZE(x) ((uint32)(x) << 11)
 #define FLS_IP_A_EN      ((uint32)1u << 13)
 
+#define FLS_IP_GET_D_LINE(x) (((uint32)(x) >> 24) & 0x3u)
 #define FLS_IP_D_LINE(x) ((uint32)(x) << 24)
 #define FLS_IP_D_RATE(x) ((uint32)(x) << 26)
 #define FLS_IP_D_EN      ((uint32)1u << 27)
@@ -208,6 +209,7 @@ typedef enum
 #define FLS_IP_DIRECT_C_CODE (0x114u)
 #define FLS_IP_DIRECT_C_CODE_WCODE_LSB (16U)
 #define FLS_IP_DIRECT_C_CODE_RCODE_LSB (0U)
+#define FLS_IP_DIRECT_C_CODE_MASK (0xFFu)
 
 #define FLS_IP_DIRECT_WREN (0x118u)
 #define FLS_IP_DIRECT_WREN_CODE_LSB (16U)
@@ -222,6 +224,7 @@ typedef enum
 #define FLS_IP_DIRECT_D_CYC_WR_MASK (0x1Fu)
 
 #define FLS_IP_INDIRECT_WR_CTRL (0x200u)
+#define FLS_IP_INDIRECT_WR_CTRL_W_TRIGGER FLS_BIT(0)
 
 #define FLS_IP_INDIRECT_WR_PH_CTRL (0x204u)
 #define FLS_IP_INDIRECT_RD_PH_CTRL (0x304u)
@@ -242,6 +245,7 @@ typedef enum
 #define FLS_IP_INDIRECT_CMD_LINE_LSB (0u)
 
 #define FLS_IP_INDIRECT_WR_CMD_CODE (0x208u)
+#define FLS_IP_INDIRECT_WR_CMD_CODE_MASK (0xFFu)
 
 #define FLS_IP_INDIRECT_WR_ADDR (0x20Cu)
 
@@ -262,19 +266,23 @@ typedef enum
 #define FLS_IP_INDIRECT_TX_BUF_ENTRY_LSB (16)
 #define FLS_IP_INDIRECT_TX_BUF_LEVEL_MASK (0xFFu)
 #define FLS_IP_INDIRECT_TX_BUF_LEVEL_LSB (8)
+#define FLS_IP_INDIRECT_TX_BUF_FLUSH_LSB (0)
 
 
 #define FLS_IP_INDIRECT_WDATA (0x280u)
 
 #define FLS_IP_INDIRECT_RD_CTRL (0x300u)
+#define FLS_IP_INDIRECT_RD_CTRL_R_TRIGGER FLS_BIT(0)
 
 #define FLS_IP_INDIRECT_RD_CMD_CODE (0x308u)
+#define FLS_IP_INDIRECT_RD_CMD_CODE_MASK (0xFFu)
 
 #define FLS_IP_INDIRECT_RD_ADDR (0x30Cu)
 
 #define FLS_IP_INDIRECT_RD_SIZE (0x310u)
 
 #define FLS_IP_INDIRECT_RD_CYC (0x314u)
+#define FLS_IP_INDIRECT_RD_CYC_MASK (0x1Fu)
 
 #define FLS_IP_INDIRECT_RD_M_CODE (0x318u)
 
@@ -907,6 +915,62 @@ void Fls_IpHyperramEnable(Fls_BusHandleType *bus, uint8 cs,
  *******************************************************************************************************/
 void Fls_IpPrefetchFlush(Fls_IpContextType *ipCtx, uint32 channel);
 
+/** *****************************************************************************************************
+ * \brief This function Disable caching for all channels.
+ *
+ * \verbatim
+ * Syntax             : void Fls_IpPrefetchDisable(
+ *                          Fls_IpContextType *ipCtx)
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : ipCtx - Pointer to controller context
+ *
+ * Parameters (inout) : None
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : None
+ *
+ * Description        : Disable caching for all channels.
+ *                      In xip mode, this func should to put into iram.
+ * \endverbatim
+ * Traceability       : None
+ *******************************************************************************************************/
+void Fls_IpPrefetchDisable(Fls_IpContextType *ipCtx);
+
+/** *****************************************************************************************************
+ * \brief This function Open and initialise the cache for all channels.
+ *
+ * \verbatim
+ * Syntax             : void Fls_IpPrefetchEnable(
+ *                          Fls_IpContextType *ipCtx)
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : ipCtx - Pointer to controller context
+ *
+ * Parameters (inout) : None
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : None
+ *
+ * Description        : Open and initialise the cache for all channels.
+ *                      In xip mode, this func should to put into iram.
+ * \endverbatim
+ * Traceability       : None
+ *******************************************************************************************************/
+void Fls_IpPrefetchEnable(Fls_IpContextType *ipCtx);
+
 #ifdef FLS_RFD_ENABLE_CNT
 /** *****************************************************************************************************
  * \brief This function Enable the RFD area of the controller.
@@ -1023,6 +1087,33 @@ void Fls_IpXipEnable(Fls_IpContextType *ipCtx);
  * Traceability       : None
  *******************************************************************************************************/
 void Fls_IpXipEnter(Fls_IpContextType *ipCtx);
+
+/** *****************************************************************************************************
+ * \brief This function Wait for reception to complete until timeout.
+ *
+ * \verbatim
+ * Syntax             : int Fls_IpRxComplete(
+ *                          Fls_IpContextType *ipCtx)
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : ipCtx - Pointer to controller context
+ *
+ * Parameters (inout) : None
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : None
+ *
+ * Description        : Wait for reception to complete until timeout
+ * \endverbatim
+ * Traceability       : None
+ *******************************************************************************************************/
+int Fls_IpTrigerComplete(Fls_IpContextType *ipCtx);
 
 #ifdef __cplusplus
 }

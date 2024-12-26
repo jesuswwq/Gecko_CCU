@@ -40,6 +40,7 @@ extern "C" {
 #define FLS_IP_READ_DONE_TIMEOUT_CYCLES (10000u)
 #define FLS_IP_WRITE_DONE_TIMEOUT_CYCLES (100u)
 #define FLS_IP_KEY_READY_TIMEOUT_CYCLES (10000u)
+#define FLS_IP_WAIT_TRIGGER_COMPLETE_TIMEOUT (100u)
 
 /********************************************************************************************************
  *                                  Private Variable Definitions                                        *
@@ -786,6 +787,7 @@ static void Fls_IpPrefetchConfig(Fls_IpContextType *ipCtx, uint32 channel,
  *******************************************************************************************************/
 void Fls_IpPrefetchFlush(Fls_IpContextType *ipCtx, uint32 channel)
 {
+
     Fls_IpWriteBits(ipCtx, FLS_IP_RBUF_CTRL + (0x10U * channel), FLS_IP_RBUF_CTRL_FLUSH_LSB, 1U, 1U);
     Fls_IpWriteBits(ipCtx, FLS_IP_RBUF_CTRL + (0x10U * channel), FLS_IP_RBUF_CTRL_FLUSH_LSB, 1U, 0U);
 }
@@ -849,7 +851,7 @@ static void Fls_IpPrefetchClear(Fls_IpContextType *ipCtx, uint32 channel)
  * \endverbatim
  * Traceability       : None
  *******************************************************************************************************/
-static void Fls_IpPrefetchDisable(Fls_IpContextType *ipCtx)
+void Fls_IpPrefetchDisable(Fls_IpContextType *ipCtx)
 {
     Fls_IpPrefetchClear(ipCtx, 0u);
     Fls_IpPrefetchClear(ipCtx, 1u);
@@ -888,7 +890,7 @@ static void Fls_IpPrefetchDisable(Fls_IpContextType *ipCtx)
  * \endverbatim
  * Traceability       : None
  *******************************************************************************************************/
-static void Fls_IpPrefetchEnable(Fls_IpContextType *ipCtx)
+void Fls_IpPrefetchEnable(Fls_IpContextType *ipCtx)
 {
     Fls_IpWritel(ipCtx, FLS_IP_AXI_CTRL, FLS_BIT(25));
 
@@ -948,8 +950,13 @@ void *Fls_IpContextInit(Fls_IpContextType *ipCtx)
     ipCtx->fifoDepth = 16;
 #endif /* #ifdef SEMIDRIVE_E3_LITE_SERIES */
     ipCtx->fifoWidth = 4u;
+    ipCtx->fifoSize = ipCtx->fifoDepth * ipCtx->fifoWidth;
 
-    if (0 != Fls_IpWaitIdle(ipCtx))
+    if (TRUE == ipCtx->useRomConfig)
+    {
+        ptrCtx = ipCtx;
+    }
+    else if (0 != Fls_IpWaitIdle(ipCtx))
     {
         FLS_DEBUG("%s: wait idle err.", __FUNCTION__);
     }
@@ -979,6 +986,9 @@ void *Fls_IpContextInit(Fls_IpContextType *ipCtx)
 
         /* Set capture enable select to 7 clk period */
         Fls_IpWriteBits(ipCtx, FLS_IP_MISC, FLS_IP_MISC_CAPTURE_SEL_LSB, 3U, 0x5U);
+
+        /* Set immediate=0, Turnaround when half of dummy */
+        Fls_IpWriteBits(ipCtx, FLS_IP_MISC, FLS_IP_MISC_IMMEDIATE_LSB, 1U, 0u);
 
         Fls_IpResetFlash(ipCtx);
 
@@ -1188,13 +1198,9 @@ static void Fls_IpProtocolConfig(Fls_IpContextType *ipCtx, Fls_IpAccessModeType 
                                  Fls_BusOpsType ops, Fls_IpProtocolConfigType *config)
 {
     /* Turnaround when dummy phase complete */
-    if (0u == config->dummy)
+    if ((FLS_BUS_OPS_READ == ops) && (0u == config->dummy) && (0u != FLS_IP_GET_D_LINE(config->phCtrl)))
     {
-        Fls_IpWriteBits(ipCtx, FLS_IP_MISC, FLS_IP_MISC_IMMEDIATE_LSB, 1u, 1U);  /* immediate */
-    }
-    else
-    {
-        Fls_IpWriteBits(ipCtx, FLS_IP_MISC, FLS_IP_MISC_IMMEDIATE_LSB, 1u, 0U);  /* half of dummy */
+        FLS_DEBUG("%s(%d, %d, 0x%x): dummy==0 err.\r\n", __FUNCTION__, accessMode, ops, config->phCtrl);
     }
 
     if (FLS_IP_DIRECT_ACCESS_MODE == accessMode)
@@ -1639,6 +1645,55 @@ static int Fls_IpRxComplete(Fls_IpContextType *ipCtx)
     return ret;
 }
 
+/** *****************************************************************************************************
+ * \brief This function Wait for reception to complete until timeout.
+ *
+ * \verbatim
+ * Syntax             : int Fls_IpRxComplete(
+ *                          Fls_IpContextType *ipCtx)
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : ipCtx - Pointer to controller context
+ *
+ * Parameters (inout) : None
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : None
+ *
+ * Description        : Wait for reception to complete until timeout
+ * \endverbatim
+ * Traceability       : None
+ *******************************************************************************************************/
+int Fls_IpTrigerComplete(Fls_IpContextType *ipCtx)
+{
+    int ret = -1;
+
+    if (0 != Fls_IpWaitForBitTimes(ipCtx->apbBase + FLS_IP_INDIRECT_WR_CTRL,
+                                FLS_IP_INDIRECT_WR_CTRL_W_TRIGGER,
+                                TRUE, FLS_IP_WAIT_TRIGGER_COMPLETE_TIMEOUT))
+    {
+        FLS_DEBUG("Wait Indirect write complete timeout.\n");
+    }
+    else if (0 != Fls_IpWaitForBitTimes(ipCtx->apbBase + FLS_IP_INDIRECT_RD_CTRL,
+                                FLS_IP_INDIRECT_RD_CTRL_R_TRIGGER,
+                                TRUE, FLS_IP_WAIT_TRIGGER_COMPLETE_TIMEOUT))
+    {
+        FLS_DEBUG("Wait Indirect read complete timeout.\n");
+    }
+    else
+    {
+        ret = 0;
+    }
+
+    return ret;
+}
+
 #ifdef FLS_HYPERBUS_FLASH_CNT
 /** *****************************************************************************************************
  * \brief This function Enable hyperram mode for the controller.
@@ -1729,7 +1784,8 @@ void Fls_IpBusSetup(Fls_BusHandleType *bus, Fls_BusOpsType ops)
     }
     else
     {
-        if ((bus->cs != ipCtx->currentCs) && (0u != bus->info.size))
+        if ((bus->cs != ipCtx->currentCs) && (0u != bus->info.size)
+            && (FALSE == ipCtx->useRomConfig))
         {
             /* cs select by hardware, based on access address */
             /* xspi_lld_cs_set(bus); */

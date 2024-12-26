@@ -70,6 +70,8 @@ extern "C" {
 #define FLS_PMU_US_TO_TICK(us)  \
         ((uint32)(((us) * (FLS_IP_CPU_FREQUENCY_MHZ / 4U)) / 16U))
 
+#define FLS_MAX_RBUF_ENTRY_NUM (32u)
+#define FLS_MAX_RBUF_BLOCK_SIZE (4096u)
 
 #if defined SEMIDRIVE_E3_SERIES
 #define FLS_IP_LOCKSTEP_START_BIT_ARRAY \
@@ -837,11 +839,17 @@ static int Fls_IpCommandRead(Fls_BusHandleType *nor, Fls_BusCommandType *cmd,
     }
     else if (FLS_BUS_DEV_SWITCH_MODE == nor->devMode)
     {
-        readAddress += nor->info.regOffset;
+        readAddress += nor->regOffset;
     }
     else
     {
         /* Do nothing */
+    }
+
+    if ((0u == cmd->dummy) && (0u != cmd->instType))
+    {
+        /* Workaround: Read Dummy and MISC.IMMIDEATE can't be zero at the same time  */
+        cmd->dummy = readLength * 2u;
     }
 
     Fls_IpSetupXfer(nor, FLS_BUS_OPS_READ, readAddress, ptr, NULL_PTR, readLength);
@@ -857,7 +865,7 @@ static int Fls_IpCommandRead(Fls_BusHandleType *nor, Fls_BusCommandType *cmd,
     Fls_IpSetInterruptMask(ipCtx, FLS_IP_INT_EN_FUC, FLS_IP_INT_ST_FUC_RX_FRE_FULL |
                            FLS_IP_INT_ST_FUC_INDIRECT_RD_DONE);
 
-    Fls_IpIndirectTrigger(ipCtx, readAddress, readLength, INDIRECT_READ_FLAG);
+    Fls_IpIndirectTrigger(ipCtx, readAddress, FLS_ROUNDUP(readLength, 4U), INDIRECT_READ_FLAG);
 
     Fls_IpWaitXferDone(nor);
 
@@ -934,7 +942,7 @@ static int Fls_IpCommandWrite(Fls_BusHandleType *nor, Fls_BusCommandType *cmd,
     }
     else if (FLS_BUS_DEV_SWITCH_MODE == nor->devMode)
     {
-        writeAddress += nor->info.regOffset;
+        writeAddress += nor->regOffset;
     }
     else
     {
@@ -1131,9 +1139,8 @@ static int Fls_IpLock(Fls_BusHandleType *nor, Fls_BusOpsType ops)
  *******************************************************************************************************/
 static void Fls_IpUnlock(Fls_BusHandleType *nor, Fls_BusOpsType ops)
 {
-    Fls_IpContextType *ipCtx = (Fls_IpContextType *)nor->host->privData;
     (void) ops;
-    Fls_IpWriteBits(ipCtx, FLS_IP_MISC, FLS_IP_MISC_IMMEDIATE_LSB, 1u, 0U);  /* default */
+    Fls_IpProtocolSetup(nor, NULL_PTR, FLS_IP_DIRECT_ACCESS_MODE, FLS_BUS_OPS_READ);
     nor->host->dev = NULL_PTR;
 }
 
@@ -1562,14 +1569,70 @@ static int Fls_IpRead(Fls_BusHandleType *nor, Fls_AddressType addr, uint8 *buf,
 static void Fls_IpCacheFlush(Fls_BusHandleType *nor, Fls_AddressType addr,
                              Fls_LengthType length)
 {
+#if (1 == FLS_IP_USE_PREFETCH) || (FLS_NON_CACHEABLE_EN == STD_OFF)
     Fls_IpContextType *ipCtx = (Fls_IpContextType *)nor->host->privData;
+#endif /* #if (1 == FLS_IP_USE_PREFETCH) || (FLS_NON_CACHEABLE_EN == STD_OFF) */
+#if (1 == FLS_IP_USE_PREFETCH)
+    uint32 addrSkipStart = FLS_ROUNDDOWN(addr, FLS_MAX_RBUF_BLOCK_SIZE);
+    uint32 addrSkipEnd = FLS_ROUNDUP(addr + length, FLS_MAX_RBUF_BLOCK_SIZE);
+    uint32 i, cnt;
+#endif /* #if (1 == FLS_IP_USE_PREFETCH) */
 
 #if (FLS_NON_CACHEABLE_EN == STD_OFF)
     Dma_InvalidateCache((uint32)(Fls_PointerType)(ipCtx->directBase + addr),
                         FLS_ROUNDUP(length, FLS_IP_ARCH_CACHE_LINE));
 #endif /* #if (FLS_NON_CACHEABLE_EN == STD_OFF) */
-    Fls_IpPrefetchFlush(ipCtx, 0);
-    Fls_IpPrefetchFlush(ipCtx, 1);
+
+#if (1 == FLS_IP_USE_PREFETCH)
+    if (FALSE == ipCtx->useRomConfig)
+    {
+        Fls_IpPrefetchFlush(ipCtx, 0);
+        Fls_IpPrefetchFlush(ipCtx, 1);
+    }
+    else
+    {
+       for (i = 0, cnt = 0; (i < nor->host->totalSize) && cnt < FLS_MAX_RBUF_ENTRY_NUM; i += FLS_MAX_RBUF_BLOCK_SIZE) {
+           if ((i >= addrSkipStart )&& (i <= addrSkipEnd)) {
+                /* Do nothing, skip */
+           }
+           else
+           {
+                (void) readl((uint32)ipCtx->directBase + i);
+                cnt++;
+           }
+       }
+    }
+#endif /* #if (1 == FLS_IP_USE_PREFETCH) */
+}
+
+static void Fls_IpPreWriteFifo(Fls_BusHandleType *nor)
+{
+    Fls_IpContextType *ipCtx = (Fls_IpContextType *)nor->host->privData;
+    uint32 txSize;
+    uint8 tryCnt = 3u;
+
+    do
+    {
+        txSize = Fls_IpWriteFifo(ipCtx, nor->xferInfoBottom.writeBuf,
+                                 nor->xferInfoBottom.size);
+        if (0 != txSize)
+        {
+            nor->xferInfoBottom.writeBuf += txSize;
+            nor->xferInfoBottom.size -= txSize;
+        }
+        else
+        {
+            /* Clear tx buffer */
+            Fls_IpWriteBits(ipCtx, FLS_IP_INDIRECT_TX_BUF, FLS_IP_INDIRECT_TX_BUF_FLUSH_LSB, 1u, 1u);
+        }
+        tryCnt--;
+    } while ((0u == txSize) && (0u != tryCnt));
+
+    if (0u != nor->xferInfoBottom.size)
+    {
+        Fls_IpEnableEvent = 1U;
+        nor->xferInfoBottom.opsResult = FLS_BUS_OPS_FAILED;
+    }
 }
 
 /** *****************************************************************************************************
@@ -1611,12 +1674,15 @@ static int Fls_IpWrite(Fls_BusHandleType *nor, Fls_AddressType addr,
 #endif /* #ifndef FLS_ASYNC_MODE_EN */
     uint32 irqTrigLevel;
     uint32 mask = 0u;
-    uint32 addr_tmp = addr;
-    uint32 buf_index = 0;
-    uint32 size_tmp = size;
-    uint32 write_size;
-    boolean hyperram_mode = (nor->memType == FLS_BUS_HYPERRAM) ? TRUE : FALSE;
+    uint32 addrTemp = addr;
+    uint32 bufferIndex = 0;
+    uint32 sizeTemp = size;
+    uint32 writeSize;
+    boolean hyperramEnable = (nor->memType == FLS_BUS_HYPERRAM) ? TRUE : FALSE;
     Fls_IpContextType *ipCtx = (Fls_IpContextType *)nor->host->privData;
+#if FLS_IP_USE_DMA
+    boolean dmaEnable;
+#endif /* #if FLS_IP_USE_DMA */
 
     if (!FLS_IS_ALIGNED(addr, 4) || !FLS_IS_ALIGNED(buf, 4) || !FLS_IS_ALIGNED(size, 4))
     {
@@ -1627,7 +1693,7 @@ static int Fls_IpWrite(Fls_BusHandleType *nor, Fls_AddressType addr,
         Fls_IpCacheFlush(nor, addr, size);
 #if (1 == FLS_IP_USE_DIRECT_MODE)
 
-        if ((addr < ipCtx->directRangeSize) && (TRUE == hyperram_mode))
+        if ((addr < ipCtx->directRangeSize) && (TRUE == hyperramEnable))
         {
             /* direct access */
             (void) Fls_MemCopy((void *)(Fls_PointerType)(ipCtx->directBase + addr),
@@ -1650,12 +1716,16 @@ static int Fls_IpWrite(Fls_BusHandleType *nor, Fls_AddressType addr,
 
 #endif /* #if FLS_IP_USE_DMA && (FLS_NON_CACHEABLE_EN == STD_OFF) */
 
-            while (size_tmp > 0U)
+            while (sizeTemp > 0U)
             {
-                write_size = FLS_MIN((nor->info.pageSize - (addr_tmp % nor->info.pageSize)), size_tmp);
+                writeSize = FLS_MIN((nor->info.pageSize - (addrTemp % nor->info.pageSize)), sizeTemp);
+                if (TRUE == ipCtx->useRomConfig)
+                {
+                    writeSize = FLS_MIN(writeSize, ipCtx->fifoSize);
+                }
                 (void) Fls_BusWriteEnable(nor, TRUE);
 
-                Fls_IpSetupXfer(nor, FLS_BUS_OPS_WRITE, addr_tmp, NULL_PTR, buf + buf_index, write_size);
+                Fls_IpSetupXfer(nor, FLS_BUS_OPS_WRITE, addrTemp, NULL_PTR, buf + bufferIndex, writeSize);
                 Fls_IpProtocolSetup(nor, NULL_PTR, FLS_IP_INDIRECT_ACCESS_MODE,
                                     FLS_BUS_OPS_WRITE);
 
@@ -1664,11 +1734,19 @@ static int Fls_IpWrite(Fls_BusHandleType *nor, Fls_AddressType addr,
                 Fls_IpWriteBits(ipCtx, FLS_IP_INDIRECT_WR_DMA,
                                 FLS_IP_INDIRECT_DMA_TRIG_WML_LSB, 8u, irqTrigLevel);
 #if FLS_IP_USE_DMA
+                dmaEnable = FALSE;
+#endif /* #if FLS_IP_USE_DMA */
 
-                if (nor->xferMode == FLS_BUS_XFER_DMA_MODE)
+
+                if (nor->xferInfoBottom.size <= ipCtx->fifoSize)
+                {
+                    Fls_IpPreWriteFifo(nor);
+                }
+#if FLS_IP_USE_DMA
+                else if (nor->xferMode == FLS_BUS_XFER_DMA_MODE)
                 {
                     Fls_IpDmaEnable(ipCtx);
-                    Fls_IpDmaConfig(nor, addr_tmp, (uint8 *)buf + buf_index, write_size, FALSE, FALSE);
+                    Fls_IpDmaConfig(nor, addrTemp, (uint8 *)buf + bufferIndex, writeSize, FALSE, FALSE);
 
                     if (NULL_PTR == ipCtx->dmaChannel)
                     {
@@ -1676,24 +1754,21 @@ static int Fls_IpWrite(Fls_BusHandleType *nor, Fls_AddressType addr,
                         nor->xferInfoBottom.opsResult = FLS_BUS_OPS_FAILED;
                         break;
                     }
-
-                    mask |= FLS_IP_INT_ST_FUC_INDIRECT_WR_DONE;
+                    dmaEnable = TRUE;
                 }
+#endif /* #if FLS_IP_USE_DMA */
                 else
                 {
-                    mask |= FLS_IP_INT_ST_FUC_TX_FRE_EMPTY | FLS_IP_INT_ST_FUC_INDIRECT_WR_DONE;
+                    mask |= FLS_IP_INT_ST_FUC_TX_FRE_EMPTY;
                 }
-
-#else
-                mask |= FLS_IP_INT_ST_FUC_TX_FRE_EMPTY | FLS_IP_INT_ST_FUC_INDIRECT_WR_DONE;
-#endif /* #if FLS_IP_USE_DMA */
-                Fls_IpIndirectTrigger(ipCtx, addr_tmp, write_size, INDIRECT_WRITE_FLAG);
+                mask |= FLS_IP_INT_ST_FUC_INDIRECT_WR_DONE;
+                Fls_IpIndirectTrigger(ipCtx, addrTemp, writeSize, INDIRECT_WRITE_FLAG);
                 Fls_IpSetInterruptMask(ipCtx, FLS_IP_INT_EN_FUC, mask);
 
                 Fls_IpWaitXferDone(nor);
 #if FLS_IP_USE_DMA
 
-                if (nor->xferMode == FLS_BUS_XFER_DMA_MODE)
+                if (TRUE == dmaEnable)
                 {
                     Fls_IpDmaDisable(ipCtx);
 
@@ -1709,17 +1784,20 @@ static int Fls_IpWrite(Fls_BusHandleType *nor, Fls_AddressType addr,
 
 #ifndef FLS_ASYNC_MODE_EN
 
-                /* wait for flash idle */
-                do
+                if (FLS_BUS_OPS_FAILED != nor->xferInfoBottom.opsResult)
                 {
-                    ret = Fls_BusWaitIdle(nor);
-
-                    if (ret)
+                    /* wait for flash idle */
+                    do
                     {
-                        nor->xferInfoBottom.opsResult = FLS_BUS_OPS_FAILED;
+                        ret = Fls_BusWaitIdle(nor);
+
+                        if (ret)
+                        {
+                            nor->xferInfoBottom.opsResult = FLS_BUS_OPS_FAILED;
+                        }
                     }
+                    while (Fls_IpLockstepErr != 0u);
                 }
-                while (Fls_IpLockstepErr != 0u);
 
 #endif /* #ifndef FLS_ASYNC_MODE_EN */
 
@@ -1727,12 +1805,10 @@ static int Fls_IpWrite(Fls_BusHandleType *nor, Fls_AddressType addr,
                 {
                     break;
                 }
-                else
-                {
-                    addr_tmp += write_size;
-                    size_tmp -= write_size;
-                    buf_index += write_size;
-                }
+
+                addrTemp += writeSize;
+                sizeTemp -= writeSize;
+                bufferIndex += writeSize;
             }
         }
     }
@@ -1794,7 +1870,7 @@ static int Fls_IpErase(Fls_BusHandleType *nor, Fls_AddressType offset)
 
     if (FLS_BUS_DEV_SWITCH_MODE == nor->devMode)
     {
-        eraseAddress -= nor->info.regOffset;
+        eraseAddress -= nor->regOffset;
     }
 
     if (0 != Fls_IpCommandWrite(nor, &writeEnableCmd, 0, NULL_PTR, 0))
@@ -1871,6 +1947,8 @@ static int Fls_IpTraining(Fls_BusHandleType *nor, Fls_AddressType addr,
     boolean train_ok = FALSE;
     Fls_IpContextType *ipCtx = (Fls_IpContextType *)nor->host->privData;
 
+    Fls_IpPrefetchDisable(ipCtx);
+
     for (rx_delay = 0u; rx_delay <= 0x7fu; rx_delay++)
     {
         Fls_IpDllEnable(ipCtx, 0, rx_delay, TRUE);
@@ -1919,8 +1997,35 @@ static int Fls_IpTraining(Fls_BusHandleType *nor, Fls_AddressType addr,
         rx_delay = (rx_delay_start + rx_delay) / 2u;
         Fls_IpDllEnable(ipCtx, 0, rx_delay, TRUE);
         Fls_IpDllEnable(ipCtx, 1, rx_delay, TRUE);
-        FLS_DEBUG("xspi phy training pass!\n");
-        ret = 0;
+        ret = -1;
+        if (0 != Fls_BusRead(nor, addr, buf, size))
+        {
+            FLS_DEBUG("training read failed\n");
+        }
+        else if (0U != Fls_MemCompare((const void *)(Fls_PointerType)buf,
+                                     (const void *)(Fls_PointerType)pattern, (uint32)size))
+        {
+            FLS_DEBUG("training read back check failed!\n");
+            if (0 != Fls_BusRead(nor, addr, buf, size))
+            {
+                FLS_DEBUG("training read failed\n");
+            }
+            else if (0U != Fls_MemCompare((const void *)(Fls_PointerType)buf,
+                                     (const void *)(Fls_PointerType)pattern, (uint32)size))
+            {
+                FLS_DEBUG("training read back check failed(after try again)!\n");
+            }
+            else
+            {
+                FLS_DEBUG("xspi phy training pass(after try again)!\n");
+                ret = 0;
+            }
+        }
+        else
+        {
+            FLS_DEBUG("xspi phy training pass!\n");
+            ret = 0;
+        }
     }
     else
     {
@@ -1928,6 +2033,11 @@ static int Fls_IpTraining(Fls_BusHandleType *nor, Fls_AddressType addr,
         Fls_IpDllEnable(ipCtx, 1, 0u, FALSE);
         FLS_DEBUG("xspi phy training failed, disable dll!\n");
         ret = -1;
+    }
+
+    if ((TRUE == ipCtx->prefetchEnable) && (FLS_BUS_HYPERRAM != nor->memType))
+    {
+        Fls_IpPrefetchEnable(ipCtx);
     }
 
     return ret;
@@ -2163,6 +2273,252 @@ static int Fls_IpEnterXipMode(Fls_BusHandleType *handle, boolean enable)
     return 0;
 }
 
+static int Fls_IpGetProto(Fls_BusHandleType *nor, Fls_BusOpsType ops,
+                                Fls_IpAccessModeType accessMode) {
+    Fls_IpContextType *ipCtx = (Fls_IpContextType *)nor->host->privData;
+    uint32 phCtrl = 0;
+    uint32 opCode = 0;
+    uint8 addrWidth = 0;
+    uint32 cmdLine, addrLine, dataLine;
+    boolean cmdRate, addrRate, dataRate;
+    uint32 proto = 0;
+    uint32 *ptrProto = NULL_PTR;
+    int ret = -1;
+
+    if (FLS_IP_INDIRECT_ACCESS_MODE == accessMode)
+    {
+        if (FLS_BUS_OPS_READ == ops)
+        {
+            phCtrl = Fls_IpReadl(ipCtx, FLS_IP_INDIRECT_RD_PH_CTRL);
+            opCode = Fls_IpReadl(ipCtx, FLS_IP_INDIRECT_RD_CMD_CODE) & FLS_IP_INDIRECT_RD_CMD_CODE_MASK;
+            ptrProto = &nor->regProto;
+        }
+        else if (FLS_BUS_OPS_WRITE == ops)
+        {
+            phCtrl = Fls_IpReadl(ipCtx, FLS_IP_INDIRECT_WR_PH_CTRL);
+            opCode = Fls_IpReadl(ipCtx, FLS_IP_INDIRECT_WR_CMD_CODE) & FLS_IP_INDIRECT_WR_CMD_CODE_MASK;
+            ptrProto = &nor->info.writeProto;
+        }
+        else
+        {
+            FLS_DEBUG("This ops %d %d not support\r\n", accessMode, ops);
+        }
+    }
+    else
+    {
+        if (FLS_BUS_OPS_READ == ops)
+        {
+            phCtrl = Fls_IpReadl(ipCtx, FLS_IP_DIRECT_RD_PH_CTRL);
+            opCode = Fls_IpReadl(ipCtx, FLS_IP_DIRECT_C_CODE) & FLS_IP_DIRECT_C_CODE_MASK;
+            ptrProto = &nor->info.readProto;
+        }
+        else
+        {
+            FLS_DEBUG("This ops %d %d not support\r\n", accessMode, ops);
+        }
+    }
+
+    if (NULL_PTR != ptrProto)
+    {
+        cmdLine = (phCtrl) & 0x3u;
+        cmdRate = !!((phCtrl >> 2) & 0x1u);
+        addrLine = (phCtrl >> 8) & 0x3u;
+        addrRate = !!((phCtrl >> 10) & 0x1u);
+        dataLine = (phCtrl >> 24) & 0x3u;
+        dataRate = !!((phCtrl >> 26) & 0x1u);
+        addrWidth = (phCtrl >> 11) & 0x3u;
+        if (0 != addrWidth)
+        {
+            nor->addrWidth = addrWidth + 1u;
+        }
+
+        if ((3u == cmdLine) && (TRUE == cmdRate))
+        {
+            nor->octalDtrEnable = TRUE;
+        }
+
+        FLS_DEBUG("opcode: %x, Cmd(L:%d,S/D:%d), Adr(L:%d,S/D:%d), Data(L:%d,S/D:%d)\r\n",
+            opCode, cmdLine, cmdRate, addrLine, addrRate, dataLine, dataRate);
+
+        proto |= opCode << FLS_BUS_OPCODE_PROTO_LSB;
+        proto |= cmdLine << FLS_BUS_INST_LANS_PROTO_LSB;
+        proto |= addrLine << FLS_BUS_ADDR_LANS_PROTO_LSB;
+        proto |= dataLine << FLS_BUS_DATA_LANS_PROTO_LSB;
+
+        if (cmdRate || addrRate || dataRate ) {
+            proto |= FLS_BUS_DTR_PROTO;
+        }
+        *ptrProto = proto;
+        FLS_DEBUG("Proto Res = %x\r\n", proto);
+        ret = 0;
+    }
+
+    return ret;
+}
+
+static int Fls_IpGetSize(Fls_BusHandleType *nor)
+{
+    Fls_IpContextType *ipCtx = (Fls_IpContextType *)nor->host->privData;
+    uint32 reg = Fls_IpReadl(ipCtx, FLS_IP_DEV_SIZE);
+    int ret = -1;
+
+    if (nor->cs < 2u)
+    {
+        nor->info.size = 1u;
+        nor->info.size <<= ((reg >> (nor->cs * FLS_IP_DEV_SIZE_SIZE_LSB)) & FLS_IP_DEV_SIZE_SIZE_MASK);
+        if (nor->info.size > 0x1000000u)
+        {
+            nor->addrWidth = 4u;
+        }
+
+        ret = 0;
+    }
+
+    return ret;
+}
+
+static void Fls_IpGetDqsEnable(Fls_BusHandleType *nor)
+{
+    Fls_IpContextType *ipCtx = (Fls_IpContextType *)nor->host->privData;
+    uint32 reg = Fls_IpReadl(ipCtx, FLS_IP_SCLK_CTRL);
+
+    if (2u == (reg >> FLS_IP_SCLK_CTRL_RX_SEL_LSB))
+    {
+        nor->dqsEnable = ipCtx->dqsEnable = TRUE;
+    } else {
+        nor->dqsEnable = ipCtx->dqsEnable = FALSE;
+    }
+}
+
+static void Fls_GetDummyCycle(Fls_BusHandleType *nor)
+{
+    Fls_IpContextType *ipCtx = (Fls_IpContextType *)nor->host->privData;
+    nor->info.readDummy = Fls_IpReadl(ipCtx, FLS_IP_DIRECT_D_CYC) & FLS_IP_DIRECT_D_CYC_RD_MASK;
+    nor->info.statusDummy = Fls_IpReadl(ipCtx, FLS_IP_INDIRECT_RD_CYC) & FLS_IP_INDIRECT_RD_CYC_MASK;
+}
+
+/** *****************************************************************************************************
+ * \brief This function restores the configuration state.
+ *
+ * \verbatim
+ * Syntax             : int Fls_IpRestoredState(Fls_BusHandleType *nor)
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : nor - spi norflash instance contex handle, the data memory need alloc by user
+ *
+ * Parameters (inout) : None
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : 0 - Sucessfully
+ *                     !0 - Failed
+ *
+ * Description        : Restores the configuration state of the registers,
+ *                       after which you can jump directly to XIP mode.
+ * \endverbatim
+ *******************************************************************************************************/
+void Fls_IpRestoredState(Fls_BusHandleType *nor)
+{
+    (void) Fls_BusWaitIdle(nor);
+    Fls_IpProtocolSetup(nor, NULL_PTR, FLS_IP_INDIRECT_ACCESS_MODE, FLS_BUS_OPS_WRITE);
+    Fls_IpProtocolSetup(nor, NULL_PTR, FLS_IP_DIRECT_ACCESS_MODE, FLS_BUS_OPS_READ);
+}
+
+/** *****************************************************************************************************
+ * \brief This function init flash handler by registers site.
+ *
+ * \verbatim
+ * Syntax             : int Fls_IpRomConfig(Fls_BusHandleType *bus, Fls_IpHostType *host,
+ *                                      const Fls_BusConfigType *busConfig)
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : host - Pointer to controller handler
+ *                      config - Spi norflash device config data, will not used after function return,
+ *                      so this param can be in stack.
+ *
+ * Parameters (inout) : nor - spi norflash instance contex handle, the data memory need alloc by user.
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : 0 - Sucessfully
+ *                     !0 - Failed
+ *
+ * Description        : Init flash handler by registers site.
+ * \endverbatim
+ *******************************************************************************************************/
+static int Fls_IpRomConfig(Fls_BusHandleType *nor, Fls_IpHostType *host,
+                const Fls_BusConfigType *config)
+{
+    int ret = -1;
+
+    nor->id = config->id;
+    nor->baudrate = config->baudrate;
+    nor->xferMode = config->xferMode;
+    nor->host = host;
+    nor->swReset = config->swReset;
+    nor->rfdEnable = config->rfdEnable;
+    nor->devMode = config->devMode;
+
+    nor->addrWidth = 3;
+    nor->octalDtrEnable = 0;
+    nor->dqsEnable = 0;
+
+    if (0 != Fls_IpGetProto(nor, FLS_BUS_OPS_READ, FLS_IP_INDIRECT_ACCESS_MODE))
+    {
+        FLS_DEBUG("Indirect read GetProto failed\n");
+    }
+    else if (0 != Fls_IpGetProto(nor, FLS_BUS_OPS_WRITE, FLS_IP_INDIRECT_ACCESS_MODE))
+    {
+        FLS_DEBUG("Indirect write GetProto failed\n");
+    }
+    else if (0 != Fls_IpGetProto(nor, FLS_BUS_OPS_READ, FLS_IP_DIRECT_ACCESS_MODE))
+    {
+        FLS_DEBUG("Direct read GetProto failed\n");
+    }
+    else if (0 != Fls_IpGetSize(nor))
+    {
+        FLS_DEBUG("Get size failed\n");
+    }
+    else
+    {
+        Fls_IpGetDqsEnable(nor);
+        Fls_GetDummyCycle(nor);
+        if (FALSE == config->hyperbusMode)
+        {
+            nor->info.sectorSize = FLS_BUS_SECTOR_4K_SIZE;
+            nor->info.sectorType = FLS_BUS_SECTOR_4KB;
+            nor->info.eraseProto[0] = 0x20u << FLS_BUS_OPCODE_PROTO_LSB;
+        }
+        else
+        {
+            nor->info.sectorSize = FLS_BUS_SECTOR_256K_SIZE;
+            nor->info.sectorType = FLS_BUS_SECTOR_256KB;
+        }
+        nor->info.pageSize = 256u;
+
+        if (FLS_BUS_DEV_PARALLEL_MODE == nor->devMode)
+        {
+            nor->info.sectorSize *= 2u;
+            nor->info.size *= 2u;
+        }
+
+        FLS_DEBUG("flash size: %llx\n", nor->info.size);
+        ret = 0;
+    }
+
+    return ret;
+}
+
 /** *****************************************************************************************************
  * \brief This function Initialise the controller's context.
  *
@@ -2209,6 +2565,7 @@ static int Fls_IpHostInit(Fls_IpHostType *host, Fls_IpContextType *ipCtx,
         ipCtx->irq = config->irq;
         ipCtx->refClkHz = config->refClkHz;
         ipCtx->prefetchEnable = config->prefetchEnable;
+        ipCtx->useRomConfig = config->useRomConfig;
 
         Fls_IpEnableEvent = 0U;
         host->id = config->id;
@@ -2258,11 +2615,13 @@ static int Fls_IpHostInit(Fls_IpHostType *host, Fls_IpContextType *ipCtx,
  *******************************************************************************************************/
 int Fls_IpInit(Fls_IpHostType *host, const Fls_BusConfigType *config)
 {
-    int ret;
+    int ret = 0;
 
-    ret = Fls_IpModeEnable((FLS_BUS_DEV_LOCKSTEP_MODE == config->devMode) ? TRUE : FALSE,
-                           (FLS_BUS_DEV_PARALLEL_MODE == config->devMode) ? TRUE : FALSE,
-                           config->id);
+    if (FALSE == config->useRomConfig) {
+        ret = Fls_IpModeEnable((FLS_BUS_DEV_LOCKSTEP_MODE == config->devMode) ? TRUE : FALSE,
+                                (FLS_BUS_DEV_PARALLEL_MODE == config->devMode) ? TRUE : FALSE,
+                                config->id);
+    }
 
     if (0 != ret)
     {
@@ -2271,19 +2630,13 @@ int Fls_IpInit(Fls_IpHostType *host, const Fls_BusConfigType *config)
     else
     {
         Fls_IpConfigTable[config->id].refClkHz = config->refClkHz;
+        Fls_IpConfigTable[config->id].useRomConfig = config->useRomConfig;
 #if (1 == FLS_IP_USE_PREFETCH)
         Fls_IpConfigTable[config->id].prefetchEnable = TRUE;
 #else
         Fls_IpConfigTable[config->id].prefetchEnable = FALSE;
 #endif
         ret = Fls_IpHostInit(host, &Fls_IpContextTable[config->id], &Fls_IpConfigTable[config->id]);
-
-        if ((0 == ret) && (NULL_PTR != host->clkOps))
-        {
-            ret = host->clkOps->setClkRate(host->id, config->baudrate);
-            FLS_DEBUG("spinor host clock rate is %u!\n",
-                      host->clkOps->getClkRate(host->id));
-        }
     }
 
     return ret;
@@ -2316,7 +2669,12 @@ int Fls_IpInit(Fls_IpHostType *host, const Fls_BusConfigType *config)
  *******************************************************************************************************/
 void Fls_IpDeinit(Fls_BusHandleType *bus)
 {
-    (void) bus;
+    Fls_IpContextType *ipCtx = (Fls_IpContextType *)bus->host->privData;
+
+    if (0 != Fls_IpTrigerComplete(ipCtx))
+    {
+        FLS_DEBUG("Fls_IpTrigerComplete ret failed\n");
+    }
 #ifdef FLS_BUS_DMA_ENABLE
 #endif /* #ifdef FLS_BUS_DMA_ENABLE */
     return;
@@ -2503,7 +2861,7 @@ void Fls_BusXferError(Fls_BusHandleType *nor)
     nor->xferInfo.opsType = FLS_BUS_OPS_UNKNOW;
 }
 
-int Fls_BusSetupClockCallback(Fls_IpHostType *host, Fls_IpClockOpsType *clkOps)
+int Fls_BusSetupClockCallback(Fls_IpHostType *host, const Fls_IpClockOpsType *clkOps)
 {
     int ret = -1;
 
@@ -2541,29 +2899,49 @@ int Fls_BusInit(Fls_BusHandleType *bus, Fls_IpHostType *host,
 {
     int ret = -1;
 
-    if (NULL_PTR == bus)
+    if (NULL_PTR != bus)
     {
-        /* Do nothing */
-    }
-    else if (NULL_PTR != bus->ops)
-    {
-        ret = bus->ops->init(bus, host, busConfig);
-    }
-    else if (TRUE == busConfig->hyperbusMode)
-    {
+        if (NULL_PTR != bus->ops)
+        {
+            /* Do nothing */
+        }
+        else if (TRUE == busConfig->hyperbusMode)
+        {
 #ifdef FLS_HYPERBUS_FLASH_CNT
-        bus->ops = &Fls_HyperbusOps;
-        ret = Fls_HyperbusOps.init(bus, host, busConfig);
+            bus->ops = &Fls_HyperbusOps;
 #endif /* #ifdef FLS_HYPERBUS_FLASH_CNT */
-    }
-    else
-    {
+        }
+        else
+        {
 #ifdef FLS_SPIBUS_FLASH_CNT
-        bus->ops = &Fls_SpibusOps;
-        ret = Fls_SpibusOps.init(bus, host, busConfig);
+            bus->ops = &Fls_SpibusOps;
 #endif /* #ifdef FLS_SPIBUS_FLASH_CNT */
-    }
+        }
 
+        if (TRUE == busConfig->useRomConfig)
+        {
+            ret = Fls_IpRomConfig(bus, host, busConfig);
+        }
+        else if (NULL_PTR != bus->ops)
+        {
+            if (NULL_PTR != host->clkOps)
+            {
+                if (0 == host->clkOps->setClkRate(host->id, busConfig->baudrate))
+                {
+                    Fls_IpDllEnable((Fls_IpContextType *)host->privData, 0, 7u, TRUE);
+                    Fls_IpDllEnable((Fls_IpContextType *)host->privData, 1, 4u, TRUE);
+                }
+                FLS_DEBUG("spinor host clock rate is %u!\n",
+                        host->clkOps->getClkRate(host->id));
+            }
+            ret = bus->ops->init(bus, host, busConfig);
+
+            if (0 == ret)
+            {
+                Fls_IpRestoredState(bus);
+            }
+        }
+    }
     return ret;
 }
 

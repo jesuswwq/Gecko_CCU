@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-11-13 17:38:35>
+ *  @date       <2024-12-19 16:43:51>
  */
 /*============================================================================*/
 
@@ -34,39 +34,9 @@
 
 typedef struct
 {
-    UInt8 value;
-    Std_ReturnType status;
-} Rte_DE_UInt8_status;
-
-typedef struct
-{
-    DT_IPM_BMS_1_MainState_EPT value;
-    Std_ReturnType status;
-} Rte_DE_DT_IPM_BMS_1_MainState_EPT_status;
-
-typedef struct
-{
     DT_IPM_CCP_PanelStatus_BOD value;
     Std_ReturnType status;
 } Rte_DE_DT_IPM_CCP_PanelStatus_BOD_status;
-
-typedef struct
-{
-    DT_IPM_CRRR_A_CHA value;
-    Std_ReturnType status;
-} Rte_DE_DT_IPM_CRRR_A_CHA_status;
-
-typedef struct
-{
-    DT_IPM_EHB_A_CHA value;
-    Std_ReturnType status;
-} Rte_DE_DT_IPM_EHB_A_CHA_status;
-
-typedef struct
-{
-    DT_IPM_EHB_B_CHA value;
-    Std_ReturnType status;
-} Rte_DE_DT_IPM_EHB_B_CHA_status;
 
 typedef struct
 {
@@ -85,12 +55,6 @@ typedef struct
     DT_IPM_SCS_LeSwitchSts_BOD value;
     Std_ReturnType status;
 } Rte_DE_DT_IPM_SCS_LeSwitchSts_BOD_status;
-
-typedef struct
-{
-    DT_IPM_SRS_1_Status_CHA value;
-    Std_ReturnType status;
-} Rte_DE_DT_IPM_SRS_1_Status_CHA_status;
 
 typedef struct
 {
@@ -124,6 +88,36 @@ typedef struct
 
 typedef struct
 {
+    UInt8 value;
+    Std_ReturnType status;
+} Rte_DE_UInt8_status;
+
+typedef struct
+{
+    DT_IPM_BMS_1_MainState_EPT value;
+    Std_ReturnType status;
+} Rte_DE_DT_IPM_BMS_1_MainState_EPT_status;
+
+typedef struct
+{
+    DT_IPM_CRRR_A_CHA value;
+    Std_ReturnType status;
+} Rte_DE_DT_IPM_CRRR_A_CHA_status;
+
+typedef struct
+{
+    DT_IPM_EHB_A_CHA value;
+    Std_ReturnType status;
+} Rte_DE_DT_IPM_EHB_A_CHA_status;
+
+typedef struct
+{
+    DT_IPM_EHB_B_CHA value;
+    Std_ReturnType status;
+} Rte_DE_DT_IPM_EHB_B_CHA_status;
+
+typedef struct
+{
     DT_IPM_ESCL_ESCLStatus_BOD value;
     Std_ReturnType status;
 } Rte_DE_DT_IPM_ESCL_ESCLStatus_BOD_status;
@@ -133,6 +127,12 @@ typedef struct
     DT_IPM_INV_IMMO_Req_EPT value;
     Std_ReturnType status;
 } Rte_DE_DT_IPM_INV_IMMO_Req_EPT_status;
+
+typedef struct
+{
+    DT_IPM_SRS_1_Status_CHA value;
+    Std_ReturnType status;
+} Rte_DE_DT_IPM_SRS_1_Status_CHA_status;
 
 typedef struct
 {

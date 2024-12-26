@@ -14,7 +14,8 @@
 #include "EcuM_Cbk.h"
 #include "Mcu.h"
 #include "PEPS_ABI.h"
-#include "RegBase.h"
+#include "Port.h"
+
 
 #define WAKEUP_CHECK_SWTICH 1
 #define TRIGGER_SET_BIT(bitindex, Value) Value = (Value | (0x00000001 < bitindex))
@@ -30,7 +31,8 @@ uint8 App_SleepReqFlag = 0xAA;
 uint8 HW_Active_ComReq = 0;
 uint16 HW_Trigger_Timer = 0;
 uint16 RTC_Timer = 20;
-uint8 FirstWakeUpSource500ms = 0;
+uint8 FirstWakeUpSource200ms = 0;
+uint8 WakeUpSource200msFlag = 0;
 static uint8 NMUserDataWakeupReas_Other = 0;
 uint8 FirstNMFlag = 0;
 uint8 ActiveNMReqFlag = 0;
@@ -52,17 +54,13 @@ TCA9539SumTrigerType TCA9539SumSingleTriger = {{{FALSE, 0}, {FALSE, 0}}, 0};
 uint32 TCA9539SumTrigerReadResult = 0;
 static Std_ReturnType Read_9539_All(TCA9539SumTrigerType *TCA9539SumTrigerInfo);
 static void Delay1ms(void);
-        Mcu_RtcSleepTimeType RTC_SleepTime;
-        Mcu_RtcTimerModeType RTC_TimerMode = RTC_TIMER_MODE_MIN;
 void BswM_PowerON_KL15_Check_Callout(void)
 {
         Std_ReturnType Ret = E_NOT_OK;
         uint32 TrigerValue = 0;
-        uint32 RTC_MemoryFlag = sdrv_btm_hw_readl(0xF0010000, 0x48);
         CCUWakeupReturnValue = 0xFF;
-
-        Mcu_Ip_RtcGetSleepTime(APB_RTC1_BASE, &RTC_SleepTime, &RTC_TimerMode);
-        sdrv_btm_hw_writel(0xF0010000, 0x48, 0xAA); /**Flag for Power on which is no data in RTC ram**/
+        uint32 RTC_MemoryFlag = sdrv_btm_hw_readl(0xF0010000,0x48); /*If the Flag is not satisfy that means the trigger wakeup is disable*/
+        sdrv_btm_hw_writel(0xF0010000,0x48,0xAA);  /**Flag for Power on which is no data in RTC ram**/
         do
         {
            while(E_NOT_OK == Read_9539_All(&TCA9539SumSingleTriger));  
@@ -317,7 +315,7 @@ void Cycle_HW_NM_Check(void)
         if((NM_STATE_BUS_SLEEP == CanNm_ChRunTime[0].canNmState)&&(NM_STATE_BUS_SLEEP == CanNm_ChRunTime[1].canNmState)
                 &&(NM_STATE_BUS_SLEEP == CanNm_ChRunTime[2].canNmState)&&(NM_STATE_BUS_SLEEP == CanNm_ChRunTime[3].canNmState))
         {
-                if ((100 <= FirstWakeUpSource500ms) && (FALSE == NvM_WriteAllFlag) && (1 == NvM_InitReadAll_Flag))
+                if((40 <= FirstWakeUpSource200ms)&&(FALSE == NvM_WriteAllFlag)&&(1 == NvM_InitReadAll_Flag))
                 {
                         Dem_Shutdown();
                         PEPS_NVMWrite();
@@ -420,39 +418,66 @@ void Cycle_ComM_Manage(void)
 #pragma default_function_attributes =
 void NM_UserDataPackup(void)
 {
-        uint8 tempBMS = 0, tempIGN = 0, tempOBC = 0, tempOthers = 0;
-        uint8 tempKeepBMS = 0, tempKeepIGN = 0, tempKeepOBC = 0, tempKeepSta = 0;
-        if (100 >= FirstWakeUpSource500ms)
-        {
-                if (0x34 == CCUWakeupReturnValue) /******BMS wakeup*****/
+      uint8 tempBMS = 0,tempIGN = 0,tempOBC = 0,tempOthers = 0;
+      uint8 tempKeepBMS = 0,tempKeepIGN = 0,tempKeepOBC = 0,tempKeepSta = 0;
+      if(40 == FirstWakeUpSource200ms)
+      {   
+         if(0x34 == CCUWakeupReturnValue) /******BMS wakeup*****/
+         {
+                tempBMS = 1;
+         }
+         else if(0x32 == CCUWakeupReturnValue) /******IG wakeup*****/
+         {
+                tempIGN = 1;
+         }
+         else if(0x33 == CCUWakeupReturnValue)/******OBC wakeup*****/
+         {
+                tempOBC = 1;
+         }
+         else if(0 == NMUserDataWakeupReas_Other)
+         {
+                if(0x11 == CCUWakeupReturnValue)/******NM wakeup*****/
                 {
-                        tempBMS = 1;
+                        tempOthers = 0xF;
                 }
-                else if (0x32 == CCUWakeupReturnValue) /******IG wakeup*****/
+                else if(0x13 == CCUWakeupReturnValue)/******Lin1 wakeup*****/
                 {
-                        tempIGN = 1;
+                        tempOthers = 0x10;
                 }
-                else if (0x33 == CCUWakeupReturnValue) /******OBC wakeup*****/
+                else if(0x12 == CCUWakeupReturnValue)/******CAN Application Frame wakeup*****/
                 {
-                        tempOBC = 1;
+                        tempOthers = 0x11;
                 }
-                else
+                else if(0x31 == CCUWakeupReturnValue)/*****RKE wakeup******/
                 {
-                        if (0 == NMUserDataWakeupReas_Other)
+                        tempOthers = 0x12;
+                }
+                else if(0xFF == CCUWakeupReturnValue)/******default wakeup*****/
+                {
+                        if(MCU_WATCHDOG_RESET == Mcu_GetResetReason())  /******watchdog wakeup*****/
                         {
-                                NMUserDataWakeupReas_Other = 0x1F;
+                                tempOthers = 0x13;
                         }
-                        tempOthers = NMUserDataWakeupReas_Other;
                 }
-                Com_SendSignal(CCU_WakeupReas_BMS_IPDU_COM_TX_NM_ASR_CCU_EPT_CANFD6_EPT_CAN2, &tempBMS);
-                Com_SendSignal(CCU_WakeupReas_OBC_IPDU_COM_TX_NM_ASR_CCU_EPT_CANFD6_EPT_CAN2, &tempOBC);
-                Com_SendSignal(CCU_WakeupReas_IGN_IPDU_COM_TX_NM_ASR_CCU_EPT_CANFD6_EPT_CAN2, &tempIGN);
-                Com_SendSignal(CCU_WakeupReas_Others_IPDU_COM_TX_NM_ASR_CCU_EPT_CANFD6_EPT_CAN2, &tempOthers);
+                else if(0x22 == CCUWakeupReturnValue)/******RTC wakeup*****/
+                {
+                        tempOthers = 0x14;
+                }
+         }
+         else
+         {
+                tempOthers = NMUserDataWakeupReas_Other;
+         }
 
-                Com_SendSignal(CCU_WakeupReas_BMS_IPDU_COM_TX_NM_ASR_CCU_CHA_CANFD3_CHA_CAN5, &tempBMS);
-                Com_SendSignal(CCU_WakeupReas_OBC_IPDU_COM_TX_NM_ASR_CCU_CHA_CANFD3_CHA_CAN5, &tempOBC);
-                Com_SendSignal(CCU_WakeupReas_IGN_IPDU_COM_TX_NM_ASR_CCU_CHA_CANFD3_CHA_CAN5, &tempIGN);
-                Com_SendSignal(CCU_WakeupReas_Others_IPDU_COM_TX_NM_ASR_CCU_CHA_CANFD3_CHA_CAN5, &tempOthers);
+        Com_SendSignal(CCU_WakeupReas_BMS_IPDU_COM_TX_NM_ASR_CCU_EPT_CANFD6_EPT_CAN2,&tempBMS);
+        Com_SendSignal(CCU_WakeupReas_OBC_IPDU_COM_TX_NM_ASR_CCU_EPT_CANFD6_EPT_CAN2,&tempOBC);
+        Com_SendSignal(CCU_WakeupReas_IGN_IPDU_COM_TX_NM_ASR_CCU_EPT_CANFD6_EPT_CAN2,&tempIGN);
+        Com_SendSignal(CCU_WakeupReas_Others_IPDU_COM_TX_NM_ASR_CCU_EPT_CANFD6_EPT_CAN2,&tempOthers);
+        
+        Com_SendSignal(CCU_WakeupReas_BMS_IPDU_COM_TX_NM_ASR_CCU_CHA_CANFD3_CHA_CAN5,&tempBMS);
+        Com_SendSignal(CCU_WakeupReas_OBC_IPDU_COM_TX_NM_ASR_CCU_CHA_CANFD3_CHA_CAN5,&tempOBC);
+        Com_SendSignal(CCU_WakeupReas_IGN_IPDU_COM_TX_NM_ASR_CCU_CHA_CANFD3_CHA_CAN5,&tempIGN);
+        Com_SendSignal(CCU_WakeupReas_Others_IPDU_COM_TX_NM_ASR_CCU_CHA_CANFD3_CHA_CAN5,&tempOthers);
 
                 Com_SendSignal(CCU_WakeupReas_BMS_IPDU_COM_TX_NM_ASR_CCU_BAC_CANFD8_BAC_CAN1, &tempBMS);
                 Com_SendSignal(CCU_WakeupReas_OBC_IPDU_COM_TX_NM_ASR_CCU_BAC_CANFD8_BAC_CAN1, &tempOBC);

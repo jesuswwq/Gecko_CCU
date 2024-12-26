@@ -1020,7 +1020,7 @@ static int Fls_SpiBusReadId(Fls_BusHandleType *nor)
                   nor->octalDtrEnable, readCmd.addrBytes, readCmd.dummy, readCmd.instType,
                   nor->regProto);
 
-        ret = Fls_SpiBusRegRead(nor, &readCmd, 0, id, 4);
+        ret = Fls_SpiBusRegRead(nor, &readCmd, 0, id, 3);
 
         if (FLS_SUCCESS == ret)
         {
@@ -1713,6 +1713,7 @@ static int Fls_SpiBusCancel(Fls_BusHandleType *nor)
 static void Fls_SpiBusDeinit(Fls_BusHandleType *nor)
 {
     Fls_IpDeinit(nor);
+    (void) Fls_SpiBusSoftReset(nor);
 }
 
 /** *****************************************************************************************************

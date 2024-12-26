@@ -238,6 +238,7 @@ typedef struct
     boolean hyperbusMode;
     boolean swReset;
     boolean rfdEnable;
+    boolean useRomConfig;
 } Fls_BusConfigType;
 
 typedef struct
@@ -291,9 +292,10 @@ typedef struct
 {
     uint8 id;
     uint32 base;
+    uint32 totalSize;
     unsigned int irq;
     unsigned long refClkHz;
-    Fls_IpClockOpsType *clkOps;
+    const Fls_IpClockOpsType *clkOps;
     Fls_IpHostOpsType *ops;
     Fls_BusHandleType *dev;
     void *privData;
@@ -313,7 +315,6 @@ typedef struct Fls_BusFlashInfo
     uint16 pageSize;
     Fls_BusSectorType sectorType;
     Fls_LengthType size;
-    Fls_AddressType regOffset;
     int (*defaultInit)(Fls_BusHandleType *bus);
     int (*octalDtrEnable)(Fls_BusHandleType *bus, boolean opiEnable, boolean dqsEnable);
     int (*quadEnable)(Fls_BusHandleType *bus, boolean enable);
@@ -363,7 +364,7 @@ struct Fls_BusHandle
     boolean rfdEnable;
 
     uint32 regProto;
-
+    Fls_AddressType regOffset;
     uint8 addrWidth;
 
     Fls_BusXferModeType xferMode;

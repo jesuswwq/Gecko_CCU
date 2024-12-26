@@ -95,7 +95,7 @@ extern Immo_FeedBack_States_t Get_Fobs_Learn_Status(void);
 extern void Change_Fobs_Learn_Status(Immo_FeedBack_States_t sta);
 
 extern void NJJ29C0_Immo_Auth(void);
-
+extern void NJJ29C0_Immo_Check_Uid(void);
 extern void FobKey_Immo_Learn_Process(void);
 
 #endif

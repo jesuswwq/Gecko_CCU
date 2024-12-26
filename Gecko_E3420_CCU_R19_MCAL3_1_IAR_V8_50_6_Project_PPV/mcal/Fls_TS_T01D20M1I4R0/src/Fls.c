@@ -47,6 +47,10 @@ extern "C" {
 #define FLS_WRITE_TIMEOUT_CYCLES (FLS_WRITE_TIME / FLS_CALL_CYCLES)
 #endif /* #if (FLS_TIMEOUT_SUPERVISION_ENABLED == STD_ON) */
 
+#ifndef FLS_MAX_SCTOR_LIST_SIZE
+#define FLS_MAX_SCTOR_LIST_SIZE (16u)
+#endif
+
 #define FLS_START_SEC_VAR_NO_INIT_UNSPECIFIED
 #include "Fls_MemMap.h"
 
@@ -60,6 +64,7 @@ static MemIf_JobResultType   Fls_LastJobResult;
 static MemIf_ModeType Fls_MemIfMode;
 static Fls_LengthType Fls_MaxNumBytesRead;
 static Fls_LengthType Fls_MaxNumBytesWrite;
+static Fls_SectorsBindInfoType Fls_SectorBindInfo[FLS_MAX_SCTOR_LIST_SIZE];
 
 #define FLS_STOP_SEC_VAR_NO_INIT_UNSPECIFIED
 #include "Fls_MemMap.h"
@@ -169,12 +174,13 @@ void  Fls_InitMask(const Fls_ConfigType *configPtr, uint8 mask)
 
             pCtx = configPtr->controllerTable[idexController].pointerContex;
 
-            if ((0 == Fls_IpInit(&pCtx->host, &configPtr->controllerTable[idexController].busConfig))
-                    && (NULL_PTR != pCtx->ops) && (NULL_PTR != pCtx->ops->init))
+            if ((0 == Fls_IpInit(&pCtx->host, &configPtr->controllerTable[idexController].busConfig)))
             {
+                (void) Fls_BusSetupClockCallback(&pCtx->host, &configPtr->flashConfig.progDesc->clkOps);
                 for (i = 0; i < FLS_PORT_MAX_NUM; i++)
                 {
-                    if (0 != pCtx->ops->init(&pCtx->busTable[i], &pCtx->host,
+                    pCtx->busTable[i].regOffset = pCtx->totalSize;
+                    if (0 != Fls_BusInit(&pCtx->busTable[i], &pCtx->host,
                                              &configPtr->controllerTable[idexController].busConfig))
                     {
                         stReturn = E_NOT_OK;
@@ -184,7 +190,6 @@ void  Fls_InitMask(const Fls_ConfigType *configPtr, uint8 mask)
                         stReturn = E_OK;
                     }
 
-                    pCtx->busTable[i].info.regOffset = pCtx->totalSize;
                     pCtx->totalSize += pCtx->busTable[i].info.size;
                     pCtx->flashNumber++;
 
@@ -207,6 +212,7 @@ void  Fls_InitMask(const Fls_ConfigType *configPtr, uint8 mask)
 
             pCtx->baseAddr = totalSize;
             totalSize += pCtx->totalSize;
+            pCtx->host.totalSize = pCtx->totalSize;
 
             /* bind sector & fls context */
             for (idxSector = 0; idxSector < configPtr->flashConfig.sectorListSize; idxSector++)
@@ -217,15 +223,15 @@ void  Fls_InitMask(const Fls_ConfigType *configPtr, uint8 mask)
                 address += FLS_BASE_ADDRESS;
 #endif /* #if (FLS_BASE_ADDRESS > 0U) */
 
-                if ((NULL_PTR == pSector->jobInfo->pCtx)
+                if ((NULL_PTR == Fls_SectorBindInfo[idxSector].pCtx)
                         && (address >= pCtx->baseAddr)
                         && ((address + pSector->totalSize) <= (pCtx->baseAddr + pCtx->totalSize)))
                 {
-                    pSector->jobInfo->nor = Fls_GetFlash(pCtx, address, pSector->totalSize);
+                    Fls_SectorBindInfo[idxSector].nor = Fls_GetFlash(pCtx, address - pCtx->baseAddr, pSector->totalSize);
 
-                    if (NULL_PTR != pSector->jobInfo->nor)
+                    if (NULL_PTR != Fls_SectorBindInfo[idxSector].nor)
                     {
-                        pSector->jobInfo->pCtx = pCtx;
+                       Fls_SectorBindInfo[idxSector].pCtx = pCtx;
                     }
                 }
             }
@@ -624,7 +630,6 @@ Std_ReturnType Fls_BlankCheck( Fls_AddressType TargetAddress,
  *******************************************************************************************************/
 void Fls_Cancel( void )
 {
-    Fls_ContextType *pCtx;
     Fls_JobInfoType *pJob;
     uint8 i;
 
@@ -634,22 +639,18 @@ void Fls_Cancel( void )
     }
     else
     {
-        SchM_Enter_Fls_FLS_EXCLUSIVE_AREA_00();
-
         for (i = 0; i < Fls_ConfigPtr->flashConfig.sectorListSize; i++)
         {
+            SchM_Enter_Fls_FLS_EXCLUSIVE_AREA_00();
+
             Fls_ConfigPtr->flashConfig.sectorList[i].jobInfo->jobResult = MEMIF_JOB_CANCELED;
-        }
-
-        SchM_Exit_Fls_FLS_EXCLUSIVE_AREA_00();
-
-        for (i = 0; i < Fls_ConfigPtr->controllerNumber; i++)
-        {
-            pCtx = Fls_ConfigPtr->controllerTable[i].pointerContex;
-            pJob = Fls_GetPendingJob(pCtx);
-
-            if (NULL_PTR != pJob)
+            pJob = Fls_ConfigPtr->flashConfig.sectorList[i].jobInfo;
+            if (TRUE == Fls_ListInList(&pJob->node))
             {
+                Fls_ListDelete(&pJob->node);
+
+                SchM_Exit_Fls_FLS_EXCLUSIVE_AREA_00();
+
                 if (FLS_OK_E != Fls_CancelProc(pJob))
                 {
                     /* Do nothing */
@@ -658,6 +659,10 @@ void Fls_Cancel( void )
                 {
                     Fls_JobEnd(pJob, FLS_CANCEL_E);
                 }
+            }
+            else
+            {
+                SchM_Exit_Fls_FLS_EXCLUSIVE_AREA_00();
             }
         }
     }
@@ -956,14 +961,14 @@ Std_ReturnType Fls_Protect(Fls_AddressType TargetAddress, Fls_LengthType Length)
             if ((TargetAddress >= pCtx->baseAddr) &&
                     ((TargetAddress + Length) <= (pCtx->baseAddr + pCtx->totalSize)))
             {
-                nor = Fls_GetFlash(pCtx, TargetAddress, Length);
+                nor = Fls_GetFlash(pCtx, TargetAddress - pCtx->baseAddr, Length);
 
                 if (NULL_PTR == nor)
                 {
                     /* Do nothing */
                 }
                 else if (0 == Fls_BusSetProtectArea(nor,
-                                                    TargetAddress - pCtx->baseAddr - nor->info.regOffset, Length))
+                                                    TargetAddress - pCtx->baseAddr - nor->regOffset, Length))
                 {
                     ret = E_OK;
                     pCtx->protectEnable = TRUE;
@@ -983,6 +988,56 @@ Std_ReturnType Fls_Protect(Fls_AddressType TargetAddress, Fls_LengthType Length)
         }
     }
 
+    return ret;
+}
+
+/** *****************************************************************************************************
+ * \brief This function restores the xspi configuration of the registers.
+ *
+ * \verbatim
+ * Syntax             : Std_ReturnType Fls_RestoredState( void )
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : None
+ *
+ * Parameters (inout) : None
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : E_OK - Protect command has been accepted
+ *                      E_NOT_OK - Protect command has not been
+ *
+ * Description        : Restores the xspi configuration state of the registers,
+ *                       after which you can jump directly to XIP mode.
+ * \endverbatim
+ *******************************************************************************************************/
+Std_ReturnType Fls_RestoredState( void )
+{
+    Std_ReturnType ret = E_NOT_OK;
+    Fls_ContextType *pCtx;
+    uint32 i;
+    if (NULL_PTR == Fls_ConfigPtr)
+    {
+        (void) Det_ReportError(FLS_MODULE_ID, 0, (uint8)FLS_RESOTRE_STATE_IF, FLS_E_UNINIT);
+    }
+    else if (TRUE == Fls_IsJobsPending())
+    {
+        (void) Det_ReportError(FLS_MODULE_ID, 0, (uint8)FLS_RESOTRE_STATE_IF, FLS_E_BUSY);
+    }
+    else
+    {
+        for (i = 0; i < Fls_ConfigPtr->controllerNumber; i++)
+        {
+            pCtx = Fls_ConfigPtr->controllerTable[i].pointerContex;
+            Fls_IpRestoredState(&pCtx->busTable[0]);
+        }
+        ret = E_OK;
+    }
     return ret;
 }
 
@@ -1044,7 +1099,7 @@ void Fls_MainFunction( void )
  *
  * \verbatim
  * Syntax             : const Fls_SectorConfigType* Fls_FindSectorConfig(
- *                          Fls_AddressType addr)
+ *                          Fls_AddressType addr, uint32 *index)
  *
  * Service ID[hex]    : None
  *
@@ -1056,7 +1111,7 @@ void Fls_MainFunction( void )
  *
  * Parameters (inout) : None
  *
- * Parameters (out)   : None
+ * Parameters (out)   : index - The index of this sector config
  *
  * Return value       : Pointer of Sector information
  *
@@ -1065,7 +1120,7 @@ void Fls_MainFunction( void )
  * \endverbatim
  * Traceability       : None
  *******************************************************************************************************/
-static const Fls_SectorConfigType *Fls_FindSectorConfig(Fls_AddressType addr)
+static const Fls_SectorConfigType *Fls_FindSectorConfig(Fls_AddressType addr, uint32 *index)
 {
     uint32 i;
     Fls_AddressType sectorStartAddr;
@@ -1081,6 +1136,10 @@ static const Fls_SectorConfigType *Fls_FindSectorConfig(Fls_AddressType addr)
         if ((addr >= sectorStartAddr) && (addr < (sectorStartAddr + totalSize)))
         {
             sectorConfig = &(pFlashConfig->sectorList[i]);
+            if (NULL_PTR != index)
+            {
+                *index = i;
+            }
             break;
         }
     }
@@ -1320,14 +1379,17 @@ static boolean Fls_CheckSectorAlign(Fls_AddressType addr, const Fls_SectorConfig
 static const Fls_SectorConfigType *Fls_GetDevice(Fls_AddressType beginAddress, Fls_LengthType length,
         Fls_ServiceIdType apiId)
 {
-    const Fls_SectorConfigType *pSector = Fls_FindSectorConfig(beginAddress);
+    uint32 index = 0;
+    const Fls_SectorConfigType *pSector = Fls_FindSectorConfig(beginAddress, &index);
 
     if (pSector != NULL_PTR)
     {
-        if ((NULL_PTR != pSector->jobInfo->pCtx)
+        if ((NULL_PTR != Fls_SectorBindInfo[index].pCtx)
                 && ((beginAddress + length) <= (pSector->sectorStartAddr + pSector->totalSize)))
         {
             pSector->jobInfo->sectorCfg = pSector;
+            pSector->jobInfo->nor = Fls_SectorBindInfo[index].nor;
+            pSector->jobInfo->pCtx = Fls_SectorBindInfo[index].pCtx;
         }
         else
         {
@@ -1379,9 +1441,9 @@ static Fls_BusHandleType *Fls_GetFlash(Fls_ContextType *pCtx, Fls_AddressType be
 
     for (i = 0; i < pCtx->flashNumber; i++)
     {
-        if ((beginAddress < (pCtx->busTable[i].info.regOffset + pCtx->busTable[i].info.size)) &&
+        if ((beginAddress < (pCtx->busTable[i].regOffset + pCtx->busTable[i].info.size)) &&
                 ((beginAddress + length) <=
-                 (pCtx->busTable[i].info.regOffset + pCtx->busTable[i].info.size)))
+                 (pCtx->busTable[i].regOffset + pCtx->busTable[i].info.size)))
         {
             ret = &pCtx->busTable[i];
             break;
@@ -1932,11 +1994,19 @@ static uint8 Fls_JobsPreInit(const Fls_ConfigType *configData)
 
         if (E_OK == ret)
         {
-            /* Job statue set to MEMIF_UNINIT */
-            for (idxSector = 0; idxSector < configData->flashConfig.sectorListSize; idxSector++)
+            if (configData->flashConfig.sectorListSize > FLS_MAX_SCTOR_LIST_SIZE)
             {
-                pSector = &(configData->flashConfig.sectorList[idxSector]);
-                Fls_MemClear((void *)pSector->jobInfo, sizeof(Fls_JobInfoType));
+                ret = FLS_E_PARAM_DATA;
+            }
+            else
+            {
+                /* Job statue set to MEMIF_UNINIT */
+                for (idxSector = 0; idxSector < configData->flashConfig.sectorListSize; idxSector++)
+                {
+                    pSector = &(configData->flashConfig.sectorList[idxSector]);
+                    Fls_MemClear((void *)pSector->jobInfo, sizeof(Fls_JobInfoType));
+                }
+                Fls_MemClear((void *)Fls_SectorBindInfo, sizeof(Fls_SectorBindInfo));
             }
         }
     }
@@ -1986,7 +2056,7 @@ static void Fls_JobsInit(const Fls_ConfigType *configData)
         {
             pSector = &(Fls_ConfigPtr->flashConfig.sectorList[idxSector]);
 
-            if (NULL_PTR != pSector->jobInfo->pCtx)
+            if (NULL_PTR != Fls_SectorBindInfo[idxSector].pCtx)
             {
                 Fls_ResetOrders(pSector->jobInfo);
                 pSector->jobInfo->jobResult = MEMIF_JOB_OK;
@@ -3040,7 +3110,7 @@ Std_ReturnType Fls_GetSector( Fls_AddressType targetAddress,
 
     if (NULL_PTR != sectorConfig)
     {
-        sectorConfigPtr = Fls_FindSectorConfig(targetAddress);
+        sectorConfigPtr = Fls_FindSectorConfig(targetAddress, NULL_PTR);
     }
 
     if (NULL_PTR != sectorConfigPtr)
@@ -3264,6 +3334,58 @@ void Fls_MemClear(void *dst, uint32 size)
             *dstPtr = 0U;
             dstPtr++;
         }
+    }
+}
+
+/** *****************************************************************************************************
+ * \brief This function Restore the initial state of the peripheral.
+ *
+ * \verbatim
+ * Syntax             : void Fls_Deinit( void )
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : None
+ *
+ * Parameters (inout) : None
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : None
+ *
+ * Description        : Selecting the most appropriate alignment for clear data
+ * \endverbatim
+ * Traceability       : None
+ *******************************************************************************************************/
+void Fls_Deinit(void)
+{
+    uint8 i, j;
+    Fls_ContextType *pCtx;
+
+    if (NULL_PTR != Fls_ConfigPtr)
+    {
+        for (i = 0; i < Fls_ConfigPtr->controllerNumber; i++)
+        {
+            pCtx = Fls_ConfigPtr->controllerTable[i].pointerContex;
+            for (j = 0; j < pCtx->flashNumber; j++)
+            {
+                Fls_BusDeinit(&pCtx->busTable[j]);
+            }
+        }
+        /* Job statue set to MEMIF_UNINIT */
+        for (i = 0; i < Fls_ConfigPtr->flashConfig.sectorListSize; i++)
+        {
+            Fls_MemClear((void *)Fls_ConfigPtr->flashConfig.sectorList[i].jobInfo, sizeof(Fls_JobInfoType));
+        }
+        Fls_ConfigPtr = NULL_PTR;
+    }
+    else
+    {
+        (void) Det_ReportError(FLS_MODULE_ID, 0, (uint8)FLS_DEINIT_ID, FLS_E_UNINIT);
     }
 }
 

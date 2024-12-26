@@ -92,6 +92,8 @@ typedef enum
     FLS_BLANKCHECK_ID            = 0x0BU,
     FLS_GET_CAPACITY_ID          = 0x0CU,
     FLS_PROTECT_AREA_ID          = 0x0DU,
+    FLS_RESOTRE_STATE_IF         = 0x0Fu,
+    FLS_DEINIT_ID                = 0x11u,
     FLS_UNKNOW_ID                = 0xFFU,
 } Fls_ServiceIdType;
 
@@ -139,6 +141,12 @@ typedef struct Fls_ListNode
     struct Fls_ListNode *next;
 } Fls_ListNodeType;
 
+typedef struct
+{
+    Fls_ContextType         *pCtx;
+    Fls_BusHandleType       *nor;
+} Fls_SectorsBindInfoType;
+
 /** \brief  the runtime job info structure of flash */
 typedef struct
 {
@@ -179,6 +187,7 @@ typedef struct
 {
     void (*jobEndNotification)(void);
     void (*jobErrorNotification)(void);
+    Fls_IpClockOpsType clkOps;
 } Fls_ProgramDescriptorType;
 
 typedef enum
@@ -852,6 +861,33 @@ extern Std_ReturnType Fls_Protect(  Fls_AddressType TargetAddress,
                                     Fls_LengthType Length);
 
 /** *****************************************************************************************************
+ * \brief This function restores the xspi configuration of the registers.
+ *
+ * \verbatim
+ * Syntax             : Std_ReturnType Fls_RestoredState( void )
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : None
+ *
+ * Parameters (inout) : None
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : E_OK - Protect command has been accepted
+ *                      E_NOT_OK - Protect command has not been
+ *
+ * Description        : Restores the xspi configuration state of the registers,
+ *                       after which you can jump directly to XIP mode.
+ * \endverbatim
+ *******************************************************************************************************/
+extern Std_ReturnType Fls_RestoredState( void );
+
+/** *****************************************************************************************************
  * \brief This function Implementing Data Copy.
  *
  * \verbatim
@@ -938,6 +974,31 @@ uint32 Fls_MemCompare(const void *mem1, const void *mem2, uint32 size);
  *******************************************************************************************************/
 void Fls_MemClear(void *dst, uint32 size);
 
+/** *****************************************************************************************************
+ * \brief This function Restore the initial state of the peripheral.
+ *
+ * \verbatim
+ * Syntax             : void Fls_Deinit( void )
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : None
+ *
+ * Parameters (inout) : None
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : None
+ *
+ * Description        : Selecting the most appropriate alignment for clear data
+ * \endverbatim
+ * Traceability       : None
+ *******************************************************************************************************/
+void Fls_Deinit(void);
 #ifdef __cplusplus
 }
 #endif /* #ifdef __cplusplus */

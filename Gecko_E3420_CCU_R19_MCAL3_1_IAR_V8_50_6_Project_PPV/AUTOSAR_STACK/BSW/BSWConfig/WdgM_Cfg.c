@@ -121,7 +121,7 @@ static CONST(WdgM_TriggerType, WDGM_CONST) WdgMMode_SLOWTrigger[]=
     /*WdgMTrigger_0*/
     {
         WDGIF_SLOW_MODE,    /*OFF/SLOW/FAST Mode*/
-        3000,                    /*Parameter passed to the WdgIf_SetTriggerCondition*/
+        500,                    /*Parameter passed to the WdgIf_SetTriggerCondition*/
         WDGM_WATCHDOG_0,        /*Trigger Watchdog Ref*/
     },
 };

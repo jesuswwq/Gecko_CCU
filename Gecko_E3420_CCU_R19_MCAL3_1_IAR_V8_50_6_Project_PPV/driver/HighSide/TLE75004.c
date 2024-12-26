@@ -89,16 +89,18 @@ Std_ReturnType TLE75004_tGetStdDiag(TLE75004_StdDiag_t *pStdDiag)
 	g_SpiInBuf_TLE75004 = 0;
 
     /**************************Diag frame ***************************************/
+	SuspendAllInterrupts();
     ret = Spi_SetupEB( SpiConf_SpiChannel_SpiChannel_TLE75004, (Spi_DataBufferType*)&g_SpiOutBuf_TLE75004, 
-			                                             (Spi_DataBufferType*)&g_SpiInBuf_TLE75004, 1u );
+			                                             (Spi_DataBufferType*)&g_SpiInBuf_TLE75004, (uint16)1u );
 	if(ret == E_OK)
 	{
 		Spi_SyncTransmit(SpiConf_SpiSequence_SpiSequence_TLE75004);
 	}
-	
+	 ResumeAllInterrupts();
 	/***************************data get frame***********************************/
+	SuspendAllInterrupts();
 	ret = Spi_SetupEB( SpiConf_SpiChannel_SpiChannel_TLE75004, (Spi_DataBufferType*)&g_SpiOutBuf_TLE75004, 
-					(Spi_DataBufferType*)&g_SpiInBuf_TLE75004, 1u );
+					(Spi_DataBufferType*)&g_SpiInBuf_TLE75004, (uint16)1u );
 	if(ret == E_OK)
 	{
 		ret = Spi_SyncTransmit(SpiConf_SpiSequence_SpiSequence_TLE75004);
@@ -118,7 +120,7 @@ Std_ReturnType TLE75004_tGetStdDiag(TLE75004_StdDiag_t *pStdDiag)
 			
 		}
 	}
-
+	ResumeAllInterrupts();
 	return ret;
 }
 
@@ -192,15 +194,15 @@ static Std_ReturnType TLE75004_8bitDataWrite(uint8 regName, uint8 CmdData)
 	
 	g_SpiOutBuf_TLE75004 = (TLE75004_CMD_WRITE |(regName<<8)| CmdData);
 	g_SpiInBuf_TLE75004 = 0;
-
+	SuspendAllInterrupts();
 	ret = Spi_SetupEB( SpiConf_SpiChannel_SpiChannel_TLE75004, (Spi_DataBufferType*)&g_SpiOutBuf_TLE75004, 
-			                                             (Spi_DataBufferType*)&g_SpiInBuf_TLE75004, 1u );
+			                                             (Spi_DataBufferType*)&g_SpiInBuf_TLE75004, (uint16)1u );
 			                                             
 	if(ret == E_OK)
 	{
 		ret = Spi_SyncTransmit(SpiConf_SpiSequence_SpiSequence_TLE75004);
 	}
-
+	 ResumeAllInterrupts();
 	return ret;
 }
 
@@ -212,16 +214,18 @@ static Std_ReturnType TLE75004_8bitDataRead(uint8 regName, uint8* RxData)
 	g_SpiInBuf_TLE75004 = 0;
 
     /**************************Diag frame ***************************************/
+	SuspendAllInterrupts();
     ret = Spi_SetupEB( SpiConf_SpiChannel_SpiChannel_TLE75004, (Spi_DataBufferType*)&g_SpiOutBuf_TLE75004, 
-			                                             (Spi_DataBufferType*)&g_SpiInBuf_TLE75004, 1u );
+			                                             (Spi_DataBufferType*)&g_SpiInBuf_TLE75004, (uint16)1u );
 	if(ret == E_OK)
 	{
 		Spi_SyncTransmit(SpiConf_SpiSequence_SpiSequence_TLE75004);
 	}
-	
+	 ResumeAllInterrupts();
+	 SuspendAllInterrupts();
 	/***************************data get frame***********************************/
 	ret = Spi_SetupEB( SpiConf_SpiChannel_SpiChannel_TLE75004, (Spi_DataBufferType*)&g_SpiOutBuf_TLE75004, 
-					(Spi_DataBufferType*)&g_SpiInBuf_TLE75004, 1u );
+					(Spi_DataBufferType*)&g_SpiInBuf_TLE75004, (uint16)1u );
 	if(ret == E_OK)
 	{
 		ret = Spi_SyncTransmit(SpiConf_SpiSequence_SpiSequence_TLE75004);
@@ -241,7 +245,7 @@ static Std_ReturnType TLE75004_8bitDataRead(uint8 regName, uint8* RxData)
 			
 		}
 	}
-
+	ResumeAllInterrupts();
 	return ret;
 }
 

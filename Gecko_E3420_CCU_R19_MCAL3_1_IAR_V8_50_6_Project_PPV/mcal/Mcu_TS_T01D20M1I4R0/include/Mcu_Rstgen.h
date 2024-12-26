@@ -496,5 +496,9 @@ Mcu_RawResetType Mcu_Ip_GetResetRawValue(uint32 base);
 
 Mcu_ResetType Mcu_Ip_GetResetReason(uint32 base);
 
+/*------------------------------------------add bihu  change code------------*/
+uint8 Mcu_Ip_GetResetRawValue_bihuchange(uint32 base);
+uint8 Mcu_Ip_GetResetReason_bihuchange(uint32 base);
+/*  ----------add bihu  change code------------                             */
 #endif /* MCU_RSTGEN_H */
 /* End of file */

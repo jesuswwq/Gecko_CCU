@@ -337,7 +337,60 @@ Mcu_RawResetType Mcu_Ip_GetResetRawValue(uint32 base)
     Mcu_RawResetType value = readl(base + GLOBAL_RESET_STA_OFF);
     return value;
 }
-
+/*------------------------------------------bihu change code ---------------------------------------------------------*/
+uint8 Mcu_Ip_GetResetRawValue_bihuchange(uint32 base)
+{
+    uint8 value = readb(base);
+    return value;
+}
+uint8 Mcu_Ip_GetResetReason_bihuchange(uint32 base)
+{
+    uint8 value = (uint8)Mcu_Ip_GetResetRawValue_bihuchange(base);
+    Mcu_ResetType resetType;
+    if(value == 0)
+    {
+        resetType = MCU_POWER_ON_RESET;
+    }
+    else if(value == 1)
+    {
+        resetType = MCU_WATCHDOG_RESET;
+    }
+    else if(value == 2)
+    {
+        resetType = MCU_SW_RESET;
+    }
+    else if(value == 3)
+    {
+        resetType = MCU_RESET_UNDEFINED;
+    }   
+    else if (value == 4)
+    {
+        resetType = MCU_SEM_RESET;
+        /* code */
+    }
+    else if (value == 5)
+    {
+        resetType = MCU_DBG_RESET;
+    }
+    else if (value == 6)
+    {
+        resetType = MCU_VDC_RESET;
+    }
+    else if (value == 7)
+    {
+        resetType = MCU_EFUSE_RESET;
+    }
+    else if (value == 8)
+    {
+        resetType = MCU_COLD_RESET;
+    }
+    else if (value == 9)
+    {
+        resetType = MCU_PVT_RESET;
+    }
+       return resetType;
+}
+/*-------------------------------------------------------------------------------------------------------------------*/
 Mcu_ResetType Mcu_Ip_GetResetReason(uint32 base)
 {
     uint32 value = (uint32)Mcu_Ip_GetResetRawValue(base);

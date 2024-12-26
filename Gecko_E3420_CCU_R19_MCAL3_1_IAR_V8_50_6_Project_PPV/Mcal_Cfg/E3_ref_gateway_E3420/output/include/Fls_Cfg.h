@@ -51,7 +51,7 @@ extern "C" {
 #define FLS_SET_MODE_API        (STD_ON)
 #define FLS_BLANK_CHECK_API     (STD_ON)
 
-#define FLS_TIMEOUT_SUPERVISION_ENABLED  (STD_ON)
+#define FLS_TIMEOUT_SUPERVISION_ENABLED  (STD_OFF)
 
 #define FLS_ERASE_VERIFICATION_ENABLED  (STD_OFF)
 #define FLS_WRITE_VERIFICATION_ENABLED  (STD_ON)
@@ -71,18 +71,19 @@ extern "C" {
 #define FLS_AC_SIZE_ERASE 0x128U
 #define FLS_AC_SIZE_WRITE 0x128U
 #define FLS_ERASED_VALUE  0x128U
-#define FLS_ERASE_TIME (0U)  /* in us */
+#define FLS_ERASE_TIME (1000000U)  /* in us */
 #define FLS_EXPECTED_HW_ID 0
 #define FLS_SPECIFIED_ERASE_CYCLES 0x10000U
-#define FLS_WRITE_TIME (0U)  /* in us */
+#define FLS_WRITE_TIME (1000000U)  /* in us */
 #define FLS_USE_INTERRUPTS  (STD_OFF)
-#define FLS_CALL_CYCLES (100000U)  /* in us */
+#define FLS_CALL_CYCLES (10U)  /* in us */
 
 #define FLS_PROTECTED_AREA_NUM (0u)
 #define FLS_HYPERBUS_FLASH_CNT (1U)
 
 #define FLS_MAX_PRIOFITY_NUMBER (1U)
 
+#define FLS_MAX_SCTOR_LIST_SIZE (1U)
 
 #ifdef __cplusplus
 }

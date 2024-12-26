@@ -18,6 +18,7 @@
 #define RTEDCM_H
 
 #include "Dcm_Types.h"
+//#include "Uhf_Fml.h"
 
 extern uint8 CheckRoutineFlag;
 
@@ -28,22 +29,17 @@ extern  Std_ReturnType  Dcm_DcmDslCallbackDCMRequestService_0_StopProtocol;
 /***************************Security Part****************************************/
 extern  Std_ReturnType  Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_Level1_CompareKey( const  uint8*  Key,Dcm_OpStatusType  OpStatus,Dcm_NegativeResponseCodeType*  ErrorCode );
 extern  Std_ReturnType  Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_Level5_CompareKey( const  uint8*  Key,Dcm_OpStatusType  OpStatus,Dcm_NegativeResponseCodeType*  ErrorCode );
-extern  Std_ReturnType  Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_LevelFBL_CompareKey( const  uint8*  Key,Dcm_OpStatusType  OpStatus,Dcm_NegativeResponseCodeType*  ErrorCode );
 
 extern  Std_ReturnType  Rte_GetSecurityAttemptCounter_Level1( Dcm_OpStatusType  OpStatus,  uint8*  AttemptCounter );
 extern  Std_ReturnType  Rte_GetSecurityAttemptCounter_Level5( Dcm_OpStatusType  OpStatus,  uint8*  AttemptCounter );
-extern  Std_ReturnType  Rte_GetSecurityAttemptCounter_LevelFBL( Dcm_OpStatusType  OpStatus,  uint8*  AttemptCounter );
 
 extern  Std_ReturnType  Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_Level1_GetSeed(
         Dcm_OpStatusType OpStatus,uint8* Seed,Dcm_NegativeResponseCodeType* ErrorCode);
 extern  Std_ReturnType  Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_Level5_GetSeed(
         Dcm_OpStatusType OpStatus,uint8* Seed,Dcm_NegativeResponseCodeType* ErrorCode);
-extern  Std_ReturnType  Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_LevelFBL_GetSeed(
-        Dcm_OpStatusType OpStatus,uint8* Seed,Dcm_NegativeResponseCodeType* ErrorCode);
 
 extern  Std_ReturnType  Rte_SetSecurityAttemptCounter_Level1( Dcm_OpStatusType  OpStatus,  uint8  AttemptCounter );
 extern  Std_ReturnType  Rte_SetSecurityAttemptCounter_Level5( Dcm_OpStatusType  OpStatus,  uint8  AttemptCounter );
-extern  Std_ReturnType  Rte_SetSecurityAttemptCounter_LevelFBL( Dcm_OpStatusType  OpStatus,  uint8  AttemptCounter );
 /***************************Did Part****************************************/
 
 extern  Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_F197_ConditionCheckRead( Dcm_OpStatusType  OpStatus,  Dcm_NegativeResponseCodeType*  ErrorCode );

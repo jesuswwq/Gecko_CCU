@@ -67,13 +67,14 @@ const Pwm_ChannelType TLE8108_INPin_List[DO_OUT_CH_MAX] =
 static void TLE8108EM_read_write(uint16 value)
 {
   TLE8108EM_TX_Buffer.U = value;
-
+  SuspendAllInterrupts();
   Spi_SetupEB(SpiConf_SpiChannel_SpiChannel_TLE8108EM, 
               (uint8*)&TLE8108EM_TX_Buffer.U, 
               (uint8*)&TLE8108EM_RX_Buffer.U, 
-              1);
+              (uint16)1);
 
   Spi_SyncTransmit(SpiConf_SpiSequence_SpiSequence_TLE8108EM);
+  ResumeAllInterrupts();
 
 }
 

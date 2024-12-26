@@ -77,6 +77,8 @@ extern "C"
 #define MCU_E_ATE_ANALOG_TRIM_FAIL 0x87U
 /** \brief  ERROR:Error due to vd clr status fail */
 #define MCU_E_VD_CLR_STA_FAIL 0x88U
+/** \brief  ERROR:Error due to ap bus mnpq ratio fail */
+#define MCU_E_CKGEN_AP_BUS_MNPQ_RATIO_ERROR 0x89U
 
 /**
 * \brief Service ID (APIs) for Det reporting.

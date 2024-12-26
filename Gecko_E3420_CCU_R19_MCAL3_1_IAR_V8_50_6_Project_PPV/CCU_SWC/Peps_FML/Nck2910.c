@@ -51,9 +51,9 @@ static uint8_t _RciCmd_EV_TIMER_HEARTBEAT(uint8_t * pu8PayLoadBuf, uint8_t u8Pay
 static uint8_t _RciCmd_TX_TRIGGER(uint8_t * pu8PayLoadBuf, uint8_t u8PayLoadLen);
 static uint8_t _RciCmd_TX_WRITE_PAYLOAD(uint8_t * pu8PayLoadBuf, uint8_t u8PayLoadLen);
 static uint8_t _RciCmd_TX_READ_PAYLOAD(uint8_t * pu8PayLoadBuf, uint8_t u8PayLoadLen);
+
 //static void _NCK2910_PFlashInit(void);
 //static uint8_t _NCK2910_RfParaInit(void);
-
 
 /*********************************************************************************************************
   local variable
@@ -77,7 +77,8 @@ uint8_t 		Gu8Nck2910RciTxBuf[64]; // NCK2910 RCI���ͻ�����
 uint8_t 		Gu8Nck2910RciRxBuf[64]; // NCK2910 RCI���ջ�����
 uint8_t 		Gu8Nck2910RciRxLen; // NCK2910 RC1���յ���֡����
 
-uint32 u32UhfRxNum = 0;
+uint32			u32UhfRxNum = 0;
+
 /*********************************************************************************************************
   const variable
 *********************************************************************************************************/
@@ -243,7 +244,7 @@ const uint8_t 	c_u8PflashCfgLockBuf[PFLASH_CFG_LOCK_LEN] =
 
 static boolean	bNck2910InterruptFlag = false;
 
-Nck2910_Work_State	tnNck2910WorkStatus = NCK2910_INIT;
+Nck2910_Work_State tnNck2910WorkStatus = NCK2910_INIT;
 
 UHF_MessageTypeDef nck2910recvFrame[5]; // NCK2910 ?????????
 
@@ -251,7 +252,7 @@ static uint8	nck2910ReadyFlag = 0;
 
 LPFifo_TypeDef	LPFifo;
 
-uint8 u8Nck2910RciReadWorkMode = 0;
+uint8			u8Nck2910RciReadWorkMode = 0;
 
 extern void SetEcuPowerOnMode(uint8 para);
 
@@ -387,17 +388,17 @@ static uint8_t _NCK2910_RciCmdSend(uint8_t u8Cmd, uint8_t u8SubCmd,
 
 	// Step2 : ��������֡
 	//NCK2910_CSN_HIGH();
-	DelayCsT1();									// ��ʱ��Ϊ��ȷ��CS�ɿ���Ч
+	//DelayCsT1();									// ��ʱ��Ϊ��ȷ��CS�ɿ���Ч
 	NCK2910_CSN_LOW();
 	DelayCsT2();									// CsT1 + CsT2Ҫ����Trdy2rcv������RCI V1.1ʱ��淶��Ҳ����ͨ�����RDY_N�ܽŷ�ʽ	
 	NCK2910_SpiWrite(Gu8Nck2910RciTxBuf, index);
 	NCK2910_CSN_HIGH(); 							// ����SPI���ݺ��������ߣ��������߸��ŵ��²���Ԥ֪�Ķ���
 
-	if(Gu8Nck2910RciTxBuf[2] == DD_SET_SUB_CMD)
+	if (Gu8Nck2910RciTxBuf[2] == DD_SET_SUB_CMD)
 	{
 		_Nck2910_delay_us(3500);
 	}
-	else
+	else 
 	{
 		_Nck2910_delay_us(200);
 	}
@@ -413,11 +414,11 @@ static uint8_t _NCK2910_RciCmdSend(uint8_t u8Cmd, uint8_t u8SubCmd,
 	// Step4 : ���CRC
 	Gu8Nck2910RciRxLen	= Gu8Nck2910RciRxBuf[0];
 
-	if(Gu8Nck2910RciRxLen < 2)
+	if (Gu8Nck2910RciRxLen < 2)
 	{
 		return 0;
 	}
-	
+
 	if (_CalculateCRC8(Gu8Nck2910RciRxBuf, Gu8Nck2910RciRxLen) != Gu8Nck2910RciRxBuf[Gu8Nck2910RciRxLen])
 	{
 		return 0;
@@ -1410,6 +1411,7 @@ static uint8_t _NCK2910_Spi_Check(void)
 		//���յ����ݣ�0x07,0x80,0x00,0x00,0x00,0x00,0x00,0xff
 		return 0;
 	}
+
 	return 1;
 }
 
@@ -1427,35 +1429,64 @@ static uint8_t _NCK2910_PFlashInit(void)
 	{
 		0
 	};
-	
+
 	u8TmpBuf[0] 		= 0x01;
 	u8TmpBuf[1] 		= 0xB2;
 	u8TmpBuf[2] 		= 0x7E;
 
 	if (_RciCmd_DD_GET(u8TmpBuf, 3))
-	{	
-		if ((Gu8Nck2910RciRxBuf[6] & 0x4C) != 0x4C)
+	{
+		if ((Gu8Nck2910RciRxBuf[6] &0x4C) != 0x4C)
 		{
-			(void)_RciCmd_DD_SET((uint8_t *) c_u8PflashCfgBuf, PFLASH_CFG_BUF_LEN);//auto flush
-
-			_Nck2910_delay_us(100);
-			(void)_RciCmd_DD_SET((uint8_t *) c_u8PflashCfg_Int_Ignored_Buf, PFLASH_CFG_BUF_LEN);
-
-			_Nck2910_delay_us(100);
-			(void)_RciCmd_DD_SET((uint8_t *) c_u8PflashCfg_Duraion_Buf, PFLASH_CFG_BUF_LEN + 1);
-
-			_Nck2910_delay_us(100);		
-			//(void)_RciCmd_DD_SET((uint8_t *) c_u8PflashCfgLockBuf, PFLASH_CFG_LOCK_LEN);
+            _Nck2910_delay_us(200);
+            if(_RciCmd_DD_SET((uint8_t *) c_u8PflashCfg_Int_Ignored_Buf, PFLASH_CFG_BUF_LEN))
+            {
+                _Nck2910_delay_us(200);
+                if(_RciCmd_DD_SET((uint8_t *) c_u8PflashCfg_Duraion_Buf, PFLASH_CFG_BUF_LEN + 1))
+                {
+                    _Nck2910_delay_us(200);
+                    if(_RciCmd_DD_SET((uint8_t *) c_u8PflashCfgBuf, PFLASH_CFG_BUF_LEN))
+                    {
+#if 0
+                        _Nck2910_delay_us(200);
+                        if(_RciCmd_DD_SET((uint8_t *) c_u8PflashCfgLockBuf, PFLASH_CFG_LOCK_LEN))
+                        {
+                            return 1;
+                        }
+                        else
+                        {
+                          return 0;
+                        }
+#else
+                        return 1;
+#endif
+                    }
+                    else
+                    {
+                      return 0;
+                    }
+                }
+                else
+                {
+                  return 0;
+                }
+              
+            }
+            else
+            {
+              return 0;
+            }
 		}
-		return 1;
+		else
+		{
+			return 1;
+		}
 	}
-	else
+	else 
 	{
 		return 0;
 	}
 }
-
-
 
 /*********************************************************************************************************
 ** Function name:		NCK2910_Init
@@ -1464,24 +1495,24 @@ static uint8_t _NCK2910_PFlashInit(void)
 ** output parameters:	
 ** Returned value:		
 *********************************************************************************************************/
-#if 0
 void Nck2910_Init(void)
 {
 	static uint8_t u8Nck2910InitStep = 0;
-
-	uint8_t i = 0;
-
+	static uint8_t u8Nck2910InitCount = 0;
 	UHF_MessageTypeDef uhf_Pdu;
 
 	if (0 == u8Nck2910InitStep)
 	{
+		NCK2910_RSTN_HIGH();
+		
 		NCK2910_RfRcvDataDeal();
+
 		if ((Gu8Nck2910RciRxBuf[0] > 10) && (Gu8Nck2910RciRxBuf[0] <= 28))
 		{
 			if (_CalculateCRC8(Gu8Nck2910RciRxBuf, Gu8Nck2910RciRxBuf[0]) ==
 				 Gu8Nck2910RciRxBuf[Gu8Nck2910RciRxBuf[0]])
-			{				
-				uhf_Pdu.m_DataLength = Gu8Nck2910RciRxBuf[0] - 9;
+			{
+				uhf_Pdu.m_DataLength = Gu8Nck2910RciRxBuf[0] -9;
 				memcpy(&uhf_Pdu.m_Data[0], &Gu8Nck2910RciRxBuf[9], uhf_Pdu.m_DataLength);
 
 				if (Fifo_IsFull(&LPFifo) != True)
@@ -1489,17 +1520,43 @@ void Nck2910_Init(void)
 					Fifo_Write(&LPFifo, uhf_Pdu);
 					u32UhfRxNum++;
 				}
-                                nck2910ReadyFlag = 1;
-                                tnNck2910WorkStatus = NCK2910_NORMAL;
-                                return;
+				
+				u8Nck2910InitStep = 0;
+				nck2910ReadyFlag	= 1;
+				tnNck2910WorkStatus = NCK2910_NORMAL;
 			}
 		}
-		u8Nck2910InitStep++;
+		else
+		{
+			u8Nck2910InitStep++;
+		}
 	}
-	else if (1 == u8Nck2910InitStep) //��λnck2910  ������5ms�͵�ƽά�֣��ߵ�ƽ����10ms��(��λ����ʱ��)����ʼ��ʼ��
+	else if (1 == u8Nck2910InitStep) //复位nck2910  ，至�?ms低电平维持，高电平保�?0ms�?复位启动时间)，开始初始化
 	{
-		NCK2910_RSTN_LOW();
-		u8Nck2910InitStep++;
+		if((_RciCmd_OS_STATUS(NULL,0) == 1)&&(Gu8Nck2910RciRxBuf[0] == 0x0A))
+		{
+			if((Gu8Nck2910RciRxBuf[6] == OM_CON_RCV)||(Gu8Nck2910RciRxBuf[6] == OM_POLLING))
+			{
+				u8Nck2910InitStep = 0;
+				nck2910ReadyFlag	= 1;
+				tnNck2910WorkStatus = NCK2910_NORMAL;
+			}
+			else
+			{
+				u8Nck2910InitStep++;
+				NCK2910_RSTN_LOW();
+			}
+		}
+		else
+		{
+			u8Nck2910InitCount++;
+			if(u8Nck2910InitCount >= 5)
+			{
+				u8Nck2910InitCount = 0;
+				u8Nck2910InitStep++;
+				NCK2910_RSTN_LOW();
+			}
+		}
 	}
 	else if (2 == u8Nck2910InitStep)
 	{
@@ -1509,392 +1566,279 @@ void Nck2910_Init(void)
 	else if (3 == u8Nck2910InitStep)
 	{
 		_NCK2910_Spi_Check();
-		_NCK2910_PFlashInit();
-
-		for(i = 0;i<RX_CFG_NUM;i++)
-		{
-			_RciCmd_DC_SET((uint8_t *)&c_u8LoCfgBuf[i][0], LO_CFG_BUF_LEN); 		// Local oscillator
-			_RciCmd_DC_SET((uint8_t *)&c_u8DigFreqBuf[i][0], DIG_FREQ_BUF_LEN); 	// Digital frequency configuration 
-			_RciCmd_DC_SET((uint8_t *)&c_u8FilterBuf[i][0], FILTER_BUF_LEN);		// Channel filter configuration
-			_RciCmd_DC_SET((uint8_t *)&c_u8BaseBandBuf[i][0], BASEBAND_BUF_LEN);	// Baseband configuration
-			_RciCmd_DC_SET((uint8_t *)&c_u8FrameWupBuf[i][0], FRAME_WUP_BUF_LEN);	// Frame/WUP configuration
-			_RciCmd_DC_SET((uint8_t *)&c_u8SwBuf[i][0], SW_BUF_LEN);				// SW configuration
-			_RciCmd_DC_SET((uint8_t *)&c_u8MidMapBuf[i][0], MID_MAP_BUF_LEN);		// MIDMAP
-			_RciCmd_DC_SET((uint8_t *)&c_u8MidBuf[i][0], MID_BUF_LEN);				// MID
-			_RciCmd_DC_SET((uint8_t *)&c_u8SlotCfgBuf[i][0], SLOT_CFG_BUF_LEN); 	// Slot configuration
-			_RciCmd_DC_SET((uint8_t *)&c_u8ReceptionCfgBuf[i][0], REC_CFG_BUF_LEN); // Reception configuration
-		}
-		// step3 : OS_SET_POLLING����polling����
-		_RciCmd_OS_SET_POLLING((uint8_t *)c_u8PollingCfgBuf, POLLING_CFG_BUF_LEN);
-
-		// step4 : OS_SET_MODE����pollingģʽ����ʼpolling	
-		NCK2910_Polling();
-
 		u8Nck2910InitStep++;
 	}
-        else if (u8Nck2910InitStep >= 15)
-	{
-		if(!Is_NCK2910_INT_Active())
-		{
-			nck2910ReadyFlag = 0;
-			tnNck2910WorkStatus = NCK2910_FAIL;
-		}
-		else
-		{
-			nck2910ReadyFlag = 1;
-			tnNck2910WorkStatus = NCK2910_NORMAL;
-		}
-		u8Nck2910InitStep = 0;
-	}
-        else
-        {
-            u8Nck2910InitStep++;
-        }
-}
-#else
-void Nck2910_Init(void)
-{
-	static uint8_t u8Nck2910InitStep = 0;
-        static uint8_t u8Nck2910InitCount = 0;
-	UHF_MessageTypeDef uhf_Pdu;
-
-	if (0 == u8Nck2910InitStep)
-	{
-		NCK2910_RfRcvDataDeal();
-		if ((Gu8Nck2910RciRxBuf[0] > 10) && (Gu8Nck2910RciRxBuf[0] <= 28))
-		{
-			if (_CalculateCRC8(Gu8Nck2910RciRxBuf, Gu8Nck2910RciRxBuf[0]) ==
-				 Gu8Nck2910RciRxBuf[Gu8Nck2910RciRxBuf[0]])
-			{				
-				uhf_Pdu.m_DataLength = Gu8Nck2910RciRxBuf[0] - 9;
-				memcpy(&uhf_Pdu.m_Data[0], &Gu8Nck2910RciRxBuf[9], uhf_Pdu.m_DataLength);
-
-				if (Fifo_IsFull(&LPFifo) != True)
-				{
-					Fifo_Write(&LPFifo, uhf_Pdu);
-					u32UhfRxNum++;
-				}
-                nck2910ReadyFlag = 1;
-                tnNck2910WorkStatus = NCK2910_NORMAL;
-                return;
-			}
-		}
-		u8Nck2910InitStep++;
-	}
-	else if (1 == u8Nck2910InitStep) //复位nck2910  ，至�?ms低电平维持，高电平保�?0ms�?复位启动时间)，开始初始化
-	{
-		NCK2910_RSTN_LOW();
-		u8Nck2910InitStep++;
-	}
-	else if (2 == u8Nck2910InitStep)
-	{
-		NCK2910_RSTN_HIGH();
-		u8Nck2910InitStep++;
-	}
-	else if (3 == u8Nck2910InitStep)
-	{
-		if(_NCK2910_Spi_Check() == 1)
-		{
-			//u8Nck2910InitStep = 5;
-			u8Nck2910InitStep++;
-		}
-		else
-		{
-			u8Nck2910InitStep = 0xff;
-		}
-	}
-	
 	else if (4 == u8Nck2910InitStep)
 	{
-		if(_NCK2910_PFlashInit() == 1)
+		if (_NCK2910_PFlashInit() == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (5 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8LoCfgBuf[0][0], LO_CFG_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8LoCfgBuf[0][0], LO_CFG_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (6 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8LoCfgBuf[1][0], LO_CFG_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8LoCfgBuf[1][0], LO_CFG_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (7 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8DigFreqBuf[0][0], DIG_FREQ_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8DigFreqBuf[0][0], DIG_FREQ_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (8 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8DigFreqBuf[1][0], DIG_FREQ_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8DigFreqBuf[1][0], DIG_FREQ_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (9 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8FilterBuf[0][0], FILTER_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8FilterBuf[0][0], FILTER_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (10 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8FilterBuf[1][0], FILTER_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8FilterBuf[1][0], FILTER_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (11 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8BaseBandBuf[0][0], BASEBAND_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8BaseBandBuf[0][0], BASEBAND_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (12 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8BaseBandBuf[1][0], BASEBAND_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8BaseBandBuf[1][0], BASEBAND_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (13 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8FrameWupBuf[0][0], FRAME_WUP_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8FrameWupBuf[0][0], FRAME_WUP_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (14 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8FrameWupBuf[1][0], FRAME_WUP_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8FrameWupBuf[1][0], FRAME_WUP_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (15 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8SwBuf[0][0], SW_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8SwBuf[0][0], SW_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (16 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8SwBuf[1][0], SW_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8SwBuf[1][0], SW_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (17 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8MidMapBuf[0][0], MID_MAP_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8MidMapBuf[0][0], MID_MAP_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (18 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8MidMapBuf[1][0], MID_MAP_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8MidMapBuf[1][0], MID_MAP_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (19 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8MidBuf[0][0], MID_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8MidBuf[0][0], MID_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (20 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8MidBuf[1][0], MID_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8MidBuf[1][0], MID_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (21 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8SlotCfgBuf[0][0], SLOT_CFG_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8SlotCfgBuf[0][0], SLOT_CFG_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (22 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8SlotCfgBuf[1][0], SLOT_CFG_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8SlotCfgBuf[1][0], SLOT_CFG_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (23 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8ReceptionCfgBuf[0][0], REC_CFG_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8ReceptionCfgBuf[0][0], REC_CFG_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (24 == u8Nck2910InitStep)
-	{		
-		if(_RciCmd_DC_SET((uint8_t *) &c_u8ReceptionCfgBuf[1][0], REC_CFG_BUF_LEN) == 1)
+	{
+		if (_RciCmd_DC_SET((uint8_t *) &c_u8ReceptionCfgBuf[1][0], REC_CFG_BUF_LEN) == 1)
 		{
 			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitStep = 0xff;
+			u8Nck2910InitStep	= 0xff;
 		}
 	}
 	else if (25 == u8Nck2910InitStep)
 	{
-		if(_RciCmd_OS_SET_POLLING((uint8_t *)c_u8PollingCfgBuf, POLLING_CFG_BUF_LEN) == 1)
+		if (_RciCmd_OS_SET_POLLING((uint8_t *) c_u8PollingCfgBuf, POLLING_CFG_BUF_LEN) == 1)
 		{
-			if(NCK2910_Polling() == 1)//OS_SET_MODE����pollingģʽ����ʼpolling
-			{
-                                u8Nck2910InitCount = 0;
-				nck2910ReadyFlag = 1;
-				tnNck2910WorkStatus = NCK2910_NORMAL;
-			}
-			else
-			{
-                                u8Nck2910InitCount++;
-                                if(u8Nck2910InitCount >= 3)
-				{ 
-                                    u8Nck2910InitStep = 0;
-                                    u8Nck2910InitCount = 0;
-                                    tnNck2910WorkStatus = NCK2910_FAIL;
-                                }
-                                else
-                                {
-                                    u8Nck2910InitStep = 1;
-                                }
-			}
+			u8Nck2910InitStep++;
 		}
-		else
+		else 
 		{
-			u8Nck2910InitCount++;
-                                if(u8Nck2910InitCount >= 3)
-				{ 
-                                    u8Nck2910InitStep = 0;
-                                    u8Nck2910InitCount = 0;
-                                    tnNck2910WorkStatus = NCK2910_FAIL;
-                                }
-                                else
-                                {
-                                    u8Nck2910InitStep = 1;
-                                }
+			u8Nck2910InitStep = 0xff;
 		}
-		
+
 	}
-	else
+    else if (26 == u8Nck2910InitStep)
+	{
+		if (NCK2910_Polling() == 1) //OS_SET_MODE����pollingģʽ����ʼpolling
+		{
+			u8Nck2910InitCount	= 0;
+			nck2910ReadyFlag	= 1;
+			tnNck2910WorkStatus = NCK2910_NORMAL;
+		}
+		else 
+		{
+			u8Nck2910InitStep = 0xff;
+		}
+    }
+	else 
 	{
 		u8Nck2910InitCount++;
-                                if(u8Nck2910InitCount >= 3)
-				{ 
-                                    u8Nck2910InitStep = 0;
-                                    u8Nck2910InitCount = 0;
-                                    tnNck2910WorkStatus = NCK2910_FAIL;
-                                }
-                                else
-                                {
-                                    u8Nck2910InitStep = 1;
-                                }
+		if (u8Nck2910InitCount >= 3)
+		{
+			u8Nck2910InitStep	= 0;
+			u8Nck2910InitCount	= 0;
+			tnNck2910WorkStatus = NCK2910_FAIL;
+		}
+		else 
+		{
+			u8Nck2910InitStep	= 1;
+		}
 	}
 }
-
-
-#endif
-
 
 /*********************************************************************************************************
 ** Function name:		NCK2910_Reset
@@ -1905,26 +1849,6 @@ void Nck2910_Init(void)
 *********************************************************************************************************/
 uint8_t NCK2910_Reset(void)
 {
-#if HW_RST							== 0x01
-
-	#ifdef demoboard
-		NCK2910_RSTN_LOW();
-	#else
-		set_OUT_EXP_D_P27(1);
-	#endif
-	
-	DelayRstHoldTime(); 							// ��Ч��λ�źű���ʱ��
-	
-	#ifdef demoboard
-		NCK2910_RSTN_HIGH();
-	#else
-		set_OUT_EXP_D_P27(0);
-	#endif
-	
-	return 1;
-
-#else
-
 	uint8_t u8PayloadBuf[2];
 
 	u8PayloadBuf[0] 	= OM_RESET;
@@ -1936,14 +1860,13 @@ uint8_t NCK2910_Reset(void)
 	}
 
 	return 0;
-
-#endif
 }
 
 
 /*********************************************************************************************************
 ** Function name:		NCK2910_Standby
-** Descriptions:		NCK2910����Standbyģʽ��Standbyģʽ�£�CPU״̬��RAM�����ݱ��֣�polling timer
+** Descriptions:		NCK2910����Standbyģʽ��Standbyģʽ�£�CPU״̬��RAM��?
+	??���ݱ��֣�polling timer
 	��
 **						watchdog��Ч
 ** input parameters:	u8StandbyTime : ͣ����Standby״̬�µ�ʱ��
@@ -1969,7 +1892,8 @@ uint8_t NCK2910_Standby(uint8_t u8StandbyTime)
 /*********************************************************************************************************
 ** Function name:		NCK2910_Idle
 ** Descriptions:		NCK2910����idleģʽ
-** input parameters:	idleģʽ�£�RX�������رգ�RCI����������Ӧ
+** input parameters:	idleģʽ�£�RX�������رգ�RCI������?
+	??����Ӧ
 ** output parameters:	
 ** Returned value:		
 *********************************************************************************************************/
@@ -1991,7 +1915,8 @@ uint8_t NCK2910_Idle(void)
 
 /*********************************************************************************************************
 ** Function name:		NCK2910_Sleep
-** Descriptions:		NCK2910����Sleepģʽ��Sleepģʽ�£�CPU״̬��RAM�����ݱ��֣�polling timer��
+** Descriptions:		NCK2910����Sleepģʽ��Sleepģʽ�£�CPU״̬��RAM��?
+	?���ݱ��֣�polling timer��
 **						watchdog��Ч��֧�ַ�ƵXO Clock���?
 ** input parameters:	u8SleepTime : ͣ����sleepģʽ�µ�ʱ��
 ** output parameters:	
@@ -2016,7 +1941,8 @@ uint8_t NCK2910_Sleep(uint8_t u8SleepTime)
 /*********************************************************************************************************
 ** Function name:		NCK2910_ConRx
 ** Descriptions:		NCK2910������������ģʽ
-** input parameters:	u8RxCfgIndex : �����������ڼ䣬���õ����ĸ�RF RX���������գ������õ�?
+** input parameters:	u8RxCfgIndex : �����������ڼ䣬���õ��?
+	??���ĸ�RF RX���������գ������õ�?
 	?����
 ** output parameters:	
 ** Returned value:		
@@ -2062,7 +1988,8 @@ uint8_t NCK2910_Polling(void)
 
 /*********************************************************************************************************
 ** Function name:		NCK2910_PowerOff
-** Descriptions:		NCK2910����PowerOffģʽ��PowerOffģʽ�£�polling timer��watchdog��Ч
+** Descriptions:		NCK2910����PowerOffģʽ��PowerOffģʽ�£�polling timer��
+	watchdog��Ч
 ** input parameters:	
 ** output parameters:	
 ** Returned value:		
@@ -2085,7 +2012,8 @@ uint8_t NCK2910_PowerOff(void)
 
 /*********************************************************************************************************
 ** Function name:		NCK2910_Transport
-** Descriptions:		NCK2910����Transportģʽ��Transportģʽ�£���ģʽ����͹��ģ���ҪRST_N��?
+** Descriptions:		NCK2910����Transportģʽ��Transportģʽ�£���ģʽ��
+	��͹��ģ���ҪRST_N��?
 	??��
 ** input parameters:	
 ** output parameters:	
@@ -2165,36 +2093,39 @@ void NCK2910_RfRcvDataDeal(void)
 	DelayCsT1();									// ��ʱ��Ϊ��ȷ��CS�ɿ���Ч
 	NCK2910_CSN_LOW();
 	DelayCsT2();									// CsT1 + CsT2Ҫ����Trdy2rcv������RCI V1.1ʱ��淶��Ҳ����ͨ�����RDY_N�ܽŷ�ʽ
-	
+
 	NCK2910_SpiRead(Gu8Nck2910RciRxBuf);
 
 	NCK2910_CSN_HIGH();
 }
 
+
 void Nck2910_DataProcess(void)
 {
 	UHF_MessageTypeDef uhf_Pdu;
 	static uint8 u8Wait200mSCycle = 0;
-        
+
 	if (GetNck2910InitCompleteStatus() == 1)
 	{
-        if(Is_NCK2910_INT_Active())
+		if (Is_NCK2910_INT_Active())
 		{
 			u8Wait200mSCycle++;
-			if(u8Wait200mSCycle >= 25)
+
+			if (u8Wait200mSCycle >= 25)
 			{
-				u8Wait200mSCycle = 0;
+				u8Wait200mSCycle	= 0;
 				tnNck2910WorkStatus = NCK2910_INIT;
-				nck2910ReadyFlag = 0;
+				nck2910ReadyFlag	= 0;
 				return;
 			}
-            
+
 			NCK2910_RfRcvDataDeal();
+
 			if ((Gu8Nck2910RciRxBuf[0] > 10) && (Gu8Nck2910RciRxBuf[0] <= 28))
 			{
 				if (_CalculateCRC8(Gu8Nck2910RciRxBuf, Gu8Nck2910RciRxBuf[0]) ==
 					 Gu8Nck2910RciRxBuf[Gu8Nck2910RciRxBuf[0]])
-				{					
+				{
 					uhf_Pdu.m_DataLength = Gu8Nck2910RciRxBuf[0] -9;
 					memcpy(&uhf_Pdu.m_Data[0], &Gu8Nck2910RciRxBuf[9], uhf_Pdu.m_DataLength);
 
@@ -2207,29 +2138,30 @@ void Nck2910_DataProcess(void)
 			}
 			else 
 			{
-				if((Gu8Nck2910RciRxBuf[0] == 0x07)&&(Gu8Nck2910RciRxBuf[1] == 0x80)&&(Gu8Nck2910RciRxBuf[6] > 0))
+				if ((Gu8Nck2910RciRxBuf[0] == 0x07) && (Gu8Nck2910RciRxBuf[1] == 0x80) && (Gu8Nck2910RciRxBuf[6] > 0))
 				{
 					tnNck2910WorkStatus = NCK2910_INIT;
 				}
 			}
 		}
-		else
+		else 
 		{
-			u8Wait200mSCycle = 0;
+			u8Wait200mSCycle	= 0;
 		}
 
 		bNck2910InterruptFlag = false;
 	}
-	else
+	else 
 	{
 		bNck2910InterruptFlag = false;
-                u8Wait200mSCycle = 0;
+		u8Wait200mSCycle	= 0;
 	}
 }
 
+
 ISR(ISR_GPIO_AP_SYNC_DGPIO)
 {
-	 Dio_Ip_IrqHandler(6);
+	Dio_Ip_IrqHandler(6);
 
 	if (nck2910ReadyFlag == 1)
 	{

@@ -117,7 +117,7 @@ extern "C" {
 #define DMA_SF_MAX_CHANNEL_NUMBER                                       (24U)
 
 /** \brief  Total number of SF0 channels allocated on core CORE0 */
-#define DMA_CHANNEL_SF0_ON_CORE0_NUMBER                                 (8U)
+#define DMA_CHANNEL_SF0_ON_CORE0_NUMBER                                 (5U)
 
 /** \brief  Total number of SF1 channels allocated on core CORE0 */
 #define DMA_CHANNEL_SF1_ON_CORE0_NUMBER                                 (0U)

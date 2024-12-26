@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcOpm'.
  *
- * Model version                  : 9.98
+ * Model version                  : 9.103
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Oct 22 09:48:08 2024
+ * C/C++ source code generated on : Tue Dec 17 18:02:01 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -5798,200 +5798,200 @@ static void Runbl_Opm10ms(void)
 {
   float32 tmp;
 
-  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_BraSwi_flg' */
-  /* Switch: '<S193>/Switch4' incorporates:
-   *  Constant: '<S193>/sat3'
+  /* Outputs for Atomic SubSystem: '<S189>/Subsys_VOPM_BraSwi_flg' */
+  /* Switch: '<S192>/Switch4' incorporates:
+   *  Constant: '<S192>/sat3'
    */
   if (KOPM_BraSwi_flg_ovrdflg)
   {
-    /* Switch: '<S193>/Switch4' incorporates:
-     *  Constant: '<S193>/sat4'
+    /* Switch: '<S192>/Switch4' incorporates:
+     *  Constant: '<S192>/sat4'
      */
     VOPM_BraSwi_flg = KOPM_BraSwi_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S193>/Switch4' incorporates:
+    /* Switch: '<S192>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S193>/Data Type Conversion1'
+     *  DataTypeConversion: '<S192>/Data Type Conversion1'
      */
     VOPM_BraSwi_flg = (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
                           ->VIPC_BrkSwActv_flg;
   }
 
-  /* End of Switch: '<S193>/Switch4' */
-  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_BraSwi_flg' */
+  /* End of Switch: '<S192>/Switch4' */
+  /* End of Outputs for SubSystem: '<S189>/Subsys_VOPM_BraSwi_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_DrvSwi_flg' */
-  /* Switch: '<S195>/Switch4' incorporates:
-   *  Constant: '<S195>/sat3'
+  /* Outputs for Atomic SubSystem: '<S189>/Subsys_VOPM_DrvSwi_flg' */
+  /* Switch: '<S194>/Switch4' incorporates:
+   *  Constant: '<S194>/sat3'
    */
   if (KOPM_DrvSwi_flg_ovrdflg)
   {
-    /* Switch: '<S195>/Switch4' incorporates:
-     *  Constant: '<S195>/sat4'
+    /* Switch: '<S194>/Switch4' incorporates:
+     *  Constant: '<S194>/sat4'
      */
     VOPM_DrvSwi_flg = KOPM_DrvSwi_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S195>/Switch4' incorporates:
+    /* Switch: '<S194>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S195>/Data Type Conversion1'
+     *  DataTypeConversion: '<S194>/Data Type Conversion1'
      */
     VOPM_DrvSwi_flg = (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
                           ->VIPC_DrvSw_flg;
   }
 
-  /* End of Switch: '<S195>/Switch4' */
-  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_DrvSwi_flg' */
+  /* End of Switch: '<S194>/Switch4' */
+  /* End of Outputs for SubSystem: '<S189>/Subsys_VOPM_DrvSwi_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_Zdznswi_flg' */
-  /* Switch: '<S197>/Switch4' incorporates:
-   *  Constant: '<S197>/sat3'
+  /* Outputs for Atomic SubSystem: '<S189>/Subsys_VOPM_Zdznswi_flg' */
+  /* Switch: '<S196>/Switch4' incorporates:
+   *  Constant: '<S196>/sat3'
    */
   if (KOPM_Zdznswi_flg_ovrdflg)
   {
-    /* Switch: '<S197>/Switch4' incorporates:
-     *  Constant: '<S197>/sat4'
+    /* Switch: '<S196>/Switch4' incorporates:
+     *  Constant: '<S196>/sat4'
      */
     VOPM_Zdznswi_flg = KOPM_Zdznswi_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S197>/Switch4' incorporates:
+    /* Switch: '<S196>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S197>/Data Type Conversion1'
+     *  DataTypeConversion: '<S196>/Data Type Conversion1'
      */
     VOPM_Zdznswi_flg = (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
                            ->VVTM_MotDampngEnbl_flg;
   }
 
-  /* End of Switch: '<S197>/Switch4' */
-  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_Zdznswi_flg' */
+  /* End of Switch: '<S196>/Switch4' */
+  /* End of Outputs for SubSystem: '<S189>/Subsys_VOPM_Zdznswi_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_DrvPed_pct' */
-  /* Switch: '<S194>/Switch4' incorporates:
-   *  Constant: '<S194>/sat3'
+  /* Outputs for Atomic SubSystem: '<S189>/Subsys_VOPM_DrvPed_pct' */
+  /* Switch: '<S193>/Switch4' incorporates:
+   *  Constant: '<S193>/sat3'
    */
   if (KOPM_DrvPed_pct_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
-     *  Constant: '<S194>/sat4'
-     *  Product: '<S181>/Product1'
+    /* MinMax: '<S193>/MinMax' incorporates:
+     *  Constant: '<S193>/sat4'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_DrvPed_pct_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S194>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  DataTypeConversion: '<S193>/Data Type Conversion1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
             ->VIPC_AccPedPstn_pct;
   }
 
-  /* End of Switch: '<S194>/Switch4' */
+  /* End of Switch: '<S193>/Switch4' */
 
-  /* MinMax: '<S194>/MinMax' incorporates:
-   *  Constant: '<S194>/sat6'
+  /* MinMax: '<S193>/MinMax' incorporates:
+   *  Constant: '<S193>/sat6'
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_DrvPedHi_pct)
   {
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_DrvPedHi_pct;
   }
 
-  /* MinMax: '<S194>/MinMax1' incorporates:
-   *  Constant: '<S194>/sat7'
+  /* MinMax: '<S193>/MinMax1' incorporates:
+   *  Constant: '<S193>/sat7'
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar >= KOPM_DrvPedLo_pct)
   {
-    /* MinMax: '<S194>/MinMax1' */
+    /* MinMax: '<S193>/MinMax1' */
     VOPM_DrvPed_pct = VOPM_VCUMasterCylinderPreReq_Bar;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax1' */
+    /* MinMax: '<S193>/MinMax1' */
     VOPM_DrvPed_pct = KOPM_DrvPedLo_pct;
   }
 
-  /* End of MinMax: '<S194>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_DrvPed_pct' */
+  /* End of MinMax: '<S193>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S189>/Subsys_VOPM_DrvPed_pct' */
 
-  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_MotDmpgLmt_Nm' */
-  /* Switch: '<S196>/Switch4' incorporates:
-   *  Constant: '<S196>/sat3'
+  /* Outputs for Atomic SubSystem: '<S189>/Subsys_VOPM_MotDmpgLmt_Nm' */
+  /* Switch: '<S195>/Switch4' incorporates:
+   *  Constant: '<S195>/sat3'
    */
   if (KOPM_MotDmpgLmt_Nm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
-     *  Constant: '<S196>/sat4'
-     *  Product: '<S181>/Product1'
+    /* MinMax: '<S193>/MinMax' incorporates:
+     *  Constant: '<S195>/sat4'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_MotDmpgLmt_Nm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S196>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  DataTypeConversion: '<S195>/Data Type Conversion1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
             ->VVTM_MotDampngLmt_Nm;
   }
 
-  /* End of Switch: '<S196>/Switch4' */
+  /* End of Switch: '<S195>/Switch4' */
 
-  /* MinMax: '<S196>/MinMax' incorporates:
-   *  Constant: '<S196>/sat6'
+  /* MinMax: '<S195>/MinMax' incorporates:
+   *  Constant: '<S195>/sat6'
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_MotDmpgLmtHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_MotDmpgLmtHi_Nm;
   }
 
-  /* End of MinMax: '<S196>/MinMax' */
+  /* End of MinMax: '<S195>/MinMax' */
 
-  /* MinMax: '<S196>/MinMax1' incorporates:
-   *  Constant: '<S196>/sat7'
+  /* MinMax: '<S195>/MinMax1' incorporates:
+   *  Constant: '<S195>/sat7'
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar >= KOPM_MotDmpgLmtLo_Nm)
   {
-    /* MinMax: '<S196>/MinMax1' */
+    /* MinMax: '<S195>/MinMax1' */
     VOPM_MotDmpgLmt_Nm = VOPM_VCUMasterCylinderPreReq_Bar;
   }
   else
   {
-    /* MinMax: '<S196>/MinMax1' */
+    /* MinMax: '<S195>/MinMax1' */
     VOPM_MotDmpgLmt_Nm = KOPM_MotDmpgLmtLo_Nm;
   }
 
-  /* End of MinMax: '<S196>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_MotDmpgLmt_Nm' */
+  /* End of MinMax: '<S195>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S189>/Subsys_VOPM_MotDmpgLmt_Nm' */
 
-  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_AppSoftNumb_nu' */
-  /* Switch: '<S192>/Switch4' incorporates:
-   *  Constant: '<S192>/sat3'
+  /* Outputs for Atomic SubSystem: '<S189>/Subsys_VOPM_AppSoftNumb_nu' */
+  /* Switch: '<S191>/Switch4' incorporates:
+   *  Constant: '<S191>/sat3'
    */
   if (KOPM_AppSoftNumb_nu_ovrdflg)
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
-     *  Constant: '<S192>/sat4'
+    /* MinMax: '<S191>/MinMax' incorporates:
+     *  Constant: '<S191>/sat4'
      *  MinMax: '<S164>/MinMax'
      */
     VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_AppSoftNumb_nu_ovrdval;
   }
   else
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S192>/Data Type Conversion1'
+     *  DataTypeConversion: '<S191>/Data Type Conversion1'
      *  MinMax: '<S164>/MinMax'
      */
     VOPM_BrkPwrRecupActlWhlTqSts_enum =
@@ -5999,117 +5999,117 @@ static void Runbl_Opm10ms(void)
             ->VVCU_SoftWareVer_cnt;
   }
 
-  /* End of Switch: '<S192>/Switch4' */
+  /* End of Switch: '<S191>/Switch4' */
 
-  /* MinMax: '<S192>/MinMax' incorporates:
-   *  Constant: '<S192>/sat6'
+  /* MinMax: '<S191>/MinMax' incorporates:
+   *  Constant: '<S191>/sat6'
    */
   if (VOPM_BrkPwrRecupActlWhlTqSts_enum > KOPM_AppSoftNumbHi_nu)
   {
     VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_AppSoftNumbHi_nu;
   }
 
-  /* MinMax: '<S192>/MinMax1' incorporates:
-   *  Constant: '<S192>/sat7'
+  /* MinMax: '<S191>/MinMax1' incorporates:
+   *  Constant: '<S191>/sat7'
    */
   if (VOPM_BrkPwrRecupActlWhlTqSts_enum >= KOPM_AppSoftNumbLo_nu)
   {
-    /* MinMax: '<S192>/MinMax1' */
+    /* MinMax: '<S191>/MinMax1' */
     VOPM_AppSoftNumb_nu = VOPM_BrkPwrRecupActlWhlTqSts_enum;
   }
   else
   {
-    /* MinMax: '<S192>/MinMax1' */
+    /* MinMax: '<S191>/MinMax1' */
     VOPM_AppSoftNumb_nu = KOPM_AppSoftNumbLo_nu;
   }
 
-  /* End of MinMax: '<S192>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_AppSoftNumb_nu' */
+  /* End of MinMax: '<S191>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S189>/Subsys_VOPM_AppSoftNumb_nu' */
 
-  /* BusCreator: '<S190>/BusCreator' incorporates:
-   *  Switch: '<S193>/Switch4'
-   *  Switch: '<S195>/Switch4'
-   *  Switch: '<S197>/Switch4'
+  /* BusCreator: '<S189>/BusCreator' incorporates:
+   *  Switch: '<S192>/Switch4'
+   *  Switch: '<S194>/Switch4'
+   *  Switch: '<S196>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_0_Value_EPT_m.VCU_0_BraSwi = VOPM_BraSwi_flg;
   AppSwcOpm_ARID_DEF.VCU_0_Value_EPT_m.VCU_0_DrvSwi = VOPM_DrvSwi_flg;
   AppSwcOpm_ARID_DEF.VCU_0_Value_EPT_m.VCU_0_Zdznswi = VOPM_Zdznswi_flg;
 
-  /* DataTypeConversion: '<S190>/DataTypeConversion3' incorporates:
-   *  Constant: '<S198>/Constant1'
-   *  Product: '<S198>/Product1'
-   *  Sum: '<S198>/Add'
+  /* DataTypeConversion: '<S189>/DataTypeConversion3' incorporates:
+   *  Constant: '<S197>/Constant1'
+   *  Product: '<S197>/Product1'
+   *  Sum: '<S197>/Add'
    */
   tmp = VOPM_DrvPed_pct * 10.0F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S190>/BusCreator' */
+      /* BusCreator: '<S189>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_0_Value_EPT_m.VCU_0_DrvPed = (uint16)tmp;
     }
     else
     {
-      /* BusCreator: '<S190>/BusCreator' */
+      /* BusCreator: '<S189>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_0_Value_EPT_m.VCU_0_DrvPed = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S190>/BusCreator' */
+    /* BusCreator: '<S189>/BusCreator' */
     AppSwcOpm_ARID_DEF.VCU_0_Value_EPT_m.VCU_0_DrvPed = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S190>/DataTypeConversion3' */
+  /* End of DataTypeConversion: '<S189>/DataTypeConversion3' */
 
-  /* DataTypeConversion: '<S190>/DataTypeConversion4' incorporates:
-   *  Constant: '<S199>/Constant1'
-   *  Product: '<S199>/Product1'
-   *  Sum: '<S199>/Add'
+  /* DataTypeConversion: '<S189>/DataTypeConversion4' incorporates:
+   *  Constant: '<S198>/Constant1'
+   *  Product: '<S198>/Product1'
+   *  Sum: '<S198>/Add'
    */
   tmp = VOPM_MotDmpgLmt_Nm * 10.0F;
   if (tmp < 256.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S190>/BusCreator' */
+      /* BusCreator: '<S189>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_0_Value_EPT_m.VCU_MotDampngLmt = (uint8)tmp;
     }
     else
     {
-      /* BusCreator: '<S190>/BusCreator' */
+      /* BusCreator: '<S189>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_0_Value_EPT_m.VCU_MotDampngLmt = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S190>/BusCreator' */
+    /* BusCreator: '<S189>/BusCreator' */
     AppSwcOpm_ARID_DEF.VCU_0_Value_EPT_m.VCU_MotDampngLmt = MAX_uint8_T;
   }
 
-  /* End of DataTypeConversion: '<S190>/DataTypeConversion4' */
+  /* End of DataTypeConversion: '<S189>/DataTypeConversion4' */
 
-  /* BusCreator: '<S190>/BusCreator' */
+  /* BusCreator: '<S189>/BusCreator' */
   AppSwcOpm_ARID_DEF.VCU_0_Value_EPT_m.VCU_AppSoftNumb = VOPM_AppSoftNumb_nu;
 
-  /* Outputs for Atomic SubSystem: '<S191>/Subsys_VOPM_MotModeReq_enum' */
-  /* Switch: '<S204>/Switch4' incorporates:
-   *  Constant: '<S204>/sat3'
+  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_MotModeReq_enum' */
+  /* Switch: '<S203>/Switch4' incorporates:
+   *  Constant: '<S203>/sat3'
    */
   if (KOPM_MotModeReq_enum_ovrdflg)
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
-     *  Constant: '<S204>/sat4'
-     *  DataTypeConversion: '<S204>/Data Type Conversion3'
+    /* MinMax: '<S191>/MinMax' incorporates:
+     *  Constant: '<S203>/sat4'
+     *  DataTypeConversion: '<S203>/Data Type Conversion3'
      *  MinMax: '<S164>/MinMax'
      */
     VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_MotModeReq_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S204>/Data Type Conversion1'
+     *  DataTypeConversion: '<S203>/Data Type Conversion1'
      *  MinMax: '<S164>/MinMax'
      */
     VOPM_BrkPwrRecupActlWhlTqSts_enum =
@@ -6117,93 +6117,15 @@ static void Runbl_Opm10ms(void)
             ->VVTM_MotorModeReq_enum;
   }
 
-  /* End of Switch: '<S204>/Switch4' */
-
-  /* MinMax: '<S204>/MinMax' incorporates:
-   *  Constant: '<S204>/sat6'
-   */
-  if (VOPM_BrkPwrRecupActlWhlTqSts_enum > KOPM_MotModeReqHi_enum)
-  {
-    /* MinMax: '<S192>/MinMax' */
-    VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_MotModeReqHi_enum;
-  }
-
-  /* End of MinMax: '<S204>/MinMax' */
-
-  /* MinMax: '<S204>/MinMax1' incorporates:
-   *  Constant: '<S204>/sat7'
-   */
-  if (VOPM_BrkPwrRecupActlWhlTqSts_enum >= KOPM_MotModeReqLo_enum)
-  {
-    /* DataTypeConversion: '<S204>/Data Type Conversion2' */
-    VOPM_MotModeReq_enum = VOPM_BrkPwrRecupActlWhlTqSts_enum;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S204>/Data Type Conversion2' */
-    VOPM_MotModeReq_enum = KOPM_MotModeReqLo_enum;
-  }
-
-  /* End of MinMax: '<S204>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S191>/Subsys_VOPM_MotModeReq_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S191>/Subsys_VOPM_EnaDisChg_flg' */
-  /* Switch: '<S201>/Switch4' incorporates:
-   *  Constant: '<S201>/sat3'
-   */
-  if (KOPM_EnaDisChg_flg_ovrdflg)
-  {
-    /* Switch: '<S201>/Switch4' incorporates:
-     *  Constant: '<S201>/sat4'
-     */
-    VOPM_EnaDisChg_flg = KOPM_EnaDisChg_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S201>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S201>/Data Type Conversion1'
-     */
-    VOPM_EnaDisChg_flg = (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())->VHVM_EnaDisChg_flg;
-  }
-
-  /* End of Switch: '<S201>/Switch4' */
-  /* End of Outputs for SubSystem: '<S191>/Subsys_VOPM_EnaDisChg_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S191>/Subsys_VOPM_MotDirReq_enum' */
-  /* Switch: '<S203>/Switch4' incorporates:
-   *  Constant: '<S203>/sat3'
-   */
-  if (KOPM_MotDirReq_enum_ovrdflg)
-  {
-    /* MinMax: '<S192>/MinMax' incorporates:
-     *  Constant: '<S203>/sat4'
-     *  DataTypeConversion: '<S203>/Data Type Conversion3'
-     *  MinMax: '<S164>/MinMax'
-     */
-    VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_MotDirReq_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S192>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S203>/Data Type Conversion1'
-     *  MinMax: '<S164>/MinMax'
-     */
-    VOPM_BrkPwrRecupActlWhlTqSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
-            ->VVTM_MotorDirReq_enum;
-  }
-
   /* End of Switch: '<S203>/Switch4' */
 
   /* MinMax: '<S203>/MinMax' incorporates:
    *  Constant: '<S203>/sat6'
    */
-  if (VOPM_BrkPwrRecupActlWhlTqSts_enum > KOPM_MotDirReqHi_enum)
+  if (VOPM_BrkPwrRecupActlWhlTqSts_enum > KOPM_MotModeReqHi_enum)
   {
-    /* MinMax: '<S192>/MinMax' */
-    VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_MotDirReqHi_enum;
+    /* MinMax: '<S191>/MinMax' */
+    VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_MotModeReqHi_enum;
   }
 
   /* End of MinMax: '<S203>/MinMax' */
@@ -6211,112 +6133,30 @@ static void Runbl_Opm10ms(void)
   /* MinMax: '<S203>/MinMax1' incorporates:
    *  Constant: '<S203>/sat7'
    */
-  if (VOPM_BrkPwrRecupActlWhlTqSts_enum >= KOPM_MotDirReqLo_enum)
+  if (VOPM_BrkPwrRecupActlWhlTqSts_enum >= KOPM_MotModeReqLo_enum)
   {
     /* DataTypeConversion: '<S203>/Data Type Conversion2' */
-    VOPM_MotDirReq_enum = VOPM_BrkPwrRecupActlWhlTqSts_enum;
+    VOPM_MotModeReq_enum = VOPM_BrkPwrRecupActlWhlTqSts_enum;
   }
   else
   {
     /* DataTypeConversion: '<S203>/Data Type Conversion2' */
-    VOPM_MotDirReq_enum = KOPM_MotDirReqLo_enum;
+    VOPM_MotModeReq_enum = KOPM_MotModeReqLo_enum;
   }
 
   /* End of MinMax: '<S203>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S191>/Subsys_VOPM_MotDirReq_enum' */
+  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_MotModeReq_enum' */
 
-  /* DataTypeConversion: '<S191>/DataTypeConversion2' incorporates:
-   *  DataTypeConversion: '<S203>/Data Type Conversion2'
-   */
-  AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_MotDirReq = VOPM_MotDirReq_enum;
-
-  /* Outputs for Atomic SubSystem: '<S191>/Subsys_VOPM_MotTorqReq_Nm' */
-  /* Switch: '<S206>/Switch4' incorporates:
-   *  Constant: '<S206>/sat3'
-   */
-  if (KOPM_MotTorqReq_Nm_ovrdflg)
-  {
-    /* MinMax: '<S194>/MinMax' incorporates:
-     *  Constant: '<S206>/sat4'
-     *  Product: '<S181>/Product1'
-     */
-    VOPM_VCUMasterCylinderPreReq_Bar = KOPM_MotTorqReq_Nm_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S194>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S206>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
-     */
-    VOPM_VCUMasterCylinderPreReq_Bar =
-        (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
-            ->VVTM_MotorTqReq_Nm;
-  }
-
-  /* End of Switch: '<S206>/Switch4' */
-
-  /* MinMax: '<S206>/MinMax' incorporates:
-   *  Constant: '<S206>/sat6'
-   */
-  if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_MotTorqReqHi_Nm)
-  {
-    /* MinMax: '<S194>/MinMax' */
-    VOPM_VCUMasterCylinderPreReq_Bar = KOPM_MotTorqReqHi_Nm;
-  }
-
-  /* End of MinMax: '<S206>/MinMax' */
-
-  /* MinMax: '<S206>/MinMax1' incorporates:
-   *  Constant: '<S206>/sat7'
-   */
-  if (VOPM_VCUMasterCylinderPreReq_Bar >= KOPM_MotTorqReqLo_Nm)
-  {
-    /* MinMax: '<S206>/MinMax1' */
-    VOPM_MotTorqReq_Nm = VOPM_VCUMasterCylinderPreReq_Bar;
-  }
-  else
-  {
-    /* MinMax: '<S206>/MinMax1' */
-    VOPM_MotTorqReq_Nm = KOPM_MotTorqReqLo_Nm;
-  }
-
-  /* End of MinMax: '<S206>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S191>/Subsys_VOPM_MotTorqReq_Nm' */
-
-  /* Outputs for Atomic SubSystem: '<S191>/Subsys_VOPM_EnaInvRun_flg' */
-  /* Switch: '<S202>/Switch4' incorporates:
-   *  Constant: '<S202>/sat3'
-   */
-  if (KOPM_EnaInvRun_flg_ovrdflg)
-  {
-    /* Switch: '<S202>/Switch4' incorporates:
-     *  Constant: '<S202>/sat4'
-     */
-    VOPM_EnaInvRun_flg = KOPM_EnaInvRun_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S202>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S202>/Data Type Conversion1'
-     */
-    VOPM_EnaInvRun_flg = (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())->VGSM_INVRunEnbl_flg;
-  }
-
-  /* End of Switch: '<S202>/Switch4' */
-  /* End of Outputs for SubSystem: '<S191>/Subsys_VOPM_EnaInvRun_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S191>/Subsys_VOPM_EmgcySdn_flg' */
+  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_EnaDisChg_flg' */
   /* Switch: '<S200>/Switch4' incorporates:
    *  Constant: '<S200>/sat3'
    */
-  if (KOPM_EmgcySdn_flg_ovrdflg)
+  if (KOPM_EnaDisChg_flg_ovrdflg)
   {
     /* Switch: '<S200>/Switch4' incorporates:
      *  Constant: '<S200>/sat4'
      */
-    VOPM_EmgcySdn_flg = KOPM_EmgcySdn_flg_ovrdval;
+    VOPM_EnaDisChg_flg = KOPM_EnaDisChg_flg_ovrdval;
   }
   else
   {
@@ -6324,33 +6164,94 @@ static void Runbl_Opm10ms(void)
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S200>/Data Type Conversion1'
      */
-    VOPM_EmgcySdn_flg = (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())->VHVM_EmgcySdn_flg;
+    VOPM_EnaDisChg_flg = (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())->VHVM_EnaDisChg_flg;
   }
 
   /* End of Switch: '<S200>/Switch4' */
-  /* End of Outputs for SubSystem: '<S191>/Subsys_VOPM_EmgcySdn_flg' */
+  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_EnaDisChg_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S191>/Subsys_VOPM_MotSpdReq_rpm' */
-  /* Switch: '<S205>/Switch4' incorporates:
-   *  Constant: '<S205>/sat3'
+  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_MotDirReq_enum' */
+  /* Switch: '<S202>/Switch4' incorporates:
+   *  Constant: '<S202>/sat3'
    */
-  if (KOPM_MotSpdReq_rpm_ovrdflg)
+  if (KOPM_MotDirReq_enum_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
-     *  Constant: '<S205>/sat4'
-     *  Product: '<S181>/Product1'
+    /* MinMax: '<S191>/MinMax' incorporates:
+     *  Constant: '<S202>/sat4'
+     *  DataTypeConversion: '<S202>/Data Type Conversion3'
+     *  MinMax: '<S164>/MinMax'
      */
-    VOPM_VCUMasterCylinderPreReq_Bar = KOPM_MotSpdReq_rpm_ovrdval;
+    VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_MotDirReq_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S202>/Data Type Conversion1'
+     *  MinMax: '<S164>/MinMax'
+     */
+    VOPM_BrkPwrRecupActlWhlTqSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
+            ->VVTM_MotorDirReq_enum;
+  }
+
+  /* End of Switch: '<S202>/Switch4' */
+
+  /* MinMax: '<S202>/MinMax' incorporates:
+   *  Constant: '<S202>/sat6'
+   */
+  if (VOPM_BrkPwrRecupActlWhlTqSts_enum > KOPM_MotDirReqHi_enum)
+  {
+    /* MinMax: '<S191>/MinMax' */
+    VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_MotDirReqHi_enum;
+  }
+
+  /* End of MinMax: '<S202>/MinMax' */
+
+  /* MinMax: '<S202>/MinMax1' incorporates:
+   *  Constant: '<S202>/sat7'
+   */
+  if (VOPM_BrkPwrRecupActlWhlTqSts_enum >= KOPM_MotDirReqLo_enum)
+  {
+    /* DataTypeConversion: '<S202>/Data Type Conversion2' */
+    VOPM_MotDirReq_enum = VOPM_BrkPwrRecupActlWhlTqSts_enum;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S202>/Data Type Conversion2' */
+    VOPM_MotDirReq_enum = KOPM_MotDirReqLo_enum;
+  }
+
+  /* End of MinMax: '<S202>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_MotDirReq_enum' */
+
+  /* DataTypeConversion: '<S190>/DataTypeConversion2' incorporates:
+   *  DataTypeConversion: '<S202>/Data Type Conversion2'
+   */
+  AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_MotDirReq = VOPM_MotDirReq_enum;
+
+  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_MotTorqReq_Nm' */
+  /* Switch: '<S205>/Switch4' incorporates:
+   *  Constant: '<S205>/sat3'
+   */
+  if (KOPM_MotTorqReq_Nm_ovrdflg)
+  {
+    /* MinMax: '<S193>/MinMax' incorporates:
+     *  Constant: '<S205>/sat4'
+     *  Product: '<S180>/Product1'
+     */
+    VOPM_VCUMasterCylinderPreReq_Bar = KOPM_MotTorqReq_Nm_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S205>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
-    VOPM_VCUMasterCylinderPreReq_Bar = (float32)(Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
-                                           ->VVTM_MotorSpdReq_rpm;
+    VOPM_VCUMasterCylinderPreReq_Bar =
+        (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
+            ->VVTM_MotorTqReq_Nm;
   }
 
   /* End of Switch: '<S205>/Switch4' */
@@ -6358,10 +6259,10 @@ static void Runbl_Opm10ms(void)
   /* MinMax: '<S205>/MinMax' incorporates:
    *  Constant: '<S205>/sat6'
    */
-  if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_MotSpdReqHi_rpm)
+  if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_MotTorqReqHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
-    VOPM_VCUMasterCylinderPreReq_Bar = KOPM_MotSpdReqHi_rpm;
+    /* MinMax: '<S193>/MinMax' */
+    VOPM_VCUMasterCylinderPreReq_Bar = KOPM_MotTorqReqHi_Nm;
   }
 
   /* End of MinMax: '<S205>/MinMax' */
@@ -6369,38 +6270,137 @@ static void Runbl_Opm10ms(void)
   /* MinMax: '<S205>/MinMax1' incorporates:
    *  Constant: '<S205>/sat7'
    */
-  if (VOPM_VCUMasterCylinderPreReq_Bar >= KOPM_MotSpdReqLo_rpm)
+  if (VOPM_VCUMasterCylinderPreReq_Bar >= KOPM_MotTorqReqLo_Nm)
   {
     /* MinMax: '<S205>/MinMax1' */
-    VOPM_MotSpdReq_rpm = VOPM_VCUMasterCylinderPreReq_Bar;
+    VOPM_MotTorqReq_Nm = VOPM_VCUMasterCylinderPreReq_Bar;
   }
   else
   {
     /* MinMax: '<S205>/MinMax1' */
-    VOPM_MotSpdReq_rpm = KOPM_MotSpdReqLo_rpm;
+    VOPM_MotTorqReq_Nm = KOPM_MotTorqReqLo_Nm;
   }
 
   /* End of MinMax: '<S205>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S191>/Subsys_VOPM_MotSpdReq_rpm' */
+  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_MotTorqReq_Nm' */
 
-  /* Outputs for Atomic SubSystem: '<S191>/Subsys_VOPM_VehTrgtGearPos_enum' */
-  /* Switch: '<S207>/Switch4' incorporates:
-   *  Constant: '<S207>/sat3'
+  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_EnaInvRun_flg' */
+  /* Switch: '<S201>/Switch4' incorporates:
+   *  Constant: '<S201>/sat3'
+   */
+  if (KOPM_EnaInvRun_flg_ovrdflg)
+  {
+    /* Switch: '<S201>/Switch4' incorporates:
+     *  Constant: '<S201>/sat4'
+     */
+    VOPM_EnaInvRun_flg = KOPM_EnaInvRun_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S201>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S201>/Data Type Conversion1'
+     */
+    VOPM_EnaInvRun_flg = (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())->VGSM_INVRunEnbl_flg;
+  }
+
+  /* End of Switch: '<S201>/Switch4' */
+  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_EnaInvRun_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_EmgcySdn_flg' */
+  /* Switch: '<S199>/Switch4' incorporates:
+   *  Constant: '<S199>/sat3'
+   */
+  if (KOPM_EmgcySdn_flg_ovrdflg)
+  {
+    /* Switch: '<S199>/Switch4' incorporates:
+     *  Constant: '<S199>/sat4'
+     */
+    VOPM_EmgcySdn_flg = KOPM_EmgcySdn_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S199>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S199>/Data Type Conversion1'
+     */
+    VOPM_EmgcySdn_flg = (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())->VHVM_EmgcySdn_flg;
+  }
+
+  /* End of Switch: '<S199>/Switch4' */
+  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_EmgcySdn_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_MotSpdReq_rpm' */
+  /* Switch: '<S204>/Switch4' incorporates:
+   *  Constant: '<S204>/sat3'
+   */
+  if (KOPM_MotSpdReq_rpm_ovrdflg)
+  {
+    /* MinMax: '<S193>/MinMax' incorporates:
+     *  Constant: '<S204>/sat4'
+     *  Product: '<S180>/Product1'
+     */
+    VOPM_VCUMasterCylinderPreReq_Bar = KOPM_MotSpdReq_rpm_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S193>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S204>/Data Type Conversion1'
+     *  Product: '<S180>/Product1'
+     */
+    VOPM_VCUMasterCylinderPreReq_Bar = (float32)(Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmEPT_outputs())
+                                           ->VVTM_MotorSpdReq_rpm;
+  }
+
+  /* End of Switch: '<S204>/Switch4' */
+
+  /* MinMax: '<S204>/MinMax' incorporates:
+   *  Constant: '<S204>/sat6'
+   */
+  if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_MotSpdReqHi_rpm)
+  {
+    /* MinMax: '<S193>/MinMax' */
+    VOPM_VCUMasterCylinderPreReq_Bar = KOPM_MotSpdReqHi_rpm;
+  }
+
+  /* End of MinMax: '<S204>/MinMax' */
+
+  /* MinMax: '<S204>/MinMax1' incorporates:
+   *  Constant: '<S204>/sat7'
+   */
+  if (VOPM_VCUMasterCylinderPreReq_Bar >= KOPM_MotSpdReqLo_rpm)
+  {
+    /* MinMax: '<S204>/MinMax1' */
+    VOPM_MotSpdReq_rpm = VOPM_VCUMasterCylinderPreReq_Bar;
+  }
+  else
+  {
+    /* MinMax: '<S204>/MinMax1' */
+    VOPM_MotSpdReq_rpm = KOPM_MotSpdReqLo_rpm;
+  }
+
+  /* End of MinMax: '<S204>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_MotSpdReq_rpm' */
+
+  /* Outputs for Atomic SubSystem: '<S190>/Subsys_VOPM_VehTrgtGearPos_enum' */
+  /* Switch: '<S206>/Switch4' incorporates:
+   *  Constant: '<S206>/sat3'
    */
   if (KOPM_VehTrgtGearPos_enum_ovrdflg)
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
-     *  Constant: '<S207>/sat4'
-     *  DataTypeConversion: '<S207>/Data Type Conversion3'
+    /* MinMax: '<S191>/MinMax' incorporates:
+     *  Constant: '<S206>/sat4'
+     *  DataTypeConversion: '<S206>/Data Type Conversion3'
      *  MinMax: '<S164>/MinMax'
      */
     VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_VehTrgtGearPos_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S207>/Data Type Conversion1'
+     *  DataTypeConversion: '<S206>/Data Type Conversion1'
      *  MinMax: '<S164>/MinMax'
      */
     VOPM_BrkPwrRecupActlWhlTqSts_enum =
@@ -6408,110 +6408,110 @@ static void Runbl_Opm10ms(void)
             ->VGSM_VehTgtGrReq_enum;
   }
 
-  /* End of Switch: '<S207>/Switch4' */
+  /* End of Switch: '<S206>/Switch4' */
 
-  /* MinMax: '<S207>/MinMax' incorporates:
-   *  Constant: '<S207>/sat6'
+  /* MinMax: '<S206>/MinMax' incorporates:
+   *  Constant: '<S206>/sat6'
    */
   if (VOPM_BrkPwrRecupActlWhlTqSts_enum > KOPM_VehTrgtGearPosHi_enum)
   {
-    /* MinMax: '<S192>/MinMax' */
+    /* MinMax: '<S191>/MinMax' */
     VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_VehTrgtGearPosHi_enum;
   }
 
-  /* End of MinMax: '<S207>/MinMax' */
+  /* End of MinMax: '<S206>/MinMax' */
 
-  /* MinMax: '<S207>/MinMax1' incorporates:
-   *  Constant: '<S207>/sat7'
+  /* MinMax: '<S206>/MinMax1' incorporates:
+   *  Constant: '<S206>/sat7'
    */
   if (VOPM_BrkPwrRecupActlWhlTqSts_enum >= KOPM_VehTrgtGearPosLo_enum)
   {
-    /* DataTypeConversion: '<S207>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S206>/Data Type Conversion2' */
     VOPM_VehTrgtGearPos_enum = VOPM_BrkPwrRecupActlWhlTqSts_enum;
   }
   else
   {
-    /* DataTypeConversion: '<S207>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S206>/Data Type Conversion2' */
     VOPM_VehTrgtGearPos_enum = KOPM_VehTrgtGearPosLo_enum;
   }
 
-  /* End of MinMax: '<S207>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S191>/Subsys_VOPM_VehTrgtGearPos_enum' */
+  /* End of MinMax: '<S206>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S190>/Subsys_VOPM_VehTrgtGearPos_enum' */
 
-  /* BusCreator: '<S191>/BusCreator' incorporates:
-   *  DataTypeConversion: '<S191>/DataTypeConversion'
-   *  DataTypeConversion: '<S204>/Data Type Conversion2'
-   *  Switch: '<S201>/Switch4'
+  /* BusCreator: '<S190>/BusCreator' incorporates:
+   *  DataTypeConversion: '<S190>/DataTypeConversion'
+   *  DataTypeConversion: '<S203>/Data Type Conversion2'
+   *  Switch: '<S200>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_MotModeReq = VOPM_MotModeReq_enum;
   AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_EnaDisChg = VOPM_EnaDisChg_flg;
 
-  /* DataTypeConversion: '<S191>/DataTypeConversion3' incorporates:
-   *  Constant: '<S208>/Constant'
-   *  Constant: '<S208>/Constant1'
-   *  Product: '<S208>/Product1'
-   *  Sum: '<S208>/Add'
+  /* DataTypeConversion: '<S190>/DataTypeConversion3' incorporates:
+   *  Constant: '<S207>/Constant'
+   *  Constant: '<S207>/Constant1'
+   *  Product: '<S207>/Product1'
+   *  Sum: '<S207>/Add'
    */
   tmp = (VOPM_MotTorqReq_Nm - -819.2F) * 10.0F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S191>/BusCreator' */
+      /* BusCreator: '<S190>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_MotTorqueReq = (uint16)tmp;
     }
     else
     {
-      /* BusCreator: '<S191>/BusCreator' */
+      /* BusCreator: '<S190>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_MotTorqueReq = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S191>/BusCreator' */
+    /* BusCreator: '<S190>/BusCreator' */
     AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_MotTorqueReq = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S191>/DataTypeConversion3' */
+  /* End of DataTypeConversion: '<S190>/DataTypeConversion3' */
 
-  /* BusCreator: '<S191>/BusCreator' incorporates:
-   *  Constant: '<S191>/Constant'
-   *  Switch: '<S200>/Switch4'
-   *  Switch: '<S202>/Switch4'
+  /* BusCreator: '<S190>/BusCreator' incorporates:
+   *  Constant: '<S190>/Constant'
+   *  Switch: '<S199>/Switch4'
+   *  Switch: '<S201>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_EnaInvRun = VOPM_EnaInvRun_flg;
   AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_EmShutDown = VOPM_EmgcySdn_flg;
   AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_ShiftMotorParkReq = 0U;
 
-  /* DataTypeConversion: '<S191>/DataTypeConversion7' incorporates:
-   *  Constant: '<S209>/Constant'
-   *  Sum: '<S209>/Add'
+  /* DataTypeConversion: '<S190>/DataTypeConversion7' incorporates:
+   *  Constant: '<S208>/Constant'
+   *  Sum: '<S208>/Add'
    */
   if (VOPM_MotSpdReq_rpm - -16384.0F < 65536.0F)
   {
     if (VOPM_MotSpdReq_rpm - -16384.0F >= 0.0F)
     {
-      /* BusCreator: '<S191>/BusCreator' */
+      /* BusCreator: '<S190>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_MotSpdReq = (uint16)(VOPM_MotSpdReq_rpm - -16384.0F);
     }
     else
     {
-      /* BusCreator: '<S191>/BusCreator' */
+      /* BusCreator: '<S190>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_MotSpdReq = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S191>/BusCreator' */
+    /* BusCreator: '<S190>/BusCreator' */
     AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_1_MotSpdReq = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S191>/DataTypeConversion7' */
+  /* End of DataTypeConversion: '<S190>/DataTypeConversion7' */
 
-  /* BusCreator: '<S191>/BusCreator' incorporates:
-   *  Constant: '<S191>/Constant1'
-   *  DataTypeConversion: '<S191>/DataTypeConversion9'
-   *  DataTypeConversion: '<S207>/Data Type Conversion2'
+  /* BusCreator: '<S190>/BusCreator' incorporates:
+   *  Constant: '<S190>/Constant1'
+   *  DataTypeConversion: '<S190>/DataTypeConversion9'
+   *  DataTypeConversion: '<S206>/Data Type Conversion2'
    */
   AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_INVSkid = false;
   AppSwcOpm_ARID_DEF.VCU_1_InvCmd_EPT_g.VCU_VhclTrgtGearPos =
@@ -6546,18 +6546,18 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_ActWhlTq_Nm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S158>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_ActWhlTq_Nm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S158>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs())->VVTM_ActWhlTq_Nm;
@@ -6570,7 +6570,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_ActWhlTqHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_ActWhlTqHi_Nm;
   }
 
@@ -6624,18 +6624,18 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_DrvReqWhlTq_Nm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S169>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_DrvReqWhlTq_Nm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S169>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs())
@@ -6649,7 +6649,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_DrvReqWhlTqHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_DrvReqWhlTqHi_Nm;
   }
 
@@ -6678,18 +6678,18 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_DrvWhlTqAllwdMax_Nm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S170>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_DrvWhlTqAllwdMax_Nm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S170>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs())
@@ -6703,7 +6703,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_DrvWhlTqAllwdMaxHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_DrvWhlTqAllwdMaxHi_Nm;
   }
 
@@ -6752,7 +6752,7 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_PwrRecupActlWhlTqSts_enum_ovrdflg)
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
      *  Constant: '<S172>/sat4'
      *  MinMax: '<S164>/MinMax'
      */
@@ -6760,7 +6760,7 @@ static void Runbl_Opm10ms(void)
   }
   else
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S172>/Data Type Conversion1'
      *  MinMax: '<S164>/MinMax'
@@ -6777,7 +6777,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_BrkPwrRecupActlWhlTqSts_enum > KOPM_PwrRecupActlWhlTqStsHi_enum)
   {
-    /* MinMax: '<S192>/MinMax' */
+    /* MinMax: '<S191>/MinMax' */
     VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_PwrRecupActlWhlTqStsHi_enum;
   }
 
@@ -6806,18 +6806,18 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_PwrRecupActWhlTq_Nm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S171>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_PwrRecupActWhlTq_Nm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S171>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs())
@@ -6831,7 +6831,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_PwrRecupActWhlTqHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_PwrRecupActWhlTqHi_Nm;
   }
 
@@ -6855,8 +6855,8 @@ static void Runbl_Opm10ms(void)
   /* End of Outputs for SubSystem: '<S156>/Subsys_VOPM_PwrRecupActWhlTq_Nm' */
 
   /* DataTypeConversion: '<S156>/DataTypeConversion6' incorporates:
-   *  Constant: '<S183>/Constant'
-   *  Sum: '<S183>/Add'
+   *  Constant: '<S182>/Constant'
+   *  Sum: '<S182>/Add'
    */
   if (VOPM_PwrRecupActWhlTq_Nm - -32768.0F < 65536.0F)
   {
@@ -6882,7 +6882,7 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_PwrRecupMaxAvlbWhlTqSts_enum_ovrdflg)
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
      *  Constant: '<S173>/sat4'
      *  MinMax: '<S164>/MinMax'
      */
@@ -6891,7 +6891,7 @@ static void Runbl_Opm10ms(void)
   }
   else
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S173>/Data Type Conversion1'
      *  MinMax: '<S164>/MinMax'
@@ -6908,7 +6908,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_BrkPwrRecupActlWhlTqSts_enum > KOPM_PwrRecupMaxAvlbWhlTqStsHi_enum)
   {
-    /* MinMax: '<S192>/MinMax' */
+    /* MinMax: '<S191>/MinMax' */
     VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_PwrRecupMaxAvlbWhlTqStsHi_enum;
   }
 
@@ -6937,18 +6937,18 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_BrkPwrRecupMaxAvlbWhlTq_Nm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S165>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_BrkPwrRecupMaxAvlbWhlTq_Nm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S165>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs())
@@ -6962,7 +6962,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_BrkPwrRecupMaxAvlbWhlTqHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_BrkPwrRecupMaxAvlbWhlTqHi_Nm;
   }
 
@@ -6986,8 +6986,8 @@ static void Runbl_Opm10ms(void)
   /* End of Outputs for SubSystem: '<S156>/Subsys_VOPM_BrkPwrRecupMaxAvlbWhlTq_Nm' */
 
   /* DataTypeConversion: '<S156>/DataTypeConversion8' incorporates:
-   *  Constant: '<S184>/Constant'
-   *  Sum: '<S184>/Add'
+   *  Constant: '<S183>/Constant'
+   *  Sum: '<S183>/Add'
    */
   if (VOPM_BrkPwrRecupMaxAvlbWhlTq_Nm - -32768.0F < 65536.0F)
   {
@@ -7015,7 +7015,7 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_BrkPwrRecupActlWhlTqSts_enum_ovrdflg)
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
      *  Constant: '<S164>/sat4'
      *  MinMax: '<S164>/MinMax'
      */
@@ -7024,7 +7024,7 @@ static void Runbl_Opm10ms(void)
   }
   else
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S164>/Data Type Conversion1'
      *  MinMax: '<S164>/MinMax'
@@ -7041,7 +7041,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_BrkPwrRecupActlWhlTqSts_enum > KOPM_BrkPwrRecupActlWhlTqStsHi_enum)
   {
-    /* MinMax: '<S192>/MinMax' */
+    /* MinMax: '<S191>/MinMax' */
     VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_BrkPwrRecupActlWhlTqStsHi_enum;
   }
 
@@ -7052,7 +7052,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_BrkPwrRecupActlWhlTqSts_enum < KOPM_BrkPwrRecupActlWhlTqStsLo_enum)
   {
-    /* MinMax: '<S192>/MinMax' incorporates:
+    /* MinMax: '<S191>/MinMax' incorporates:
      *  MinMax: '<S164>/MinMax1'
      */
     VOPM_BrkPwrRecupActlWhlTqSts_enum = KOPM_BrkPwrRecupActlWhlTqStsLo_enum;
@@ -7067,18 +7067,18 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_BrkPwrRecupActWhlTq_Nm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S163>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_BrkPwrRecupActWhlTq_Nm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S163>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs())
@@ -7092,7 +7092,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_BrkPwrRecupActWhlTqHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_BrkPwrRecupActWhlTqHi_Nm;
   }
 
@@ -7116,8 +7116,8 @@ static void Runbl_Opm10ms(void)
   /* End of Outputs for SubSystem: '<S156>/Subsys_VOPM_BrkPwrRecupActWhlTq_Nm' */
 
   /* DataTypeConversion: '<S156>/DataTypeConversion10' incorporates:
-   *  Constant: '<S185>/Constant'
-   *  Sum: '<S185>/Add'
+   *  Constant: '<S184>/Constant'
+   *  Sum: '<S184>/Add'
    */
   if (VOPM_BrkPwrRecupActWhlTq_Nm - -6200.0F < 65536.0F)
   {
@@ -7168,17 +7168,17 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_ActlMotorRotateSpd_rpm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S160>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_ActlMotorRotateSpd_rpm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Inport: '<Root>/IPM_INV_1_Value_EPT'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IRead_Runbl_OpmCanTx_10ms_IPM_INV_1_Value_EPT_IPM_INV_1_Value_EPT())->VIPM_INV1MotSpd_rpm;
@@ -7191,7 +7191,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_ActlMotorRotateSpdHi_rpm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_ActlMotorRotateSpdHi_rpm;
   }
 
@@ -7243,17 +7243,17 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_ActlMotorTorq_Nm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S162>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_ActlMotorTorq_Nm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Inport: '<Root>/IPM_INV_1_Value_EPT'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IRead_Runbl_OpmCanTx_10ms_IPM_INV_1_Value_EPT_IPM_INV_1_Value_EPT())->VIPM_INV1ActTorq_Nm;
@@ -7266,7 +7266,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_ActlMotorTorqHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_ActlMotorTorqHi_Nm;
   }
 
@@ -7318,18 +7318,18 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_DrvReqMotorTorq_Nm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S167>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_DrvReqMotorTorq_Nm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S167>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs())
@@ -7343,7 +7343,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_DrvReqMotorTorqHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_DrvReqMotorTorqHi_Nm;
   }
 
@@ -7390,31 +7390,6 @@ static void Runbl_Opm10ms(void)
 
   /* End of Switch: '<S166>/Switch4' */
   /* End of Outputs for SubSystem: '<S156>/Subsys_VOPM_DrvReqMotorTorqVld_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S156>/Subsys_VOPM_VCUVehSpdFastWarn_flg' */
-  /* Switch: '<S179>/Switch4' incorporates:
-   *  Constant: '<S179>/sat3'
-   */
-  if (KOPM_VCUVehSpdFastWarn_flg_ovrdflg)
-  {
-    /* Switch: '<S179>/Switch4' incorporates:
-     *  Constant: '<S179>/sat4'
-     */
-    VOPM_VCUVehSpdFastWarn_flg = KOPM_VCUVehSpdFastWarn_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S179>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S179>/Data Type Conversion1'
-     */
-    VOPM_VCUVehSpdFastWarn_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs())
-            ->VGSM_VehSpdFstWrn_flg;
-  }
-
-  /* End of Switch: '<S179>/Switch4' */
-  /* End of Outputs for SubSystem: '<S156>/Subsys_VOPM_VCUVehSpdFastWarn_flg' */
 
   /* Outputs for Atomic SubSystem: '<S156>/Subsys_VOPM_VCUEnaEHBBrkRun_flg' */
   /* Switch: '<S176>/Switch4' incorporates:
@@ -7472,18 +7447,18 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_VCUMotTorqueReqToEHB_Nm_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S178>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_VCUMotTorqueReqToEHB_Nm_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S178>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs())
@@ -7497,7 +7472,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_VCUMotTorqueReqToEHBHi_Nm)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_VCUMotTorqueReqToEHBHi_Nm;
   }
 
@@ -7521,10 +7496,10 @@ static void Runbl_Opm10ms(void)
   /* End of Outputs for SubSystem: '<S156>/Subsys_VOPM_VCUMotTorqueReqToEHB_Nm' */
 
   /* DataTypeConversion: '<S156>/DataTypeConversion22' incorporates:
-   *  Constant: '<S189>/Constant'
-   *  Constant: '<S189>/Constant1'
-   *  Product: '<S189>/Product1'
-   *  Sum: '<S189>/Add'
+   *  Constant: '<S188>/Constant'
+   *  Constant: '<S188>/Constant1'
+   *  Product: '<S188>/Product1'
+   *  Sum: '<S188>/Add'
    */
   tmp = (VOPM_VCUMotTorqueReqToEHB_Nm - -819.2F) * 10.0F;
   if (tmp < 65536.0F)
@@ -7553,18 +7528,18 @@ static void Runbl_Opm10ms(void)
    */
   if (KOPM_VCUMasterCylinderPreReq_Bar_ovrdflg)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  Constant: '<S177>/sat4'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_VCUMasterCylinderPreReq_Bar_ovrdval;
   }
   else
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S177>/Data Type Conversion1'
-     *  Product: '<S181>/Product1'
+     *  Product: '<S180>/Product1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar =
         (Rte_IrvIRead_Runbl_OpmCanTx_10ms_Vcu2OpmCHA_outputs())
@@ -7578,7 +7553,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar > KOPM_VCUMasterCylinderPreReqHi_Bar)
   {
-    /* MinMax: '<S194>/MinMax' */
+    /* MinMax: '<S193>/MinMax' */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_VCUMasterCylinderPreReqHi_Bar;
   }
 
@@ -7589,7 +7564,7 @@ static void Runbl_Opm10ms(void)
    */
   if (VOPM_VCUMasterCylinderPreReq_Bar < KOPM_VCUMasterCylinderPreReqLo_Bar)
   {
-    /* MinMax: '<S194>/MinMax' incorporates:
+    /* MinMax: '<S193>/MinMax' incorporates:
      *  MinMax: '<S177>/MinMax1'
      */
     VOPM_VCUMasterCylinderPreReq_Bar = KOPM_VCUMasterCylinderPreReqLo_Bar;
@@ -7599,9 +7574,9 @@ static void Runbl_Opm10ms(void)
   /* End of Outputs for SubSystem: '<S156>/Subsys_VOPM_VCUMasterCylinderPreReq_Bar' */
 
   /* DataTypeConversion: '<S156>/DataTypeConversion23' incorporates:
-   *  Constant: '<S181>/Constant1'
-   *  Product: '<S181>/Product1'
-   *  Sum: '<S181>/Add'
+   *  Constant: '<S180>/Constant1'
+   *  Product: '<S180>/Product1'
+   *  Sum: '<S180>/Add'
    */
   tmp = VOPM_VCUMasterCylinderPreReq_Bar * 8.0F;
   if (tmp < 65536.0F)
@@ -7630,10 +7605,10 @@ static void Runbl_Opm10ms(void)
   AppSwcOpm_ARID_DEF.VCU_10_Torque_CHA_j.VCU_ActWhlTqVld = VOPM_ActWhlTqVld_flg;
 
   /* DataTypeConversion: '<S156>/DataTypeConversion1' incorporates:
-   *  Constant: '<S180>/Constant'
-   *  Constant: '<S180>/Constant1'
-   *  Product: '<S180>/Product1'
-   *  Sum: '<S180>/Add'
+   *  Constant: '<S179>/Constant'
+   *  Constant: '<S179>/Constant1'
+   *  Product: '<S179>/Product1'
+   *  Sum: '<S179>/Add'
    */
   tmp = (VOPM_ActWhlTq_Nm - -6200.0F) * 2.0F;
   if (tmp < 65536.0F)
@@ -7664,10 +7639,10 @@ static void Runbl_Opm10ms(void)
       VOPM_DrvReqWhlTqVld_flg;
 
   /* DataTypeConversion: '<S156>/DataTypeConversion3' incorporates:
-   *  Constant: '<S182>/Constant'
-   *  Constant: '<S182>/Constant1'
-   *  Product: '<S182>/Product1'
-   *  Sum: '<S182>/Add'
+   *  Constant: '<S181>/Constant'
+   *  Constant: '<S181>/Constant1'
+   *  Product: '<S181>/Product1'
+   *  Sum: '<S181>/Add'
    */
   tmp = (VOPM_DrvReqWhlTq_Nm - -6200.0F) * 2.0F;
   if (tmp < 65536.0F)
@@ -7704,8 +7679,8 @@ static void Runbl_Opm10ms(void)
       VOPM_VCUAccReqDrvOff_flg;
 
   /* DataTypeConversion: '<S156>/DataTypeConversion12' incorporates:
-   *  Constant: '<S186>/Constant'
-   *  Sum: '<S186>/Add'
+   *  Constant: '<S185>/Constant'
+   *  Sum: '<S185>/Add'
    */
   if (VOPM_ActlMotorRotateSpd_rpm - -10000.0F < 65536.0F)
   {
@@ -7736,10 +7711,10 @@ static void Runbl_Opm10ms(void)
       VOPM_ActlMotorRotateSpdVld_flg;
 
   /* DataTypeConversion: '<S156>/DataTypeConversion14' incorporates:
-   *  Constant: '<S187>/Constant'
-   *  Constant: '<S187>/Constant1'
-   *  Product: '<S187>/Product1'
-   *  Sum: '<S187>/Add'
+   *  Constant: '<S186>/Constant'
+   *  Constant: '<S186>/Constant1'
+   *  Product: '<S186>/Product1'
+   *  Sum: '<S186>/Add'
    */
   tmp = (VOPM_ActlMotorTorq_Nm - -1000.0F) * 2.0F;
   if (tmp < 65536.0F)
@@ -7770,10 +7745,10 @@ static void Runbl_Opm10ms(void)
       VOPM_ActlMotorTorqVld_flg;
 
   /* DataTypeConversion: '<S156>/DataTypeConversion16' incorporates:
-   *  Constant: '<S188>/Constant'
-   *  Constant: '<S188>/Constant1'
-   *  Product: '<S188>/Product1'
-   *  Sum: '<S188>/Add'
+   *  Constant: '<S187>/Constant'
+   *  Constant: '<S187>/Constant1'
+   *  Product: '<S187>/Product1'
+   *  Sum: '<S187>/Add'
    */
   tmp = (VOPM_DrvReqMotorTorq_Nm - -1000.0F) * 2.0F;
   if (tmp < 65536.0F)
@@ -7801,13 +7776,10 @@ static void Runbl_Opm10ms(void)
    *  Switch: '<S166>/Switch4'
    *  Switch: '<S175>/Switch4'
    *  Switch: '<S176>/Switch4'
-   *  Switch: '<S179>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_10_Torque_CHA_j.VCU_DrvReq_MotorTorqV =
       VOPM_DrvReqMotorTorqVld_flg;
   AppSwcOpm_ARID_DEF.VCU_10_Torque_CHA_j.VCU_EparkSysSta = false;
-  AppSwcOpm_ARID_DEF.VCU_10_Torque_CHA_j.VCU_VhclSpeedFastWarn =
-      VOPM_VCUVehSpdFastWarn_flg;
   AppSwcOpm_ARID_DEF.VCU_10_Torque_CHA_j.VCU_EnaEHBBrkRun =
       VOPM_VCUEnaEHBBrkRun_flg;
   AppSwcOpm_ARID_DEF.VCU_10_Torque_CHA_j.VCU_AccReqStandstill =
@@ -7820,11 +7792,11 @@ static void Runbl_Opm20ms(void)
   float32 tmp;
   uint8 rtb_VCU_CruiseCtrlSta;
 
-  /* Outputs for Atomic SubSystem: '<S308>/Subsys_VOPM_MotorOutputCooltTemp_C' */
-  /* Switch: '<S316>/Switch4' incorporates:
-   *  Constant: '<S308>/Constant'
-   *  Constant: '<S316>/sat3'
-   *  Constant: '<S316>/sat4'
+  /* Outputs for Atomic SubSystem: '<S314>/Subsys_VOPM_MotorOutputCooltTemp_C' */
+  /* Switch: '<S322>/Switch4' incorporates:
+   *  Constant: '<S314>/Constant'
+   *  Constant: '<S322>/sat3'
+   *  Constant: '<S322>/sat4'
    */
   if (KOPM_MotorOutputCooltTemp_C_ovrdflg)
   {
@@ -7835,584 +7807,13 @@ static void Runbl_Opm20ms(void)
     VOPM_MotorOutputCooltTemp_C = 0.0F;
   }
 
-  /* MinMax: '<S316>/MinMax' incorporates:
-   *  Constant: '<S316>/sat6'
-   *  Switch: '<S316>/Switch4'
+  /* MinMax: '<S322>/MinMax' incorporates:
+   *  Constant: '<S322>/sat6'
+   *  Switch: '<S322>/Switch4'
    */
   if (VOPM_MotorOutputCooltTemp_C > KOPM_MotorOutputCooltTempHi_C)
   {
     VOPM_MotorOutputCooltTemp_C = KOPM_MotorOutputCooltTempHi_C;
-  }
-
-  /* End of MinMax: '<S316>/MinMax' */
-
-  /* MinMax: '<S316>/MinMax1' incorporates:
-   *  Constant: '<S316>/sat7'
-   */
-  if (VOPM_MotorOutputCooltTemp_C < KOPM_MotorOutputCooltTempLo_C)
-  {
-    /* Switch: '<S316>/Switch4' incorporates:
-     *  MinMax: '<S316>/MinMax1'
-     */
-    VOPM_MotorOutputCooltTemp_C = KOPM_MotorOutputCooltTempLo_C;
-  }
-
-  /* End of MinMax: '<S316>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S308>/Subsys_VOPM_MotorOutputCooltTemp_C' */
-
-  /* Outputs for Atomic SubSystem: '<S308>/Subsys_VOPM_AllowHeatCoolMaxPwrCmsp_kW' */
-  /* Switch: '<S312>/Switch4' incorporates:
-   *  Constant: '<S312>/sat3'
-   */
-  if (KOPM_AllowHeatCoolMaxPwrCmsp_kW_ovrdflg)
-  {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S312>/sat4'
-     *  Product: '<S307>/Product1'
-     */
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_AllowHeatCoolMaxPwrCmsp_kW_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S312>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
-     */
-    VOPM_VCUCruiseCtrTgtSpd_kph =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
-            ->VEMS_HeatCoolMaxPwrCmsp_kW;
-  }
-
-  /* End of Switch: '<S312>/Switch4' */
-
-  /* MinMax: '<S312>/MinMax' incorporates:
-   *  Constant: '<S312>/sat6'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_AllowHeatCoolMaxPwrCmspHi_kW)
-  {
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_AllowHeatCoolMaxPwrCmspHi_kW;
-  }
-
-  /* MinMax: '<S312>/MinMax1' incorporates:
-   *  Constant: '<S312>/sat7'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_AllowHeatCoolMaxPwrCmspLo_kW)
-  {
-    /* MinMax: '<S312>/MinMax1' */
-    VOPM_AllowHeatCoolMaxPwrCmsp_kW = VOPM_VCUCruiseCtrTgtSpd_kph;
-  }
-  else
-  {
-    /* MinMax: '<S312>/MinMax1' */
-    VOPM_AllowHeatCoolMaxPwrCmsp_kW = KOPM_AllowHeatCoolMaxPwrCmspLo_kW;
-  }
-
-  /* End of MinMax: '<S312>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S308>/Subsys_VOPM_AllowHeatCoolMaxPwrCmsp_kW' */
-
-  /* Outputs for Atomic SubSystem: '<S308>/Subsys_VOPM_Bat2DrvTrainEnb_flg' */
-  /* Switch: '<S314>/Switch4' incorporates:
-   *  Constant: '<S314>/sat3'
-   */
-  if (KOPM_Bat2DrvTrainEnb_flg_ovrdflg)
-  {
-    /* Switch: '<S314>/Switch4' incorporates:
-     *  Constant: '<S314>/sat4'
-     */
-    VOPM_Bat2DrvTrainEnb_flg = KOPM_Bat2DrvTrainEnb_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S314>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S314>/Data Type Conversion1'
-     */
-    VOPM_Bat2DrvTrainEnb_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
-            ->VHVM_Bat2DrvTrainEnbl_flg;
-  }
-
-  /* End of Switch: '<S314>/Switch4' */
-  /* End of Outputs for SubSystem: '<S308>/Subsys_VOPM_Bat2DrvTrainEnb_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S308>/Subsys_VOPM_ChrgEnaAC_enum' */
-  /* Switch: '<S315>/Switch4' incorporates:
-   *  Constant: '<S315>/sat3'
-   */
-  if (KOPM_ChrgEnaAC_enum_ovrdflg)
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  Constant: '<S315>/sat4'
-     *  DataTypeConversion: '<S315>/Data Type Conversion3'
-     */
-    rtb_VCU_CruiseCtrlSta = KOPM_ChrgEnaAC_enum_ovrdval;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S315>/Data Type Conversion1'
-     */
-    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_ChrgEnaAC_enum;
-  }
-
-  /* End of Switch: '<S315>/Switch4' */
-
-  /* MinMax: '<S315>/MinMax' incorporates:
-   *  Constant: '<S315>/sat6'
-   */
-  if (rtb_VCU_CruiseCtrlSta > KOPM_ChrgEnaACHi_enum)
-  {
-    rtb_VCU_CruiseCtrlSta = KOPM_ChrgEnaACHi_enum;
-  }
-
-  /* End of MinMax: '<S315>/MinMax' */
-
-  /* MinMax: '<S315>/MinMax1' incorporates:
-   *  Constant: '<S315>/sat7'
-   */
-  if (rtb_VCU_CruiseCtrlSta >= KOPM_ChrgEnaACLo_enum)
-  {
-    /* DataTypeConversion: '<S315>/Data Type Conversion2' */
-    VOPM_ChrgEnaAC_enum = rtb_VCU_CruiseCtrlSta;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S315>/Data Type Conversion2' */
-    VOPM_ChrgEnaAC_enum = KOPM_ChrgEnaACLo_enum;
-  }
-
-  /* End of MinMax: '<S315>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S308>/Subsys_VOPM_ChrgEnaAC_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S308>/Subsys_VOPM_BMSWakeupMode_enum' */
-  /* Switch: '<S313>/Switch4' incorporates:
-   *  Constant: '<S313>/sat3'
-   */
-  if (KOPM_BMSWakeupMode_enum_ovrdflg)
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  Constant: '<S313>/sat4'
-     *  DataTypeConversion: '<S313>/Data Type Conversion3'
-     */
-    rtb_VCU_CruiseCtrlSta = KOPM_BMSWakeupMode_enum_ovrdval;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S313>/Data Type Conversion1'
-     */
-    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_BMSWakeUpMode_enum;
-  }
-
-  /* End of Switch: '<S313>/Switch4' */
-
-  /* MinMax: '<S313>/MinMax' incorporates:
-   *  Constant: '<S313>/sat6'
-   */
-  if (rtb_VCU_CruiseCtrlSta > KOPM_BMSWakeupModeHi_enum)
-  {
-    rtb_VCU_CruiseCtrlSta = KOPM_BMSWakeupModeHi_enum;
-  }
-
-  /* End of MinMax: '<S313>/MinMax' */
-
-  /* MinMax: '<S313>/MinMax1' incorporates:
-   *  Constant: '<S313>/sat7'
-   */
-  if (rtb_VCU_CruiseCtrlSta >= KOPM_BMSWakeupModeLo_enum)
-  {
-    /* DataTypeConversion: '<S313>/Data Type Conversion2' */
-    VOPM_BMSWakeupMode_enum = rtb_VCU_CruiseCtrlSta;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S313>/Data Type Conversion2' */
-    VOPM_BMSWakeupMode_enum = KOPM_BMSWakeupModeLo_enum;
-  }
-
-  /* End of MinMax: '<S313>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S308>/Subsys_VOPM_BMSWakeupMode_enum' */
-
-  /* DataTypeConversion: '<S308>/DataTypeConversion' incorporates:
-   *  Constant: '<S317>/Constant'
-   *  Sum: '<S317>/Add'
-   */
-  if (VOPM_MotorOutputCooltTemp_C - -40.0F < 256.0F)
-  {
-    if (VOPM_MotorOutputCooltTemp_C - -40.0F >= 0.0F)
-    {
-      /* BusCreator: '<S308>/BusCreator' */
-      AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_MotoroutputCoolantTemp = (uint8)(VOPM_MotorOutputCooltTemp_C - -40.0F);
-    }
-    else
-    {
-      /* BusCreator: '<S308>/BusCreator' */
-      AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_MotoroutputCoolantTemp = 0U;
-    }
-  }
-  else
-  {
-    /* BusCreator: '<S308>/BusCreator' */
-    AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_MotoroutputCoolantTemp =
-        MAX_uint8_T;
-  }
-
-  /* End of DataTypeConversion: '<S308>/DataTypeConversion' */
-
-  /* DataTypeConversion: '<S308>/DataTypeConversion1' incorporates:
-   *  Constant: '<S318>/Constant1'
-   *  Product: '<S318>/Product1'
-   *  Sum: '<S318>/Add'
-   */
-  tmp = VOPM_AllowHeatCoolMaxPwrCmsp_kW * 25.0F;
-  if (tmp < 65536.0F)
-  {
-    if (tmp >= 0.0F)
-    {
-      /* BusCreator: '<S308>/BusCreator' */
-      AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_AllowHeatCoolMaxPwrCmsp =
-          (uint16)tmp;
-    }
-    else
-    {
-      /* BusCreator: '<S308>/BusCreator' */
-      AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_AllowHeatCoolMaxPwrCmsp = 0U;
-    }
-  }
-  else
-  {
-    /* BusCreator: '<S308>/BusCreator' */
-    AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_AllowHeatCoolMaxPwrCmsp =
-        MAX_uint16_T;
-  }
-
-  /* End of DataTypeConversion: '<S308>/DataTypeConversion1' */
-
-  /* BusCreator: '<S308>/BusCreator' incorporates:
-   *  DataTypeConversion: '<S308>/DataTypeConversion3'
-   *  DataTypeConversion: '<S308>/DataTypeConversion4'
-   *  DataTypeConversion: '<S313>/Data Type Conversion2'
-   *  DataTypeConversion: '<S315>/Data Type Conversion2'
-   *  Switch: '<S314>/Switch4'
-   */
-  AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_Bat2DrvTrainEnb =
-      VOPM_Bat2DrvTrainEnb_flg;
-  AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_ChrgEna_AC = VOPM_ChrgEnaAC_enum;
-  AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_BMS_WakeupMode =
-      VOPM_BMSWakeupMode_enum;
-
-  /* Outputs for Atomic SubSystem: '<S309>/Subsys_VOPM_MaxChrgCurntDC_A' */
-  /* Switch: '<S323>/Switch4' incorporates:
-   *  Constant: '<S323>/sat3'
-   */
-  if (KOPM_MaxChrgCurntDC_A_ovrdflg)
-  {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S323>/sat4'
-     *  Product: '<S307>/Product1'
-     */
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxChrgCurntDC_A_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S323>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
-     */
-    VOPM_VCUCruiseCtrTgtSpd_kph =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
-            ->VHVM_MaxChrgCurntDC_A;
-  }
-
-  /* End of Switch: '<S323>/Switch4' */
-
-  /* MinMax: '<S323>/MinMax' incorporates:
-   *  Constant: '<S323>/sat6'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_MaxChrgCurntDCHi_A)
-  {
-    /* MinMax: '<S312>/MinMax' */
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxChrgCurntDCHi_A;
-  }
-
-  /* End of MinMax: '<S323>/MinMax' */
-
-  /* MinMax: '<S323>/MinMax1' incorporates:
-   *  Constant: '<S323>/sat7'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_MaxChrgCurntDCLo_A)
-  {
-    /* MinMax: '<S323>/MinMax1' */
-    VOPM_MaxChrgCurntDC_A = VOPM_VCUCruiseCtrTgtSpd_kph;
-  }
-  else
-  {
-    /* MinMax: '<S323>/MinMax1' */
-    VOPM_MaxChrgCurntDC_A = KOPM_MaxChrgCurntDCLo_A;
-  }
-
-  /* End of MinMax: '<S323>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S309>/Subsys_VOPM_MaxChrgCurntDC_A' */
-
-  /* Outputs for Atomic SubSystem: '<S309>/Subsys_VOPM_BMSShutdown_enum' */
-  /* Switch: '<S319>/Switch4' incorporates:
-   *  Constant: '<S319>/sat3'
-   */
-  if (KOPM_BMSShutdown_enum_ovrdflg)
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  Constant: '<S319>/sat4'
-     *  DataTypeConversion: '<S319>/Data Type Conversion3'
-     */
-    rtb_VCU_CruiseCtrlSta = KOPM_BMSShutdown_enum_ovrdval;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S319>/Data Type Conversion1'
-     */
-    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_BMSShutdown_enum;
-  }
-
-  /* End of Switch: '<S319>/Switch4' */
-
-  /* MinMax: '<S319>/MinMax' incorporates:
-   *  Constant: '<S319>/sat6'
-   */
-  if (rtb_VCU_CruiseCtrlSta > KOPM_BMSShutdownHi_enum)
-  {
-    rtb_VCU_CruiseCtrlSta = KOPM_BMSShutdownHi_enum;
-  }
-
-  /* End of MinMax: '<S319>/MinMax' */
-
-  /* MinMax: '<S319>/MinMax1' incorporates:
-   *  Constant: '<S319>/sat7'
-   */
-  if (rtb_VCU_CruiseCtrlSta >= KOPM_BMSShutdownLo_enum)
-  {
-    /* DataTypeConversion: '<S319>/Data Type Conversion2' */
-    VOPM_BMSShutdown_enum = rtb_VCU_CruiseCtrlSta;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S319>/Data Type Conversion2' */
-    VOPM_BMSShutdown_enum = KOPM_BMSShutdownLo_enum;
-  }
-
-  /* End of MinMax: '<S319>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S309>/Subsys_VOPM_BMSShutdown_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S309>/Subsys_VOPM_ChrgAllowCmd_enum' */
-  /* Switch: '<S320>/Switch4' incorporates:
-   *  Constant: '<S320>/sat3'
-   */
-  if (KOPM_ChrgAllowCmd_enum_ovrdflg)
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  Constant: '<S320>/sat4'
-     *  DataTypeConversion: '<S320>/Data Type Conversion3'
-     */
-    rtb_VCU_CruiseCtrlSta = KOPM_ChrgAllowCmd_enum_ovrdval;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S320>/Data Type Conversion1'
-     */
-    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_ChrgAllowCmd_enum;
-  }
-
-  /* End of Switch: '<S320>/Switch4' */
-
-  /* MinMax: '<S320>/MinMax' incorporates:
-   *  Constant: '<S320>/sat6'
-   */
-  if (rtb_VCU_CruiseCtrlSta > KOPM_ChrgAllowCmdHi_enum)
-  {
-    rtb_VCU_CruiseCtrlSta = KOPM_ChrgAllowCmdHi_enum;
-  }
-
-  /* End of MinMax: '<S320>/MinMax' */
-
-  /* MinMax: '<S320>/MinMax1' incorporates:
-   *  Constant: '<S320>/sat7'
-   */
-  if (rtb_VCU_CruiseCtrlSta >= KOPM_ChrgAllowCmdLo_enum)
-  {
-    /* DataTypeConversion: '<S320>/Data Type Conversion2' */
-    VOPM_ChrgAllowCmd_enum = rtb_VCU_CruiseCtrlSta;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S320>/Data Type Conversion2' */
-    VOPM_ChrgAllowCmd_enum = KOPM_ChrgAllowCmdLo_enum;
-  }
-
-  /* End of MinMax: '<S320>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S309>/Subsys_VOPM_ChrgAllowCmd_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S309>/Subsys_VOPM_ChrgEnaDC_flg' */
-  /* Switch: '<S321>/Switch4' incorporates:
-   *  Constant: '<S321>/sat3'
-   */
-  if (KOPM_ChrgEnaDC_flg_ovrdflg)
-  {
-    /* Switch: '<S321>/Switch4' incorporates:
-     *  Constant: '<S321>/sat4'
-     */
-    VOPM_ChrgEnaDC_flg = KOPM_ChrgEnaDC_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S321>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S321>/Data Type Conversion1'
-     */
-    VOPM_ChrgEnaDC_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_ChrgEnaDC_flg;
-  }
-
-  /* End of Switch: '<S321>/Switch4' */
-  /* End of Outputs for SubSystem: '<S309>/Subsys_VOPM_ChrgEnaDC_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S309>/Subsys_VOPM_MaxChrgVoltDC_V' */
-  /* Switch: '<S324>/Switch4' incorporates:
-   *  Constant: '<S324>/sat3'
-   */
-  if (KOPM_MaxChrgVoltDC_V_ovrdflg)
-  {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S324>/sat4'
-     *  Product: '<S307>/Product1'
-     */
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxChrgVoltDC_V_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S324>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
-     */
-    VOPM_VCUCruiseCtrTgtSpd_kph =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
-            ->VHVM_MaxChrgVoltDC_V;
-  }
-
-  /* End of Switch: '<S324>/Switch4' */
-
-  /* MinMax: '<S324>/MinMax' incorporates:
-   *  Constant: '<S324>/sat6'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_MaxChrgVoltDCHi_V)
-  {
-    /* MinMax: '<S312>/MinMax' */
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxChrgVoltDCHi_V;
-  }
-
-  /* End of MinMax: '<S324>/MinMax' */
-
-  /* MinMax: '<S324>/MinMax1' incorporates:
-   *  Constant: '<S324>/sat7'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_MaxChrgVoltDCLo_V)
-  {
-    /* MinMax: '<S324>/MinMax1' */
-    VOPM_MaxChrgVoltDC_V = VOPM_VCUCruiseCtrTgtSpd_kph;
-  }
-  else
-  {
-    /* MinMax: '<S324>/MinMax1' */
-    VOPM_MaxChrgVoltDC_V = KOPM_MaxChrgVoltDCLo_V;
-  }
-
-  /* End of MinMax: '<S324>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S309>/Subsys_VOPM_MaxChrgVoltDC_V' */
-
-  /* Outputs for Atomic SubSystem: '<S309>/Subsys_VOPM_OBCOprtCmd_enum' */
-  /* Switch: '<S325>/Switch4' incorporates:
-   *  Constant: '<S325>/sat3'
-   */
-  if (KOPM_OBCOprtCmd_enum_ovrdflg)
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  Constant: '<S325>/sat4'
-     *  DataTypeConversion: '<S325>/Data Type Conversion3'
-     */
-    rtb_VCU_CruiseCtrlSta = KOPM_OBCOprtCmd_enum_ovrdval;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S325>/Data Type Conversion1'
-     */
-    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_OBCOprtCmd_enum;
-  }
-
-  /* End of Switch: '<S325>/Switch4' */
-
-  /* MinMax: '<S325>/MinMax' incorporates:
-   *  Constant: '<S325>/sat6'
-   */
-  if (rtb_VCU_CruiseCtrlSta > KOPM_OBCOprtCmdHi_enum)
-  {
-    rtb_VCU_CruiseCtrlSta = KOPM_OBCOprtCmdHi_enum;
-  }
-
-  /* End of MinMax: '<S325>/MinMax' */
-
-  /* MinMax: '<S325>/MinMax1' incorporates:
-   *  Constant: '<S325>/sat7'
-   */
-  if (rtb_VCU_CruiseCtrlSta >= KOPM_OBCOprtCmdLo_enum)
-  {
-    /* DataTypeConversion: '<S325>/Data Type Conversion2' */
-    VOPM_OBCOprtCmd_enum = rtb_VCU_CruiseCtrlSta;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S325>/Data Type Conversion2' */
-    VOPM_OBCOprtCmd_enum = KOPM_OBCOprtCmdLo_enum;
-  }
-
-  /* End of MinMax: '<S325>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S309>/Subsys_VOPM_OBCOprtCmd_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S309>/Subsys_VOPM_MaxChrgCurntAC_A' */
-  /* Switch: '<S322>/Switch4' incorporates:
-   *  Constant: '<S322>/sat3'
-   */
-  if (KOPM_MaxChrgCurntAC_A_ovrdflg)
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  Constant: '<S322>/sat4'
-     */
-    rtb_VCU_CruiseCtrlSta = KOPM_MaxChrgCurntAC_A_ovrdval;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S322>/Data Type Conversion1'
-     */
-    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_MaxChrgCurntAC_A;
-  }
-
-  /* End of Switch: '<S322>/Switch4' */
-
-  /* MinMax: '<S322>/MinMax' incorporates:
-   *  Constant: '<S322>/sat6'
-   */
-  if (rtb_VCU_CruiseCtrlSta > KOPM_MaxChrgCurntACHi_A)
-  {
-    rtb_VCU_CruiseCtrlSta = KOPM_MaxChrgCurntACHi_A;
   }
 
   /* End of MinMax: '<S322>/MinMax' */
@@ -8420,113 +7821,283 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S322>/MinMax1' incorporates:
    *  Constant: '<S322>/sat7'
    */
-  if (rtb_VCU_CruiseCtrlSta >= KOPM_MaxChrgCurntACLo_A)
+  if (VOPM_MotorOutputCooltTemp_C < KOPM_MotorOutputCooltTempLo_C)
   {
-    /* MinMax: '<S322>/MinMax1' */
-    VOPM_MaxChrgCurntAC_A = rtb_VCU_CruiseCtrlSta;
-  }
-  else
-  {
-    /* MinMax: '<S322>/MinMax1' */
-    VOPM_MaxChrgCurntAC_A = KOPM_MaxChrgCurntACLo_A;
+    /* Switch: '<S322>/Switch4' incorporates:
+     *  MinMax: '<S322>/MinMax1'
+     */
+    VOPM_MotorOutputCooltTemp_C = KOPM_MotorOutputCooltTempLo_C;
   }
 
   /* End of MinMax: '<S322>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S309>/Subsys_VOPM_MaxChrgCurntAC_A' */
+  /* End of Outputs for SubSystem: '<S314>/Subsys_VOPM_MotorOutputCooltTemp_C' */
 
-  /* BusCreator: '<S309>/BusCreator' incorporates:
-   *  DataTypeConversion: '<S309>/DataTypeConversion'
-   *  DataTypeConversion: '<S309>/DataTypeConversion1'
+  /* Outputs for Atomic SubSystem: '<S314>/Subsys_VOPM_AllowHeatCoolMaxPwrCmsp_kW' */
+  /* Switch: '<S318>/Switch4' incorporates:
+   *  Constant: '<S318>/sat3'
+   */
+  if (KOPM_AllowHeatCoolMaxPwrCmsp_kW_ovrdflg)
+  {
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S318>/sat4'
+     *  Product: '<S313>/Product1'
+     */
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_AllowHeatCoolMaxPwrCmsp_kW_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S318>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
+     */
+    VOPM_VCUCruiseCtrTgtSpd_kph =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
+            ->VEMS_HeatCoolMaxPwrCmsp_kW;
+  }
+
+  /* End of Switch: '<S318>/Switch4' */
+
+  /* MinMax: '<S318>/MinMax' incorporates:
+   *  Constant: '<S318>/sat6'
+   */
+  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_AllowHeatCoolMaxPwrCmspHi_kW)
+  {
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_AllowHeatCoolMaxPwrCmspHi_kW;
+  }
+
+  /* MinMax: '<S318>/MinMax1' incorporates:
+   *  Constant: '<S318>/sat7'
+   */
+  if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_AllowHeatCoolMaxPwrCmspLo_kW)
+  {
+    /* MinMax: '<S318>/MinMax1' */
+    VOPM_AllowHeatCoolMaxPwrCmsp_kW = VOPM_VCUCruiseCtrTgtSpd_kph;
+  }
+  else
+  {
+    /* MinMax: '<S318>/MinMax1' */
+    VOPM_AllowHeatCoolMaxPwrCmsp_kW = KOPM_AllowHeatCoolMaxPwrCmspLo_kW;
+  }
+
+  /* End of MinMax: '<S318>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S314>/Subsys_VOPM_AllowHeatCoolMaxPwrCmsp_kW' */
+
+  /* Outputs for Atomic SubSystem: '<S314>/Subsys_VOPM_Bat2DrvTrainEnb_flg' */
+  /* Switch: '<S320>/Switch4' incorporates:
+   *  Constant: '<S320>/sat3'
+   */
+  if (KOPM_Bat2DrvTrainEnb_flg_ovrdflg)
+  {
+    /* Switch: '<S320>/Switch4' incorporates:
+     *  Constant: '<S320>/sat4'
+     */
+    VOPM_Bat2DrvTrainEnb_flg = KOPM_Bat2DrvTrainEnb_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S320>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S320>/Data Type Conversion1'
+     */
+    VOPM_Bat2DrvTrainEnb_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
+            ->VHVM_Bat2DrvTrainEnbl_flg;
+  }
+
+  /* End of Switch: '<S320>/Switch4' */
+  /* End of Outputs for SubSystem: '<S314>/Subsys_VOPM_Bat2DrvTrainEnb_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S314>/Subsys_VOPM_ChrgEnaAC_enum' */
+  /* Switch: '<S321>/Switch4' incorporates:
+   *  Constant: '<S321>/sat3'
+   */
+  if (KOPM_ChrgEnaAC_enum_ovrdflg)
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  Constant: '<S321>/sat4'
+     *  DataTypeConversion: '<S321>/Data Type Conversion3'
+     */
+    rtb_VCU_CruiseCtrlSta = KOPM_ChrgEnaAC_enum_ovrdval;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S321>/Data Type Conversion1'
+     */
+    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_ChrgEnaAC_enum;
+  }
+
+  /* End of Switch: '<S321>/Switch4' */
+
+  /* MinMax: '<S321>/MinMax' incorporates:
+   *  Constant: '<S321>/sat6'
+   */
+  if (rtb_VCU_CruiseCtrlSta > KOPM_ChrgEnaACHi_enum)
+  {
+    rtb_VCU_CruiseCtrlSta = KOPM_ChrgEnaACHi_enum;
+  }
+
+  /* End of MinMax: '<S321>/MinMax' */
+
+  /* MinMax: '<S321>/MinMax1' incorporates:
+   *  Constant: '<S321>/sat7'
+   */
+  if (rtb_VCU_CruiseCtrlSta >= KOPM_ChrgEnaACLo_enum)
+  {
+    /* DataTypeConversion: '<S321>/Data Type Conversion2' */
+    VOPM_ChrgEnaAC_enum = rtb_VCU_CruiseCtrlSta;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S321>/Data Type Conversion2' */
+    VOPM_ChrgEnaAC_enum = KOPM_ChrgEnaACLo_enum;
+  }
+
+  /* End of MinMax: '<S321>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S314>/Subsys_VOPM_ChrgEnaAC_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S314>/Subsys_VOPM_BMSWakeupMode_enum' */
+  /* Switch: '<S319>/Switch4' incorporates:
+   *  Constant: '<S319>/sat3'
+   */
+  if (KOPM_BMSWakeupMode_enum_ovrdflg)
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  Constant: '<S319>/sat4'
+     *  DataTypeConversion: '<S319>/Data Type Conversion3'
+     */
+    rtb_VCU_CruiseCtrlSta = KOPM_BMSWakeupMode_enum_ovrdval;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S319>/Data Type Conversion1'
+     */
+    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_BMSWakeUpMode_enum;
+  }
+
+  /* End of Switch: '<S319>/Switch4' */
+
+  /* MinMax: '<S319>/MinMax' incorporates:
+   *  Constant: '<S319>/sat6'
+   */
+  if (rtb_VCU_CruiseCtrlSta > KOPM_BMSWakeupModeHi_enum)
+  {
+    rtb_VCU_CruiseCtrlSta = KOPM_BMSWakeupModeHi_enum;
+  }
+
+  /* End of MinMax: '<S319>/MinMax' */
+
+  /* MinMax: '<S319>/MinMax1' incorporates:
+   *  Constant: '<S319>/sat7'
+   */
+  if (rtb_VCU_CruiseCtrlSta >= KOPM_BMSWakeupModeLo_enum)
+  {
+    /* DataTypeConversion: '<S319>/Data Type Conversion2' */
+    VOPM_BMSWakeupMode_enum = rtb_VCU_CruiseCtrlSta;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S319>/Data Type Conversion2' */
+    VOPM_BMSWakeupMode_enum = KOPM_BMSWakeupModeLo_enum;
+  }
+
+  /* End of MinMax: '<S319>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S314>/Subsys_VOPM_BMSWakeupMode_enum' */
+
+  /* DataTypeConversion: '<S314>/DataTypeConversion' incorporates:
+   *  Constant: '<S323>/Constant'
+   *  Sum: '<S323>/Add'
+   */
+  if (VOPM_MotorOutputCooltTemp_C - -40.0F < 256.0F)
+  {
+    if (VOPM_MotorOutputCooltTemp_C - -40.0F >= 0.0F)
+    {
+      /* BusCreator: '<S314>/BusCreator' */
+      AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_MotoroutputCoolantTemp = (uint8)(VOPM_MotorOutputCooltTemp_C - -40.0F);
+    }
+    else
+    {
+      /* BusCreator: '<S314>/BusCreator' */
+      AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_MotoroutputCoolantTemp = 0U;
+    }
+  }
+  else
+  {
+    /* BusCreator: '<S314>/BusCreator' */
+    AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_MotoroutputCoolantTemp =
+        MAX_uint8_T;
+  }
+
+  /* End of DataTypeConversion: '<S314>/DataTypeConversion' */
+
+  /* DataTypeConversion: '<S314>/DataTypeConversion1' incorporates:
+   *  Constant: '<S324>/Constant1'
+   *  Product: '<S324>/Product1'
+   *  Sum: '<S324>/Add'
+   */
+  tmp = VOPM_AllowHeatCoolMaxPwrCmsp_kW * 25.0F;
+  if (tmp < 65536.0F)
+  {
+    if (tmp >= 0.0F)
+    {
+      /* BusCreator: '<S314>/BusCreator' */
+      AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_AllowHeatCoolMaxPwrCmsp =
+          (uint16)tmp;
+    }
+    else
+    {
+      /* BusCreator: '<S314>/BusCreator' */
+      AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_AllowHeatCoolMaxPwrCmsp = 0U;
+    }
+  }
+  else
+  {
+    /* BusCreator: '<S314>/BusCreator' */
+    AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_AllowHeatCoolMaxPwrCmsp =
+        MAX_uint16_T;
+  }
+
+  /* End of DataTypeConversion: '<S314>/DataTypeConversion1' */
+
+  /* BusCreator: '<S314>/BusCreator' incorporates:
+   *  DataTypeConversion: '<S314>/DataTypeConversion3'
+   *  DataTypeConversion: '<S314>/DataTypeConversion4'
    *  DataTypeConversion: '<S319>/Data Type Conversion2'
-   *  DataTypeConversion: '<S320>/Data Type Conversion2'
-   *  Switch: '<S321>/Switch4'
+   *  DataTypeConversion: '<S321>/Data Type Conversion2'
+   *  Switch: '<S320>/Switch4'
    */
-  AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_BMS_Shutdown =
-      VOPM_BMSShutdown_enum;
-  AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_ChrgAllowCmd =
-      VOPM_ChrgAllowCmd_enum;
-  AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_ChrgEna_DC = VOPM_ChrgEnaDC_flg;
+  AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_Bat2DrvTrainEnb =
+      VOPM_Bat2DrvTrainEnb_flg;
+  AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_ChrgEna_AC = VOPM_ChrgEnaAC_enum;
+  AppSwcOpm_ARID_DEF.VCU_3_OprtCmd_EPT_k.VCU_BMS_WakeupMode =
+      VOPM_BMSWakeupMode_enum;
 
-  /* DataTypeConversion: '<S309>/DataTypeConversion3' incorporates:
-   *  Constant: '<S326>/Constant1'
-   *  Product: '<S326>/Product1'
-   *  Sum: '<S326>/Add'
-   */
-  tmp = VOPM_MaxChrgCurntDC_A * 10.0F;
-  if (tmp < 65536.0F)
-  {
-    if (tmp >= 0.0F)
-    {
-      /* BusCreator: '<S309>/BusCreator' */
-      AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgCrnt_DC = (uint16)tmp;
-    }
-    else
-    {
-      /* BusCreator: '<S309>/BusCreator' */
-      AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgCrnt_DC = 0U;
-    }
-  }
-  else
-  {
-    /* BusCreator: '<S309>/BusCreator' */
-    AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgCrnt_DC = MAX_uint16_T;
-  }
-
-  /* End of DataTypeConversion: '<S309>/DataTypeConversion3' */
-
-  /* DataTypeConversion: '<S309>/DataTypeConversion4' incorporates:
-   *  Constant: '<S327>/Constant1'
-   *  Product: '<S327>/Product1'
-   *  Sum: '<S327>/Add'
-   */
-  tmp = VOPM_MaxChrgVoltDC_V * 2.0F;
-  if (tmp < 65536.0F)
-  {
-    if (tmp >= 0.0F)
-    {
-      /* BusCreator: '<S309>/BusCreator' */
-      AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgVol_DC = (uint16)tmp;
-    }
-    else
-    {
-      /* BusCreator: '<S309>/BusCreator' */
-      AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgVol_DC = 0U;
-    }
-  }
-  else
-  {
-    /* BusCreator: '<S309>/BusCreator' */
-    AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgVol_DC = MAX_uint16_T;
-  }
-
-  /* End of DataTypeConversion: '<S309>/DataTypeConversion4' */
-
-  /* BusCreator: '<S309>/BusCreator' incorporates:
-   *  DataTypeConversion: '<S309>/DataTypeConversion5'
-   *  DataTypeConversion: '<S325>/Data Type Conversion2'
-   */
-  AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_OBCOprtCmd = VOPM_OBCOprtCmd_enum;
-  AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgCurnt_AC =
-      VOPM_MaxChrgCurntAC_A;
-
-  /* Outputs for Atomic SubSystem: '<S310>/Subsys_VOPM_ErrAmount_cnt' */
+  /* Outputs for Atomic SubSystem: '<S315>/Subsys_VOPM_MaxChrgCurntDC_A' */
   /* Switch: '<S329>/Switch4' incorporates:
    *  Constant: '<S329>/sat3'
    */
-  if (KOPM_ErrAmount_cnt_ovrdflg)
+  if (KOPM_MaxChrgCurntDC_A_ovrdflg)
   {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  Constant: '<S329>/sat4'
+     *  Product: '<S313>/Product1'
      */
-    rtb_VCU_CruiseCtrlSta = KOPM_ErrAmount_cnt_ovrdval;
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxChrgCurntDC_A_ovrdval;
   }
   else
   {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S329>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
-    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_SysSta_enum;
+    VOPM_VCUCruiseCtrTgtSpd_kph =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
+            ->VHVM_MaxChrgCurntDC_A;
   }
 
   /* End of Switch: '<S329>/Switch4' */
@@ -8534,9 +8105,10 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S329>/MinMax' incorporates:
    *  Constant: '<S329>/sat6'
    */
-  if (rtb_VCU_CruiseCtrlSta > KOPM_ErrAmountHi_cnt)
+  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_MaxChrgCurntDCHi_A)
   {
-    rtb_VCU_CruiseCtrlSta = KOPM_ErrAmountHi_cnt;
+    /* MinMax: '<S318>/MinMax' */
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxChrgCurntDCHi_A;
   }
 
   /* End of MinMax: '<S329>/MinMax' */
@@ -8544,140 +8116,165 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S329>/MinMax1' incorporates:
    *  Constant: '<S329>/sat7'
    */
-  if (rtb_VCU_CruiseCtrlSta >= KOPM_ErrAmountLo_cnt)
+  if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_MaxChrgCurntDCLo_A)
   {
     /* MinMax: '<S329>/MinMax1' */
-    VOPM_ErrAmount_cnt = rtb_VCU_CruiseCtrlSta;
+    VOPM_MaxChrgCurntDC_A = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
     /* MinMax: '<S329>/MinMax1' */
-    VOPM_ErrAmount_cnt = KOPM_ErrAmountLo_cnt;
+    VOPM_MaxChrgCurntDC_A = KOPM_MaxChrgCurntDCLo_A;
   }
 
   /* End of MinMax: '<S329>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S310>/Subsys_VOPM_ErrAmount_cnt' */
+  /* End of Outputs for SubSystem: '<S315>/Subsys_VOPM_MaxChrgCurntDC_A' */
 
-  /* Outputs for Atomic SubSystem: '<S310>/Subsys_VOPM_DCCOprtCmd_enum' */
-  /* Switch: '<S328>/Switch4' incorporates:
-   *  Constant: '<S328>/sat3'
+  /* Outputs for Atomic SubSystem: '<S315>/Subsys_VOPM_BMSShutdown_enum' */
+  /* Switch: '<S325>/Switch4' incorporates:
+   *  Constant: '<S325>/sat3'
    */
-  if (KOPM_DCCOprtCmd_enum_ovrdflg)
+  if (KOPM_BMSShutdown_enum_ovrdflg)
   {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  Constant: '<S328>/sat4'
-     *  DataTypeConversion: '<S328>/Data Type Conversion3'
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  Constant: '<S325>/sat4'
+     *  DataTypeConversion: '<S325>/Data Type Conversion3'
      */
-    rtb_VCU_CruiseCtrlSta = KOPM_DCCOprtCmd_enum_ovrdval;
+    rtb_VCU_CruiseCtrlSta = KOPM_BMSShutdown_enum_ovrdval;
   }
   else
   {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S328>/Data Type Conversion1'
+     *  DataTypeConversion: '<S325>/Data Type Conversion1'
      */
-    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_DCCOprtCmd_enum;
+    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_BMSShutdown_enum;
   }
 
-  /* End of Switch: '<S328>/Switch4' */
+  /* End of Switch: '<S325>/Switch4' */
 
-  /* MinMax: '<S328>/MinMax' incorporates:
-   *  Constant: '<S328>/sat6'
+  /* MinMax: '<S325>/MinMax' incorporates:
+   *  Constant: '<S325>/sat6'
    */
-  if (rtb_VCU_CruiseCtrlSta > KOPM_DCCOprtCmdHi_enum)
+  if (rtb_VCU_CruiseCtrlSta > KOPM_BMSShutdownHi_enum)
   {
-    rtb_VCU_CruiseCtrlSta = KOPM_DCCOprtCmdHi_enum;
+    rtb_VCU_CruiseCtrlSta = KOPM_BMSShutdownHi_enum;
   }
 
-  /* End of MinMax: '<S328>/MinMax' */
+  /* End of MinMax: '<S325>/MinMax' */
 
-  /* MinMax: '<S328>/MinMax1' incorporates:
-   *  Constant: '<S328>/sat7'
+  /* MinMax: '<S325>/MinMax1' incorporates:
+   *  Constant: '<S325>/sat7'
    */
-  if (rtb_VCU_CruiseCtrlSta >= KOPM_DCCOprtCmdLo_enum)
+  if (rtb_VCU_CruiseCtrlSta >= KOPM_BMSShutdownLo_enum)
   {
-    /* DataTypeConversion: '<S328>/Data Type Conversion2' */
-    VOPM_DCCOprtCmd_enum = rtb_VCU_CruiseCtrlSta;
+    /* DataTypeConversion: '<S325>/Data Type Conversion2' */
+    VOPM_BMSShutdown_enum = rtb_VCU_CruiseCtrlSta;
   }
   else
   {
-    /* DataTypeConversion: '<S328>/Data Type Conversion2' */
-    VOPM_DCCOprtCmd_enum = KOPM_DCCOprtCmdLo_enum;
+    /* DataTypeConversion: '<S325>/Data Type Conversion2' */
+    VOPM_BMSShutdown_enum = KOPM_BMSShutdownLo_enum;
   }
 
-  /* End of MinMax: '<S328>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S310>/Subsys_VOPM_DCCOprtCmd_enum' */
+  /* End of MinMax: '<S325>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S315>/Subsys_VOPM_BMSShutdown_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S310>/Subsys_VOPM_SysFailSta_enum' */
-  /* Switch: '<S331>/Switch4' incorporates:
-   *  Constant: '<S331>/sat3'
+  /* Outputs for Atomic SubSystem: '<S315>/Subsys_VOPM_ChrgAllowCmd_enum' */
+  /* Switch: '<S326>/Switch4' incorporates:
+   *  Constant: '<S326>/sat3'
    */
-  if (KOPM_SysFailSta_enum_ovrdflg)
+  if (KOPM_ChrgAllowCmd_enum_ovrdflg)
   {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  Constant: '<S331>/sat4'
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  Constant: '<S326>/sat4'
+     *  DataTypeConversion: '<S326>/Data Type Conversion3'
      */
-    rtb_VCU_CruiseCtrlSta = KOPM_SysFailSta_enum_ovrdval;
+    rtb_VCU_CruiseCtrlSta = KOPM_ChrgAllowCmd_enum_ovrdval;
   }
   else
   {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S331>/Data Type Conversion1'
+     *  DataTypeConversion: '<S326>/Data Type Conversion1'
      */
-    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VDAG_VCUFltLvl_enum;
+    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_ChrgAllowCmd_enum;
   }
 
-  /* End of Switch: '<S331>/Switch4' */
+  /* End of Switch: '<S326>/Switch4' */
 
-  /* MinMax: '<S331>/MinMax' incorporates:
-   *  Constant: '<S331>/sat6'
+  /* MinMax: '<S326>/MinMax' incorporates:
+   *  Constant: '<S326>/sat6'
    */
-  if (rtb_VCU_CruiseCtrlSta > KOPM_SysFailStaHi_enum)
+  if (rtb_VCU_CruiseCtrlSta > KOPM_ChrgAllowCmdHi_enum)
   {
-    rtb_VCU_CruiseCtrlSta = KOPM_SysFailStaHi_enum;
+    rtb_VCU_CruiseCtrlSta = KOPM_ChrgAllowCmdHi_enum;
   }
 
-  /* End of MinMax: '<S331>/MinMax' */
+  /* End of MinMax: '<S326>/MinMax' */
 
-  /* MinMax: '<S331>/MinMax1' incorporates:
-   *  Constant: '<S331>/sat7'
+  /* MinMax: '<S326>/MinMax1' incorporates:
+   *  Constant: '<S326>/sat7'
    */
-  if (rtb_VCU_CruiseCtrlSta >= KOPM_SysFailStaLo_enum)
+  if (rtb_VCU_CruiseCtrlSta >= KOPM_ChrgAllowCmdLo_enum)
   {
-    /* MinMax: '<S331>/MinMax1' */
-    VOPM_SysFailSta_enum = rtb_VCU_CruiseCtrlSta;
+    /* DataTypeConversion: '<S326>/Data Type Conversion2' */
+    VOPM_ChrgAllowCmd_enum = rtb_VCU_CruiseCtrlSta;
   }
   else
   {
-    /* MinMax: '<S331>/MinMax1' */
-    VOPM_SysFailSta_enum = KOPM_SysFailStaLo_enum;
+    /* DataTypeConversion: '<S326>/Data Type Conversion2' */
+    VOPM_ChrgAllowCmd_enum = KOPM_ChrgAllowCmdLo_enum;
   }
 
-  /* End of MinMax: '<S331>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S310>/Subsys_VOPM_SysFailSta_enum' */
+  /* End of MinMax: '<S326>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S315>/Subsys_VOPM_ChrgAllowCmd_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S310>/Subsys_VOPM_ErrBit_nu' */
+  /* Outputs for Atomic SubSystem: '<S315>/Subsys_VOPM_ChrgEnaDC_flg' */
+  /* Switch: '<S327>/Switch4' incorporates:
+   *  Constant: '<S327>/sat3'
+   */
+  if (KOPM_ChrgEnaDC_flg_ovrdflg)
+  {
+    /* Switch: '<S327>/Switch4' incorporates:
+     *  Constant: '<S327>/sat4'
+     */
+    VOPM_ChrgEnaDC_flg = KOPM_ChrgEnaDC_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S327>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S327>/Data Type Conversion1'
+     */
+    VOPM_ChrgEnaDC_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_ChrgEnaDC_flg;
+  }
+
+  /* End of Switch: '<S327>/Switch4' */
+  /* End of Outputs for SubSystem: '<S315>/Subsys_VOPM_ChrgEnaDC_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S315>/Subsys_VOPM_MaxChrgVoltDC_V' */
   /* Switch: '<S330>/Switch4' incorporates:
    *  Constant: '<S330>/sat3'
    */
-  if (KOPM_ErrBit_nu_ovrdflg)
+  if (KOPM_MaxChrgVoltDC_V_ovrdflg)
   {
-    /* MinMax: '<S330>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  Constant: '<S330>/sat4'
-     *  DataTypeConversion: '<S272>/DataTypeConversion48'
+     *  Product: '<S313>/Product1'
      */
-    VOPM_ErrBit_nu = KOPM_ErrBit_nu_ovrdval;
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxChrgVoltDC_V_ovrdval;
   }
   else
   {
-    /* MinMax: '<S330>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S272>/DataTypeConversion48'
      *  DataTypeConversion: '<S330>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
-    VOPM_ErrBit_nu = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
-                         ->VDAG_VCUErrCode_enum;
+    VOPM_VCUCruiseCtrTgtSpd_kph =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
+            ->VHVM_MaxChrgVoltDC_V;
   }
 
   /* End of Switch: '<S330>/Switch4' */
@@ -8685,29 +8282,404 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S330>/MinMax' incorporates:
    *  Constant: '<S330>/sat6'
    */
+  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_MaxChrgVoltDCHi_V)
+  {
+    /* MinMax: '<S318>/MinMax' */
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxChrgVoltDCHi_V;
+  }
+
+  /* End of MinMax: '<S330>/MinMax' */
+
+  /* MinMax: '<S330>/MinMax1' incorporates:
+   *  Constant: '<S330>/sat7'
+   */
+  if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_MaxChrgVoltDCLo_V)
+  {
+    /* MinMax: '<S330>/MinMax1' */
+    VOPM_MaxChrgVoltDC_V = VOPM_VCUCruiseCtrTgtSpd_kph;
+  }
+  else
+  {
+    /* MinMax: '<S330>/MinMax1' */
+    VOPM_MaxChrgVoltDC_V = KOPM_MaxChrgVoltDCLo_V;
+  }
+
+  /* End of MinMax: '<S330>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S315>/Subsys_VOPM_MaxChrgVoltDC_V' */
+
+  /* Outputs for Atomic SubSystem: '<S315>/Subsys_VOPM_OBCOprtCmd_enum' */
+  /* Switch: '<S331>/Switch4' incorporates:
+   *  Constant: '<S331>/sat3'
+   */
+  if (KOPM_OBCOprtCmd_enum_ovrdflg)
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  Constant: '<S331>/sat4'
+     *  DataTypeConversion: '<S331>/Data Type Conversion3'
+     */
+    rtb_VCU_CruiseCtrlSta = KOPM_OBCOprtCmd_enum_ovrdval;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S331>/Data Type Conversion1'
+     */
+    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_OBCOprtCmd_enum;
+  }
+
+  /* End of Switch: '<S331>/Switch4' */
+
+  /* MinMax: '<S331>/MinMax' incorporates:
+   *  Constant: '<S331>/sat6'
+   */
+  if (rtb_VCU_CruiseCtrlSta > KOPM_OBCOprtCmdHi_enum)
+  {
+    rtb_VCU_CruiseCtrlSta = KOPM_OBCOprtCmdHi_enum;
+  }
+
+  /* End of MinMax: '<S331>/MinMax' */
+
+  /* MinMax: '<S331>/MinMax1' incorporates:
+   *  Constant: '<S331>/sat7'
+   */
+  if (rtb_VCU_CruiseCtrlSta >= KOPM_OBCOprtCmdLo_enum)
+  {
+    /* DataTypeConversion: '<S331>/Data Type Conversion2' */
+    VOPM_OBCOprtCmd_enum = rtb_VCU_CruiseCtrlSta;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S331>/Data Type Conversion2' */
+    VOPM_OBCOprtCmd_enum = KOPM_OBCOprtCmdLo_enum;
+  }
+
+  /* End of MinMax: '<S331>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S315>/Subsys_VOPM_OBCOprtCmd_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S315>/Subsys_VOPM_MaxChrgCurntAC_A' */
+  /* Switch: '<S328>/Switch4' incorporates:
+   *  Constant: '<S328>/sat3'
+   */
+  if (KOPM_MaxChrgCurntAC_A_ovrdflg)
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  Constant: '<S328>/sat4'
+     */
+    rtb_VCU_CruiseCtrlSta = KOPM_MaxChrgCurntAC_A_ovrdval;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S328>/Data Type Conversion1'
+     */
+    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_MaxChrgCurntAC_A;
+  }
+
+  /* End of Switch: '<S328>/Switch4' */
+
+  /* MinMax: '<S328>/MinMax' incorporates:
+   *  Constant: '<S328>/sat6'
+   */
+  if (rtb_VCU_CruiseCtrlSta > KOPM_MaxChrgCurntACHi_A)
+  {
+    rtb_VCU_CruiseCtrlSta = KOPM_MaxChrgCurntACHi_A;
+  }
+
+  /* End of MinMax: '<S328>/MinMax' */
+
+  /* MinMax: '<S328>/MinMax1' incorporates:
+   *  Constant: '<S328>/sat7'
+   */
+  if (rtb_VCU_CruiseCtrlSta >= KOPM_MaxChrgCurntACLo_A)
+  {
+    /* MinMax: '<S328>/MinMax1' */
+    VOPM_MaxChrgCurntAC_A = rtb_VCU_CruiseCtrlSta;
+  }
+  else
+  {
+    /* MinMax: '<S328>/MinMax1' */
+    VOPM_MaxChrgCurntAC_A = KOPM_MaxChrgCurntACLo_A;
+  }
+
+  /* End of MinMax: '<S328>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S315>/Subsys_VOPM_MaxChrgCurntAC_A' */
+
+  /* BusCreator: '<S315>/BusCreator' incorporates:
+   *  DataTypeConversion: '<S315>/DataTypeConversion'
+   *  DataTypeConversion: '<S315>/DataTypeConversion1'
+   *  DataTypeConversion: '<S325>/Data Type Conversion2'
+   *  DataTypeConversion: '<S326>/Data Type Conversion2'
+   *  Switch: '<S327>/Switch4'
+   */
+  AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_BMS_Shutdown =
+      VOPM_BMSShutdown_enum;
+  AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_ChrgAllowCmd =
+      VOPM_ChrgAllowCmd_enum;
+  AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_ChrgEna_DC = VOPM_ChrgEnaDC_flg;
+
+  /* DataTypeConversion: '<S315>/DataTypeConversion3' incorporates:
+   *  Constant: '<S332>/Constant1'
+   *  Product: '<S332>/Product1'
+   *  Sum: '<S332>/Add'
+   */
+  tmp = VOPM_MaxChrgCurntDC_A * 10.0F;
+  if (tmp < 65536.0F)
+  {
+    if (tmp >= 0.0F)
+    {
+      /* BusCreator: '<S315>/BusCreator' */
+      AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgCrnt_DC = (uint16)tmp;
+    }
+    else
+    {
+      /* BusCreator: '<S315>/BusCreator' */
+      AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgCrnt_DC = 0U;
+    }
+  }
+  else
+  {
+    /* BusCreator: '<S315>/BusCreator' */
+    AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgCrnt_DC = MAX_uint16_T;
+  }
+
+  /* End of DataTypeConversion: '<S315>/DataTypeConversion3' */
+
+  /* DataTypeConversion: '<S315>/DataTypeConversion4' incorporates:
+   *  Constant: '<S333>/Constant1'
+   *  Product: '<S333>/Product1'
+   *  Sum: '<S333>/Add'
+   */
+  tmp = VOPM_MaxChrgVoltDC_V * 2.0F;
+  if (tmp < 65536.0F)
+  {
+    if (tmp >= 0.0F)
+    {
+      /* BusCreator: '<S315>/BusCreator' */
+      AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgVol_DC = (uint16)tmp;
+    }
+    else
+    {
+      /* BusCreator: '<S315>/BusCreator' */
+      AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgVol_DC = 0U;
+    }
+  }
+  else
+  {
+    /* BusCreator: '<S315>/BusCreator' */
+    AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgVol_DC = MAX_uint16_T;
+  }
+
+  /* End of DataTypeConversion: '<S315>/DataTypeConversion4' */
+
+  /* BusCreator: '<S315>/BusCreator' incorporates:
+   *  DataTypeConversion: '<S315>/DataTypeConversion5'
+   *  DataTypeConversion: '<S331>/Data Type Conversion2'
+   */
+  AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_OBCOprtCmd = VOPM_OBCOprtCmd_enum;
+  AppSwcOpm_ARID_DEF.VCU_4_ChrgCmd_EPT_j.VCU_MaxChrgCurnt_AC =
+      VOPM_MaxChrgCurntAC_A;
+
+  /* Outputs for Atomic SubSystem: '<S316>/Subsys_VOPM_ErrAmount_cnt' */
+  /* Switch: '<S335>/Switch4' incorporates:
+   *  Constant: '<S335>/sat3'
+   */
+  if (KOPM_ErrAmount_cnt_ovrdflg)
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  Constant: '<S335>/sat4'
+     */
+    rtb_VCU_CruiseCtrlSta = KOPM_ErrAmount_cnt_ovrdval;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S335>/Data Type Conversion1'
+     */
+    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_SysSta_enum;
+  }
+
+  /* End of Switch: '<S335>/Switch4' */
+
+  /* MinMax: '<S335>/MinMax' incorporates:
+   *  Constant: '<S335>/sat6'
+   */
+  if (rtb_VCU_CruiseCtrlSta > KOPM_ErrAmountHi_cnt)
+  {
+    rtb_VCU_CruiseCtrlSta = KOPM_ErrAmountHi_cnt;
+  }
+
+  /* End of MinMax: '<S335>/MinMax' */
+
+  /* MinMax: '<S335>/MinMax1' incorporates:
+   *  Constant: '<S335>/sat7'
+   */
+  if (rtb_VCU_CruiseCtrlSta >= KOPM_ErrAmountLo_cnt)
+  {
+    /* MinMax: '<S335>/MinMax1' */
+    VOPM_ErrAmount_cnt = rtb_VCU_CruiseCtrlSta;
+  }
+  else
+  {
+    /* MinMax: '<S335>/MinMax1' */
+    VOPM_ErrAmount_cnt = KOPM_ErrAmountLo_cnt;
+  }
+
+  /* End of MinMax: '<S335>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S316>/Subsys_VOPM_ErrAmount_cnt' */
+
+  /* Outputs for Atomic SubSystem: '<S316>/Subsys_VOPM_DCCOprtCmd_enum' */
+  /* Switch: '<S334>/Switch4' incorporates:
+   *  Constant: '<S334>/sat3'
+   */
+  if (KOPM_DCCOprtCmd_enum_ovrdflg)
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  Constant: '<S334>/sat4'
+     *  DataTypeConversion: '<S334>/Data Type Conversion3'
+     */
+    rtb_VCU_CruiseCtrlSta = KOPM_DCCOprtCmd_enum_ovrdval;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S334>/Data Type Conversion1'
+     */
+    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VHVM_DCCOprtCmd_enum;
+  }
+
+  /* End of Switch: '<S334>/Switch4' */
+
+  /* MinMax: '<S334>/MinMax' incorporates:
+   *  Constant: '<S334>/sat6'
+   */
+  if (rtb_VCU_CruiseCtrlSta > KOPM_DCCOprtCmdHi_enum)
+  {
+    rtb_VCU_CruiseCtrlSta = KOPM_DCCOprtCmdHi_enum;
+  }
+
+  /* End of MinMax: '<S334>/MinMax' */
+
+  /* MinMax: '<S334>/MinMax1' incorporates:
+   *  Constant: '<S334>/sat7'
+   */
+  if (rtb_VCU_CruiseCtrlSta >= KOPM_DCCOprtCmdLo_enum)
+  {
+    /* DataTypeConversion: '<S334>/Data Type Conversion2' */
+    VOPM_DCCOprtCmd_enum = rtb_VCU_CruiseCtrlSta;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S334>/Data Type Conversion2' */
+    VOPM_DCCOprtCmd_enum = KOPM_DCCOprtCmdLo_enum;
+  }
+
+  /* End of MinMax: '<S334>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S316>/Subsys_VOPM_DCCOprtCmd_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S316>/Subsys_VOPM_SysFailSta_enum' */
+  /* Switch: '<S337>/Switch4' incorporates:
+   *  Constant: '<S337>/sat3'
+   */
+  if (KOPM_SysFailSta_enum_ovrdflg)
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  Constant: '<S337>/sat4'
+     */
+    rtb_VCU_CruiseCtrlSta = KOPM_SysFailSta_enum_ovrdval;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S337>/Data Type Conversion1'
+     */
+    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())->VDAG_VCUFltLvl_enum;
+  }
+
+  /* End of Switch: '<S337>/Switch4' */
+
+  /* MinMax: '<S337>/MinMax' incorporates:
+   *  Constant: '<S337>/sat6'
+   */
+  if (rtb_VCU_CruiseCtrlSta > KOPM_SysFailStaHi_enum)
+  {
+    rtb_VCU_CruiseCtrlSta = KOPM_SysFailStaHi_enum;
+  }
+
+  /* End of MinMax: '<S337>/MinMax' */
+
+  /* MinMax: '<S337>/MinMax1' incorporates:
+   *  Constant: '<S337>/sat7'
+   */
+  if (rtb_VCU_CruiseCtrlSta >= KOPM_SysFailStaLo_enum)
+  {
+    /* MinMax: '<S337>/MinMax1' */
+    VOPM_SysFailSta_enum = rtb_VCU_CruiseCtrlSta;
+  }
+  else
+  {
+    /* MinMax: '<S337>/MinMax1' */
+    VOPM_SysFailSta_enum = KOPM_SysFailStaLo_enum;
+  }
+
+  /* End of MinMax: '<S337>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S316>/Subsys_VOPM_SysFailSta_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S316>/Subsys_VOPM_ErrBit_nu' */
+  /* Switch: '<S336>/Switch4' incorporates:
+   *  Constant: '<S336>/sat3'
+   */
+  if (KOPM_ErrBit_nu_ovrdflg)
+  {
+    /* MinMax: '<S336>/MinMax' incorporates:
+     *  Constant: '<S336>/sat4'
+     *  DataTypeConversion: '<S278>/DataTypeConversion48'
+     */
+    VOPM_ErrBit_nu = KOPM_ErrBit_nu_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S336>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S278>/DataTypeConversion48'
+     *  DataTypeConversion: '<S336>/Data Type Conversion1'
+     */
+    VOPM_ErrBit_nu = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
+                         ->VDAG_VCUErrCode_enum;
+  }
+
+  /* End of Switch: '<S336>/Switch4' */
+
+  /* MinMax: '<S336>/MinMax' incorporates:
+   *  Constant: '<S336>/sat6'
+   */
   if (VOPM_ErrBit_nu > KOPM_ErrBitHi_nu)
   {
     VOPM_ErrBit_nu = KOPM_ErrBitHi_nu;
   }
 
-  /* MinMax: '<S330>/MinMax1' incorporates:
-   *  Constant: '<S330>/sat7'
+  /* MinMax: '<S336>/MinMax1' incorporates:
+   *  Constant: '<S336>/sat7'
    */
   if (VOPM_ErrBit_nu < KOPM_ErrBitLo_nu)
   {
-    /* MinMax: '<S330>/MinMax' incorporates:
-     *  MinMax: '<S330>/MinMax1'
+    /* MinMax: '<S336>/MinMax' incorporates:
+     *  MinMax: '<S336>/MinMax1'
      */
     VOPM_ErrBit_nu = KOPM_ErrBitLo_nu;
   }
 
-  /* End of MinMax: '<S330>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S310>/Subsys_VOPM_ErrBit_nu' */
+  /* End of MinMax: '<S336>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S316>/Subsys_VOPM_ErrBit_nu' */
 
-  /* BusCreator: '<S310>/BusCreator' incorporates:
-   *  Constant: '<S310>/Constant'
-   *  DataTypeConversion: '<S310>/DataTypeConversion2'
-   *  DataTypeConversion: '<S328>/Data Type Conversion2'
+  /* BusCreator: '<S316>/BusCreator' incorporates:
+   *  Constant: '<S316>/Constant'
+   *  DataTypeConversion: '<S316>/DataTypeConversion2'
+   *  DataTypeConversion: '<S334>/Data Type Conversion2'
    */
   AppSwcOpm_ARID_DEF.VCU_B_AcclPedal_EPT_e.VCU_ErrAmount = VOPM_ErrAmount_cnt;
   AppSwcOpm_ARID_DEF.VCU_B_AcclPedal_EPT_e.VCU_EPK_ParkLock = 0U;
@@ -8715,75 +8687,75 @@ static void Runbl_Opm20ms(void)
   AppSwcOpm_ARID_DEF.VCU_B_AcclPedal_EPT_e.VCU_SysFailSta = VOPM_SysFailSta_enum;
   AppSwcOpm_ARID_DEF.VCU_B_AcclPedal_EPT_e.VCU_ErrBit = VOPM_ErrBit_nu;
 
-  /* Outputs for Atomic SubSystem: '<S311>/Subsys_VOPM_OBCIntDchrgEna_flg' */
-  /* Switch: '<S336>/Switch4' incorporates:
-   *  Constant: '<S336>/sat3'
-   *  Constant: '<S336>/sat4'
+  /* Outputs for Atomic SubSystem: '<S317>/Subsys_VOPM_OBCIntDchrgEna_flg' */
+  /* Switch: '<S342>/Switch4' incorporates:
+   *  Constant: '<S342>/sat3'
+   *  Constant: '<S342>/sat4'
    */
   VOPM_OBCIntDchrgEna_flg = (KOPM_OBCIntDchrgEna_flg_ovrdflg &&
                              KOPM_OBCIntDchrgEna_flg_ovrdval);
 
-  /* End of Outputs for SubSystem: '<S311>/Subsys_VOPM_OBCIntDchrgEna_flg' */
+  /* End of Outputs for SubSystem: '<S317>/Subsys_VOPM_OBCIntDchrgEna_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S311>/Subsys_VOPM_DCCBuckLVVolt_V' */
-  /* Switch: '<S333>/Switch4' incorporates:
-   *  Constant: '<S333>/sat3'
+  /* Outputs for Atomic SubSystem: '<S317>/Subsys_VOPM_DCCBuckLVVolt_V' */
+  /* Switch: '<S339>/Switch4' incorporates:
+   *  Constant: '<S339>/sat3'
    */
   if (KOPM_DCCBuckLVVolt_V_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S333>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S339>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_DCCBuckLVVolt_V_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S333>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S339>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
             ->VHVM_DCCBuckLVVolt_V;
   }
 
-  /* End of Switch: '<S333>/Switch4' */
+  /* End of Switch: '<S339>/Switch4' */
 
-  /* MinMax: '<S333>/MinMax' incorporates:
-   *  Constant: '<S333>/sat6'
+  /* MinMax: '<S339>/MinMax' incorporates:
+   *  Constant: '<S339>/sat6'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_DCCBuckLVVoltHi_V)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_DCCBuckLVVoltHi_V;
   }
 
-  /* End of MinMax: '<S333>/MinMax' */
+  /* End of MinMax: '<S339>/MinMax' */
 
-  /* MinMax: '<S333>/MinMax1' incorporates:
-   *  Constant: '<S333>/sat7'
+  /* MinMax: '<S339>/MinMax1' incorporates:
+   *  Constant: '<S339>/sat7'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_DCCBuckLVVoltLo_V)
   {
-    /* MinMax: '<S333>/MinMax1' */
+    /* MinMax: '<S339>/MinMax1' */
     VOPM_DCCBuckLVVolt_V = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
-    /* MinMax: '<S333>/MinMax1' */
+    /* MinMax: '<S339>/MinMax1' */
     VOPM_DCCBuckLVVolt_V = KOPM_DCCBuckLVVoltLo_V;
   }
 
-  /* End of MinMax: '<S333>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S311>/Subsys_VOPM_DCCBuckLVVolt_V' */
+  /* End of MinMax: '<S339>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S317>/Subsys_VOPM_DCCBuckLVVolt_V' */
 
-  /* Outputs for Atomic SubSystem: '<S311>/Subsys_VOPM_DCCBoostHvVolt_V' */
-  /* Switch: '<S332>/Switch4' incorporates:
-   *  Constant: '<S311>/Constant1'
-   *  Constant: '<S332>/sat3'
-   *  Constant: '<S332>/sat4'
+  /* Outputs for Atomic SubSystem: '<S317>/Subsys_VOPM_DCCBoostHvVolt_V' */
+  /* Switch: '<S338>/Switch4' incorporates:
+   *  Constant: '<S317>/Constant1'
+   *  Constant: '<S338>/sat3'
+   *  Constant: '<S338>/sat4'
    */
   if (KOPM_DCCBoostHvVolt_V_ovrdflg)
   {
@@ -8794,271 +8766,271 @@ static void Runbl_Opm20ms(void)
     VOPM_DCCBoostHvVolt_V = 0.0F;
   }
 
-  /* MinMax: '<S332>/MinMax' incorporates:
-   *  Constant: '<S332>/sat6'
-   *  Switch: '<S332>/Switch4'
+  /* MinMax: '<S338>/MinMax' incorporates:
+   *  Constant: '<S338>/sat6'
+   *  Switch: '<S338>/Switch4'
    */
   if (VOPM_DCCBoostHvVolt_V > KOPM_DCCBoostHvVoltHi_V)
   {
     VOPM_DCCBoostHvVolt_V = KOPM_DCCBoostHvVoltHi_V;
   }
 
-  /* End of MinMax: '<S332>/MinMax' */
+  /* End of MinMax: '<S338>/MinMax' */
 
-  /* MinMax: '<S332>/MinMax1' incorporates:
-   *  Constant: '<S332>/sat7'
+  /* MinMax: '<S338>/MinMax1' incorporates:
+   *  Constant: '<S338>/sat7'
    */
   if (VOPM_DCCBoostHvVolt_V < KOPM_DCCBoostHvVoltLo_V)
   {
-    /* Switch: '<S332>/Switch4' incorporates:
-     *  MinMax: '<S332>/MinMax1'
+    /* Switch: '<S338>/Switch4' incorporates:
+     *  MinMax: '<S338>/MinMax1'
      */
     VOPM_DCCBoostHvVolt_V = KOPM_DCCBoostHvVoltLo_V;
   }
 
-  /* End of MinMax: '<S332>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S311>/Subsys_VOPM_DCCBoostHvVolt_V' */
+  /* End of MinMax: '<S338>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S317>/Subsys_VOPM_DCCBoostHvVolt_V' */
 
-  /* Outputs for Atomic SubSystem: '<S311>/Subsys_VOPM_MaxHVDCCurntAC_A' */
-  /* Switch: '<S334>/Switch4' incorporates:
-   *  Constant: '<S334>/sat3'
+  /* Outputs for Atomic SubSystem: '<S317>/Subsys_VOPM_MaxHVDCCurntAC_A' */
+  /* Switch: '<S340>/Switch4' incorporates:
+   *  Constant: '<S340>/sat3'
    */
   if (KOPM_MaxHVDCCurntAC_A_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S334>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S340>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxHVDCCurntAC_A_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S334>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S340>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
             ->VHVM_MaxHVDCCurntAC_A;
   }
 
-  /* End of Switch: '<S334>/Switch4' */
+  /* End of Switch: '<S340>/Switch4' */
 
-  /* MinMax: '<S334>/MinMax' incorporates:
-   *  Constant: '<S334>/sat6'
+  /* MinMax: '<S340>/MinMax' incorporates:
+   *  Constant: '<S340>/sat6'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_MaxHVDCCurntACHi_A)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxHVDCCurntACHi_A;
   }
 
-  /* End of MinMax: '<S334>/MinMax' */
+  /* End of MinMax: '<S340>/MinMax' */
 
-  /* MinMax: '<S334>/MinMax1' incorporates:
-   *  Constant: '<S334>/sat7'
+  /* MinMax: '<S340>/MinMax1' incorporates:
+   *  Constant: '<S340>/sat7'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_MaxHVDCCurntACLo_A)
   {
-    /* MinMax: '<S334>/MinMax1' */
+    /* MinMax: '<S340>/MinMax1' */
     VOPM_MaxHVDCCurntAC_A = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
-    /* MinMax: '<S334>/MinMax1' */
+    /* MinMax: '<S340>/MinMax1' */
     VOPM_MaxHVDCCurntAC_A = KOPM_MaxHVDCCurntACLo_A;
   }
 
-  /* End of MinMax: '<S334>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S311>/Subsys_VOPM_MaxHVDCCurntAC_A' */
+  /* End of MinMax: '<S340>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S317>/Subsys_VOPM_MaxHVDCCurntAC_A' */
 
-  /* Outputs for Atomic SubSystem: '<S311>/Subsys_VOPM_MaxHVDCVoltAC_V' */
-  /* Switch: '<S335>/Switch4' incorporates:
-   *  Constant: '<S335>/sat3'
+  /* Outputs for Atomic SubSystem: '<S317>/Subsys_VOPM_MaxHVDCVoltAC_V' */
+  /* Switch: '<S341>/Switch4' incorporates:
+   *  Constant: '<S341>/sat3'
    */
   if (KOPM_MaxHVDCVoltAC_V_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S335>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S341>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxHVDCVoltAC_V_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S335>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S341>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmEPT_outputs())
             ->VHVM_MaxHVDCVoltAC_V;
   }
 
-  /* End of Switch: '<S335>/Switch4' */
+  /* End of Switch: '<S341>/Switch4' */
 
-  /* MinMax: '<S335>/MinMax' incorporates:
-   *  Constant: '<S335>/sat6'
+  /* MinMax: '<S341>/MinMax' incorporates:
+   *  Constant: '<S341>/sat6'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_MaxHVDCVoltACHi_V)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MaxHVDCVoltACHi_V;
   }
 
-  /* End of MinMax: '<S335>/MinMax' */
+  /* End of MinMax: '<S341>/MinMax' */
 
-  /* MinMax: '<S335>/MinMax1' incorporates:
-   *  Constant: '<S335>/sat7'
+  /* MinMax: '<S341>/MinMax1' incorporates:
+   *  Constant: '<S341>/sat7'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_MaxHVDCVoltACLo_V)
   {
-    /* MinMax: '<S335>/MinMax1' */
+    /* MinMax: '<S341>/MinMax1' */
     VOPM_MaxHVDCVoltAC_V = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
-    /* MinMax: '<S335>/MinMax1' */
+    /* MinMax: '<S341>/MinMax1' */
     VOPM_MaxHVDCVoltAC_V = KOPM_MaxHVDCVoltACLo_V;
   }
 
-  /* End of MinMax: '<S335>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S311>/Subsys_VOPM_MaxHVDCVoltAC_V' */
+  /* End of MinMax: '<S341>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S317>/Subsys_VOPM_MaxHVDCVoltAC_V' */
 
-  /* DataTypeConversion: '<S311>/DataTypeConversion' incorporates:
-   *  Constant: '<S337>/Constant1'
-   *  Product: '<S337>/Product1'
-   *  Sum: '<S337>/Add'
+  /* DataTypeConversion: '<S317>/DataTypeConversion' incorporates:
+   *  Constant: '<S343>/Constant1'
+   *  Product: '<S343>/Product1'
+   *  Sum: '<S343>/Add'
    */
   tmp = VOPM_DCCBuckLVVolt_V * 10.0F;
   if (tmp < 256.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S311>/BusCreator' */
+      /* BusCreator: '<S317>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_DCCBuckLV_Vol = (uint8)tmp;
     }
     else
     {
-      /* BusCreator: '<S311>/BusCreator' */
+      /* BusCreator: '<S317>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_DCCBuckLV_Vol = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S311>/BusCreator' */
+    /* BusCreator: '<S317>/BusCreator' */
     AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_DCCBuckLV_Vol = MAX_uint8_T;
   }
 
-  /* End of DataTypeConversion: '<S311>/DataTypeConversion' */
+  /* End of DataTypeConversion: '<S317>/DataTypeConversion' */
 
-  /* BusCreator: '<S311>/BusCreator' incorporates:
-   *  Switch: '<S336>/Switch4'
+  /* BusCreator: '<S317>/BusCreator' incorporates:
+   *  Switch: '<S342>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_OBCIntDischargeEnable =
       VOPM_OBCIntDchrgEna_flg;
 
-  /* DataTypeConversion: '<S311>/DataTypeConversion2' incorporates:
-   *  Constant: '<S338>/Constant1'
-   *  Product: '<S338>/Product1'
-   *  Sum: '<S338>/Add'
+  /* DataTypeConversion: '<S317>/DataTypeConversion2' incorporates:
+   *  Constant: '<S344>/Constant1'
+   *  Product: '<S344>/Product1'
+   *  Sum: '<S344>/Add'
    */
   tmp = VOPM_DCCBoostHvVolt_V * 2.0F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S311>/BusCreator' */
+      /* BusCreator: '<S317>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_DCCBoostHv_Vol = (uint16)tmp;
     }
     else
     {
-      /* BusCreator: '<S311>/BusCreator' */
+      /* BusCreator: '<S317>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_DCCBoostHv_Vol = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S311>/BusCreator' */
+    /* BusCreator: '<S317>/BusCreator' */
     AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_DCCBoostHv_Vol = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S311>/DataTypeConversion2' */
+  /* End of DataTypeConversion: '<S317>/DataTypeConversion2' */
 
-  /* DataTypeConversion: '<S311>/DataTypeConversion3' incorporates:
-   *  Constant: '<S339>/Constant1'
-   *  Product: '<S339>/Product1'
-   *  Sum: '<S339>/Add'
+  /* DataTypeConversion: '<S317>/DataTypeConversion3' incorporates:
+   *  Constant: '<S345>/Constant1'
+   *  Product: '<S345>/Product1'
+   *  Sum: '<S345>/Add'
    */
   tmp = VOPM_MaxHVDCCurntAC_A * 10.0F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S311>/BusCreator' */
+      /* BusCreator: '<S317>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_MaxHVDC_Cur_AC = (uint16)tmp;
     }
     else
     {
-      /* BusCreator: '<S311>/BusCreator' */
+      /* BusCreator: '<S317>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_MaxHVDC_Cur_AC = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S311>/BusCreator' */
+    /* BusCreator: '<S317>/BusCreator' */
     AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_MaxHVDC_Cur_AC = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S311>/DataTypeConversion3' */
+  /* End of DataTypeConversion: '<S317>/DataTypeConversion3' */
 
-  /* DataTypeConversion: '<S311>/DataTypeConversion4' incorporates:
-   *  Constant: '<S340>/Constant1'
-   *  Product: '<S340>/Product1'
-   *  Sum: '<S340>/Add'
+  /* DataTypeConversion: '<S317>/DataTypeConversion4' incorporates:
+   *  Constant: '<S346>/Constant1'
+   *  Product: '<S346>/Product1'
+   *  Sum: '<S346>/Add'
    */
   tmp = VOPM_MaxHVDCVoltAC_V * 2.0F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S311>/BusCreator' */
+      /* BusCreator: '<S317>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_MaxHVDC_Vol_AC = (uint16)tmp;
     }
     else
     {
-      /* BusCreator: '<S311>/BusCreator' */
+      /* BusCreator: '<S317>/BusCreator' */
       AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_MaxHVDC_Vol_AC = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S311>/BusCreator' */
+    /* BusCreator: '<S317>/BusCreator' */
     AppSwcOpm_ARID_DEF.VCU_C_OprtCmd_EPT_m.VCU_MaxHVDC_Vol_AC = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S311>/DataTypeConversion4' */
+  /* End of DataTypeConversion: '<S317>/DataTypeConversion4' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_CruiseCtrTgtSpd_kph' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_CruiseCtrTgtSpd_kph' */
   /* Switch: '<S227>/Switch4' incorporates:
    *  Constant: '<S227>/sat3'
    */
   if (KOPM_CruiseCtrTgtSpd_kph_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  Constant: '<S227>/sat4'
-     *  Product: '<S307>/Product1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_CruiseCtrTgtSpd_kph_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S227>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())->VVTM_CCTgtSpd_kph;
@@ -9071,7 +9043,7 @@ static void Runbl_Opm20ms(void)
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_CruiseCtrTgtSpdHi_kph)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_CruiseCtrTgtSpdHi_kph;
   }
 
@@ -9092,9 +9064,9 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of MinMax: '<S227>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_CruiseCtrTgtSpd_kph' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_CruiseCtrTgtSpd_kph' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_MotActPwrTyp_enum1' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_MotActPwrTyp_enum1' */
   /* Switch: '<S236>/Switch4' incorporates:
    *  Constant: '<S236>/sat3'
    */
@@ -9102,7 +9074,7 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  Constant: '<S236>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_MotActPwrTyp_enum_ovrdval;
   }
@@ -9111,7 +9083,7 @@ static void Runbl_Opm20ms(void)
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S236>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (uint8)(Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VVTM_MotorActlPwrType_flg;
@@ -9142,9 +9114,9 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of MinMax: '<S236>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_MotActPwrTyp_enum1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_MotActPwrTyp_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_DrvRangeDistEstVld_flg1' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_DrvRangeDistEstVld_flg1' */
   /* Switch: '<S231>/Switch4' incorporates:
    *  Constant: '<S231>/sat3'
    */
@@ -9167,26 +9139,26 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of Switch: '<S231>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_DrvRangeDistEstVld_flg1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_DrvRangeDistEstVld_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_DrvRangeDistEst_km1' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_DrvRangeDistEst_km1' */
   /* Switch: '<S232>/Switch4' incorporates:
    *  Constant: '<S232>/sat3'
    */
   if (KOPM_DrvRangeDistEst_km_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  Constant: '<S232>/sat4'
-     *  Product: '<S307>/Product1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_DrvRangeDistEst_km_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S232>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
@@ -9200,7 +9172,7 @@ static void Runbl_Opm20ms(void)
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_DrvRangeDistEstHi_km)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_DrvRangeDistEstHi_km;
   }
 
@@ -9221,144 +9193,144 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of MinMax: '<S232>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_DrvRangeDistEst_km1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_DrvRangeDistEst_km1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_WLTPDrvgRngDstVld_flg1' */
-  /* Switch: '<S261>/Switch4' incorporates:
-   *  Constant: '<S261>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_WLTPDrvgRngDstVld_flg1' */
+  /* Switch: '<S267>/Switch4' incorporates:
+   *  Constant: '<S267>/sat3'
    */
   if (KOPM_WLTPDrvgRngDstVld_flg_ovrdflg)
   {
-    /* Switch: '<S261>/Switch4' incorporates:
-     *  Constant: '<S261>/sat4'
+    /* Switch: '<S267>/Switch4' incorporates:
+     *  Constant: '<S267>/sat4'
      */
     VOPM_WLTPDrvgRngDstVld_flg = KOPM_WLTPDrvgRngDstVld_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S261>/Switch4' incorporates:
+    /* Switch: '<S267>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S261>/Data Type Conversion1'
+     *  DataTypeConversion: '<S267>/Data Type Conversion1'
      */
     VOPM_WLTPDrvgRngDstVld_flg =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
             ->VRME_DynRmnMilEstV_flg;
   }
 
-  /* End of Switch: '<S261>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_WLTPDrvgRngDstVld_flg1' */
+  /* End of Switch: '<S267>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_WLTPDrvgRngDstVld_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_WLTPDrvgRngDst_km1' */
-  /* Switch: '<S262>/Switch4' incorporates:
-   *  Constant: '<S262>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_WLTPDrvgRngDst_km1' */
+  /* Switch: '<S268>/Switch4' incorporates:
+   *  Constant: '<S268>/sat3'
    */
   if (KOPM_WLTPDrvgRngDst_km_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S262>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S268>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_WLTPDrvgRngDst_km_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S262>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S268>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
             ->VRME_DynRmnMilEst_km;
   }
 
-  /* End of Switch: '<S262>/Switch4' */
+  /* End of Switch: '<S268>/Switch4' */
 
-  /* MinMax: '<S262>/MinMax' incorporates:
-   *  Constant: '<S262>/sat6'
+  /* MinMax: '<S268>/MinMax' incorporates:
+   *  Constant: '<S268>/sat6'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_WLTPDrvgRngDstHi_km)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_WLTPDrvgRngDstHi_km;
   }
 
-  /* End of MinMax: '<S262>/MinMax' */
+  /* End of MinMax: '<S268>/MinMax' */
 
-  /* MinMax: '<S262>/MinMax1' incorporates:
-   *  Constant: '<S262>/sat7'
+  /* MinMax: '<S268>/MinMax1' incorporates:
+   *  Constant: '<S268>/sat7'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_WLTPDrvgRngDstLo_km)
   {
-    /* MinMax: '<S262>/MinMax1' */
+    /* MinMax: '<S268>/MinMax1' */
     VOPM_WLTPDrvgRngDst_km = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
-    /* MinMax: '<S262>/MinMax1' */
+    /* MinMax: '<S268>/MinMax1' */
     VOPM_WLTPDrvgRngDst_km = KOPM_WLTPDrvgRngDstLo_km;
   }
 
-  /* End of MinMax: '<S262>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_WLTPDrvgRngDst_km1' */
+  /* End of MinMax: '<S268>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_WLTPDrvgRngDst_km1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_RsrvdPwr_kW1' */
-  /* Switch: '<S240>/Switch4' incorporates:
-   *  Constant: '<S240>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_RsrvdPwr_kW1' */
+  /* Switch: '<S246>/Switch4' incorporates:
+   *  Constant: '<S246>/sat3'
    */
   if (KOPM_RsrvdPwr_kW_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S240>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S246>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_RsrvdPwr_kW_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S240>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S246>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())->VVTM_RsrvPwr_kW;
   }
 
-  /* End of Switch: '<S240>/Switch4' */
+  /* End of Switch: '<S246>/Switch4' */
 
-  /* MinMax: '<S240>/MinMax' incorporates:
-   *  Constant: '<S240>/sat6'
+  /* MinMax: '<S246>/MinMax' incorporates:
+   *  Constant: '<S246>/sat6'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_RsrvdPwrHi_kW)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_RsrvdPwrHi_kW;
   }
 
-  /* End of MinMax: '<S240>/MinMax' */
+  /* End of MinMax: '<S246>/MinMax' */
 
-  /* MinMax: '<S240>/MinMax1' incorporates:
-   *  Constant: '<S240>/sat7'
+  /* MinMax: '<S246>/MinMax1' incorporates:
+   *  Constant: '<S246>/sat7'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_RsrvdPwrLo_kW)
   {
-    /* MinMax: '<S240>/MinMax1' */
+    /* MinMax: '<S246>/MinMax1' */
     VOPM_RsrvdPwr_kW = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
-    /* MinMax: '<S240>/MinMax1' */
+    /* MinMax: '<S246>/MinMax1' */
     VOPM_RsrvdPwr_kW = KOPM_RsrvdPwrLo_kW;
   }
 
-  /* End of MinMax: '<S240>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_RsrvdPwr_kW1' */
+  /* End of MinMax: '<S246>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_RsrvdPwr_kW1' */
 
-  /* DataTypeConversion: '<S213>/DataTypeConversion45' incorporates:
-   *  Constant: '<S270>/Constant1'
-   *  Product: '<S270>/Product1'
-   *  Sum: '<S270>/Add'
+  /* DataTypeConversion: '<S212>/DataTypeConversion45' incorporates:
+   *  Constant: '<S276>/Constant1'
+   *  Product: '<S276>/Product1'
+   *  Sum: '<S276>/Add'
    */
   tmp = VOPM_RsrvdPwr_kW * 5.0F;
   if (tmp < 65536.0F)
@@ -9377,26 +9349,26 @@ static void Runbl_Opm20ms(void)
     AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_ReservePower = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S213>/DataTypeConversion45' */
+  /* End of DataTypeConversion: '<S212>/DataTypeConversion45' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_MotActPwr_Kw1' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_MotActPwr_Kw1' */
   /* Switch: '<S237>/Switch4' incorporates:
    *  Constant: '<S237>/sat3'
    */
   if (KOPM_MotActPwr_Kw_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  Constant: '<S237>/sat4'
-     *  Product: '<S307>/Product1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MotActPwr_Kw_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S237>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
@@ -9410,7 +9382,7 @@ static void Runbl_Opm20ms(void)
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_MotActPwrHi_Kw)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_MotActPwrHi_Kw;
   }
 
@@ -9431,9 +9403,9 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of MinMax: '<S237>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_MotActPwr_Kw1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_MotActPwr_Kw1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_DrvMotorSta_enum1' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_DrvMotorSta_enum1' */
   /* Switch: '<S230>/Switch4' incorporates:
    *  Constant: '<S230>/sat3'
    */
@@ -9441,7 +9413,7 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  Constant: '<S230>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_DrvMotorSta_enum_ovrdval;
   }
@@ -9450,7 +9422,7 @@ static void Runbl_Opm20ms(void)
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S230>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VVTM_DrvMotorSta_enum;
@@ -9484,9 +9456,9 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of MinMax: '<S230>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_DrvMotorSta_enum1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_DrvMotorSta_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_InfoDisp_enum1' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_InfoDisp_enum1' */
   /* Switch: '<S233>/Switch4' incorporates:
    *  Constant: '<S233>/sat3'
    */
@@ -9494,7 +9466,7 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  Constant: '<S233>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_InfoDisp_enum_ovrdval;
   }
@@ -9503,7 +9475,7 @@ static void Runbl_Opm20ms(void)
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S233>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VHMI_InfoDisp_enum;
@@ -9537,92 +9509,92 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of MinMax: '<S233>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_InfoDisp_enum1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_InfoDisp_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VehPGearError_flg1' */
-  /* Switch: '<S257>/Switch4' incorporates:
-   *  Constant: '<S257>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VehPGearError_flg1' */
+  /* Switch: '<S263>/Switch4' incorporates:
+   *  Constant: '<S263>/sat3'
    */
   if (KOPM_VehPGearError_flg_ovrdflg)
   {
-    /* Switch: '<S257>/Switch4' incorporates:
-     *  Constant: '<S257>/sat4'
+    /* Switch: '<S263>/Switch4' incorporates:
+     *  Constant: '<S263>/sat4'
      */
     VOPM_VehPGearError_flg = KOPM_VehPGearError_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S257>/Switch4' incorporates:
+    /* Switch: '<S263>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S257>/Data Type Conversion1'
+     *  DataTypeConversion: '<S263>/Data Type Conversion1'
      */
     VOPM_VehPGearError_flg =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
             ->VGSM_VehPGearErr_flg;
   }
 
-  /* End of Switch: '<S257>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VehPGearError_flg1' */
+  /* End of Switch: '<S263>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VehPGearError_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VhclActlCnsmPwr_kWh1' */
-  /* Switch: '<S259>/Switch4' incorporates:
-   *  Constant: '<S259>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VhclActlCnsmPwr_kWh1' */
+  /* Switch: '<S265>/Switch4' incorporates:
+   *  Constant: '<S265>/sat3'
    */
   if (KOPM_VhclActlCnsmPwr_kWh_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S259>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S265>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_VhclActlCnsmPwr_kWh_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S259>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S265>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
             ->VRME_VehPwrCnsmIns_kWhp100km;
   }
 
-  /* End of Switch: '<S259>/Switch4' */
+  /* End of Switch: '<S265>/Switch4' */
 
-  /* MinMax: '<S259>/MinMax' incorporates:
-   *  Constant: '<S259>/sat6'
+  /* MinMax: '<S265>/MinMax' incorporates:
+   *  Constant: '<S265>/sat6'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_VhclActlCnsmPwrHi_kWh)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_VhclActlCnsmPwrHi_kWh;
   }
 
-  /* End of MinMax: '<S259>/MinMax' */
+  /* End of MinMax: '<S265>/MinMax' */
 
-  /* MinMax: '<S259>/MinMax1' incorporates:
-   *  Constant: '<S259>/sat7'
+  /* MinMax: '<S265>/MinMax1' incorporates:
+   *  Constant: '<S265>/sat7'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_VhclActlCnsmPwrLo_kWh)
   {
-    /* MinMax: '<S259>/MinMax1' */
+    /* MinMax: '<S265>/MinMax1' */
     VOPM_VhclActlCnsmPwr_kWh = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
-    /* MinMax: '<S259>/MinMax1' */
+    /* MinMax: '<S265>/MinMax1' */
     VOPM_VhclActlCnsmPwr_kWh = KOPM_VhclActlCnsmPwrLo_kWh;
   }
 
-  /* End of MinMax: '<S259>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VhclActlCnsmPwr_kWh1' */
+  /* End of MinMax: '<S265>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VhclActlCnsmPwr_kWh1' */
 
-  /* DataTypeConversion: '<S213>/DataTypeConversion33' incorporates:
-   *  Constant: '<S268>/Constant'
-   *  Constant: '<S268>/Constant1'
-   *  Product: '<S268>/Product1'
-   *  Sum: '<S268>/Add'
+  /* DataTypeConversion: '<S212>/DataTypeConversion33' incorporates:
+   *  Constant: '<S274>/Constant'
+   *  Constant: '<S274>/Constant1'
+   *  Product: '<S274>/Product1'
+   *  Sum: '<S274>/Add'
    */
   tmp = (VOPM_VhclActlCnsmPwr_kWh - -51.1F) * 10.0F;
   if (tmp < 65536.0F)
@@ -9641,34 +9613,34 @@ static void Runbl_Opm20ms(void)
     AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_VhclActlCnsmPwr = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S213>/DataTypeConversion33' */
+  /* End of DataTypeConversion: '<S212>/DataTypeConversion33' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VhclSpdFstWarn_flg1' */
-  /* Switch: '<S260>/Switch4' incorporates:
-   *  Constant: '<S260>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VhclSpdFstWarn_flg1' */
+  /* Switch: '<S266>/Switch4' incorporates:
+   *  Constant: '<S266>/sat3'
    */
   if (KOPM_VhclSpdFstWarn_flg_ovrdflg)
   {
-    /* Switch: '<S260>/Switch4' incorporates:
-     *  Constant: '<S260>/sat4'
+    /* Switch: '<S266>/Switch4' incorporates:
+     *  Constant: '<S266>/sat4'
      */
     VOPM_VhclSpdFstWarn_flg = KOPM_VhclSpdFstWarn_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S260>/Switch4' incorporates:
+    /* Switch: '<S266>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S260>/Data Type Conversion1'
+     *  DataTypeConversion: '<S266>/Data Type Conversion1'
      */
     VOPM_VhclSpdFstWarn_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
             ->VGSM_VehSpdFstWrn_flg;
   }
 
-  /* End of Switch: '<S260>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VhclSpdFstWarn_flg1' */
+  /* End of Switch: '<S266>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VhclSpdFstWarn_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_OBCOprtCmdToICU_enum1' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_OBCOprtCmdToICU_enum1' */
   /* Switch: '<S239>/Switch4' incorporates:
    *  Constant: '<S239>/sat3'
    */
@@ -9677,7 +9649,7 @@ static void Runbl_Opm20ms(void)
     /* MinMax: '<S236>/MinMax' incorporates:
      *  Constant: '<S239>/sat4'
      *  DataTypeConversion: '<S239>/Data Type Conversion3'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_OBCOprtCmdToICU_enum_ovrdval;
   }
@@ -9686,7 +9658,7 @@ static void Runbl_Opm20ms(void)
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S239>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VHVM_OBCOprtCmd_enum;
@@ -9720,9 +9692,9 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of MinMax: '<S239>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_OBCOprtCmdToICU_enum1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_OBCOprtCmdToICU_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_MotorHiTempWrning_flg1' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_MotorHiTempWrning_flg1' */
   /* Switch: '<S238>/Switch4' incorporates:
    *  Constant: '<S238>/sat3'
    */
@@ -9745,9 +9717,9 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of Switch: '<S238>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_MotorHiTempWrning_flg1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_MotorHiTempWrning_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_MCUHiTempWrning_flg1' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_MCUHiTempWrning_flg1' */
   /* Switch: '<S235>/Switch4' incorporates:
    *  Constant: '<S235>/sat3'
    */
@@ -9770,71 +9742,71 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of Switch: '<S235>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_MCUHiTempWrning_flg1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_MCUHiTempWrning_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VehPwrCnsmpAvrg_kWh1' */
-  /* Switch: '<S258>/Switch4' incorporates:
-   *  Constant: '<S258>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VehPwrCnsmpAvrg_kWh1' */
+  /* Switch: '<S264>/Switch4' incorporates:
+   *  Constant: '<S264>/sat3'
    */
   if (KOPM_VehPwrCnsmpAvrg_kWh_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S258>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S264>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_VehPwrCnsmpAvrg_kWh_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S258>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S264>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
             ->VRME_VehPwrCnsmAvg_kWhp100km;
   }
 
-  /* End of Switch: '<S258>/Switch4' */
+  /* End of Switch: '<S264>/Switch4' */
 
-  /* MinMax: '<S258>/MinMax' incorporates:
-   *  Constant: '<S258>/sat6'
+  /* MinMax: '<S264>/MinMax' incorporates:
+   *  Constant: '<S264>/sat6'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_VehPwrCnsmpAvrgHi_kWh)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_VehPwrCnsmpAvrgHi_kWh;
   }
 
-  /* End of MinMax: '<S258>/MinMax' */
+  /* End of MinMax: '<S264>/MinMax' */
 
-  /* MinMax: '<S258>/MinMax1' incorporates:
-   *  Constant: '<S258>/sat7'
+  /* MinMax: '<S264>/MinMax1' incorporates:
+   *  Constant: '<S264>/sat7'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_VehPwrCnsmpAvrgLo_kWh)
   {
-    /* MinMax: '<S258>/MinMax1' */
+    /* MinMax: '<S264>/MinMax1' */
     VOPM_VehPwrCnsmpAvrg_kWh = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
-    /* MinMax: '<S258>/MinMax1' */
+    /* MinMax: '<S264>/MinMax1' */
     VOPM_VehPwrCnsmpAvrg_kWh = KOPM_VehPwrCnsmpAvrgLo_kWh;
   }
 
-  /* End of MinMax: '<S258>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VehPwrCnsmpAvrg_kWh1' */
+  /* End of MinMax: '<S264>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VehPwrCnsmpAvrg_kWh1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_ShftKeyStgntn_enum1' */
-  /* Switch: '<S249>/Switch4' incorporates:
-   *  Constant: '<S249>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_ShftKeyStgntn_enum1' */
+  /* Switch: '<S255>/Switch4' incorporates:
+   *  Constant: '<S255>/sat3'
    */
   if (KOPM_ShftKeyStgntn_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S249>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S255>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_ShftKeyStgntn_enum_ovrdval;
   }
@@ -9842,17 +9814,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S249>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S255>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VVcuTx_ShftKeyStgntn_enum;
   }
 
-  /* End of Switch: '<S249>/Switch4' */
+  /* End of Switch: '<S255>/Switch4' */
 
-  /* MinMax: '<S249>/MinMax' incorporates:
-   *  Constant: '<S249>/sat6'
+  /* MinMax: '<S255>/MinMax' incorporates:
+   *  Constant: '<S255>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_ShftKeyStgntnHi_enum)
   {
@@ -9860,34 +9832,34 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_ShftKeyStgntnHi_enum;
   }
 
-  /* End of MinMax: '<S249>/MinMax' */
+  /* End of MinMax: '<S255>/MinMax' */
 
-  /* MinMax: '<S249>/MinMax1' incorporates:
-   *  Constant: '<S249>/sat7'
+  /* MinMax: '<S255>/MinMax1' incorporates:
+   *  Constant: '<S255>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_ShftKeyStgntnLo_enum)
   {
-    /* MinMax: '<S249>/MinMax1' */
+    /* MinMax: '<S255>/MinMax1' */
     VOPM_ShftKeyStgntn_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S249>/MinMax1' */
+    /* MinMax: '<S255>/MinMax1' */
     VOPM_ShftKeyStgntn_enum = KOPM_ShftKeyStgntnLo_enum;
   }
 
-  /* End of MinMax: '<S249>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_ShftKeyStgntn_enum1' */
+  /* End of MinMax: '<S255>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_ShftKeyStgntn_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_CCKeyStgntn_enum1' */
-  /* Switch: '<S222>/Switch4' incorporates:
-   *  Constant: '<S222>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_CCKeyStgntn_enum1' */
+  /* Switch: '<S221>/Switch4' incorporates:
+   *  Constant: '<S221>/sat3'
    */
   if (KOPM_CCKeyStgntn_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S222>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S221>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_CCKeyStgntn_enum_ovrdval;
   }
@@ -9895,17 +9867,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S222>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S221>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VVcuTx_CCKeyStgntn_enum;
   }
 
-  /* End of Switch: '<S222>/Switch4' */
+  /* End of Switch: '<S221>/Switch4' */
 
-  /* MinMax: '<S222>/MinMax' incorporates:
-   *  Constant: '<S222>/sat6'
+  /* MinMax: '<S221>/MinMax' incorporates:
+   *  Constant: '<S221>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_CCKeyStgntnHi_enum)
   {
@@ -9913,26 +9885,26 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_CCKeyStgntnHi_enum;
   }
 
-  /* End of MinMax: '<S222>/MinMax' */
+  /* End of MinMax: '<S221>/MinMax' */
 
-  /* MinMax: '<S222>/MinMax1' incorporates:
-   *  Constant: '<S222>/sat7'
+  /* MinMax: '<S221>/MinMax1' incorporates:
+   *  Constant: '<S221>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_CCKeyStgntnLo_enum)
   {
-    /* MinMax: '<S222>/MinMax1' */
+    /* MinMax: '<S221>/MinMax1' */
     VOPM_CCKeyStgntn_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S222>/MinMax1' */
+    /* MinMax: '<S221>/MinMax1' */
     VOPM_CCKeyStgntn_enum = KOPM_CCKeyStgntnLo_enum;
   }
 
-  /* End of MinMax: '<S222>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_CCKeyStgntn_enum1' */
+  /* End of MinMax: '<S221>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_CCKeyStgntn_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_DrvModeKeyStgntn_enum1' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_DrvModeKeyStgntn_enum1' */
   /* Switch: '<S229>/Switch4' incorporates:
    *  Constant: '<S229>/sat3'
    */
@@ -9940,7 +9912,7 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  Constant: '<S229>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_DrvModeKeyStgntn_enum_ovrdval;
   }
@@ -9949,7 +9921,7 @@ static void Runbl_Opm20ms(void)
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S229>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VVcuTx_DrvModeKeyStgntn_enum;
@@ -9983,355 +9955,71 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of MinMax: '<S229>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_DrvModeKeyStgntn_enum1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_DrvModeKeyStgntn_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_SIBSKL30Volt_V' */
-  /* Switch: '<S244>/Switch4' incorporates:
-   *  Constant: '<S244>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_SIBSKL30Volt_V' */
+  /* Switch: '<S250>/Switch4' incorporates:
+   *  Constant: '<S250>/sat3'
    */
   if (KOPM_SIBSKL30Volt_V_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S244>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S250>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_SIBSKL30Volt_V_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S244>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S250>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())->VIBS_HwKL30_V;
   }
 
-  /* End of Switch: '<S244>/Switch4' */
+  /* End of Switch: '<S250>/Switch4' */
 
-  /* MinMax: '<S244>/MinMax' incorporates:
-   *  Constant: '<S244>/sat6'
+  /* MinMax: '<S250>/MinMax' incorporates:
+   *  Constant: '<S250>/sat6'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_SIBSKL30VoltHi_V)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_SIBSKL30VoltHi_V;
   }
 
-  /* End of MinMax: '<S244>/MinMax' */
+  /* End of MinMax: '<S250>/MinMax' */
 
-  /* MinMax: '<S244>/MinMax1' incorporates:
-   *  Constant: '<S244>/sat7'
+  /* MinMax: '<S250>/MinMax1' incorporates:
+   *  Constant: '<S250>/sat7'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_SIBSKL30VoltLo_V)
   {
-    /* MinMax: '<S244>/MinMax1' */
+    /* MinMax: '<S250>/MinMax1' */
     VOPM_SIBSKL30Volt_V = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
-    /* MinMax: '<S244>/MinMax1' */
+    /* MinMax: '<S250>/MinMax1' */
     VOPM_SIBSKL30Volt_V = KOPM_SIBSKL30VoltLo_V;
   }
 
-  /* End of MinMax: '<S244>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_SIBSKL30Volt_V' */
+  /* End of MinMax: '<S250>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_SIBSKL30Volt_V' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_SIBSChgNumAllow_flg' */
-  /* Switch: '<S242>/Switch4' incorporates:
-   *  Constant: '<S242>/sat3'
-   */
-  if (KOPM_SIBSChgNumAllow_flg_ovrdflg)
-  {
-    /* Switch: '<S242>/Switch4' incorporates:
-     *  Constant: '<S242>/sat4'
-     */
-    VOPM_SIBSChgNumAllow_flg = KOPM_SIBSChgNumAllow_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S242>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S242>/Data Type Conversion1'
-     */
-    VOPM_SIBSChgNumAllow_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
-            ->VIBS_ChgNumAllow_flg;
-  }
-
-  /* End of Switch: '<S242>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_SIBSChgNumAllow_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_SIBSRTCWUChgNum_cnt' */
-  /* Switch: '<S247>/Switch4' incorporates:
-   *  Constant: '<S247>/sat3'
-   */
-  if (KOPM_SIBSRTCWUChgNum_cnt_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S247>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_SIBSRTCWUChgNum_cnt_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S247>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
-                               ->VIBS_ChgNum_cnt;
-  }
-
-  /* End of Switch: '<S247>/Switch4' */
-
-  /* MinMax: '<S247>/MinMax' incorporates:
-   *  Constant: '<S247>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_SIBSRTCWUChgNumHi_cnt)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_SIBSRTCWUChgNumHi_cnt;
-  }
-
-  /* End of MinMax: '<S247>/MinMax' */
-
-  /* MinMax: '<S247>/MinMax1' incorporates:
-   *  Constant: '<S247>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_SIBSRTCWUChgNumLo_cnt)
-  {
-    /* MinMax: '<S247>/MinMax1' */
-    VOPM_SIBSRTCWUChgNum_cnt = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* MinMax: '<S247>/MinMax1' */
-    VOPM_SIBSRTCWUChgNum_cnt = KOPM_SIBSRTCWUChgNumLo_cnt;
-  }
-
-  /* End of MinMax: '<S247>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_SIBSRTCWUChgNum_cnt' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_SIBSRTCChrgSt_enum' */
-  /* Switch: '<S245>/Switch4' incorporates:
-   *  Constant: '<S245>/sat3'
-   */
-  if (KOPM_SIBSRTCChrgSt_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S245>/sat4'
-     *  DataTypeConversion: '<S245>/Data Type Conversion3'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_SIBSRTCChrgSt_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S245>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
-                               ->VIBS_RTCChrgSt_enum;
-  }
-
-  /* End of Switch: '<S245>/Switch4' */
-
-  /* MinMax: '<S245>/MinMax' incorporates:
-   *  Constant: '<S245>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_SIBSRTCChrgStHi_enum)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_SIBSRTCChrgStHi_enum;
-  }
-
-  /* End of MinMax: '<S245>/MinMax' */
-
-  /* MinMax: '<S245>/MinMax1' incorporates:
-   *  Constant: '<S245>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_SIBSRTCChrgStLo_enum)
-  {
-    /* DataTypeConversion: '<S245>/Data Type Conversion2' */
-    VOPM_SIBSRTCChrgSt_enum = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S245>/Data Type Conversion2' */
-    VOPM_SIBSRTCChrgSt_enum = KOPM_SIBSRTCChrgStLo_enum;
-  }
-
-  /* End of MinMax: '<S245>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_SIBSRTCChrgSt_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_SIBSRTCWUChgFailNum_cnt' */
-  /* Switch: '<S246>/Switch4' incorporates:
-   *  Constant: '<S246>/sat3'
-   */
-  if (KOPM_SIBSRTCWUChgFailNum_cnt_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S246>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_SIBSRTCWUChgFailNum_cnt_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S246>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
-                               ->VIBS_FailChgNum_cnt;
-  }
-
-  /* End of Switch: '<S246>/Switch4' */
-
-  /* MinMax: '<S246>/MinMax' incorporates:
-   *  Constant: '<S246>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_SIBSRTCWUChgFailNumHi_cnt)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_SIBSRTCWUChgFailNumHi_cnt;
-  }
-
-  /* End of MinMax: '<S246>/MinMax' */
-
-  /* MinMax: '<S246>/MinMax1' incorporates:
-   *  Constant: '<S246>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_SIBSRTCWUChgFailNumLo_cnt)
-  {
-    /* MinMax: '<S246>/MinMax1' */
-    VOPM_SIBSRTCWUChgFailNum_cnt = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* MinMax: '<S246>/MinMax1' */
-    VOPM_SIBSRTCWUChgFailNum_cnt = KOPM_SIBSRTCWUChgFailNumLo_cnt;
-  }
-
-  /* End of MinMax: '<S246>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_SIBSRTCWUChgFailNum_cnt' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_BCMIllmndLckStsFb_flg' */
-  /* Switch: '<S220>/Switch4' incorporates:
-   *  Constant: '<S220>/sat3'
-   */
-  if (KOPM_BCMIllmndLckStsFb_flg_ovrdflg)
-  {
-    /* Switch: '<S220>/Switch4' incorporates:
-     *  Constant: '<S220>/sat4'
-     */
-    VOPM_BCMIllmndLckStsFb_flg = KOPM_BCMIllmndLckStsFb_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S220>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S220>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndLckStsFb_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
-             ->BCM_IllmndLockStsFb != 0);
-  }
-
-  /* End of Switch: '<S220>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_BCMIllmndLckStsFb_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_BCMIllmndUnlckStsFb_flg' */
-  /* Switch: '<S221>/Switch4' incorporates:
-   *  Constant: '<S221>/sat3'
-   */
-  if (KOPM_BCMIllmndUnlckStsFb_flg_ovrdflg)
-  {
-    /* Switch: '<S221>/Switch4' incorporates:
-     *  Constant: '<S221>/sat4'
-     */
-    VOPM_BCMIllmndUnlckStsFb_flg = KOPM_BCMIllmndUnlckStsFb_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S221>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S221>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndUnlckStsFb_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
-             ->BCM_IllmndUnlockStsFb != 0);
-  }
-
-  /* End of Switch: '<S221>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_BCMIllmndUnlckStsFb_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_SIBSFbRTCWupFlg_flg' */
-  /* Switch: '<S243>/Switch4' incorporates:
-   *  Constant: '<S243>/sat3'
-   */
-  if (KOPM_SIBSFbRTCWupFlg_flg_ovrdflg)
-  {
-    /* Switch: '<S243>/Switch4' incorporates:
-     *  Constant: '<S243>/sat4'
-     */
-    VOPM_SIBSFbRTCWupFlg_flg = KOPM_SIBSFbRTCWupFlg_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S243>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S243>/Data Type Conversion1'
-     */
-    VOPM_SIBSFbRTCWupFlg_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())->VIBS_FbRctWup_flg;
-  }
-
-  /* End of Switch: '<S243>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_SIBSFbRTCWupFlg_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_SIBSBMSBatSOCAllow_flg' */
-  /* Switch: '<S241>/Switch4' incorporates:
-   *  Constant: '<S241>/sat3'
-   */
-  if (KOPM_SIBSBMSBatSOCAllow_flg_ovrdflg)
-  {
-    /* Switch: '<S241>/Switch4' incorporates:
-     *  Constant: '<S241>/sat4'
-     */
-    VOPM_SIBSBMSBatSOCAllow_flg = KOPM_SIBSBMSBatSOCAllow_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S241>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S241>/Data Type Conversion1'
-     */
-    VOPM_SIBSBMSBatSOCAllow_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
-            ->VIBS_BMSBatSOCAllow_flg;
-  }
-
-  /* End of Switch: '<S241>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_SIBSBMSBatSOCAllow_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_SIBSWupVoltAllow_flg' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_SIBSChgNumAllow_flg' */
   /* Switch: '<S248>/Switch4' incorporates:
    *  Constant: '<S248>/sat3'
    */
-  if (KOPM_SIBSWupVoltAllow_flg_ovrdflg)
+  if (KOPM_SIBSChgNumAllow_flg_ovrdflg)
   {
     /* Switch: '<S248>/Switch4' incorporates:
      *  Constant: '<S248>/sat4'
      */
-    VOPM_SIBSWupVoltAllow_flg = KOPM_SIBSWupVoltAllow_flg_ovrdval;
+    VOPM_SIBSChgNumAllow_flg = KOPM_SIBSChgNumAllow_flg_ovrdval;
   }
   else
   {
@@ -10339,23 +10027,307 @@ static void Runbl_Opm20ms(void)
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S248>/Data Type Conversion1'
      */
+    VOPM_SIBSChgNumAllow_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
+            ->VIBS_ChgNumAllow_flg;
+  }
+
+  /* End of Switch: '<S248>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_SIBSChgNumAllow_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_SIBSRTCWUChgNum_cnt' */
+  /* Switch: '<S253>/Switch4' incorporates:
+   *  Constant: '<S253>/sat3'
+   */
+  if (KOPM_SIBSRTCWUChgNum_cnt_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S253>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_SIBSRTCWUChgNum_cnt_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S253>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
+                               ->VIBS_ChgNum_cnt;
+  }
+
+  /* End of Switch: '<S253>/Switch4' */
+
+  /* MinMax: '<S253>/MinMax' incorporates:
+   *  Constant: '<S253>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_SIBSRTCWUChgNumHi_cnt)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_SIBSRTCWUChgNumHi_cnt;
+  }
+
+  /* End of MinMax: '<S253>/MinMax' */
+
+  /* MinMax: '<S253>/MinMax1' incorporates:
+   *  Constant: '<S253>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_SIBSRTCWUChgNumLo_cnt)
+  {
+    /* MinMax: '<S253>/MinMax1' */
+    VOPM_SIBSRTCWUChgNum_cnt = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S253>/MinMax1' */
+    VOPM_SIBSRTCWUChgNum_cnt = KOPM_SIBSRTCWUChgNumLo_cnt;
+  }
+
+  /* End of MinMax: '<S253>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_SIBSRTCWUChgNum_cnt' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_SIBSRTCChrgSt_enum' */
+  /* Switch: '<S251>/Switch4' incorporates:
+   *  Constant: '<S251>/sat3'
+   */
+  if (KOPM_SIBSRTCChrgSt_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S251>/sat4'
+     *  DataTypeConversion: '<S251>/Data Type Conversion3'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_SIBSRTCChrgSt_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S251>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
+                               ->VIBS_RTCChrgSt_enum;
+  }
+
+  /* End of Switch: '<S251>/Switch4' */
+
+  /* MinMax: '<S251>/MinMax' incorporates:
+   *  Constant: '<S251>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_SIBSRTCChrgStHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_SIBSRTCChrgStHi_enum;
+  }
+
+  /* End of MinMax: '<S251>/MinMax' */
+
+  /* MinMax: '<S251>/MinMax1' incorporates:
+   *  Constant: '<S251>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_SIBSRTCChrgStLo_enum)
+  {
+    /* DataTypeConversion: '<S251>/Data Type Conversion2' */
+    VOPM_SIBSRTCChrgSt_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S251>/Data Type Conversion2' */
+    VOPM_SIBSRTCChrgSt_enum = KOPM_SIBSRTCChrgStLo_enum;
+  }
+
+  /* End of MinMax: '<S251>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_SIBSRTCChrgSt_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_SIBSRTCWUChgFailNum_cnt' */
+  /* Switch: '<S252>/Switch4' incorporates:
+   *  Constant: '<S252>/sat3'
+   */
+  if (KOPM_SIBSRTCWUChgFailNum_cnt_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S252>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_SIBSRTCWUChgFailNum_cnt_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S252>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
+                               ->VIBS_FailChgNum_cnt;
+  }
+
+  /* End of Switch: '<S252>/Switch4' */
+
+  /* MinMax: '<S252>/MinMax' incorporates:
+   *  Constant: '<S252>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_SIBSRTCWUChgFailNumHi_cnt)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_SIBSRTCWUChgFailNumHi_cnt;
+  }
+
+  /* End of MinMax: '<S252>/MinMax' */
+
+  /* MinMax: '<S252>/MinMax1' incorporates:
+   *  Constant: '<S252>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_SIBSRTCWUChgFailNumLo_cnt)
+  {
+    /* MinMax: '<S252>/MinMax1' */
+    VOPM_SIBSRTCWUChgFailNum_cnt = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S252>/MinMax1' */
+    VOPM_SIBSRTCWUChgFailNum_cnt = KOPM_SIBSRTCWUChgFailNumLo_cnt;
+  }
+
+  /* End of MinMax: '<S252>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_SIBSRTCWUChgFailNum_cnt' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_BCMIllmndLckStsFb_flg' */
+  /* Switch: '<S219>/Switch4' incorporates:
+   *  Constant: '<S219>/sat3'
+   */
+  if (KOPM_BCMIllmndLckStsFb_flg_ovrdflg)
+  {
+    /* Switch: '<S219>/Switch4' incorporates:
+     *  Constant: '<S219>/sat4'
+     */
+    VOPM_BCMIllmndLckStsFb_flg = KOPM_BCMIllmndLckStsFb_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S219>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S219>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndLckStsFb_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
+             ->BCM_IllmndLockStsFb != 0);
+  }
+
+  /* End of Switch: '<S219>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_BCMIllmndLckStsFb_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_BCMIllmndUnlckStsFb_flg' */
+  /* Switch: '<S220>/Switch4' incorporates:
+   *  Constant: '<S220>/sat3'
+   */
+  if (KOPM_BCMIllmndUnlckStsFb_flg_ovrdflg)
+  {
+    /* Switch: '<S220>/Switch4' incorporates:
+     *  Constant: '<S220>/sat4'
+     */
+    VOPM_BCMIllmndUnlckStsFb_flg = KOPM_BCMIllmndUnlckStsFb_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S220>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S220>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndUnlckStsFb_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
+             ->BCM_IllmndUnlockStsFb != 0);
+  }
+
+  /* End of Switch: '<S220>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_BCMIllmndUnlckStsFb_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_SIBSFbRTCWupFlg_flg' */
+  /* Switch: '<S249>/Switch4' incorporates:
+   *  Constant: '<S249>/sat3'
+   */
+  if (KOPM_SIBSFbRTCWupFlg_flg_ovrdflg)
+  {
+    /* Switch: '<S249>/Switch4' incorporates:
+     *  Constant: '<S249>/sat4'
+     */
+    VOPM_SIBSFbRTCWupFlg_flg = KOPM_SIBSFbRTCWupFlg_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S249>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S249>/Data Type Conversion1'
+     */
+    VOPM_SIBSFbRTCWupFlg_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())->VIBS_FbRctWup_flg;
+  }
+
+  /* End of Switch: '<S249>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_SIBSFbRTCWupFlg_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_SIBSBMSBatSOCAllow_flg' */
+  /* Switch: '<S247>/Switch4' incorporates:
+   *  Constant: '<S247>/sat3'
+   */
+  if (KOPM_SIBSBMSBatSOCAllow_flg_ovrdflg)
+  {
+    /* Switch: '<S247>/Switch4' incorporates:
+     *  Constant: '<S247>/sat4'
+     */
+    VOPM_SIBSBMSBatSOCAllow_flg = KOPM_SIBSBMSBatSOCAllow_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S247>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S247>/Data Type Conversion1'
+     */
+    VOPM_SIBSBMSBatSOCAllow_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
+            ->VIBS_BMSBatSOCAllow_flg;
+  }
+
+  /* End of Switch: '<S247>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_SIBSBMSBatSOCAllow_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_SIBSWupVoltAllow_flg' */
+  /* Switch: '<S254>/Switch4' incorporates:
+   *  Constant: '<S254>/sat3'
+   */
+  if (KOPM_SIBSWupVoltAllow_flg_ovrdflg)
+  {
+    /* Switch: '<S254>/Switch4' incorporates:
+     *  Constant: '<S254>/sat4'
+     */
+    VOPM_SIBSWupVoltAllow_flg = KOPM_SIBSWupVoltAllow_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S254>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S254>/Data Type Conversion1'
+     */
     VOPM_SIBSWupVoltAllow_flg =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
             ->VIBS_WupVoltAllow_flg;
   }
 
-  /* End of Switch: '<S248>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_SIBSWupVoltAllow_flg' */
+  /* End of Switch: '<S254>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_SIBSWupVoltAllow_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VehActDrvPwr_pct' */
-  /* Switch: '<S255>/Switch4' incorporates:
-   *  Constant: '<S255>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VehActDrvPwr_pct' */
+  /* Switch: '<S261>/Switch4' incorporates:
+   *  Constant: '<S261>/sat3'
    */
   if (KOPM_VehActDrvPwr_pct_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S255>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S261>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_VehActDrvPwr_pct_ovrdval;
   }
@@ -10363,17 +10335,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S255>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S261>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VIPC_DrvPwrIntnsty_pct;
   }
 
-  /* End of Switch: '<S255>/Switch4' */
+  /* End of Switch: '<S261>/Switch4' */
 
-  /* MinMax: '<S255>/MinMax' incorporates:
-   *  Constant: '<S255>/sat6'
+  /* MinMax: '<S261>/MinMax' incorporates:
+   *  Constant: '<S261>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_VehActDrvPwrHi_pct)
   {
@@ -10381,34 +10353,34 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_VehActDrvPwrHi_pct;
   }
 
-  /* End of MinMax: '<S255>/MinMax' */
+  /* End of MinMax: '<S261>/MinMax' */
 
-  /* MinMax: '<S255>/MinMax1' incorporates:
-   *  Constant: '<S255>/sat7'
+  /* MinMax: '<S261>/MinMax1' incorporates:
+   *  Constant: '<S261>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_VehActDrvPwrLo_pct)
   {
-    /* MinMax: '<S255>/MinMax1' */
+    /* MinMax: '<S261>/MinMax1' */
     VOPM_VehActDrvPwr_pct = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S255>/MinMax1' */
+    /* MinMax: '<S261>/MinMax1' */
     VOPM_VehActDrvPwr_pct = KOPM_VehActDrvPwrLo_pct;
   }
 
-  /* End of MinMax: '<S255>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VehActDrvPwr_pct' */
+  /* End of MinMax: '<S261>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VehActDrvPwr_pct' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VehActRecupPwr_pct' */
-  /* Switch: '<S256>/Switch4' incorporates:
-   *  Constant: '<S256>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VehActRecupPwr_pct' */
+  /* Switch: '<S262>/Switch4' incorporates:
+   *  Constant: '<S262>/sat3'
    */
   if (KOPM_VehActRecupPwr_pct_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S256>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S262>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_VehActRecupPwr_pct_ovrdval;
   }
@@ -10416,17 +10388,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S256>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S262>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VIPC_RegenPwrIntnsty_pct;
   }
 
-  /* End of Switch: '<S256>/Switch4' */
+  /* End of Switch: '<S262>/Switch4' */
 
-  /* MinMax: '<S256>/MinMax' incorporates:
-   *  Constant: '<S256>/sat6'
+  /* MinMax: '<S262>/MinMax' incorporates:
+   *  Constant: '<S262>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_VehActRecupPwrHi_pct)
   {
@@ -10434,26 +10406,26 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_VehActRecupPwrHi_pct;
   }
 
-  /* End of MinMax: '<S256>/MinMax' */
+  /* End of MinMax: '<S262>/MinMax' */
 
-  /* MinMax: '<S256>/MinMax1' incorporates:
-   *  Constant: '<S256>/sat7'
+  /* MinMax: '<S262>/MinMax1' incorporates:
+   *  Constant: '<S262>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_VehActRecupPwrLo_pct)
   {
-    /* MinMax: '<S256>/MinMax1' */
+    /* MinMax: '<S262>/MinMax1' */
     VOPM_VehActRecupPwr_pct = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S256>/MinMax1' */
+    /* MinMax: '<S262>/MinMax1' */
     VOPM_VehActRecupPwr_pct = KOPM_VehActRecupPwrLo_pct;
   }
 
-  /* End of MinMax: '<S256>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VehActRecupPwr_pct' */
+  /* End of MinMax: '<S262>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VehActRecupPwr_pct' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_LckVehWrm_enum' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_LckVehWrm_enum' */
   /* Switch: '<S234>/Switch4' incorporates:
    *  Constant: '<S234>/sat3'
    */
@@ -10461,7 +10433,7 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  Constant: '<S234>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_LckVehWrm_enum_ovrdval;
   }
@@ -10470,7 +10442,7 @@ static void Runbl_Opm20ms(void)
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S234>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VTBX_VCULckVehWrn_enum;
@@ -10504,17 +10476,17 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of MinMax: '<S234>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_LckVehWrm_enum' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_LckVehWrm_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_ACChrgMode_enum' */
-  /* Switch: '<S215>/Switch4' incorporates:
-   *  Constant: '<S215>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_ACChrgMode_enum' */
+  /* Switch: '<S214>/Switch4' incorporates:
+   *  Constant: '<S214>/sat3'
    */
   if (KOPM_ACChrgMode_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S215>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S214>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_ACChrgMode_enum_ovrdval;
   }
@@ -10522,64 +10494,11 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S215>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S214>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VHVM_ACChrgModeFb_enum;
-  }
-
-  /* End of Switch: '<S215>/Switch4' */
-
-  /* MinMax: '<S215>/MinMax' incorporates:
-   *  Constant: '<S215>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_ACChrgModeHi_enum)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_ACChrgModeHi_enum;
-  }
-
-  /* End of MinMax: '<S215>/MinMax' */
-
-  /* MinMax: '<S215>/MinMax1' incorporates:
-   *  Constant: '<S215>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_ACChrgModeLo_enum)
-  {
-    /* MinMax: '<S215>/MinMax1' */
-    VOPM_ACChrgMode_enum = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* MinMax: '<S215>/MinMax1' */
-    VOPM_ACChrgMode_enum = KOPM_ACChrgModeLo_enum;
-  }
-
-  /* End of MinMax: '<S215>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_ACChrgMode_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_ACChrgMaxCurr_A' */
-  /* Switch: '<S214>/Switch4' incorporates:
-   *  Constant: '<S214>/sat3'
-   */
-  if (KOPM_ACChrgMaxCurr_A_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S214>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_ACChrgMaxCurr_A_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S214>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
-                               ->VHVM_ACChrgMaxCurrFb_A;
   }
 
   /* End of Switch: '<S214>/Switch4' */
@@ -10587,10 +10506,10 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S214>/MinMax' incorporates:
    *  Constant: '<S214>/sat6'
    */
-  if (VOPM_VCUACCStat_enum > KOPM_ACChrgMaxCurrHi_A)
+  if (VOPM_VCUACCStat_enum > KOPM_ACChrgModeHi_enum)
   {
     /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_ACChrgMaxCurrHi_A;
+    VOPM_VCUACCStat_enum = KOPM_ACChrgModeHi_enum;
   }
 
   /* End of MinMax: '<S214>/MinMax' */
@@ -10598,29 +10517,82 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S214>/MinMax1' incorporates:
    *  Constant: '<S214>/sat7'
    */
-  if (VOPM_VCUACCStat_enum >= KOPM_ACChrgMaxCurrLo_A)
+  if (VOPM_VCUACCStat_enum >= KOPM_ACChrgModeLo_enum)
   {
     /* MinMax: '<S214>/MinMax1' */
-    VOPM_ACChrgMaxCurr_A = VOPM_VCUACCStat_enum;
+    VOPM_ACChrgMode_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
     /* MinMax: '<S214>/MinMax1' */
-    VOPM_ACChrgMaxCurr_A = KOPM_ACChrgMaxCurrLo_A;
+    VOPM_ACChrgMode_enum = KOPM_ACChrgModeLo_enum;
   }
 
   /* End of MinMax: '<S214>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_ACChrgMaxCurr_A' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_ACChrgMode_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_ACUnlckVentSetFB_enum' */
-  /* Switch: '<S219>/Switch4' incorporates:
-   *  Constant: '<S219>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_ACChrgMaxCurr_A' */
+  /* Switch: '<S213>/Switch4' incorporates:
+   *  Constant: '<S213>/sat3'
+   */
+  if (KOPM_ACChrgMaxCurr_A_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S213>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_ACChrgMaxCurr_A_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S213>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
+                               ->VHVM_ACChrgMaxCurrFb_A;
+  }
+
+  /* End of Switch: '<S213>/Switch4' */
+
+  /* MinMax: '<S213>/MinMax' incorporates:
+   *  Constant: '<S213>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_ACChrgMaxCurrHi_A)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_ACChrgMaxCurrHi_A;
+  }
+
+  /* End of MinMax: '<S213>/MinMax' */
+
+  /* MinMax: '<S213>/MinMax1' incorporates:
+   *  Constant: '<S213>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_ACChrgMaxCurrLo_A)
+  {
+    /* MinMax: '<S213>/MinMax1' */
+    VOPM_ACChrgMaxCurr_A = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S213>/MinMax1' */
+    VOPM_ACChrgMaxCurr_A = KOPM_ACChrgMaxCurrLo_A;
+  }
+
+  /* End of MinMax: '<S213>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_ACChrgMaxCurr_A' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_ACUnlckVentSetFB_enum' */
+  /* Switch: '<S218>/Switch4' incorporates:
+   *  Constant: '<S218>/sat3'
    */
   if (KOPM_ACUnlckVentSetFB_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S219>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S218>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_ACUnlckVentSetFB_enum_ovrdval;
   }
@@ -10628,272 +10600,10 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S219>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S218>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs())->AC_ACUnlockVentSetFB;
-  }
-
-  /* End of Switch: '<S219>/Switch4' */
-
-  /* MinMax: '<S219>/MinMax' incorporates:
-   *  Constant: '<S219>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_ACUnlckVentSetFBHi_enum)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_ACUnlckVentSetFBHi_enum;
-  }
-
-  /* End of MinMax: '<S219>/MinMax' */
-
-  /* MinMax: '<S219>/MinMax1' incorporates:
-   *  Constant: '<S219>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_ACUnlckVentSetFBLo_enum)
-  {
-    /* MinMax: '<S219>/MinMax1' */
-    VOPM_ACUnlckVentSetFB_enum = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* MinMax: '<S219>/MinMax1' */
-    VOPM_ACUnlckVentSetFB_enum = KOPM_ACUnlckVentSetFBLo_enum;
-  }
-
-  /* End of MinMax: '<S219>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_ACUnlckVentSetFB_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_CCURmtLckFb_enum' */
-  /* Switch: '<S225>/Switch4' incorporates:
-   *  Constant: '<S225>/sat3'
-   */
-  if (KOPM_CCURmtLckFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S225>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_CCURmtLckFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S225>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
-                               ->CCU_RemoteLockFb;
-  }
-
-  /* End of Switch: '<S225>/Switch4' */
-
-  /* MinMax: '<S225>/MinMax' incorporates:
-   *  Constant: '<S225>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_CCURmtLckFbHi_enum)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_CCURmtLckFbHi_enum;
-  }
-
-  /* End of MinMax: '<S225>/MinMax' */
-
-  /* MinMax: '<S225>/MinMax1' incorporates:
-   *  Constant: '<S225>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_CCURmtLckFbLo_enum)
-  {
-    /* MinMax: '<S225>/MinMax1' */
-    VOPM_CCURmtLckFb_enum = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* MinMax: '<S225>/MinMax1' */
-    VOPM_CCURmtLckFb_enum = KOPM_CCURmtLckFbLo_enum;
-  }
-
-  /* End of MinMax: '<S225>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_CCURmtLckFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_CCURmtCarSearchFb_enum' */
-  /* Switch: '<S224>/Switch4' incorporates:
-   *  Constant: '<S224>/sat3'
-   */
-  if (KOPM_CCURmtCarSearchFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S224>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_CCURmtCarSearchFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S224>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
-                               ->CCU_RemoteCarSearchFb;
-  }
-
-  /* End of Switch: '<S224>/Switch4' */
-
-  /* MinMax: '<S224>/MinMax' incorporates:
-   *  Constant: '<S224>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_CCURmtCarSearchFbHi_enum)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_CCURmtCarSearchFbHi_enum;
-  }
-
-  /* End of MinMax: '<S224>/MinMax' */
-
-  /* MinMax: '<S224>/MinMax1' incorporates:
-   *  Constant: '<S224>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_CCURmtCarSearchFbLo_enum)
-  {
-    /* MinMax: '<S224>/MinMax1' */
-    VOPM_CCURmtCarSearchFb_enum = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* MinMax: '<S224>/MinMax1' */
-    VOPM_CCURmtCarSearchFb_enum = KOPM_CCURmtCarSearchFbLo_enum;
-  }
-
-  /* End of MinMax: '<S224>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_CCURmtCarSearchFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_CCUOpenVentnFb_enum' */
-  /* Switch: '<S223>/Switch4' incorporates:
-   *  Constant: '<S223>/sat3'
-   */
-  if (KOPM_CCUOpenVentnFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S223>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_CCUOpenVentnFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S223>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs())->CCU_OpenVentilationFb;
-  }
-
-  /* End of Switch: '<S223>/Switch4' */
-
-  /* MinMax: '<S223>/MinMax' incorporates:
-   *  Constant: '<S223>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_CCUOpenVentnFbHi_enum)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_CCUOpenVentnFbHi_enum;
-  }
-
-  /* End of MinMax: '<S223>/MinMax' */
-
-  /* MinMax: '<S223>/MinMax1' incorporates:
-   *  Constant: '<S223>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_CCUOpenVentnFbLo_enum)
-  {
-    /* MinMax: '<S223>/MinMax1' */
-    VOPM_CCUOpenVentnFb_enum = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* MinMax: '<S223>/MinMax1' */
-    VOPM_CCUOpenVentnFb_enum = KOPM_CCUOpenVentnFbLo_enum;
-  }
-
-  /* End of MinMax: '<S223>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_CCUOpenVentnFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_ACRemtCtrlFb_enum' */
-  /* Switch: '<S216>/Switch4' incorporates:
-   *  Constant: '<S216>/sat3'
-   */
-  if (KOPM_ACRemtCtrlFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S216>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_ACRemtCtrlFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S216>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs())->AC_RemtCtrlFb;
-  }
-
-  /* End of Switch: '<S216>/Switch4' */
-
-  /* MinMax: '<S216>/MinMax' incorporates:
-   *  Constant: '<S216>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_ACRemtCtrlFbHi_enum)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_ACRemtCtrlFbHi_enum;
-  }
-
-  /* End of MinMax: '<S216>/MinMax' */
-
-  /* MinMax: '<S216>/MinMax1' incorporates:
-   *  Constant: '<S216>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_ACRemtCtrlFbLo_enum)
-  {
-    /* MinMax: '<S216>/MinMax1' */
-    VOPM_ACRemtCtrlFb_enum = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* MinMax: '<S216>/MinMax1' */
-    VOPM_ACRemtCtrlFb_enum = KOPM_ACRemtCtrlFbLo_enum;
-  }
-
-  /* End of MinMax: '<S216>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_ACRemtCtrlFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_ACTempSetFb_enum' */
-  /* Switch: '<S218>/Switch4' incorporates:
-   *  Constant: '<S218>/sat3'
-   */
-  if (KOPM_ACTempSetFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S218>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_ACTempSetFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S218>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs())->AC_TempSetFb;
   }
 
   /* End of Switch: '<S218>/Switch4' */
@@ -10901,10 +10611,10 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S218>/MinMax' incorporates:
    *  Constant: '<S218>/sat6'
    */
-  if (VOPM_VCUACCStat_enum > KOPM_ACTempSetFbHi_enum)
+  if (VOPM_VCUACCStat_enum > KOPM_ACUnlckVentSetFBHi_enum)
   {
     /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_ACTempSetFbHi_enum;
+    VOPM_VCUACCStat_enum = KOPM_ACUnlckVentSetFBHi_enum;
   }
 
   /* End of MinMax: '<S218>/MinMax' */
@@ -10912,40 +10622,250 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S218>/MinMax1' incorporates:
    *  Constant: '<S218>/sat7'
    */
-  if (VOPM_VCUACCStat_enum >= KOPM_ACTempSetFbLo_enum)
+  if (VOPM_VCUACCStat_enum >= KOPM_ACUnlckVentSetFBLo_enum)
   {
     /* MinMax: '<S218>/MinMax1' */
-    VOPM_ACTempSetFb_enum = VOPM_VCUACCStat_enum;
+    VOPM_ACUnlckVentSetFB_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
     /* MinMax: '<S218>/MinMax1' */
-    VOPM_ACTempSetFb_enum = KOPM_ACTempSetFbLo_enum;
+    VOPM_ACUnlckVentSetFB_enum = KOPM_ACUnlckVentSetFBLo_enum;
   }
 
   /* End of MinMax: '<S218>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_ACTempSetFb_enum' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_ACUnlckVentSetFB_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_ACRmtDefrstCtlFb_enum' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_CCURmtLckFb_enum' */
+  /* Switch: '<S224>/Switch4' incorporates:
+   *  Constant: '<S224>/sat3'
+   */
+  if (KOPM_CCURmtLckFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S224>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_CCURmtLckFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S224>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
+                               ->CCU_RemoteLockFb;
+  }
+
+  /* End of Switch: '<S224>/Switch4' */
+
+  /* MinMax: '<S224>/MinMax' incorporates:
+   *  Constant: '<S224>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_CCURmtLckFbHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_CCURmtLckFbHi_enum;
+  }
+
+  /* End of MinMax: '<S224>/MinMax' */
+
+  /* MinMax: '<S224>/MinMax1' incorporates:
+   *  Constant: '<S224>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_CCURmtLckFbLo_enum)
+  {
+    /* MinMax: '<S224>/MinMax1' */
+    VOPM_CCURmtLckFb_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S224>/MinMax1' */
+    VOPM_CCURmtLckFb_enum = KOPM_CCURmtLckFbLo_enum;
+  }
+
+  /* End of MinMax: '<S224>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_CCURmtLckFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_CCURmtCarSearchFb_enum' */
+  /* Switch: '<S223>/Switch4' incorporates:
+   *  Constant: '<S223>/sat3'
+   */
+  if (KOPM_CCURmtCarSearchFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S223>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_CCURmtCarSearchFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S223>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
+                               ->CCU_RemoteCarSearchFb;
+  }
+
+  /* End of Switch: '<S223>/Switch4' */
+
+  /* MinMax: '<S223>/MinMax' incorporates:
+   *  Constant: '<S223>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_CCURmtCarSearchFbHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_CCURmtCarSearchFbHi_enum;
+  }
+
+  /* End of MinMax: '<S223>/MinMax' */
+
+  /* MinMax: '<S223>/MinMax1' incorporates:
+   *  Constant: '<S223>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_CCURmtCarSearchFbLo_enum)
+  {
+    /* MinMax: '<S223>/MinMax1' */
+    VOPM_CCURmtCarSearchFb_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S223>/MinMax1' */
+    VOPM_CCURmtCarSearchFb_enum = KOPM_CCURmtCarSearchFbLo_enum;
+  }
+
+  /* End of MinMax: '<S223>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_CCURmtCarSearchFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_CCUOpenVentnFb_enum' */
+  /* Switch: '<S222>/Switch4' incorporates:
+   *  Constant: '<S222>/sat3'
+   */
+  if (KOPM_CCUOpenVentnFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S222>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_CCUOpenVentnFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S222>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs())->CCU_OpenVentilationFb;
+  }
+
+  /* End of Switch: '<S222>/Switch4' */
+
+  /* MinMax: '<S222>/MinMax' incorporates:
+   *  Constant: '<S222>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_CCUOpenVentnFbHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_CCUOpenVentnFbHi_enum;
+  }
+
+  /* End of MinMax: '<S222>/MinMax' */
+
+  /* MinMax: '<S222>/MinMax1' incorporates:
+   *  Constant: '<S222>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_CCUOpenVentnFbLo_enum)
+  {
+    /* MinMax: '<S222>/MinMax1' */
+    VOPM_CCUOpenVentnFb_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S222>/MinMax1' */
+    VOPM_CCUOpenVentnFb_enum = KOPM_CCUOpenVentnFbLo_enum;
+  }
+
+  /* End of MinMax: '<S222>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_CCUOpenVentnFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_ACRemtCtrlFb_enum' */
+  /* Switch: '<S215>/Switch4' incorporates:
+   *  Constant: '<S215>/sat3'
+   */
+  if (KOPM_ACRemtCtrlFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S215>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_ACRemtCtrlFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S215>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs())->AC_RemtCtrlFb;
+  }
+
+  /* End of Switch: '<S215>/Switch4' */
+
+  /* MinMax: '<S215>/MinMax' incorporates:
+   *  Constant: '<S215>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_ACRemtCtrlFbHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_ACRemtCtrlFbHi_enum;
+  }
+
+  /* End of MinMax: '<S215>/MinMax' */
+
+  /* MinMax: '<S215>/MinMax1' incorporates:
+   *  Constant: '<S215>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_ACRemtCtrlFbLo_enum)
+  {
+    /* MinMax: '<S215>/MinMax1' */
+    VOPM_ACRemtCtrlFb_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S215>/MinMax1' */
+    VOPM_ACRemtCtrlFb_enum = KOPM_ACRemtCtrlFbLo_enum;
+  }
+
+  /* End of MinMax: '<S215>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_ACRemtCtrlFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_ACTempSetFb_enum' */
   /* Switch: '<S217>/Switch4' incorporates:
    *  Constant: '<S217>/sat3'
    */
-  if (KOPM_ACRmtDefrstCtlFb_enum_ovrdflg)
+  if (KOPM_ACTempSetFb_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  Constant: '<S217>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
-    VOPM_VCUACCStat_enum = KOPM_ACRmtDefrstCtlFb_enum_ovrdval;
+    VOPM_VCUACCStat_enum = KOPM_ACTempSetFb_enum_ovrdval;
   }
   else
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S217>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs())->AC_RemoteDefrostCtlFb;
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs())->AC_TempSetFb;
   }
 
   /* End of Switch: '<S217>/Switch4' */
@@ -10953,10 +10873,10 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S217>/MinMax' incorporates:
    *  Constant: '<S217>/sat6'
    */
-  if (VOPM_VCUACCStat_enum > KOPM_ACRmtDefrstCtlFbHi_enum)
+  if (VOPM_VCUACCStat_enum > KOPM_ACTempSetFbHi_enum)
   {
     /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_ACRmtDefrstCtlFbHi_enum;
+    VOPM_VCUACCStat_enum = KOPM_ACTempSetFbHi_enum;
   }
 
   /* End of MinMax: '<S217>/MinMax' */
@@ -10964,29 +10884,81 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S217>/MinMax1' incorporates:
    *  Constant: '<S217>/sat7'
    */
-  if (VOPM_VCUACCStat_enum >= KOPM_ACRmtDefrstCtlFbLo_enum)
+  if (VOPM_VCUACCStat_enum >= KOPM_ACTempSetFbLo_enum)
   {
     /* MinMax: '<S217>/MinMax1' */
-    VOPM_ACRmtDefrstCtlFb_enum = VOPM_VCUACCStat_enum;
+    VOPM_ACTempSetFb_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
     /* MinMax: '<S217>/MinMax1' */
-    VOPM_ACRmtDefrstCtlFb_enum = KOPM_ACRmtDefrstCtlFbLo_enum;
+    VOPM_ACTempSetFb_enum = KOPM_ACTempSetFbLo_enum;
   }
 
   /* End of MinMax: '<S217>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_ACRmtDefrstCtlFb_enum' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_ACTempSetFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VCUVerSetFb_enum' */
-  /* Switch: '<S254>/Switch4' incorporates:
-   *  Constant: '<S254>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_ACRmtDefrstCtlFb_enum' */
+  /* Switch: '<S216>/Switch4' incorporates:
+   *  Constant: '<S216>/sat3'
+   */
+  if (KOPM_ACRmtDefrstCtlFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S216>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_ACRmtDefrstCtlFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S216>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_TMS2VCU_PPV_outputs())->AC_RemoteDefrostCtlFb;
+  }
+
+  /* End of Switch: '<S216>/Switch4' */
+
+  /* MinMax: '<S216>/MinMax' incorporates:
+   *  Constant: '<S216>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_ACRmtDefrstCtlFbHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_ACRmtDefrstCtlFbHi_enum;
+  }
+
+  /* End of MinMax: '<S216>/MinMax' */
+
+  /* MinMax: '<S216>/MinMax1' incorporates:
+   *  Constant: '<S216>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_ACRmtDefrstCtlFbLo_enum)
+  {
+    /* MinMax: '<S216>/MinMax1' */
+    VOPM_ACRmtDefrstCtlFb_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S216>/MinMax1' */
+    VOPM_ACRmtDefrstCtlFb_enum = KOPM_ACRmtDefrstCtlFbLo_enum;
+  }
+
+  /* End of MinMax: '<S216>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_ACRmtDefrstCtlFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VCUVerSetFb_enum' */
+  /* Switch: '<S260>/Switch4' incorporates:
+   *  Constant: '<S260>/sat3'
    */
   if (KOPM_VCUVerSetFb_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S254>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S260>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_VCUVerSetFb_enum_ovrdval;
   }
@@ -10994,17 +10966,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S254>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S260>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VTBX_VCUVerSetFb_enum;
   }
 
-  /* End of Switch: '<S254>/Switch4' */
+  /* End of Switch: '<S260>/Switch4' */
 
-  /* MinMax: '<S254>/MinMax' incorporates:
-   *  Constant: '<S254>/sat6'
+  /* MinMax: '<S260>/MinMax' incorporates:
+   *  Constant: '<S260>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_VCUVerSetFbHi_enum)
   {
@@ -11012,34 +10984,34 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_VCUVerSetFbHi_enum;
   }
 
-  /* End of MinMax: '<S254>/MinMax' */
+  /* End of MinMax: '<S260>/MinMax' */
 
-  /* MinMax: '<S254>/MinMax1' incorporates:
-   *  Constant: '<S254>/sat7'
+  /* MinMax: '<S260>/MinMax1' incorporates:
+   *  Constant: '<S260>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_VCUVerSetFbLo_enum)
   {
-    /* MinMax: '<S254>/MinMax1' */
+    /* MinMax: '<S260>/MinMax1' */
     VOPM_VCUVerSetFb_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S254>/MinMax1' */
+    /* MinMax: '<S260>/MinMax1' */
     VOPM_VCUVerSetFb_enum = KOPM_VCUVerSetFbLo_enum;
   }
 
-  /* End of MinMax: '<S254>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VCUVerSetFb_enum' */
+  /* End of MinMax: '<S260>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VCUVerSetFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VCUSpdLimLvlSetFb_enum' */
-  /* Switch: '<S252>/Switch4' incorporates:
-   *  Constant: '<S252>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VCUSpdLimLvlSetFb_enum' */
+  /* Switch: '<S258>/Switch4' incorporates:
+   *  Constant: '<S258>/sat3'
    */
   if (KOPM_VCUSpdLimLvlSetFb_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S252>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S258>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_VCUSpdLimLvlSetFb_enum_ovrdval;
   }
@@ -11047,17 +11019,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S252>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S258>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VTBX_VCUSpdLimLvlSetFb_enum;
   }
 
-  /* End of Switch: '<S252>/Switch4' */
+  /* End of Switch: '<S258>/Switch4' */
 
-  /* MinMax: '<S252>/MinMax' incorporates:
-   *  Constant: '<S252>/sat6'
+  /* MinMax: '<S258>/MinMax' incorporates:
+   *  Constant: '<S258>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_VCUSpdLimLvlSetFbHi_enum)
   {
@@ -11065,80 +11037,80 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_VCUSpdLimLvlSetFbHi_enum;
   }
 
-  /* End of MinMax: '<S252>/MinMax' */
+  /* End of MinMax: '<S258>/MinMax' */
 
-  /* MinMax: '<S252>/MinMax1' incorporates:
-   *  Constant: '<S252>/sat7'
+  /* MinMax: '<S258>/MinMax1' incorporates:
+   *  Constant: '<S258>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_VCUSpdLimLvlSetFbLo_enum)
   {
-    /* MinMax: '<S252>/MinMax1' */
+    /* MinMax: '<S258>/MinMax1' */
     VOPM_VCUSpdLimLvlSetFb_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S252>/MinMax1' */
+    /* MinMax: '<S258>/MinMax1' */
     VOPM_VCUSpdLimLvlSetFb_enum = KOPM_VCUSpdLimLvlSetFbLo_enum;
   }
 
-  /* End of MinMax: '<S252>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VCUSpdLimLvlSetFb_enum' */
+  /* End of MinMax: '<S258>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VCUSpdLimLvlSetFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VCUVerFb_flg' */
-  /* Switch: '<S253>/Switch4' incorporates:
-   *  Constant: '<S253>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VCUVerFb_flg' */
+  /* Switch: '<S259>/Switch4' incorporates:
+   *  Constant: '<S259>/sat3'
    */
   if (KOPM_VCUVerFb_flg_ovrdflg)
   {
-    /* Switch: '<S253>/Switch4' incorporates:
-     *  Constant: '<S253>/sat4'
+    /* Switch: '<S259>/Switch4' incorporates:
+     *  Constant: '<S259>/sat4'
      */
     VOPM_VCUVerFb_flg = KOPM_VCUVerFb_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S253>/Switch4' incorporates:
+    /* Switch: '<S259>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S253>/Data Type Conversion1'
+     *  DataTypeConversion: '<S259>/Data Type Conversion1'
      */
     VOPM_VCUVerFb_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())->VTBX_VCUVerFb_flg;
   }
 
-  /* End of Switch: '<S253>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VCUVerFb_flg' */
+  /* End of Switch: '<S259>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VCUVerFb_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VCUOprtLicFb_flg' */
-  /* Switch: '<S250>/Switch4' incorporates:
-   *  Constant: '<S250>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VCUOprtLicFb_flg' */
+  /* Switch: '<S256>/Switch4' incorporates:
+   *  Constant: '<S256>/sat3'
    */
   if (KOPM_VCUOprtLicFb_flg_ovrdflg)
   {
-    /* Switch: '<S250>/Switch4' incorporates:
-     *  Constant: '<S250>/sat4'
+    /* Switch: '<S256>/Switch4' incorporates:
+     *  Constant: '<S256>/sat4'
      */
     VOPM_VCUOprtLicFb_flg = KOPM_VCUOprtLicFb_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S250>/Switch4' incorporates:
+    /* Switch: '<S256>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S250>/Data Type Conversion1'
+     *  DataTypeConversion: '<S256>/Data Type Conversion1'
      */
     VOPM_VCUOprtLicFb_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())->VTBX_VCUOprtLicFb_flg;
   }
 
-  /* End of Switch: '<S250>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VCUOprtLicFb_flg' */
+  /* End of Switch: '<S256>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VCUOprtLicFb_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_VCUSpdLimLvlFb_enum' */
-  /* Switch: '<S251>/Switch4' incorporates:
-   *  Constant: '<S251>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_VCUSpdLimLvlFb_enum' */
+  /* Switch: '<S257>/Switch4' incorporates:
+   *  Constant: '<S257>/sat3'
    */
   if (KOPM_VCUSpdLimLvlFb_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S251>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S257>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_VCUSpdLimLvlFb_enum_ovrdval;
   }
@@ -11146,17 +11118,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S251>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S257>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VTBX_VCUSpdLimLvlFb_enum;
   }
 
-  /* End of Switch: '<S251>/Switch4' */
+  /* End of Switch: '<S257>/Switch4' */
 
-  /* MinMax: '<S251>/MinMax' incorporates:
-   *  Constant: '<S251>/sat6'
+  /* MinMax: '<S257>/MinMax' incorporates:
+   *  Constant: '<S257>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_VCUSpdLimLvlFbHi_enum)
   {
@@ -11164,34 +11136,34 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_VCUSpdLimLvlFbHi_enum;
   }
 
-  /* End of MinMax: '<S251>/MinMax' */
+  /* End of MinMax: '<S257>/MinMax' */
 
-  /* MinMax: '<S251>/MinMax1' incorporates:
-   *  Constant: '<S251>/sat7'
+  /* MinMax: '<S257>/MinMax1' incorporates:
+   *  Constant: '<S257>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_VCUSpdLimLvlFbLo_enum)
   {
-    /* MinMax: '<S251>/MinMax1' */
+    /* MinMax: '<S257>/MinMax1' */
     VOPM_VCUSpdLimLvlFb_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S251>/MinMax1' */
+    /* MinMax: '<S257>/MinMax1' */
     VOPM_VCUSpdLimLvlFb_enum = KOPM_VCUSpdLimLvlFbLo_enum;
   }
 
-  /* End of MinMax: '<S251>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_VCUSpdLimLvlFb_enum' */
+  /* End of MinMax: '<S257>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_VCUSpdLimLvlFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_CCURmtPwrLckFb_enum' */
-  /* Switch: '<S226>/Switch4' incorporates:
-   *  Constant: '<S226>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_CCURmtPwrLckFb_enum' */
+  /* Switch: '<S225>/Switch4' incorporates:
+   *  Constant: '<S225>/sat3'
    */
   if (KOPM_CCURmtPwrLckFb_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S226>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S225>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_CCURmtPwrLckFb_enum_ovrdval;
   }
@@ -11199,17 +11171,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S226>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S225>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
                                ->CCU_RemotePowerLockFb;
   }
 
-  /* End of Switch: '<S226>/Switch4' */
+  /* End of Switch: '<S225>/Switch4' */
 
-  /* MinMax: '<S226>/MinMax' incorporates:
-   *  Constant: '<S226>/sat6'
+  /* MinMax: '<S225>/MinMax' incorporates:
+   *  Constant: '<S225>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_CCURmtPwrLckFbHi_enum)
   {
@@ -11217,110 +11189,110 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_CCURmtPwrLckFbHi_enum;
   }
 
-  /* End of MinMax: '<S226>/MinMax' */
+  /* End of MinMax: '<S225>/MinMax' */
 
-  /* MinMax: '<S226>/MinMax1' incorporates:
-   *  Constant: '<S226>/sat7'
+  /* MinMax: '<S225>/MinMax1' incorporates:
+   *  Constant: '<S225>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_CCURmtPwrLckFbLo_enum)
   {
-    /* MinMax: '<S226>/MinMax1' */
+    /* MinMax: '<S225>/MinMax1' */
     VOPM_CCURmtPwrLckFb_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S226>/MinMax1' */
+    /* MinMax: '<S225>/MinMax1' */
     VOPM_CCURmtPwrLckFb_enum = KOPM_CCURmtPwrLckFbLo_enum;
   }
 
-  /* End of MinMax: '<S226>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_CCURmtPwrLckFb_enum' */
+  /* End of MinMax: '<S225>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_CCURmtPwrLckFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_WghConfdence_flg' */
-  /* Switch: '<S263>/Switch4' incorporates:
-   *  Constant: '<S263>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_WghConfdence_flg' */
+  /* Switch: '<S269>/Switch4' incorporates:
+   *  Constant: '<S269>/sat3'
    */
   if (KOPM_WghConfdence_flg_ovrdflg)
   {
-    /* Switch: '<S263>/Switch4' incorporates:
-     *  Constant: '<S263>/sat4'
+    /* Switch: '<S269>/Switch4' incorporates:
+     *  Constant: '<S269>/sat4'
      */
     VOPM_WghConfdence_flg = KOPM_WghConfdence_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S263>/Switch4' incorporates:
+    /* Switch: '<S269>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S263>/Data Type Conversion1'
+     *  DataTypeConversion: '<S269>/Data Type Conversion1'
      */
     VOPM_WghConfdence_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())->VVSO_WghConfdence_flg;
   }
 
-  /* End of Switch: '<S263>/Switch4' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_WghConfdence_flg' */
+  /* End of Switch: '<S269>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_WghConfdence_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_WghEst_kg' */
-  /* Switch: '<S265>/Switch4' incorporates:
-   *  Constant: '<S265>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_WghEst_kg' */
+  /* Switch: '<S271>/Switch4' incorporates:
+   *  Constant: '<S271>/sat3'
    */
   if (KOPM_WghEst_kg_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S265>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S271>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_WghEst_kg_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S265>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S271>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())->VVSO_WghEst_kg;
   }
 
-  /* End of Switch: '<S265>/Switch4' */
+  /* End of Switch: '<S271>/Switch4' */
 
-  /* MinMax: '<S265>/MinMax' incorporates:
-   *  Constant: '<S265>/sat6'
+  /* MinMax: '<S271>/MinMax' incorporates:
+   *  Constant: '<S271>/sat6'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_WghEstHi_kg)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_WghEstHi_kg;
   }
 
-  /* End of MinMax: '<S265>/MinMax' */
+  /* End of MinMax: '<S271>/MinMax' */
 
-  /* MinMax: '<S265>/MinMax1' incorporates:
-   *  Constant: '<S265>/sat7'
+  /* MinMax: '<S271>/MinMax1' incorporates:
+   *  Constant: '<S271>/sat7'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_WghEstLo_kg)
   {
-    /* MinMax: '<S265>/MinMax1' */
+    /* MinMax: '<S271>/MinMax1' */
     VOPM_WghEst_kg = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
-    /* MinMax: '<S265>/MinMax1' */
+    /* MinMax: '<S271>/MinMax1' */
     VOPM_WghEst_kg = KOPM_WghEstLo_kg;
   }
 
-  /* End of MinMax: '<S265>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_WghEst_kg' */
+  /* End of MinMax: '<S271>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_WghEst_kg' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_WghDistb_enum' */
-  /* Switch: '<S264>/Switch4' incorporates:
-   *  Constant: '<S264>/sat3'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_WghDistb_enum' */
+  /* Switch: '<S270>/Switch4' incorporates:
+   *  Constant: '<S270>/sat3'
    */
   if (KOPM_WghDistb_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S264>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S270>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_WghDistb_enum_ovrdval;
   }
@@ -11328,17 +11300,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S264>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S270>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VVSO_WghDistb_enum;
   }
 
-  /* End of Switch: '<S264>/Switch4' */
+  /* End of Switch: '<S270>/Switch4' */
 
-  /* MinMax: '<S264>/MinMax' incorporates:
-   *  Constant: '<S264>/sat6'
+  /* MinMax: '<S270>/MinMax' incorporates:
+   *  Constant: '<S270>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_WghDistbHi_enum)
   {
@@ -11346,26 +11318,26 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_WghDistbHi_enum;
   }
 
-  /* End of MinMax: '<S264>/MinMax' */
+  /* End of MinMax: '<S270>/MinMax' */
 
-  /* MinMax: '<S264>/MinMax1' incorporates:
-   *  Constant: '<S264>/sat7'
+  /* MinMax: '<S270>/MinMax1' incorporates:
+   *  Constant: '<S270>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_WghDistbLo_enum)
   {
-    /* MinMax: '<S264>/MinMax1' */
+    /* MinMax: '<S270>/MinMax1' */
     VOPM_WghDistb_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S264>/MinMax1' */
+    /* MinMax: '<S270>/MinMax1' */
     VOPM_WghDistb_enum = KOPM_WghDistbLo_enum;
   }
 
-  /* End of MinMax: '<S264>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_WghDistb_enum' */
+  /* End of MinMax: '<S270>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_WghDistb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S213>/Subsys_VOPM_CruiseCtrlSta_enum' */
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_CruiseCtrlSta_enum' */
   /* Switch: '<S228>/Switch4' incorporates:
    *  Constant: '<S228>/sat3'
    */
@@ -11373,7 +11345,7 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  Constant: '<S228>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_CruiseCtrlSta_enum_ovrdval;
   }
@@ -11382,7 +11354,7 @@ static void Runbl_Opm20ms(void)
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S228>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
                                ->VVTM_CruzCtrlStat_enum;
@@ -11416,10 +11388,295 @@ static void Runbl_Opm20ms(void)
   }
 
   /* End of MinMax: '<S228>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S213>/Subsys_VOPM_CruiseCtrlSta_enum' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_CruiseCtrlSta_enum' */
 
-  /* BusCreator: '<S213>/BusCreator1' incorporates:
-   *  DataTypeConversion: '<S213>/DataTypeConversion31'
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_ChrgngCondsFb_flg' */
+  /* Switch: '<S226>/Switch4' incorporates:
+   *  Constant: '<S226>/sat3'
+   */
+  if (KOPM_ChrgngCondsFb_flg_ovrdflg)
+  {
+    /* Switch: '<S226>/Switch4' incorporates:
+     *  Constant: '<S226>/sat4'
+     */
+    VOPM_ChrgngCondsFb_flg = KOPM_ChrgngCondsFb_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S226>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S226>/Data Type Conversion1'
+     */
+    VOPM_ChrgngCondsFb_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
+            ->VTBX_VCUChrgngCondsFb_flg;
+  }
+
+  /* End of Switch: '<S226>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_ChrgngCondsFb_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_RmtACCtrlReq_flg' */
+  /* Switch: '<S240>/Switch4' incorporates:
+   *  Constant: '<S240>/sat3'
+   */
+  if (KOPM_RmtACCtrlReq_flg_ovrdflg)
+  {
+    /* Switch: '<S240>/Switch4' incorporates:
+     *  Constant: '<S240>/sat4'
+     */
+    VOPM_RmtACCtrlReq_flg = KOPM_RmtACCtrlReq_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S240>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S240>/Data Type Conversion1'
+     */
+    VOPM_RmtACCtrlReq_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())->VTBX_VCURmtACCtrlReq_flg;
+  }
+
+  /* End of Switch: '<S240>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_RmtACCtrlReq_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_RmtACDefrstReq_flg' */
+  /* Switch: '<S242>/Switch4' incorporates:
+   *  Constant: '<S242>/sat3'
+   */
+  if (KOPM_RmtACDefrstReq_flg_ovrdflg)
+  {
+    /* Switch: '<S242>/Switch4' incorporates:
+     *  Constant: '<S242>/sat4'
+     */
+    VOPM_RmtACDefrstReq_flg = KOPM_RmtACDefrstReq_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S242>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S242>/Data Type Conversion1'
+     */
+    VOPM_RmtACDefrstReq_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
+            ->VTBX_VCURmtACDefrstReq_flg;
+  }
+
+  /* End of Switch: '<S242>/Switch4' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_RmtACDefrstReq_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_RmtACCtrlSt_enum' */
+  /* Switch: '<S241>/Switch4' incorporates:
+   *  Constant: '<S241>/sat3'
+   */
+  if (KOPM_RmtACCtrlSt_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S241>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_RmtACCtrlSt_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S241>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmBAC_outputs())
+                               ->VTBX_VCURmtACCtrlSt_enum;
+  }
+
+  /* End of Switch: '<S241>/Switch4' */
+
+  /* MinMax: '<S241>/MinMax' incorporates:
+   *  Constant: '<S241>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_RmtACCtrlStHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_RmtACCtrlStHi_enum;
+  }
+
+  /* End of MinMax: '<S241>/MinMax' */
+
+  /* MinMax: '<S241>/MinMax1' incorporates:
+   *  Constant: '<S241>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_RmtACCtrlStLo_enum)
+  {
+    /* MinMax: '<S241>/MinMax1' */
+    VOPM_RmtACCtrlSt_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S241>/MinMax1' */
+    VOPM_RmtACCtrlSt_enum = KOPM_RmtACCtrlStLo_enum;
+  }
+
+  /* End of MinMax: '<S241>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_RmtACCtrlSt_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_RmtPwrCtrlFb_enum' */
+  /* Switch: '<S244>/Switch4' incorporates:
+   *  Constant: '<S244>/sat3'
+   */
+  if (KOPM_RmtPwrCtrlFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S244>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_RmtPwrCtrlFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S244>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
+                               ->CCU_RemtPowerCtrlFb;
+  }
+
+  /* End of Switch: '<S244>/Switch4' */
+
+  /* MinMax: '<S244>/MinMax' incorporates:
+   *  Constant: '<S244>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_RmtPwrCtrlFbHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_RmtPwrCtrlFbHi_enum;
+  }
+
+  /* End of MinMax: '<S244>/MinMax' */
+
+  /* MinMax: '<S244>/MinMax1' incorporates:
+   *  Constant: '<S244>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_RmtPwrCtrlFbLo_enum)
+  {
+    /* MinMax: '<S244>/MinMax1' */
+    VOPM_RmtPwrCtrlFb_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S244>/MinMax1' */
+    VOPM_RmtPwrCtrlFb_enum = KOPM_RmtPwrCtrlFbLo_enum;
+  }
+
+  /* End of MinMax: '<S244>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_RmtPwrCtrlFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_RmtSteerWhlHeatFb_enum' */
+  /* Switch: '<S245>/Switch4' incorporates:
+   *  Constant: '<S245>/sat3'
+   */
+  if (KOPM_RmtSteerWhlHeatFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S245>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_RmtSteerWhlHeatFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S245>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
+                               ->CCU_RemtSteerWhlHeatFb;
+  }
+
+  /* End of Switch: '<S245>/Switch4' */
+
+  /* MinMax: '<S245>/MinMax' incorporates:
+   *  Constant: '<S245>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_RmtSteerWhlHeatFbHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_RmtSteerWhlHeatFbHi_enum;
+  }
+
+  /* End of MinMax: '<S245>/MinMax' */
+
+  /* MinMax: '<S245>/MinMax1' incorporates:
+   *  Constant: '<S245>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_RmtSteerWhlHeatFbLo_enum)
+  {
+    /* MinMax: '<S245>/MinMax1' */
+    VOPM_RmtSteerWhlHeatFb_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S245>/MinMax1' */
+    VOPM_RmtSteerWhlHeatFb_enum = KOPM_RmtSteerWhlHeatFbLo_enum;
+  }
+
+  /* End of MinMax: '<S245>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_RmtSteerWhlHeatFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S212>/Subsys_VOPM_RmtMainDrvrSeatHeatFb_enum' */
+  /* Switch: '<S243>/Switch4' incorporates:
+   *  Constant: '<S243>/sat3'
+   */
+  if (KOPM_RmtMainDrvrSeatHeatFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S243>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_RmtMainDrvrSeatHeatFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S243>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Bcm2OpmBAC_outputs())
+                               ->CCU_RemtMaiDrSeatHeatFb;
+  }
+
+  /* End of Switch: '<S243>/Switch4' */
+
+  /* MinMax: '<S243>/MinMax' incorporates:
+   *  Constant: '<S243>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_RmtMainDrvrSeatHeatFbHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_RmtMainDrvrSeatHeatFbHi_enum;
+  }
+
+  /* End of MinMax: '<S243>/MinMax' */
+
+  /* MinMax: '<S243>/MinMax1' incorporates:
+   *  Constant: '<S243>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_RmtMainDrvrSeatHeatFbLo_enum)
+  {
+    /* MinMax: '<S243>/MinMax1' */
+    VOPM_RmtMainDrvrSeatHeatFb_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S243>/MinMax1' */
+    VOPM_RmtMainDrvrSeatHeatFb_enum = KOPM_RmtMainDrvrSeatHeatFbLo_enum;
+  }
+
+  /* End of MinMax: '<S243>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S212>/Subsys_VOPM_RmtMainDrvrSeatHeatFb_enum' */
+
+  /* BusCreator: '<S212>/BusCreator1' incorporates:
+   *  DataTypeConversion: '<S212>/DataTypeConversion31'
    *  Switch: '<S231>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_MotorActualPowerType =
@@ -11427,92 +11684,92 @@ static void Runbl_Opm20ms(void)
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_DrvRangeDistEstV =
       VOPM_DrvRangeDistEstVld_flg;
 
-  /* DataTypeConversion: '<S213>/DataTypeConversion42' */
+  /* DataTypeConversion: '<S212>/DataTypeConversion42' */
   if (VOPM_DrvRangeDistEst_km < 65536.0F)
   {
     if (VOPM_DrvRangeDistEst_km >= 0.0F)
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_DrvRangeDistEst = (uint16)
           VOPM_DrvRangeDistEst_km;
     }
     else
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_DrvRangeDistEst = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S213>/BusCreator1' */
+    /* BusCreator: '<S212>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_DrvRangeDistEst = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S213>/DataTypeConversion42' */
+  /* End of DataTypeConversion: '<S212>/DataTypeConversion42' */
 
-  /* BusCreator: '<S213>/BusCreator1' incorporates:
-   *  Switch: '<S261>/Switch4'
+  /* BusCreator: '<S212>/BusCreator1' incorporates:
+   *  Switch: '<S267>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_WLTPDrvgRngDstVldty =
       VOPM_WLTPDrvgRngDstVld_flg;
 
-  /* DataTypeConversion: '<S213>/DataTypeConversion44' */
+  /* DataTypeConversion: '<S212>/DataTypeConversion44' */
   if (VOPM_WLTPDrvgRngDst_km < 65536.0F)
   {
     if (VOPM_WLTPDrvgRngDst_km >= 0.0F)
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_WLTPDrvgRngDst = (uint16)
           VOPM_WLTPDrvgRngDst_km;
     }
     else
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_WLTPDrvgRngDst = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S213>/BusCreator1' */
+    /* BusCreator: '<S212>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_WLTPDrvgRngDst = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S213>/DataTypeConversion44' */
+  /* End of DataTypeConversion: '<S212>/DataTypeConversion44' */
 
-  /* DataTypeConversion: '<S213>/DataTypeConversion46' incorporates:
-   *  Constant: '<S267>/Constant1'
-   *  Product: '<S267>/Product1'
-   *  Sum: '<S267>/Add'
+  /* DataTypeConversion: '<S212>/DataTypeConversion46' incorporates:
+   *  Constant: '<S273>/Constant1'
+   *  Product: '<S273>/Product1'
+   *  Sum: '<S273>/Add'
    */
   tmp = VOPM_MotActPwr_Kw * 5.0F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_MotorActualPower = (uint16)tmp;
     }
     else
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_MotorActualPower = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S213>/BusCreator1' */
+    /* BusCreator: '<S212>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_MotorActualPower = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S213>/DataTypeConversion46' */
+  /* End of DataTypeConversion: '<S212>/DataTypeConversion46' */
 
-  /* BusCreator: '<S213>/BusCreator1' incorporates:
-   *  DataTypeConversion: '<S213>/DataTypeConversion35'
+  /* BusCreator: '<S212>/BusCreator1' incorporates:
+   *  DataTypeConversion: '<S212>/DataTypeConversion35'
    *  DataTypeConversion: '<S239>/Data Type Conversion2'
    *  Switch: '<S235>/Switch4'
    *  Switch: '<S238>/Switch4'
-   *  Switch: '<S257>/Switch4'
-   *  Switch: '<S260>/Switch4'
+   *  Switch: '<S263>/Switch4'
+   *  Switch: '<S266>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_DrvMotorSta = VOPM_DrvMotorSta_enum;
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_InfoDisp = VOPM_InfoDisp_enum;
@@ -11527,34 +11784,34 @@ static void Runbl_Opm20ms(void)
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_MCUHighTempWrning =
       VOPM_MCUHiTempWrning_flg;
 
-  /* DataTypeConversion: '<S213>/DataTypeConversion38' incorporates:
-   *  Constant: '<S269>/Constant1'
-   *  Product: '<S269>/Product1'
-   *  Sum: '<S269>/Add'
+  /* DataTypeConversion: '<S212>/DataTypeConversion38' incorporates:
+   *  Constant: '<S275>/Constant1'
+   *  Product: '<S275>/Product1'
+   *  Sum: '<S275>/Add'
    */
   tmp = VOPM_VehPwrCnsmpAvrg_kWh * 10.0F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_VhclPwrCnsmpAvrg = (uint16)tmp;
     }
     else
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_VhclPwrCnsmpAvrg = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S213>/BusCreator1' */
+    /* BusCreator: '<S212>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_VhclPwrCnsmpAvrg = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S213>/DataTypeConversion38' */
+  /* End of DataTypeConversion: '<S212>/DataTypeConversion38' */
 
-  /* BusCreator: '<S213>/BusCreator1' */
+  /* BusCreator: '<S212>/BusCreator1' */
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_ShiftKeyStagnation =
       VOPM_ShftKeyStgntn_enum;
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_CCKeyStagnation =
@@ -11562,45 +11819,45 @@ static void Runbl_Opm20ms(void)
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_DriveModeKeyStagnation =
       VOPM_DrvModeKeyStgntn_enum;
 
-  /* DataTypeConversion: '<S213>/DataTypeConversion19' incorporates:
-   *  Constant: '<S271>/Constant1'
-   *  Product: '<S271>/Product1'
-   *  Sum: '<S271>/Add'
+  /* DataTypeConversion: '<S212>/DataTypeConversion19' incorporates:
+   *  Constant: '<S277>/Constant1'
+   *  Product: '<S277>/Product1'
+   *  Sum: '<S277>/Add'
    */
   tmp = VOPM_SIBSKL30Volt_V * 10.0F;
   if (tmp < 256.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_SIBS_KL30Voltage = (uint8)tmp;
     }
     else
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_SIBS_KL30Voltage = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S213>/BusCreator1' */
+    /* BusCreator: '<S212>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_SIBS_KL30Voltage = MAX_uint8_T;
   }
 
-  /* End of DataTypeConversion: '<S213>/DataTypeConversion19' */
+  /* End of DataTypeConversion: '<S212>/DataTypeConversion19' */
 
-  /* BusCreator: '<S213>/BusCreator1' incorporates:
-   *  DataTypeConversion: '<S213>/DataTypeConversion22'
-   *  DataTypeConversion: '<S245>/Data Type Conversion2'
+  /* BusCreator: '<S212>/BusCreator1' incorporates:
+   *  DataTypeConversion: '<S212>/DataTypeConversion22'
+   *  DataTypeConversion: '<S251>/Data Type Conversion2'
+   *  Switch: '<S219>/Switch4'
    *  Switch: '<S220>/Switch4'
-   *  Switch: '<S221>/Switch4'
-   *  Switch: '<S241>/Switch4'
-   *  Switch: '<S242>/Switch4'
-   *  Switch: '<S243>/Switch4'
+   *  Switch: '<S247>/Switch4'
    *  Switch: '<S248>/Switch4'
-   *  Switch: '<S250>/Switch4'
-   *  Switch: '<S253>/Switch4'
-   *  Switch: '<S263>/Switch4'
+   *  Switch: '<S249>/Switch4'
+   *  Switch: '<S254>/Switch4'
+   *  Switch: '<S256>/Switch4'
+   *  Switch: '<S259>/Switch4'
+   *  Switch: '<S269>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_SIBS_ChgNumAllow =
       VOPM_SIBSChgNumAllow_flg;
@@ -11650,501 +11907,157 @@ static void Runbl_Opm20ms(void)
       VOPM_CCURmtPwrLckFb_enum;
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_WghConfdence = VOPM_WghConfdence_flg;
 
-  /* DataTypeConversion: '<S213>/DataTypeConversion17' */
+  /* DataTypeConversion: '<S212>/DataTypeConversion17' */
   if (VOPM_WghEst_kg < 65536.0F)
   {
     if (VOPM_WghEst_kg >= 0.0F)
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_WghEst = (uint16)VOPM_WghEst_kg;
     }
     else
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_WghEst = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S213>/BusCreator1' */
+    /* BusCreator: '<S212>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_WghEst = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S213>/DataTypeConversion17' */
+  /* End of DataTypeConversion: '<S212>/DataTypeConversion17' */
 
-  /* BusCreator: '<S213>/BusCreator1' */
+  /* BusCreator: '<S212>/BusCreator1' */
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_WghDistb = VOPM_WghDistb_enum;
   AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_CruiseCtrlSta_forBAC =
       VOPM_CruiseCtrlSta_enum;
 
-  /* DataTypeConversion: '<S213>/DataTypeConversion51' incorporates:
-   *  Constant: '<S266>/Constant1'
-   *  Product: '<S266>/Product1'
-   *  Sum: '<S266>/Add'
+  /* DataTypeConversion: '<S212>/DataTypeConversion51' incorporates:
+   *  Constant: '<S272>/Constant1'
+   *  Product: '<S272>/Product1'
+   *  Sum: '<S272>/Add'
    */
   tmp = VOPM_CruiseCtrTgtSpd_kph * 17.7777786F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_CruiseCtrTgtSpd_forBAC = (uint16)
           tmp;
     }
     else
     {
-      /* BusCreator: '<S213>/BusCreator1' */
+      /* BusCreator: '<S212>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_CruiseCtrTgtSpd_forBAC = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S213>/BusCreator1' */
+    /* BusCreator: '<S212>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_CruiseCtrTgtSpd_forBAC =
         MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S213>/DataTypeConversion51' */
+  /* End of DataTypeConversion: '<S212>/DataTypeConversion51' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_AcclPedalPos_pct1' */
-  /* Switch: '<S277>/Switch4' incorporates:
-   *  Constant: '<S277>/sat3'
+  /* BusCreator: '<S212>/BusCreator1' incorporates:
+   *  Switch: '<S226>/Switch4'
+   *  Switch: '<S240>/Switch4'
+   *  Switch: '<S242>/Switch4'
+   */
+  AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_ChargingConditionsFb =
+      VOPM_ChrgngCondsFb_flg;
+  AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_RemtACCtrlReq =
+      VOPM_RmtACCtrlReq_flg;
+  AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_RemtACDefrostlReq =
+      VOPM_RmtACDefrstReq_flg;
+  AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.VCU_RemtACCtrlSt = VOPM_RmtACCtrlSt_enum;
+  AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.CCU_RemtPowerCtrlFb =
+      VOPM_RmtPwrCtrlFb_enum;
+  AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.CCU_RemtSteerWhlHeatFb =
+      VOPM_RmtSteerWhlHeatFb_enum;
+  AppSwcOpm_ARID_DEF.VCU_DispInfo_BAC_l.CCU_RemtMaiDrSeatHeatFb =
+      VOPM_RmtMainDrvrSeatHeatFb_enum;
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_AcclPedalPos_pct1' */
+  /* Switch: '<S283>/Switch4' incorporates:
+   *  Constant: '<S283>/sat3'
    */
   if (KOPM_AcclPedalPos_pct_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S277>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S283>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_AcclPedalPos_pct_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S277>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S283>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
             ->VIPC_AccPedPstn_pct;
   }
 
-  /* End of Switch: '<S277>/Switch4' */
+  /* End of Switch: '<S283>/Switch4' */
 
-  /* MinMax: '<S277>/MinMax' incorporates:
-   *  Constant: '<S277>/sat6'
+  /* MinMax: '<S283>/MinMax' incorporates:
+   *  Constant: '<S283>/sat6'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_AcclPedalPosHi_pct)
   {
-    /* MinMax: '<S312>/MinMax' */
+    /* MinMax: '<S318>/MinMax' */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_AcclPedalPosHi_pct;
   }
 
-  /* End of MinMax: '<S277>/MinMax' */
+  /* End of MinMax: '<S283>/MinMax' */
 
-  /* MinMax: '<S277>/MinMax1' incorporates:
-   *  Constant: '<S277>/sat7'
+  /* MinMax: '<S283>/MinMax1' incorporates:
+   *  Constant: '<S283>/sat7'
    */
   if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_AcclPedalPosLo_pct)
   {
-    /* MinMax: '<S277>/MinMax1' */
+    /* MinMax: '<S283>/MinMax1' */
     VOPM_AcclPedalPos_pct = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
-    /* MinMax: '<S277>/MinMax1' */
+    /* MinMax: '<S283>/MinMax1' */
     VOPM_AcclPedalPos_pct = KOPM_AcclPedalPosLo_pct;
   }
 
-  /* End of MinMax: '<S277>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_AcclPedalPos_pct1' */
+  /* End of MinMax: '<S283>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_AcclPedalPos_pct1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_BrkPedalPos_pct1' */
-  /* Switch: '<S279>/Switch4' incorporates:
-   *  Constant: '<S279>/sat3'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_BrkPedalPos_pct1' */
+  /* Switch: '<S285>/Switch4' incorporates:
+   *  Constant: '<S285>/sat3'
    */
   if (KOPM_BrkPedalPos_pct_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S279>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S285>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_BrkPedalPos_pct_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S279>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S285>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
             ->VIPC_BrkPedPstn_pct;
-  }
-
-  /* End of Switch: '<S279>/Switch4' */
-
-  /* MinMax: '<S279>/MinMax' incorporates:
-   *  Constant: '<S279>/sat6'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_BrkPedalPosHi_pct)
-  {
-    /* MinMax: '<S312>/MinMax' */
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_BrkPedalPosHi_pct;
-  }
-
-  /* End of MinMax: '<S279>/MinMax' */
-
-  /* MinMax: '<S279>/MinMax1' incorporates:
-   *  Constant: '<S279>/sat7'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_BrkPedalPosLo_pct)
-  {
-    /* MinMax: '<S279>/MinMax1' */
-    VOPM_BrkPedalPos_pct = VOPM_VCUCruiseCtrTgtSpd_kph;
-  }
-  else
-  {
-    /* MinMax: '<S279>/MinMax1' */
-    VOPM_BrkPedalPos_pct = KOPM_BrkPedalPosLo_pct;
-  }
-
-  /* End of MinMax: '<S279>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_BrkPedalPos_pct1' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_OTAModeSts_flg1' */
-  /* Switch: '<S283>/Switch4' incorporates:
-   *  Constant: '<S283>/sat3'
-   */
-  if (KOPM_OTAModeSts_flg_ovrdflg)
-  {
-    /* Switch: '<S283>/Switch4' incorporates:
-     *  Constant: '<S283>/sat4'
-     */
-    VOPM_OTAModeSts_flg = KOPM_OTAModeSts_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S283>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S283>/Data Type Conversion1'
-     */
-    VOPM_OTAModeSts_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
-                              ->VHVM_OTAModeSts_flg;
-  }
-
-  /* End of Switch: '<S283>/Switch4' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_OTAModeSts_flg1' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_DrvReqTorqOvrdESC_flg1' */
-  /* Switch: '<S281>/Switch4' incorporates:
-   *  Constant: '<S281>/sat3'
-   */
-  if (KOPM_DrvReqTorqOvrdESC_flg_ovrdflg)
-  {
-    /* Switch: '<S281>/Switch4' incorporates:
-     *  Constant: '<S281>/sat4'
-     */
-    VOPM_DrvReqTorqOvrdESC_flg = KOPM_DrvReqTorqOvrdESC_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S281>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S281>/Data Type Conversion1'
-     */
-    VOPM_DrvReqTorqOvrdESC_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VVTM_ACCOvrd_flg;
-  }
-
-  /* End of Switch: '<S281>/Switch4' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_DrvReqTorqOvrdESC_flg1' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_BrkPedSnsrPosVRsrvd_enum1' */
-  /* Switch: '<S278>/Switch4' incorporates:
-   *  Constant: '<S278>/sat3'
-   */
-  if (KOPM_BrkPedSnsrPosVRsrvd_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S278>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_BrkPedSnsrPosVRsrvd_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S278>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (uint8)(Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
-                               ->VIPC_BrkPedPstnVld_flg;
-  }
-
-  /* End of Switch: '<S278>/Switch4' */
-
-  /* MinMax: '<S278>/MinMax' incorporates:
-   *  Constant: '<S278>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_BrkPedSnsrPosVRsrvdHi_enum)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_BrkPedSnsrPosVRsrvdHi_enum;
-  }
-
-  /* End of MinMax: '<S278>/MinMax' */
-
-  /* MinMax: '<S278>/MinMax1' incorporates:
-   *  Constant: '<S278>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_BrkPedSnsrPosVRsrvdLo_enum)
-  {
-    /* MinMax: '<S278>/MinMax1' */
-    VOPM_BrkPedSnsrPosVRsrvd_enum = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* MinMax: '<S278>/MinMax1' */
-    VOPM_BrkPedSnsrPosVRsrvd_enum = KOPM_BrkPedSnsrPosVRsrvdLo_enum;
-  }
-
-  /* End of MinMax: '<S278>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_BrkPedSnsrPosVRsrvd_enum1' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_ACCTrqCtrlAvl_flg1' */
-  /* Switch: '<S273>/Switch4' incorporates:
-   *  Constant: '<S273>/sat3'
-   */
-  if (KOPM_ACCTrqCtrlAvl_flg_ovrdflg)
-  {
-    /* Switch: '<S273>/Switch4' incorporates:
-     *  Constant: '<S273>/sat4'
-     */
-    VOPM_ACCTrqCtrlAvl_flg = KOPM_ACCTrqCtrlAvl_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S273>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S273>/Data Type Conversion1'
-     */
-    VOPM_ACCTrqCtrlAvl_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VVTM_ACCAvail_flg;
-  }
-
-  /* End of Switch: '<S273>/Switch4' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_ACCTrqCtrlAvl_flg1' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_AccPedPosSnsrSta_enum1' */
-  /* Switch: '<S274>/Switch4' incorporates:
-   *  Constant: '<S274>/sat3'
-   */
-  if (KOPM_AccPedPosSnsrSta_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S274>/sat4'
-     *  DataTypeConversion: '<S274>/Data Type Conversion3'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_AccPedPosSnsrSta_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S274>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
-                               ->VIPC_AccPedSnsrSta_enum;
-  }
-
-  /* End of Switch: '<S274>/Switch4' */
-
-  /* MinMax: '<S274>/MinMax' incorporates:
-   *  Constant: '<S274>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_AccPedPosSnsrStaHi_enum)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_AccPedPosSnsrStaHi_enum;
-  }
-
-  /* End of MinMax: '<S274>/MinMax' */
-
-  /* MinMax: '<S274>/MinMax1' incorporates:
-   *  Constant: '<S274>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_AccPedPosSnsrStaLo_enum)
-  {
-    /* DataTypeConversion: '<S274>/Data Type Conversion2' */
-    VOPM_AccPedPosSnsrSta_enum = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S274>/Data Type Conversion2' */
-    VOPM_AccPedPosSnsrSta_enum = KOPM_AccPedPosSnsrStaLo_enum;
-  }
-
-  /* End of MinMax: '<S274>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_AccPedPosSnsrSta_enum1' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_PGrSwcSt_enum' */
-  /* Switch: '<S284>/Switch4' incorporates:
-   *  Constant: '<S284>/sat3'
-   */
-  if (KOPM_PGrSwcSt_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S284>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_PGrSwcSt_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S284>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
-                               ->VGSM_PGrSwSts_enum;
-  }
-
-  /* End of Switch: '<S284>/Switch4' */
-
-  /* MinMax: '<S284>/MinMax' incorporates:
-   *  Constant: '<S284>/sat6'
-   */
-  if (VOPM_VCUACCStat_enum > KOPM_PGrSwcStHi_enum)
-  {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_PGrSwcStHi_enum;
-  }
-
-  /* End of MinMax: '<S284>/MinMax' */
-
-  /* MinMax: '<S284>/MinMax1' incorporates:
-   *  Constant: '<S284>/sat7'
-   */
-  if (VOPM_VCUACCStat_enum >= KOPM_PGrSwcStLo_enum)
-  {
-    /* MinMax: '<S284>/MinMax1' */
-    VOPM_PGrSwcSt_enum = VOPM_VCUACCStat_enum;
-  }
-  else
-  {
-    /* MinMax: '<S284>/MinMax1' */
-    VOPM_PGrSwcSt_enum = KOPM_PGrSwcStLo_enum;
-  }
-
-  /* End of MinMax: '<S284>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_PGrSwcSt_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_DrvReqTorqOverrideFCM_flg1' */
-  /* Switch: '<S280>/Switch4' incorporates:
-   *  Constant: '<S280>/sat3'
-   */
-  if (KOPM_DrvReqTorqOverrideFCM_flg_ovrdflg)
-  {
-    /* Switch: '<S280>/Switch4' incorporates:
-     *  Constant: '<S280>/sat4'
-     */
-    VOPM_DrvReqTorqOverrideFCM_flg = KOPM_DrvReqTorqOverrideFCM_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S280>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S280>/Data Type Conversion1'
-     */
-    VOPM_DrvReqTorqOverrideFCM_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VVTM_ACCOvrd_flg;
-  }
-
-  /* End of Switch: '<S280>/Switch4' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_DrvReqTorqOverrideFCM_flg1' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_AccPedPosToESC_pct1' */
-  /* Switch: '<S276>/Switch4' incorporates:
-   *  Constant: '<S276>/sat3'
-   */
-  if (KOPM_AccPedPosToESC_pct_ovrdflg)
-  {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S276>/sat4'
-     *  Product: '<S307>/Product1'
-     */
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_AccPedPosToESC_pct_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S276>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
-     */
-    VOPM_VCUCruiseCtrTgtSpd_kph =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
-            ->VVTM_VirtAccPedPstn_pct;
-  }
-
-  /* End of Switch: '<S276>/Switch4' */
-
-  /* MinMax: '<S276>/MinMax' incorporates:
-   *  Constant: '<S276>/sat6'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_AccPedPosToESCHi_pct)
-  {
-    /* MinMax: '<S312>/MinMax' */
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_AccPedPosToESCHi_pct;
-  }
-
-  /* End of MinMax: '<S276>/MinMax' */
-
-  /* MinMax: '<S276>/MinMax1' incorporates:
-   *  Constant: '<S276>/sat7'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_AccPedPosToESCLo_pct)
-  {
-    /* MinMax: '<S276>/MinMax1' */
-    VOPM_AccPedPosToESC_pct = VOPM_VCUCruiseCtrTgtSpd_kph;
-  }
-  else
-  {
-    /* MinMax: '<S276>/MinMax1' */
-    VOPM_AccPedPosToESC_pct = KOPM_AccPedPosToESCLo_pct;
-  }
-
-  /* End of MinMax: '<S276>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_AccPedPosToESC_pct1' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_PwrRecupMaxAvlbMotorTorqSta_enum1' */
-  /* Switch: '<S285>/Switch4' incorporates:
-   *  Constant: '<S285>/sat3'
-   */
-  if (KOPM_PwrRecupMaxAvlbMotorTorqSta_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S285>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_PwrRecupMaxAvlbMotorTorqSta_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S285>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
-                               ->VVTM_BrkPwrRecMaxWhlTorqSta_enum;
   }
 
   /* End of Switch: '<S285>/Switch4' */
@@ -12152,10 +12065,10 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S285>/MinMax' incorporates:
    *  Constant: '<S285>/sat6'
    */
-  if (VOPM_VCUACCStat_enum > KOPM_PwrRecupMaxAvlbMotorTorqStaHi_enum)
+  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_BrkPedalPosHi_pct)
   {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_PwrRecupMaxAvlbMotorTorqStaHi_enum;
+    /* MinMax: '<S318>/MinMax' */
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_BrkPedalPosHi_pct;
   }
 
   /* End of MinMax: '<S285>/MinMax' */
@@ -12163,205 +12076,262 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S285>/MinMax1' incorporates:
    *  Constant: '<S285>/sat7'
    */
-  if (VOPM_VCUACCStat_enum >= KOPM_PwrRecupMaxAvlbMotorTorqStaLo_enum)
+  if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_BrkPedalPosLo_pct)
   {
     /* MinMax: '<S285>/MinMax1' */
-    VOPM_PwrRecupMaxAvlbMotorTorqSta_enum = VOPM_VCUACCStat_enum;
+    VOPM_BrkPedalPos_pct = VOPM_VCUCruiseCtrTgtSpd_kph;
   }
   else
   {
     /* MinMax: '<S285>/MinMax1' */
-    VOPM_PwrRecupMaxAvlbMotorTorqSta_enum =
-        KOPM_PwrRecupMaxAvlbMotorTorqStaLo_enum;
+    VOPM_BrkPedalPos_pct = KOPM_BrkPedalPosLo_pct;
   }
 
   /* End of MinMax: '<S285>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_PwrRecupMaxAvlbMotorTorqSta_enum1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_BrkPedalPos_pct1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUReqEPB_enum1' */
-  /* Switch: '<S300>/Switch4' incorporates:
-   *  Constant: '<S300>/sat3'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_OTAModeSts_flg1' */
+  /* Switch: '<S289>/Switch4' incorporates:
+   *  Constant: '<S289>/sat3'
    */
-  if (KOPM_VCUReqEPB_enum_ovrdflg)
+  if (KOPM_OTAModeSts_flg_ovrdflg)
   {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
-     *  Constant: '<S300>/sat4'
-     *  DataTypeConversion: '<S300>/Data Type Conversion3'
+    /* Switch: '<S289>/Switch4' incorporates:
+     *  Constant: '<S289>/sat4'
      */
-    rtb_VCU_CruiseCtrlSta = KOPM_VCUReqEPB_enum_ovrdval;
+    VOPM_OTAModeSts_flg = KOPM_OTAModeSts_flg_ovrdval;
   }
   else
   {
-    /* DataTypeConversion: '<S272>/DataTypeConversion51' incorporates:
+    /* Switch: '<S289>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S300>/Data Type Conversion1'
+     *  DataTypeConversion: '<S289>/Data Type Conversion1'
      */
-    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VGSM_ReqEPB_enum;
+    VOPM_OTAModeSts_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
+                              ->VHVM_OTAModeSts_flg;
   }
 
-  /* End of Switch: '<S300>/Switch4' */
+  /* End of Switch: '<S289>/Switch4' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_OTAModeSts_flg1' */
 
-  /* MinMax: '<S300>/MinMax' incorporates:
-   *  Constant: '<S300>/sat6'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_DrvReqTorqOvrdESC_flg1' */
+  /* Switch: '<S287>/Switch4' incorporates:
+   *  Constant: '<S287>/sat3'
    */
-  if (rtb_VCU_CruiseCtrlSta > KOPM_VCUReqEPBHi_enum)
+  if (KOPM_DrvReqTorqOvrdESC_flg_ovrdflg)
   {
-    rtb_VCU_CruiseCtrlSta = KOPM_VCUReqEPBHi_enum;
-  }
-
-  /* End of MinMax: '<S300>/MinMax' */
-
-  /* MinMax: '<S300>/MinMax1' incorporates:
-   *  Constant: '<S300>/sat7'
-   */
-  if (rtb_VCU_CruiseCtrlSta >= KOPM_VCUReqEPBLo_enum)
-  {
-    /* DataTypeConversion: '<S300>/Data Type Conversion2' */
-    VOPM_VCUReqEPB_enum = rtb_VCU_CruiseCtrlSta;
+    /* Switch: '<S287>/Switch4' incorporates:
+     *  Constant: '<S287>/sat4'
+     */
+    VOPM_DrvReqTorqOvrdESC_flg = KOPM_DrvReqTorqOvrdESC_flg_ovrdval;
   }
   else
   {
-    /* DataTypeConversion: '<S300>/Data Type Conversion2' */
-    VOPM_VCUReqEPB_enum = KOPM_VCUReqEPBLo_enum;
-  }
-
-  /* End of MinMax: '<S300>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUReqEPB_enum1' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUReqEPBVld_flg1' */
-  /* Switch: '<S299>/Switch4' incorporates:
-   *  Constant: '<S299>/sat3'
-   */
-  if (KOPM_VCUReqEPBVld_flg_ovrdflg)
-  {
-    /* Switch: '<S299>/Switch4' incorporates:
-     *  Constant: '<S299>/sat4'
-     */
-    VOPM_VCUReqEPBVld_flg = KOPM_VCUReqEPBVld_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S299>/Switch4' incorporates:
+    /* Switch: '<S287>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S299>/Data Type Conversion1'
+     *  DataTypeConversion: '<S287>/Data Type Conversion1'
      */
-    VOPM_VCUReqEPBVld_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VGSM_ReqEPBV_flg;
+    VOPM_DrvReqTorqOvrdESC_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VVTM_ACCOvrd_flg;
   }
 
-  /* End of Switch: '<S299>/Switch4' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUReqEPBVld_flg1' */
+  /* End of Switch: '<S287>/Switch4' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_DrvReqTorqOvrdESC_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_AccPedPosToESCSta_enum1' */
-  /* Switch: '<S275>/Switch4' incorporates:
-   *  Constant: '<S275>/sat3'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_BrkPedSnsrPosVRsrvd_enum1' */
+  /* Switch: '<S284>/Switch4' incorporates:
+   *  Constant: '<S284>/sat3'
    */
-  if (KOPM_AccPedPosToESCSta_enum_ovrdflg)
+  if (KOPM_BrkPedSnsrPosVRsrvd_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S275>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S284>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
-    VOPM_VCUACCStat_enum = KOPM_AccPedPosToESCSta_enum_ovrdval;
+    VOPM_VCUACCStat_enum = KOPM_BrkPedSnsrPosVRsrvd_enum_ovrdval;
   }
   else
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S275>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S284>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
-                               ->VVTM_VirtAccPedPstnSta_enum;
+    VOPM_VCUACCStat_enum = (uint8)(Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
+                               ->VIPC_BrkPedPstnVld_flg;
   }
 
-  /* End of Switch: '<S275>/Switch4' */
+  /* End of Switch: '<S284>/Switch4' */
 
-  /* MinMax: '<S275>/MinMax' incorporates:
-   *  Constant: '<S275>/sat6'
+  /* MinMax: '<S284>/MinMax' incorporates:
+   *  Constant: '<S284>/sat6'
    */
-  if (VOPM_VCUACCStat_enum > KOPM_AccPedPosToESCStaHi_enum)
+  if (VOPM_VCUACCStat_enum > KOPM_BrkPedSnsrPosVRsrvdHi_enum)
   {
     /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_AccPedPosToESCStaHi_enum;
+    VOPM_VCUACCStat_enum = KOPM_BrkPedSnsrPosVRsrvdHi_enum;
   }
 
-  /* End of MinMax: '<S275>/MinMax' */
+  /* End of MinMax: '<S284>/MinMax' */
 
-  /* MinMax: '<S275>/MinMax1' incorporates:
-   *  Constant: '<S275>/sat7'
+  /* MinMax: '<S284>/MinMax1' incorporates:
+   *  Constant: '<S284>/sat7'
    */
-  if (VOPM_VCUACCStat_enum >= KOPM_AccPedPosToESCStaLo_enum)
+  if (VOPM_VCUACCStat_enum >= KOPM_BrkPedSnsrPosVRsrvdLo_enum)
   {
-    /* MinMax: '<S275>/MinMax1' */
-    VOPM_AccPedPosToESCSta_enum = VOPM_VCUACCStat_enum;
+    /* MinMax: '<S284>/MinMax1' */
+    VOPM_BrkPedSnsrPosVRsrvd_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S275>/MinMax1' */
-    VOPM_AccPedPosToESCSta_enum = KOPM_AccPedPosToESCStaLo_enum;
+    /* MinMax: '<S284>/MinMax1' */
+    VOPM_BrkPedSnsrPosVRsrvd_enum = KOPM_BrkPedSnsrPosVRsrvdLo_enum;
   }
 
-  /* End of MinMax: '<S275>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_AccPedPosToESCSta_enum1' */
+  /* End of MinMax: '<S284>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_BrkPedSnsrPosVRsrvd_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUParkSwStaVld_flg1' */
-  /* Switch: '<S295>/Switch4' incorporates:
-   *  Constant: '<S295>/sat3'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_ACCTrqCtrlAvl_flg1' */
+  /* Switch: '<S279>/Switch4' incorporates:
+   *  Constant: '<S279>/sat3'
    */
-  if (KOPM_VCUParkSwStaVld_flg_ovrdflg)
+  if (KOPM_ACCTrqCtrlAvl_flg_ovrdflg)
   {
-    /* Switch: '<S295>/Switch4' incorporates:
-     *  Constant: '<S295>/sat4'
+    /* Switch: '<S279>/Switch4' incorporates:
+     *  Constant: '<S279>/sat4'
      */
-    VOPM_VCUParkSwStaVld_flg = KOPM_VCUParkSwStaVld_flg_ovrdval;
+    VOPM_ACCTrqCtrlAvl_flg = KOPM_ACCTrqCtrlAvl_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S295>/Switch4' incorporates:
+    /* Switch: '<S279>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S295>/Data Type Conversion1'
+     *  DataTypeConversion: '<S279>/Data Type Conversion1'
      */
-    VOPM_VCUParkSwStaVld_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
-            ->VVcuTx_ParkSwStaVld_flg;
+    VOPM_ACCTrqCtrlAvl_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VVTM_ACCAvail_flg;
   }
 
-  /* End of Switch: '<S295>/Switch4' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUParkSwStaVld_flg1' */
+  /* End of Switch: '<S279>/Switch4' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_ACCTrqCtrlAvl_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUParkSwSta_flg1' */
-  /* Switch: '<S296>/Switch4' incorporates:
-   *  Constant: '<S296>/sat3'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_AccPedPosSnsrSta_enum1' */
+  /* Switch: '<S280>/Switch4' incorporates:
+   *  Constant: '<S280>/sat3'
    */
-  if (KOPM_VCUParkSwSta_flg_ovrdflg)
+  if (KOPM_AccPedPosSnsrSta_enum_ovrdflg)
   {
-    /* Switch: '<S296>/Switch4' incorporates:
-     *  Constant: '<S296>/sat4'
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S280>/sat4'
+     *  DataTypeConversion: '<S280>/Data Type Conversion3'
+     *  MinMax: '<S294>/MinMax'
      */
-    VOPM_VCUParkSwSta_flg = KOPM_VCUParkSwSta_flg_ovrdval;
+    VOPM_VCUACCStat_enum = KOPM_AccPedPosSnsrSta_enum_ovrdval;
   }
   else
   {
-    /* Switch: '<S296>/Switch4' incorporates:
+    /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S296>/Data Type Conversion1'
+     *  DataTypeConversion: '<S280>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
-    VOPM_VCUParkSwSta_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VVcuTx_ParkSwSta_flg;
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
+                               ->VIPC_AccPedSnsrSta_enum;
   }
 
-  /* End of Switch: '<S296>/Switch4' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUParkSwSta_flg1' */
+  /* End of Switch: '<S280>/Switch4' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_StrgRecupReqBrkLampOn_flg1' */
+  /* MinMax: '<S280>/MinMax' incorporates:
+   *  Constant: '<S280>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_AccPedPosSnsrStaHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_AccPedPosSnsrStaHi_enum;
+  }
+
+  /* End of MinMax: '<S280>/MinMax' */
+
+  /* MinMax: '<S280>/MinMax1' incorporates:
+   *  Constant: '<S280>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_AccPedPosSnsrStaLo_enum)
+  {
+    /* DataTypeConversion: '<S280>/Data Type Conversion2' */
+    VOPM_AccPedPosSnsrSta_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S280>/Data Type Conversion2' */
+    VOPM_AccPedPosSnsrSta_enum = KOPM_AccPedPosSnsrStaLo_enum;
+  }
+
+  /* End of MinMax: '<S280>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_AccPedPosSnsrSta_enum1' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_PGrSwcSt_enum' */
+  /* Switch: '<S290>/Switch4' incorporates:
+   *  Constant: '<S290>/sat3'
+   */
+  if (KOPM_PGrSwcSt_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S290>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_PGrSwcSt_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S290>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
+                               ->VGSM_PGrSwSts_enum;
+  }
+
+  /* End of Switch: '<S290>/Switch4' */
+
+  /* MinMax: '<S290>/MinMax' incorporates:
+   *  Constant: '<S290>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_PGrSwcStHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_PGrSwcStHi_enum;
+  }
+
+  /* End of MinMax: '<S290>/MinMax' */
+
+  /* MinMax: '<S290>/MinMax1' incorporates:
+   *  Constant: '<S290>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_PGrSwcStLo_enum)
+  {
+    /* MinMax: '<S290>/MinMax1' */
+    VOPM_PGrSwcSt_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S290>/MinMax1' */
+    VOPM_PGrSwcSt_enum = KOPM_PGrSwcStLo_enum;
+  }
+
+  /* End of MinMax: '<S290>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_PGrSwcSt_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_DrvReqTorqOverrideFCM_flg1' */
   /* Switch: '<S286>/Switch4' incorporates:
    *  Constant: '<S286>/sat3'
    */
-  if (KOPM_StrgRecupReqBrkLampOn_flg_ovrdflg)
+  if (KOPM_DrvReqTorqOverrideFCM_flg_ovrdflg)
   {
     /* Switch: '<S286>/Switch4' incorporates:
      *  Constant: '<S286>/sat4'
      */
-    VOPM_StrgRecupReqBrkLampOn_flg = KOPM_StrgRecupReqBrkLampOn_flg_ovrdval;
+    VOPM_DrvReqTorqOverrideFCM_flg = KOPM_DrvReqTorqOverrideFCM_flg_ovrdval;
   }
   else
   {
@@ -12369,48 +12339,354 @@ static void Runbl_Opm20ms(void)
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S286>/Data Type Conversion1'
      */
+    VOPM_DrvReqTorqOverrideFCM_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VVTM_ACCOvrd_flg;
+  }
+
+  /* End of Switch: '<S286>/Switch4' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_DrvReqTorqOverrideFCM_flg1' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_AccPedPosToESC_pct1' */
+  /* Switch: '<S282>/Switch4' incorporates:
+   *  Constant: '<S282>/sat3'
+   */
+  if (KOPM_AccPedPosToESC_pct_ovrdflg)
+  {
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S282>/sat4'
+     *  Product: '<S313>/Product1'
+     */
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_AccPedPosToESC_pct_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S282>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
+     */
+    VOPM_VCUCruiseCtrTgtSpd_kph =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
+            ->VVTM_VirtAccPedPstn_pct;
+  }
+
+  /* End of Switch: '<S282>/Switch4' */
+
+  /* MinMax: '<S282>/MinMax' incorporates:
+   *  Constant: '<S282>/sat6'
+   */
+  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_AccPedPosToESCHi_pct)
+  {
+    /* MinMax: '<S318>/MinMax' */
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_AccPedPosToESCHi_pct;
+  }
+
+  /* End of MinMax: '<S282>/MinMax' */
+
+  /* MinMax: '<S282>/MinMax1' incorporates:
+   *  Constant: '<S282>/sat7'
+   */
+  if (VOPM_VCUCruiseCtrTgtSpd_kph >= KOPM_AccPedPosToESCLo_pct)
+  {
+    /* MinMax: '<S282>/MinMax1' */
+    VOPM_AccPedPosToESC_pct = VOPM_VCUCruiseCtrTgtSpd_kph;
+  }
+  else
+  {
+    /* MinMax: '<S282>/MinMax1' */
+    VOPM_AccPedPosToESC_pct = KOPM_AccPedPosToESCLo_pct;
+  }
+
+  /* End of MinMax: '<S282>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_AccPedPosToESC_pct1' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_PwrRecupMaxAvlbMotorTorqSta_enum1' */
+  /* Switch: '<S291>/Switch4' incorporates:
+   *  Constant: '<S291>/sat3'
+   */
+  if (KOPM_PwrRecupMaxAvlbMotorTorqSta_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S291>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_PwrRecupMaxAvlbMotorTorqSta_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S291>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
+                               ->VVTM_BrkPwrRecMaxWhlTorqSta_enum;
+  }
+
+  /* End of Switch: '<S291>/Switch4' */
+
+  /* MinMax: '<S291>/MinMax' incorporates:
+   *  Constant: '<S291>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_PwrRecupMaxAvlbMotorTorqStaHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_PwrRecupMaxAvlbMotorTorqStaHi_enum;
+  }
+
+  /* End of MinMax: '<S291>/MinMax' */
+
+  /* MinMax: '<S291>/MinMax1' incorporates:
+   *  Constant: '<S291>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_PwrRecupMaxAvlbMotorTorqStaLo_enum)
+  {
+    /* MinMax: '<S291>/MinMax1' */
+    VOPM_PwrRecupMaxAvlbMotorTorqSta_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S291>/MinMax1' */
+    VOPM_PwrRecupMaxAvlbMotorTorqSta_enum =
+        KOPM_PwrRecupMaxAvlbMotorTorqStaLo_enum;
+  }
+
+  /* End of MinMax: '<S291>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_PwrRecupMaxAvlbMotorTorqSta_enum1' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUReqEPB_enum1' */
+  /* Switch: '<S306>/Switch4' incorporates:
+   *  Constant: '<S306>/sat3'
+   */
+  if (KOPM_VCUReqEPB_enum_ovrdflg)
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  Constant: '<S306>/sat4'
+     *  DataTypeConversion: '<S306>/Data Type Conversion3'
+     */
+    rtb_VCU_CruiseCtrlSta = KOPM_VCUReqEPB_enum_ovrdval;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S278>/DataTypeConversion51' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S306>/Data Type Conversion1'
+     */
+    rtb_VCU_CruiseCtrlSta = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VGSM_ReqEPB_enum;
+  }
+
+  /* End of Switch: '<S306>/Switch4' */
+
+  /* MinMax: '<S306>/MinMax' incorporates:
+   *  Constant: '<S306>/sat6'
+   */
+  if (rtb_VCU_CruiseCtrlSta > KOPM_VCUReqEPBHi_enum)
+  {
+    rtb_VCU_CruiseCtrlSta = KOPM_VCUReqEPBHi_enum;
+  }
+
+  /* End of MinMax: '<S306>/MinMax' */
+
+  /* MinMax: '<S306>/MinMax1' incorporates:
+   *  Constant: '<S306>/sat7'
+   */
+  if (rtb_VCU_CruiseCtrlSta >= KOPM_VCUReqEPBLo_enum)
+  {
+    /* DataTypeConversion: '<S306>/Data Type Conversion2' */
+    VOPM_VCUReqEPB_enum = rtb_VCU_CruiseCtrlSta;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S306>/Data Type Conversion2' */
+    VOPM_VCUReqEPB_enum = KOPM_VCUReqEPBLo_enum;
+  }
+
+  /* End of MinMax: '<S306>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUReqEPB_enum1' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUReqEPBVld_flg1' */
+  /* Switch: '<S305>/Switch4' incorporates:
+   *  Constant: '<S305>/sat3'
+   */
+  if (KOPM_VCUReqEPBVld_flg_ovrdflg)
+  {
+    /* Switch: '<S305>/Switch4' incorporates:
+     *  Constant: '<S305>/sat4'
+     */
+    VOPM_VCUReqEPBVld_flg = KOPM_VCUReqEPBVld_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S305>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S305>/Data Type Conversion1'
+     */
+    VOPM_VCUReqEPBVld_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VGSM_ReqEPBV_flg;
+  }
+
+  /* End of Switch: '<S305>/Switch4' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUReqEPBVld_flg1' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_AccPedPosToESCSta_enum1' */
+  /* Switch: '<S281>/Switch4' incorporates:
+   *  Constant: '<S281>/sat3'
+   */
+  if (KOPM_AccPedPosToESCSta_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S281>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_AccPedPosToESCSta_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S281>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
+                               ->VVTM_VirtAccPedPstnSta_enum;
+  }
+
+  /* End of Switch: '<S281>/Switch4' */
+
+  /* MinMax: '<S281>/MinMax' incorporates:
+   *  Constant: '<S281>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_AccPedPosToESCStaHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_AccPedPosToESCStaHi_enum;
+  }
+
+  /* End of MinMax: '<S281>/MinMax' */
+
+  /* MinMax: '<S281>/MinMax1' incorporates:
+   *  Constant: '<S281>/sat7'
+   */
+  if (VOPM_VCUACCStat_enum >= KOPM_AccPedPosToESCStaLo_enum)
+  {
+    /* MinMax: '<S281>/MinMax1' */
+    VOPM_AccPedPosToESCSta_enum = VOPM_VCUACCStat_enum;
+  }
+  else
+  {
+    /* MinMax: '<S281>/MinMax1' */
+    VOPM_AccPedPosToESCSta_enum = KOPM_AccPedPosToESCStaLo_enum;
+  }
+
+  /* End of MinMax: '<S281>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_AccPedPosToESCSta_enum1' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUParkSwStaVld_flg1' */
+  /* Switch: '<S301>/Switch4' incorporates:
+   *  Constant: '<S301>/sat3'
+   */
+  if (KOPM_VCUParkSwStaVld_flg_ovrdflg)
+  {
+    /* Switch: '<S301>/Switch4' incorporates:
+     *  Constant: '<S301>/sat4'
+     */
+    VOPM_VCUParkSwStaVld_flg = KOPM_VCUParkSwStaVld_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S301>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S301>/Data Type Conversion1'
+     */
+    VOPM_VCUParkSwStaVld_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
+            ->VVcuTx_ParkSwStaVld_flg;
+  }
+
+  /* End of Switch: '<S301>/Switch4' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUParkSwStaVld_flg1' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUParkSwSta_flg1' */
+  /* Switch: '<S302>/Switch4' incorporates:
+   *  Constant: '<S302>/sat3'
+   */
+  if (KOPM_VCUParkSwSta_flg_ovrdflg)
+  {
+    /* Switch: '<S302>/Switch4' incorporates:
+     *  Constant: '<S302>/sat4'
+     */
+    VOPM_VCUParkSwSta_flg = KOPM_VCUParkSwSta_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S302>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S302>/Data Type Conversion1'
+     */
+    VOPM_VCUParkSwSta_flg = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VVcuTx_ParkSwSta_flg;
+  }
+
+  /* End of Switch: '<S302>/Switch4' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUParkSwSta_flg1' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_StrgRecupReqBrkLampOn_flg1' */
+  /* Switch: '<S292>/Switch4' incorporates:
+   *  Constant: '<S292>/sat3'
+   */
+  if (KOPM_StrgRecupReqBrkLampOn_flg_ovrdflg)
+  {
+    /* Switch: '<S292>/Switch4' incorporates:
+     *  Constant: '<S292>/sat4'
+     */
+    VOPM_StrgRecupReqBrkLampOn_flg = KOPM_StrgRecupReqBrkLampOn_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S292>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S292>/Data Type Conversion1'
+     */
     VOPM_StrgRecupReqBrkLampOn_flg =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
             ->VVTM_RegenReqBrkLampOn_flg;
   }
 
-  /* End of Switch: '<S286>/Switch4' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_StrgRecupReqBrkLampOn_flg1' */
+  /* End of Switch: '<S292>/Switch4' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_StrgRecupReqBrkLampOn_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_GearShiftInhibited_flg1' */
-  /* Switch: '<S282>/Switch4' incorporates:
-   *  Constant: '<S282>/sat3'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_GearShiftInhibited_flg1' */
+  /* Switch: '<S288>/Switch4' incorporates:
+   *  Constant: '<S288>/sat3'
    */
   if (KOPM_GearShiftInhibited_flg_ovrdflg)
   {
-    /* Switch: '<S282>/Switch4' incorporates:
-     *  Constant: '<S282>/sat4'
+    /* Switch: '<S288>/Switch4' incorporates:
+     *  Constant: '<S288>/sat4'
      */
     VOPM_GearShiftInhibited_flg = KOPM_GearShiftInhibited_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S282>/Switch4' incorporates:
+    /* Switch: '<S288>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S282>/Data Type Conversion1'
+     *  DataTypeConversion: '<S288>/Data Type Conversion1'
      */
     VOPM_GearShiftInhibited_flg =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
             ->VGSM_GrShftInhbed_flg;
   }
 
-  /* End of Switch: '<S282>/Switch4' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_GearShiftInhibited_flg1' */
+  /* End of Switch: '<S288>/Switch4' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_GearShiftInhibited_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUEPBApplyForbid_enum1' */
-  /* Switch: '<S294>/Switch4' incorporates:
-   *  Constant: '<S294>/sat3'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUEPBApplyForbid_enum1' */
+  /* Switch: '<S300>/Switch4' incorporates:
+   *  Constant: '<S300>/sat3'
    */
   if (KOPM_VCUEPBApplyForbid_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S294>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S300>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_VCUEPBApplyForbid_enum_ovrdval;
   }
@@ -12418,17 +12694,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S294>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S300>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
                                ->VGSM_EPBApplyFbd_enum;
   }
 
-  /* End of Switch: '<S294>/Switch4' */
+  /* End of Switch: '<S300>/Switch4' */
 
-  /* MinMax: '<S294>/MinMax' incorporates:
-   *  Constant: '<S294>/sat6'
+  /* MinMax: '<S300>/MinMax' incorporates:
+   *  Constant: '<S300>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_VCUEPBApplyForbidHi_enum)
   {
@@ -12436,30 +12712,30 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_VCUEPBApplyForbidHi_enum;
   }
 
-  /* End of MinMax: '<S294>/MinMax' */
+  /* End of MinMax: '<S300>/MinMax' */
 
-  /* MinMax: '<S294>/MinMax1' incorporates:
-   *  Constant: '<S294>/sat7'
+  /* MinMax: '<S300>/MinMax1' incorporates:
+   *  Constant: '<S300>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_VCUEPBApplyForbidLo_enum)
   {
-    /* MinMax: '<S294>/MinMax1' */
+    /* MinMax: '<S300>/MinMax1' */
     VOPM_VCUEPBApplyForbid_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S294>/MinMax1' */
+    /* MinMax: '<S300>/MinMax1' */
     VOPM_VCUEPBApplyForbid_enum = KOPM_VCUEPBApplyForbidLo_enum;
   }
 
-  /* End of MinMax: '<S294>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUEPBApplyForbid_enum1' */
+  /* End of MinMax: '<S300>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUEPBApplyForbid_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUAccTgtAx_mps1' */
-  /* Switch: '<S290>/Switch4' incorporates:
-   *  Constant: '<S272>/Constant4'
-   *  Constant: '<S290>/sat3'
-   *  Constant: '<S290>/sat4'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUAccTgtAx_mps1' */
+  /* Switch: '<S296>/Switch4' incorporates:
+   *  Constant: '<S278>/Constant4'
+   *  Constant: '<S296>/sat3'
+   *  Constant: '<S296>/sat4'
    */
   if (KOPM_VCUAccTgtAx_mps2_ovrdflg)
   {
@@ -12470,46 +12746,46 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUAccTgtAx_mps2 = 0.0F;
   }
 
-  /* MinMax: '<S290>/MinMax' incorporates:
-   *  Constant: '<S290>/sat6'
-   *  Switch: '<S290>/Switch4'
+  /* MinMax: '<S296>/MinMax' incorporates:
+   *  Constant: '<S296>/sat6'
+   *  Switch: '<S296>/Switch4'
    */
   if (VOPM_VCUAccTgtAx_mps2 > KOPM_VCUAccTgtAxHi_mps2)
   {
     VOPM_VCUAccTgtAx_mps2 = KOPM_VCUAccTgtAxHi_mps2;
   }
 
-  /* End of MinMax: '<S290>/MinMax' */
+  /* End of MinMax: '<S296>/MinMax' */
 
-  /* MinMax: '<S290>/MinMax1' incorporates:
-   *  Constant: '<S290>/sat7'
+  /* MinMax: '<S296>/MinMax1' incorporates:
+   *  Constant: '<S296>/sat7'
    */
   if (VOPM_VCUAccTgtAx_mps2 < KOPM_VCUAccTgtAxLo_mps2)
   {
-    /* Switch: '<S290>/Switch4' incorporates:
-     *  MinMax: '<S290>/MinMax1'
+    /* Switch: '<S296>/Switch4' incorporates:
+     *  MinMax: '<S296>/MinMax1'
      */
     VOPM_VCUAccTgtAx_mps2 = KOPM_VCUAccTgtAxLo_mps2;
   }
 
-  /* End of MinMax: '<S290>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUAccTgtAx_mps1' */
+  /* End of MinMax: '<S296>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUAccTgtAx_mps1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUAccTgtAxReq_flg1' */
-  /* Switch: '<S289>/Switch4' incorporates:
-   *  Constant: '<S289>/sat3'
-   *  Constant: '<S289>/sat4'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUAccTgtAxReq_flg1' */
+  /* Switch: '<S295>/Switch4' incorporates:
+   *  Constant: '<S295>/sat3'
+   *  Constant: '<S295>/sat4'
    */
   VOPM_VCUAccTgtAxReq_flg = (KOPM_VCUAccTgtAxReq_flg_ovrdflg &&
                              KOPM_VCUAccTgtAxReq_flg_ovrdval);
 
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUAccTgtAxReq_flg1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUAccTgtAxReq_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUBraTorReq_Nm1' */
-  /* Switch: '<S291>/Switch4' incorporates:
-   *  Constant: '<S272>/Constant5'
-   *  Constant: '<S291>/sat3'
-   *  Constant: '<S291>/sat4'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUBraTorReq_Nm1' */
+  /* Switch: '<S297>/Switch4' incorporates:
+   *  Constant: '<S278>/Constant5'
+   *  Constant: '<S297>/sat3'
+   *  Constant: '<S297>/sat4'
    */
   if (KOPM_VCUBraTorReq_Nm_ovrdflg)
   {
@@ -12520,61 +12796,61 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUBraTorReq_Nm = 0.0F;
   }
 
-  /* MinMax: '<S291>/MinMax' incorporates:
-   *  Constant: '<S291>/sat6'
-   *  Switch: '<S291>/Switch4'
+  /* MinMax: '<S297>/MinMax' incorporates:
+   *  Constant: '<S297>/sat6'
+   *  Switch: '<S297>/Switch4'
    */
   if (VOPM_VCUBraTorReq_Nm > KOPM_VCUBraTorReqHi_Nm)
   {
     VOPM_VCUBraTorReq_Nm = KOPM_VCUBraTorReqHi_Nm;
   }
 
-  /* End of MinMax: '<S291>/MinMax' */
+  /* End of MinMax: '<S297>/MinMax' */
 
-  /* MinMax: '<S291>/MinMax1' incorporates:
-   *  Constant: '<S291>/sat7'
+  /* MinMax: '<S297>/MinMax1' incorporates:
+   *  Constant: '<S297>/sat7'
    */
   if (VOPM_VCUBraTorReq_Nm < KOPM_VCUBraTorReqLo_Nm)
   {
-    /* Switch: '<S291>/Switch4' incorporates:
-     *  MinMax: '<S291>/MinMax1'
+    /* Switch: '<S297>/Switch4' incorporates:
+     *  MinMax: '<S297>/MinMax1'
      */
     VOPM_VCUBraTorReq_Nm = KOPM_VCUBraTorReqLo_Nm;
   }
 
-  /* End of MinMax: '<S291>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUBraTorReq_Nm1' */
+  /* End of MinMax: '<S297>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUBraTorReq_Nm1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUACCStandstillReq_flg1' */
-  /* Switch: '<S287>/Switch4' incorporates:
-   *  Constant: '<S287>/sat3'
-   *  Constant: '<S287>/sat4'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUACCStandstillReq_flg1' */
+  /* Switch: '<S293>/Switch4' incorporates:
+   *  Constant: '<S293>/sat3'
+   *  Constant: '<S293>/sat4'
    */
   VOPM_VCUACCStandstillReq_flg = (KOPM_VCUACCStandstillReq_flg_ovrdflg &&
                                   KOPM_VCUACCStandstillReq_flg_ovrdval);
 
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUACCStandstillReq_flg1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUACCStandstillReq_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUPreKeReq_flg1' */
-  /* Switch: '<S297>/Switch4' incorporates:
-   *  Constant: '<S297>/sat3'
-   *  Constant: '<S297>/sat4'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUPreKeReq_flg1' */
+  /* Switch: '<S303>/Switch4' incorporates:
+   *  Constant: '<S303>/sat3'
+   *  Constant: '<S303>/sat4'
    */
   VOPM_VCUPreKeReq_flg = (KOPM_VCUPreKeReq_flg_ovrdflg &&
                           KOPM_VCUPreKeReq_flg_ovrdval);
 
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUPreKeReq_flg1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUPreKeReq_flg1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUCruiseCtrlSta_enum1' */
-  /* Switch: '<S293>/Switch4' incorporates:
-   *  Constant: '<S293>/sat3'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUCruiseCtrlSta_enum1' */
+  /* Switch: '<S299>/Switch4' incorporates:
+   *  Constant: '<S299>/sat3'
    */
   if (KOPM_VCUCruiseCtrlSta_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S293>/sat4'
-     *  DataTypeConversion: '<S293>/Data Type Conversion3'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S299>/sat4'
+     *  DataTypeConversion: '<S299>/Data Type Conversion3'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_VCUCruiseCtrlSta_enum_ovrdval;
   }
@@ -12582,17 +12858,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S293>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S299>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
                                ->VVTM_CruzCtrlStat_enum;
   }
 
-  /* End of Switch: '<S293>/Switch4' */
+  /* End of Switch: '<S299>/Switch4' */
 
-  /* MinMax: '<S293>/MinMax' incorporates:
-   *  Constant: '<S293>/sat6'
+  /* MinMax: '<S299>/MinMax' incorporates:
+   *  Constant: '<S299>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_VCUCruiseCtrlStaHi_enum)
   {
@@ -12600,96 +12876,46 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_VCUCruiseCtrlStaHi_enum;
   }
 
-  /* End of MinMax: '<S293>/MinMax' */
+  /* End of MinMax: '<S299>/MinMax' */
 
-  /* MinMax: '<S293>/MinMax1' incorporates:
-   *  Constant: '<S293>/sat7'
+  /* MinMax: '<S299>/MinMax1' incorporates:
+   *  Constant: '<S299>/sat7'
    */
   if (VOPM_VCUACCStat_enum >= KOPM_VCUCruiseCtrlStaLo_enum)
   {
-    /* DataTypeConversion: '<S293>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S299>/Data Type Conversion2' */
     VOPM_VCUCruiseCtrlSta_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* DataTypeConversion: '<S293>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S299>/Data Type Conversion2' */
     VOPM_VCUCruiseCtrlSta_enum = KOPM_VCUCruiseCtrlStaLo_enum;
   }
 
-  /* End of MinMax: '<S293>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUCruiseCtrlSta_enum1' */
+  /* End of MinMax: '<S299>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUCruiseCtrlSta_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUCruiseCtrTgtSpd_kph1' */
-  /* Switch: '<S292>/Switch4' incorporates:
-   *  Constant: '<S292>/sat3'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUCruiseCtrTgtSpd_kph1' */
+  /* Switch: '<S298>/Switch4' incorporates:
+   *  Constant: '<S298>/sat3'
    */
   if (KOPM_VCUCruiseCtrTgtSpd_kph_ovrdflg)
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  Constant: '<S292>/sat4'
-     *  Product: '<S307>/Product1'
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  Constant: '<S298>/sat4'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_VCUCruiseCtrTgtSpd_kph_ovrdval;
   }
   else
   {
-    /* MinMax: '<S312>/MinMax' incorporates:
+    /* MinMax: '<S318>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S292>/Data Type Conversion1'
-     *  Product: '<S307>/Product1'
+     *  DataTypeConversion: '<S298>/Data Type Conversion1'
+     *  Product: '<S313>/Product1'
      */
     VOPM_VCUCruiseCtrTgtSpd_kph =
         (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())->VVTM_CCTgtSpd_kph;
-  }
-
-  /* End of Switch: '<S292>/Switch4' */
-
-  /* MinMax: '<S292>/MinMax' incorporates:
-   *  Constant: '<S292>/sat6'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_VCUCruiseCtrTgtSpdHi_kph)
-  {
-    /* MinMax: '<S312>/MinMax' */
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_VCUCruiseCtrTgtSpdHi_kph;
-  }
-
-  /* End of MinMax: '<S292>/MinMax' */
-
-  /* MinMax: '<S292>/MinMax1' incorporates:
-   *  Constant: '<S292>/sat7'
-   */
-  if (VOPM_VCUCruiseCtrTgtSpd_kph < KOPM_VCUCruiseCtrTgtSpdLo_kph)
-  {
-    /* MinMax: '<S312>/MinMax' incorporates:
-     *  MinMax: '<S292>/MinMax1'
-     */
-    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_VCUCruiseCtrTgtSpdLo_kph;
-  }
-
-  /* End of MinMax: '<S292>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUCruiseCtrTgtSpd_kph1' */
-
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUReqAutoBrk_enum1' */
-  /* Switch: '<S298>/Switch4' incorporates:
-   *  Constant: '<S298>/sat3'
-   */
-  if (KOPM_VCUReqAutoBrk_enum_ovrdflg)
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S298>/sat4'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = KOPM_VCUReqAutoBrk_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S236>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S298>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
-     */
-    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
-                               ->VVTM_AutoBrkReq_enum;
   }
 
   /* End of Switch: '<S298>/Switch4' */
@@ -12697,10 +12923,10 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S298>/MinMax' incorporates:
    *  Constant: '<S298>/sat6'
    */
-  if (VOPM_VCUACCStat_enum > KOPM_VCUReqAutoBrkHi_enum)
+  if (VOPM_VCUCruiseCtrTgtSpd_kph > KOPM_VCUCruiseCtrTgtSpdHi_kph)
   {
-    /* MinMax: '<S236>/MinMax' */
-    VOPM_VCUACCStat_enum = KOPM_VCUReqAutoBrkHi_enum;
+    /* MinMax: '<S318>/MinMax' */
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_VCUCruiseCtrTgtSpdHi_kph;
   }
 
   /* End of MinMax: '<S298>/MinMax' */
@@ -12708,29 +12934,79 @@ static void Runbl_Opm20ms(void)
   /* MinMax: '<S298>/MinMax1' incorporates:
    *  Constant: '<S298>/sat7'
    */
+  if (VOPM_VCUCruiseCtrTgtSpd_kph < KOPM_VCUCruiseCtrTgtSpdLo_kph)
+  {
+    /* MinMax: '<S318>/MinMax' incorporates:
+     *  MinMax: '<S298>/MinMax1'
+     */
+    VOPM_VCUCruiseCtrTgtSpd_kph = KOPM_VCUCruiseCtrTgtSpdLo_kph;
+  }
+
+  /* End of MinMax: '<S298>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUCruiseCtrTgtSpd_kph1' */
+
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUReqAutoBrk_enum1' */
+  /* Switch: '<S304>/Switch4' incorporates:
+   *  Constant: '<S304>/sat3'
+   */
+  if (KOPM_VCUReqAutoBrk_enum_ovrdflg)
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  Constant: '<S304>/sat4'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = KOPM_VCUReqAutoBrk_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S236>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S304>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
+     */
+    VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
+                               ->VVTM_AutoBrkReq_enum;
+  }
+
+  /* End of Switch: '<S304>/Switch4' */
+
+  /* MinMax: '<S304>/MinMax' incorporates:
+   *  Constant: '<S304>/sat6'
+   */
+  if (VOPM_VCUACCStat_enum > KOPM_VCUReqAutoBrkHi_enum)
+  {
+    /* MinMax: '<S236>/MinMax' */
+    VOPM_VCUACCStat_enum = KOPM_VCUReqAutoBrkHi_enum;
+  }
+
+  /* End of MinMax: '<S304>/MinMax' */
+
+  /* MinMax: '<S304>/MinMax1' incorporates:
+   *  Constant: '<S304>/sat7'
+   */
   if (VOPM_VCUACCStat_enum >= KOPM_VCUReqAutoBrkLo_enum)
   {
-    /* MinMax: '<S298>/MinMax1' */
+    /* MinMax: '<S304>/MinMax1' */
     VOPM_VCUReqAutoBrk_enum = VOPM_VCUACCStat_enum;
   }
   else
   {
-    /* MinMax: '<S298>/MinMax1' */
+    /* MinMax: '<S304>/MinMax1' */
     VOPM_VCUReqAutoBrk_enum = KOPM_VCUReqAutoBrkLo_enum;
   }
 
-  /* End of MinMax: '<S298>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUReqAutoBrk_enum1' */
+  /* End of MinMax: '<S304>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUReqAutoBrk_enum1' */
 
-  /* Outputs for Atomic SubSystem: '<S272>/Subsys_VOPM_VCUACCStat_enum' */
-  /* Switch: '<S288>/Switch4' incorporates:
-   *  Constant: '<S288>/sat3'
+  /* Outputs for Atomic SubSystem: '<S278>/Subsys_VOPM_VCUACCStat_enum' */
+  /* Switch: '<S294>/Switch4' incorporates:
+   *  Constant: '<S294>/sat3'
    */
   if (KOPM_VCUACCStat_enum_ovrdflg)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  Constant: '<S288>/sat4'
-     *  MinMax: '<S288>/MinMax'
+     *  Constant: '<S294>/sat4'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = KOPM_VCUACCStat_enum_ovrdval;
   }
@@ -12738,17 +13014,17 @@ static void Runbl_Opm20ms(void)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S288>/Data Type Conversion1'
-     *  MinMax: '<S288>/MinMax'
+     *  DataTypeConversion: '<S294>/Data Type Conversion1'
+     *  MinMax: '<S294>/MinMax'
      */
     VOPM_VCUACCStat_enum = (Rte_IrvIRead_Runbl_OpmCanTx_20ms_Vcu2OpmCHA_outputs())
                                ->VVTM_ACCStat_enum;
   }
 
-  /* End of Switch: '<S288>/Switch4' */
+  /* End of Switch: '<S294>/Switch4' */
 
-  /* MinMax: '<S288>/MinMax' incorporates:
-   *  Constant: '<S288>/sat6'
+  /* MinMax: '<S294>/MinMax' incorporates:
+   *  Constant: '<S294>/sat6'
    */
   if (VOPM_VCUACCStat_enum > KOPM_VCUACCStatHi_enum)
   {
@@ -12756,84 +13032,84 @@ static void Runbl_Opm20ms(void)
     VOPM_VCUACCStat_enum = KOPM_VCUACCStatHi_enum;
   }
 
-  /* End of MinMax: '<S288>/MinMax' */
+  /* End of MinMax: '<S294>/MinMax' */
 
-  /* MinMax: '<S288>/MinMax1' incorporates:
-   *  Constant: '<S288>/sat7'
+  /* MinMax: '<S294>/MinMax1' incorporates:
+   *  Constant: '<S294>/sat7'
    */
   if (VOPM_VCUACCStat_enum < KOPM_VCUACCStatLo_enum)
   {
     /* MinMax: '<S236>/MinMax' incorporates:
-     *  MinMax: '<S288>/MinMax1'
+     *  MinMax: '<S294>/MinMax1'
      */
     VOPM_VCUACCStat_enum = KOPM_VCUACCStatLo_enum;
   }
 
-  /* End of MinMax: '<S288>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S272>/Subsys_VOPM_VCUACCStat_enum' */
+  /* End of MinMax: '<S294>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S278>/Subsys_VOPM_VCUACCStat_enum' */
 
-  /* DataTypeConversion: '<S272>/DataTypeConversion31' incorporates:
-   *  Constant: '<S303>/Constant1'
-   *  Product: '<S303>/Product1'
-   *  Sum: '<S303>/Add'
+  /* DataTypeConversion: '<S278>/DataTypeConversion31' incorporates:
+   *  Constant: '<S309>/Constant1'
+   *  Product: '<S309>/Product1'
+   *  Sum: '<S309>/Add'
    */
   tmp = VOPM_AcclPedalPos_pct * 2.5F;
   if (tmp < 256.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_AcclPedalPos = (uint8)tmp;
     }
     else
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_AcclPedalPos = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S272>/BusCreator1' */
+    /* BusCreator: '<S278>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_AcclPedalPos = MAX_uint8_T;
   }
 
-  /* End of DataTypeConversion: '<S272>/DataTypeConversion31' */
+  /* End of DataTypeConversion: '<S278>/DataTypeConversion31' */
 
-  /* DataTypeConversion: '<S272>/DataTypeConversion32' incorporates:
-   *  Constant: '<S301>/Constant1'
-   *  Product: '<S301>/Product1'
-   *  Sum: '<S301>/Add'
+  /* DataTypeConversion: '<S278>/DataTypeConversion32' incorporates:
+   *  Constant: '<S307>/Constant1'
+   *  Product: '<S307>/Product1'
+   *  Sum: '<S307>/Add'
    */
   tmp = VOPM_BrkPedalPos_pct * 2.5F;
   if (tmp < 256.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_BrkPedalPos = (uint8)tmp;
     }
     else
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_BrkPedalPos = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S272>/BusCreator1' */
+    /* BusCreator: '<S278>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_BrkPedalPos = MAX_uint8_T;
   }
 
-  /* End of DataTypeConversion: '<S272>/DataTypeConversion32' */
+  /* End of DataTypeConversion: '<S278>/DataTypeConversion32' */
 
-  /* BusCreator: '<S272>/BusCreator1' incorporates:
-   *  Constant: '<S272>/Constant'
-   *  DataTypeConversion: '<S272>/DataTypeConversion58'
-   *  DataTypeConversion: '<S274>/Data Type Conversion2'
-   *  Switch: '<S273>/Switch4'
-   *  Switch: '<S280>/Switch4'
-   *  Switch: '<S281>/Switch4'
-   *  Switch: '<S283>/Switch4'
+  /* BusCreator: '<S278>/BusCreator1' incorporates:
+   *  Constant: '<S278>/Constant'
+   *  DataTypeConversion: '<S278>/DataTypeConversion58'
+   *  DataTypeConversion: '<S280>/Data Type Conversion2'
+   *  Switch: '<S279>/Switch4'
+   *  Switch: '<S286>/Switch4'
+   *  Switch: '<S287>/Switch4'
+   *  Switch: '<S289>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_OTAModeSts = VOPM_OTAModeSts_flg;
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_DrvReqTorqOverrideESC =
@@ -12851,42 +13127,42 @@ static void Runbl_Opm20ms(void)
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_StandStilOverride = 0U;
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_StandStilTarDecelVal = 320U;
 
-  /* DataTypeConversion: '<S272>/DataTypeConversion34' incorporates:
-   *  Constant: '<S304>/Constant1'
-   *  Product: '<S304>/Product1'
-   *  Sum: '<S304>/Add'
+  /* DataTypeConversion: '<S278>/DataTypeConversion34' incorporates:
+   *  Constant: '<S310>/Constant1'
+   *  Product: '<S310>/Product1'
+   *  Sum: '<S310>/Add'
    */
   tmp = VOPM_AccPedPosToESC_pct * 2.5F;
   if (tmp < 256.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_AcclPedalPosToESC = (uint8)tmp;
     }
     else
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_AcclPedalPosToESC = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S272>/BusCreator1' */
+    /* BusCreator: '<S278>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_AcclPedalPosToESC = MAX_uint8_T;
   }
 
-  /* End of DataTypeConversion: '<S272>/DataTypeConversion34' */
+  /* End of DataTypeConversion: '<S278>/DataTypeConversion34' */
 
-  /* BusCreator: '<S272>/BusCreator1' incorporates:
-   *  Constant: '<S272>/Constant3'
-   *  DataTypeConversion: '<S272>/DataTypeConversion36'
-   *  DataTypeConversion: '<S300>/Data Type Conversion2'
-   *  Switch: '<S282>/Switch4'
-   *  Switch: '<S286>/Switch4'
-   *  Switch: '<S295>/Switch4'
-   *  Switch: '<S296>/Switch4'
-   *  Switch: '<S299>/Switch4'
+  /* BusCreator: '<S278>/BusCreator1' incorporates:
+   *  Constant: '<S278>/Constant3'
+   *  DataTypeConversion: '<S278>/DataTypeConversion36'
+   *  DataTypeConversion: '<S306>/Data Type Conversion2'
+   *  Switch: '<S288>/Switch4'
+   *  Switch: '<S292>/Switch4'
+   *  Switch: '<S301>/Switch4'
+   *  Switch: '<S302>/Switch4'
+   *  Switch: '<S305>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_PwrRecupMaxAvlbMotorTorqSta =
       VOPM_PwrRecupMaxAvlbMotorTorqSta_enum;
@@ -12905,73 +13181,73 @@ static void Runbl_Opm20ms(void)
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_EPBApplyForbid =
       VOPM_VCUEPBApplyForbid_enum;
 
-  /* DataTypeConversion: '<S272>/DataTypeConversion46' incorporates:
-   *  Constant: '<S305>/Constant'
-   *  Constant: '<S305>/Constant1'
-   *  Product: '<S305>/Product1'
-   *  Sum: '<S305>/Add'
+  /* DataTypeConversion: '<S278>/DataTypeConversion46' incorporates:
+   *  Constant: '<S311>/Constant'
+   *  Constant: '<S311>/Constant1'
+   *  Product: '<S311>/Product1'
+   *  Sum: '<S311>/Add'
    */
   tmp = (VOPM_VCUAccTgtAx_mps2 - -9.5F) * 20.0F;
   if (tmp < 256.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_AccTgtAx = (uint8)tmp;
     }
     else
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_AccTgtAx = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S272>/BusCreator1' */
+    /* BusCreator: '<S278>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_AccTgtAx = MAX_uint8_T;
   }
 
-  /* End of DataTypeConversion: '<S272>/DataTypeConversion46' */
+  /* End of DataTypeConversion: '<S278>/DataTypeConversion46' */
 
-  /* BusCreator: '<S272>/BusCreator1' incorporates:
-   *  Switch: '<S289>/Switch4'
+  /* BusCreator: '<S278>/BusCreator1' incorporates:
+   *  Switch: '<S295>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_AccTgtAxReq =
       VOPM_VCUAccTgtAxReq_flg;
 
-  /* DataTypeConversion: '<S272>/DataTypeConversion48' incorporates:
-   *  Constant: '<S306>/Constant'
-   *  Constant: '<S306>/Constant1'
-   *  Product: '<S306>/Product1'
-   *  Sum: '<S306>/Add'
+  /* DataTypeConversion: '<S278>/DataTypeConversion48' incorporates:
+   *  Constant: '<S312>/Constant'
+   *  Constant: '<S312>/Constant1'
+   *  Product: '<S312>/Product1'
+   *  Sum: '<S312>/Add'
    */
   tmp = (VOPM_VCUBraTorReq_Nm - -6200.0F) * 2.0F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_BraTorReq = (uint16)tmp;
     }
     else
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_BraTorReq = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S272>/BusCreator1' */
+    /* BusCreator: '<S278>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_BraTorReq = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S272>/DataTypeConversion48' */
+  /* End of DataTypeConversion: '<S278>/DataTypeConversion48' */
 
-  /* BusCreator: '<S272>/BusCreator1' incorporates:
-   *  DataTypeConversion: '<S272>/DataTypeConversion51'
-   *  DataTypeConversion: '<S293>/Data Type Conversion2'
-   *  Switch: '<S287>/Switch4'
-   *  Switch: '<S297>/Switch4'
+  /* BusCreator: '<S278>/BusCreator1' incorporates:
+   *  DataTypeConversion: '<S278>/DataTypeConversion51'
+   *  DataTypeConversion: '<S299>/Data Type Conversion2'
+   *  Switch: '<S293>/Switch4'
+   *  Switch: '<S303>/Switch4'
    */
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_ACCStandstillReq =
       VOPM_VCUACCStandstillReq_flg;
@@ -12979,34 +13255,34 @@ static void Runbl_Opm20ms(void)
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_CruiseCtrlSta =
       VOPM_VCUCruiseCtrlSta_enum;
 
-  /* DataTypeConversion: '<S272>/DataTypeConversion52' incorporates:
-   *  Constant: '<S307>/Constant1'
-   *  Product: '<S307>/Product1'
-   *  Sum: '<S307>/Add'
+  /* DataTypeConversion: '<S278>/DataTypeConversion52' incorporates:
+   *  Constant: '<S313>/Constant1'
+   *  Product: '<S313>/Product1'
+   *  Sum: '<S313>/Add'
    */
   tmp = VOPM_VCUCruiseCtrTgtSpd_kph * 17.7777786F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_CruiseCtrTgtSpd = (uint16)tmp;
     }
     else
     {
-      /* BusCreator: '<S272>/BusCreator1' */
+      /* BusCreator: '<S278>/BusCreator1' */
       AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_CruiseCtrTgtSpd = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S272>/BusCreator1' */
+    /* BusCreator: '<S278>/BusCreator1' */
     AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_CruiseCtrTgtSpd = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S272>/DataTypeConversion52' */
+  /* End of DataTypeConversion: '<S278>/DataTypeConversion52' */
 
-  /* BusCreator: '<S272>/BusCreator1' */
+  /* BusCreator: '<S278>/BusCreator1' */
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_ReqAutoBrk = VOPM_VCUReqAutoBrk_enum;
   AppSwcOpm_ARID_DEF.VCU_D_Status_CHA_a.VCU_ACCStatus = VOPM_VCUACCStat_enum;
 }
@@ -13017,179 +13293,154 @@ static void Runbl_Opm50ms(void)
   float32 tmp;
   boolean rtb_MinMax_b;
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_PTActlOprtMode_enum' */
-  /* Switch: '<S357>/Switch4' incorporates:
-   *  Constant: '<S357>/sat3'
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_PTActlOprtMode_enum' */
+  /* Switch: '<S363>/Switch4' incorporates:
+   *  Constant: '<S363>/sat3'
    */
   if (KOPM_PTActlOprtMode_enum_ovrdflg)
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S357>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S357>/Data Type Conversion3'
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S363>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S363>/Data Type Conversion3'
      */
     VOPM_BCMIllmndSts_enum = KOPM_PTActlOprtMode_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S357>/Data Type Conversion1'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S363>/Data Type Conversion1'
      */
     VOPM_BCMIllmndSts_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
             ->VHVM_PTActOprtMode_enum;
   }
 
-  /* End of Switch: '<S357>/Switch4' */
+  /* End of Switch: '<S363>/Switch4' */
 
-  /* MinMax: '<S357>/MinMax' incorporates:
-   *  Constant: '<S357>/sat6'
+  /* MinMax: '<S363>/MinMax' incorporates:
+   *  Constant: '<S363>/sat6'
    */
   if (VOPM_BCMIllmndSts_enum > KOPM_PTActlOprtModeHi_enum)
   {
     VOPM_BCMIllmndSts_enum = KOPM_PTActlOprtModeHi_enum;
   }
 
-  /* MinMax: '<S357>/MinMax1' incorporates:
-   *  Constant: '<S357>/sat7'
+  /* MinMax: '<S363>/MinMax1' incorporates:
+   *  Constant: '<S363>/sat7'
    */
   if (VOPM_BCMIllmndSts_enum >= KOPM_PTActlOprtModeLo_enum)
   {
-    /* DataTypeConversion: '<S357>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S363>/Data Type Conversion2' */
     VOPM_PTActlOprtMode_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
-    /* DataTypeConversion: '<S357>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S363>/Data Type Conversion2' */
     VOPM_PTActlOprtMode_enum = KOPM_PTActlOprtModeLo_enum;
   }
 
-  /* End of MinMax: '<S357>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_PTActlOprtMode_enum' */
+  /* End of MinMax: '<S363>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_PTActlOprtMode_enum' */
 
-  /* DataTypeConversion: '<S342>/DataTypeConversion' incorporates:
-   *  DataTypeConversion: '<S357>/Data Type Conversion2'
+  /* DataTypeConversion: '<S348>/DataTypeConversion' incorporates:
+   *  DataTypeConversion: '<S363>/Data Type Conversion2'
    */
   AppSwcOpm_ARID_DEF.CCU_VehInfo_BAC_i.VCU_PTActlOprtMode =
       VOPM_PTActlOprtMode_enum;
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_VehActlGearPosVld_flg' */
-  /* Switch: '<S361>/Switch4' incorporates:
-   *  Constant: '<S361>/sat3'
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_VehActlGearPosVld_flg' */
+  /* Switch: '<S367>/Switch4' incorporates:
+   *  Constant: '<S367>/sat3'
    */
   if (KOPM_VehActlGearPosVld_flg_ovrdflg)
   {
-    /* Switch: '<S361>/Switch4' incorporates:
-     *  Constant: '<S361>/sat4'
+    /* Switch: '<S367>/Switch4' incorporates:
+     *  Constant: '<S367>/sat4'
      */
     VOPM_VehActlGearPosVld_flg = KOPM_VehActlGearPosVld_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S361>/Switch4' incorporates:
+    /* Switch: '<S367>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S361>/Data Type Conversion1'
+     *  DataTypeConversion: '<S367>/Data Type Conversion1'
      */
     VOPM_VehActlGearPosVld_flg =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
             ->VGSM_VehActGearPstnV_flg;
   }
 
-  /* End of Switch: '<S361>/Switch4' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_VehActlGearPosVld_flg' */
+  /* End of Switch: '<S367>/Switch4' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_VehActlGearPosVld_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_VehActlGearPos_enum' */
-  /* Switch: '<S362>/Switch4' incorporates:
-   *  Constant: '<S362>/sat3'
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_VehActlGearPos_enum' */
+  /* Switch: '<S368>/Switch4' incorporates:
+   *  Constant: '<S368>/sat3'
    */
   if (KOPM_VehActlGearPos_enum_ovrdflg)
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S362>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S362>/Data Type Conversion3'
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S368>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S368>/Data Type Conversion3'
      */
     VOPM_BCMIllmndSts_enum = KOPM_VehActlGearPos_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S362>/Data Type Conversion1'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S368>/Data Type Conversion1'
      */
     VOPM_BCMIllmndSts_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
             ->VGSM_VehActGearPstn_enum;
   }
 
-  /* End of Switch: '<S362>/Switch4' */
+  /* End of Switch: '<S368>/Switch4' */
 
-  /* MinMax: '<S362>/MinMax' incorporates:
-   *  Constant: '<S362>/sat6'
+  /* MinMax: '<S368>/MinMax' incorporates:
+   *  Constant: '<S368>/sat6'
    */
   if (VOPM_BCMIllmndSts_enum > KOPM_VehActlGearPosHi_enum)
   {
-    /* MinMax: '<S357>/MinMax' */
+    /* MinMax: '<S363>/MinMax' */
     VOPM_BCMIllmndSts_enum = KOPM_VehActlGearPosHi_enum;
   }
 
-  /* End of MinMax: '<S362>/MinMax' */
+  /* End of MinMax: '<S368>/MinMax' */
 
-  /* MinMax: '<S362>/MinMax1' incorporates:
-   *  Constant: '<S362>/sat7'
+  /* MinMax: '<S368>/MinMax1' incorporates:
+   *  Constant: '<S368>/sat7'
    */
   if (VOPM_BCMIllmndSts_enum >= KOPM_VehActlGearPosLo_enum)
   {
-    /* DataTypeConversion: '<S362>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S368>/Data Type Conversion2' */
     VOPM_VehActlGearPos_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
-    /* DataTypeConversion: '<S362>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S368>/Data Type Conversion2' */
     VOPM_VehActlGearPos_enum = KOPM_VehActlGearPosLo_enum;
   }
 
-  /* End of MinMax: '<S362>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_VehActlGearPos_enum' */
+  /* End of MinMax: '<S368>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_VehActlGearPos_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_BCMBrkPedSta_flg' */
-  /* Switch: '<S346>/Switch4' incorporates:
-   *  Constant: '<S346>/sat3'
-   */
-  if (KOPM_BCMBrkPedSta_flg_ovrdflg)
-  {
-    /* Switch: '<S346>/Switch4' incorporates:
-     *  Constant: '<S346>/sat4'
-     */
-    VOPM_BCMBrkPedSta_flg = KOPM_BCMBrkPedSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S346>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S346>/Data Type Conversion1'
-     */
-    VOPM_BCMBrkPedSta_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_BrakePedalSta != 0);
-  }
-
-  /* End of Switch: '<S346>/Switch4' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_BCMBrkPedSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_BCMSysPwrModeVld_flg' */
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_BCMBrkPedSta_flg' */
   /* Switch: '<S352>/Switch4' incorporates:
    *  Constant: '<S352>/sat3'
    */
-  if (KOPM_BCMSysPwrModeVld_flg_ovrdflg)
+  if (KOPM_BCMBrkPedSta_flg_ovrdflg)
   {
     /* Switch: '<S352>/Switch4' incorporates:
      *  Constant: '<S352>/sat4'
      */
-    VOPM_BCMSysPwrModeVld_flg = KOPM_BCMSysPwrModeVld_flg_ovrdval;
+    VOPM_BCMBrkPedSta_flg = KOPM_BCMBrkPedSta_flg_ovrdval;
   }
   else
   {
@@ -13197,295 +13448,59 @@ static void Runbl_Opm50ms(void)
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S352>/Data Type Conversion1'
      */
+    VOPM_BCMBrkPedSta_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_BrakePedalSta != 0);
+  }
+
+  /* End of Switch: '<S352>/Switch4' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_BCMBrkPedSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_BCMSysPwrModeVld_flg' */
+  /* Switch: '<S358>/Switch4' incorporates:
+   *  Constant: '<S358>/sat3'
+   */
+  if (KOPM_BCMSysPwrModeVld_flg_ovrdflg)
+  {
+    /* Switch: '<S358>/Switch4' incorporates:
+     *  Constant: '<S358>/sat4'
+     */
+    VOPM_BCMSysPwrModeVld_flg = KOPM_BCMSysPwrModeVld_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S358>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S358>/Data Type Conversion1'
+     */
     VOPM_BCMSysPwrModeVld_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_SysPwrModeV != 0);
   }
 
-  /* End of Switch: '<S352>/Switch4' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_BCMSysPwrModeVld_flg' */
+  /* End of Switch: '<S358>/Switch4' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_BCMSysPwrModeVld_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_BCMSysPwrMode_enum' */
-  /* Switch: '<S353>/Switch4' incorporates:
-   *  Constant: '<S353>/sat3'
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_BCMSysPwrMode_enum' */
+  /* Switch: '<S359>/Switch4' incorporates:
+   *  Constant: '<S359>/sat3'
    */
   if (KOPM_BCMSysPwrMode_enum_ovrdflg)
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S353>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S359>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
      */
     VOPM_BCMIllmndSts_enum = KOPM_BCMSysPwrMode_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S353>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_SysPwrMode;
-  }
-
-  /* End of Switch: '<S353>/Switch4' */
-
-  /* MinMax: '<S353>/MinMax' incorporates:
-   *  Constant: '<S353>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMSysPwrModeHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMSysPwrModeHi_enum;
-  }
-
-  /* End of MinMax: '<S353>/MinMax' */
-
-  /* MinMax: '<S353>/MinMax1' incorporates:
-   *  Constant: '<S353>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMSysPwrModeLo_enum)
-  {
-    /* MinMax: '<S353>/MinMax1' */
-    VOPM_BCMSysPwrMode_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S353>/MinMax1' */
-    VOPM_BCMSysPwrMode_enum = KOPM_BCMSysPwrModeLo_enum;
-  }
-
-  /* End of MinMax: '<S353>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_BCMSysPwrMode_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_12VBatLowVolSta_enum' */
-  /* Switch: '<S344>/Switch4' incorporates:
-   *  Constant: '<S344>/sat3'
-   */
-  if (KOPM_12VBatLowVolSta_enum_ovrdflg)
-  {
-    /* MinMax: '<S344>/MinMax' incorporates:
-     *  Constant: '<S344>/sat4'
-     *  MinMax: '<S345>/MinMax'
-     */
-    VOPM_BCMBackLadjvalFb_enum = KOPM_12VBatLowVolSta_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S344>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S344>/Data Type Conversion1'
-     *  MinMax: '<S345>/MinMax'
-     */
-    VOPM_BCMBackLadjvalFb_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
-            ->VHMI_12VBatLoVolSta_enum;
-  }
-
-  /* End of Switch: '<S344>/Switch4' */
-
-  /* MinMax: '<S344>/MinMax' incorporates:
-   *  Constant: '<S344>/sat6'
-   */
-  if (VOPM_BCMBackLadjvalFb_enum > KOPM_12VBatLowVolStaHi_enum)
-  {
-    VOPM_BCMBackLadjvalFb_enum = KOPM_12VBatLowVolStaHi_enum;
-  }
-
-  /* MinMax: '<S344>/MinMax1' incorporates:
-   *  Constant: '<S344>/sat7'
-   */
-  if (VOPM_BCMBackLadjvalFb_enum >= KOPM_12VBatLowVolStaLo_enum)
-  {
-    /* MinMax: '<S344>/MinMax1' */
-    VOPM_12VBatLowVolSta_enum = VOPM_BCMBackLadjvalFb_enum;
-  }
-  else
-  {
-    /* MinMax: '<S344>/MinMax1' */
-    VOPM_12VBatLowVolSta_enum = KOPM_12VBatLowVolStaLo_enum;
-  }
-
-  /* End of MinMax: '<S344>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_12VBatLowVolSta_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_LimpHomeSta_flg' */
-  /* Switch: '<S355>/Switch4' incorporates:
-   *  Constant: '<S355>/sat3'
-   */
-  if (KOPM_LimpHomeSta_flg_ovrdflg)
-  {
-    /* Switch: '<S355>/Switch4' incorporates:
-     *  Constant: '<S355>/sat4'
-     */
-    VOPM_LimpHomeSta_flg = KOPM_LimpHomeSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S355>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S355>/Data Type Conversion1'
-     */
-    VOPM_LimpHomeSta_flg = (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
-                               ->VDAG_LimpHome_flg;
-  }
-
-  /* End of Switch: '<S355>/Switch4' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_LimpHomeSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_PCUFailSta_flg' */
-  /* Switch: '<S356>/Switch4' incorporates:
-   *  Constant: '<S356>/sat3'
-   */
-  if (KOPM_PCUFailSta_flg_ovrdflg)
-  {
-    /* Switch: '<S356>/Switch4' incorporates:
-     *  Constant: '<S356>/sat4'
-     */
-    VOPM_PCUFailSta_flg = KOPM_PCUFailSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S356>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S356>/Data Type Conversion1'
-     */
-    VOPM_PCUFailSta_flg = (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
-                              ->VVTM_PCUFailSta_flg;
-  }
-
-  /* End of Switch: '<S356>/Switch4' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_PCUFailSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_BCMCenLckSts_enum' */
-  /* Switch: '<S347>/Switch4' incorporates:
-   *  Constant: '<S347>/sat3'
-   */
-  if (KOPM_BCMCenLckSts_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S347>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMCenLckSts_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S347>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_CentralLockSts;
-  }
-
-  /* End of Switch: '<S347>/Switch4' */
-
-  /* MinMax: '<S347>/MinMax' incorporates:
-   *  Constant: '<S347>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMCenLckStsHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMCenLckStsHi_enum;
-  }
-
-  /* End of MinMax: '<S347>/MinMax' */
-
-  /* MinMax: '<S347>/MinMax1' incorporates:
-   *  Constant: '<S347>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMCenLckStsLo_enum)
-  {
-    /* MinMax: '<S347>/MinMax1' */
-    VOPM_BCMCenLckSts_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S347>/MinMax1' */
-    VOPM_BCMCenLckSts_enum = KOPM_BCMCenLckStsLo_enum;
-  }
-
-  /* End of MinMax: '<S347>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_BCMCenLckSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_BCMSysPowerSts_enum' */
-  /* Switch: '<S351>/Switch4' incorporates:
-   *  Constant: '<S351>/sat3'
-   */
-  if (KOPM_BCMSysPowerSts_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S351>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMSysPowerSts_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S351>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_SysPowerSts;
-  }
-
-  /* End of Switch: '<S351>/Switch4' */
-
-  /* MinMax: '<S351>/MinMax' incorporates:
-   *  Constant: '<S351>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMSysPowerStsHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMSysPowerStsHi_enum;
-  }
-
-  /* End of MinMax: '<S351>/MinMax' */
-
-  /* MinMax: '<S351>/MinMax1' incorporates:
-   *  Constant: '<S351>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMSysPowerStsLo_enum)
-  {
-    /* MinMax: '<S351>/MinMax1' */
-    VOPM_BCMSysPowerSts_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S351>/MinMax1' */
-    VOPM_BCMSysPowerSts_enum = KOPM_BCMSysPowerStsLo_enum;
-  }
-
-  /* End of MinMax: '<S351>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_BCMSysPowerSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_PwrRecupIntnsty_enum' */
-  /* Switch: '<S359>/Switch4' incorporates:
-   *  Constant: '<S359>/sat3'
-   */
-  if (KOPM_PwrRecupIntnsty_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S359>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S359>/Data Type Conversion3'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_PwrRecupIntnsty_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
      *  DataTypeConversion: '<S359>/Data Type Conversion1'
      */
     VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
-            ->VIPC_RegenModeAct_enum;
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_SysPwrMode;
   }
 
   /* End of Switch: '<S359>/Switch4' */
@@ -13493,10 +13508,10 @@ static void Runbl_Opm50ms(void)
   /* MinMax: '<S359>/MinMax' incorporates:
    *  Constant: '<S359>/sat6'
    */
-  if (VOPM_BCMIllmndSts_enum > KOPM_PwrRecupIntnstyHi_enum)
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMSysPwrModeHi_enum)
   {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_PwrRecupIntnstyHi_enum;
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMSysPwrModeHi_enum;
   }
 
   /* End of MinMax: '<S359>/MinMax' */
@@ -13504,129 +13519,443 @@ static void Runbl_Opm50ms(void)
   /* MinMax: '<S359>/MinMax1' incorporates:
    *  Constant: '<S359>/sat7'
    */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMSysPwrModeLo_enum)
+  {
+    /* MinMax: '<S359>/MinMax1' */
+    VOPM_BCMSysPwrMode_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S359>/MinMax1' */
+    VOPM_BCMSysPwrMode_enum = KOPM_BCMSysPwrModeLo_enum;
+  }
+
+  /* End of MinMax: '<S359>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_BCMSysPwrMode_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_12VBatLowVolSta_enum' */
+  /* Switch: '<S350>/Switch4' incorporates:
+   *  Constant: '<S350>/sat3'
+   */
+  if (KOPM_12VBatLowVolSta_enum_ovrdflg)
+  {
+    /* MinMax: '<S350>/MinMax' incorporates:
+     *  Constant: '<S350>/sat4'
+     *  MinMax: '<S351>/MinMax'
+     */
+    VOPM_BCMBackLadjvalFb_enum = KOPM_12VBatLowVolSta_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S350>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S350>/Data Type Conversion1'
+     *  MinMax: '<S351>/MinMax'
+     */
+    VOPM_BCMBackLadjvalFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
+            ->VHMI_12VBatLoVolSta_enum;
+  }
+
+  /* End of Switch: '<S350>/Switch4' */
+
+  /* MinMax: '<S350>/MinMax' incorporates:
+   *  Constant: '<S350>/sat6'
+   */
+  if (VOPM_BCMBackLadjvalFb_enum > KOPM_12VBatLowVolStaHi_enum)
+  {
+    VOPM_BCMBackLadjvalFb_enum = KOPM_12VBatLowVolStaHi_enum;
+  }
+
+  /* MinMax: '<S350>/MinMax1' incorporates:
+   *  Constant: '<S350>/sat7'
+   */
+  if (VOPM_BCMBackLadjvalFb_enum >= KOPM_12VBatLowVolStaLo_enum)
+  {
+    /* MinMax: '<S350>/MinMax1' */
+    VOPM_12VBatLowVolSta_enum = VOPM_BCMBackLadjvalFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S350>/MinMax1' */
+    VOPM_12VBatLowVolSta_enum = KOPM_12VBatLowVolStaLo_enum;
+  }
+
+  /* End of MinMax: '<S350>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_12VBatLowVolSta_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_LimpHomeSta_flg' */
+  /* Switch: '<S361>/Switch4' incorporates:
+   *  Constant: '<S361>/sat3'
+   */
+  if (KOPM_LimpHomeSta_flg_ovrdflg)
+  {
+    /* Switch: '<S361>/Switch4' incorporates:
+     *  Constant: '<S361>/sat4'
+     */
+    VOPM_LimpHomeSta_flg = KOPM_LimpHomeSta_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S361>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S361>/Data Type Conversion1'
+     */
+    VOPM_LimpHomeSta_flg = (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
+                               ->VDAG_LimpHome_flg;
+  }
+
+  /* End of Switch: '<S361>/Switch4' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_LimpHomeSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_PCUFailSta_flg' */
+  /* Switch: '<S362>/Switch4' incorporates:
+   *  Constant: '<S362>/sat3'
+   */
+  if (KOPM_PCUFailSta_flg_ovrdflg)
+  {
+    /* Switch: '<S362>/Switch4' incorporates:
+     *  Constant: '<S362>/sat4'
+     */
+    VOPM_PCUFailSta_flg = KOPM_PCUFailSta_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S362>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S362>/Data Type Conversion1'
+     */
+    VOPM_PCUFailSta_flg = (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
+                              ->VVTM_PCUFailSta_flg;
+  }
+
+  /* End of Switch: '<S362>/Switch4' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_PCUFailSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_BCMCenLckSts_enum' */
+  /* Switch: '<S353>/Switch4' incorporates:
+   *  Constant: '<S353>/sat3'
+   */
+  if (KOPM_BCMCenLckSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S353>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMCenLckSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S353>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_CentralLockSts;
+  }
+
+  /* End of Switch: '<S353>/Switch4' */
+
+  /* MinMax: '<S353>/MinMax' incorporates:
+   *  Constant: '<S353>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMCenLckStsHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMCenLckStsHi_enum;
+  }
+
+  /* End of MinMax: '<S353>/MinMax' */
+
+  /* MinMax: '<S353>/MinMax1' incorporates:
+   *  Constant: '<S353>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMCenLckStsLo_enum)
+  {
+    /* MinMax: '<S353>/MinMax1' */
+    VOPM_BCMCenLckSts_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S353>/MinMax1' */
+    VOPM_BCMCenLckSts_enum = KOPM_BCMCenLckStsLo_enum;
+  }
+
+  /* End of MinMax: '<S353>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_BCMCenLckSts_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_BCMSysPowerSts_enum' */
+  /* Switch: '<S357>/Switch4' incorporates:
+   *  Constant: '<S357>/sat3'
+   */
+  if (KOPM_BCMSysPowerSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S357>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMSysPowerSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S357>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_SysPowerSts;
+  }
+
+  /* End of Switch: '<S357>/Switch4' */
+
+  /* MinMax: '<S357>/MinMax' incorporates:
+   *  Constant: '<S357>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMSysPowerStsHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMSysPowerStsHi_enum;
+  }
+
+  /* End of MinMax: '<S357>/MinMax' */
+
+  /* MinMax: '<S357>/MinMax1' incorporates:
+   *  Constant: '<S357>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMSysPowerStsLo_enum)
+  {
+    /* MinMax: '<S357>/MinMax1' */
+    VOPM_BCMSysPowerSts_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S357>/MinMax1' */
+    VOPM_BCMSysPowerSts_enum = KOPM_BCMSysPowerStsLo_enum;
+  }
+
+  /* End of MinMax: '<S357>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_BCMSysPowerSts_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_PwrRecupIntnsty_enum' */
+  /* Switch: '<S365>/Switch4' incorporates:
+   *  Constant: '<S365>/sat3'
+   */
+  if (KOPM_PwrRecupIntnsty_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S365>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S365>/Data Type Conversion3'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_PwrRecupIntnsty_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S365>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
+            ->VIPC_RegenModeAct_enum;
+  }
+
+  /* End of Switch: '<S365>/Switch4' */
+
+  /* MinMax: '<S365>/MinMax' incorporates:
+   *  Constant: '<S365>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_PwrRecupIntnstyHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_PwrRecupIntnstyHi_enum;
+  }
+
+  /* End of MinMax: '<S365>/MinMax' */
+
+  /* MinMax: '<S365>/MinMax1' incorporates:
+   *  Constant: '<S365>/sat7'
+   */
   if (VOPM_BCMIllmndSts_enum >= KOPM_PwrRecupIntnstyLo_enum)
   {
-    /* DataTypeConversion: '<S359>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S365>/Data Type Conversion2' */
     VOPM_PwrRecupIntnsty_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
-    /* DataTypeConversion: '<S359>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S365>/Data Type Conversion2' */
     VOPM_PwrRecupIntnsty_enum = KOPM_PwrRecupIntnstyLo_enum;
   }
 
-  /* End of MinMax: '<S359>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_PwrRecupIntnsty_enum' */
+  /* End of MinMax: '<S365>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_PwrRecupIntnsty_enum' */
 
-  /* DataTypeConversion: '<S342>/DataTypeConversion11' incorporates:
-   *  DataTypeConversion: '<S359>/Data Type Conversion2'
+  /* DataTypeConversion: '<S348>/DataTypeConversion11' incorporates:
+   *  DataTypeConversion: '<S365>/Data Type Conversion2'
    */
   AppSwcOpm_ARID_DEF.CCU_VehInfo_BAC_i.VCU_PwrRecupIntensity =
       VOPM_PwrRecupIntnsty_enum;
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_BCMDoorLckStaFL_flg' */
-  /* Switch: '<S348>/Switch4' incorporates:
-   *  Constant: '<S348>/sat3'
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_BCMDoorLckStaFL_flg' */
+  /* Switch: '<S354>/Switch4' incorporates:
+   *  Constant: '<S354>/sat3'
    */
   if (KOPM_BCMDoorLckStaFL_flg_ovrdflg)
   {
-    /* Switch: '<S348>/Switch4' incorporates:
-     *  Constant: '<S348>/sat4'
+    /* Switch: '<S354>/Switch4' incorporates:
+     *  Constant: '<S354>/sat4'
      */
     VOPM_BCMDoorLckStaFL_flg = KOPM_BCMDoorLckStaFL_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S348>/Switch4' incorporates:
+    /* Switch: '<S354>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S348>/Data Type Conversion1'
+     *  DataTypeConversion: '<S354>/Data Type Conversion1'
      */
     VOPM_BCMDoorLckStaFL_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
              ->BCM_DoorLockSta_FL != 0);
   }
 
-  /* End of Switch: '<S348>/Switch4' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_BCMDoorLckStaFL_flg' */
+  /* End of Switch: '<S354>/Switch4' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_BCMDoorLckStaFL_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_PrstlsStaFb_enum' */
-  /* Switch: '<S358>/Switch4' incorporates:
-   *  Constant: '<S358>/sat3'
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_PrstlsStaFb_enum' */
+  /* Switch: '<S364>/Switch4' incorporates:
+   *  Constant: '<S364>/sat3'
    */
   if (KOPM_PrstlsStaFb_enum_ovrdflg)
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S358>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S358>/Data Type Conversion3'
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S364>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S364>/Data Type Conversion3'
      */
     VOPM_BCMIllmndSts_enum = KOPM_PrstlsStaFb_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S358>/Data Type Conversion1'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S364>/Data Type Conversion1'
      */
     VOPM_BCMIllmndSts_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
             ->VIPC_CrpModeAct_enum;
   }
 
-  /* End of Switch: '<S358>/Switch4' */
+  /* End of Switch: '<S364>/Switch4' */
 
-  /* MinMax: '<S358>/MinMax' incorporates:
-   *  Constant: '<S358>/sat6'
+  /* MinMax: '<S364>/MinMax' incorporates:
+   *  Constant: '<S364>/sat6'
    */
   if (VOPM_BCMIllmndSts_enum > KOPM_PrstlsStaFbHi_enum)
   {
-    /* MinMax: '<S357>/MinMax' */
+    /* MinMax: '<S363>/MinMax' */
     VOPM_BCMIllmndSts_enum = KOPM_PrstlsStaFbHi_enum;
   }
 
-  /* End of MinMax: '<S358>/MinMax' */
+  /* End of MinMax: '<S364>/MinMax' */
 
-  /* MinMax: '<S358>/MinMax1' incorporates:
-   *  Constant: '<S358>/sat7'
+  /* MinMax: '<S364>/MinMax1' incorporates:
+   *  Constant: '<S364>/sat7'
    */
   if (VOPM_BCMIllmndSts_enum >= KOPM_PrstlsStaFbLo_enum)
   {
-    /* DataTypeConversion: '<S358>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S364>/Data Type Conversion2' */
     VOPM_PrstlsStaFb_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
-    /* DataTypeConversion: '<S358>/Data Type Conversion2' */
+    /* DataTypeConversion: '<S364>/Data Type Conversion2' */
     VOPM_PrstlsStaFb_enum = KOPM_PrstlsStaFbLo_enum;
   }
 
-  /* End of MinMax: '<S358>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_PrstlsStaFb_enum' */
+  /* End of MinMax: '<S364>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_PrstlsStaFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_VehActDrvMod1_enum' */
-  /* Switch: '<S360>/Switch4' incorporates:
-   *  Constant: '<S360>/sat3'
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_VehActDrvMod1_enum' */
+  /* Switch: '<S366>/Switch4' incorporates:
+   *  Constant: '<S366>/sat3'
    */
   if (KOPM_VehActDrvMod1_enum_ovrdflg)
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S360>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S360>/Data Type Conversion3'
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S366>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S366>/Data Type Conversion3'
      */
     VOPM_BCMIllmndSts_enum = KOPM_VehActDrvMod1_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S360>/Data Type Conversion1'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S366>/Data Type Conversion1'
      */
     VOPM_BCMIllmndSts_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
             ->VIPC_DrvModeAct_enum;
+  }
+
+  /* End of Switch: '<S366>/Switch4' */
+
+  /* MinMax: '<S366>/MinMax' incorporates:
+   *  Constant: '<S366>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_VehActDrvMod1Hi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_VehActDrvMod1Hi_enum;
+  }
+
+  /* End of MinMax: '<S366>/MinMax' */
+
+  /* MinMax: '<S366>/MinMax1' incorporates:
+   *  Constant: '<S366>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_VehActDrvMod1Lo_enum)
+  {
+    /* DataTypeConversion: '<S366>/Data Type Conversion2' */
+    VOPM_VehActDrvMod1_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* DataTypeConversion: '<S366>/Data Type Conversion2' */
+    VOPM_VehActDrvMod1_enum = KOPM_VehActDrvMod1Lo_enum;
+  }
+
+  /* End of MinMax: '<S366>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_VehActDrvMod1_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_HDCStat_enum' */
+  /* Switch: '<S360>/Switch4' incorporates:
+   *  Constant: '<S360>/sat3'
+   */
+  if (KOPM_HDCStat_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S360>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_HDCStat_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S360>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())->VVTM_HDCStat_enum;
   }
 
   /* End of Switch: '<S360>/Switch4' */
@@ -13634,10 +13963,10 @@ static void Runbl_Opm50ms(void)
   /* MinMax: '<S360>/MinMax' incorporates:
    *  Constant: '<S360>/sat6'
    */
-  if (VOPM_BCMIllmndSts_enum > KOPM_VehActDrvMod1Hi_enum)
+  if (VOPM_BCMIllmndSts_enum > KOPM_HDCStatHi_enum)
   {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_VehActDrvMod1Hi_enum;
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_HDCStatHi_enum;
   }
 
   /* End of MinMax: '<S360>/MinMax' */
@@ -13645,189 +13974,136 @@ static void Runbl_Opm50ms(void)
   /* MinMax: '<S360>/MinMax1' incorporates:
    *  Constant: '<S360>/sat7'
    */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_VehActDrvMod1Lo_enum)
-  {
-    /* DataTypeConversion: '<S360>/Data Type Conversion2' */
-    VOPM_VehActDrvMod1_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* DataTypeConversion: '<S360>/Data Type Conversion2' */
-    VOPM_VehActDrvMod1_enum = KOPM_VehActDrvMod1Lo_enum;
-  }
-
-  /* End of MinMax: '<S360>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_VehActDrvMod1_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_HDCStat_enum' */
-  /* Switch: '<S354>/Switch4' incorporates:
-   *  Constant: '<S354>/sat3'
-   */
-  if (KOPM_HDCStat_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S354>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_HDCStat_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S354>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())->VVTM_HDCStat_enum;
-  }
-
-  /* End of Switch: '<S354>/Switch4' */
-
-  /* MinMax: '<S354>/MinMax' incorporates:
-   *  Constant: '<S354>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_HDCStatHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_HDCStatHi_enum;
-  }
-
-  /* End of MinMax: '<S354>/MinMax' */
-
-  /* MinMax: '<S354>/MinMax1' incorporates:
-   *  Constant: '<S354>/sat7'
-   */
   if (VOPM_BCMIllmndSts_enum >= KOPM_HDCStatLo_enum)
   {
-    /* MinMax: '<S354>/MinMax1' */
+    /* MinMax: '<S360>/MinMax1' */
     VOPM_HDCStat_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
-    /* MinMax: '<S354>/MinMax1' */
+    /* MinMax: '<S360>/MinMax1' */
     VOPM_HDCStat_enum = KOPM_HDCStatLo_enum;
   }
 
-  /* End of MinMax: '<S354>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_HDCStat_enum' */
+  /* End of MinMax: '<S360>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_HDCStat_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_BCMHazardLampSts_flg' */
-  /* Switch: '<S349>/Switch4' incorporates:
-   *  Constant: '<S349>/sat3'
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_BCMHazardLampSts_flg' */
+  /* Switch: '<S355>/Switch4' incorporates:
+   *  Constant: '<S355>/sat3'
    */
   if (KOPM_BCMHazardLampSts_flg_ovrdflg)
   {
-    /* Switch: '<S349>/Switch4' incorporates:
-     *  Constant: '<S349>/sat4'
+    /* Switch: '<S355>/Switch4' incorporates:
+     *  Constant: '<S355>/sat4'
      */
     VOPM_BCMHazardLampSts_flg = KOPM_BCMHazardLampSts_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S349>/Switch4' incorporates:
+    /* Switch: '<S355>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S349>/Data Type Conversion1'
+     *  DataTypeConversion: '<S355>/Data Type Conversion1'
      */
     VOPM_BCMHazardLampSts_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
              ->BCM_HazardLampSts != 0);
   }
 
-  /* End of Switch: '<S349>/Switch4' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_BCMHazardLampSts_flg' */
+  /* End of Switch: '<S355>/Switch4' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_BCMHazardLampSts_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_BCMBackLadjvalFb_enum' */
-  /* Switch: '<S345>/Switch4' incorporates:
-   *  Constant: '<S345>/sat3'
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_BCMBackLadjvalFb_enum' */
+  /* Switch: '<S351>/Switch4' incorporates:
+   *  Constant: '<S351>/sat3'
    */
   if (KOPM_BCMBackLadjvalFb_enum_ovrdflg)
   {
-    /* MinMax: '<S344>/MinMax' incorporates:
-     *  Constant: '<S345>/sat4'
-     *  MinMax: '<S345>/MinMax'
+    /* MinMax: '<S350>/MinMax' incorporates:
+     *  Constant: '<S351>/sat4'
+     *  MinMax: '<S351>/MinMax'
      */
     VOPM_BCMBackLadjvalFb_enum = KOPM_BCMBackLadjvalFb_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S344>/MinMax' incorporates:
+    /* MinMax: '<S350>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S345>/Data Type Conversion1'
-     *  MinMax: '<S345>/MinMax'
+     *  DataTypeConversion: '<S351>/Data Type Conversion1'
+     *  MinMax: '<S351>/MinMax'
      */
     VOPM_BCMBackLadjvalFb_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_BackLadjvalFb;
   }
 
-  /* End of Switch: '<S345>/Switch4' */
+  /* End of Switch: '<S351>/Switch4' */
 
-  /* MinMax: '<S345>/MinMax' incorporates:
-   *  Constant: '<S345>/sat6'
+  /* MinMax: '<S351>/MinMax' incorporates:
+   *  Constant: '<S351>/sat6'
    */
   if (VOPM_BCMBackLadjvalFb_enum > KOPM_BCMBackLadjvalFbHi_enum)
   {
-    /* MinMax: '<S344>/MinMax' */
+    /* MinMax: '<S350>/MinMax' */
     VOPM_BCMBackLadjvalFb_enum = KOPM_BCMBackLadjvalFbHi_enum;
   }
 
-  /* End of MinMax: '<S345>/MinMax' */
+  /* End of MinMax: '<S351>/MinMax' */
 
-  /* MinMax: '<S345>/MinMax1' incorporates:
-   *  Constant: '<S345>/sat7'
+  /* MinMax: '<S351>/MinMax1' incorporates:
+   *  Constant: '<S351>/sat7'
    */
   if (VOPM_BCMBackLadjvalFb_enum < KOPM_BCMBackLadjvalFbLo_enum)
   {
-    /* MinMax: '<S344>/MinMax' incorporates:
-     *  MinMax: '<S345>/MinMax1'
+    /* MinMax: '<S350>/MinMax' incorporates:
+     *  MinMax: '<S351>/MinMax1'
      */
     VOPM_BCMBackLadjvalFb_enum = KOPM_BCMBackLadjvalFbLo_enum;
   }
 
-  /* End of MinMax: '<S345>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_BCMBackLadjvalFb_enum' */
+  /* End of MinMax: '<S351>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_BCMBackLadjvalFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S342>/Subsys_VOPM_BCMPosLampSta_flg' */
-  /* Switch: '<S350>/Switch4' incorporates:
-   *  Constant: '<S350>/sat3'
+  /* Outputs for Atomic SubSystem: '<S348>/Subsys_VOPM_BCMPosLampSta_flg' */
+  /* Switch: '<S356>/Switch4' incorporates:
+   *  Constant: '<S356>/sat3'
    */
   if (KOPM_BCMPosLampSta_flg_ovrdflg)
   {
-    /* Switch: '<S350>/Switch4' incorporates:
-     *  Constant: '<S350>/sat4'
+    /* Switch: '<S356>/Switch4' incorporates:
+     *  Constant: '<S356>/sat4'
      */
     VOPM_BCMPosLampSta_flg = KOPM_BCMPosLampSta_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S350>/Switch4' incorporates:
+    /* Switch: '<S356>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S350>/Data Type Conversion1'
+     *  DataTypeConversion: '<S356>/Data Type Conversion1'
      */
     VOPM_BCMPosLampSta_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_PosLampSta != 0);
   }
 
-  /* End of Switch: '<S350>/Switch4' */
-  /* End of Outputs for SubSystem: '<S342>/Subsys_VOPM_BCMPosLampSta_flg' */
+  /* End of Switch: '<S356>/Switch4' */
+  /* End of Outputs for SubSystem: '<S348>/Subsys_VOPM_BCMPosLampSta_flg' */
 
-  /* BusCreator: '<S342>/BusCreator' incorporates:
-   *  Constant: '<S342>/Constant'
-   *  DataTypeConversion: '<S342>/DataTypeConversion13'
-   *  DataTypeConversion: '<S342>/DataTypeConversion14'
-   *  DataTypeConversion: '<S342>/DataTypeConversion17'
-   *  DataTypeConversion: '<S342>/DataTypeConversion2'
-   *  DataTypeConversion: '<S358>/Data Type Conversion2'
-   *  DataTypeConversion: '<S360>/Data Type Conversion2'
-   *  DataTypeConversion: '<S362>/Data Type Conversion2'
-   *  Switch: '<S346>/Switch4'
-   *  Switch: '<S348>/Switch4'
-   *  Switch: '<S349>/Switch4'
-   *  Switch: '<S350>/Switch4'
+  /* BusCreator: '<S348>/BusCreator' incorporates:
+   *  Constant: '<S348>/Constant'
+   *  DataTypeConversion: '<S348>/DataTypeConversion13'
+   *  DataTypeConversion: '<S348>/DataTypeConversion14'
+   *  DataTypeConversion: '<S348>/DataTypeConversion17'
+   *  DataTypeConversion: '<S348>/DataTypeConversion2'
+   *  DataTypeConversion: '<S364>/Data Type Conversion2'
+   *  DataTypeConversion: '<S366>/Data Type Conversion2'
+   *  DataTypeConversion: '<S368>/Data Type Conversion2'
    *  Switch: '<S352>/Switch4'
+   *  Switch: '<S354>/Switch4'
    *  Switch: '<S355>/Switch4'
    *  Switch: '<S356>/Switch4'
+   *  Switch: '<S358>/Switch4'
    *  Switch: '<S361>/Switch4'
+   *  Switch: '<S362>/Switch4'
+   *  Switch: '<S367>/Switch4'
    */
   AppSwcOpm_ARID_DEF.CCU_VehInfo_BAC_i.VCU_VhclActlGearPosV =
       VOPM_VehActlGearPosVld_flg;
@@ -13858,2935 +14134,91 @@ static void Runbl_Opm50ms(void)
       VOPM_BCMBackLadjvalFb_enum;
   AppSwcOpm_ARID_DEF.CCU_VehInfo_BAC_i.BCM_PosLampSta = VOPM_BCMPosLampSta_flg;
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMTurnLampStaLeft_flg' */
-  /* Switch: '<S459>/Switch4' incorporates:
-   *  Constant: '<S459>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMTurnLampStaLeft_flg' */
+  /* Switch: '<S469>/Switch4' incorporates:
+   *  Constant: '<S469>/sat3'
    */
   if (KOPM_BCMTurnLampStaLeft_flg_ovrdflg)
   {
-    /* Switch: '<S459>/Switch4' incorporates:
-     *  Constant: '<S459>/sat4'
+    /* Switch: '<S469>/Switch4' incorporates:
+     *  Constant: '<S469>/sat4'
      */
     VOPM_BCMTurnLampStaLeft_flg = KOPM_BCMTurnLampStaLeft_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S459>/Switch4' incorporates:
+    /* Switch: '<S469>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S459>/Data Type Conversion1'
+     *  DataTypeConversion: '<S469>/Data Type Conversion1'
      */
     VOPM_BCMTurnLampStaLeft_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
              ->BCM_TurnLampSta_Left != 0);
   }
 
-  /* End of Switch: '<S459>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMTurnLampStaLeft_flg' */
+  /* End of Switch: '<S469>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMTurnLampStaLeft_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMTurnLampStaRight_flg' */
-  /* Switch: '<S460>/Switch4' incorporates:
-   *  Constant: '<S460>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMTurnLampStaRight_flg' */
+  /* Switch: '<S470>/Switch4' incorporates:
+   *  Constant: '<S470>/sat3'
    */
   if (KOPM_BCMTurnLampStaRight_flg_ovrdflg)
   {
-    /* Switch: '<S460>/Switch4' incorporates:
-     *  Constant: '<S460>/sat4'
+    /* Switch: '<S470>/Switch4' incorporates:
+     *  Constant: '<S470>/sat4'
      */
     VOPM_BCMTurnLampStaRight_flg = KOPM_BCMTurnLampStaRight_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S460>/Switch4' incorporates:
+    /* Switch: '<S470>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S460>/Data Type Conversion1'
+     *  DataTypeConversion: '<S470>/Data Type Conversion1'
      */
     VOPM_BCMTurnLampStaRight_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
              ->BCM_TurnLampSta_Right != 0);
   }
 
-  /* End of Switch: '<S460>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMTurnLampStaRight_flg' */
+  /* End of Switch: '<S470>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMTurnLampStaRight_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFogLampStaRear_flg' */
-  /* Switch: '<S398>/Switch4' incorporates:
-   *  Constant: '<S398>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFogLampStaRear_flg' */
+  /* Switch: '<S407>/Switch4' incorporates:
+   *  Constant: '<S407>/sat3'
    */
   if (KOPM_BCMFogLampStaRear_flg_ovrdflg)
   {
-    /* Switch: '<S398>/Switch4' incorporates:
-     *  Constant: '<S398>/sat4'
+    /* Switch: '<S407>/Switch4' incorporates:
+     *  Constant: '<S407>/sat4'
      */
     VOPM_BCMFogLampStaRear_flg = KOPM_BCMFogLampStaRear_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S398>/Switch4' incorporates:
+    /* Switch: '<S407>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S398>/Data Type Conversion1'
+     *  DataTypeConversion: '<S407>/Data Type Conversion1'
      */
     VOPM_BCMFogLampStaRear_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
              ->BCM_FogLampSta_Rear != 0);
   }
 
-  /* End of Switch: '<S398>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFogLampStaRear_flg' */
+  /* End of Switch: '<S407>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFogLampStaRear_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMHighBeamSta_flg' */
-  /* Switch: '<S409>/Switch4' incorporates:
-   *  Constant: '<S409>/sat3'
-   */
-  if (KOPM_BCMHighBeamSta_flg_ovrdflg)
-  {
-    /* Switch: '<S409>/Switch4' incorporates:
-     *  Constant: '<S409>/sat4'
-     */
-    VOPM_BCMHighBeamSta_flg = KOPM_BCMHighBeamSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S409>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S409>/Data Type Conversion1'
-     */
-    VOPM_BCMHighBeamSta_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_HighBeamSta != 0);
-  }
-
-  /* End of Switch: '<S409>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMHighBeamSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMLowBeamSta_flg' */
-  /* Switch: '<S433>/Switch4' incorporates:
-   *  Constant: '<S433>/sat3'
-   */
-  if (KOPM_BCMLowBeamSta_flg_ovrdflg)
-  {
-    /* Switch: '<S433>/Switch4' incorporates:
-     *  Constant: '<S433>/sat4'
-     */
-    VOPM_BCMLowBeamSta_flg = KOPM_BCMLowBeamSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S433>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S433>/Data Type Conversion1'
-     */
-    VOPM_BCMLowBeamSta_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_LowBeamSta != 0);
-  }
-
-  /* End of Switch: '<S433>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMLowBeamSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFogLampStaFront_flg' */
-  /* Switch: '<S397>/Switch4' incorporates:
-   *  Constant: '<S397>/sat3'
-   */
-  if (KOPM_BCMFogLampStaFront_flg_ovrdflg)
-  {
-    /* Switch: '<S397>/Switch4' incorporates:
-     *  Constant: '<S397>/sat4'
-     */
-    VOPM_BCMFogLampStaFront_flg = KOPM_BCMFogLampStaFront_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S397>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S397>/Data Type Conversion1'
-     */
-    VOPM_BCMFogLampStaFront_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_FogLampSta_Front != 0);
-  }
-
-  /* End of Switch: '<S397>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFogLampStaFront_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMAutoLampStatus_flg' */
-  /* Switch: '<S368>/Switch4' incorporates:
-   *  Constant: '<S368>/sat3'
-   */
-  if (KOPM_BCMAutoLampStatus_flg_ovrdflg)
-  {
-    /* Switch: '<S368>/Switch4' incorporates:
-     *  Constant: '<S368>/sat4'
-     */
-    VOPM_BCMAutoLampStatus_flg = KOPM_BCMAutoLampStatus_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S368>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S368>/Data Type Conversion1'
-     */
-    VOPM_BCMAutoLampStatus_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_AutoLampStatus != 0);
-  }
-
-  /* End of Switch: '<S368>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMAutoLampStatus_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDayRunLightSta_flg' */
-  /* Switch: '<S379>/Switch4' incorporates:
-   *  Constant: '<S379>/sat3'
-   */
-  if (KOPM_BCMDayRunLightSta_flg_ovrdflg)
-  {
-    /* Switch: '<S379>/Switch4' incorporates:
-     *  Constant: '<S379>/sat4'
-     */
-    VOPM_BCMDayRunLightSta_flg = KOPM_BCMDayRunLightSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S379>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S379>/Data Type Conversion1'
-     */
-    VOPM_BCMDayRunLightSta_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_DayRunLightSta != 0);
-  }
-
-  /* End of Switch: '<S379>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDayRunLightSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMReverseLampSta_flg' */
-  /* Switch: '<S445>/Switch4' incorporates:
-   *  Constant: '<S445>/sat3'
-   */
-  if (KOPM_BCMReverseLampSta_flg_ovrdflg)
-  {
-    /* Switch: '<S445>/Switch4' incorporates:
-     *  Constant: '<S445>/sat4'
-     */
-    VOPM_BCMReverseLampSta_flg = KOPM_BCMReverseLampSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S445>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S445>/Data Type Conversion1'
-     */
-    VOPM_BCMReverseLampSta_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_ReverseLampSta != 0);
-  }
-
-  /* End of Switch: '<S445>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMReverseLampSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMBrakeLampSta_flg' */
-  /* Switch: '<S373>/Switch4' incorporates:
-   *  Constant: '<S373>/sat3'
-   */
-  if (KOPM_BCMBrakeLampSta_flg_ovrdflg)
-  {
-    /* Switch: '<S373>/Switch4' incorporates:
-     *  Constant: '<S373>/sat4'
-     */
-    VOPM_BCMBrakeLampSta_flg = KOPM_BCMBrakeLampSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S373>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S373>/Data Type Conversion1'
-     */
-    VOPM_BCMBrakeLampSta_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_BrakeLampSta != 0);
-  }
-
-  /* End of Switch: '<S373>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMBrakeLampSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDayRunLiSwSig_flg' */
-  /* Switch: '<S378>/Switch4' incorporates:
-   *  Constant: '<S378>/sat3'
-   */
-  if (KOPM_BCMDayRunLiSwSig_flg_ovrdflg)
-  {
-    /* Switch: '<S378>/Switch4' incorporates:
-     *  Constant: '<S378>/sat4'
-     */
-    VOPM_BCMDayRunLiSwSig_flg = KOPM_BCMDayRunLiSwSig_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S378>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S378>/Data Type Conversion1'
-     */
-    VOPM_BCMDayRunLiSwSig_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_DayRunLiSwSig != 0);
-  }
-
-  /* End of Switch: '<S378>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDayRunLiSwSig_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMTurnLiSts_enum' */
-  /* Switch: '<S461>/Switch4' incorporates:
-   *  Constant: '<S461>/sat3'
-   */
-  if (KOPM_BCMTurnLiSts_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S461>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMTurnLiSts_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S461>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_TurnLiSts;
-  }
-
-  /* End of Switch: '<S461>/Switch4' */
-
-  /* MinMax: '<S461>/MinMax' incorporates:
-   *  Constant: '<S461>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMTurnLiStsHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMTurnLiStsHi_enum;
-  }
-
-  /* End of MinMax: '<S461>/MinMax' */
-
-  /* MinMax: '<S461>/MinMax1' incorporates:
-   *  Constant: '<S461>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMTurnLiStsLo_enum)
-  {
-    /* MinMax: '<S461>/MinMax1' */
-    VOPM_BCMTurnLiSts_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S461>/MinMax1' */
-    VOPM_BCMTurnLiSts_enum = KOPM_BCMTurnLiStsLo_enum;
-  }
-
-  /* End of MinMax: '<S461>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMTurnLiSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMTrnngLiSwSig_enum' */
-  /* Switch: '<S457>/Switch4' incorporates:
-   *  Constant: '<S457>/sat3'
-   */
-  if (KOPM_BCMTrnngLiSwSig_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S457>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMTrnngLiSwSig_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S457>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_TurnngLiSwSig;
-  }
-
-  /* End of Switch: '<S457>/Switch4' */
-
-  /* MinMax: '<S457>/MinMax' incorporates:
-   *  Constant: '<S457>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMTrnngLiSwSigHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMTrnngLiSwSigHi_enum;
-  }
-
-  /* End of MinMax: '<S457>/MinMax' */
-
-  /* MinMax: '<S457>/MinMax1' incorporates:
-   *  Constant: '<S457>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMTrnngLiSwSigLo_enum)
-  {
-    /* MinMax: '<S457>/MinMax1' */
-    VOPM_BCMTrnngLiSwSig_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S457>/MinMax1' */
-    VOPM_BCMTrnngLiSwSig_enum = KOPM_BCMTrnngLiSwSigLo_enum;
-  }
-
-  /* End of MinMax: '<S457>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMTrnngLiSwSig_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMLightIntensity_enum' */
-  /* Switch: '<S430>/Switch4' incorporates:
-   *  Constant: '<S430>/sat3'
-   */
-  if (KOPM_BCMLightIntensity_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S430>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMLightIntensity_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S430>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_LightIntensity;
-  }
-
-  /* End of Switch: '<S430>/Switch4' */
-
-  /* MinMax: '<S430>/MinMax' incorporates:
-   *  Constant: '<S430>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMLightIntensityHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMLightIntensityHi_enum;
-  }
-
-  /* End of MinMax: '<S430>/MinMax' */
-
-  /* MinMax: '<S430>/MinMax1' incorporates:
-   *  Constant: '<S430>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMLightIntensityLo_enum)
-  {
-    /* MinMax: '<S430>/MinMax1' */
-    VOPM_BCMLightIntensity_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S430>/MinMax1' */
-    VOPM_BCMLightIntensity_enum = KOPM_BCMLightIntensityLo_enum;
-  }
-
-  /* End of MinMax: '<S430>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMLightIntensity_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMLghtSwSig_enum' */
-  /* Switch: '<S429>/Switch4' incorporates:
-   *  Constant: '<S429>/sat3'
-   */
-  if (KOPM_BCMLghtSwSig_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S429>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMLghtSwSig_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S429>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_LightSwSig;
-  }
-
-  /* End of Switch: '<S429>/Switch4' */
-
-  /* MinMax: '<S429>/MinMax' incorporates:
-   *  Constant: '<S429>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMLghtSwSigHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMLghtSwSigHi_enum;
-  }
-
-  /* End of MinMax: '<S429>/MinMax' */
-
-  /* MinMax: '<S429>/MinMax1' incorporates:
-   *  Constant: '<S429>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMLghtSwSigLo_enum)
-  {
-    /* MinMax: '<S429>/MinMax1' */
-    VOPM_BCMLghtSwSig_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S429>/MinMax1' */
-    VOPM_BCMLghtSwSig_enum = KOPM_BCMLghtSwSigLo_enum;
-  }
-
-  /* End of MinMax: '<S429>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMLghtSwSig_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMHiBeamSwSig_enum' */
-  /* Switch: '<S408>/Switch4' incorporates:
-   *  Constant: '<S408>/sat3'
-   */
-  if (KOPM_BCMHiBeamSwSig_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S408>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMHiBeamSwSig_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S408>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_HighBeamSwSig;
-  }
-
-  /* End of Switch: '<S408>/Switch4' */
-
-  /* MinMax: '<S408>/MinMax' incorporates:
-   *  Constant: '<S408>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMHiBeamSwSigHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMHiBeamSwSigHi_enum;
-  }
-
-  /* End of MinMax: '<S408>/MinMax' */
-
-  /* MinMax: '<S408>/MinMax1' incorporates:
-   *  Constant: '<S408>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMHiBeamSwSigLo_enum)
-  {
-    /* MinMax: '<S408>/MinMax1' */
-    VOPM_BCMHiBeamSwSig_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S408>/MinMax1' */
-    VOPM_BCMHiBeamSwSig_enum = KOPM_BCMHiBeamSwSigLo_enum;
-  }
-
-  /* End of MinMax: '<S408>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMHiBeamSwSig_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMAjarStaVHoodVld_flg' */
-  /* Switch: '<S365>/Switch4' incorporates:
-   *  Constant: '<S365>/sat3'
-   */
-  if (KOPM_BCMAjarStaVHoodVld_flg_ovrdflg)
-  {
-    /* Switch: '<S365>/Switch4' incorporates:
-     *  Constant: '<S365>/sat4'
-     */
-    VOPM_BCMAjarStaVHoodVld_flg = KOPM_BCMAjarStaVHoodVld_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S365>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S365>/Data Type Conversion1'
-     */
-    VOPM_BCMAjarStaVHoodVld_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_AjarStaV_Hood != 0);
-  }
-
-  /* End of Switch: '<S365>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMAjarStaVHoodVld_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMAjarStaHood_flg' */
-  /* Switch: '<S363>/Switch4' incorporates:
-   *  Constant: '<S363>/sat3'
-   */
-  if (KOPM_BCMAjarStaHood_flg_ovrdflg)
-  {
-    /* Switch: '<S363>/Switch4' incorporates:
-     *  Constant: '<S363>/sat4'
-     */
-    VOPM_BCMAjarStaHood_flg = KOPM_BCMAjarStaHood_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S363>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S363>/Data Type Conversion1'
-     */
-    VOPM_BCMAjarStaHood_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_AjarSta_Hood != 0);
-  }
-
-  /* End of Switch: '<S363>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMAjarStaHood_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMHzrdWrngLghtSwSig_flg' */
-  /* Switch: '<S411>/Switch4' incorporates:
-   *  Constant: '<S411>/sat3'
-   */
-  if (KOPM_BCMHzrdWrngLghtSwSig_flg_ovrdflg)
-  {
-    /* Switch: '<S411>/Switch4' incorporates:
-     *  Constant: '<S411>/sat4'
-     */
-    VOPM_BCMHzrdWrngLghtSwSig_flg = KOPM_BCMHzrdWrngLghtSwSig_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S411>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S411>/Data Type Conversion1'
-     */
-    VOPM_BCMHzrdWrngLghtSwSig_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_HazardWarningLightSwSig != 0);
-  }
-
-  /* End of Switch: '<S411>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMHzrdWrngLghtSwSig_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFrntFogLiSwSig_flg' */
-  /* Switch: '<S401>/Switch4' incorporates:
-   *  Constant: '<S401>/sat3'
-   */
-  if (KOPM_BCMFrntFogLiSwSig_flg_ovrdflg)
-  {
-    /* Switch: '<S401>/Switch4' incorporates:
-     *  Constant: '<S401>/sat4'
-     */
-    VOPM_BCMFrntFogLiSwSig_flg = KOPM_BCMFrntFogLiSwSig_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S401>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S401>/Data Type Conversion1'
-     */
-    VOPM_BCMFrntFogLiSwSig_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_FrntFogLiSwSig != 0);
-  }
-
-  /* End of Switch: '<S401>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFrntFogLiSwSig_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMRrFogLiSwSig_flg' */
-  /* Switch: '<S448>/Switch4' incorporates:
-   *  Constant: '<S448>/sat3'
-   */
-  if (KOPM_BCMRrFogLiSwSig_flg_ovrdflg)
-  {
-    /* Switch: '<S448>/Switch4' incorporates:
-     *  Constant: '<S448>/sat4'
-     */
-    VOPM_BCMRrFogLiSwSig_flg = KOPM_BCMRrFogLiSwSig_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S448>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S448>/Data Type Conversion1'
-     */
-    VOPM_BCMRrFogLiSwSig_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_RearFogLiSwSig != 0);
-  }
-
-  /* End of Switch: '<S448>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMRrFogLiSwSig_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFlwrMeHmCtrlFb_enum' */
-  /* Switch: '<S396>/Switch4' incorporates:
-   *  Constant: '<S396>/sat3'
-   */
-  if (KOPM_BCMFlwrMeHmCtrlFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S396>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFlwrMeHmCtrlFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S396>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_FlwrMeHmCtrlFb;
-  }
-
-  /* End of Switch: '<S396>/Switch4' */
-
-  /* MinMax: '<S396>/MinMax' incorporates:
-   *  Constant: '<S396>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFlwrMeHmCtrlFbHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFlwrMeHmCtrlFbHi_enum;
-  }
-
-  /* End of MinMax: '<S396>/MinMax' */
-
-  /* MinMax: '<S396>/MinMax1' incorporates:
-   *  Constant: '<S396>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFlwrMeHmCtrlFbLo_enum)
-  {
-    /* MinMax: '<S396>/MinMax1' */
-    VOPM_BCMFlwrMeHmCtrlFb_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S396>/MinMax1' */
-    VOPM_BCMFlwrMeHmCtrlFb_enum = KOPM_BCMFlwrMeHmCtrlFbLo_enum;
-  }
-
-  /* End of MinMax: '<S396>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFlwrMeHmCtrlFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMBassHornReq_enum' */
-  /* Switch: '<S371>/Switch4' incorporates:
-   *  Constant: '<S371>/sat3'
-   */
-  if (KOPM_BCMBassHornReq_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S371>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMBassHornReq_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S371>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_BassHornReq;
-  }
-
-  /* End of Switch: '<S371>/Switch4' */
-
-  /* MinMax: '<S371>/MinMax' incorporates:
-   *  Constant: '<S371>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMBassHornReqHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMBassHornReqHi_enum;
-  }
-
-  /* End of MinMax: '<S371>/MinMax' */
-
-  /* MinMax: '<S371>/MinMax1' incorporates:
-   *  Constant: '<S371>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMBassHornReqLo_enum)
-  {
-    /* MinMax: '<S371>/MinMax1' */
-    VOPM_BCMBassHornReq_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S371>/MinMax1' */
-    VOPM_BCMBassHornReq_enum = KOPM_BCMBassHornReqLo_enum;
-  }
-
-  /* End of MinMax: '<S371>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMBassHornReq_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMAjarStaTrunk_flg' */
-  /* Switch: '<S364>/Switch4' incorporates:
-   *  Constant: '<S364>/sat3'
-   */
-  if (KOPM_BCMAjarStaTrunk_flg_ovrdflg)
-  {
-    /* Switch: '<S364>/Switch4' incorporates:
-     *  Constant: '<S364>/sat4'
-     */
-    VOPM_BCMAjarStaTrunk_flg = KOPM_BCMAjarStaTrunk_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S364>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S364>/Data Type Conversion1'
-     */
-    VOPM_BCMAjarStaTrunk_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_AjarSta_Trunk != 0);
-  }
-
-  /* End of Switch: '<S364>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMAjarStaTrunk_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDoorAjarStaFL_flg' */
-  /* Switch: '<S380>/Switch4' incorporates:
-   *  Constant: '<S380>/sat3'
-   */
-  if (KOPM_BCMDoorAjarStaFL_flg_ovrdflg)
-  {
-    /* Switch: '<S380>/Switch4' incorporates:
-     *  Constant: '<S380>/sat4'
-     */
-    VOPM_BCMDoorAjarStaFL_flg = KOPM_BCMDoorAjarStaFL_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S380>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S380>/Data Type Conversion1'
-     */
-    VOPM_BCMDoorAjarStaFL_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_DoorAjarSta_FL != 0);
-  }
-
-  /* End of Switch: '<S380>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDoorAjarStaFL_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDoorAjarStaFR_flg' */
-  /* Switch: '<S381>/Switch4' incorporates:
-   *  Constant: '<S381>/sat3'
-   */
-  if (KOPM_BCMDoorAjarStaFR_flg_ovrdflg)
-  {
-    /* Switch: '<S381>/Switch4' incorporates:
-     *  Constant: '<S381>/sat4'
-     */
-    VOPM_BCMDoorAjarStaFR_flg = KOPM_BCMDoorAjarStaFR_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S381>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S381>/Data Type Conversion1'
-     */
-    VOPM_BCMDoorAjarStaFR_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_DoorAjarSta_FR != 0);
-  }
-
-  /* End of Switch: '<S381>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDoorAjarStaFR_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDoorAjarStaRL_flg' */
-  /* Switch: '<S382>/Switch4' incorporates:
-   *  Constant: '<S382>/sat3'
-   */
-  if (KOPM_BCMDoorAjarStaRL_flg_ovrdflg)
-  {
-    /* Switch: '<S382>/Switch4' incorporates:
-     *  Constant: '<S382>/sat4'
-     */
-    VOPM_BCMDoorAjarStaRL_flg = KOPM_BCMDoorAjarStaRL_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S382>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S382>/Data Type Conversion1'
-     */
-    VOPM_BCMDoorAjarStaRL_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_DoorAjarSta_RL != 0);
-  }
-
-  /* End of Switch: '<S382>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDoorAjarStaRL_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDoorAjarStaRR_flg' */
-  /* Switch: '<S383>/Switch4' incorporates:
-   *  Constant: '<S383>/sat3'
-   */
-  if (KOPM_BCMDoorAjarStaRR_flg_ovrdflg)
-  {
-    /* Switch: '<S383>/Switch4' incorporates:
-     *  Constant: '<S383>/sat4'
-     */
-    VOPM_BCMDoorAjarStaRR_flg = KOPM_BCMDoorAjarStaRR_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S383>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S383>/Data Type Conversion1'
-     */
-    VOPM_BCMDoorAjarStaRR_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_DoorAjarSta_RR != 0);
-  }
-
-  /* End of Switch: '<S383>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDoorAjarStaRR_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMLckHornOnStFb_flg' */
-  /* Switch: '<S427>/Switch4' incorporates:
-   *  Constant: '<S427>/sat3'
-   */
-  if (KOPM_BCMLckHornOnStFb_flg_ovrdflg)
-  {
-    /* Switch: '<S427>/Switch4' incorporates:
-     *  Constant: '<S427>/sat4'
-     */
-    VOPM_BCMLckHornOnStFb_flg = KOPM_BCMLckHornOnStFb_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S427>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S427>/Data Type Conversion1'
-     */
-    VOPM_BCMLckHornOnStFb_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_LockHornOnStFb != 0);
-  }
-
-  /* End of Switch: '<S427>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMLckHornOnStFb_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMAlrmHornReq_flg' */
-  /* Switch: '<S366>/Switch4' incorporates:
-   *  Constant: '<S366>/sat3'
-   */
-  if (KOPM_BCMAlrmHornReq_flg_ovrdflg)
-  {
-    /* Switch: '<S366>/Switch4' incorporates:
-     *  Constant: '<S366>/sat4'
-     */
-    VOPM_BCMAlrmHornReq_flg = KOPM_BCMAlrmHornReq_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S366>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S366>/Data Type Conversion1'
-     */
-    VOPM_BCMAlrmHornReq_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_AlrmHornReq != 0);
-  }
-
-  /* End of Switch: '<S366>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMAlrmHornReq_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_TPMSPressureStaFL_enum' */
-  /* Switch: '<S476>/Switch4' incorporates:
-   *  Constant: '<S476>/sat3'
-   */
-  if (KOPM_TPMSPressureStaFL_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S476>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaFL_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S476>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
-            ->VVSO_TPMSPrsrStaFL_enum;
-  }
-
-  /* End of Switch: '<S476>/Switch4' */
-
-  /* MinMax: '<S476>/MinMax' incorporates:
-   *  Constant: '<S476>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_TPMSPressureStaFLHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaFLHi_enum;
-  }
-
-  /* End of MinMax: '<S476>/MinMax' */
-
-  /* MinMax: '<S476>/MinMax1' incorporates:
-   *  Constant: '<S476>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_TPMSPressureStaFLLo_enum)
-  {
-    /* MinMax: '<S476>/MinMax1' */
-    VOPM_TPMSPressureStaFL_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S476>/MinMax1' */
-    VOPM_TPMSPressureStaFL_enum = KOPM_TPMSPressureStaFLLo_enum;
-  }
-
-  /* End of MinMax: '<S476>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_TPMSPressureStaFL_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_TPMSPressureStaFR_enum' */
-  /* Switch: '<S477>/Switch4' incorporates:
-   *  Constant: '<S477>/sat3'
-   */
-  if (KOPM_TPMSPressureStaFR_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S477>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaFR_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S477>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
-            ->VVSO_TPMSPrsrStaFR_enum;
-  }
-
-  /* End of Switch: '<S477>/Switch4' */
-
-  /* MinMax: '<S477>/MinMax' incorporates:
-   *  Constant: '<S477>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_TPMSPressureStaFRHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaFRHi_enum;
-  }
-
-  /* End of MinMax: '<S477>/MinMax' */
-
-  /* MinMax: '<S477>/MinMax1' incorporates:
-   *  Constant: '<S477>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_TPMSPressureStaFRLo_enum)
-  {
-    /* MinMax: '<S477>/MinMax1' */
-    VOPM_TPMSPressureStaFR_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S477>/MinMax1' */
-    VOPM_TPMSPressureStaFR_enum = KOPM_TPMSPressureStaFRLo_enum;
-  }
-
-  /* End of MinMax: '<S477>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_TPMSPressureStaFR_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMTPMSRstSts_enum' */
-  /* Switch: '<S454>/Switch4' incorporates:
-   *  Constant: '<S454>/sat3'
-   */
-  if (KOPM_BCMTPMSRstSts_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S454>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMTPMSRstSts_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S454>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
-            ->VVSO_BCMTPMSRstSts_enum;
-  }
-
-  /* End of Switch: '<S454>/Switch4' */
-
-  /* MinMax: '<S454>/MinMax' incorporates:
-   *  Constant: '<S454>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMTPMSRstStsHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMTPMSRstStsHi_enum;
-  }
-
-  /* End of MinMax: '<S454>/MinMax' */
-
-  /* MinMax: '<S454>/MinMax1' incorporates:
-   *  Constant: '<S454>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMTPMSRstStsLo_enum)
-  {
-    /* MinMax: '<S454>/MinMax1' */
-    VOPM_BCMTPMSRstSts_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S454>/MinMax1' */
-    VOPM_BCMTPMSRstSts_enum = KOPM_BCMTPMSRstStsLo_enum;
-  }
-
-  /* End of MinMax: '<S454>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMTPMSRstSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_TMPSAbnmPrsrWarn_flg' */
-  /* Switch: '<S475>/Switch4' incorporates:
-   *  Constant: '<S475>/sat3'
-   */
-  if (KOPM_TMPSAbnmPrsrWarn_flg_ovrdflg)
-  {
-    /* Switch: '<S475>/Switch4' incorporates:
-     *  Constant: '<S475>/sat4'
-     */
-    VOPM_TMPSAbnmPrsrWarn_flg = KOPM_TMPSAbnmPrsrWarn_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S475>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S475>/Data Type Conversion1'
-     */
-    VOPM_TMPSAbnmPrsrWarn_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
-            ->VVSO_TMPSAbnmPrsrWarn_flg;
-  }
-
-  /* End of Switch: '<S475>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_TMPSAbnmPrsrWarn_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_TPMSPressureStaRL_enum' */
-  /* Switch: '<S478>/Switch4' incorporates:
-   *  Constant: '<S478>/sat3'
-   */
-  if (KOPM_TPMSPressureStaRL_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S478>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaRL_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S478>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
-            ->VVSO_TPMSPrsrStaRL_enum;
-  }
-
-  /* End of Switch: '<S478>/Switch4' */
-
-  /* MinMax: '<S478>/MinMax' incorporates:
-   *  Constant: '<S478>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_TPMSPressureStaRLHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaRLHi_enum;
-  }
-
-  /* End of MinMax: '<S478>/MinMax' */
-
-  /* MinMax: '<S478>/MinMax1' incorporates:
-   *  Constant: '<S478>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_TPMSPressureStaRLLo_enum)
-  {
-    /* MinMax: '<S478>/MinMax1' */
-    VOPM_TPMSPressureStaRL_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S478>/MinMax1' */
-    VOPM_TPMSPressureStaRL_enum = KOPM_TPMSPressureStaRLLo_enum;
-  }
-
-  /* End of MinMax: '<S478>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_TPMSPressureStaRL_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_TPMSPressureStaRR_enum' */
-  /* Switch: '<S479>/Switch4' incorporates:
-   *  Constant: '<S479>/sat3'
-   */
-  if (KOPM_TPMSPressureStaRR_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S479>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaRR_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S479>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
-            ->VVSO_TPMSPrsrStaRR_enum;
-  }
-
-  /* End of Switch: '<S479>/Switch4' */
-
-  /* MinMax: '<S479>/MinMax' incorporates:
-   *  Constant: '<S479>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_TPMSPressureStaRRHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaRRHi_enum;
-  }
-
-  /* End of MinMax: '<S479>/MinMax' */
-
-  /* MinMax: '<S479>/MinMax1' incorporates:
-   *  Constant: '<S479>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_TPMSPressureStaRRLo_enum)
-  {
-    /* MinMax: '<S479>/MinMax1' */
-    VOPM_TPMSPressureStaRR_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S479>/MinMax1' */
-    VOPM_TPMSPressureStaRR_enum = KOPM_TPMSPressureStaRRLo_enum;
-  }
-
-  /* End of MinMax: '<S479>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_TPMSPressureStaRR_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMWiperCtrlFront_enum' */
-  /* Switch: '<S468>/Switch4' incorporates:
-   *  Constant: '<S468>/sat3'
-   */
-  if (KOPM_BCMWiperCtrlFront_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S468>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMWiperCtrlFront_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S468>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_WiperCtrl_Front;
-  }
-
-  /* End of Switch: '<S468>/Switch4' */
-
-  /* MinMax: '<S468>/MinMax' incorporates:
-   *  Constant: '<S468>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMWiperCtrlFrontHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMWiperCtrlFrontHi_enum;
-  }
-
-  /* End of MinMax: '<S468>/MinMax' */
-
-  /* MinMax: '<S468>/MinMax1' incorporates:
-   *  Constant: '<S468>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMWiperCtrlFrontLo_enum)
-  {
-    /* MinMax: '<S468>/MinMax1' */
-    VOPM_BCMWiperCtrlFront_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S468>/MinMax1' */
-    VOPM_BCMWiperCtrlFront_enum = KOPM_BCMWiperCtrlFrontLo_enum;
-  }
-
-  /* End of MinMax: '<S468>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMWiperCtrlFront_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMWashLiquidLvlWarn_flg' */
-  /* Switch: '<S465>/Switch4' incorporates:
-   *  Constant: '<S465>/sat3'
-   */
-  if (KOPM_BCMWashLiquidLvlWarn_flg_ovrdflg)
-  {
-    /* Switch: '<S465>/Switch4' incorporates:
-     *  Constant: '<S465>/sat4'
-     */
-    VOPM_BCMWashLiquidLvlWarn_flg = KOPM_BCMWashLiquidLvlWarn_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S465>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S465>/Data Type Conversion1'
-     */
-    VOPM_BCMWashLiquidLvlWarn_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_WashLiquidLevelWarn != 0);
-  }
-
-  /* End of Switch: '<S465>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMWashLiquidLvlWarn_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDrvSeatOccptSnsrSts_enum' */
-  /* Switch: '<S387>/Switch4' incorporates:
-   *  Constant: '<S387>/sat3'
-   */
-  if (KOPM_BCMDrvSeatOccptSnsrSts_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S387>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvSeatOccptSnsrSts_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S387>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_DrvSeatOccupantSensorSts;
-  }
-
-  /* End of Switch: '<S387>/Switch4' */
-
-  /* MinMax: '<S387>/MinMax' incorporates:
-   *  Constant: '<S387>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMDrvSeatOccptSnsrStsHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvSeatOccptSnsrStsHi_enum;
-  }
-
-  /* End of MinMax: '<S387>/MinMax' */
-
-  /* MinMax: '<S387>/MinMax1' incorporates:
-   *  Constant: '<S387>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMDrvSeatOccptSnsrStsLo_enum)
-  {
-    /* MinMax: '<S387>/MinMax1' */
-    VOPM_BCMDrvSeatOccptSnsrSts_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S387>/MinMax1' */
-    VOPM_BCMDrvSeatOccptSnsrSts_enum = KOPM_BCMDrvSeatOccptSnsrStsLo_enum;
-  }
-
-  /* End of MinMax: '<S387>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDrvSeatOccptSnsrSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMHvyRainInd_flg' */
-  /* Switch: '<S410>/Switch4' incorporates:
-   *  Constant: '<S410>/sat3'
-   *  Constant: '<S410>/sat4'
-   */
-  VOPM_BCMHvyRainInd_flg = (KOPM_BCMHvyRainInd_flg_ovrdflg &&
-                            KOPM_BCMHvyRainInd_flg_ovrdval);
-
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMHvyRainInd_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFrntWshrSwSig_flg' */
-  /* Switch: '<S405>/Switch4' incorporates:
-   *  Constant: '<S405>/sat3'
-   */
-  if (KOPM_BCMFrntWshrSwSig_flg_ovrdflg)
-  {
-    /* Switch: '<S405>/Switch4' incorporates:
-     *  Constant: '<S405>/sat4'
-     */
-    VOPM_BCMFrntWshrSwSig_flg = KOPM_BCMFrntWshrSwSig_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S405>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S405>/Data Type Conversion1'
-     */
-    VOPM_BCMFrntWshrSwSig_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_FrntWshrSwSig != 0);
-  }
-
-  /* End of Switch: '<S405>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFrntWshrSwSig_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMPaswdwInit_flg' */
-  /* Switch: '<S441>/Switch4' incorporates:
-   *  Constant: '<S441>/sat3'
-   *  Constant: '<S441>/sat4'
-   */
-  VOPM_BCMPaswdwInit_flg = (KOPM_BCMPaswdwInit_flg_ovrdflg &&
-                            KOPM_BCMPaswdwInit_flg_ovrdval);
-
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMPaswdwInit_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFrontWashSts_flg' */
-  /* Switch: '<S406>/Switch4' incorporates:
-   *  Constant: '<S406>/sat3'
-   */
-  if (KOPM_BCMFrontWashSts_flg_ovrdflg)
-  {
-    /* Switch: '<S406>/Switch4' incorporates:
-     *  Constant: '<S406>/sat4'
-     */
-    VOPM_BCMFrontWashSts_flg = KOPM_BCMFrontWashSts_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S406>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S406>/Data Type Conversion1'
-     */
-    VOPM_BCMFrontWashSts_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_FrontWashSts != 0);
-  }
-
-  /* End of Switch: '<S406>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFrontWashSts_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMWiprIntlGrSwtSig_enum' */
-  /* Switch: '<S470>/Switch4' incorporates:
-   *  Constant: '<S470>/sat3'
-   */
-  if (KOPM_BCMWiprIntlGrSwtSig_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S470>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMWiprIntlGrSwtSig_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S470>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_WiprIntlGearSwtSig;
-  }
-
-  /* End of Switch: '<S470>/Switch4' */
-
-  /* MinMax: '<S470>/MinMax' incorporates:
-   *  Constant: '<S470>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMWiprIntlGrSwtSigHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMWiprIntlGrSwtSigHi_enum;
-  }
-
-  /* End of MinMax: '<S470>/MinMax' */
-
-  /* MinMax: '<S470>/MinMax1' incorporates:
-   *  Constant: '<S470>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMWiprIntlGrSwtSigLo_enum)
-  {
-    /* MinMax: '<S470>/MinMax1' */
-    VOPM_BCMWiprIntlGrSwtSig_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S470>/MinMax1' */
-    VOPM_BCMWiprIntlGrSwtSig_enum = KOPM_BCMWiprIntlGrSwtSigLo_enum;
-  }
-
-  /* End of MinMax: '<S470>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMWiprIntlGrSwtSig_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMWiperSwSig_enum' */
-  /* Switch: '<S469>/Switch4' incorporates:
-   *  Constant: '<S469>/sat3'
-   */
-  if (KOPM_BCMWiperSwSig_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S469>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMWiperSwSig_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S469>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_WiperSwSig;
-  }
-
-  /* End of Switch: '<S469>/Switch4' */
-
-  /* MinMax: '<S469>/MinMax' incorporates:
-   *  Constant: '<S469>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMWiperSwSigHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMWiperSwSigHi_enum;
-  }
-
-  /* End of MinMax: '<S469>/MinMax' */
-
-  /* MinMax: '<S469>/MinMax1' incorporates:
-   *  Constant: '<S469>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMWiperSwSigLo_enum)
-  {
-    /* MinMax: '<S469>/MinMax1' */
-    VOPM_BCMWiperSwSig_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S469>/MinMax1' */
-    VOPM_BCMWiperSwSig_enum = KOPM_BCMWiperSwSigLo_enum;
-  }
-
-  /* End of MinMax: '<S469>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMWiperSwSig_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMWinLockSts_flg' */
-  /* Switch: '<S467>/Switch4' incorporates:
-   *  Constant: '<S467>/sat3'
-   */
-  if (KOPM_BCMWinLockSts_flg_ovrdflg)
-  {
-    /* Switch: '<S467>/Switch4' incorporates:
-     *  Constant: '<S467>/sat4'
-     */
-    VOPM_BCMWinLockSts_flg = KOPM_BCMWinLockSts_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S467>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S467>/Data Type Conversion1'
-     */
-    VOPM_BCMWinLockSts_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_WinLockSts != 0);
-  }
-
-  /* End of Switch: '<S467>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMWinLockSts_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMWinLockSig_flg' */
-  /* Switch: '<S466>/Switch4' incorporates:
-   *  Constant: '<S466>/sat3'
-   */
-  if (KOPM_BCMWinLockSig_flg_ovrdflg)
-  {
-    /* Switch: '<S466>/Switch4' incorporates:
-     *  Constant: '<S466>/sat4'
-     */
-    VOPM_BCMWinLockSig_flg = KOPM_BCMWinLockSig_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S466>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S466>/Data Type Conversion1'
-     */
-    VOPM_BCMWinLockSig_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_WinLockSig != 0);
-  }
-
-  /* End of Switch: '<S466>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMWinLockSig_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDrvrWinSwSig_enum' */
-  /* Switch: '<S388>/Switch4' incorporates:
-   *  Constant: '<S388>/sat3'
-   */
-  if (KOPM_BCMDrvrWinSwSig_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S388>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvrWinSwSig_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S388>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_DriverWinSwSig;
-  }
-
-  /* End of Switch: '<S388>/Switch4' */
-
-  /* MinMax: '<S388>/MinMax' incorporates:
-   *  Constant: '<S388>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMDrvrWinSwSigHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvrWinSwSigHi_enum;
-  }
-
-  /* End of MinMax: '<S388>/MinMax' */
-
-  /* MinMax: '<S388>/MinMax1' incorporates:
-   *  Constant: '<S388>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMDrvrWinSwSigLo_enum)
-  {
-    /* MinMax: '<S388>/MinMax1' */
-    VOPM_BCMDrvrWinSwSig_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S388>/MinMax1' */
-    VOPM_BCMDrvrWinSwSig_enum = KOPM_BCMDrvrWinSwSigLo_enum;
-  }
-
-  /* End of MinMax: '<S388>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDrvrWinSwSig_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMPassWinSwSig_enum' */
-  /* Switch: '<S440>/Switch4' incorporates:
-   *  Constant: '<S440>/sat3'
-   */
-  if (KOPM_BCMPassWinSwSig_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S440>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMPassWinSwSig_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S440>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_PassWinSwSig;
-  }
-
-  /* End of Switch: '<S440>/Switch4' */
-
-  /* MinMax: '<S440>/MinMax' incorporates:
-   *  Constant: '<S440>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMPassWinSwSigHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMPassWinSwSigHi_enum;
-  }
-
-  /* End of MinMax: '<S440>/MinMax' */
-
-  /* MinMax: '<S440>/MinMax1' incorporates:
-   *  Constant: '<S440>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMPassWinSwSigLo_enum)
-  {
-    /* MinMax: '<S440>/MinMax1' */
-    VOPM_BCMPassWinSwSig_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S440>/MinMax1' */
-    VOPM_BCMPassWinSwSig_enum = KOPM_BCMPassWinSwSigLo_enum;
-  }
-
-  /* End of MinMax: '<S440>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMPassWinSwSig_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFLWinSts_flg' */
-  /* Switch: '<S389>/Switch4' incorporates:
-   *  Constant: '<S389>/sat3'
-   */
-  if (KOPM_BCMFLWinSts_flg_ovrdflg)
-  {
-    /* Switch: '<S389>/Switch4' incorporates:
-     *  Constant: '<S389>/sat4'
-     */
-    VOPM_BCMFLWinSts_flg = KOPM_BCMFLWinSts_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S389>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S389>/Data Type Conversion1'
-     */
-    VOPM_BCMFLWinSts_flg = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_FLWindowSts != 0);
-  }
-
-  /* End of Switch: '<S389>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFLWinSts_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFRWinSts_flg' */
-  /* Switch: '<S393>/Switch4' incorporates:
-   *  Constant: '<S393>/sat3'
-   */
-  if (KOPM_BCMFRWinSts_flg_ovrdflg)
-  {
-    /* Switch: '<S393>/Switch4' incorporates:
-     *  Constant: '<S393>/sat4'
-     */
-    VOPM_BCMFRWinSts_flg = KOPM_BCMFRWinSts_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S393>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S393>/Data Type Conversion1'
-     */
-    VOPM_BCMFRWinSts_flg = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_FRWindowSts != 0);
-  }
-
-  /* End of Switch: '<S393>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFRWinSts_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFLWinmotorSts_enum' */
-  /* Switch: '<S390>/Switch4' incorporates:
-   *  Constant: '<S390>/sat3'
-   */
-  if (KOPM_BCMFLWinmotorSts_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S390>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFLWinmotorSts_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S390>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_FLWindowmotorSts;
-  }
-
-  /* End of Switch: '<S390>/Switch4' */
-
-  /* MinMax: '<S390>/MinMax' incorporates:
-   *  Constant: '<S390>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFLWinmotorStsHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFLWinmotorStsHi_enum;
-  }
-
-  /* End of MinMax: '<S390>/MinMax' */
-
-  /* MinMax: '<S390>/MinMax1' incorporates:
-   *  Constant: '<S390>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFLWinmotorStsLo_enum)
-  {
-    /* MinMax: '<S390>/MinMax1' */
-    VOPM_BCMFLWinmotorSts_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S390>/MinMax1' */
-    VOPM_BCMFLWinmotorSts_enum = KOPM_BCMFLWinmotorStsLo_enum;
-  }
-
-  /* End of MinMax: '<S390>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFLWinmotorSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFRWinmotorSts_enum' */
-  /* Switch: '<S394>/Switch4' incorporates:
-   *  Constant: '<S394>/sat3'
-   */
-  if (KOPM_BCMFRWinmotorSts_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S394>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFRWinmotorSts_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S394>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_FRWindowmotorSts;
-  }
-
-  /* End of Switch: '<S394>/Switch4' */
-
-  /* MinMax: '<S394>/MinMax' incorporates:
-   *  Constant: '<S394>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFRWinmotorStsHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFRWinmotorStsHi_enum;
-  }
-
-  /* End of MinMax: '<S394>/MinMax' */
-
-  /* MinMax: '<S394>/MinMax1' incorporates:
-   *  Constant: '<S394>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFRWinmotorStsLo_enum)
-  {
-    /* MinMax: '<S394>/MinMax1' */
-    VOPM_BCMFRWinmotorSts_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S394>/MinMax1' */
-    VOPM_BCMFRWinmotorSts_enum = KOPM_BCMFRWinmotorStsLo_enum;
-  }
-
-  /* End of MinMax: '<S394>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFRWinmotorSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFrntLeDoorHndlSwt_enum' */
-  /* Switch: '<S402>/Switch4' incorporates:
-   *  Constant: '<S402>/sat3'
-   */
-  if (KOPM_BCMFrntLeDoorHndlSwt_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S402>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFrntLeDoorHndlSwt_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S402>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_FrntLeDoorHndlSwt;
-  }
-
-  /* End of Switch: '<S402>/Switch4' */
-
-  /* MinMax: '<S402>/MinMax' incorporates:
-   *  Constant: '<S402>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFrntLeDoorHndlSwtHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFrntLeDoorHndlSwtHi_enum;
-  }
-
-  /* End of MinMax: '<S402>/MinMax' */
-
-  /* MinMax: '<S402>/MinMax1' incorporates:
-   *  Constant: '<S402>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFrntLeDoorHndlSwtLo_enum)
-  {
-    /* MinMax: '<S402>/MinMax1' */
-    VOPM_BCMFrntLeDoorHndlSwt_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S402>/MinMax1' */
-    VOPM_BCMFrntLeDoorHndlSwt_enum = KOPM_BCMFrntLeDoorHndlSwtLo_enum;
-  }
-
-  /* End of MinMax: '<S402>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFrntLeDoorHndlSwt_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFrntRiDoorHndlSwt_enum' */
-  /* Switch: '<S403>/Switch4' incorporates:
-   *  Constant: '<S403>/sat3'
-   */
-  if (KOPM_BCMFrntRiDoorHndlSwt_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S403>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFrntRiDoorHndlSwt_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S403>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_FrntRiDoorHndlSwt;
-  }
-
-  /* End of Switch: '<S403>/Switch4' */
-
-  /* MinMax: '<S403>/MinMax' incorporates:
-   *  Constant: '<S403>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFrntRiDoorHndlSwtHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFrntRiDoorHndlSwtHi_enum;
-  }
-
-  /* End of MinMax: '<S403>/MinMax' */
-
-  /* MinMax: '<S403>/MinMax1' incorporates:
-   *  Constant: '<S403>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFrntRiDoorHndlSwtLo_enum)
-  {
-    /* MinMax: '<S403>/MinMax1' */
-    VOPM_BCMFrntRiDoorHndlSwt_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S403>/MinMax1' */
-    VOPM_BCMFrntRiDoorHndlSwt_enum = KOPM_BCMFrntRiDoorHndlSwtLo_enum;
-  }
-
-  /* End of MinMax: '<S403>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFrntRiDoorHndlSwt_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMTrunkSwtSig_flg' */
-  /* Switch: '<S458>/Switch4' incorporates:
-   *  Constant: '<S458>/sat3'
-   */
-  if (KOPM_BCMTrunkSwtSig_flg_ovrdflg)
-  {
-    /* Switch: '<S458>/Switch4' incorporates:
-     *  Constant: '<S458>/sat4'
-     */
-    VOPM_BCMTrunkSwtSig_flg = KOPM_BCMTrunkSwtSig_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S458>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S458>/Data Type Conversion1'
-     */
-    VOPM_BCMTrunkSwtSig_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_TrunkSwtSig != 0);
-  }
-
-  /* End of Switch: '<S458>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMTrunkSwtSig_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMWarnNoKeyFound_flg' */
-  /* Switch: '<S464>/Switch4' incorporates:
-   *  Constant: '<S464>/sat3'
-   */
-  if (KOPM_BCMWarnNoKeyFound_flg_ovrdflg)
-  {
-    /* Switch: '<S464>/Switch4' incorporates:
-     *  Constant: '<S464>/sat4'
-     */
-    VOPM_BCMWarnNoKeyFound_flg = KOPM_BCMWarnNoKeyFound_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S464>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S464>/Data Type Conversion1'
-     */
-    VOPM_BCMWarnNoKeyFound_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_WarnNoKeyFound != 0);
-  }
-
-  /* End of Switch: '<S464>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMWarnNoKeyFound_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMBodyWarnSts_enum' */
-  /* Switch: '<S372>/Switch4' incorporates:
-   *  Constant: '<S372>/sat3'
-   */
-  if (KOPM_BCMBodyWarnSts_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S372>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMBodyWarnSts_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S372>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_BodyWarnSts;
-  }
-
-  /* End of Switch: '<S372>/Switch4' */
-
-  /* MinMax: '<S372>/MinMax' incorporates:
-   *  Constant: '<S372>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMBodyWarnStsHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMBodyWarnStsHi_enum;
-  }
-
-  /* End of MinMax: '<S372>/MinMax' */
-
-  /* MinMax: '<S372>/MinMax1' incorporates:
-   *  Constant: '<S372>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMBodyWarnStsLo_enum)
-  {
-    /* MinMax: '<S372>/MinMax1' */
-    VOPM_BCMBodyWarnSts_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S372>/MinMax1' */
-    VOPM_BCMBodyWarnSts_enum = KOPM_BCMBodyWarnStsLo_enum;
-  }
-
-  /* End of MinMax: '<S372>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMBodyWarnSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMPSAuthentRes_enum' */
-  /* Switch: '<S437>/Switch4' incorporates:
-   *  Constant: '<S437>/sat3'
-   */
-  if (KOPM_BCMPSAuthentRes_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S437>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMPSAuthentRes_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S437>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_PSAuthentRes;
-  }
-
-  /* End of Switch: '<S437>/Switch4' */
-
-  /* MinMax: '<S437>/MinMax' incorporates:
-   *  Constant: '<S437>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMPSAuthentResHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMPSAuthentResHi_enum;
-  }
-
-  /* End of MinMax: '<S437>/MinMax' */
-
-  /* MinMax: '<S437>/MinMax1' incorporates:
-   *  Constant: '<S437>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMPSAuthentResLo_enum)
-  {
-    /* MinMax: '<S437>/MinMax1' */
-    VOPM_BCMPSAuthentRes_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S437>/MinMax1' */
-    VOPM_BCMPSAuthentRes_enum = KOPM_BCMPSAuthentResLo_enum;
-  }
-
-  /* End of MinMax: '<S437>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMPSAuthentRes_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMChrgLidLockReq_enum' */
-  /* Switch: '<S376>/Switch4' incorporates:
-   *  Constant: '<S376>/sat3'
-   */
-  if (KOPM_BCMChrgLidLockReq_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S376>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMChrgLidLockReq_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S376>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_ChrgLidLockReq;
-  }
-
-  /* End of Switch: '<S376>/Switch4' */
-
-  /* MinMax: '<S376>/MinMax' incorporates:
-   *  Constant: '<S376>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMChrgLidLockReqHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMChrgLidLockReqHi_enum;
-  }
-
-  /* End of MinMax: '<S376>/MinMax' */
-
-  /* MinMax: '<S376>/MinMax1' incorporates:
-   *  Constant: '<S376>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMChrgLidLockReqLo_enum)
-  {
-    /* MinMax: '<S376>/MinMax1' */
-    VOPM_BCMChrgLidLockReq_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S376>/MinMax1' */
-    VOPM_BCMChrgLidLockReq_enum = KOPM_BCMChrgLidLockReqLo_enum;
-  }
-
-  /* End of MinMax: '<S376>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMChrgLidLockReq_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMRKEReq_enum' */
-  /* Switch: '<S444>/Switch4' incorporates:
-   *  Constant: '<S444>/sat3'
-   */
-  if (KOPM_BCMRKEReq_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S444>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMRKEReq_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S444>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_RKEReq;
-  }
-
-  /* End of Switch: '<S444>/Switch4' */
-
-  /* MinMax: '<S444>/MinMax' incorporates:
-   *  Constant: '<S444>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMRKEReqHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMRKEReqHi_enum;
-  }
-
-  /* End of MinMax: '<S444>/MinMax' */
-
-  /* MinMax: '<S444>/MinMax1' incorporates:
-   *  Constant: '<S444>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMRKEReqLo_enum)
-  {
-    /* MinMax: '<S444>/MinMax1' */
-    VOPM_BCMRKEReq_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S444>/MinMax1' */
-    VOPM_BCMRKEReq_enum = KOPM_BCMRKEReqLo_enum;
-  }
-
-  /* End of MinMax: '<S444>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMRKEReq_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMKeyInCarSta_flg' */
-  /* Switch: '<S422>/Switch4' incorporates:
-   *  Constant: '<S422>/sat3'
-   */
-  if (KOPM_BCMKeyInCarSta_flg_ovrdflg)
-  {
-    /* Switch: '<S422>/Switch4' incorporates:
-     *  Constant: '<S422>/sat4'
-     */
-    VOPM_BCMKeyInCarSta_flg = KOPM_BCMKeyInCarSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S422>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S422>/Data Type Conversion1'
-     */
-    VOPM_BCMKeyInCarSta_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeyInCarSta != 0);
-  }
-
-  /* End of Switch: '<S422>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMKeyInCarSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDrvPEAuthentAcsd_enum' */
-  /* Switch: '<S385>/Switch4' incorporates:
-   *  Constant: '<S385>/sat3'
-   */
-  if (KOPM_BCMDrvPEAuthentAcsd_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S385>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvPEAuthentAcsd_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S385>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_DrvPEAuthentAcsd;
-  }
-
-  /* End of Switch: '<S385>/Switch4' */
-
-  /* MinMax: '<S385>/MinMax' incorporates:
-   *  Constant: '<S385>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMDrvPEAuthentAcsdHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvPEAuthentAcsdHi_enum;
-  }
-
-  /* End of MinMax: '<S385>/MinMax' */
-
-  /* MinMax: '<S385>/MinMax1' incorporates:
-   *  Constant: '<S385>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMDrvPEAuthentAcsdLo_enum)
-  {
-    /* MinMax: '<S385>/MinMax1' */
-    VOPM_BCMDrvPEAuthentAcsd_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S385>/MinMax1' */
-    VOPM_BCMDrvPEAuthentAcsd_enum = KOPM_BCMDrvPEAuthentAcsdLo_enum;
-  }
-
-  /* End of MinMax: '<S385>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDrvPEAuthentAcsd_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFRPEAuthentAcsd_enum' */
-  /* Switch: '<S392>/Switch4' incorporates:
-   *  Constant: '<S392>/sat3'
-   */
-  if (KOPM_BCMFRPEAuthentAcsd_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S392>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFRPEAuthentAcsd_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S392>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_FRPEAuthentAcsd;
-  }
-
-  /* End of Switch: '<S392>/Switch4' */
-
-  /* MinMax: '<S392>/MinMax' incorporates:
-   *  Constant: '<S392>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFRPEAuthentAcsdHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFRPEAuthentAcsdHi_enum;
-  }
-
-  /* End of MinMax: '<S392>/MinMax' */
-
-  /* MinMax: '<S392>/MinMax1' incorporates:
-   *  Constant: '<S392>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFRPEAuthentAcsdLo_enum)
-  {
-    /* MinMax: '<S392>/MinMax1' */
-    VOPM_BCMFRPEAuthentAcsd_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S392>/MinMax1' */
-    VOPM_BCMFRPEAuthentAcsd_enum = KOPM_BCMFRPEAuthentAcsdLo_enum;
-  }
-
-  /* End of MinMax: '<S392>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFRPEAuthentAcsd_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMPSReq_flg' */
-  /* Switch: '<S438>/Switch4' incorporates:
-   *  Constant: '<S438>/sat3'
-   */
-  if (KOPM_BCMPSReq_flg_ovrdflg)
-  {
-    /* Switch: '<S438>/Switch4' incorporates:
-     *  Constant: '<S438>/sat4'
-     */
-    VOPM_BCMPSReq_flg = KOPM_BCMPSReq_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S438>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S438>/Data Type Conversion1'
-     */
-    VOPM_BCMPSReq_flg = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_PSReq != 0);
-  }
-
-  /* End of Switch: '<S438>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMPSReq_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMWiprIntlTimeSetFb_enum' */
-  /* Switch: '<S471>/Switch4' incorporates:
-   *  Constant: '<S471>/sat3'
-   */
-  if (KOPM_BCMWiprIntlTimeSetFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S471>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMWiprIntlTimeSetFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S471>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_WiprIntlTimeSetFb;
-  }
-
-  /* End of Switch: '<S471>/Switch4' */
-
-  /* MinMax: '<S471>/MinMax' incorporates:
-   *  Constant: '<S471>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMWiprIntlTimeSetFbHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMWiprIntlTimeSetFbHi_enum;
-  }
-
-  /* End of MinMax: '<S471>/MinMax' */
-
-  /* MinMax: '<S471>/MinMax1' incorporates:
-   *  Constant: '<S471>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMWiprIntlTimeSetFbLo_enum)
-  {
-    /* MinMax: '<S471>/MinMax1' */
-    VOPM_BCMWiprIntlTimeSetFb_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S471>/MinMax1' */
-    VOPM_BCMWiprIntlTimeSetFb_enum = KOPM_BCMWiprIntlTimeSetFbLo_enum;
-  }
-
-  /* End of MinMax: '<S471>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMWiprIntlTimeSetFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMStartReq_enum' */
-  /* Switch: '<S451>/Switch4' incorporates:
-   *  Constant: '<S451>/sat3'
-   */
-  if (KOPM_BCMStartReq_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S451>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMStartReq_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S451>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_StartReq;
-  }
-
-  /* End of Switch: '<S451>/Switch4' */
-
-  /* MinMax: '<S451>/MinMax' incorporates:
-   *  Constant: '<S451>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMStartReqHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMStartReqHi_enum;
-  }
-
-  /* End of MinMax: '<S451>/MinMax' */
-
-  /* MinMax: '<S451>/MinMax1' incorporates:
-   *  Constant: '<S451>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMStartReqLo_enum)
-  {
-    /* MinMax: '<S451>/MinMax1' */
-    VOPM_BCMStartReq_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S451>/MinMax1' */
-    VOPM_BCMStartReq_enum = KOPM_BCMStartReqLo_enum;
-  }
-
-  /* End of MinMax: '<S451>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMStartReq_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMChgWiprMtMdSwSetFb_enum' */
-  /* Switch: '<S375>/Switch4' incorporates:
-   *  Constant: '<S375>/sat3'
-   */
-  if (KOPM_BCMChgWiprMtMdSwSetFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S375>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMChgWiprMtMdSwSetFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S375>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_ChgWiperMtMdSwSetFb;
-  }
-
-  /* End of Switch: '<S375>/Switch4' */
-
-  /* MinMax: '<S375>/MinMax' incorporates:
-   *  Constant: '<S375>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMChgWiprMtMdSwSetFbHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMChgWiprMtMdSwSetFbHi_enum;
-  }
-
-  /* End of MinMax: '<S375>/MinMax' */
-
-  /* MinMax: '<S375>/MinMax1' incorporates:
-   *  Constant: '<S375>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMChgWiprMtMdSwSetFbLo_enum)
-  {
-    /* MinMax: '<S375>/MinMax1' */
-    VOPM_BCMChgWiprMtMdSwSetFb_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S375>/MinMax1' */
-    VOPM_BCMChgWiprMtMdSwSetFb_enum = KOPM_BCMChgWiprMtMdSwSetFbLo_enum;
-  }
-
-  /* End of MinMax: '<S375>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMChgWiprMtMdSwSetFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMParkAutoUnlckSetFb_flg' */
-  /* Switch: '<S439>/Switch4' incorporates:
-   *  Constant: '<S439>/sat3'
-   */
-  if (KOPM_BCMParkAutoUnlckSetFb_flg_ovrdflg)
-  {
-    /* Switch: '<S439>/Switch4' incorporates:
-     *  Constant: '<S439>/sat4'
-     */
-    VOPM_BCMParkAutoUnlckSetFb_flg = KOPM_BCMParkAutoUnlckSetFb_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S439>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S439>/Data Type Conversion1'
-     */
-    VOPM_BCMParkAutoUnlckSetFb_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_ParkAutoUnlockSetFb != 0);
-  }
-
-  /* End of Switch: '<S439>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMParkAutoUnlckSetFb_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMOvrspdCntrlLckSetFb_flg' */
-  /* Switch: '<S436>/Switch4' incorporates:
-   *  Constant: '<S436>/sat3'
-   */
-  if (KOPM_BCMOvrspdCntrlLckSetFb_flg_ovrdflg)
-  {
-    /* Switch: '<S436>/Switch4' incorporates:
-     *  Constant: '<S436>/sat4'
-     */
-    VOPM_BCMOvrspdCntrlLckSetFb_flg = KOPM_BCMOvrspdCntrlLckSetFb_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S436>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S436>/Data Type Conversion1'
-     */
-    VOPM_BCMOvrspdCntrlLckSetFb_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_OverspdCntrlLockSetFb != 0);
-  }
-
-  /* End of Switch: '<S436>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMOvrspdCntrlLckSetFb_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMTrnkLckSta_flg' */
-  /* Switch: '<S455>/Switch4' incorporates:
-   *  Constant: '<S455>/sat3'
-   */
-  if (KOPM_BCMTrnkLckSta_flg_ovrdflg)
-  {
-    /* Switch: '<S455>/Switch4' incorporates:
-     *  Constant: '<S455>/sat4'
-     */
-    VOPM_BCMTrnkLckSta_flg = KOPM_BCMTrnkLckSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S455>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S455>/Data Type Conversion1'
-     */
-    VOPM_BCMTrnkLckSta_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_TrunkLockSta != 0);
-  }
-
-  /* End of Switch: '<S455>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMTrnkLckSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMTrnkLckSwCtrlFb_flg' */
-  /* Switch: '<S456>/Switch4' incorporates:
-   *  Constant: '<S456>/sat3'
-   */
-  if (KOPM_BCMTrnkLckSwCtrlFb_flg_ovrdflg)
-  {
-    /* Switch: '<S456>/Switch4' incorporates:
-     *  Constant: '<S456>/sat4'
-     */
-    VOPM_BCMTrnkLckSwCtrlFb_flg = KOPM_BCMTrnkLckSwCtrlFb_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S456>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S456>/Data Type Conversion1'
-     */
-    VOPM_BCMTrnkLckSwCtrlFb_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_TrunkLockSwCtrlFb != 0);
-  }
-
-  /* End of Switch: '<S456>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMTrnkLckSwCtrlFb_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMAuthentKeyNr_enum' */
-  /* Switch: '<S367>/Switch4' incorporates:
-   *  Constant: '<S367>/sat3'
-   */
-  if (KOPM_BCMAuthentKeyNr_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S367>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMAuthentKeyNr_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S367>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_AuthentKeyNr;
-  }
-
-  /* End of Switch: '<S367>/Switch4' */
-
-  /* MinMax: '<S367>/MinMax' incorporates:
-   *  Constant: '<S367>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMAuthentKeyNrHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMAuthentKeyNrHi_enum;
-  }
-
-  /* End of MinMax: '<S367>/MinMax' */
-
-  /* MinMax: '<S367>/MinMax1' incorporates:
-   *  Constant: '<S367>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMAuthentKeyNrLo_enum)
-  {
-    /* MinMax: '<S367>/MinMax1' */
-    VOPM_BCMAuthentKeyNr_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S367>/MinMax1' */
-    VOPM_BCMAuthentKeyNr_enum = KOPM_BCMAuthentKeyNrLo_enum;
-  }
-
-  /* End of MinMax: '<S367>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMAuthentKeyNr_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMKeyFrbdn_flg' */
-  /* Switch: '<S420>/Switch4' incorporates:
-   *  Constant: '<S420>/sat3'
-   */
-  if (KOPM_BCMKeyFrbdn_flg_ovrdflg)
-  {
-    /* Switch: '<S420>/Switch4' incorporates:
-     *  Constant: '<S420>/sat4'
-     */
-    VOPM_BCMKeyFrbdn_flg = KOPM_BCMKeyFrbdn_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S420>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S420>/Data Type Conversion1'
-     */
-    VOPM_BCMKeyFrbdn_flg = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeyFrbdn != 0);
-  }
-
-  /* End of Switch: '<S420>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMKeyFrbdn_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFrbdnKeyNr_enum' */
-  /* Switch: '<S399>/Switch4' incorporates:
-   *  Constant: '<S399>/sat3'
-   */
-  if (KOPM_BCMFrbdnKeyNr_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S399>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFrbdnKeyNr_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S399>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_FrbdnKeyNr;
-  }
-
-  /* End of Switch: '<S399>/Switch4' */
-
-  /* MinMax: '<S399>/MinMax' incorporates:
-   *  Constant: '<S399>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFrbdnKeyNrHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMFrbdnKeyNrHi_enum;
-  }
-
-  /* End of MinMax: '<S399>/MinMax' */
-
-  /* MinMax: '<S399>/MinMax1' incorporates:
-   *  Constant: '<S399>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFrbdnKeyNrLo_enum)
-  {
-    /* MinMax: '<S399>/MinMax1' */
-    VOPM_BCMFrbdnKeyNr_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S399>/MinMax1' */
-    VOPM_BCMFrbdnKeyNr_enum = KOPM_BCMFrbdnKeyNrLo_enum;
-  }
-
-  /* End of MinMax: '<S399>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFrbdnKeyNr_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMKeyIDFb_enum' */
-  /* Switch: '<S421>/Switch4' incorporates:
-   *  Constant: '<S421>/sat3'
-   */
-  if (KOPM_BCMKeyIDFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S421>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMKeyIDFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S421>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeyIDFb;
-  }
-
-  /* End of Switch: '<S421>/Switch4' */
-
-  /* MinMax: '<S421>/MinMax' incorporates:
-   *  Constant: '<S421>/sat6'
-   */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMKeyIDFbHi_enum)
-  {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMKeyIDFbHi_enum;
-  }
-
-  /* End of MinMax: '<S421>/MinMax' */
-
-  /* MinMax: '<S421>/MinMax1' incorporates:
-   *  Constant: '<S421>/sat7'
-   */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMKeyIDFbLo_enum)
-  {
-    /* MinMax: '<S421>/MinMax1' */
-    VOPM_BCMKeyIDFb_enum = VOPM_BCMIllmndSts_enum;
-  }
-  else
-  {
-    /* MinMax: '<S421>/MinMax1' */
-    VOPM_BCMKeyIDFb_enum = KOPM_BCMKeyIDFbLo_enum;
-  }
-
-  /* End of MinMax: '<S421>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMKeyIDFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMKeyLocn_mm' */
-  /* Switch: '<S424>/Switch4' incorporates:
-   *  Constant: '<S424>/sat3'
-   */
-  if (KOPM_BCMKeyLocn_mm_ovrdflg)
-  {
-    /* MinMax: '<S424>/MinMax' incorporates:
-     *  Constant: '<S424>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion92'
-     */
-    VOPM_BCMKeyLocn_mm = KOPM_BCMKeyLocn_mm_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S424>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion92'
-     *  DataTypeConversion: '<S424>/Data Type Conversion1'
-     */
-    VOPM_BCMKeyLocn_mm = (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeyLocn;
-  }
-
-  /* End of Switch: '<S424>/Switch4' */
-
-  /* MinMax: '<S424>/MinMax' incorporates:
-   *  Constant: '<S424>/sat6'
-   */
-  if (VOPM_BCMKeyLocn_mm > KOPM_BCMKeyLocnHi_mm)
-  {
-    VOPM_BCMKeyLocn_mm = KOPM_BCMKeyLocnHi_mm;
-  }
-
-  /* MinMax: '<S424>/MinMax1' incorporates:
-   *  Constant: '<S424>/sat7'
-   */
-  if (VOPM_BCMKeyLocn_mm < KOPM_BCMKeyLocnLo_mm)
-  {
-    /* MinMax: '<S424>/MinMax' incorporates:
-     *  MinMax: '<S424>/MinMax1'
-     */
-    VOPM_BCMKeyLocn_mm = KOPM_BCMKeyLocnLo_mm;
-  }
-
-  /* End of MinMax: '<S424>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMKeyLocn_mm' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMIllmndEntryStsFb_flg' */
-  /* Switch: '<S412>/Switch4' incorporates:
-   *  Constant: '<S412>/sat3'
-   */
-  if (KOPM_BCMIllmndEntryStsFb_flg_ovrdflg)
-  {
-    /* Switch: '<S412>/Switch4' incorporates:
-     *  Constant: '<S412>/sat4'
-     */
-    VOPM_BCMIllmndEntryStsFb_flg = KOPM_BCMIllmndEntryStsFb_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S412>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S412>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndEntryStsFb_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_IllmndEntryStsFb != 0);
-  }
-
-  /* End of Switch: '<S412>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMIllmndEntryStsFb_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMAvaluebleKeyInCar_flg' */
-  /* Switch: '<S369>/Switch4' incorporates:
-   *  Constant: '<S369>/sat3'
-   */
-  if (KOPM_BCMAvaluebleKeyInCar_flg_ovrdflg)
-  {
-    /* Switch: '<S369>/Switch4' incorporates:
-     *  Constant: '<S369>/sat4'
-     */
-    VOPM_BCMAvaluebleKeyInCar_flg = KOPM_BCMAvaluebleKeyInCar_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S369>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S369>/Data Type Conversion1'
-     */
-    VOPM_BCMAvaluebleKeyInCar_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_AvaluebleKeyInCar != 0);
-  }
-
-  /* End of Switch: '<S369>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMAvaluebleKeyInCar_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMKeyBattLvlSts_flg' */
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMHighBeamSta_flg' */
   /* Switch: '<S418>/Switch4' incorporates:
    *  Constant: '<S418>/sat3'
    */
-  if (KOPM_BCMKeyBattLvlSts_flg_ovrdflg)
+  if (KOPM_BCMHighBeamSta_flg_ovrdflg)
   {
     /* Switch: '<S418>/Switch4' incorporates:
      *  Constant: '<S418>/sat4'
      */
-    VOPM_BCMKeyBattLvlSts_flg = KOPM_BCMKeyBattLvlSts_flg_ovrdval;
+    VOPM_BCMHighBeamSta_flg = KOPM_BCMHighBeamSta_flg_ovrdval;
   }
   else
   {
@@ -16794,829 +14226,768 @@ static void Runbl_Opm50ms(void)
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S418>/Data Type Conversion1'
      */
-    VOPM_BCMKeyBattLvlSts_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_KeyBattLvlSts != 0);
+    VOPM_BCMHighBeamSta_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_HighBeamSta != 0);
   }
 
   /* End of Switch: '<S418>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMKeyBattLvlSts_flg' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMHighBeamSta_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMKeyBattLvl_pct' */
-  /* Switch: '<S419>/Switch4' incorporates:
-   *  Constant: '<S419>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMLowBeamSta_flg' */
+  /* Switch: '<S442>/Switch4' incorporates:
+   *  Constant: '<S442>/sat3'
    */
-  if (KOPM_BCMKeyBattLvl_pct_ovrdflg)
+  if (KOPM_BCMLowBeamSta_flg_ovrdflg)
   {
-    /* MinMax: '<S419>/MinMax' incorporates:
-     *  Constant: '<S419>/sat4'
-     *  Product: '<S482>/Product1'
+    /* Switch: '<S442>/Switch4' incorporates:
+     *  Constant: '<S442>/sat4'
      */
-    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMKeyBattLvl_pct_ovrdval;
+    VOPM_BCMLowBeamSta_flg = KOPM_BCMLowBeamSta_flg_ovrdval;
   }
   else
   {
-    /* MinMax: '<S419>/MinMax' incorporates:
+    /* Switch: '<S442>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S419>/Data Type Conversion1'
-     *  Product: '<S482>/Product1'
+     *  DataTypeConversion: '<S442>/Data Type Conversion1'
      */
-    VOPM_BCMMaiDrvrSeatTemp_C = (float32)(Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeyBattLvl;
+    VOPM_BCMLowBeamSta_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_LowBeamSta != 0);
   }
 
-  /* End of Switch: '<S419>/Switch4' */
+  /* End of Switch: '<S442>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMLowBeamSta_flg' */
 
-  /* MinMax: '<S419>/MinMax' incorporates:
-   *  Constant: '<S419>/sat6'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFogLampStaFront_flg' */
+  /* Switch: '<S406>/Switch4' incorporates:
+   *  Constant: '<S406>/sat3'
    */
-  if (VOPM_BCMMaiDrvrSeatTemp_C > KOPM_BCMKeyBattLvlHi_pct)
+  if (KOPM_BCMFogLampStaFront_flg_ovrdflg)
   {
-    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMKeyBattLvlHi_pct;
-  }
-
-  /* MinMax: '<S419>/MinMax1' incorporates:
-   *  Constant: '<S419>/sat7'
-   */
-  if (VOPM_BCMMaiDrvrSeatTemp_C >= KOPM_BCMKeyBattLvlLo_pct)
-  {
-    /* MinMax: '<S419>/MinMax1' */
-    VOPM_BCMKeyBattLvl_pct = VOPM_BCMMaiDrvrSeatTemp_C;
+    /* Switch: '<S406>/Switch4' incorporates:
+     *  Constant: '<S406>/sat4'
+     */
+    VOPM_BCMFogLampStaFront_flg = KOPM_BCMFogLampStaFront_flg_ovrdval;
   }
   else
   {
-    /* MinMax: '<S419>/MinMax1' */
-    VOPM_BCMKeyBattLvl_pct = KOPM_BCMKeyBattLvlLo_pct;
-  }
-
-  /* End of MinMax: '<S419>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMKeyBattLvl_pct' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMKeyLoBattLvlWarn_flg' */
-  /* Switch: '<S423>/Switch4' incorporates:
-   *  Constant: '<S423>/sat3'
-   */
-  if (KOPM_BCMKeyLoBattLvlWarn_flg_ovrdflg)
-  {
-    /* Switch: '<S423>/Switch4' incorporates:
-     *  Constant: '<S423>/sat4'
-     */
-    VOPM_BCMKeyLoBattLvlWarn_flg = KOPM_BCMKeyLoBattLvlWarn_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S423>/Switch4' incorporates:
+    /* Switch: '<S406>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S423>/Data Type Conversion1'
+     *  DataTypeConversion: '<S406>/Data Type Conversion1'
      */
-    VOPM_BCMKeyLoBattLvlWarn_flg =
+    VOPM_BCMFogLampStaFront_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_KeyLoBattLvlWarn != 0);
+             ->BCM_FogLampSta_Front != 0);
   }
 
-  /* End of Switch: '<S423>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMKeyLoBattLvlWarn_flg' */
+  /* End of Switch: '<S406>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFogLampStaFront_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMKeySta_enum' */
-  /* Switch: '<S425>/Switch4' incorporates:
-   *  Constant: '<S425>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMAutoLampStatus_flg' */
+  /* Switch: '<S374>/Switch4' incorporates:
+   *  Constant: '<S374>/sat3'
    */
-  if (KOPM_BCMKeySta_enum_ovrdflg)
+  if (KOPM_BCMAutoLampStatus_flg_ovrdflg)
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S425>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
+    /* Switch: '<S374>/Switch4' incorporates:
+     *  Constant: '<S374>/sat4'
      */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMKeySta_enum_ovrdval;
+    VOPM_BCMAutoLampStatus_flg = KOPM_BCMAutoLampStatus_flg_ovrdval;
   }
   else
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
+    /* Switch: '<S374>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S425>/Data Type Conversion1'
+     *  DataTypeConversion: '<S374>/Data Type Conversion1'
+     */
+    VOPM_BCMAutoLampStatus_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_AutoLampStatus != 0);
+  }
+
+  /* End of Switch: '<S374>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMAutoLampStatus_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDayRunLightSta_flg' */
+  /* Switch: '<S387>/Switch4' incorporates:
+   *  Constant: '<S387>/sat3'
+   */
+  if (KOPM_BCMDayRunLightSta_flg_ovrdflg)
+  {
+    /* Switch: '<S387>/Switch4' incorporates:
+     *  Constant: '<S387>/sat4'
+     */
+    VOPM_BCMDayRunLightSta_flg = KOPM_BCMDayRunLightSta_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S387>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S387>/Data Type Conversion1'
+     */
+    VOPM_BCMDayRunLightSta_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_DayRunLightSta != 0);
+  }
+
+  /* End of Switch: '<S387>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDayRunLightSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMReverseLampSta_flg' */
+  /* Switch: '<S454>/Switch4' incorporates:
+   *  Constant: '<S454>/sat3'
+   */
+  if (KOPM_BCMReverseLampSta_flg_ovrdflg)
+  {
+    /* Switch: '<S454>/Switch4' incorporates:
+     *  Constant: '<S454>/sat4'
+     */
+    VOPM_BCMReverseLampSta_flg = KOPM_BCMReverseLampSta_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S454>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S454>/Data Type Conversion1'
+     */
+    VOPM_BCMReverseLampSta_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_ReverseLampSta != 0);
+  }
+
+  /* End of Switch: '<S454>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMReverseLampSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMBrakeLampSta_flg' */
+  /* Switch: '<S380>/Switch4' incorporates:
+   *  Constant: '<S380>/sat3'
+   */
+  if (KOPM_BCMBrakeLampSta_flg_ovrdflg)
+  {
+    /* Switch: '<S380>/Switch4' incorporates:
+     *  Constant: '<S380>/sat4'
+     */
+    VOPM_BCMBrakeLampSta_flg = KOPM_BCMBrakeLampSta_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S380>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S380>/Data Type Conversion1'
+     */
+    VOPM_BCMBrakeLampSta_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_BrakeLampSta != 0);
+  }
+
+  /* End of Switch: '<S380>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMBrakeLampSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDayRunLiSwSig_flg' */
+  /* Switch: '<S386>/Switch4' incorporates:
+   *  Constant: '<S386>/sat3'
+   */
+  if (KOPM_BCMDayRunLiSwSig_flg_ovrdflg)
+  {
+    /* Switch: '<S386>/Switch4' incorporates:
+     *  Constant: '<S386>/sat4'
+     */
+    VOPM_BCMDayRunLiSwSig_flg = KOPM_BCMDayRunLiSwSig_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S386>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S386>/Data Type Conversion1'
+     */
+    VOPM_BCMDayRunLiSwSig_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_DayRunLiSwSig != 0);
+  }
+
+  /* End of Switch: '<S386>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDayRunLiSwSig_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMTurnLiSts_enum' */
+  /* Switch: '<S471>/Switch4' incorporates:
+   *  Constant: '<S471>/sat3'
+   */
+  if (KOPM_BCMTurnLiSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S471>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMTurnLiSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S471>/Data Type Conversion1'
      */
     VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeySta;
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_TurnLiSts;
   }
 
-  /* End of Switch: '<S425>/Switch4' */
+  /* End of Switch: '<S471>/Switch4' */
 
-  /* MinMax: '<S425>/MinMax' incorporates:
-   *  Constant: '<S425>/sat6'
+  /* MinMax: '<S471>/MinMax' incorporates:
+   *  Constant: '<S471>/sat6'
    */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMKeyStaHi_enum)
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMTurnLiStsHi_enum)
   {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMKeyStaHi_enum;
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMTurnLiStsHi_enum;
   }
 
-  /* End of MinMax: '<S425>/MinMax' */
+  /* End of MinMax: '<S471>/MinMax' */
 
-  /* MinMax: '<S425>/MinMax1' incorporates:
-   *  Constant: '<S425>/sat7'
+  /* MinMax: '<S471>/MinMax1' incorporates:
+   *  Constant: '<S471>/sat7'
    */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMKeyStaLo_enum)
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMTurnLiStsLo_enum)
   {
-    /* MinMax: '<S425>/MinMax1' */
-    VOPM_BCMKeySta_enum = VOPM_BCMIllmndSts_enum;
+    /* MinMax: '<S471>/MinMax1' */
+    VOPM_BCMTurnLiSts_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
-    /* MinMax: '<S425>/MinMax1' */
-    VOPM_BCMKeySta_enum = KOPM_BCMKeyStaLo_enum;
+    /* MinMax: '<S471>/MinMax1' */
+    VOPM_BCMTurnLiSts_enum = KOPM_BCMTurnLiStsLo_enum;
   }
 
-  /* End of MinMax: '<S425>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMKeySta_enum' */
+  /* End of MinMax: '<S471>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMTurnLiSts_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMIllmndLampReq_flg' */
-  /* Switch: '<S413>/Switch4' incorporates:
-   *  Constant: '<S413>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMTrnngLiSwSig_enum' */
+  /* Switch: '<S467>/Switch4' incorporates:
+   *  Constant: '<S467>/sat3'
    */
-  if (KOPM_BCMIllmndLampReq_flg_ovrdflg)
+  if (KOPM_BCMTrnngLiSwSig_enum_ovrdflg)
   {
-    /* Switch: '<S413>/Switch4' incorporates:
-     *  Constant: '<S413>/sat4'
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S467>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
      */
-    VOPM_BCMIllmndLampReq_flg = KOPM_BCMIllmndLampReq_flg_ovrdval;
+    VOPM_BCMIllmndSts_enum = KOPM_BCMTrnngLiSwSig_enum_ovrdval;
   }
   else
   {
-    /* Switch: '<S413>/Switch4' incorporates:
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S413>/Data Type Conversion1'
-     */
-    VOPM_BCMIllmndLampReq_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_IllmndLampReq != 0);
-  }
-
-  /* End of Switch: '<S413>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMIllmndLampReq_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMIllmndLockReq_enum' */
-  /* Switch: '<S414>/Switch4' incorporates:
-   *  Constant: '<S414>/sat3'
-   */
-  if (KOPM_BCMIllmndLockReq_enum_ovrdflg)
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S414>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMIllmndLockReq_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S414>/Data Type Conversion1'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S467>/Data Type Conversion1'
      */
     VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_IllmndLockReq;
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_TurnngLiSwSig;
   }
 
-  /* End of Switch: '<S414>/Switch4' */
+  /* End of Switch: '<S467>/Switch4' */
 
-  /* MinMax: '<S414>/MinMax' incorporates:
-   *  Constant: '<S414>/sat6'
+  /* MinMax: '<S467>/MinMax' incorporates:
+   *  Constant: '<S467>/sat6'
    */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMIllmndLockReqHi_enum)
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMTrnngLiSwSigHi_enum)
   {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMIllmndLockReqHi_enum;
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMTrnngLiSwSigHi_enum;
   }
 
-  /* End of MinMax: '<S414>/MinMax' */
+  /* End of MinMax: '<S467>/MinMax' */
 
-  /* MinMax: '<S414>/MinMax1' incorporates:
-   *  Constant: '<S414>/sat7'
+  /* MinMax: '<S467>/MinMax1' incorporates:
+   *  Constant: '<S467>/sat7'
    */
-  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMIllmndLockReqLo_enum)
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMTrnngLiSwSigLo_enum)
   {
-    /* MinMax: '<S414>/MinMax1' */
-    VOPM_BCMIllmndLockReq_enum = VOPM_BCMIllmndSts_enum;
+    /* MinMax: '<S467>/MinMax1' */
+    VOPM_BCMTrnngLiSwSig_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
-    /* MinMax: '<S414>/MinMax1' */
-    VOPM_BCMIllmndLockReq_enum = KOPM_BCMIllmndLockReqLo_enum;
+    /* MinMax: '<S467>/MinMax1' */
+    VOPM_BCMTrnngLiSwSig_enum = KOPM_BCMTrnngLiSwSigLo_enum;
   }
 
-  /* End of MinMax: '<S414>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMIllmndLockReq_enum' */
+  /* End of MinMax: '<S467>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMTrnngLiSwSig_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMIndcnShfttoNeut_flg' */
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMLightIntensity_enum' */
+  /* Switch: '<S439>/Switch4' incorporates:
+   *  Constant: '<S439>/sat3'
+   */
+  if (KOPM_BCMLightIntensity_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S439>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMLightIntensity_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S439>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_LightIntensity;
+  }
+
+  /* End of Switch: '<S439>/Switch4' */
+
+  /* MinMax: '<S439>/MinMax' incorporates:
+   *  Constant: '<S439>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMLightIntensityHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMLightIntensityHi_enum;
+  }
+
+  /* End of MinMax: '<S439>/MinMax' */
+
+  /* MinMax: '<S439>/MinMax1' incorporates:
+   *  Constant: '<S439>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMLightIntensityLo_enum)
+  {
+    /* MinMax: '<S439>/MinMax1' */
+    VOPM_BCMLightIntensity_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S439>/MinMax1' */
+    VOPM_BCMLightIntensity_enum = KOPM_BCMLightIntensityLo_enum;
+  }
+
+  /* End of MinMax: '<S439>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMLightIntensity_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMLghtSwSig_enum' */
+  /* Switch: '<S438>/Switch4' incorporates:
+   *  Constant: '<S438>/sat3'
+   */
+  if (KOPM_BCMLghtSwSig_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S438>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMLghtSwSig_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S438>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_LightSwSig;
+  }
+
+  /* End of Switch: '<S438>/Switch4' */
+
+  /* MinMax: '<S438>/MinMax' incorporates:
+   *  Constant: '<S438>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMLghtSwSigHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMLghtSwSigHi_enum;
+  }
+
+  /* End of MinMax: '<S438>/MinMax' */
+
+  /* MinMax: '<S438>/MinMax1' incorporates:
+   *  Constant: '<S438>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMLghtSwSigLo_enum)
+  {
+    /* MinMax: '<S438>/MinMax1' */
+    VOPM_BCMLghtSwSig_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S438>/MinMax1' */
+    VOPM_BCMLghtSwSig_enum = KOPM_BCMLghtSwSigLo_enum;
+  }
+
+  /* End of MinMax: '<S438>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMLghtSwSig_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMHiBeamSwSig_enum' */
   /* Switch: '<S417>/Switch4' incorporates:
    *  Constant: '<S417>/sat3'
    */
-  if (KOPM_BCMIndcnShfttoNeut_flg_ovrdflg)
+  if (KOPM_BCMHiBeamSwSig_enum_ovrdflg)
   {
-    /* Switch: '<S417>/Switch4' incorporates:
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  Constant: '<S417>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
      */
-    VOPM_BCMIndcnShfttoNeut_flg = KOPM_BCMIndcnShfttoNeut_flg_ovrdval;
+    VOPM_BCMIllmndSts_enum = KOPM_BCMHiBeamSwSig_enum_ovrdval;
   }
   else
   {
-    /* Switch: '<S417>/Switch4' incorporates:
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
      *  DataTypeConversion: '<S417>/Data Type Conversion1'
      */
-    VOPM_BCMIndcnShfttoNeut_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_IndicationShifttoNeutral != 0);
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_HighBeamSwSig;
   }
 
   /* End of Switch: '<S417>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMIndcnShfttoNeut_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMWarnKeyOutRmndr_flg' */
-  /* Switch: '<S463>/Switch4' incorporates:
-   *  Constant: '<S463>/sat3'
+  /* MinMax: '<S417>/MinMax' incorporates:
+   *  Constant: '<S417>/sat6'
    */
-  if (KOPM_BCMWarnKeyOutRmndr_flg_ovrdflg)
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMHiBeamSwSigHi_enum)
   {
-    /* Switch: '<S463>/Switch4' incorporates:
-     *  Constant: '<S463>/sat4'
-     */
-    VOPM_BCMWarnKeyOutRmndr_flg = KOPM_BCMWarnKeyOutRmndr_flg_ovrdval;
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMHiBeamSwSigHi_enum;
+  }
+
+  /* End of MinMax: '<S417>/MinMax' */
+
+  /* MinMax: '<S417>/MinMax1' incorporates:
+   *  Constant: '<S417>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMHiBeamSwSigLo_enum)
+  {
+    /* MinMax: '<S417>/MinMax1' */
+    VOPM_BCMHiBeamSwSig_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
-    /* Switch: '<S463>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S463>/Data Type Conversion1'
+    /* MinMax: '<S417>/MinMax1' */
+    VOPM_BCMHiBeamSwSig_enum = KOPM_BCMHiBeamSwSigLo_enum;
+  }
+
+  /* End of MinMax: '<S417>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMHiBeamSwSig_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMAjarStaVHoodVld_flg' */
+  /* Switch: '<S371>/Switch4' incorporates:
+   *  Constant: '<S371>/sat3'
+   */
+  if (KOPM_BCMAjarStaVHoodVld_flg_ovrdflg)
+  {
+    /* Switch: '<S371>/Switch4' incorporates:
+     *  Constant: '<S371>/sat4'
      */
-    VOPM_BCMWarnKeyOutRmndr_flg =
+    VOPM_BCMAjarStaVHoodVld_flg = KOPM_BCMAjarStaVHoodVld_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S371>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S371>/Data Type Conversion1'
+     */
+    VOPM_BCMAjarStaVHoodVld_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_WarnKeyOutReminder != 0);
+             ->BCM_AjarStaV_Hood != 0);
   }
 
-  /* End of Switch: '<S463>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMWarnKeyOutRmndr_flg' */
+  /* End of Switch: '<S371>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMAjarStaVHoodVld_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMIndcnKeyClsr_flg' */
-  /* Switch: '<S416>/Switch4' incorporates:
-   *  Constant: '<S416>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMAjarStaHood_flg' */
+  /* Switch: '<S369>/Switch4' incorporates:
+   *  Constant: '<S369>/sat3'
    */
-  if (KOPM_BCMIndcnKeyClsr_flg_ovrdflg)
+  if (KOPM_BCMAjarStaHood_flg_ovrdflg)
   {
-    /* Switch: '<S416>/Switch4' incorporates:
-     *  Constant: '<S416>/sat4'
+    /* Switch: '<S369>/Switch4' incorporates:
+     *  Constant: '<S369>/sat4'
      */
-    VOPM_BCMIndcnKeyClsr_flg = KOPM_BCMIndcnKeyClsr_flg_ovrdval;
+    VOPM_BCMAjarStaHood_flg = KOPM_BCMAjarStaHood_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S416>/Switch4' incorporates:
+    /* Switch: '<S369>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S416>/Data Type Conversion1'
+     *  DataTypeConversion: '<S369>/Data Type Conversion1'
      */
-    VOPM_BCMIndcnKeyClsr_flg =
+    VOPM_BCMAjarStaHood_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_AjarSta_Hood != 0);
+  }
+
+  /* End of Switch: '<S369>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMAjarStaHood_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMHzrdWrngLghtSwSig_flg' */
+  /* Switch: '<S420>/Switch4' incorporates:
+   *  Constant: '<S420>/sat3'
+   */
+  if (KOPM_BCMHzrdWrngLghtSwSig_flg_ovrdflg)
+  {
+    /* Switch: '<S420>/Switch4' incorporates:
+     *  Constant: '<S420>/sat4'
+     */
+    VOPM_BCMHzrdWrngLghtSwSig_flg = KOPM_BCMHzrdWrngLghtSwSig_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S420>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S420>/Data Type Conversion1'
+     */
+    VOPM_BCMHzrdWrngLghtSwSig_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_IndicationKeyCloser != 0);
+             ->BCM_HazardWarningLightSwSig != 0);
   }
 
-  /* End of Switch: '<S416>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMIndcnKeyClsr_flg' */
+  /* End of Switch: '<S420>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMHzrdWrngLghtSwSig_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMIllmndSts_enum' */
-  /* Switch: '<S415>/Switch4' incorporates:
-   *  Constant: '<S415>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFrntFogLiSwSig_flg' */
+  /* Switch: '<S410>/Switch4' incorporates:
+   *  Constant: '<S410>/sat3'
    */
-  if (KOPM_BCMIllmndSts_enum_ovrdflg)
+  if (KOPM_BCMFrntFogLiSwSig_flg_ovrdflg)
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  Constant: '<S415>/sat4'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
+    /* Switch: '<S410>/Switch4' incorporates:
+     *  Constant: '<S410>/sat4'
      */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMIllmndSts_enum_ovrdval;
+    VOPM_BCMFrntFogLiSwSig_flg = KOPM_BCMFrntFogLiSwSig_flg_ovrdval;
   }
   else
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
+    /* Switch: '<S410>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S343>/DataTypeConversion102'
-     *  DataTypeConversion: '<S415>/Data Type Conversion1'
+     *  DataTypeConversion: '<S410>/Data Type Conversion1'
+     */
+    VOPM_BCMFrntFogLiSwSig_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_FrntFogLiSwSig != 0);
+  }
+
+  /* End of Switch: '<S410>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFrntFogLiSwSig_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMRrFogLiSwSig_flg' */
+  /* Switch: '<S457>/Switch4' incorporates:
+   *  Constant: '<S457>/sat3'
+   */
+  if (KOPM_BCMRrFogLiSwSig_flg_ovrdflg)
+  {
+    /* Switch: '<S457>/Switch4' incorporates:
+     *  Constant: '<S457>/sat4'
+     */
+    VOPM_BCMRrFogLiSwSig_flg = KOPM_BCMRrFogLiSwSig_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S457>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S457>/Data Type Conversion1'
+     */
+    VOPM_BCMRrFogLiSwSig_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_RearFogLiSwSig != 0);
+  }
+
+  /* End of Switch: '<S457>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMRrFogLiSwSig_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFlwrMeHmCtrlFb_enum' */
+  /* Switch: '<S405>/Switch4' incorporates:
+   *  Constant: '<S405>/sat3'
+   */
+  if (KOPM_BCMFlwrMeHmCtrlFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S405>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFlwrMeHmCtrlFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S405>/Data Type Conversion1'
      */
     VOPM_BCMIllmndSts_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_IllmndSts;
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_FlwrMeHmCtrlFb;
   }
 
-  /* End of Switch: '<S415>/Switch4' */
+  /* End of Switch: '<S405>/Switch4' */
 
-  /* MinMax: '<S415>/MinMax' incorporates:
-   *  Constant: '<S415>/sat6'
+  /* MinMax: '<S405>/MinMax' incorporates:
+   *  Constant: '<S405>/sat6'
    */
-  if (VOPM_BCMIllmndSts_enum > KOPM_BCMIllmndStsHi_enum)
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFlwrMeHmCtrlFbHi_enum)
   {
-    /* MinMax: '<S357>/MinMax' */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMIllmndStsHi_enum;
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFlwrMeHmCtrlFbHi_enum;
   }
 
-  /* End of MinMax: '<S415>/MinMax' */
+  /* End of MinMax: '<S405>/MinMax' */
 
-  /* MinMax: '<S415>/MinMax1' incorporates:
-   *  Constant: '<S415>/sat7'
+  /* MinMax: '<S405>/MinMax1' incorporates:
+   *  Constant: '<S405>/sat7'
    */
-  if (VOPM_BCMIllmndSts_enum < KOPM_BCMIllmndStsLo_enum)
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFlwrMeHmCtrlFbLo_enum)
   {
-    /* MinMax: '<S357>/MinMax' incorporates:
-     *  MinMax: '<S415>/MinMax1'
-     */
-    VOPM_BCMIllmndSts_enum = KOPM_BCMIllmndStsLo_enum;
-  }
-
-  /* End of MinMax: '<S415>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMIllmndSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMSteerWhlHeatSts_flg' */
-  /* Switch: '<S452>/Switch4' incorporates:
-   *  Constant: '<S452>/sat3'
-   */
-  if (KOPM_BCMSteerWhlHeatSts_flg_ovrdflg)
-  {
-    /* MinMax: '<S452>/MinMax' incorporates:
-     *  Constant: '<S452>/sat4'
-     */
-    rtb_MinMax_b = KOPM_BCMSteerWhlHeatSts_flg_ovrdval;
+    /* MinMax: '<S405>/MinMax1' */
+    VOPM_BCMFlwrMeHmCtrlFb_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
-    /* MinMax: '<S452>/MinMax' incorporates:
+    /* MinMax: '<S405>/MinMax1' */
+    VOPM_BCMFlwrMeHmCtrlFb_enum = KOPM_BCMFlwrMeHmCtrlFbLo_enum;
+  }
+
+  /* End of MinMax: '<S405>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFlwrMeHmCtrlFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMBassHornReq_enum' */
+  /* Switch: '<S378>/Switch4' incorporates:
+   *  Constant: '<S378>/sat3'
+   */
+  if (KOPM_BCMBassHornReq_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S378>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMBassHornReq_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S452>/Data Type Conversion1'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S378>/Data Type Conversion1'
      */
-    rtb_MinMax_b = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-                        ->BCM_SteerWhlHeatSts != 0);
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_BassHornReq;
   }
 
-  /* End of Switch: '<S452>/Switch4' */
+  /* End of Switch: '<S378>/Switch4' */
 
-  /* MinMax: '<S452>/MinMax1' incorporates:
-   *  Constant: '<S452>/sat6'
-   *  Constant: '<S452>/sat7'
-   *  MinMax: '<S452>/MinMax'
+  /* MinMax: '<S378>/MinMax' incorporates:
+   *  Constant: '<S378>/sat6'
    */
-  VOPM_BCMSteerWhlHeatSts_flg = ((rtb_MinMax_b && KOPM_BCMSteerWhlHeatStsHi_flg) || KOPM_BCMSteerWhlHeatStsLo_flg);
-
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMSteerWhlHeatSts_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMSteerWhlTemp_C' */
-  /* Switch: '<S453>/Switch4' incorporates:
-   *  Constant: '<S453>/sat3'
-   */
-  if (KOPM_BCMSteerWhlTemp_C_ovrdflg)
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMBassHornReqHi_enum)
   {
-    /* MinMax: '<S419>/MinMax' incorporates:
-     *  Constant: '<S453>/sat4'
-     *  Product: '<S482>/Product1'
-     */
-    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMSteerWhlTemp_C_ovrdval;
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMBassHornReqHi_enum;
+  }
+
+  /* End of MinMax: '<S378>/MinMax' */
+
+  /* MinMax: '<S378>/MinMax1' incorporates:
+   *  Constant: '<S378>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMBassHornReqLo_enum)
+  {
+    /* MinMax: '<S378>/MinMax1' */
+    VOPM_BCMBassHornReq_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
-    /* MinMax: '<S419>/MinMax' incorporates:
+    /* MinMax: '<S378>/MinMax1' */
+    VOPM_BCMBassHornReq_enum = KOPM_BCMBassHornReqLo_enum;
+  }
+
+  /* End of MinMax: '<S378>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMBassHornReq_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMAjarStaTrunk_flg' */
+  /* Switch: '<S370>/Switch4' incorporates:
+   *  Constant: '<S370>/sat3'
+   */
+  if (KOPM_BCMAjarStaTrunk_flg_ovrdflg)
+  {
+    /* Switch: '<S370>/Switch4' incorporates:
+     *  Constant: '<S370>/sat4'
+     */
+    VOPM_BCMAjarStaTrunk_flg = KOPM_BCMAjarStaTrunk_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S370>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S453>/Data Type Conversion1'
-     *  Product: '<S482>/Product1'
+     *  DataTypeConversion: '<S370>/Data Type Conversion1'
      */
-    VOPM_BCMMaiDrvrSeatTemp_C = (float32)(Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_SteerWhlTemp;
-  }
-
-  /* End of Switch: '<S453>/Switch4' */
-
-  /* MinMax: '<S453>/MinMax' incorporates:
-   *  Constant: '<S453>/sat6'
-   */
-  if (VOPM_BCMMaiDrvrSeatTemp_C > KOPM_BCMSteerWhlTempHi_C)
-  {
-    /* MinMax: '<S419>/MinMax' */
-    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMSteerWhlTempHi_C;
-  }
-
-  /* End of MinMax: '<S453>/MinMax' */
-
-  /* MinMax: '<S453>/MinMax1' incorporates:
-   *  Constant: '<S453>/sat7'
-   */
-  if (VOPM_BCMMaiDrvrSeatTemp_C >= KOPM_BCMSteerWhlTempLo_C)
-  {
-    /* MinMax: '<S453>/MinMax1' */
-    VOPM_BCMSteerWhlTemp_C = VOPM_BCMMaiDrvrSeatTemp_C;
-  }
-  else
-  {
-    /* MinMax: '<S453>/MinMax1' */
-    VOPM_BCMSteerWhlTemp_C = KOPM_BCMSteerWhlTempLo_C;
-  }
-
-  /* End of MinMax: '<S453>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMSteerWhlTemp_C' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMMaiDrvrSeatTemp_C' */
-  /* Switch: '<S435>/Switch4' incorporates:
-   *  Constant: '<S435>/sat3'
-   */
-  if (KOPM_BCMMaiDrvrSeatTemp_C_ovrdflg)
-  {
-    /* MinMax: '<S419>/MinMax' incorporates:
-     *  Constant: '<S435>/sat4'
-     *  Product: '<S482>/Product1'
-     */
-    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMMaiDrvrSeatTemp_C_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S419>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S435>/Data Type Conversion1'
-     *  Product: '<S482>/Product1'
-     */
-    VOPM_BCMMaiDrvrSeatTemp_C = (float32)(Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-                                    ->BCM_MaiDrvrSeatTemp;
-  }
-
-  /* End of Switch: '<S435>/Switch4' */
-
-  /* MinMax: '<S435>/MinMax' incorporates:
-   *  Constant: '<S435>/sat6'
-   */
-  if (VOPM_BCMMaiDrvrSeatTemp_C > KOPM_BCMMaiDrvrSeatTempHi_C)
-  {
-    /* MinMax: '<S419>/MinMax' */
-    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMMaiDrvrSeatTempHi_C;
-  }
-
-  /* End of MinMax: '<S435>/MinMax' */
-
-  /* MinMax: '<S435>/MinMax1' incorporates:
-   *  Constant: '<S435>/sat7'
-   */
-  if (VOPM_BCMMaiDrvrSeatTemp_C < KOPM_BCMMaiDrvrSeatTempLo_C)
-  {
-    /* MinMax: '<S419>/MinMax' incorporates:
-     *  MinMax: '<S435>/MinMax1'
-     */
-    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMMaiDrvrSeatTempLo_C;
-  }
-
-  /* End of MinMax: '<S435>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMMaiDrvrSeatTemp_C' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMRrMirrHeatSts_flg' */
-  /* Switch: '<S449>/Switch4' incorporates:
-   *  Constant: '<S449>/sat3'
-   */
-  if (KOPM_BCMRrMirrHeatSts_flg_ovrdflg)
-  {
-    /* Switch: '<S449>/Switch4' incorporates:
-     *  Constant: '<S449>/sat4'
-     */
-    VOPM_BCMRrMirrHeatSts_flg = KOPM_BCMRrMirrHeatSts_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S449>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S449>/Data Type Conversion1'
-     */
-    VOPM_BCMRrMirrHeatSts_flg =
+    VOPM_BCMAjarStaTrunk_flg =
         ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-             ->BCM_RearMirrorHeatSts != 0);
+             ->BCM_AjarSta_Trunk != 0);
   }
 
-  /* End of Switch: '<S449>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMRrMirrHeatSts_flg' */
+  /* End of Switch: '<S370>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMAjarStaTrunk_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMMaiDrvrSeatSts_enum' */
-  /* Switch: '<S434>/Switch4' incorporates:
-   *  Constant: '<S434>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDoorAjarStaFL_flg' */
+  /* Switch: '<S389>/Switch4' incorporates:
+   *  Constant: '<S389>/sat3'
    */
-  if (KOPM_BCMMaiDrvrSeatSts_enum_ovrdflg)
+  if (KOPM_BCMDoorAjarStaFL_flg_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S434>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* Switch: '<S389>/Switch4' incorporates:
+     *  Constant: '<S389>/sat4'
      */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMMaiDrvrSeatSts_enum_ovrdval;
+    VOPM_BCMDoorAjarStaFL_flg = KOPM_BCMDoorAjarStaFL_flg_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* Switch: '<S389>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S434>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S389>/Data Type Conversion1'
      */
-    VOPM_BCMBackLiFltFb_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_MaiDrvrSeatSts;
+    VOPM_BCMDoorAjarStaFL_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_DoorAjarSta_FL != 0);
   }
 
-  /* End of Switch: '<S434>/Switch4' */
+  /* End of Switch: '<S389>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDoorAjarStaFL_flg' */
 
-  /* MinMax: '<S434>/MinMax' incorporates:
-   *  Constant: '<S434>/sat6'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDoorAjarStaFR_flg' */
+  /* Switch: '<S390>/Switch4' incorporates:
+   *  Constant: '<S390>/sat3'
    */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMMaiDrvrSeatStsHi_enum)
+  if (KOPM_BCMDoorAjarStaFR_flg_ovrdflg)
   {
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMMaiDrvrSeatStsHi_enum;
-  }
-
-  /* MinMax: '<S434>/MinMax1' incorporates:
-   *  Constant: '<S434>/sat7'
-   */
-  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMMaiDrvrSeatStsLo_enum)
-  {
-    /* MinMax: '<S434>/MinMax1' */
-    VOPM_BCMMaiDrvrSeatSts_enum = VOPM_BCMBackLiFltFb_enum;
+    /* Switch: '<S390>/Switch4' incorporates:
+     *  Constant: '<S390>/sat4'
+     */
+    VOPM_BCMDoorAjarStaFR_flg = KOPM_BCMDoorAjarStaFR_flg_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax1' */
-    VOPM_BCMMaiDrvrSeatSts_enum = KOPM_BCMMaiDrvrSeatStsLo_enum;
-  }
-
-  /* End of MinMax: '<S434>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMMaiDrvrSeatSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFrntWiprMotSts_enum' */
-  /* Switch: '<S404>/Switch4' incorporates:
-   *  Constant: '<S404>/sat3'
-   */
-  if (KOPM_BCMFrntWiprMotSts_enum_ovrdflg)
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S404>/sat4'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMFrntWiprMotSts_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* Switch: '<S390>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S404>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S390>/Data Type Conversion1'
      */
-    VOPM_BCMBackLiFltFb_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_FrontWiperMotorSts;
+    VOPM_BCMDoorAjarStaFR_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_DoorAjarSta_FR != 0);
   }
 
-  /* End of Switch: '<S404>/Switch4' */
+  /* End of Switch: '<S390>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDoorAjarStaFR_flg' */
 
-  /* MinMax: '<S404>/MinMax' incorporates:
-   *  Constant: '<S404>/sat6'
-   */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMFrntWiprMotStsHi_enum)
-  {
-    /* MinMax: '<S434>/MinMax' */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMFrntWiprMotStsHi_enum;
-  }
-
-  /* End of MinMax: '<S404>/MinMax' */
-
-  /* MinMax: '<S404>/MinMax1' incorporates:
-   *  Constant: '<S404>/sat7'
-   */
-  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMFrntWiprMotStsLo_enum)
-  {
-    /* MinMax: '<S404>/MinMax1' */
-    VOPM_BCMFrntWiprMotSts_enum = VOPM_BCMBackLiFltFb_enum;
-  }
-  else
-  {
-    /* MinMax: '<S404>/MinMax1' */
-    VOPM_BCMFrntWiprMotSts_enum = KOPM_BCMFrntWiprMotStsLo_enum;
-  }
-
-  /* End of MinMax: '<S404>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFrntWiprMotSts_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMLogoActvFlg_enum' */
-  /* Switch: '<S432>/Switch4' incorporates:
-   *  Constant: '<S432>/sat3'
-   */
-  if (KOPM_BCMLogoActvFlg_enum_ovrdflg)
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S432>/sat4'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMLogoActvFlg_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S432>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_LogoActiveFlag;
-  }
-
-  /* End of Switch: '<S432>/Switch4' */
-
-  /* MinMax: '<S432>/MinMax' incorporates:
-   *  Constant: '<S432>/sat6'
-   */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMLogoActvFlgHi_enum)
-  {
-    /* MinMax: '<S434>/MinMax' */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMLogoActvFlgHi_enum;
-  }
-
-  /* End of MinMax: '<S432>/MinMax' */
-
-  /* MinMax: '<S432>/MinMax1' incorporates:
-   *  Constant: '<S432>/sat7'
-   */
-  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMLogoActvFlgLo_enum)
-  {
-    /* MinMax: '<S432>/MinMax1' */
-    VOPM_BCMLogoActvFlg_enum = VOPM_BCMBackLiFltFb_enum;
-  }
-  else
-  {
-    /* MinMax: '<S432>/MinMax1' */
-    VOPM_BCMLogoActvFlg_enum = KOPM_BCMLogoActvFlgLo_enum;
-  }
-
-  /* End of MinMax: '<S432>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMLogoActvFlg_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMVehSeek_flg' */
-  /* Switch: '<S462>/Switch4' incorporates:
-   *  Constant: '<S462>/sat3'
-   */
-  if (KOPM_BCMVehSeek_flg_ovrdflg)
-  {
-    /* Switch: '<S462>/Switch4' incorporates:
-     *  Constant: '<S462>/sat4'
-     */
-    VOPM_BCMVehSeek_flg = KOPM_BCMVehSeek_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S462>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S462>/Data Type Conversion1'
-     */
-    VOPM_BCMVehSeek_flg = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-                               ->BCM_VhclSeek != 0);
-  }
-
-  /* End of Switch: '<S462>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMVehSeek_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMRFInitSta_flg' */
-  /* Switch: '<S443>/Switch4' incorporates:
-   *  Constant: '<S443>/sat3'
-   */
-  if (KOPM_BCMRFInitSta_flg_ovrdflg)
-  {
-    /* Switch: '<S443>/Switch4' incorporates:
-     *  Constant: '<S443>/sat4'
-     */
-    VOPM_BCMRFInitSta_flg = KOPM_BCMRFInitSta_flg_ovrdval;
-  }
-  else
-  {
-    /* Switch: '<S443>/Switch4' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S443>/Data Type Conversion1'
-     */
-    VOPM_BCMRFInitSta_flg =
-        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_RFInitSta !=
-         0);
-  }
-
-  /* End of Switch: '<S443>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMRFInitSta_flg' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMRiTrnLiFltFb_enum' */
-  /* Switch: '<S446>/Switch4' incorporates:
-   *  Constant: '<S446>/sat3'
-   */
-  if (KOPM_BCMRiTrnLiFltFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S446>/sat4'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMRiTrnLiFltFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S446>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_RiTurnLiFaultFb;
-  }
-
-  /* End of Switch: '<S446>/Switch4' */
-
-  /* MinMax: '<S446>/MinMax' incorporates:
-   *  Constant: '<S446>/sat6'
-   */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMRiTrnLiFltFbHi_enum)
-  {
-    /* MinMax: '<S434>/MinMax' */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMRiTrnLiFltFbHi_enum;
-  }
-
-  /* End of MinMax: '<S446>/MinMax' */
-
-  /* MinMax: '<S446>/MinMax1' incorporates:
-   *  Constant: '<S446>/sat7'
-   */
-  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMRiTrnLiFltFbLo_enum)
-  {
-    /* MinMax: '<S446>/MinMax1' */
-    VOPM_BCMRiTrnLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
-  }
-  else
-  {
-    /* MinMax: '<S446>/MinMax1' */
-    VOPM_BCMRiTrnLiFltFb_enum = KOPM_BCMRiTrnLiFltFbLo_enum;
-  }
-
-  /* End of MinMax: '<S446>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMRiTrnLiFltFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMLeTrnLiFltFb_enum' */
-  /* Switch: '<S428>/Switch4' incorporates:
-   *  Constant: '<S428>/sat3'
-   */
-  if (KOPM_BCMLeTrnLiFltFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S428>/sat4'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMLeTrnLiFltFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S428>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_LeTurnLiFaultFb;
-  }
-
-  /* End of Switch: '<S428>/Switch4' */
-
-  /* MinMax: '<S428>/MinMax' incorporates:
-   *  Constant: '<S428>/sat6'
-   */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMLeTrnLiFltFbHi_enum)
-  {
-    /* MinMax: '<S434>/MinMax' */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMLeTrnLiFltFbHi_enum;
-  }
-
-  /* End of MinMax: '<S428>/MinMax' */
-
-  /* MinMax: '<S428>/MinMax1' incorporates:
-   *  Constant: '<S428>/sat7'
-   */
-  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMLeTrnLiFltFbLo_enum)
-  {
-    /* MinMax: '<S428>/MinMax1' */
-    VOPM_BCMLeTrnLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
-  }
-  else
-  {
-    /* MinMax: '<S428>/MinMax1' */
-    VOPM_BCMLeTrnLiFltFb_enum = KOPM_BCMLeTrnLiFltFbLo_enum;
-  }
-
-  /* End of MinMax: '<S428>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMLeTrnLiFltFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFLWinmotor_flg' */
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDoorAjarStaRL_flg' */
   /* Switch: '<S391>/Switch4' incorporates:
    *  Constant: '<S391>/sat3'
    */
-  if (KOPM_BCMFLWinmotor_flg_ovrdflg)
+  if (KOPM_BCMDoorAjarStaRL_flg_ovrdflg)
   {
     /* Switch: '<S391>/Switch4' incorporates:
      *  Constant: '<S391>/sat4'
      */
-    VOPM_BCMFLWinmotor_flg = KOPM_BCMFLWinmotor_flg_ovrdval;
+    VOPM_BCMDoorAjarStaRL_flg = KOPM_BCMDoorAjarStaRL_flg_ovrdval;
   }
   else
   {
@@ -17624,115 +14995,1286 @@ static void Runbl_Opm50ms(void)
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S391>/Data Type Conversion1'
      */
-    VOPM_BCMFLWinmotor_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_FLWindowmotorFlags;
+    VOPM_BCMDoorAjarStaRL_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_DoorAjarSta_RL != 0);
   }
 
   /* End of Switch: '<S391>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFLWinmotor_flg' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDoorAjarStaRL_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFRWinmotor_flg' */
-  /* Switch: '<S395>/Switch4' incorporates:
-   *  Constant: '<S395>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDoorAjarStaRR_flg' */
+  /* Switch: '<S392>/Switch4' incorporates:
+   *  Constant: '<S392>/sat3'
    */
-  if (KOPM_BCMFRWinmotor_flg_ovrdflg)
+  if (KOPM_BCMDoorAjarStaRR_flg_ovrdflg)
   {
-    /* Switch: '<S395>/Switch4' incorporates:
-     *  Constant: '<S395>/sat4'
+    /* Switch: '<S392>/Switch4' incorporates:
+     *  Constant: '<S392>/sat4'
      */
-    VOPM_BCMFRWinmotor_flg = KOPM_BCMFRWinmotor_flg_ovrdval;
+    VOPM_BCMDoorAjarStaRR_flg = KOPM_BCMDoorAjarStaRR_flg_ovrdval;
   }
   else
   {
-    /* Switch: '<S395>/Switch4' incorporates:
+    /* Switch: '<S392>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S395>/Data Type Conversion1'
+     *  DataTypeConversion: '<S392>/Data Type Conversion1'
      */
-    VOPM_BCMFRWinmotor_flg =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_FRWindowmotorFlags;
+    VOPM_BCMDoorAjarStaRR_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_DoorAjarSta_RR != 0);
   }
 
-  /* End of Switch: '<S395>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFRWinmotor_flg' */
+  /* End of Switch: '<S392>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDoorAjarStaRR_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDrvPassWinSwSig_enum' */
-  /* Switch: '<S386>/Switch4' incorporates:
-   *  Constant: '<S386>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMLckHornOnStFb_flg' */
+  /* Switch: '<S436>/Switch4' incorporates:
+   *  Constant: '<S436>/sat3'
    */
-  if (KOPM_BCMDrvPassWinSwSig_enum_ovrdflg)
+  if (KOPM_BCMLckHornOnStFb_flg_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S386>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* Switch: '<S436>/Switch4' incorporates:
+     *  Constant: '<S436>/sat4'
      */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMDrvPassWinSwSig_enum_ovrdval;
+    VOPM_BCMLckHornOnStFb_flg = KOPM_BCMLckHornOnStFb_flg_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* Switch: '<S436>/Switch4' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S386>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S436>/Data Type Conversion1'
      */
-    VOPM_BCMBackLiFltFb_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_DrvPassWinSwSig;
+    VOPM_BCMLckHornOnStFb_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_LockHornOnStFb != 0);
   }
 
-  /* End of Switch: '<S386>/Switch4' */
+  /* End of Switch: '<S436>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMLckHornOnStFb_flg' */
 
-  /* MinMax: '<S386>/MinMax' incorporates:
-   *  Constant: '<S386>/sat6'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMAlrmHornReq_flg' */
+  /* Switch: '<S372>/Switch4' incorporates:
+   *  Constant: '<S372>/sat3'
    */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMDrvPassWinSwSigHi_enum)
+  if (KOPM_BCMAlrmHornReq_flg_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMDrvPassWinSwSigHi_enum;
-  }
-
-  /* End of MinMax: '<S386>/MinMax' */
-
-  /* MinMax: '<S386>/MinMax1' incorporates:
-   *  Constant: '<S386>/sat7'
-   */
-  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMDrvPassWinSwSigLo_enum)
-  {
-    /* MinMax: '<S386>/MinMax1' */
-    VOPM_BCMDrvPassWinSwSig_enum = VOPM_BCMBackLiFltFb_enum;
+    /* Switch: '<S372>/Switch4' incorporates:
+     *  Constant: '<S372>/sat4'
+     */
+    VOPM_BCMAlrmHornReq_flg = KOPM_BCMAlrmHornReq_flg_ovrdval;
   }
   else
   {
-    /* MinMax: '<S386>/MinMax1' */
-    VOPM_BCMDrvPassWinSwSig_enum = KOPM_BCMDrvPassWinSwSigLo_enum;
+    /* Switch: '<S372>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S372>/Data Type Conversion1'
+     */
+    VOPM_BCMAlrmHornReq_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_AlrmHornReq != 0);
   }
 
-  /* End of MinMax: '<S386>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDrvPassWinSwSig_enum' */
+  /* End of Switch: '<S372>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMAlrmHornReq_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDoorLckOpRec_enum' */
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_TPMSPressureStaFL_enum' */
+  /* Switch: '<S487>/Switch4' incorporates:
+   *  Constant: '<S487>/sat3'
+   */
+  if (KOPM_TPMSPressureStaFL_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S487>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaFL_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S487>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
+            ->VVSO_TPMSPrsrStaFL_enum;
+  }
+
+  /* End of Switch: '<S487>/Switch4' */
+
+  /* MinMax: '<S487>/MinMax' incorporates:
+   *  Constant: '<S487>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_TPMSPressureStaFLHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaFLHi_enum;
+  }
+
+  /* End of MinMax: '<S487>/MinMax' */
+
+  /* MinMax: '<S487>/MinMax1' incorporates:
+   *  Constant: '<S487>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_TPMSPressureStaFLLo_enum)
+  {
+    /* MinMax: '<S487>/MinMax1' */
+    VOPM_TPMSPressureStaFL_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S487>/MinMax1' */
+    VOPM_TPMSPressureStaFL_enum = KOPM_TPMSPressureStaFLLo_enum;
+  }
+
+  /* End of MinMax: '<S487>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_TPMSPressureStaFL_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_TPMSPressureStaFR_enum' */
+  /* Switch: '<S488>/Switch4' incorporates:
+   *  Constant: '<S488>/sat3'
+   */
+  if (KOPM_TPMSPressureStaFR_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S488>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaFR_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S488>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
+            ->VVSO_TPMSPrsrStaFR_enum;
+  }
+
+  /* End of Switch: '<S488>/Switch4' */
+
+  /* MinMax: '<S488>/MinMax' incorporates:
+   *  Constant: '<S488>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_TPMSPressureStaFRHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaFRHi_enum;
+  }
+
+  /* End of MinMax: '<S488>/MinMax' */
+
+  /* MinMax: '<S488>/MinMax1' incorporates:
+   *  Constant: '<S488>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_TPMSPressureStaFRLo_enum)
+  {
+    /* MinMax: '<S488>/MinMax1' */
+    VOPM_TPMSPressureStaFR_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S488>/MinMax1' */
+    VOPM_TPMSPressureStaFR_enum = KOPM_TPMSPressureStaFRLo_enum;
+  }
+
+  /* End of MinMax: '<S488>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_TPMSPressureStaFR_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMTPMSRstSts_enum' */
+  /* Switch: '<S464>/Switch4' incorporates:
+   *  Constant: '<S464>/sat3'
+   */
+  if (KOPM_BCMTPMSRstSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S464>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMTPMSRstSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S464>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
+            ->VVSO_BCMTPMSRstSts_enum;
+  }
+
+  /* End of Switch: '<S464>/Switch4' */
+
+  /* MinMax: '<S464>/MinMax' incorporates:
+   *  Constant: '<S464>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMTPMSRstStsHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMTPMSRstStsHi_enum;
+  }
+
+  /* End of MinMax: '<S464>/MinMax' */
+
+  /* MinMax: '<S464>/MinMax1' incorporates:
+   *  Constant: '<S464>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMTPMSRstStsLo_enum)
+  {
+    /* MinMax: '<S464>/MinMax1' */
+    VOPM_BCMTPMSRstSts_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S464>/MinMax1' */
+    VOPM_BCMTPMSRstSts_enum = KOPM_BCMTPMSRstStsLo_enum;
+  }
+
+  /* End of MinMax: '<S464>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMTPMSRstSts_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_TMPSAbnmPrsrWarn_flg' */
+  /* Switch: '<S486>/Switch4' incorporates:
+   *  Constant: '<S486>/sat3'
+   */
+  if (KOPM_TMPSAbnmPrsrWarn_flg_ovrdflg)
+  {
+    /* Switch: '<S486>/Switch4' incorporates:
+     *  Constant: '<S486>/sat4'
+     */
+    VOPM_TMPSAbnmPrsrWarn_flg = KOPM_TMPSAbnmPrsrWarn_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S486>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S486>/Data Type Conversion1'
+     */
+    VOPM_TMPSAbnmPrsrWarn_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
+            ->VVSO_TMPSAbnmPrsrWarn_flg;
+  }
+
+  /* End of Switch: '<S486>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_TMPSAbnmPrsrWarn_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_TPMSPressureStaRL_enum' */
+  /* Switch: '<S489>/Switch4' incorporates:
+   *  Constant: '<S489>/sat3'
+   */
+  if (KOPM_TPMSPressureStaRL_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S489>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaRL_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S489>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
+            ->VVSO_TPMSPrsrStaRL_enum;
+  }
+
+  /* End of Switch: '<S489>/Switch4' */
+
+  /* MinMax: '<S489>/MinMax' incorporates:
+   *  Constant: '<S489>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_TPMSPressureStaRLHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaRLHi_enum;
+  }
+
+  /* End of MinMax: '<S489>/MinMax' */
+
+  /* MinMax: '<S489>/MinMax1' incorporates:
+   *  Constant: '<S489>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_TPMSPressureStaRLLo_enum)
+  {
+    /* MinMax: '<S489>/MinMax1' */
+    VOPM_TPMSPressureStaRL_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S489>/MinMax1' */
+    VOPM_TPMSPressureStaRL_enum = KOPM_TPMSPressureStaRLLo_enum;
+  }
+
+  /* End of MinMax: '<S489>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_TPMSPressureStaRL_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_TPMSPressureStaRR_enum' */
+  /* Switch: '<S490>/Switch4' incorporates:
+   *  Constant: '<S490>/sat3'
+   */
+  if (KOPM_TPMSPressureStaRR_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S490>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaRR_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S490>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Vcu2OpmBAC_outputs())
+            ->VVSO_TPMSPrsrStaRR_enum;
+  }
+
+  /* End of Switch: '<S490>/Switch4' */
+
+  /* MinMax: '<S490>/MinMax' incorporates:
+   *  Constant: '<S490>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_TPMSPressureStaRRHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_TPMSPressureStaRRHi_enum;
+  }
+
+  /* End of MinMax: '<S490>/MinMax' */
+
+  /* MinMax: '<S490>/MinMax1' incorporates:
+   *  Constant: '<S490>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_TPMSPressureStaRRLo_enum)
+  {
+    /* MinMax: '<S490>/MinMax1' */
+    VOPM_TPMSPressureStaRR_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S490>/MinMax1' */
+    VOPM_TPMSPressureStaRR_enum = KOPM_TPMSPressureStaRRLo_enum;
+  }
+
+  /* End of MinMax: '<S490>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_TPMSPressureStaRR_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMWiperCtrlFront_enum' */
+  /* Switch: '<S478>/Switch4' incorporates:
+   *  Constant: '<S478>/sat3'
+   */
+  if (KOPM_BCMWiperCtrlFront_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S478>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMWiperCtrlFront_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S478>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_WiperCtrl_Front;
+  }
+
+  /* End of Switch: '<S478>/Switch4' */
+
+  /* MinMax: '<S478>/MinMax' incorporates:
+   *  Constant: '<S478>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMWiperCtrlFrontHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMWiperCtrlFrontHi_enum;
+  }
+
+  /* End of MinMax: '<S478>/MinMax' */
+
+  /* MinMax: '<S478>/MinMax1' incorporates:
+   *  Constant: '<S478>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMWiperCtrlFrontLo_enum)
+  {
+    /* MinMax: '<S478>/MinMax1' */
+    VOPM_BCMWiperCtrlFront_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S478>/MinMax1' */
+    VOPM_BCMWiperCtrlFront_enum = KOPM_BCMWiperCtrlFrontLo_enum;
+  }
+
+  /* End of MinMax: '<S478>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMWiperCtrlFront_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMWashLiquidLvlWarn_flg' */
+  /* Switch: '<S475>/Switch4' incorporates:
+   *  Constant: '<S475>/sat3'
+   */
+  if (KOPM_BCMWashLiquidLvlWarn_flg_ovrdflg)
+  {
+    /* Switch: '<S475>/Switch4' incorporates:
+     *  Constant: '<S475>/sat4'
+     */
+    VOPM_BCMWashLiquidLvlWarn_flg = KOPM_BCMWashLiquidLvlWarn_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S475>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S475>/Data Type Conversion1'
+     */
+    VOPM_BCMWashLiquidLvlWarn_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_WashLiquidLevelWarn != 0);
+  }
+
+  /* End of Switch: '<S475>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMWashLiquidLvlWarn_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDrvSeatOccptSnsrSts_enum' */
+  /* Switch: '<S396>/Switch4' incorporates:
+   *  Constant: '<S396>/sat3'
+   */
+  if (KOPM_BCMDrvSeatOccptSnsrSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S396>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvSeatOccptSnsrSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S396>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_DrvSeatOccupantSensorSts;
+  }
+
+  /* End of Switch: '<S396>/Switch4' */
+
+  /* MinMax: '<S396>/MinMax' incorporates:
+   *  Constant: '<S396>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMDrvSeatOccptSnsrStsHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvSeatOccptSnsrStsHi_enum;
+  }
+
+  /* End of MinMax: '<S396>/MinMax' */
+
+  /* MinMax: '<S396>/MinMax1' incorporates:
+   *  Constant: '<S396>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMDrvSeatOccptSnsrStsLo_enum)
+  {
+    /* MinMax: '<S396>/MinMax1' */
+    VOPM_BCMDrvSeatOccptSnsrSts_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S396>/MinMax1' */
+    VOPM_BCMDrvSeatOccptSnsrSts_enum = KOPM_BCMDrvSeatOccptSnsrStsLo_enum;
+  }
+
+  /* End of MinMax: '<S396>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDrvSeatOccptSnsrSts_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMHvyRainInd_flg' */
+  /* Switch: '<S419>/Switch4' incorporates:
+   *  Constant: '<S419>/sat3'
+   *  Constant: '<S419>/sat4'
+   */
+  VOPM_BCMHvyRainInd_flg = (KOPM_BCMHvyRainInd_flg_ovrdflg &&
+                            KOPM_BCMHvyRainInd_flg_ovrdval);
+
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMHvyRainInd_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFrntWshrSwSig_flg' */
+  /* Switch: '<S414>/Switch4' incorporates:
+   *  Constant: '<S414>/sat3'
+   */
+  if (KOPM_BCMFrntWshrSwSig_flg_ovrdflg)
+  {
+    /* Switch: '<S414>/Switch4' incorporates:
+     *  Constant: '<S414>/sat4'
+     */
+    VOPM_BCMFrntWshrSwSig_flg = KOPM_BCMFrntWshrSwSig_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S414>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S414>/Data Type Conversion1'
+     */
+    VOPM_BCMFrntWshrSwSig_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_FrntWshrSwSig != 0);
+  }
+
+  /* End of Switch: '<S414>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFrntWshrSwSig_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMPaswdwInit_flg' */
+  /* Switch: '<S450>/Switch4' incorporates:
+   *  Constant: '<S450>/sat3'
+   *  Constant: '<S450>/sat4'
+   */
+  VOPM_BCMPaswdwInit_flg = (KOPM_BCMPaswdwInit_flg_ovrdflg &&
+                            KOPM_BCMPaswdwInit_flg_ovrdval);
+
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMPaswdwInit_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFrontWashSts_flg' */
+  /* Switch: '<S415>/Switch4' incorporates:
+   *  Constant: '<S415>/sat3'
+   */
+  if (KOPM_BCMFrontWashSts_flg_ovrdflg)
+  {
+    /* Switch: '<S415>/Switch4' incorporates:
+     *  Constant: '<S415>/sat4'
+     */
+    VOPM_BCMFrontWashSts_flg = KOPM_BCMFrontWashSts_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S415>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S415>/Data Type Conversion1'
+     */
+    VOPM_BCMFrontWashSts_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_FrontWashSts != 0);
+  }
+
+  /* End of Switch: '<S415>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFrontWashSts_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMWiprIntlGrSwtSig_enum' */
+  /* Switch: '<S480>/Switch4' incorporates:
+   *  Constant: '<S480>/sat3'
+   */
+  if (KOPM_BCMWiprIntlGrSwtSig_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S480>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMWiprIntlGrSwtSig_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S480>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_WiprIntlGearSwtSig;
+  }
+
+  /* End of Switch: '<S480>/Switch4' */
+
+  /* MinMax: '<S480>/MinMax' incorporates:
+   *  Constant: '<S480>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMWiprIntlGrSwtSigHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMWiprIntlGrSwtSigHi_enum;
+  }
+
+  /* End of MinMax: '<S480>/MinMax' */
+
+  /* MinMax: '<S480>/MinMax1' incorporates:
+   *  Constant: '<S480>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMWiprIntlGrSwtSigLo_enum)
+  {
+    /* MinMax: '<S480>/MinMax1' */
+    VOPM_BCMWiprIntlGrSwtSig_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S480>/MinMax1' */
+    VOPM_BCMWiprIntlGrSwtSig_enum = KOPM_BCMWiprIntlGrSwtSigLo_enum;
+  }
+
+  /* End of MinMax: '<S480>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMWiprIntlGrSwtSig_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMWiperSwSig_enum' */
+  /* Switch: '<S479>/Switch4' incorporates:
+   *  Constant: '<S479>/sat3'
+   */
+  if (KOPM_BCMWiperSwSig_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S479>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMWiperSwSig_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S479>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_WiperSwSig;
+  }
+
+  /* End of Switch: '<S479>/Switch4' */
+
+  /* MinMax: '<S479>/MinMax' incorporates:
+   *  Constant: '<S479>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMWiperSwSigHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMWiperSwSigHi_enum;
+  }
+
+  /* End of MinMax: '<S479>/MinMax' */
+
+  /* MinMax: '<S479>/MinMax1' incorporates:
+   *  Constant: '<S479>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMWiperSwSigLo_enum)
+  {
+    /* MinMax: '<S479>/MinMax1' */
+    VOPM_BCMWiperSwSig_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S479>/MinMax1' */
+    VOPM_BCMWiperSwSig_enum = KOPM_BCMWiperSwSigLo_enum;
+  }
+
+  /* End of MinMax: '<S479>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMWiperSwSig_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMWinLockSts_flg' */
+  /* Switch: '<S477>/Switch4' incorporates:
+   *  Constant: '<S477>/sat3'
+   */
+  if (KOPM_BCMWinLockSts_flg_ovrdflg)
+  {
+    /* Switch: '<S477>/Switch4' incorporates:
+     *  Constant: '<S477>/sat4'
+     */
+    VOPM_BCMWinLockSts_flg = KOPM_BCMWinLockSts_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S477>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S477>/Data Type Conversion1'
+     */
+    VOPM_BCMWinLockSts_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_WinLockSts != 0);
+  }
+
+  /* End of Switch: '<S477>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMWinLockSts_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMWinLockSig_flg' */
+  /* Switch: '<S476>/Switch4' incorporates:
+   *  Constant: '<S476>/sat3'
+   */
+  if (KOPM_BCMWinLockSig_flg_ovrdflg)
+  {
+    /* Switch: '<S476>/Switch4' incorporates:
+     *  Constant: '<S476>/sat4'
+     */
+    VOPM_BCMWinLockSig_flg = KOPM_BCMWinLockSig_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S476>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S476>/Data Type Conversion1'
+     */
+    VOPM_BCMWinLockSig_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_WinLockSig != 0);
+  }
+
+  /* End of Switch: '<S476>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMWinLockSig_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDrvrWinSwSig_enum' */
+  /* Switch: '<S397>/Switch4' incorporates:
+   *  Constant: '<S397>/sat3'
+   */
+  if (KOPM_BCMDrvrWinSwSig_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S397>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvrWinSwSig_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S397>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_DriverWinSwSig;
+  }
+
+  /* End of Switch: '<S397>/Switch4' */
+
+  /* MinMax: '<S397>/MinMax' incorporates:
+   *  Constant: '<S397>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMDrvrWinSwSigHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvrWinSwSigHi_enum;
+  }
+
+  /* End of MinMax: '<S397>/MinMax' */
+
+  /* MinMax: '<S397>/MinMax1' incorporates:
+   *  Constant: '<S397>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMDrvrWinSwSigLo_enum)
+  {
+    /* MinMax: '<S397>/MinMax1' */
+    VOPM_BCMDrvrWinSwSig_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S397>/MinMax1' */
+    VOPM_BCMDrvrWinSwSig_enum = KOPM_BCMDrvrWinSwSigLo_enum;
+  }
+
+  /* End of MinMax: '<S397>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDrvrWinSwSig_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMPassWinSwSig_enum' */
+  /* Switch: '<S449>/Switch4' incorporates:
+   *  Constant: '<S449>/sat3'
+   */
+  if (KOPM_BCMPassWinSwSig_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S449>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMPassWinSwSig_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S449>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_PassWinSwSig;
+  }
+
+  /* End of Switch: '<S449>/Switch4' */
+
+  /* MinMax: '<S449>/MinMax' incorporates:
+   *  Constant: '<S449>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMPassWinSwSigHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMPassWinSwSigHi_enum;
+  }
+
+  /* End of MinMax: '<S449>/MinMax' */
+
+  /* MinMax: '<S449>/MinMax1' incorporates:
+   *  Constant: '<S449>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMPassWinSwSigLo_enum)
+  {
+    /* MinMax: '<S449>/MinMax1' */
+    VOPM_BCMPassWinSwSig_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S449>/MinMax1' */
+    VOPM_BCMPassWinSwSig_enum = KOPM_BCMPassWinSwSigLo_enum;
+  }
+
+  /* End of MinMax: '<S449>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMPassWinSwSig_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFLWinSts_flg' */
+  /* Switch: '<S398>/Switch4' incorporates:
+   *  Constant: '<S398>/sat3'
+   */
+  if (KOPM_BCMFLWinSts_flg_ovrdflg)
+  {
+    /* Switch: '<S398>/Switch4' incorporates:
+     *  Constant: '<S398>/sat4'
+     */
+    VOPM_BCMFLWinSts_flg = KOPM_BCMFLWinSts_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S398>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S398>/Data Type Conversion1'
+     */
+    VOPM_BCMFLWinSts_flg = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_FLWindowSts != 0);
+  }
+
+  /* End of Switch: '<S398>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFLWinSts_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFRWinSts_flg' */
+  /* Switch: '<S402>/Switch4' incorporates:
+   *  Constant: '<S402>/sat3'
+   */
+  if (KOPM_BCMFRWinSts_flg_ovrdflg)
+  {
+    /* Switch: '<S402>/Switch4' incorporates:
+     *  Constant: '<S402>/sat4'
+     */
+    VOPM_BCMFRWinSts_flg = KOPM_BCMFRWinSts_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S402>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S402>/Data Type Conversion1'
+     */
+    VOPM_BCMFRWinSts_flg = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_FRWindowSts != 0);
+  }
+
+  /* End of Switch: '<S402>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFRWinSts_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFLWinmotorSts_enum' */
+  /* Switch: '<S399>/Switch4' incorporates:
+   *  Constant: '<S399>/sat3'
+   */
+  if (KOPM_BCMFLWinmotorSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S399>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFLWinmotorSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S399>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_FLWindowmotorSts;
+  }
+
+  /* End of Switch: '<S399>/Switch4' */
+
+  /* MinMax: '<S399>/MinMax' incorporates:
+   *  Constant: '<S399>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFLWinmotorStsHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFLWinmotorStsHi_enum;
+  }
+
+  /* End of MinMax: '<S399>/MinMax' */
+
+  /* MinMax: '<S399>/MinMax1' incorporates:
+   *  Constant: '<S399>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFLWinmotorStsLo_enum)
+  {
+    /* MinMax: '<S399>/MinMax1' */
+    VOPM_BCMFLWinmotorSts_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S399>/MinMax1' */
+    VOPM_BCMFLWinmotorSts_enum = KOPM_BCMFLWinmotorStsLo_enum;
+  }
+
+  /* End of MinMax: '<S399>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFLWinmotorSts_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFRWinmotorSts_enum' */
+  /* Switch: '<S403>/Switch4' incorporates:
+   *  Constant: '<S403>/sat3'
+   */
+  if (KOPM_BCMFRWinmotorSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S403>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFRWinmotorSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S403>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_FRWindowmotorSts;
+  }
+
+  /* End of Switch: '<S403>/Switch4' */
+
+  /* MinMax: '<S403>/MinMax' incorporates:
+   *  Constant: '<S403>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFRWinmotorStsHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFRWinmotorStsHi_enum;
+  }
+
+  /* End of MinMax: '<S403>/MinMax' */
+
+  /* MinMax: '<S403>/MinMax1' incorporates:
+   *  Constant: '<S403>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFRWinmotorStsLo_enum)
+  {
+    /* MinMax: '<S403>/MinMax1' */
+    VOPM_BCMFRWinmotorSts_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S403>/MinMax1' */
+    VOPM_BCMFRWinmotorSts_enum = KOPM_BCMFRWinmotorStsLo_enum;
+  }
+
+  /* End of MinMax: '<S403>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFRWinmotorSts_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFrntLeDoorHndlSwt_enum' */
+  /* Switch: '<S411>/Switch4' incorporates:
+   *  Constant: '<S411>/sat3'
+   */
+  if (KOPM_BCMFrntLeDoorHndlSwt_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S411>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFrntLeDoorHndlSwt_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S411>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_FrntLeDoorHndlSwt;
+  }
+
+  /* End of Switch: '<S411>/Switch4' */
+
+  /* MinMax: '<S411>/MinMax' incorporates:
+   *  Constant: '<S411>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFrntLeDoorHndlSwtHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFrntLeDoorHndlSwtHi_enum;
+  }
+
+  /* End of MinMax: '<S411>/MinMax' */
+
+  /* MinMax: '<S411>/MinMax1' incorporates:
+   *  Constant: '<S411>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFrntLeDoorHndlSwtLo_enum)
+  {
+    /* MinMax: '<S411>/MinMax1' */
+    VOPM_BCMFrntLeDoorHndlSwt_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S411>/MinMax1' */
+    VOPM_BCMFrntLeDoorHndlSwt_enum = KOPM_BCMFrntLeDoorHndlSwtLo_enum;
+  }
+
+  /* End of MinMax: '<S411>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFrntLeDoorHndlSwt_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFrntRiDoorHndlSwt_enum' */
+  /* Switch: '<S412>/Switch4' incorporates:
+   *  Constant: '<S412>/sat3'
+   */
+  if (KOPM_BCMFrntRiDoorHndlSwt_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S412>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFrntRiDoorHndlSwt_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S412>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_FrntRiDoorHndlSwt;
+  }
+
+  /* End of Switch: '<S412>/Switch4' */
+
+  /* MinMax: '<S412>/MinMax' incorporates:
+   *  Constant: '<S412>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFrntRiDoorHndlSwtHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFrntRiDoorHndlSwtHi_enum;
+  }
+
+  /* End of MinMax: '<S412>/MinMax' */
+
+  /* MinMax: '<S412>/MinMax1' incorporates:
+   *  Constant: '<S412>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFrntRiDoorHndlSwtLo_enum)
+  {
+    /* MinMax: '<S412>/MinMax1' */
+    VOPM_BCMFrntRiDoorHndlSwt_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S412>/MinMax1' */
+    VOPM_BCMFrntRiDoorHndlSwt_enum = KOPM_BCMFrntRiDoorHndlSwtLo_enum;
+  }
+
+  /* End of MinMax: '<S412>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFrntRiDoorHndlSwt_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMTrunkSwtSig_flg' */
+  /* Switch: '<S468>/Switch4' incorporates:
+   *  Constant: '<S468>/sat3'
+   */
+  if (KOPM_BCMTrunkSwtSig_flg_ovrdflg)
+  {
+    /* Switch: '<S468>/Switch4' incorporates:
+     *  Constant: '<S468>/sat4'
+     */
+    VOPM_BCMTrunkSwtSig_flg = KOPM_BCMTrunkSwtSig_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S468>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S468>/Data Type Conversion1'
+     */
+    VOPM_BCMTrunkSwtSig_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_TrunkSwtSig != 0);
+  }
+
+  /* End of Switch: '<S468>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMTrunkSwtSig_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMWarnNoKeyFound_flg' */
+  /* Switch: '<S474>/Switch4' incorporates:
+   *  Constant: '<S474>/sat3'
+   */
+  if (KOPM_BCMWarnNoKeyFound_flg_ovrdflg)
+  {
+    /* Switch: '<S474>/Switch4' incorporates:
+     *  Constant: '<S474>/sat4'
+     */
+    VOPM_BCMWarnNoKeyFound_flg = KOPM_BCMWarnNoKeyFound_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S474>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S474>/Data Type Conversion1'
+     */
+    VOPM_BCMWarnNoKeyFound_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_WarnNoKeyFound != 0);
+  }
+
+  /* End of Switch: '<S474>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMWarnNoKeyFound_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMBodyWarnSts_enum' */
+  /* Switch: '<S379>/Switch4' incorporates:
+   *  Constant: '<S379>/sat3'
+   */
+  if (KOPM_BCMBodyWarnSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S379>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMBodyWarnSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S379>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_BodyWarnSts;
+  }
+
+  /* End of Switch: '<S379>/Switch4' */
+
+  /* MinMax: '<S379>/MinMax' incorporates:
+   *  Constant: '<S379>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMBodyWarnStsHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMBodyWarnStsHi_enum;
+  }
+
+  /* End of MinMax: '<S379>/MinMax' */
+
+  /* MinMax: '<S379>/MinMax1' incorporates:
+   *  Constant: '<S379>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMBodyWarnStsLo_enum)
+  {
+    /* MinMax: '<S379>/MinMax1' */
+    VOPM_BCMBodyWarnSts_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S379>/MinMax1' */
+    VOPM_BCMBodyWarnSts_enum = KOPM_BCMBodyWarnStsLo_enum;
+  }
+
+  /* End of MinMax: '<S379>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMBodyWarnSts_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMPSAuthentRes_enum' */
+  /* Switch: '<S446>/Switch4' incorporates:
+   *  Constant: '<S446>/sat3'
+   */
+  if (KOPM_BCMPSAuthentRes_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S446>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMPSAuthentRes_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S446>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_PSAuthentRes;
+  }
+
+  /* End of Switch: '<S446>/Switch4' */
+
+  /* MinMax: '<S446>/MinMax' incorporates:
+   *  Constant: '<S446>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMPSAuthentResHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMPSAuthentResHi_enum;
+  }
+
+  /* End of MinMax: '<S446>/MinMax' */
+
+  /* MinMax: '<S446>/MinMax1' incorporates:
+   *  Constant: '<S446>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMPSAuthentResLo_enum)
+  {
+    /* MinMax: '<S446>/MinMax1' */
+    VOPM_BCMPSAuthentRes_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S446>/MinMax1' */
+    VOPM_BCMPSAuthentRes_enum = KOPM_BCMPSAuthentResLo_enum;
+  }
+
+  /* End of MinMax: '<S446>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMPSAuthentRes_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMChrgLidLockReq_enum' */
   /* Switch: '<S384>/Switch4' incorporates:
    *  Constant: '<S384>/sat3'
    */
-  if (KOPM_BCMDoorLckOpRec_enum_ovrdflg)
+  if (KOPM_BCMChrgLidLockReq_enum_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  Constant: '<S384>/sat4'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
      */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMDoorLckOpRec_enum_ovrdval;
+    VOPM_BCMIllmndSts_enum = KOPM_BCMChrgLidLockReq_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S363>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
      *  DataTypeConversion: '<S384>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
      */
-    VOPM_BCMBackLiFltFb_enum =
+    VOPM_BCMIllmndSts_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_DoorLockOperationRecord;
+            ->BCM_ChrgLidLockReq;
   }
 
   /* End of Switch: '<S384>/Switch4' */
@@ -17740,10 +16282,10 @@ static void Runbl_Opm50ms(void)
   /* MinMax: '<S384>/MinMax' incorporates:
    *  Constant: '<S384>/sat6'
    */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMDoorLckOpRecHi_enum)
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMChrgLidLockReqHi_enum)
   {
-    /* MinMax: '<S434>/MinMax' */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMDoorLckOpRecHi_enum;
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMChrgLidLockReqHi_enum;
   }
 
   /* End of MinMax: '<S384>/MinMax' */
@@ -17751,30 +16293,1006 @@ static void Runbl_Opm50ms(void)
   /* MinMax: '<S384>/MinMax1' incorporates:
    *  Constant: '<S384>/sat7'
    */
-  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMDoorLckOpRecLo_enum)
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMChrgLidLockReqLo_enum)
   {
     /* MinMax: '<S384>/MinMax1' */
-    VOPM_BCMDoorLckOpRec_enum = VOPM_BCMBackLiFltFb_enum;
+    VOPM_BCMChrgLidLockReq_enum = VOPM_BCMIllmndSts_enum;
   }
   else
   {
     /* MinMax: '<S384>/MinMax1' */
-    VOPM_BCMDoorLckOpRec_enum = KOPM_BCMDoorLckOpRecLo_enum;
+    VOPM_BCMChrgLidLockReq_enum = KOPM_BCMChrgLidLockReqLo_enum;
   }
 
   /* End of MinMax: '<S384>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDoorLckOpRec_enum' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMChrgLidLockReq_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMLFInitSta_flg' */
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMRKEReq_enum' */
+  /* Switch: '<S453>/Switch4' incorporates:
+   *  Constant: '<S453>/sat3'
+   */
+  if (KOPM_BCMRKEReq_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S453>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMRKEReq_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S453>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_RKEReq;
+  }
+
+  /* End of Switch: '<S453>/Switch4' */
+
+  /* MinMax: '<S453>/MinMax' incorporates:
+   *  Constant: '<S453>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMRKEReqHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMRKEReqHi_enum;
+  }
+
+  /* End of MinMax: '<S453>/MinMax' */
+
+  /* MinMax: '<S453>/MinMax1' incorporates:
+   *  Constant: '<S453>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMRKEReqLo_enum)
+  {
+    /* MinMax: '<S453>/MinMax1' */
+    VOPM_BCMRKEReq_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S453>/MinMax1' */
+    VOPM_BCMRKEReq_enum = KOPM_BCMRKEReqLo_enum;
+  }
+
+  /* End of MinMax: '<S453>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMRKEReq_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMKeyInCarSta_flg' */
+  /* Switch: '<S431>/Switch4' incorporates:
+   *  Constant: '<S431>/sat3'
+   */
+  if (KOPM_BCMKeyInCarSta_flg_ovrdflg)
+  {
+    /* Switch: '<S431>/Switch4' incorporates:
+     *  Constant: '<S431>/sat4'
+     */
+    VOPM_BCMKeyInCarSta_flg = KOPM_BCMKeyInCarSta_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S431>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S431>/Data Type Conversion1'
+     */
+    VOPM_BCMKeyInCarSta_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeyInCarSta != 0);
+  }
+
+  /* End of Switch: '<S431>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMKeyInCarSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDrvPEAuthentAcsd_enum' */
+  /* Switch: '<S394>/Switch4' incorporates:
+   *  Constant: '<S394>/sat3'
+   */
+  if (KOPM_BCMDrvPEAuthentAcsd_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S394>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvPEAuthentAcsd_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S394>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_DrvPEAuthentAcsd;
+  }
+
+  /* End of Switch: '<S394>/Switch4' */
+
+  /* MinMax: '<S394>/MinMax' incorporates:
+   *  Constant: '<S394>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMDrvPEAuthentAcsdHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMDrvPEAuthentAcsdHi_enum;
+  }
+
+  /* End of MinMax: '<S394>/MinMax' */
+
+  /* MinMax: '<S394>/MinMax1' incorporates:
+   *  Constant: '<S394>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMDrvPEAuthentAcsdLo_enum)
+  {
+    /* MinMax: '<S394>/MinMax1' */
+    VOPM_BCMDrvPEAuthentAcsd_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S394>/MinMax1' */
+    VOPM_BCMDrvPEAuthentAcsd_enum = KOPM_BCMDrvPEAuthentAcsdLo_enum;
+  }
+
+  /* End of MinMax: '<S394>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDrvPEAuthentAcsd_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFRPEAuthentAcsd_enum' */
+  /* Switch: '<S401>/Switch4' incorporates:
+   *  Constant: '<S401>/sat3'
+   */
+  if (KOPM_BCMFRPEAuthentAcsd_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S401>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFRPEAuthentAcsd_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S401>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_FRPEAuthentAcsd;
+  }
+
+  /* End of Switch: '<S401>/Switch4' */
+
+  /* MinMax: '<S401>/MinMax' incorporates:
+   *  Constant: '<S401>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFRPEAuthentAcsdHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFRPEAuthentAcsdHi_enum;
+  }
+
+  /* End of MinMax: '<S401>/MinMax' */
+
+  /* MinMax: '<S401>/MinMax1' incorporates:
+   *  Constant: '<S401>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFRPEAuthentAcsdLo_enum)
+  {
+    /* MinMax: '<S401>/MinMax1' */
+    VOPM_BCMFRPEAuthentAcsd_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S401>/MinMax1' */
+    VOPM_BCMFRPEAuthentAcsd_enum = KOPM_BCMFRPEAuthentAcsdLo_enum;
+  }
+
+  /* End of MinMax: '<S401>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFRPEAuthentAcsd_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMPSReq_flg' */
+  /* Switch: '<S447>/Switch4' incorporates:
+   *  Constant: '<S447>/sat3'
+   */
+  if (KOPM_BCMPSReq_flg_ovrdflg)
+  {
+    /* Switch: '<S447>/Switch4' incorporates:
+     *  Constant: '<S447>/sat4'
+     */
+    VOPM_BCMPSReq_flg = KOPM_BCMPSReq_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S447>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S447>/Data Type Conversion1'
+     */
+    VOPM_BCMPSReq_flg = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_PSReq != 0);
+  }
+
+  /* End of Switch: '<S447>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMPSReq_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMWiprIntlTimeSetFb_enum' */
+  /* Switch: '<S481>/Switch4' incorporates:
+   *  Constant: '<S481>/sat3'
+   */
+  if (KOPM_BCMWiprIntlTimeSetFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S481>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMWiprIntlTimeSetFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S481>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_WiprIntlTimeSetFb;
+  }
+
+  /* End of Switch: '<S481>/Switch4' */
+
+  /* MinMax: '<S481>/MinMax' incorporates:
+   *  Constant: '<S481>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMWiprIntlTimeSetFbHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMWiprIntlTimeSetFbHi_enum;
+  }
+
+  /* End of MinMax: '<S481>/MinMax' */
+
+  /* MinMax: '<S481>/MinMax1' incorporates:
+   *  Constant: '<S481>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMWiprIntlTimeSetFbLo_enum)
+  {
+    /* MinMax: '<S481>/MinMax1' */
+    VOPM_BCMWiprIntlTimeSetFb_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S481>/MinMax1' */
+    VOPM_BCMWiprIntlTimeSetFb_enum = KOPM_BCMWiprIntlTimeSetFbLo_enum;
+  }
+
+  /* End of MinMax: '<S481>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMWiprIntlTimeSetFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMStartReq_enum' */
+  /* Switch: '<S461>/Switch4' incorporates:
+   *  Constant: '<S461>/sat3'
+   */
+  if (KOPM_BCMStartReq_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S461>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMStartReq_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S461>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_StartReq;
+  }
+
+  /* End of Switch: '<S461>/Switch4' */
+
+  /* MinMax: '<S461>/MinMax' incorporates:
+   *  Constant: '<S461>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMStartReqHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMStartReqHi_enum;
+  }
+
+  /* End of MinMax: '<S461>/MinMax' */
+
+  /* MinMax: '<S461>/MinMax1' incorporates:
+   *  Constant: '<S461>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMStartReqLo_enum)
+  {
+    /* MinMax: '<S461>/MinMax1' */
+    VOPM_BCMStartReq_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S461>/MinMax1' */
+    VOPM_BCMStartReq_enum = KOPM_BCMStartReqLo_enum;
+  }
+
+  /* End of MinMax: '<S461>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMStartReq_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMChgWiprMtMdSwSetFb_enum' */
+  /* Switch: '<S383>/Switch4' incorporates:
+   *  Constant: '<S383>/sat3'
+   */
+  if (KOPM_BCMChgWiprMtMdSwSetFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S383>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMChgWiprMtMdSwSetFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S383>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_ChgWiperMtMdSwSetFb;
+  }
+
+  /* End of Switch: '<S383>/Switch4' */
+
+  /* MinMax: '<S383>/MinMax' incorporates:
+   *  Constant: '<S383>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMChgWiprMtMdSwSetFbHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMChgWiprMtMdSwSetFbHi_enum;
+  }
+
+  /* End of MinMax: '<S383>/MinMax' */
+
+  /* MinMax: '<S383>/MinMax1' incorporates:
+   *  Constant: '<S383>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMChgWiprMtMdSwSetFbLo_enum)
+  {
+    /* MinMax: '<S383>/MinMax1' */
+    VOPM_BCMChgWiprMtMdSwSetFb_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S383>/MinMax1' */
+    VOPM_BCMChgWiprMtMdSwSetFb_enum = KOPM_BCMChgWiprMtMdSwSetFbLo_enum;
+  }
+
+  /* End of MinMax: '<S383>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMChgWiprMtMdSwSetFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMParkAutoUnlckSetFb_flg' */
+  /* Switch: '<S448>/Switch4' incorporates:
+   *  Constant: '<S448>/sat3'
+   */
+  if (KOPM_BCMParkAutoUnlckSetFb_flg_ovrdflg)
+  {
+    /* Switch: '<S448>/Switch4' incorporates:
+     *  Constant: '<S448>/sat4'
+     */
+    VOPM_BCMParkAutoUnlckSetFb_flg = KOPM_BCMParkAutoUnlckSetFb_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S448>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S448>/Data Type Conversion1'
+     */
+    VOPM_BCMParkAutoUnlckSetFb_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_ParkAutoUnlockSetFb != 0);
+  }
+
+  /* End of Switch: '<S448>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMParkAutoUnlckSetFb_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMOvrspdCntrlLckSetFb_flg' */
+  /* Switch: '<S445>/Switch4' incorporates:
+   *  Constant: '<S445>/sat3'
+   */
+  if (KOPM_BCMOvrspdCntrlLckSetFb_flg_ovrdflg)
+  {
+    /* Switch: '<S445>/Switch4' incorporates:
+     *  Constant: '<S445>/sat4'
+     */
+    VOPM_BCMOvrspdCntrlLckSetFb_flg = KOPM_BCMOvrspdCntrlLckSetFb_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S445>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S445>/Data Type Conversion1'
+     */
+    VOPM_BCMOvrspdCntrlLckSetFb_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_OverspdCntrlLockSetFb != 0);
+  }
+
+  /* End of Switch: '<S445>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMOvrspdCntrlLckSetFb_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMTrnkLckSta_flg' */
+  /* Switch: '<S465>/Switch4' incorporates:
+   *  Constant: '<S465>/sat3'
+   */
+  if (KOPM_BCMTrnkLckSta_flg_ovrdflg)
+  {
+    /* Switch: '<S465>/Switch4' incorporates:
+     *  Constant: '<S465>/sat4'
+     */
+    VOPM_BCMTrnkLckSta_flg = KOPM_BCMTrnkLckSta_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S465>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S465>/Data Type Conversion1'
+     */
+    VOPM_BCMTrnkLckSta_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_TrunkLockSta != 0);
+  }
+
+  /* End of Switch: '<S465>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMTrnkLckSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMTrnkLckSwCtrlFb_flg' */
+  /* Switch: '<S466>/Switch4' incorporates:
+   *  Constant: '<S466>/sat3'
+   */
+  if (KOPM_BCMTrnkLckSwCtrlFb_flg_ovrdflg)
+  {
+    /* Switch: '<S466>/Switch4' incorporates:
+     *  Constant: '<S466>/sat4'
+     */
+    VOPM_BCMTrnkLckSwCtrlFb_flg = KOPM_BCMTrnkLckSwCtrlFb_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S466>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S466>/Data Type Conversion1'
+     */
+    VOPM_BCMTrnkLckSwCtrlFb_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_TrunkLockSwCtrlFb != 0);
+  }
+
+  /* End of Switch: '<S466>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMTrnkLckSwCtrlFb_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMAuthentKeyNr_enum' */
+  /* Switch: '<S373>/Switch4' incorporates:
+   *  Constant: '<S373>/sat3'
+   */
+  if (KOPM_BCMAuthentKeyNr_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S373>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMAuthentKeyNr_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S373>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_AuthentKeyNr;
+  }
+
+  /* End of Switch: '<S373>/Switch4' */
+
+  /* MinMax: '<S373>/MinMax' incorporates:
+   *  Constant: '<S373>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMAuthentKeyNrHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMAuthentKeyNrHi_enum;
+  }
+
+  /* End of MinMax: '<S373>/MinMax' */
+
+  /* MinMax: '<S373>/MinMax1' incorporates:
+   *  Constant: '<S373>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMAuthentKeyNrLo_enum)
+  {
+    /* MinMax: '<S373>/MinMax1' */
+    VOPM_BCMAuthentKeyNr_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S373>/MinMax1' */
+    VOPM_BCMAuthentKeyNr_enum = KOPM_BCMAuthentKeyNrLo_enum;
+  }
+
+  /* End of MinMax: '<S373>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMAuthentKeyNr_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMKeyFrbdn_flg' */
+  /* Switch: '<S429>/Switch4' incorporates:
+   *  Constant: '<S429>/sat3'
+   */
+  if (KOPM_BCMKeyFrbdn_flg_ovrdflg)
+  {
+    /* Switch: '<S429>/Switch4' incorporates:
+     *  Constant: '<S429>/sat4'
+     */
+    VOPM_BCMKeyFrbdn_flg = KOPM_BCMKeyFrbdn_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S429>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S429>/Data Type Conversion1'
+     */
+    VOPM_BCMKeyFrbdn_flg = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeyFrbdn != 0);
+  }
+
+  /* End of Switch: '<S429>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMKeyFrbdn_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFrbdnKeyNr_enum' */
+  /* Switch: '<S408>/Switch4' incorporates:
+   *  Constant: '<S408>/sat3'
+   */
+  if (KOPM_BCMFrbdnKeyNr_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S408>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFrbdnKeyNr_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S408>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_FrbdnKeyNr;
+  }
+
+  /* End of Switch: '<S408>/Switch4' */
+
+  /* MinMax: '<S408>/MinMax' incorporates:
+   *  Constant: '<S408>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMFrbdnKeyNrHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMFrbdnKeyNrHi_enum;
+  }
+
+  /* End of MinMax: '<S408>/MinMax' */
+
+  /* MinMax: '<S408>/MinMax1' incorporates:
+   *  Constant: '<S408>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMFrbdnKeyNrLo_enum)
+  {
+    /* MinMax: '<S408>/MinMax1' */
+    VOPM_BCMFrbdnKeyNr_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S408>/MinMax1' */
+    VOPM_BCMFrbdnKeyNr_enum = KOPM_BCMFrbdnKeyNrLo_enum;
+  }
+
+  /* End of MinMax: '<S408>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFrbdnKeyNr_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMKeyIDFb_enum' */
+  /* Switch: '<S430>/Switch4' incorporates:
+   *  Constant: '<S430>/sat3'
+   */
+  if (KOPM_BCMKeyIDFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S430>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMKeyIDFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S430>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeyIDFb;
+  }
+
+  /* End of Switch: '<S430>/Switch4' */
+
+  /* MinMax: '<S430>/MinMax' incorporates:
+   *  Constant: '<S430>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMKeyIDFbHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMKeyIDFbHi_enum;
+  }
+
+  /* End of MinMax: '<S430>/MinMax' */
+
+  /* MinMax: '<S430>/MinMax1' incorporates:
+   *  Constant: '<S430>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMKeyIDFbLo_enum)
+  {
+    /* MinMax: '<S430>/MinMax1' */
+    VOPM_BCMKeyIDFb_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S430>/MinMax1' */
+    VOPM_BCMKeyIDFb_enum = KOPM_BCMKeyIDFbLo_enum;
+  }
+
+  /* End of MinMax: '<S430>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMKeyIDFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMKeyLocn_mm' */
+  /* Switch: '<S433>/Switch4' incorporates:
+   *  Constant: '<S433>/sat3'
+   */
+  if (KOPM_BCMKeyLocn_mm_ovrdflg)
+  {
+    /* MinMax: '<S433>/MinMax' incorporates:
+     *  Constant: '<S433>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion92'
+     */
+    VOPM_BCMKeyLocn_mm = KOPM_BCMKeyLocn_mm_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S433>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion92'
+     *  DataTypeConversion: '<S433>/Data Type Conversion1'
+     */
+    VOPM_BCMKeyLocn_mm = (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeyLocn;
+  }
+
+  /* End of Switch: '<S433>/Switch4' */
+
+  /* MinMax: '<S433>/MinMax' incorporates:
+   *  Constant: '<S433>/sat6'
+   */
+  if (VOPM_BCMKeyLocn_mm > KOPM_BCMKeyLocnHi_mm)
+  {
+    VOPM_BCMKeyLocn_mm = KOPM_BCMKeyLocnHi_mm;
+  }
+
+  /* MinMax: '<S433>/MinMax1' incorporates:
+   *  Constant: '<S433>/sat7'
+   */
+  if (VOPM_BCMKeyLocn_mm < KOPM_BCMKeyLocnLo_mm)
+  {
+    /* MinMax: '<S433>/MinMax' incorporates:
+     *  MinMax: '<S433>/MinMax1'
+     */
+    VOPM_BCMKeyLocn_mm = KOPM_BCMKeyLocnLo_mm;
+  }
+
+  /* End of MinMax: '<S433>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMKeyLocn_mm' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMIllmndEntryStsFb_flg' */
+  /* Switch: '<S421>/Switch4' incorporates:
+   *  Constant: '<S421>/sat3'
+   */
+  if (KOPM_BCMIllmndEntryStsFb_flg_ovrdflg)
+  {
+    /* Switch: '<S421>/Switch4' incorporates:
+     *  Constant: '<S421>/sat4'
+     */
+    VOPM_BCMIllmndEntryStsFb_flg = KOPM_BCMIllmndEntryStsFb_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S421>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S421>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndEntryStsFb_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_IllmndEntryStsFb != 0);
+  }
+
+  /* End of Switch: '<S421>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMIllmndEntryStsFb_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMAvaluebleKeyInCar_flg' */
+  /* Switch: '<S375>/Switch4' incorporates:
+   *  Constant: '<S375>/sat3'
+   */
+  if (KOPM_BCMAvaluebleKeyInCar_flg_ovrdflg)
+  {
+    /* Switch: '<S375>/Switch4' incorporates:
+     *  Constant: '<S375>/sat4'
+     */
+    VOPM_BCMAvaluebleKeyInCar_flg = KOPM_BCMAvaluebleKeyInCar_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S375>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S375>/Data Type Conversion1'
+     */
+    VOPM_BCMAvaluebleKeyInCar_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_AvaluebleKeyInCar != 0);
+  }
+
+  /* End of Switch: '<S375>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMAvaluebleKeyInCar_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMKeyBattLvlSts_flg' */
+  /* Switch: '<S427>/Switch4' incorporates:
+   *  Constant: '<S427>/sat3'
+   */
+  if (KOPM_BCMKeyBattLvlSts_flg_ovrdflg)
+  {
+    /* Switch: '<S427>/Switch4' incorporates:
+     *  Constant: '<S427>/sat4'
+     */
+    VOPM_BCMKeyBattLvlSts_flg = KOPM_BCMKeyBattLvlSts_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S427>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S427>/Data Type Conversion1'
+     */
+    VOPM_BCMKeyBattLvlSts_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_KeyBattLvlSts != 0);
+  }
+
+  /* End of Switch: '<S427>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMKeyBattLvlSts_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMKeyBattLvl_pct' */
+  /* Switch: '<S428>/Switch4' incorporates:
+   *  Constant: '<S428>/sat3'
+   */
+  if (KOPM_BCMKeyBattLvl_pct_ovrdflg)
+  {
+    /* MinMax: '<S428>/MinMax' incorporates:
+     *  Constant: '<S428>/sat4'
+     *  Product: '<S493>/Product1'
+     */
+    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMKeyBattLvl_pct_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S428>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S428>/Data Type Conversion1'
+     *  Product: '<S493>/Product1'
+     */
+    VOPM_BCMMaiDrvrSeatTemp_C = (float32)(Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeyBattLvl;
+  }
+
+  /* End of Switch: '<S428>/Switch4' */
+
+  /* MinMax: '<S428>/MinMax' incorporates:
+   *  Constant: '<S428>/sat6'
+   */
+  if (VOPM_BCMMaiDrvrSeatTemp_C > KOPM_BCMKeyBattLvlHi_pct)
+  {
+    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMKeyBattLvlHi_pct;
+  }
+
+  /* MinMax: '<S428>/MinMax1' incorporates:
+   *  Constant: '<S428>/sat7'
+   */
+  if (VOPM_BCMMaiDrvrSeatTemp_C >= KOPM_BCMKeyBattLvlLo_pct)
+  {
+    /* MinMax: '<S428>/MinMax1' */
+    VOPM_BCMKeyBattLvl_pct = VOPM_BCMMaiDrvrSeatTemp_C;
+  }
+  else
+  {
+    /* MinMax: '<S428>/MinMax1' */
+    VOPM_BCMKeyBattLvl_pct = KOPM_BCMKeyBattLvlLo_pct;
+  }
+
+  /* End of MinMax: '<S428>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMKeyBattLvl_pct' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMKeyLoBattLvlWarn_flg' */
+  /* Switch: '<S432>/Switch4' incorporates:
+   *  Constant: '<S432>/sat3'
+   */
+  if (KOPM_BCMKeyLoBattLvlWarn_flg_ovrdflg)
+  {
+    /* Switch: '<S432>/Switch4' incorporates:
+     *  Constant: '<S432>/sat4'
+     */
+    VOPM_BCMKeyLoBattLvlWarn_flg = KOPM_BCMKeyLoBattLvlWarn_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S432>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S432>/Data Type Conversion1'
+     */
+    VOPM_BCMKeyLoBattLvlWarn_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_KeyLoBattLvlWarn != 0);
+  }
+
+  /* End of Switch: '<S432>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMKeyLoBattLvlWarn_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMKeySta_enum' */
+  /* Switch: '<S434>/Switch4' incorporates:
+   *  Constant: '<S434>/sat3'
+   */
+  if (KOPM_BCMKeySta_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S434>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMKeySta_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S434>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_KeySta;
+  }
+
+  /* End of Switch: '<S434>/Switch4' */
+
+  /* MinMax: '<S434>/MinMax' incorporates:
+   *  Constant: '<S434>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMKeyStaHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMKeyStaHi_enum;
+  }
+
+  /* End of MinMax: '<S434>/MinMax' */
+
+  /* MinMax: '<S434>/MinMax1' incorporates:
+   *  Constant: '<S434>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMKeyStaLo_enum)
+  {
+    /* MinMax: '<S434>/MinMax1' */
+    VOPM_BCMKeySta_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S434>/MinMax1' */
+    VOPM_BCMKeySta_enum = KOPM_BCMKeyStaLo_enum;
+  }
+
+  /* End of MinMax: '<S434>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMKeySta_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMIllmndLampReq_flg' */
+  /* Switch: '<S422>/Switch4' incorporates:
+   *  Constant: '<S422>/sat3'
+   */
+  if (KOPM_BCMIllmndLampReq_flg_ovrdflg)
+  {
+    /* Switch: '<S422>/Switch4' incorporates:
+     *  Constant: '<S422>/sat4'
+     */
+    VOPM_BCMIllmndLampReq_flg = KOPM_BCMIllmndLampReq_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S422>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S422>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndLampReq_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_IllmndLampReq != 0);
+  }
+
+  /* End of Switch: '<S422>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMIllmndLampReq_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMIllmndLockReq_enum' */
+  /* Switch: '<S423>/Switch4' incorporates:
+   *  Constant: '<S423>/sat3'
+   */
+  if (KOPM_BCMIllmndLockReq_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S423>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMIllmndLockReq_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S423>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_IllmndLockReq;
+  }
+
+  /* End of Switch: '<S423>/Switch4' */
+
+  /* MinMax: '<S423>/MinMax' incorporates:
+   *  Constant: '<S423>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMIllmndLockReqHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMIllmndLockReqHi_enum;
+  }
+
+  /* End of MinMax: '<S423>/MinMax' */
+
+  /* MinMax: '<S423>/MinMax1' incorporates:
+   *  Constant: '<S423>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum >= KOPM_BCMIllmndLockReqLo_enum)
+  {
+    /* MinMax: '<S423>/MinMax1' */
+    VOPM_BCMIllmndLockReq_enum = VOPM_BCMIllmndSts_enum;
+  }
+  else
+  {
+    /* MinMax: '<S423>/MinMax1' */
+    VOPM_BCMIllmndLockReq_enum = KOPM_BCMIllmndLockReqLo_enum;
+  }
+
+  /* End of MinMax: '<S423>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMIllmndLockReq_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMIndcnShfttoNeut_flg' */
   /* Switch: '<S426>/Switch4' incorporates:
    *  Constant: '<S426>/sat3'
    */
-  if (KOPM_BCMLFInitSta_flg_ovrdflg)
+  if (KOPM_BCMIndcnShfttoNeut_flg_ovrdflg)
   {
     /* Switch: '<S426>/Switch4' incorporates:
      *  Constant: '<S426>/sat4'
      */
-    VOPM_BCMLFInitSta_flg = KOPM_BCMLFInitSta_flg_ovrdval;
+    VOPM_BCMIndcnShfttoNeut_flg = KOPM_BCMIndcnShfttoNeut_flg_ovrdval;
   }
   else
   {
@@ -17782,465 +17300,1384 @@ static void Runbl_Opm50ms(void)
      *  DataTransferBlock generated from: '<Root>/OpmRx'
      *  DataTypeConversion: '<S426>/Data Type Conversion1'
      */
-    VOPM_BCMLFInitSta_flg = (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_LFInitSta;
+    VOPM_BCMIndcnShfttoNeut_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_IndicationShifttoNeutral != 0);
   }
 
   /* End of Switch: '<S426>/Switch4' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMLFInitSta_flg' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMIndcnShfttoNeut_flg' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_DrvLfAntDiagStat_enum' */
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMWarnKeyOutRmndr_flg' */
+  /* Switch: '<S473>/Switch4' incorporates:
+   *  Constant: '<S473>/sat3'
+   */
+  if (KOPM_BCMWarnKeyOutRmndr_flg_ovrdflg)
+  {
+    /* Switch: '<S473>/Switch4' incorporates:
+     *  Constant: '<S473>/sat4'
+     */
+    VOPM_BCMWarnKeyOutRmndr_flg = KOPM_BCMWarnKeyOutRmndr_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S473>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S473>/Data Type Conversion1'
+     */
+    VOPM_BCMWarnKeyOutRmndr_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_WarnKeyOutReminder != 0);
+  }
+
+  /* End of Switch: '<S473>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMWarnKeyOutRmndr_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMIndcnKeyClsr_flg' */
+  /* Switch: '<S425>/Switch4' incorporates:
+   *  Constant: '<S425>/sat3'
+   */
+  if (KOPM_BCMIndcnKeyClsr_flg_ovrdflg)
+  {
+    /* Switch: '<S425>/Switch4' incorporates:
+     *  Constant: '<S425>/sat4'
+     */
+    VOPM_BCMIndcnKeyClsr_flg = KOPM_BCMIndcnKeyClsr_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S425>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S425>/Data Type Conversion1'
+     */
+    VOPM_BCMIndcnKeyClsr_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_IndicationKeyCloser != 0);
+  }
+
+  /* End of Switch: '<S425>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMIndcnKeyClsr_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMIllmndSts_enum' */
+  /* Switch: '<S424>/Switch4' incorporates:
+   *  Constant: '<S424>/sat3'
+   */
+  if (KOPM_BCMIllmndSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  Constant: '<S424>/sat4'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMIllmndSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S349>/DataTypeConversion102'
+     *  DataTypeConversion: '<S424>/Data Type Conversion1'
+     */
+    VOPM_BCMIllmndSts_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_IllmndSts;
+  }
+
+  /* End of Switch: '<S424>/Switch4' */
+
+  /* MinMax: '<S424>/MinMax' incorporates:
+   *  Constant: '<S424>/sat6'
+   */
+  if (VOPM_BCMIllmndSts_enum > KOPM_BCMIllmndStsHi_enum)
+  {
+    /* MinMax: '<S363>/MinMax' */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMIllmndStsHi_enum;
+  }
+
+  /* End of MinMax: '<S424>/MinMax' */
+
+  /* MinMax: '<S424>/MinMax1' incorporates:
+   *  Constant: '<S424>/sat7'
+   */
+  if (VOPM_BCMIllmndSts_enum < KOPM_BCMIllmndStsLo_enum)
+  {
+    /* MinMax: '<S363>/MinMax' incorporates:
+     *  MinMax: '<S424>/MinMax1'
+     */
+    VOPM_BCMIllmndSts_enum = KOPM_BCMIllmndStsLo_enum;
+  }
+
+  /* End of MinMax: '<S424>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMIllmndSts_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMSteerWhlHeatSts_flg' */
+  /* Switch: '<S462>/Switch4' incorporates:
+   *  Constant: '<S462>/sat3'
+   */
+  if (KOPM_BCMSteerWhlHeatSts_flg_ovrdflg)
+  {
+    /* MinMax: '<S462>/MinMax' incorporates:
+     *  Constant: '<S462>/sat4'
+     */
+    rtb_MinMax_b = KOPM_BCMSteerWhlHeatSts_flg_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S462>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S462>/Data Type Conversion1'
+     */
+    rtb_MinMax_b = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+                        ->BCM_SteerWhlHeatSts != 0);
+  }
+
+  /* End of Switch: '<S462>/Switch4' */
+
+  /* MinMax: '<S462>/MinMax1' incorporates:
+   *  Constant: '<S462>/sat6'
+   *  Constant: '<S462>/sat7'
+   *  MinMax: '<S462>/MinMax'
+   */
+  VOPM_BCMSteerWhlHeatSts_flg = ((rtb_MinMax_b && KOPM_BCMSteerWhlHeatStsHi_flg) || KOPM_BCMSteerWhlHeatStsLo_flg);
+
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMSteerWhlHeatSts_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMSteerWhlTemp_C' */
+  /* Switch: '<S463>/Switch4' incorporates:
+   *  Constant: '<S463>/sat3'
+   */
+  if (KOPM_BCMSteerWhlTemp_C_ovrdflg)
+  {
+    /* MinMax: '<S428>/MinMax' incorporates:
+     *  Constant: '<S463>/sat4'
+     *  Product: '<S493>/Product1'
+     */
+    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMSteerWhlTemp_C_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S428>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S463>/Data Type Conversion1'
+     *  Product: '<S493>/Product1'
+     */
+    VOPM_BCMMaiDrvrSeatTemp_C = (float32)(Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_SteerWhlTemp;
+  }
+
+  /* End of Switch: '<S463>/Switch4' */
+
+  /* MinMax: '<S463>/MinMax' incorporates:
+   *  Constant: '<S463>/sat6'
+   */
+  if (VOPM_BCMMaiDrvrSeatTemp_C > KOPM_BCMSteerWhlTempHi_C)
+  {
+    /* MinMax: '<S428>/MinMax' */
+    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMSteerWhlTempHi_C;
+  }
+
+  /* End of MinMax: '<S463>/MinMax' */
+
+  /* MinMax: '<S463>/MinMax1' incorporates:
+   *  Constant: '<S463>/sat7'
+   */
+  if (VOPM_BCMMaiDrvrSeatTemp_C >= KOPM_BCMSteerWhlTempLo_C)
+  {
+    /* MinMax: '<S463>/MinMax1' */
+    VOPM_BCMSteerWhlTemp_C = VOPM_BCMMaiDrvrSeatTemp_C;
+  }
+  else
+  {
+    /* MinMax: '<S463>/MinMax1' */
+    VOPM_BCMSteerWhlTemp_C = KOPM_BCMSteerWhlTempLo_C;
+  }
+
+  /* End of MinMax: '<S463>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMSteerWhlTemp_C' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMMaiDrvrSeatTemp_C' */
+  /* Switch: '<S444>/Switch4' incorporates:
+   *  Constant: '<S444>/sat3'
+   */
+  if (KOPM_BCMMaiDrvrSeatTemp_C_ovrdflg)
+  {
+    /* MinMax: '<S428>/MinMax' incorporates:
+     *  Constant: '<S444>/sat4'
+     *  Product: '<S493>/Product1'
+     */
+    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMMaiDrvrSeatTemp_C_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S428>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S444>/Data Type Conversion1'
+     *  Product: '<S493>/Product1'
+     */
+    VOPM_BCMMaiDrvrSeatTemp_C = (float32)(Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+                                    ->BCM_MaiDrvrSeatTemp;
+  }
+
+  /* End of Switch: '<S444>/Switch4' */
+
+  /* MinMax: '<S444>/MinMax' incorporates:
+   *  Constant: '<S444>/sat6'
+   */
+  if (VOPM_BCMMaiDrvrSeatTemp_C > KOPM_BCMMaiDrvrSeatTempHi_C)
+  {
+    /* MinMax: '<S428>/MinMax' */
+    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMMaiDrvrSeatTempHi_C;
+  }
+
+  /* End of MinMax: '<S444>/MinMax' */
+
+  /* MinMax: '<S444>/MinMax1' incorporates:
+   *  Constant: '<S444>/sat7'
+   */
+  if (VOPM_BCMMaiDrvrSeatTemp_C < KOPM_BCMMaiDrvrSeatTempLo_C)
+  {
+    /* MinMax: '<S428>/MinMax' incorporates:
+     *  MinMax: '<S444>/MinMax1'
+     */
+    VOPM_BCMMaiDrvrSeatTemp_C = KOPM_BCMMaiDrvrSeatTempLo_C;
+  }
+
+  /* End of MinMax: '<S444>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMMaiDrvrSeatTemp_C' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMRrMirrHeatSts_flg' */
+  /* Switch: '<S458>/Switch4' incorporates:
+   *  Constant: '<S458>/sat3'
+   */
+  if (KOPM_BCMRrMirrHeatSts_flg_ovrdflg)
+  {
+    /* Switch: '<S458>/Switch4' incorporates:
+     *  Constant: '<S458>/sat4'
+     */
+    VOPM_BCMRrMirrHeatSts_flg = KOPM_BCMRrMirrHeatSts_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S458>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S458>/Data Type Conversion1'
+     */
+    VOPM_BCMRrMirrHeatSts_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_RearMirrorHeatSts != 0);
+  }
+
+  /* End of Switch: '<S458>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMRrMirrHeatSts_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMMaiDrvrSeatSts_enum' */
+  /* Switch: '<S443>/Switch4' incorporates:
+   *  Constant: '<S443>/sat3'
+   */
+  if (KOPM_BCMMaiDrvrSeatSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S443>/sat4'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMMaiDrvrSeatSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S443>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_MaiDrvrSeatSts;
+  }
+
+  /* End of Switch: '<S443>/Switch4' */
+
+  /* MinMax: '<S443>/MinMax' incorporates:
+   *  Constant: '<S443>/sat6'
+   */
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMMaiDrvrSeatStsHi_enum)
+  {
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMMaiDrvrSeatStsHi_enum;
+  }
+
+  /* MinMax: '<S443>/MinMax1' incorporates:
+   *  Constant: '<S443>/sat7'
+   */
+  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMMaiDrvrSeatStsLo_enum)
+  {
+    /* MinMax: '<S443>/MinMax1' */
+    VOPM_BCMMaiDrvrSeatSts_enum = VOPM_BCMBackLiFltFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax1' */
+    VOPM_BCMMaiDrvrSeatSts_enum = KOPM_BCMMaiDrvrSeatStsLo_enum;
+  }
+
+  /* End of MinMax: '<S443>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMMaiDrvrSeatSts_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFrntWiprMotSts_enum' */
+  /* Switch: '<S413>/Switch4' incorporates:
+   *  Constant: '<S413>/sat3'
+   */
+  if (KOPM_BCMFrntWiprMotSts_enum_ovrdflg)
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S413>/sat4'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMFrntWiprMotSts_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S413>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_FrontWiperMotorSts;
+  }
+
+  /* End of Switch: '<S413>/Switch4' */
+
+  /* MinMax: '<S413>/MinMax' incorporates:
+   *  Constant: '<S413>/sat6'
+   */
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMFrntWiprMotStsHi_enum)
+  {
+    /* MinMax: '<S443>/MinMax' */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMFrntWiprMotStsHi_enum;
+  }
+
+  /* End of MinMax: '<S413>/MinMax' */
+
+  /* MinMax: '<S413>/MinMax1' incorporates:
+   *  Constant: '<S413>/sat7'
+   */
+  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMFrntWiprMotStsLo_enum)
+  {
+    /* MinMax: '<S413>/MinMax1' */
+    VOPM_BCMFrntWiprMotSts_enum = VOPM_BCMBackLiFltFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S413>/MinMax1' */
+    VOPM_BCMFrntWiprMotSts_enum = KOPM_BCMFrntWiprMotStsLo_enum;
+  }
+
+  /* End of MinMax: '<S413>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFrntWiprMotSts_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMLogoActvFlg_enum' */
+  /* Switch: '<S441>/Switch4' incorporates:
+   *  Constant: '<S441>/sat3'
+   */
+  if (KOPM_BCMLogoActvFlg_enum_ovrdflg)
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S441>/sat4'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMLogoActvFlg_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S441>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_LogoActiveFlag;
+  }
+
+  /* End of Switch: '<S441>/Switch4' */
+
+  /* MinMax: '<S441>/MinMax' incorporates:
+   *  Constant: '<S441>/sat6'
+   */
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMLogoActvFlgHi_enum)
+  {
+    /* MinMax: '<S443>/MinMax' */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMLogoActvFlgHi_enum;
+  }
+
+  /* End of MinMax: '<S441>/MinMax' */
+
+  /* MinMax: '<S441>/MinMax1' incorporates:
+   *  Constant: '<S441>/sat7'
+   */
+  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMLogoActvFlgLo_enum)
+  {
+    /* MinMax: '<S441>/MinMax1' */
+    VOPM_BCMLogoActvFlg_enum = VOPM_BCMBackLiFltFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S441>/MinMax1' */
+    VOPM_BCMLogoActvFlg_enum = KOPM_BCMLogoActvFlgLo_enum;
+  }
+
+  /* End of MinMax: '<S441>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMLogoActvFlg_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMVehSeek_flg' */
   /* Switch: '<S472>/Switch4' incorporates:
    *  Constant: '<S472>/sat3'
    */
+  if (KOPM_BCMVehSeek_flg_ovrdflg)
+  {
+    /* Switch: '<S472>/Switch4' incorporates:
+     *  Constant: '<S472>/sat4'
+     */
+    VOPM_BCMVehSeek_flg = KOPM_BCMVehSeek_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S472>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S472>/Data Type Conversion1'
+     */
+    VOPM_BCMVehSeek_flg = ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+                               ->BCM_VhclSeek != 0);
+  }
+
+  /* End of Switch: '<S472>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMVehSeek_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMRFInitSta_flg' */
+  /* Switch: '<S452>/Switch4' incorporates:
+   *  Constant: '<S452>/sat3'
+   */
+  if (KOPM_BCMRFInitSta_flg_ovrdflg)
+  {
+    /* Switch: '<S452>/Switch4' incorporates:
+     *  Constant: '<S452>/sat4'
+     */
+    VOPM_BCMRFInitSta_flg = KOPM_BCMRFInitSta_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S452>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S452>/Data Type Conversion1'
+     */
+    VOPM_BCMRFInitSta_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_RFInitSta !=
+         0);
+  }
+
+  /* End of Switch: '<S452>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMRFInitSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMRiTrnLiFltFb_enum' */
+  /* Switch: '<S455>/Switch4' incorporates:
+   *  Constant: '<S455>/sat3'
+   */
+  if (KOPM_BCMRiTrnLiFltFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S455>/sat4'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMRiTrnLiFltFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S455>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_RiTurnLiFaultFb;
+  }
+
+  /* End of Switch: '<S455>/Switch4' */
+
+  /* MinMax: '<S455>/MinMax' incorporates:
+   *  Constant: '<S455>/sat6'
+   */
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMRiTrnLiFltFbHi_enum)
+  {
+    /* MinMax: '<S443>/MinMax' */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMRiTrnLiFltFbHi_enum;
+  }
+
+  /* End of MinMax: '<S455>/MinMax' */
+
+  /* MinMax: '<S455>/MinMax1' incorporates:
+   *  Constant: '<S455>/sat7'
+   */
+  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMRiTrnLiFltFbLo_enum)
+  {
+    /* MinMax: '<S455>/MinMax1' */
+    VOPM_BCMRiTrnLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S455>/MinMax1' */
+    VOPM_BCMRiTrnLiFltFb_enum = KOPM_BCMRiTrnLiFltFbLo_enum;
+  }
+
+  /* End of MinMax: '<S455>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMRiTrnLiFltFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMLeTrnLiFltFb_enum' */
+  /* Switch: '<S437>/Switch4' incorporates:
+   *  Constant: '<S437>/sat3'
+   */
+  if (KOPM_BCMLeTrnLiFltFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S437>/sat4'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMLeTrnLiFltFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S437>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_LeTurnLiFaultFb;
+  }
+
+  /* End of Switch: '<S437>/Switch4' */
+
+  /* MinMax: '<S437>/MinMax' incorporates:
+   *  Constant: '<S437>/sat6'
+   */
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMLeTrnLiFltFbHi_enum)
+  {
+    /* MinMax: '<S443>/MinMax' */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMLeTrnLiFltFbHi_enum;
+  }
+
+  /* End of MinMax: '<S437>/MinMax' */
+
+  /* MinMax: '<S437>/MinMax1' incorporates:
+   *  Constant: '<S437>/sat7'
+   */
+  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMLeTrnLiFltFbLo_enum)
+  {
+    /* MinMax: '<S437>/MinMax1' */
+    VOPM_BCMLeTrnLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S437>/MinMax1' */
+    VOPM_BCMLeTrnLiFltFb_enum = KOPM_BCMLeTrnLiFltFbLo_enum;
+  }
+
+  /* End of MinMax: '<S437>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMLeTrnLiFltFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFLWinmotor_flg' */
+  /* Switch: '<S400>/Switch4' incorporates:
+   *  Constant: '<S400>/sat3'
+   */
+  if (KOPM_BCMFLWinmotor_flg_ovrdflg)
+  {
+    /* Switch: '<S400>/Switch4' incorporates:
+     *  Constant: '<S400>/sat4'
+     */
+    VOPM_BCMFLWinmotor_flg = KOPM_BCMFLWinmotor_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S400>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S400>/Data Type Conversion1'
+     */
+    VOPM_BCMFLWinmotor_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_FLWindowmotorFlags;
+  }
+
+  /* End of Switch: '<S400>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFLWinmotor_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFRWinmotor_flg' */
+  /* Switch: '<S404>/Switch4' incorporates:
+   *  Constant: '<S404>/sat3'
+   */
+  if (KOPM_BCMFRWinmotor_flg_ovrdflg)
+  {
+    /* Switch: '<S404>/Switch4' incorporates:
+     *  Constant: '<S404>/sat4'
+     */
+    VOPM_BCMFRWinmotor_flg = KOPM_BCMFRWinmotor_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S404>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S404>/Data Type Conversion1'
+     */
+    VOPM_BCMFRWinmotor_flg =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_FRWindowmotorFlags;
+  }
+
+  /* End of Switch: '<S404>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFRWinmotor_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDrvPassWinSwSig_enum' */
+  /* Switch: '<S395>/Switch4' incorporates:
+   *  Constant: '<S395>/sat3'
+   */
+  if (KOPM_BCMDrvPassWinSwSig_enum_ovrdflg)
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S395>/sat4'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMDrvPassWinSwSig_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S395>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_DrvPassWinSwSig;
+  }
+
+  /* End of Switch: '<S395>/Switch4' */
+
+  /* MinMax: '<S395>/MinMax' incorporates:
+   *  Constant: '<S395>/sat6'
+   */
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMDrvPassWinSwSigHi_enum)
+  {
+    /* MinMax: '<S443>/MinMax' */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMDrvPassWinSwSigHi_enum;
+  }
+
+  /* End of MinMax: '<S395>/MinMax' */
+
+  /* MinMax: '<S395>/MinMax1' incorporates:
+   *  Constant: '<S395>/sat7'
+   */
+  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMDrvPassWinSwSigLo_enum)
+  {
+    /* MinMax: '<S395>/MinMax1' */
+    VOPM_BCMDrvPassWinSwSig_enum = VOPM_BCMBackLiFltFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S395>/MinMax1' */
+    VOPM_BCMDrvPassWinSwSig_enum = KOPM_BCMDrvPassWinSwSigLo_enum;
+  }
+
+  /* End of MinMax: '<S395>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDrvPassWinSwSig_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDoorLckOpRec_enum' */
+  /* Switch: '<S393>/Switch4' incorporates:
+   *  Constant: '<S393>/sat3'
+   */
+  if (KOPM_BCMDoorLckOpRec_enum_ovrdflg)
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S393>/sat4'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMDoorLckOpRec_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S393>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_DoorLockOperationRecord;
+  }
+
+  /* End of Switch: '<S393>/Switch4' */
+
+  /* MinMax: '<S393>/MinMax' incorporates:
+   *  Constant: '<S393>/sat6'
+   */
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMDoorLckOpRecHi_enum)
+  {
+    /* MinMax: '<S443>/MinMax' */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMDoorLckOpRecHi_enum;
+  }
+
+  /* End of MinMax: '<S393>/MinMax' */
+
+  /* MinMax: '<S393>/MinMax1' incorporates:
+   *  Constant: '<S393>/sat7'
+   */
+  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMDoorLckOpRecLo_enum)
+  {
+    /* MinMax: '<S393>/MinMax1' */
+    VOPM_BCMDoorLckOpRec_enum = VOPM_BCMBackLiFltFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S393>/MinMax1' */
+    VOPM_BCMDoorLckOpRec_enum = KOPM_BCMDoorLckOpRecLo_enum;
+  }
+
+  /* End of MinMax: '<S393>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDoorLckOpRec_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMLFInitSta_flg' */
+  /* Switch: '<S435>/Switch4' incorporates:
+   *  Constant: '<S435>/sat3'
+   */
+  if (KOPM_BCMLFInitSta_flg_ovrdflg)
+  {
+    /* Switch: '<S435>/Switch4' incorporates:
+     *  Constant: '<S435>/sat4'
+     */
+    VOPM_BCMLFInitSta_flg = KOPM_BCMLFInitSta_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S435>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S435>/Data Type Conversion1'
+     */
+    VOPM_BCMLFInitSta_flg = (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_LFInitSta;
+  }
+
+  /* End of Switch: '<S435>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMLFInitSta_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_DrvLfAntDiagStat_enum' */
+  /* Switch: '<S483>/Switch4' incorporates:
+   *  Constant: '<S483>/sat3'
+   */
   if (KOPM_DrvLfAntDiagStat_enum_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S472>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S483>/sat4'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum = KOPM_DrvLfAntDiagStat_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S443>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S472>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S483>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
             ->DrvLfAnt_DiagStatus;
   }
 
-  /* End of Switch: '<S472>/Switch4' */
+  /* End of Switch: '<S483>/Switch4' */
 
-  /* MinMax: '<S472>/MinMax' incorporates:
-   *  Constant: '<S472>/sat6'
+  /* MinMax: '<S483>/MinMax' incorporates:
+   *  Constant: '<S483>/sat6'
    */
   if (VOPM_BCMBackLiFltFb_enum > KOPM_DrvLfAntDiagStatHi_enum)
   {
-    /* MinMax: '<S434>/MinMax' */
+    /* MinMax: '<S443>/MinMax' */
     VOPM_BCMBackLiFltFb_enum = KOPM_DrvLfAntDiagStatHi_enum;
   }
 
-  /* End of MinMax: '<S472>/MinMax' */
+  /* End of MinMax: '<S483>/MinMax' */
 
-  /* MinMax: '<S472>/MinMax1' incorporates:
-   *  Constant: '<S472>/sat7'
+  /* MinMax: '<S483>/MinMax1' incorporates:
+   *  Constant: '<S483>/sat7'
    */
   if (VOPM_BCMBackLiFltFb_enum >= KOPM_DrvLfAntDiagStatLo_enum)
   {
-    /* MinMax: '<S472>/MinMax1' */
+    /* MinMax: '<S483>/MinMax1' */
     VOPM_DrvLfAntDiagStat_enum = VOPM_BCMBackLiFltFb_enum;
   }
   else
   {
-    /* MinMax: '<S472>/MinMax1' */
+    /* MinMax: '<S483>/MinMax1' */
     VOPM_DrvLfAntDiagStat_enum = KOPM_DrvLfAntDiagStatLo_enum;
   }
 
-  /* End of MinMax: '<S472>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_DrvLfAntDiagStat_enum' */
+  /* End of MinMax: '<S483>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_DrvLfAntDiagStat_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_PassLfAntDiagStat_enum' */
-  /* Switch: '<S474>/Switch4' incorporates:
-   *  Constant: '<S474>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_PassLfAntDiagStat_enum' */
+  /* Switch: '<S485>/Switch4' incorporates:
+   *  Constant: '<S485>/sat3'
    */
   if (KOPM_PassLfAntDiagStat_enum_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S474>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S485>/sat4'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum = KOPM_PassLfAntDiagStat_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S443>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S474>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S485>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
             ->PassLfAnt_DiagStatus;
   }
 
-  /* End of Switch: '<S474>/Switch4' */
+  /* End of Switch: '<S485>/Switch4' */
 
-  /* MinMax: '<S474>/MinMax' incorporates:
-   *  Constant: '<S474>/sat6'
+  /* MinMax: '<S485>/MinMax' incorporates:
+   *  Constant: '<S485>/sat6'
    */
   if (VOPM_BCMBackLiFltFb_enum > KOPM_PassLfAntDiagStatHi_enum)
   {
-    /* MinMax: '<S434>/MinMax' */
+    /* MinMax: '<S443>/MinMax' */
     VOPM_BCMBackLiFltFb_enum = KOPM_PassLfAntDiagStatHi_enum;
   }
 
-  /* End of MinMax: '<S474>/MinMax' */
+  /* End of MinMax: '<S485>/MinMax' */
 
-  /* MinMax: '<S474>/MinMax1' incorporates:
-   *  Constant: '<S474>/sat7'
+  /* MinMax: '<S485>/MinMax1' incorporates:
+   *  Constant: '<S485>/sat7'
    */
   if (VOPM_BCMBackLiFltFb_enum >= KOPM_PassLfAntDiagStatLo_enum)
   {
-    /* MinMax: '<S474>/MinMax1' */
+    /* MinMax: '<S485>/MinMax1' */
     VOPM_PassLfAntDiagStat_enum = VOPM_BCMBackLiFltFb_enum;
   }
   else
   {
-    /* MinMax: '<S474>/MinMax1' */
+    /* MinMax: '<S485>/MinMax1' */
     VOPM_PassLfAntDiagStat_enum = KOPM_PassLfAntDiagStatLo_enum;
   }
 
-  /* End of MinMax: '<S474>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_PassLfAntDiagStat_enum' */
+  /* End of MinMax: '<S485>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_PassLfAntDiagStat_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_IntLfAntDiagStat_enum' */
-  /* Switch: '<S473>/Switch4' incorporates:
-   *  Constant: '<S473>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_IntLfAntDiagStat_enum' */
+  /* Switch: '<S484>/Switch4' incorporates:
+   *  Constant: '<S484>/sat3'
    */
   if (KOPM_IntLfAntDiagStat_enum_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S473>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S484>/sat4'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum = KOPM_IntLfAntDiagStat_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S443>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S473>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S484>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
             ->IntLfAnt_DiagStatus;
   }
 
-  /* End of Switch: '<S473>/Switch4' */
+  /* End of Switch: '<S484>/Switch4' */
 
-  /* MinMax: '<S473>/MinMax' incorporates:
-   *  Constant: '<S473>/sat6'
+  /* MinMax: '<S484>/MinMax' incorporates:
+   *  Constant: '<S484>/sat6'
    */
   if (VOPM_BCMBackLiFltFb_enum > KOPM_IntLfAntDiagStatHi_enum)
   {
-    /* MinMax: '<S434>/MinMax' */
+    /* MinMax: '<S443>/MinMax' */
     VOPM_BCMBackLiFltFb_enum = KOPM_IntLfAntDiagStatHi_enum;
   }
 
-  /* End of MinMax: '<S473>/MinMax' */
+  /* End of MinMax: '<S484>/MinMax' */
 
-  /* MinMax: '<S473>/MinMax1' incorporates:
-   *  Constant: '<S473>/sat7'
+  /* MinMax: '<S484>/MinMax1' incorporates:
+   *  Constant: '<S484>/sat7'
    */
   if (VOPM_BCMBackLiFltFb_enum >= KOPM_IntLfAntDiagStatLo_enum)
   {
-    /* MinMax: '<S473>/MinMax1' */
+    /* MinMax: '<S484>/MinMax1' */
     VOPM_IntLfAntDiagStat_enum = VOPM_BCMBackLiFltFb_enum;
   }
   else
   {
-    /* MinMax: '<S473>/MinMax1' */
+    /* MinMax: '<S484>/MinMax1' */
     VOPM_IntLfAntDiagStat_enum = KOPM_IntLfAntDiagStatLo_enum;
   }
 
-  /* End of MinMax: '<S473>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_IntLfAntDiagStat_enum' */
+  /* End of MinMax: '<S484>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_IntLfAntDiagStat_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMRrFogLiFltFb_enum' */
-  /* Switch: '<S447>/Switch4' incorporates:
-   *  Constant: '<S447>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMRrFogLiFltFb_enum' */
+  /* Switch: '<S456>/Switch4' incorporates:
+   *  Constant: '<S456>/sat3'
    */
   if (KOPM_BCMRrFogLiFltFb_enum_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S447>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S456>/sat4'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMRrFogLiFltFb_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S443>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S447>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S456>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
             ->BCM_RearFogLiFaultFb;
   }
 
-  /* End of Switch: '<S447>/Switch4' */
+  /* End of Switch: '<S456>/Switch4' */
 
-  /* MinMax: '<S447>/MinMax' incorporates:
-   *  Constant: '<S447>/sat6'
+  /* MinMax: '<S456>/MinMax' incorporates:
+   *  Constant: '<S456>/sat6'
    */
   if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMRrFogLiFltFbHi_enum)
   {
-    /* MinMax: '<S434>/MinMax' */
+    /* MinMax: '<S443>/MinMax' */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMRrFogLiFltFbHi_enum;
   }
 
-  /* End of MinMax: '<S447>/MinMax' */
+  /* End of MinMax: '<S456>/MinMax' */
 
-  /* MinMax: '<S447>/MinMax1' incorporates:
-   *  Constant: '<S447>/sat7'
+  /* MinMax: '<S456>/MinMax1' incorporates:
+   *  Constant: '<S456>/sat7'
    */
   if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMRrFogLiFltFbLo_enum)
   {
-    /* MinMax: '<S447>/MinMax1' */
+    /* MinMax: '<S456>/MinMax1' */
     VOPM_BCMRrFogLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
   }
   else
   {
-    /* MinMax: '<S447>/MinMax1' */
+    /* MinMax: '<S456>/MinMax1' */
     VOPM_BCMRrFogLiFltFb_enum = KOPM_BCMRrFogLiFltFbLo_enum;
   }
 
-  /* End of MinMax: '<S447>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMRrFogLiFltFb_enum' */
+  /* End of MinMax: '<S456>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMRrFogLiFltFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMPosLiFltFb_enum' */
-  /* Switch: '<S442>/Switch4' incorporates:
-   *  Constant: '<S442>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMPosLiFltFb_enum' */
+  /* Switch: '<S451>/Switch4' incorporates:
+   *  Constant: '<S451>/sat3'
    */
   if (KOPM_BCMPosLiFltFb_enum_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S442>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S451>/sat4'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMPosLiFltFb_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S443>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S442>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S451>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_PosLiFaultFb;
   }
 
-  /* End of Switch: '<S442>/Switch4' */
+  /* End of Switch: '<S451>/Switch4' */
 
-  /* MinMax: '<S442>/MinMax' incorporates:
-   *  Constant: '<S442>/sat6'
+  /* MinMax: '<S451>/MinMax' incorporates:
+   *  Constant: '<S451>/sat6'
    */
   if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMPosLiFltFbHi_enum)
   {
-    /* MinMax: '<S434>/MinMax' */
+    /* MinMax: '<S443>/MinMax' */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMPosLiFltFbHi_enum;
   }
 
-  /* End of MinMax: '<S442>/MinMax' */
+  /* End of MinMax: '<S451>/MinMax' */
 
-  /* MinMax: '<S442>/MinMax1' incorporates:
-   *  Constant: '<S442>/sat7'
+  /* MinMax: '<S451>/MinMax1' incorporates:
+   *  Constant: '<S451>/sat7'
    */
   if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMPosLiFltFbLo_enum)
   {
-    /* MinMax: '<S442>/MinMax1' */
+    /* MinMax: '<S451>/MinMax1' */
     VOPM_BCMPosLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
   }
   else
   {
-    /* MinMax: '<S442>/MinMax1' */
+    /* MinMax: '<S451>/MinMax1' */
     VOPM_BCMPosLiFltFb_enum = KOPM_BCMPosLiFltFbLo_enum;
   }
 
-  /* End of MinMax: '<S442>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMPosLiFltFb_enum' */
+  /* End of MinMax: '<S451>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMPosLiFltFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMHiBeamLiFltFb_enum' */
-  /* Switch: '<S407>/Switch4' incorporates:
-   *  Constant: '<S407>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMHiBeamLiFltFb_enum' */
+  /* Switch: '<S416>/Switch4' incorporates:
+   *  Constant: '<S416>/sat3'
    */
   if (KOPM_BCMHiBeamLiFltFb_enum_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S407>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S416>/sat4'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMHiBeamLiFltFb_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S443>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S407>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S416>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
             ->BCM_HighBeamLiFaultFb;
   }
 
-  /* End of Switch: '<S407>/Switch4' */
+  /* End of Switch: '<S416>/Switch4' */
 
-  /* MinMax: '<S407>/MinMax' incorporates:
-   *  Constant: '<S407>/sat6'
+  /* MinMax: '<S416>/MinMax' incorporates:
+   *  Constant: '<S416>/sat6'
    */
   if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMHiBeamLiFltFbHi_enum)
   {
-    /* MinMax: '<S434>/MinMax' */
+    /* MinMax: '<S443>/MinMax' */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMHiBeamLiFltFbHi_enum;
   }
 
-  /* End of MinMax: '<S407>/MinMax' */
+  /* End of MinMax: '<S416>/MinMax' */
 
-  /* MinMax: '<S407>/MinMax1' incorporates:
-   *  Constant: '<S407>/sat7'
+  /* MinMax: '<S416>/MinMax1' incorporates:
+   *  Constant: '<S416>/sat7'
    */
   if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMHiBeamLiFltFbLo_enum)
   {
-    /* MinMax: '<S407>/MinMax1' */
+    /* MinMax: '<S416>/MinMax1' */
     VOPM_BCMHiBeamLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
   }
   else
   {
-    /* MinMax: '<S407>/MinMax1' */
+    /* MinMax: '<S416>/MinMax1' */
     VOPM_BCMHiBeamLiFltFb_enum = KOPM_BCMHiBeamLiFltFbLo_enum;
   }
 
-  /* End of MinMax: '<S407>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMHiBeamLiFltFb_enum' */
+  /* End of MinMax: '<S416>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMHiBeamLiFltFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMLoBeamLiFltFb_enum' */
-  /* Switch: '<S431>/Switch4' incorporates:
-   *  Constant: '<S431>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMLoBeamLiFltFb_enum' */
+  /* Switch: '<S440>/Switch4' incorporates:
+   *  Constant: '<S440>/sat3'
    */
   if (KOPM_BCMLoBeamLiFltFb_enum_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S431>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S440>/sat4'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMLoBeamLiFltFb_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S443>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S431>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S440>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
             ->BCM_LowBeamLiFaultFb;
   }
 
-  /* End of Switch: '<S431>/Switch4' */
+  /* End of Switch: '<S440>/Switch4' */
 
-  /* MinMax: '<S431>/MinMax' incorporates:
-   *  Constant: '<S431>/sat6'
+  /* MinMax: '<S440>/MinMax' incorporates:
+   *  Constant: '<S440>/sat6'
    */
   if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMLoBeamLiFltFbHi_enum)
   {
-    /* MinMax: '<S434>/MinMax' */
+    /* MinMax: '<S443>/MinMax' */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMLoBeamLiFltFbHi_enum;
   }
 
-  /* End of MinMax: '<S431>/MinMax' */
+  /* End of MinMax: '<S440>/MinMax' */
 
-  /* MinMax: '<S431>/MinMax1' incorporates:
-   *  Constant: '<S431>/sat7'
+  /* MinMax: '<S440>/MinMax1' incorporates:
+   *  Constant: '<S440>/sat7'
    */
   if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMLoBeamLiFltFbLo_enum)
   {
-    /* MinMax: '<S431>/MinMax1' */
+    /* MinMax: '<S440>/MinMax1' */
     VOPM_BCMLoBeamLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
   }
   else
   {
-    /* MinMax: '<S431>/MinMax1' */
+    /* MinMax: '<S440>/MinMax1' */
     VOPM_BCMLoBeamLiFltFb_enum = KOPM_BCMLoBeamLiFltFbLo_enum;
   }
 
-  /* End of MinMax: '<S431>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMLoBeamLiFltFb_enum' */
+  /* End of MinMax: '<S440>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMLoBeamLiFltFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMFrntFogLiFltFb_enum' */
-  /* Switch: '<S400>/Switch4' incorporates:
-   *  Constant: '<S400>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMFrntFogLiFltFb_enum' */
+  /* Switch: '<S409>/Switch4' incorporates:
+   *  Constant: '<S409>/sat3'
    */
   if (KOPM_BCMFrntFogLiFltFb_enum_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S400>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S409>/sat4'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMFrntFogLiFltFb_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S443>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S400>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S409>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
             ->BCM_FrontFogLiFaultFb;
   }
 
-  /* End of Switch: '<S400>/Switch4' */
+  /* End of Switch: '<S409>/Switch4' */
 
-  /* MinMax: '<S400>/MinMax' incorporates:
-   *  Constant: '<S400>/sat6'
+  /* MinMax: '<S409>/MinMax' incorporates:
+   *  Constant: '<S409>/sat6'
    */
   if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMFrntFogLiFltFbHi_enum)
   {
-    /* MinMax: '<S434>/MinMax' */
+    /* MinMax: '<S443>/MinMax' */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMFrntFogLiFltFbHi_enum;
   }
 
-  /* End of MinMax: '<S400>/MinMax' */
+  /* End of MinMax: '<S409>/MinMax' */
 
-  /* MinMax: '<S400>/MinMax1' incorporates:
-   *  Constant: '<S400>/sat7'
+  /* MinMax: '<S409>/MinMax1' incorporates:
+   *  Constant: '<S409>/sat7'
    */
   if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMFrntFogLiFltFbLo_enum)
   {
-    /* MinMax: '<S400>/MinMax1' */
+    /* MinMax: '<S409>/MinMax1' */
     VOPM_BCMFrntFogLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
   }
   else
   {
-    /* MinMax: '<S400>/MinMax1' */
+    /* MinMax: '<S409>/MinMax1' */
     VOPM_BCMFrntFogLiFltFb_enum = KOPM_BCMFrntFogLiFltFbLo_enum;
   }
 
-  /* End of MinMax: '<S400>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMFrntFogLiFltFb_enum' */
+  /* End of MinMax: '<S409>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMFrntFogLiFltFb_enum' */
 
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMDayRunLiFltFb_enum' */
-  /* Switch: '<S377>/Switch4' incorporates:
-   *  Constant: '<S377>/sat3'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDayRunLiFltFb_enum' */
+  /* Switch: '<S385>/Switch4' incorporates:
+   *  Constant: '<S385>/sat3'
    */
   if (KOPM_BCMDayRunLiFltFb_enum_ovrdflg)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S377>/sat4'
-     *  MinMax: '<S370>/MinMax'
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S385>/sat4'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMDayRunLiFltFb_enum_ovrdval;
   }
   else
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
+    /* MinMax: '<S443>/MinMax' incorporates:
      *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S377>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
+     *  DataTypeConversion: '<S385>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
      */
     VOPM_BCMBackLiFltFb_enum =
         (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
             ->BCM_DayRunLiFaultFb;
+  }
+
+  /* End of Switch: '<S385>/Switch4' */
+
+  /* MinMax: '<S385>/MinMax' incorporates:
+   *  Constant: '<S385>/sat6'
+   */
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMDayRunLiFltFbHi_enum)
+  {
+    /* MinMax: '<S443>/MinMax' */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMDayRunLiFltFbHi_enum;
+  }
+
+  /* End of MinMax: '<S385>/MinMax' */
+
+  /* MinMax: '<S385>/MinMax1' incorporates:
+   *  Constant: '<S385>/sat7'
+   */
+  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMDayRunLiFltFbLo_enum)
+  {
+    /* MinMax: '<S385>/MinMax1' */
+    VOPM_BCMDayRunLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S385>/MinMax1' */
+    VOPM_BCMDayRunLiFltFb_enum = KOPM_BCMDayRunLiFltFbLo_enum;
+  }
+
+  /* End of MinMax: '<S385>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDayRunLiFltFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMRvrsLiFltFb_enum' */
+  /* Switch: '<S459>/Switch4' incorporates:
+   *  Constant: '<S459>/sat3'
+   */
+  if (KOPM_BCMRvrsLiFltFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S459>/sat4'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMRvrsLiFltFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S459>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_ReverseLiFaultFb;
+  }
+
+  /* End of Switch: '<S459>/Switch4' */
+
+  /* MinMax: '<S459>/MinMax' incorporates:
+   *  Constant: '<S459>/sat6'
+   */
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMRvrsLiFltFbHi_enum)
+  {
+    /* MinMax: '<S443>/MinMax' */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMRvrsLiFltFbHi_enum;
+  }
+
+  /* End of MinMax: '<S459>/MinMax' */
+
+  /* MinMax: '<S459>/MinMax1' incorporates:
+   *  Constant: '<S459>/sat7'
+   */
+  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMRvrsLiFltFbLo_enum)
+  {
+    /* MinMax: '<S459>/MinMax1' */
+    VOPM_BCMRvrsLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S459>/MinMax1' */
+    VOPM_BCMRvrsLiFltFb_enum = KOPM_BCMRvrsLiFltFbLo_enum;
+  }
+
+  /* End of MinMax: '<S459>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMRvrsLiFltFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMBrkLiFltFb_enum' */
+  /* Switch: '<S381>/Switch4' incorporates:
+   *  Constant: '<S381>/sat3'
+   */
+  if (KOPM_BCMBrkLiFltFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S381>/sat4'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMBrkLiFltFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S381>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+            ->BCM_BrakeLiFaultFb;
+  }
+
+  /* End of Switch: '<S381>/Switch4' */
+
+  /* MinMax: '<S381>/MinMax' incorporates:
+   *  Constant: '<S381>/sat6'
+   */
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMBrkLiFltFbHi_enum)
+  {
+    /* MinMax: '<S443>/MinMax' */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMBrkLiFltFbHi_enum;
+  }
+
+  /* End of MinMax: '<S381>/MinMax' */
+
+  /* MinMax: '<S381>/MinMax1' incorporates:
+   *  Constant: '<S381>/sat7'
+   */
+  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMBrkLiFltFbLo_enum)
+  {
+    /* MinMax: '<S381>/MinMax1' */
+    VOPM_BCMBrkLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
+  }
+  else
+  {
+    /* MinMax: '<S381>/MinMax1' */
+    VOPM_BCMBrkLiFltFb_enum = KOPM_BCMBrkLiFltFbLo_enum;
+  }
+
+  /* End of MinMax: '<S381>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMBrkLiFltFb_enum' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMBackLiFltFb_enum' */
+  /* Switch: '<S377>/Switch4' incorporates:
+   *  Constant: '<S377>/sat3'
+   */
+  if (KOPM_BCMBackLiFltFb_enum_ovrdflg)
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  Constant: '<S377>/sat4'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMBackLiFltFb_enum_ovrdval;
+  }
+  else
+  {
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S377>/Data Type Conversion1'
+     *  MinMax: '<S377>/MinMax'
+     */
+    VOPM_BCMBackLiFltFb_enum =
+        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_BackLiFaultFb;
   }
 
   /* End of Switch: '<S377>/Switch4' */
@@ -18248,10 +18685,10 @@ static void Runbl_Opm50ms(void)
   /* MinMax: '<S377>/MinMax' incorporates:
    *  Constant: '<S377>/sat6'
    */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMDayRunLiFltFbHi_enum)
+  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMBackLiFltFbHi_enum)
   {
-    /* MinMax: '<S434>/MinMax' */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMDayRunLiFltFbHi_enum;
+    /* MinMax: '<S443>/MinMax' */
+    VOPM_BCMBackLiFltFb_enum = KOPM_BCMBackLiFltFbHi_enum;
   }
 
   /* End of MinMax: '<S377>/MinMax' */
@@ -18259,226 +18696,187 @@ static void Runbl_Opm50ms(void)
   /* MinMax: '<S377>/MinMax1' incorporates:
    *  Constant: '<S377>/sat7'
    */
-  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMDayRunLiFltFbLo_enum)
-  {
-    /* MinMax: '<S377>/MinMax1' */
-    VOPM_BCMDayRunLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
-  }
-  else
-  {
-    /* MinMax: '<S377>/MinMax1' */
-    VOPM_BCMDayRunLiFltFb_enum = KOPM_BCMDayRunLiFltFbLo_enum;
-  }
-
-  /* End of MinMax: '<S377>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMDayRunLiFltFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMRvrsLiFltFb_enum' */
-  /* Switch: '<S450>/Switch4' incorporates:
-   *  Constant: '<S450>/sat3'
-   */
-  if (KOPM_BCMRvrsLiFltFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S450>/sat4'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMRvrsLiFltFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S450>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_ReverseLiFaultFb;
-  }
-
-  /* End of Switch: '<S450>/Switch4' */
-
-  /* MinMax: '<S450>/MinMax' incorporates:
-   *  Constant: '<S450>/sat6'
-   */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMRvrsLiFltFbHi_enum)
-  {
-    /* MinMax: '<S434>/MinMax' */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMRvrsLiFltFbHi_enum;
-  }
-
-  /* End of MinMax: '<S450>/MinMax' */
-
-  /* MinMax: '<S450>/MinMax1' incorporates:
-   *  Constant: '<S450>/sat7'
-   */
-  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMRvrsLiFltFbLo_enum)
-  {
-    /* MinMax: '<S450>/MinMax1' */
-    VOPM_BCMRvrsLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
-  }
-  else
-  {
-    /* MinMax: '<S450>/MinMax1' */
-    VOPM_BCMRvrsLiFltFb_enum = KOPM_BCMRvrsLiFltFbLo_enum;
-  }
-
-  /* End of MinMax: '<S450>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMRvrsLiFltFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMBrkLiFltFb_enum' */
-  /* Switch: '<S374>/Switch4' incorporates:
-   *  Constant: '<S374>/sat3'
-   */
-  if (KOPM_BCMBrkLiFltFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S374>/sat4'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMBrkLiFltFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S374>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
-            ->BCM_BrakeLiFaultFb;
-  }
-
-  /* End of Switch: '<S374>/Switch4' */
-
-  /* MinMax: '<S374>/MinMax' incorporates:
-   *  Constant: '<S374>/sat6'
-   */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMBrkLiFltFbHi_enum)
-  {
-    /* MinMax: '<S434>/MinMax' */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMBrkLiFltFbHi_enum;
-  }
-
-  /* End of MinMax: '<S374>/MinMax' */
-
-  /* MinMax: '<S374>/MinMax1' incorporates:
-   *  Constant: '<S374>/sat7'
-   */
-  if (VOPM_BCMBackLiFltFb_enum >= KOPM_BCMBrkLiFltFbLo_enum)
-  {
-    /* MinMax: '<S374>/MinMax1' */
-    VOPM_BCMBrkLiFltFb_enum = VOPM_BCMBackLiFltFb_enum;
-  }
-  else
-  {
-    /* MinMax: '<S374>/MinMax1' */
-    VOPM_BCMBrkLiFltFb_enum = KOPM_BCMBrkLiFltFbLo_enum;
-  }
-
-  /* End of MinMax: '<S374>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMBrkLiFltFb_enum' */
-
-  /* Outputs for Atomic SubSystem: '<S343>/Subsys_VOPM_BCMBackLiFltFb_enum' */
-  /* Switch: '<S370>/Switch4' incorporates:
-   *  Constant: '<S370>/sat3'
-   */
-  if (KOPM_BCMBackLiFltFb_enum_ovrdflg)
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  Constant: '<S370>/sat4'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMBackLiFltFb_enum_ovrdval;
-  }
-  else
-  {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  DataTransferBlock generated from: '<Root>/OpmRx'
-     *  DataTypeConversion: '<S370>/Data Type Conversion1'
-     *  MinMax: '<S370>/MinMax'
-     */
-    VOPM_BCMBackLiFltFb_enum =
-        (Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_BackLiFaultFb;
-  }
-
-  /* End of Switch: '<S370>/Switch4' */
-
-  /* MinMax: '<S370>/MinMax' incorporates:
-   *  Constant: '<S370>/sat6'
-   */
-  if (VOPM_BCMBackLiFltFb_enum > KOPM_BCMBackLiFltFbHi_enum)
-  {
-    /* MinMax: '<S434>/MinMax' */
-    VOPM_BCMBackLiFltFb_enum = KOPM_BCMBackLiFltFbHi_enum;
-  }
-
-  /* End of MinMax: '<S370>/MinMax' */
-
-  /* MinMax: '<S370>/MinMax1' incorporates:
-   *  Constant: '<S370>/sat7'
-   */
   if (VOPM_BCMBackLiFltFb_enum < KOPM_BCMBackLiFltFbLo_enum)
   {
-    /* MinMax: '<S434>/MinMax' incorporates:
-     *  MinMax: '<S370>/MinMax1'
+    /* MinMax: '<S443>/MinMax' incorporates:
+     *  MinMax: '<S377>/MinMax1'
      */
     VOPM_BCMBackLiFltFb_enum = KOPM_BCMBackLiFltFbLo_enum;
   }
 
-  /* End of MinMax: '<S370>/MinMax1' */
-  /* End of Outputs for SubSystem: '<S343>/Subsys_VOPM_BCMBackLiFltFb_enum' */
+  /* End of MinMax: '<S377>/MinMax1' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMBackLiFltFb_enum' */
 
-  /* BusCreator: '<S343>/BusCreator' incorporates:
-   *  Constant: '<S343>/Constant'
-   *  Constant: '<S343>/Constant2'
-   *  Switch: '<S363>/Switch4'
-   *  Switch: '<S364>/Switch4'
-   *  Switch: '<S365>/Switch4'
-   *  Switch: '<S366>/Switch4'
-   *  Switch: '<S368>/Switch4'
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMDomeLghtSt_flg' */
+  /* Switch: '<S388>/Switch4' incorporates:
+   *  Constant: '<S388>/sat3'
+   */
+  if (KOPM_BCMDomeLghtSt_flg_ovrdflg)
+  {
+    /* Switch: '<S388>/Switch4' incorporates:
+     *  Constant: '<S388>/sat4'
+     */
+    VOPM_BCMDomeLghtSt_flg = KOPM_BCMDomeLghtSt_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S388>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S388>/Data Type Conversion1'
+     */
+    VOPM_BCMDomeLghtSt_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_DomeLightSta != 0);
+  }
+
+  /* End of Switch: '<S388>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMDomeLghtSt_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMCarrgLghtSt_flg' */
+  /* Switch: '<S382>/Switch4' incorporates:
+   *  Constant: '<S382>/sat3'
+   */
+  if (KOPM_BCMCarrgLghtSt_flg_ovrdflg)
+  {
+    /* Switch: '<S382>/Switch4' incorporates:
+     *  Constant: '<S382>/sat4'
+     */
+    VOPM_BCMCarrgLghtSt_flg = KOPM_BCMCarrgLghtSt_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S382>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S382>/Data Type Conversion1'
+     */
+    VOPM_BCMCarrgLghtSt_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_CarriageLightSta != 0);
+  }
+
+  /* End of Switch: '<S382>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMCarrgLghtSt_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMBackLampSt_flg' */
+  /* Switch: '<S376>/Switch4' incorporates:
+   *  Constant: '<S376>/sat3'
+   */
+  if (KOPM_BCMBackLampSt_flg_ovrdflg)
+  {
+    /* Switch: '<S376>/Switch4' incorporates:
+     *  Constant: '<S376>/sat4'
+     */
+    VOPM_BCMBackLampSt_flg = KOPM_BCMBackLampSt_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S376>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S376>/Data Type Conversion1'
+     */
+    VOPM_BCMBackLampSt_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_BackLampSta != 0);
+  }
+
+  /* End of Switch: '<S376>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMBackLampSt_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMWiprStopPstnSt_flg' */
+  /* Switch: '<S482>/Switch4' incorporates:
+   *  Constant: '<S482>/sat3'
+   */
+  if (KOPM_BCMWiprStopPstnSt_flg_ovrdflg)
+  {
+    /* Switch: '<S482>/Switch4' incorporates:
+     *  Constant: '<S482>/sat4'
+     */
+    VOPM_BCMWiprStopPstnSt_flg = KOPM_BCMWiprStopPstnSt_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S482>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S482>/Data Type Conversion1'
+     */
+    VOPM_BCMWiprStopPstnSt_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())
+             ->BCM_WiperStopPosSta != 0);
+  }
+
+  /* End of Switch: '<S482>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMWiprStopPstnSt_flg' */
+
+  /* Outputs for Atomic SubSystem: '<S349>/Subsys_VOPM_BCMSavePwrSt_flg' */
+  /* Switch: '<S460>/Switch4' incorporates:
+   *  Constant: '<S460>/sat3'
+   */
+  if (KOPM_BCMSavePwrSt_flg_ovrdflg)
+  {
+    /* Switch: '<S460>/Switch4' incorporates:
+     *  Constant: '<S460>/sat4'
+     */
+    VOPM_BCMSavePwrSt_flg = KOPM_BCMSavePwrSt_flg_ovrdval;
+  }
+  else
+  {
+    /* Switch: '<S460>/Switch4' incorporates:
+     *  DataTransferBlock generated from: '<Root>/OpmRx'
+     *  DataTypeConversion: '<S460>/Data Type Conversion1'
+     */
+    VOPM_BCMSavePwrSt_flg =
+        ((Rte_IrvIRead_Runbl_OpmCanTx_50ms_Bcm2OpmBAC_outputs())->BCM_SavePowerSta != 0);
+  }
+
+  /* End of Switch: '<S460>/Switch4' */
+  /* End of Outputs for SubSystem: '<S349>/Subsys_VOPM_BCMSavePwrSt_flg' */
+
+  /* BusCreator: '<S349>/BusCreator' incorporates:
+   *  Constant: '<S349>/Constant'
+   *  Constant: '<S349>/Constant2'
    *  Switch: '<S369>/Switch4'
-   *  Switch: '<S373>/Switch4'
-   *  Switch: '<S378>/Switch4'
-   *  Switch: '<S379>/Switch4'
+   *  Switch: '<S370>/Switch4'
+   *  Switch: '<S371>/Switch4'
+   *  Switch: '<S372>/Switch4'
+   *  Switch: '<S374>/Switch4'
+   *  Switch: '<S375>/Switch4'
    *  Switch: '<S380>/Switch4'
-   *  Switch: '<S381>/Switch4'
-   *  Switch: '<S382>/Switch4'
-   *  Switch: '<S383>/Switch4'
+   *  Switch: '<S386>/Switch4'
+   *  Switch: '<S387>/Switch4'
    *  Switch: '<S389>/Switch4'
-   *  Switch: '<S393>/Switch4'
-   *  Switch: '<S397>/Switch4'
+   *  Switch: '<S390>/Switch4'
+   *  Switch: '<S391>/Switch4'
+   *  Switch: '<S392>/Switch4'
    *  Switch: '<S398>/Switch4'
-   *  Switch: '<S401>/Switch4'
-   *  Switch: '<S405>/Switch4'
+   *  Switch: '<S402>/Switch4'
    *  Switch: '<S406>/Switch4'
-   *  Switch: '<S409>/Switch4'
+   *  Switch: '<S407>/Switch4'
    *  Switch: '<S410>/Switch4'
-   *  Switch: '<S411>/Switch4'
-   *  Switch: '<S412>/Switch4'
+   *  Switch: '<S414>/Switch4'
+   *  Switch: '<S415>/Switch4'
    *  Switch: '<S418>/Switch4'
+   *  Switch: '<S419>/Switch4'
    *  Switch: '<S420>/Switch4'
-   *  Switch: '<S422>/Switch4'
+   *  Switch: '<S421>/Switch4'
    *  Switch: '<S427>/Switch4'
-   *  Switch: '<S433>/Switch4'
+   *  Switch: '<S429>/Switch4'
+   *  Switch: '<S431>/Switch4'
    *  Switch: '<S436>/Switch4'
-   *  Switch: '<S438>/Switch4'
-   *  Switch: '<S439>/Switch4'
-   *  Switch: '<S441>/Switch4'
+   *  Switch: '<S442>/Switch4'
    *  Switch: '<S445>/Switch4'
+   *  Switch: '<S447>/Switch4'
    *  Switch: '<S448>/Switch4'
-   *  Switch: '<S455>/Switch4'
-   *  Switch: '<S456>/Switch4'
-   *  Switch: '<S458>/Switch4'
-   *  Switch: '<S459>/Switch4'
-   *  Switch: '<S460>/Switch4'
-   *  Switch: '<S464>/Switch4'
+   *  Switch: '<S450>/Switch4'
+   *  Switch: '<S454>/Switch4'
+   *  Switch: '<S457>/Switch4'
    *  Switch: '<S465>/Switch4'
    *  Switch: '<S466>/Switch4'
-   *  Switch: '<S467>/Switch4'
+   *  Switch: '<S468>/Switch4'
+   *  Switch: '<S469>/Switch4'
+   *  Switch: '<S470>/Switch4'
+   *  Switch: '<S474>/Switch4'
    *  Switch: '<S475>/Switch4'
+   *  Switch: '<S476>/Switch4'
+   *  Switch: '<S477>/Switch4'
+   *  Switch: '<S486>/Switch4'
    */
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_TurnLampSta_Left =
       VOPM_BCMTurnLampStaLeft_flg;
@@ -18502,11 +18900,11 @@ static void Runbl_Opm50ms(void)
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_DayRunLiSwSig =
       VOPM_BCMDayRunLiSwSig_flg;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_TurnLiSts = VOPM_BCMTurnLiSts_enum;
-  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_TurnngLiSwSig = u8PE_Auth_FobStatus;
-  // VOPM_BCMTrnngLiSwSig_enum;
+  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_TurnngLiSwSig =
+      u8PE_Auth_FobStatus; // VOPM_BCMTrnngLiSwSig_enum;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_LightIntensity =
       VOPM_BCMLightIntensity_enum;
-  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_LightSwSig = u8PS_Auth_FobStatus;
+  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_LightSwSig = u8PS_Auth_FobStatus; // VOPM_BCMLghtSwSig_enum;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_HighBeamSwSig =
       VOPM_BCMHiBeamSwSig_enum;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_AjarStaV_Hood =
@@ -18546,18 +18944,20 @@ static void Runbl_Opm50ms(void)
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_PressureValue_FL = 0U;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_PressureValue_FR = 0U;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_TireTempValue_FL = GetFobKeyCmdRequest();
-  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_TireTempValue_FR = u8FobKeyEnterWorkState;
+  // 60U;
+  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_TireTempValue_FR = u8FobKeyEnterWorkState; // 60U;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_TPMSResetSts =
       VOPM_BCMTPMSRstSts_enum;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TMPS_AbnmPrsrWarn =
       VOPM_TMPSAbnmPrsrWarn_flg;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_TempSts_RL = u8FobKey_Disable_Status_Feedback;
+  // false;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_PressureSta_RL =
       VOPM_TPMSPressureStaRL_enum;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_TempSts_RR = false;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_PressureSta_RR =
       VOPM_TPMSPressureStaRR_enum;
-  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_PressureValue_RL = RxNum2910;
+  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_PressureValue_RL = RxNum2910; // 0U;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_PressureValue_RR = 0U;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_TireTempValue_RL = 60U;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.TPMS_TireTempValue_RR = 60U;
@@ -18640,39 +19040,39 @@ static void Runbl_Opm50ms(void)
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_KeyBattLvlSts =
       VOPM_BCMKeyBattLvlSts_flg;
 
-  /* DataTypeConversion: '<S343>/DataTypeConversion92' incorporates:
-   *  Constant: '<S489>/Constant1'
-   *  Product: '<S489>/Product1'
-   *  Sum: '<S489>/Add'
+  /* DataTypeConversion: '<S349>/DataTypeConversion92' incorporates:
+   *  Constant: '<S500>/Constant1'
+   *  Product: '<S500>/Product1'
+   *  Sum: '<S500>/Add'
    */
   tmp = VOPM_BCMKeyBattLvl_pct * 10.0F;
   if (tmp < 65536.0F)
   {
     if (tmp >= 0.0F)
     {
-      /* BusCreator: '<S343>/BusCreator' */
+      /* BusCreator: '<S349>/BusCreator' */
       AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_KeyBattLvl = (uint16)tmp;
     }
     else
     {
-      /* BusCreator: '<S343>/BusCreator' */
+      /* BusCreator: '<S349>/BusCreator' */
       AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_KeyBattLvl = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S343>/BusCreator' */
+    /* BusCreator: '<S349>/BusCreator' */
     AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_KeyBattLvl = MAX_uint16_T;
   }
 
-  /* End of DataTypeConversion: '<S343>/DataTypeConversion92' */
+  /* End of DataTypeConversion: '<S349>/DataTypeConversion92' */
 
-  /* BusCreator: '<S343>/BusCreator' incorporates:
-   *  Switch: '<S413>/Switch4'
-   *  Switch: '<S416>/Switch4'
-   *  Switch: '<S417>/Switch4'
-   *  Switch: '<S423>/Switch4'
-   *  Switch: '<S463>/Switch4'
+  /* BusCreator: '<S349>/BusCreator' incorporates:
+   *  Switch: '<S422>/Switch4'
+   *  Switch: '<S425>/Switch4'
+   *  Switch: '<S426>/Switch4'
+   *  Switch: '<S432>/Switch4'
+   *  Switch: '<S473>/Switch4'
    */
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_KeyLoBattLvlWarn =
       VOPM_BCMKeyLoBattLvlWarn_flg;
@@ -18691,63 +19091,68 @@ static void Runbl_Opm50ms(void)
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_SteerWhlHeatSts =
       VOPM_BCMSteerWhlHeatSts_flg;
 
-  /* DataTypeConversion: '<S343>/DataTypeConversion102' incorporates:
-   *  Constant: '<S490>/Constant'
-   *  Sum: '<S490>/Add'
+  /* DataTypeConversion: '<S349>/DataTypeConversion102' incorporates:
+   *  Constant: '<S501>/Constant'
+   *  Sum: '<S501>/Add'
    */
   if (VOPM_BCMSteerWhlTemp_C - -40.0F < 256.0F)
   {
     if (VOPM_BCMSteerWhlTemp_C - -40.0F >= 0.0F)
     {
-      /* BusCreator: '<S343>/BusCreator' */
+      /* BusCreator: '<S349>/BusCreator' */
       AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_SteerWhlTemp = (uint8)(VOPM_BCMSteerWhlTemp_C - -40.0F);
     }
     else
     {
-      /* BusCreator: '<S343>/BusCreator' */
+      /* BusCreator: '<S349>/BusCreator' */
       AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_SteerWhlTemp = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S343>/BusCreator' */
+    /* BusCreator: '<S349>/BusCreator' */
     AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_SteerWhlTemp = MAX_uint8_T;
   }
 
-  /* End of DataTypeConversion: '<S343>/DataTypeConversion102' */
+  /* End of DataTypeConversion: '<S349>/DataTypeConversion102' */
 
-  /* DataTypeConversion: '<S343>/DataTypeConversion103' incorporates:
-   *  Constant: '<S482>/Constant'
-   *  Sum: '<S482>/Add'
+  /* DataTypeConversion: '<S349>/DataTypeConversion103' incorporates:
+   *  Constant: '<S493>/Constant'
+   *  Sum: '<S493>/Add'
    */
   if (VOPM_BCMMaiDrvrSeatTemp_C - -40.0F < 256.0F)
   {
     if (VOPM_BCMMaiDrvrSeatTemp_C - -40.0F >= 0.0F)
     {
-      /* BusCreator: '<S343>/BusCreator' */
+      /* BusCreator: '<S349>/BusCreator' */
       AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_MaiDrvrSeatTemp = (uint8)(VOPM_BCMMaiDrvrSeatTemp_C - -40.0F);
     }
     else
     {
-      /* BusCreator: '<S343>/BusCreator' */
+      /* BusCreator: '<S349>/BusCreator' */
       AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_MaiDrvrSeatTemp = 0U;
     }
   }
   else
   {
-    /* BusCreator: '<S343>/BusCreator' */
+    /* BusCreator: '<S349>/BusCreator' */
     AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_MaiDrvrSeatTemp = MAX_uint8_T;
   }
 
-  /* End of DataTypeConversion: '<S343>/DataTypeConversion103' */
+  /* End of DataTypeConversion: '<S349>/DataTypeConversion103' */
 
-  /* BusCreator: '<S343>/BusCreator' incorporates:
-   *  Switch: '<S391>/Switch4'
-   *  Switch: '<S395>/Switch4'
-   *  Switch: '<S426>/Switch4'
-   *  Switch: '<S443>/Switch4'
-   *  Switch: '<S449>/Switch4'
-   *  Switch: '<S462>/Switch4'
+  /* BusCreator: '<S349>/BusCreator' incorporates:
+   *  Switch: '<S376>/Switch4'
+   *  Switch: '<S382>/Switch4'
+   *  Switch: '<S388>/Switch4'
+   *  Switch: '<S400>/Switch4'
+   *  Switch: '<S404>/Switch4'
+   *  Switch: '<S435>/Switch4'
+   *  Switch: '<S452>/Switch4'
+   *  Switch: '<S458>/Switch4'
+   *  Switch: '<S460>/Switch4'
+   *  Switch: '<S472>/Switch4'
+   *  Switch: '<S482>/Switch4'
    */
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_RearMirrorHeatSts =
       VOPM_BCMRrMirrHeatSts_flg;
@@ -18758,7 +19163,7 @@ static void Runbl_Opm50ms(void)
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_LogoActiveFlag =
       VOPM_BCMLogoActvFlg_enum;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_VhclSeek = VOPM_BCMVehSeek_flg;
-  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_RFInitSta = status2910;
+  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_RFInitSta = status2910; // VOPM_BCMRFInitSta_flg;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_RiTurnLiFaultFb =
       VOPM_BCMRiTrnLiFltFb_enum;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_LeTurnLiFaultFb =
@@ -18772,6 +19177,7 @@ static void Runbl_Opm50ms(void)
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_DoorLockOperationRecord =
       VOPM_BCMDoorLckOpRec_enum;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_LFInitSta = status29c0;
+  // VOPM_BCMLFInitSta_flg;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.DrvLfAnt_DiagStatus =
       VOPM_DrvLfAntDiagStat_enum;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.PassLfAnt_DiagStatus =
@@ -18796,6 +19202,16 @@ static void Runbl_Opm50ms(void)
       VOPM_BCMBrkLiFltFb_enum;
   AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_BackLiFaultFb =
       VOPM_BCMBackLiFltFb_enum;
+  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_DomeLightSta =
+      VOPM_BCMDomeLghtSt_flg;
+  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_CarriageLightSta =
+      VOPM_BCMCarrgLghtSt_flg;
+  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_BackLampSta =
+      VOPM_BCMBackLampSt_flg;
+  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_WiperStopPosSta =
+      VOPM_BCMWiprStopPstnSt_flg;
+  AppSwcOpm_ARID_DEF.BCM_B_Package_BAC_f.BCM_SavePowerSta =
+      VOPM_BCMSavePwrSt_flg;
 }
 
 /* Model step function for TID1 */

@@ -38,7 +38,8 @@ extern uint8 App_ComMReqFlag;
 extern uint8 HW_Active_ComReq;
 extern uint16 HW_Trigger_Timer;
 extern uint16 RTC_Timer;
-extern uint8 FirstWakeUpSource500ms;
+extern uint8 FirstWakeUpSource200ms;
+extern uint8 WakeUpSource200msFlag;
 extern uint8 FirstNMFlag;
 extern uint8 ActiveNMReqFlag;
 

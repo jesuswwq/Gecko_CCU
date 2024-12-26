@@ -1266,7 +1266,7 @@ static int Fls_HyperBusErase(Fls_BusHandleType *nor, Fls_AddressType addr, Fls_L
 
         ops->setPreTransaction(nor, FALSE, FALSE, 5u, &ca);
         /* erase addr need convert to word addr */
-        ret = ops->write16(nor, (nor->xferInfo.addr - nor->info.regOffset) / 2u,
+        ret = ops->write16(nor, (nor->xferInfo.addr - nor->regOffset) / 2u,
                            &eraseCmdData);
 
         if (0 != ret)

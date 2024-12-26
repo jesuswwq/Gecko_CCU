@@ -80,7 +80,7 @@ extern "C" {
 #define DIO_FLIP_CHANNEL_API                (STD_ON)
 
 /** \brief Enable/Disable safety */
-#define DIO_SAFETY_ENABLE                (STD_OFF)
+#define DIO_SAFETY_ENABLE                (STD_ON)
 /* \} */
 
 

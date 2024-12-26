@@ -12,13 +12,16 @@
 #include <irq_num.h>
 #include <mbox_core.h>
 #include "__regs_base.h"
+#include "cdefs.h"
+
+static uint32 Mbox_buff[MAX_CORE_NUM * 0x400]  _SECTION(.dma_buffer);
 
 #define MAILBOX_START_SEC_CONST_UNSPECIFIED
 #include "Mailbox_MemMap.h"
 
 static const mbox_config_t mbox_cfg = {
     .base = MB_REG_BASE,
-    .mem_base = MB_MEM_BASE,
+    .mem_base = (uint32)Mbox_buff,
     .irq = MB_MU_MESSAGE_READY_INTR_NUM,
     .set_masterid_num = MAX_CPUS_SUPPORT,
 };
@@ -123,3 +126,5 @@ int core_send_msg(uint8 *data,uint32 len, uint32 coremask)
 
 #define MAILBOX_STOP_SEC_CODE
 #include "Mailbox_MemMap.h"
+
+

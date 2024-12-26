@@ -97,7 +97,9 @@ uint8 BCM_B_Package_BAC_AliveCnt[7] = {15,15,15,15,15,15,15};    //ChksumByte  {
 uint8 BCM_HFSData_BAC_AliveCnt[1] = {15};    //ChksumByte  {255}
 uint8 CCU_VehInfo_BAC_AliveCnt[1] = {15};    //ChksumByte  {0}
 uint8 VCU_B_AcclPedal_BAC_AliveCnt[1] = {15};    //ChksumByte  {0}
-uint8 VCU_DispInfo_BAC_AliveCnt[5] = {15,15,15,15,15};    //ChksumByte  {0,8,16,24,32}
+uint8 VCU_DispInfo_BAC_AliveCnt[6] = {15,15,15,15,15,15};    //ChksumByte  {0,8,16,24,32,40}
+uint8 VCU_10_Torque_BAC_AliveCnt[4] = {15,15,15,15};    //ChksumByte  {0,8,16,24}
+uint8 VCU_D_Status_BAC_AliveCnt[4] = {15,15,15,15};    //ChksumByte  {0,8,16,24}
 
 uint8 AC_1_Command_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
 uint8 AC_2_State_BOD_AliveCnt[1] = {15};    //ChksumByte  {0}
@@ -413,7 +415,17 @@ boolean IPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
     #endif
     return TRUE;
 }
-
+boolean IPDU_COM_VCU_10_Torque_BAC_TxCallout(
+    PduIdType PduId,
+    PduInfoType* PduInfoPtr
+)
+{
+    uint8 ChksumAtByte[] = VCU_10_Torque_BAC_ChksumByte;
+    uint8* AliveCntPtr = &VCU_10_Torque_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
+}
 boolean IPDU_COM_TX_BCM_ESCLCommand_BOD_CANFD5_BOD_CAN6_TxCallout(
     PduIdType PduId,
     PduInfoType* PduInfoPtr
@@ -421,6 +433,18 @@ boolean IPDU_COM_TX_BCM_ESCLCommand_BOD_CANFD5_BOD_CAN6_TxCallout(
 {
 boolean ret = TRUE;
 return ret;
+}
+
+boolean IPDU_COM_TX_VCU_D_Status_BAC_CANFD8_BAC_CAN1_TxCallout(
+    PduIdType PduId,
+    PduInfoType* PduInfoPtr
+)
+{
+    uint8 ChksumAtByte[] = VCU_D_Status_BAC_ChksumByte;
+    uint8* AliveCntPtr = &VCU_D_Status_BAC_AliveCnt[0];
+    uint8 ChksumLen = sizeof(ChksumAtByte);
+    Com_TxChksumAliveCnt_Calc(PduId, PduInfoPtr->SduDataPtr, PduInfoPtr->SduLength, ChksumAtByte, ChksumLen, AliveCntPtr);
+    return TRUE;
 }
 
 boolean IPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1_TxCallout(

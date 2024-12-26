@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-09-22 15:41:16>
+ *  @date       <2024-12-17 15:58:42>
  */
 /*============================================================================*/
 
@@ -217,11 +217,11 @@ triggered by the TestFailed bit (and the fault confirmation is not considered) T
 #define DEM_FREEZE_FRAME_REC_NUM_CLASS_NUM 1u
 
 /* SUM(COUNT(DemGeneral/DemFreezeFrameRecNumClass/DemFreezeFrameRecordClassRef)) */
-#define DEM_FREEZE_FRAME_RECORD_CLASS_REF_TOTAL_NUM 1u
+#define DEM_FREEZE_FRAME_RECORD_CLASS_REF_TOTAL_NUM 2u
 
 #if (DEM_TYPE_OF_FREEZE_FRAME_RECORD_NUMERATION == DEM_FF_RECNUM_CONFIGURED)
 /* MAX(COUNT((DemGeneral/DemFreezeFrameRecNumClass/DemFreezeFrameRecordClassRef)))  1-254 */
-#define DEM_MAX_NUMBER_FF_RECORDS 1u
+#define DEM_MAX_NUMBER_FF_RECORDS 2u
 #endif
 
 /* DemPidClass 0-0xFFFF */
@@ -258,7 +258,7 @@ triggered by the TestFailed bit (and the fault confirmation is not considered) T
 #define DEM_DTC_REF_EMISSION_NUM  0u
 
 /* DemDTC 0-65535 */
-#define DEM_DTC_NUM 231u
+#define DEM_DTC_NUM 229u
 
 #define DEM_WWWOBD_NUM 0u
 
@@ -341,7 +341,7 @@ triggered by the TestFailed bit (and the fault confirmation is not considered) T
 #define DEM_CALLBACK_CLEAR_EVENT_ALLOWED_TOTAL_NUM 0u
 
 /* DemEventParameter 1-65535 */
-#define DEM_EVENT_PARAMETER_NUM 231u
+#define DEM_EVENT_PARAMETER_NUM 229u
 
 #define DemEventParameter_0xD11D87  1u
 #define DemEventParameter_0x100083  2u
@@ -538,42 +538,40 @@ triggered by the TestFailed bit (and the fault confirmation is not considered) T
 #define DemEventParameter_0x943816  193u
 #define DemEventParameter_0xC24087  194u
 #define DemEventParameter_0xC27087  195u
-#define DemEventParameter_0xC1FF87  196u
-#define DemEventParameter_0xC1FE87  197u
-#define DemEventParameter_0xC13187  198u
-#define DemEventParameter_0x943A04  199u
-#define DemEventParameter_0x943B04  200u
-#define DemEventParameter_0x10A296  201u
-#define DemEventParameter_0x10A396  202u
-#define DemEventParameter_0x10A496  203u
-#define DemEventParameter_0x10A596  204u
-#define DemEventParameter_0x10A696  205u
-#define DemEventParameter_0x10A796  206u
-#define DemEventParameter_0x10A896  207u
-#define DemEventParameter_0x10A996  208u
-#define DemEventParameter_0x10AA96  209u
-#define DemEventParameter_0x10AB96  210u
-#define DemEventParameter_0x10AC83  211u
-#define DemEventParameter_0xC11282  212u
-#define DemEventParameter_0xC12282  213u
-#define DemEventParameter_0xD10282  214u
-#define DemEventParameter_0xD11282  215u
-#define DemEventParameter_0xD10E82  216u
-#define DemEventParameter_0xC13082  217u
-#define DemEventParameter_0xC15182  218u
-#define DemEventParameter_0xD11682  219u
-#define DemEventParameter_0xC19882  220u
-#define DemEventParameter_0xD10882  221u
-#define DemEventParameter_0xC10F82  222u
-#define DemEventParameter_0xC23082  223u
-#define DemEventParameter_0xD11D82  224u
-#define DemEventParameter_0xC14682  225u
-#define DemEventParameter_0xC13182  226u
-#define DemEventParameter_0xC24082  227u
-#define DemEventParameter_0xC27082  228u
-#define DemEventParameter_0x100496  229u
-#define DemEventParameter_0x100F16  230u
-#define DemEventParameter_0x100F17  231u
+#define DemEventParameter_0xC13187  196u
+#define DemEventParameter_0x943A04  197u
+#define DemEventParameter_0x943B04  198u
+#define DemEventParameter_0x10A296  199u
+#define DemEventParameter_0x10A396  200u
+#define DemEventParameter_0x10A496  201u
+#define DemEventParameter_0x10A596  202u
+#define DemEventParameter_0x10A696  203u
+#define DemEventParameter_0x10A796  204u
+#define DemEventParameter_0x10A896  205u
+#define DemEventParameter_0x10A996  206u
+#define DemEventParameter_0x10AA96  207u
+#define DemEventParameter_0x10AB96  208u
+#define DemEventParameter_0x10AC83  209u
+#define DemEventParameter_0xC11282  210u
+#define DemEventParameter_0xC12282  211u
+#define DemEventParameter_0xD10282  212u
+#define DemEventParameter_0xD11282  213u
+#define DemEventParameter_0xD10E82  214u
+#define DemEventParameter_0xC13082  215u
+#define DemEventParameter_0xC15182  216u
+#define DemEventParameter_0xD11682  217u
+#define DemEventParameter_0xC19882  218u
+#define DemEventParameter_0xD10882  219u
+#define DemEventParameter_0xC10F82  220u
+#define DemEventParameter_0xC23082  221u
+#define DemEventParameter_0xD11D82  222u
+#define DemEventParameter_0xC14682  223u
+#define DemEventParameter_0xC13182  224u
+#define DemEventParameter_0xC24082  225u
+#define DemEventParameter_0xC27082  226u
+#define DemEventParameter_0x100496  227u
+#define DemEventParameter_0x100F16  228u
+#define DemEventParameter_0x100F17  229u
 /*******************************************************************************
 *                          Memory Configuration
 *******************************************************************************/

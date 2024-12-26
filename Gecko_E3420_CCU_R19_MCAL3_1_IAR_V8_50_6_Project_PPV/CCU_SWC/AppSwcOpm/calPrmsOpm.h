@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcOpm'.
  *
- * Model version                  : 9.95
+ * Model version                  : 9.103
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Wed Sep 25 10:30:11 2024
+ * C/C++ source code generated on : Tue Dec 17 18:02:01 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -24,16 +24,16 @@
 #include "XcpTest_types.h"
 
 /* Declaration for custom storage class: CalParam */
-extern CALDATA const volatile uint8 KOPM_12VBatLowVolStaHi_enum;/* Referenced by: '<S344>/sat6' */
+extern CALDATA const volatile uint8 KOPM_12VBatLowVolStaHi_enum;/* Referenced by: '<S350>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_12VBatLowVolStaLo_enum;/* Referenced by: '<S344>/sat7' */
+extern CALDATA const volatile uint8 KOPM_12VBatLowVolStaLo_enum;/* Referenced by: '<S350>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_12VBatLowVolSta_enum_ovrdflg;/* Referenced by: '<S344>/sat3' */
+extern CALDATA const volatile boolean KOPM_12VBatLowVolSta_enum_ovrdflg;/* Referenced by: '<S350>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_12VBatLowVolSta_enum_ovrdval;/* Referenced by: '<S344>/sat4' */
+extern CALDATA const volatile uint8 KOPM_12VBatLowVolSta_enum_ovrdval;/* Referenced by: '<S350>/sat4' */
 
 /* CCU_VehInfo_BAC */
 extern CALDATA const volatile float32 KOPM_ACActTotPwrHi_kW;/* Referenced by: '<S48>/sat6' */
@@ -120,34 +120,34 @@ extern CALDATA const volatile boolean KOPM_ACBlwrModeSta_enum_ovrdflg;/* Referen
 extern CALDATA const volatile uint8 KOPM_ACBlwrModeSta_enum_ovrdval;/* Referenced by: '<S94>/sat4' */
 
 /* AC_ACStatuts_BOD */
-extern CALDATA const volatile boolean KOPM_ACCTrqCtrlAvl_flg_ovrdflg;/* Referenced by: '<S273>/sat3' */
+extern CALDATA const volatile boolean KOPM_ACCTrqCtrlAvl_flg_ovrdflg;/* Referenced by: '<S279>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_ACCTrqCtrlAvl_flg_ovrdval;/* Referenced by: '<S273>/sat4' */
+extern CALDATA const volatile boolean KOPM_ACCTrqCtrlAvl_flg_ovrdval;/* Referenced by: '<S279>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_ACChrgMaxCurrHi_A;/* Referenced by: '<S214>/sat6' */
+extern CALDATA const volatile uint8 KOPM_ACChrgMaxCurrHi_A;/* Referenced by: '<S213>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACChrgMaxCurrLo_A;/* Referenced by: '<S214>/sat7' */
+extern CALDATA const volatile uint8 KOPM_ACChrgMaxCurrLo_A;/* Referenced by: '<S213>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_ACChrgMaxCurr_A_ovrdflg;/* Referenced by: '<S214>/sat3' */
+extern CALDATA const volatile boolean KOPM_ACChrgMaxCurr_A_ovrdflg;/* Referenced by: '<S213>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACChrgMaxCurr_A_ovrdval;/* Referenced by: '<S214>/sat4' */
+extern CALDATA const volatile uint8 KOPM_ACChrgMaxCurr_A_ovrdval;/* Referenced by: '<S213>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACChrgModeHi_enum;/* Referenced by: '<S215>/sat6' */
+extern CALDATA const volatile uint8 KOPM_ACChrgModeHi_enum;/* Referenced by: '<S214>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACChrgModeLo_enum;/* Referenced by: '<S215>/sat7' */
+extern CALDATA const volatile uint8 KOPM_ACChrgModeLo_enum;/* Referenced by: '<S214>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_ACChrgMode_enum_ovrdflg;/* Referenced by: '<S215>/sat3' */
+extern CALDATA const volatile boolean KOPM_ACChrgMode_enum_ovrdflg;/* Referenced by: '<S214>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACChrgMode_enum_ovrdval;/* Referenced by: '<S215>/sat4' */
+extern CALDATA const volatile uint8 KOPM_ACChrgMode_enum_ovrdval;/* Referenced by: '<S214>/sat4' */
 
 /* VCU_DispInfo_BAC */
 extern CALDATA const volatile boolean KOPM_ACCompFailModeOprtSta_flg_ovrdflg;/* Referenced by: '<S38>/sat3' */
@@ -396,101 +396,101 @@ extern CALDATA const volatile boolean KOPM_ACRefrgLoPres_kPa_ovrdflg;/* Referenc
 extern CALDATA const volatile float32 KOPM_ACRefrgLoPres_kPa_ovrdval;/* Referenced by: '<S82>/sat4' */
 
 /* AC_8_status_BOD */
-extern CALDATA const volatile uint8 KOPM_ACRemtCtrlFbHi_enum;/* Referenced by: '<S216>/sat6' */
+extern CALDATA const volatile uint8 KOPM_ACRemtCtrlFbHi_enum;/* Referenced by: '<S215>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACRemtCtrlFbLo_enum;/* Referenced by: '<S216>/sat7' */
+extern CALDATA const volatile uint8 KOPM_ACRemtCtrlFbLo_enum;/* Referenced by: '<S215>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_ACRemtCtrlFb_enum_ovrdflg;/* Referenced by: '<S216>/sat3' */
+extern CALDATA const volatile boolean KOPM_ACRemtCtrlFb_enum_ovrdflg;/* Referenced by: '<S215>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACRemtCtrlFb_enum_ovrdval;/* Referenced by: '<S216>/sat4' */
+extern CALDATA const volatile uint8 KOPM_ACRemtCtrlFb_enum_ovrdval;/* Referenced by: '<S215>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACRmtDefrstCtlFbHi_enum;/* Referenced by: '<S217>/sat6' */
+extern CALDATA const volatile uint8 KOPM_ACRmtDefrstCtlFbHi_enum;/* Referenced by: '<S216>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACRmtDefrstCtlFbLo_enum;/* Referenced by: '<S217>/sat7' */
+extern CALDATA const volatile uint8 KOPM_ACRmtDefrstCtlFbLo_enum;/* Referenced by: '<S216>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_ACRmtDefrstCtlFb_enum_ovrdflg;/* Referenced by: '<S217>/sat3' */
+extern CALDATA const volatile boolean KOPM_ACRmtDefrstCtlFb_enum_ovrdflg;/* Referenced by: '<S216>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACRmtDefrstCtlFb_enum_ovrdval;/* Referenced by: '<S217>/sat4' */
+extern CALDATA const volatile uint8 KOPM_ACRmtDefrstCtlFb_enum_ovrdval;/* Referenced by: '<S216>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACTempSetFbHi_enum;/* Referenced by: '<S218>/sat6' */
+extern CALDATA const volatile uint8 KOPM_ACTempSetFbHi_enum;/* Referenced by: '<S217>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACTempSetFbLo_enum;/* Referenced by: '<S218>/sat7' */
+extern CALDATA const volatile uint8 KOPM_ACTempSetFbLo_enum;/* Referenced by: '<S217>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_ACTempSetFb_enum_ovrdflg;/* Referenced by: '<S218>/sat3' */
+extern CALDATA const volatile boolean KOPM_ACTempSetFb_enum_ovrdflg;/* Referenced by: '<S217>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACTempSetFb_enum_ovrdval;/* Referenced by: '<S218>/sat4' */
+extern CALDATA const volatile uint8 KOPM_ACTempSetFb_enum_ovrdval;/* Referenced by: '<S217>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACUnlckVentSetFBHi_enum;/* Referenced by: '<S219>/sat6' */
+extern CALDATA const volatile uint8 KOPM_ACUnlckVentSetFBHi_enum;/* Referenced by: '<S218>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACUnlckVentSetFBLo_enum;/* Referenced by: '<S219>/sat7' */
+extern CALDATA const volatile uint8 KOPM_ACUnlckVentSetFBLo_enum;/* Referenced by: '<S218>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_ACUnlckVentSetFB_enum_ovrdflg;/* Referenced by: '<S219>/sat3' */
+extern CALDATA const volatile boolean KOPM_ACUnlckVentSetFB_enum_ovrdflg;/* Referenced by: '<S218>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ACUnlckVentSetFB_enum_ovrdval;/* Referenced by: '<S219>/sat4' */
+extern CALDATA const volatile uint8 KOPM_ACUnlckVentSetFB_enum_ovrdval;/* Referenced by: '<S218>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_AccPedPosSnsrStaHi_enum;/* Referenced by: '<S274>/sat6' */
+extern CALDATA const volatile uint8 KOPM_AccPedPosSnsrStaHi_enum;/* Referenced by: '<S280>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_AccPedPosSnsrStaLo_enum;/* Referenced by: '<S274>/sat7' */
+extern CALDATA const volatile uint8 KOPM_AccPedPosSnsrStaLo_enum;/* Referenced by: '<S280>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_AccPedPosSnsrSta_enum_ovrdflg;/* Referenced by: '<S274>/sat3' */
+extern CALDATA const volatile boolean KOPM_AccPedPosSnsrSta_enum_ovrdflg;/* Referenced by: '<S280>/sat3' */
 
 /* VCU_D_Status_CHA */
 extern CALDATA const volatile EnumAccPedSnsrSt
-  KOPM_AccPedPosSnsrSta_enum_ovrdval;  /* Referenced by: '<S274>/sat4' */
+  KOPM_AccPedPosSnsrSta_enum_ovrdval;  /* Referenced by: '<S280>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_AccPedPosToESCHi_pct;/* Referenced by: '<S276>/sat6' */
+extern CALDATA const volatile float32 KOPM_AccPedPosToESCHi_pct;/* Referenced by: '<S282>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_AccPedPosToESCLo_pct;/* Referenced by: '<S276>/sat7' */
+extern CALDATA const volatile float32 KOPM_AccPedPosToESCLo_pct;/* Referenced by: '<S282>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_AccPedPosToESCStaHi_enum;/* Referenced by: '<S275>/sat6' */
+extern CALDATA const volatile uint8 KOPM_AccPedPosToESCStaHi_enum;/* Referenced by: '<S281>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_AccPedPosToESCStaLo_enum;/* Referenced by: '<S275>/sat7' */
+extern CALDATA const volatile uint8 KOPM_AccPedPosToESCStaLo_enum;/* Referenced by: '<S281>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_AccPedPosToESCSta_enum_ovrdflg;/* Referenced by: '<S275>/sat3' */
+extern CALDATA const volatile boolean KOPM_AccPedPosToESCSta_enum_ovrdflg;/* Referenced by: '<S281>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_AccPedPosToESCSta_enum_ovrdval;/* Referenced by: '<S275>/sat4' */
+extern CALDATA const volatile uint8 KOPM_AccPedPosToESCSta_enum_ovrdval;/* Referenced by: '<S281>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_AccPedPosToESC_pct_ovrdflg;/* Referenced by: '<S276>/sat3' */
+extern CALDATA const volatile boolean KOPM_AccPedPosToESC_pct_ovrdflg;/* Referenced by: '<S282>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_AccPedPosToESC_pct_ovrdval;/* Referenced by: '<S276>/sat4' */
+extern CALDATA const volatile float32 KOPM_AccPedPosToESC_pct_ovrdval;/* Referenced by: '<S282>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_AcclPedalPosHi_pct;/* Referenced by: '<S277>/sat6' */
+extern CALDATA const volatile float32 KOPM_AcclPedalPosHi_pct;/* Referenced by: '<S283>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_AcclPedalPosLo_pct;/* Referenced by: '<S277>/sat7' */
+extern CALDATA const volatile float32 KOPM_AcclPedalPosLo_pct;/* Referenced by: '<S283>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_AcclPedalPos_pct_ovrdflg;/* Referenced by: '<S277>/sat3' */
+extern CALDATA const volatile boolean KOPM_AcclPedalPos_pct_ovrdflg;/* Referenced by: '<S283>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_AcclPedalPos_pct_ovrdval;/* Referenced by: '<S277>/sat4' */
+extern CALDATA const volatile float32 KOPM_AcclPedalPos_pct_ovrdval;/* Referenced by: '<S283>/sat4' */
 
 /* VCU_D_Status_CHA */
 extern CALDATA const volatile float32 KOPM_ActWhlTqHi_Nm;/* Referenced by: '<S158>/sat6' */
@@ -547,490 +547,508 @@ extern CALDATA const volatile boolean KOPM_ActlMotorTorq_Nm_ovrdflg;/* Reference
 extern CALDATA const volatile float32 KOPM_ActlMotorTorq_Nm_ovrdval;/* Referenced by: '<S162>/sat4' */
 
 /* VCU_10_Torque_CHA */
-extern CALDATA const volatile float32 KOPM_AllowHeatCoolMaxPwrCmspHi_kW;/* Referenced by: '<S312>/sat6' */
+extern CALDATA const volatile float32 KOPM_AllowHeatCoolMaxPwrCmspHi_kW;/* Referenced by: '<S318>/sat6' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_AllowHeatCoolMaxPwrCmspLo_kW;/* Referenced by: '<S312>/sat7' */
+extern CALDATA const volatile float32 KOPM_AllowHeatCoolMaxPwrCmspLo_kW;/* Referenced by: '<S318>/sat7' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_AllowHeatCoolMaxPwrCmsp_kW_ovrdflg;/* Referenced by: '<S312>/sat3' */
+extern CALDATA const volatile boolean KOPM_AllowHeatCoolMaxPwrCmsp_kW_ovrdflg;/* Referenced by: '<S318>/sat3' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_AllowHeatCoolMaxPwrCmsp_kW_ovrdval;/* Referenced by: '<S312>/sat4' */
+extern CALDATA const volatile float32 KOPM_AllowHeatCoolMaxPwrCmsp_kW_ovrdval;/* Referenced by: '<S318>/sat4' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_AppSoftNumbHi_nu;/* Referenced by: '<S192>/sat6' */
+extern CALDATA const volatile uint8 KOPM_AppSoftNumbHi_nu;/* Referenced by: '<S191>/sat6' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile uint8 KOPM_AppSoftNumbLo_nu;/* Referenced by: '<S192>/sat7' */
+extern CALDATA const volatile uint8 KOPM_AppSoftNumbLo_nu;/* Referenced by: '<S191>/sat7' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile boolean KOPM_AppSoftNumb_nu_ovrdflg;/* Referenced by: '<S192>/sat3' */
+extern CALDATA const volatile boolean KOPM_AppSoftNumb_nu_ovrdflg;/* Referenced by: '<S191>/sat3' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile uint8 KOPM_AppSoftNumb_nu_ovrdval;/* Referenced by: '<S192>/sat4' */
+extern CALDATA const volatile uint8 KOPM_AppSoftNumb_nu_ovrdval;/* Referenced by: '<S191>/sat4' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile boolean KOPM_BCMAjarStaHood_flg_ovrdflg;/* Referenced by: '<S363>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMAjarStaHood_flg_ovrdflg;/* Referenced by: '<S369>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAjarStaHood_flg_ovrdval;/* Referenced by: '<S363>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMAjarStaHood_flg_ovrdval;/* Referenced by: '<S369>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAjarStaTrunk_flg_ovrdflg;/* Referenced by: '<S364>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMAjarStaTrunk_flg_ovrdflg;/* Referenced by: '<S370>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAjarStaTrunk_flg_ovrdval;/* Referenced by: '<S364>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMAjarStaTrunk_flg_ovrdval;/* Referenced by: '<S370>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAjarStaVHoodVld_flg_ovrdflg;/* Referenced by: '<S365>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMAjarStaVHoodVld_flg_ovrdflg;/* Referenced by: '<S371>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAjarStaVHoodVld_flg_ovrdval;/* Referenced by: '<S365>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMAjarStaVHoodVld_flg_ovrdval;/* Referenced by: '<S371>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAlrmHornReq_flg_ovrdflg;/* Referenced by: '<S366>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMAlrmHornReq_flg_ovrdflg;/* Referenced by: '<S372>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAlrmHornReq_flg_ovrdval;/* Referenced by: '<S366>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMAlrmHornReq_flg_ovrdval;/* Referenced by: '<S372>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMAuthentKeyNrHi_enum;/* Referenced by: '<S367>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMAuthentKeyNrHi_enum;/* Referenced by: '<S373>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMAuthentKeyNrLo_enum;/* Referenced by: '<S367>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMAuthentKeyNrLo_enum;/* Referenced by: '<S373>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAuthentKeyNr_enum_ovrdflg;/* Referenced by: '<S367>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMAuthentKeyNr_enum_ovrdflg;/* Referenced by: '<S373>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMAuthentKeyNr_enum_ovrdval;/* Referenced by: '<S367>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMAuthentKeyNr_enum_ovrdval;/* Referenced by: '<S373>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAutoLampStatus_flg_ovrdflg;/* Referenced by: '<S368>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMAutoLampStatus_flg_ovrdflg;/* Referenced by: '<S374>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAutoLampStatus_flg_ovrdval;/* Referenced by: '<S368>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMAutoLampStatus_flg_ovrdval;/* Referenced by: '<S374>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAvaluebleKeyInCar_flg_ovrdflg;/* Referenced by: '<S369>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMAvaluebleKeyInCar_flg_ovrdflg;/* Referenced by: '<S375>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMAvaluebleKeyInCar_flg_ovrdval;/* Referenced by: '<S369>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMAvaluebleKeyInCar_flg_ovrdval;/* Referenced by: '<S375>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBackLadjvalFbHi_enum;/* Referenced by: '<S345>/sat6' */
-
-/* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBackLadjvalFbLo_enum;/* Referenced by: '<S345>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMBackLadjvalFbHi_enum;/* Referenced by: '<S351>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMBackLadjvalFb_enum_ovrdflg;/* Referenced by: '<S345>/sat3' */
+extern CALDATA const volatile uint8 KOPM_BCMBackLadjvalFbLo_enum;/* Referenced by: '<S351>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBackLadjvalFb_enum_ovrdval;/* Referenced by: '<S345>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMBackLadjvalFb_enum_ovrdflg;/* Referenced by: '<S351>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBackLiFltFbHi_enum;/* Referenced by: '<S370>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBackLiFltFbLo_enum;/* Referenced by: '<S370>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMBackLiFltFb_enum_ovrdflg;/* Referenced by: '<S370>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBackLiFltFb_enum_ovrdval;/* Referenced by: '<S370>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBassHornReqHi_enum;/* Referenced by: '<S371>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBassHornReqLo_enum;/* Referenced by: '<S371>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMBassHornReq_enum_ovrdflg;/* Referenced by: '<S371>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBassHornReq_enum_ovrdval;/* Referenced by: '<S371>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBodyWarnStsHi_enum;/* Referenced by: '<S372>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBodyWarnStsLo_enum;/* Referenced by: '<S372>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMBodyWarnSts_enum_ovrdflg;/* Referenced by: '<S372>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBodyWarnSts_enum_ovrdval;/* Referenced by: '<S372>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMBrakeLampSta_flg_ovrdflg;/* Referenced by: '<S373>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMBrakeLampSta_flg_ovrdval;/* Referenced by: '<S373>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBrkLiFltFbHi_enum;/* Referenced by: '<S374>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBrkLiFltFbLo_enum;/* Referenced by: '<S374>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMBrkLiFltFb_enum_ovrdflg;/* Referenced by: '<S374>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMBrkLiFltFb_enum_ovrdval;/* Referenced by: '<S374>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMBrkPedSta_flg_ovrdflg;/* Referenced by: '<S346>/sat3' */
+extern CALDATA const volatile uint8 KOPM_BCMBackLadjvalFb_enum_ovrdval;/* Referenced by: '<S351>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMBrkPedSta_flg_ovrdval;/* Referenced by: '<S346>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMBackLampSt_flg_ovrdflg;/* Referenced by: '<S376>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMBackLampSt_flg_ovrdval;/* Referenced by: '<S376>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBackLiFltFbHi_enum;/* Referenced by: '<S377>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBackLiFltFbLo_enum;/* Referenced by: '<S377>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMBackLiFltFb_enum_ovrdflg;/* Referenced by: '<S377>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBackLiFltFb_enum_ovrdval;/* Referenced by: '<S377>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBassHornReqHi_enum;/* Referenced by: '<S378>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBassHornReqLo_enum;/* Referenced by: '<S378>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMBassHornReq_enum_ovrdflg;/* Referenced by: '<S378>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBassHornReq_enum_ovrdval;/* Referenced by: '<S378>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBodyWarnStsHi_enum;/* Referenced by: '<S379>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBodyWarnStsLo_enum;/* Referenced by: '<S379>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMBodyWarnSts_enum_ovrdflg;/* Referenced by: '<S379>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBodyWarnSts_enum_ovrdval;/* Referenced by: '<S379>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMBrakeLampSta_flg_ovrdflg;/* Referenced by: '<S380>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMBrakeLampSta_flg_ovrdval;/* Referenced by: '<S380>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBrkLiFltFbHi_enum;/* Referenced by: '<S381>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBrkLiFltFbLo_enum;/* Referenced by: '<S381>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMBrkLiFltFb_enum_ovrdflg;/* Referenced by: '<S381>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMBrkLiFltFb_enum_ovrdval;/* Referenced by: '<S381>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMBrkPedSta_flg_ovrdflg;/* Referenced by: '<S352>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMCenLckStsHi_enum;/* Referenced by: '<S347>/sat6' */
+extern CALDATA const volatile boolean KOPM_BCMBrkPedSta_flg_ovrdval;/* Referenced by: '<S352>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMCenLckStsLo_enum;/* Referenced by: '<S347>/sat7' */
+extern CALDATA const volatile boolean KOPM_BCMCarrgLghtSt_flg_ovrdflg;/* Referenced by: '<S382>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMCarrgLghtSt_flg_ovrdval;/* Referenced by: '<S382>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMCenLckStsHi_enum;/* Referenced by: '<S353>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMCenLckSts_enum_ovrdflg;/* Referenced by: '<S347>/sat3' */
+extern CALDATA const volatile uint8 KOPM_BCMCenLckStsLo_enum;/* Referenced by: '<S353>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMCenLckSts_enum_ovrdval;/* Referenced by: '<S347>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMCenLckSts_enum_ovrdflg;/* Referenced by: '<S353>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMChgWiprMtMdSwSetFbHi_enum;/* Referenced by: '<S375>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMChgWiprMtMdSwSetFbLo_enum;/* Referenced by: '<S375>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMChgWiprMtMdSwSetFb_enum_ovrdflg;/* Referenced by: '<S375>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMChgWiprMtMdSwSetFb_enum_ovrdval;/* Referenced by: '<S375>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMChrgLidLockReqHi_enum;/* Referenced by: '<S376>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMChrgLidLockReqLo_enum;/* Referenced by: '<S376>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMChrgLidLockReq_enum_ovrdflg;/* Referenced by: '<S376>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMChrgLidLockReq_enum_ovrdval;/* Referenced by: '<S376>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDayRunLiFltFbHi_enum;/* Referenced by: '<S377>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDayRunLiFltFbLo_enum;/* Referenced by: '<S377>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDayRunLiFltFb_enum_ovrdflg;/* Referenced by: '<S377>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDayRunLiFltFb_enum_ovrdval;/* Referenced by: '<S377>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDayRunLiSwSig_flg_ovrdflg;/* Referenced by: '<S378>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDayRunLiSwSig_flg_ovrdval;/* Referenced by: '<S378>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDayRunLightSta_flg_ovrdflg;/* Referenced by: '<S379>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDayRunLightSta_flg_ovrdval;/* Referenced by: '<S379>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaFL_flg_ovrdflg;/* Referenced by: '<S380>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaFL_flg_ovrdval;/* Referenced by: '<S380>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaFR_flg_ovrdflg;/* Referenced by: '<S381>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaFR_flg_ovrdval;/* Referenced by: '<S381>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaRL_flg_ovrdflg;/* Referenced by: '<S382>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaRL_flg_ovrdval;/* Referenced by: '<S382>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaRR_flg_ovrdflg;/* Referenced by: '<S383>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaRR_flg_ovrdval;/* Referenced by: '<S383>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDoorLckOpRecHi_enum;/* Referenced by: '<S384>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDoorLckOpRecLo_enum;/* Referenced by: '<S384>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorLckOpRec_enum_ovrdflg;/* Referenced by: '<S384>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDoorLckOpRec_enum_ovrdval;/* Referenced by: '<S384>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorLckStaFL_flg_ovrdflg;/* Referenced by: '<S348>/sat3' */
+extern CALDATA const volatile uint8 KOPM_BCMCenLckSts_enum_ovrdval;/* Referenced by: '<S353>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDoorLckStaFL_flg_ovrdval;/* Referenced by: '<S348>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMChgWiprMtMdSwSetFbHi_enum;/* Referenced by: '<S383>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMChgWiprMtMdSwSetFbLo_enum;/* Referenced by: '<S383>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMChgWiprMtMdSwSetFb_enum_ovrdflg;/* Referenced by: '<S383>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMChgWiprMtMdSwSetFb_enum_ovrdval;/* Referenced by: '<S383>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMChrgLidLockReqHi_enum;/* Referenced by: '<S384>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMChrgLidLockReqLo_enum;/* Referenced by: '<S384>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMChrgLidLockReq_enum_ovrdflg;/* Referenced by: '<S384>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMChrgLidLockReq_enum_ovrdval;/* Referenced by: '<S384>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDayRunLiFltFbHi_enum;/* Referenced by: '<S385>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDayRunLiFltFbLo_enum;/* Referenced by: '<S385>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDayRunLiFltFb_enum_ovrdflg;/* Referenced by: '<S385>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDayRunLiFltFb_enum_ovrdval;/* Referenced by: '<S385>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDayRunLiSwSig_flg_ovrdflg;/* Referenced by: '<S386>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDayRunLiSwSig_flg_ovrdval;/* Referenced by: '<S386>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDayRunLightSta_flg_ovrdflg;/* Referenced by: '<S387>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDayRunLightSta_flg_ovrdval;/* Referenced by: '<S387>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDomeLghtSt_flg_ovrdflg;/* Referenced by: '<S388>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDomeLghtSt_flg_ovrdval;/* Referenced by: '<S388>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaFL_flg_ovrdflg;/* Referenced by: '<S389>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaFL_flg_ovrdval;/* Referenced by: '<S389>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaFR_flg_ovrdflg;/* Referenced by: '<S390>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaFR_flg_ovrdval;/* Referenced by: '<S390>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaRL_flg_ovrdflg;/* Referenced by: '<S391>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaRL_flg_ovrdval;/* Referenced by: '<S391>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaRR_flg_ovrdflg;/* Referenced by: '<S392>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDoorAjarStaRR_flg_ovrdval;/* Referenced by: '<S392>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDoorLckOpRecHi_enum;/* Referenced by: '<S393>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDoorLckOpRecLo_enum;/* Referenced by: '<S393>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDoorLckOpRec_enum_ovrdflg;/* Referenced by: '<S393>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDoorLckOpRec_enum_ovrdval;/* Referenced by: '<S393>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDoorLckStaFL_flg_ovrdflg;/* Referenced by: '<S354>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvPEAuthentAcsdHi_enum;/* Referenced by: '<S385>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvPEAuthentAcsdLo_enum;/* Referenced by: '<S385>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDrvPEAuthentAcsd_enum_ovrdflg;/* Referenced by: '<S385>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvPEAuthentAcsd_enum_ovrdval;/* Referenced by: '<S385>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvPassWinSwSigHi_enum;/* Referenced by: '<S386>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvPassWinSwSigLo_enum;/* Referenced by: '<S386>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDrvPassWinSwSig_enum_ovrdflg;/* Referenced by: '<S386>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvPassWinSwSig_enum_ovrdval;/* Referenced by: '<S386>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvSeatOccptSnsrStsHi_enum;/* Referenced by: '<S387>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvSeatOccptSnsrStsLo_enum;/* Referenced by: '<S387>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDrvSeatOccptSnsrSts_enum_ovrdflg;/* Referenced by: '<S387>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvSeatOccptSnsrSts_enum_ovrdval;/* Referenced by: '<S387>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvrWinSwSigHi_enum;/* Referenced by: '<S388>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvrWinSwSigLo_enum;/* Referenced by: '<S388>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMDrvrWinSwSig_enum_ovrdflg;/* Referenced by: '<S388>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMDrvrWinSwSig_enum_ovrdval;/* Referenced by: '<S388>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFLWinSts_flg_ovrdflg;/* Referenced by: '<S389>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFLWinSts_flg_ovrdval;/* Referenced by: '<S389>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFLWinmotorStsHi_enum;/* Referenced by: '<S390>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFLWinmotorStsLo_enum;/* Referenced by: '<S390>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFLWinmotorSts_enum_ovrdflg;/* Referenced by: '<S390>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFLWinmotorSts_enum_ovrdval;/* Referenced by: '<S390>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFLWinmotor_flg_ovrdflg;/* Referenced by: '<S391>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFLWinmotor_flg_ovrdval;/* Referenced by: '<S391>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFRPEAuthentAcsdHi_enum;/* Referenced by: '<S392>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFRPEAuthentAcsdLo_enum;/* Referenced by: '<S392>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFRPEAuthentAcsd_enum_ovrdflg;/* Referenced by: '<S392>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFRPEAuthentAcsd_enum_ovrdval;/* Referenced by: '<S392>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFRWinSts_flg_ovrdflg;/* Referenced by: '<S393>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFRWinSts_flg_ovrdval;/* Referenced by: '<S393>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFRWinmotorStsHi_enum;/* Referenced by: '<S394>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFRWinmotorStsLo_enum;/* Referenced by: '<S394>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFRWinmotorSts_enum_ovrdflg;/* Referenced by: '<S394>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFRWinmotorSts_enum_ovrdval;/* Referenced by: '<S394>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFRWinmotor_flg_ovrdflg;/* Referenced by: '<S395>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFRWinmotor_flg_ovrdval;/* Referenced by: '<S395>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFlwrMeHmCtrlFbHi_enum;/* Referenced by: '<S396>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFlwrMeHmCtrlFbLo_enum;/* Referenced by: '<S396>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFlwrMeHmCtrlFb_enum_ovrdflg;/* Referenced by: '<S396>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFlwrMeHmCtrlFb_enum_ovrdval;/* Referenced by: '<S396>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFogLampStaFront_flg_ovrdflg;/* Referenced by: '<S397>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFogLampStaFront_flg_ovrdval;/* Referenced by: '<S397>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFogLampStaRear_flg_ovrdflg;/* Referenced by: '<S398>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFogLampStaRear_flg_ovrdval;/* Referenced by: '<S398>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrbdnKeyNrHi_enum;/* Referenced by: '<S399>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrbdnKeyNrLo_enum;/* Referenced by: '<S399>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrbdnKeyNr_enum_ovrdflg;/* Referenced by: '<S399>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrbdnKeyNr_enum_ovrdval;/* Referenced by: '<S399>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntFogLiFltFbHi_enum;/* Referenced by: '<S400>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntFogLiFltFbLo_enum;/* Referenced by: '<S400>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrntFogLiFltFb_enum_ovrdflg;/* Referenced by: '<S400>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntFogLiFltFb_enum_ovrdval;/* Referenced by: '<S400>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrntFogLiSwSig_flg_ovrdflg;/* Referenced by: '<S401>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrntFogLiSwSig_flg_ovrdval;/* Referenced by: '<S401>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntLeDoorHndlSwtHi_enum;/* Referenced by: '<S402>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntLeDoorHndlSwtLo_enum;/* Referenced by: '<S402>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrntLeDoorHndlSwt_enum_ovrdflg;/* Referenced by: '<S402>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntLeDoorHndlSwt_enum_ovrdval;/* Referenced by: '<S402>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntRiDoorHndlSwtHi_enum;/* Referenced by: '<S403>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntRiDoorHndlSwtLo_enum;/* Referenced by: '<S403>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrntRiDoorHndlSwt_enum_ovrdflg;/* Referenced by: '<S403>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntRiDoorHndlSwt_enum_ovrdval;/* Referenced by: '<S403>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntWiprMotStsHi_enum;/* Referenced by: '<S404>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntWiprMotStsLo_enum;/* Referenced by: '<S404>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrntWiprMotSts_enum_ovrdflg;/* Referenced by: '<S404>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMFrntWiprMotSts_enum_ovrdval;/* Referenced by: '<S404>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrntWshrSwSig_flg_ovrdflg;/* Referenced by: '<S405>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrntWshrSwSig_flg_ovrdval;/* Referenced by: '<S405>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrontWashSts_flg_ovrdflg;/* Referenced by: '<S406>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMFrontWashSts_flg_ovrdval;/* Referenced by: '<S406>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMHazardLampSts_flg_ovrdflg;/* Referenced by: '<S349>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMDoorLckStaFL_flg_ovrdval;/* Referenced by: '<S354>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMHazardLampSts_flg_ovrdval;/* Referenced by: '<S349>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMDrvPEAuthentAcsdHi_enum;/* Referenced by: '<S394>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvPEAuthentAcsdLo_enum;/* Referenced by: '<S394>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDrvPEAuthentAcsd_enum_ovrdflg;/* Referenced by: '<S394>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvPEAuthentAcsd_enum_ovrdval;/* Referenced by: '<S394>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvPassWinSwSigHi_enum;/* Referenced by: '<S395>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvPassWinSwSigLo_enum;/* Referenced by: '<S395>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDrvPassWinSwSig_enum_ovrdflg;/* Referenced by: '<S395>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvPassWinSwSig_enum_ovrdval;/* Referenced by: '<S395>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvSeatOccptSnsrStsHi_enum;/* Referenced by: '<S396>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvSeatOccptSnsrStsLo_enum;/* Referenced by: '<S396>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDrvSeatOccptSnsrSts_enum_ovrdflg;/* Referenced by: '<S396>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvSeatOccptSnsrSts_enum_ovrdval;/* Referenced by: '<S396>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvrWinSwSigHi_enum;/* Referenced by: '<S397>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvrWinSwSigLo_enum;/* Referenced by: '<S397>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMDrvrWinSwSig_enum_ovrdflg;/* Referenced by: '<S397>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMDrvrWinSwSig_enum_ovrdval;/* Referenced by: '<S397>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFLWinSts_flg_ovrdflg;/* Referenced by: '<S398>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFLWinSts_flg_ovrdval;/* Referenced by: '<S398>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFLWinmotorStsHi_enum;/* Referenced by: '<S399>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFLWinmotorStsLo_enum;/* Referenced by: '<S399>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFLWinmotorSts_enum_ovrdflg;/* Referenced by: '<S399>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFLWinmotorSts_enum_ovrdval;/* Referenced by: '<S399>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFLWinmotor_flg_ovrdflg;/* Referenced by: '<S400>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFLWinmotor_flg_ovrdval;/* Referenced by: '<S400>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFRPEAuthentAcsdHi_enum;/* Referenced by: '<S401>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFRPEAuthentAcsdLo_enum;/* Referenced by: '<S401>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFRPEAuthentAcsd_enum_ovrdflg;/* Referenced by: '<S401>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFRPEAuthentAcsd_enum_ovrdval;/* Referenced by: '<S401>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFRWinSts_flg_ovrdflg;/* Referenced by: '<S402>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFRWinSts_flg_ovrdval;/* Referenced by: '<S402>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFRWinmotorStsHi_enum;/* Referenced by: '<S403>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFRWinmotorStsLo_enum;/* Referenced by: '<S403>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFRWinmotorSts_enum_ovrdflg;/* Referenced by: '<S403>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFRWinmotorSts_enum_ovrdval;/* Referenced by: '<S403>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFRWinmotor_flg_ovrdflg;/* Referenced by: '<S404>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFRWinmotor_flg_ovrdval;/* Referenced by: '<S404>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFlwrMeHmCtrlFbHi_enum;/* Referenced by: '<S405>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFlwrMeHmCtrlFbLo_enum;/* Referenced by: '<S405>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFlwrMeHmCtrlFb_enum_ovrdflg;/* Referenced by: '<S405>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFlwrMeHmCtrlFb_enum_ovrdval;/* Referenced by: '<S405>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFogLampStaFront_flg_ovrdflg;/* Referenced by: '<S406>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFogLampStaFront_flg_ovrdval;/* Referenced by: '<S406>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFogLampStaRear_flg_ovrdflg;/* Referenced by: '<S407>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFogLampStaRear_flg_ovrdval;/* Referenced by: '<S407>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrbdnKeyNrHi_enum;/* Referenced by: '<S408>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrbdnKeyNrLo_enum;/* Referenced by: '<S408>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrbdnKeyNr_enum_ovrdflg;/* Referenced by: '<S408>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrbdnKeyNr_enum_ovrdval;/* Referenced by: '<S408>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntFogLiFltFbHi_enum;/* Referenced by: '<S409>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntFogLiFltFbLo_enum;/* Referenced by: '<S409>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrntFogLiFltFb_enum_ovrdflg;/* Referenced by: '<S409>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntFogLiFltFb_enum_ovrdval;/* Referenced by: '<S409>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrntFogLiSwSig_flg_ovrdflg;/* Referenced by: '<S410>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrntFogLiSwSig_flg_ovrdval;/* Referenced by: '<S410>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntLeDoorHndlSwtHi_enum;/* Referenced by: '<S411>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntLeDoorHndlSwtLo_enum;/* Referenced by: '<S411>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrntLeDoorHndlSwt_enum_ovrdflg;/* Referenced by: '<S411>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntLeDoorHndlSwt_enum_ovrdval;/* Referenced by: '<S411>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntRiDoorHndlSwtHi_enum;/* Referenced by: '<S412>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntRiDoorHndlSwtLo_enum;/* Referenced by: '<S412>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrntRiDoorHndlSwt_enum_ovrdflg;/* Referenced by: '<S412>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntRiDoorHndlSwt_enum_ovrdval;/* Referenced by: '<S412>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntWiprMotStsHi_enum;/* Referenced by: '<S413>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntWiprMotStsLo_enum;/* Referenced by: '<S413>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrntWiprMotSts_enum_ovrdflg;/* Referenced by: '<S413>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMFrntWiprMotSts_enum_ovrdval;/* Referenced by: '<S413>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrntWshrSwSig_flg_ovrdflg;/* Referenced by: '<S414>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrntWshrSwSig_flg_ovrdval;/* Referenced by: '<S414>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrontWashSts_flg_ovrdflg;/* Referenced by: '<S415>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMFrontWashSts_flg_ovrdval;/* Referenced by: '<S415>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMHazardLampSts_flg_ovrdflg;/* Referenced by: '<S355>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMHiBeamLiFltFbHi_enum;/* Referenced by: '<S407>/sat6' */
+extern CALDATA const volatile boolean KOPM_BCMHazardLampSts_flg_ovrdval;/* Referenced by: '<S355>/sat4' */
+
+/* CCU_VehInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMHiBeamLiFltFbHi_enum;/* Referenced by: '<S416>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMHiBeamLiFltFbLo_enum;/* Referenced by: '<S407>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMHiBeamLiFltFbLo_enum;/* Referenced by: '<S416>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMHiBeamLiFltFb_enum_ovrdflg;/* Referenced by: '<S407>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMHiBeamLiFltFb_enum_ovrdflg;/* Referenced by: '<S416>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMHiBeamLiFltFb_enum_ovrdval;/* Referenced by: '<S407>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMHiBeamLiFltFb_enum_ovrdval;/* Referenced by: '<S416>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMHiBeamSwSigHi_enum;/* Referenced by: '<S408>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMHiBeamSwSigHi_enum;/* Referenced by: '<S417>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMHiBeamSwSigLo_enum;/* Referenced by: '<S408>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMHiBeamSwSigLo_enum;/* Referenced by: '<S417>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMHiBeamSwSig_enum_ovrdflg;/* Referenced by: '<S408>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMHiBeamSwSig_enum_ovrdflg;/* Referenced by: '<S417>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMHiBeamSwSig_enum_ovrdval;/* Referenced by: '<S408>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMHiBeamSwSig_enum_ovrdval;/* Referenced by: '<S417>/sat4' */
 
 /* BCM_B_Package_BAC */
 extern CALDATA const volatile uint8 KOPM_BCMHiFreqSigDataByte0Hi_nu;/* Referenced by: '<S11>/sat6' */
@@ -1225,232 +1243,232 @@ extern CALDATA const volatile boolean KOPM_BCMHiFreqSigDataByte9_nu_ovrdflg;/* R
 extern CALDATA const volatile uint8 KOPM_BCMHiFreqSigDataByte9_nu_ovrdval;/* Referenced by: '<S26>/sat4' */
 
 /* BCM_HFSData_BAC */
-extern CALDATA const volatile boolean KOPM_BCMHighBeamSta_flg_ovrdflg;/* Referenced by: '<S409>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMHighBeamSta_flg_ovrdflg;/* Referenced by: '<S418>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMHighBeamSta_flg_ovrdval;/* Referenced by: '<S409>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMHighBeamSta_flg_ovrdval;/* Referenced by: '<S418>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMHvyRainInd_flg_ovrdflg;/* Referenced by: '<S410>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMHvyRainInd_flg_ovrdflg;/* Referenced by: '<S419>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMHvyRainInd_flg_ovrdval;/* Referenced by: '<S410>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMHvyRainInd_flg_ovrdval;/* Referenced by: '<S419>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMHzrdWrngLghtSwSig_flg_ovrdflg;/* Referenced by: '<S411>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMHzrdWrngLghtSwSig_flg_ovrdflg;/* Referenced by: '<S420>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMHzrdWrngLghtSwSig_flg_ovrdval;/* Referenced by: '<S411>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMHzrdWrngLghtSwSig_flg_ovrdval;/* Referenced by: '<S420>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIllmndEntryStsFb_flg_ovrdflg;/* Referenced by: '<S412>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMIllmndEntryStsFb_flg_ovrdflg;/* Referenced by: '<S421>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIllmndEntryStsFb_flg_ovrdval;/* Referenced by: '<S412>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMIllmndEntryStsFb_flg_ovrdval;/* Referenced by: '<S421>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIllmndLampReq_flg_ovrdflg;/* Referenced by: '<S413>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMIllmndLampReq_flg_ovrdflg;/* Referenced by: '<S422>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIllmndLampReq_flg_ovrdval;/* Referenced by: '<S413>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMIllmndLampReq_flg_ovrdval;/* Referenced by: '<S422>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIllmndLckStsFb_flg_ovrdflg;/* Referenced by: '<S220>/sat3' */
-
-/* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIllmndLckStsFb_flg_ovrdval;/* Referenced by: '<S220>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMIllmndLckStsFb_flg_ovrdflg;/* Referenced by: '<S219>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMIllmndLockReqHi_enum;/* Referenced by: '<S414>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMIllmndLockReqLo_enum;/* Referenced by: '<S414>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIllmndLockReq_enum_ovrdflg;/* Referenced by: '<S414>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMIllmndLockReq_enum_ovrdval;/* Referenced by: '<S414>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMIllmndStsHi_enum;/* Referenced by: '<S415>/sat6' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMIllmndStsLo_enum;/* Referenced by: '<S415>/sat7' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIllmndSts_enum_ovrdflg;/* Referenced by: '<S415>/sat3' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMIllmndSts_enum_ovrdval;/* Referenced by: '<S415>/sat4' */
-
-/* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIllmndUnlckStsFb_flg_ovrdflg;/* Referenced by: '<S221>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMIllmndLckStsFb_flg_ovrdval;/* Referenced by: '<S219>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIllmndUnlckStsFb_flg_ovrdval;/* Referenced by: '<S221>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMIllmndLockReqHi_enum;/* Referenced by: '<S423>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMIllmndLockReqLo_enum;/* Referenced by: '<S423>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMIllmndLockReq_enum_ovrdflg;/* Referenced by: '<S423>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMIllmndLockReq_enum_ovrdval;/* Referenced by: '<S423>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMIllmndStsHi_enum;/* Referenced by: '<S424>/sat6' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMIllmndStsLo_enum;/* Referenced by: '<S424>/sat7' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMIllmndSts_enum_ovrdflg;/* Referenced by: '<S424>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMIllmndSts_enum_ovrdval;/* Referenced by: '<S424>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMIllmndUnlckStsFb_flg_ovrdflg;/* Referenced by: '<S220>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIndcnKeyClsr_flg_ovrdflg;/* Referenced by: '<S416>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMIllmndUnlckStsFb_flg_ovrdval;/* Referenced by: '<S220>/sat4' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile boolean KOPM_BCMIndcnKeyClsr_flg_ovrdflg;/* Referenced by: '<S425>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIndcnKeyClsr_flg_ovrdval;/* Referenced by: '<S416>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMIndcnKeyClsr_flg_ovrdval;/* Referenced by: '<S425>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIndcnShfttoNeut_flg_ovrdflg;/* Referenced by: '<S417>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMIndcnShfttoNeut_flg_ovrdflg;/* Referenced by: '<S426>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMIndcnShfttoNeut_flg_ovrdval;/* Referenced by: '<S417>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMIndcnShfttoNeut_flg_ovrdval;/* Referenced by: '<S426>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile float32 KOPM_BCMKeyBattLvlHi_pct;/* Referenced by: '<S419>/sat6' */
+extern CALDATA const volatile float32 KOPM_BCMKeyBattLvlHi_pct;/* Referenced by: '<S428>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile float32 KOPM_BCMKeyBattLvlLo_pct;/* Referenced by: '<S419>/sat7' */
+extern CALDATA const volatile float32 KOPM_BCMKeyBattLvlLo_pct;/* Referenced by: '<S428>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyBattLvlSts_flg_ovrdflg;/* Referenced by: '<S418>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMKeyBattLvlSts_flg_ovrdflg;/* Referenced by: '<S427>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyBattLvlSts_flg_ovrdval;/* Referenced by: '<S418>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMKeyBattLvlSts_flg_ovrdval;/* Referenced by: '<S427>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyBattLvl_pct_ovrdflg;/* Referenced by: '<S419>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMKeyBattLvl_pct_ovrdflg;/* Referenced by: '<S428>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile float32 KOPM_BCMKeyBattLvl_pct_ovrdval;/* Referenced by: '<S419>/sat4' */
+extern CALDATA const volatile float32 KOPM_BCMKeyBattLvl_pct_ovrdval;/* Referenced by: '<S428>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyFrbdn_flg_ovrdflg;/* Referenced by: '<S420>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMKeyFrbdn_flg_ovrdflg;/* Referenced by: '<S429>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyFrbdn_flg_ovrdval;/* Referenced by: '<S420>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMKeyFrbdn_flg_ovrdval;/* Referenced by: '<S429>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMKeyIDFbHi_enum;/* Referenced by: '<S421>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMKeyIDFbHi_enum;/* Referenced by: '<S430>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMKeyIDFbLo_enum;/* Referenced by: '<S421>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMKeyIDFbLo_enum;/* Referenced by: '<S430>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyIDFb_enum_ovrdflg;/* Referenced by: '<S421>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMKeyIDFb_enum_ovrdflg;/* Referenced by: '<S430>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMKeyIDFb_enum_ovrdval;/* Referenced by: '<S421>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMKeyIDFb_enum_ovrdval;/* Referenced by: '<S430>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyInCarSta_flg_ovrdflg;/* Referenced by: '<S422>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMKeyInCarSta_flg_ovrdflg;/* Referenced by: '<S431>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyInCarSta_flg_ovrdval;/* Referenced by: '<S422>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMKeyInCarSta_flg_ovrdval;/* Referenced by: '<S431>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyLoBattLvlWarn_flg_ovrdflg;/* Referenced by: '<S423>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMKeyLoBattLvlWarn_flg_ovrdflg;/* Referenced by: '<S432>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyLoBattLvlWarn_flg_ovrdval;/* Referenced by: '<S423>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMKeyLoBattLvlWarn_flg_ovrdval;/* Referenced by: '<S432>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint16 KOPM_BCMKeyLocnHi_mm;/* Referenced by: '<S424>/sat6' */
+extern CALDATA const volatile uint16 KOPM_BCMKeyLocnHi_mm;/* Referenced by: '<S433>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint16 KOPM_BCMKeyLocnLo_mm;/* Referenced by: '<S424>/sat7' */
+extern CALDATA const volatile uint16 KOPM_BCMKeyLocnLo_mm;/* Referenced by: '<S433>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeyLocn_mm_ovrdflg;/* Referenced by: '<S424>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMKeyLocn_mm_ovrdflg;/* Referenced by: '<S433>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint16 KOPM_BCMKeyLocn_mm_ovrdval;/* Referenced by: '<S424>/sat4' */
+extern CALDATA const volatile uint16 KOPM_BCMKeyLocn_mm_ovrdval;/* Referenced by: '<S433>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMKeyStaHi_enum;/* Referenced by: '<S425>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMKeyStaHi_enum;/* Referenced by: '<S434>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMKeyStaLo_enum;/* Referenced by: '<S425>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMKeyStaLo_enum;/* Referenced by: '<S434>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMKeySta_enum_ovrdflg;/* Referenced by: '<S425>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMKeySta_enum_ovrdflg;/* Referenced by: '<S434>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMKeySta_enum_ovrdval;/* Referenced by: '<S425>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMKeySta_enum_ovrdval;/* Referenced by: '<S434>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLFInitSta_flg_ovrdflg;/* Referenced by: '<S426>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMLFInitSta_flg_ovrdflg;/* Referenced by: '<S435>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLFInitSta_flg_ovrdval;/* Referenced by: '<S426>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMLFInitSta_flg_ovrdval;/* Referenced by: '<S435>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLckHornOnStFb_flg_ovrdflg;/* Referenced by: '<S427>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMLckHornOnStFb_flg_ovrdflg;/* Referenced by: '<S436>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLckHornOnStFb_flg_ovrdval;/* Referenced by: '<S427>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMLckHornOnStFb_flg_ovrdval;/* Referenced by: '<S436>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLeTrnLiFltFbHi_enum;/* Referenced by: '<S428>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMLeTrnLiFltFbHi_enum;/* Referenced by: '<S437>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLeTrnLiFltFbLo_enum;/* Referenced by: '<S428>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMLeTrnLiFltFbLo_enum;/* Referenced by: '<S437>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLeTrnLiFltFb_enum_ovrdflg;/* Referenced by: '<S428>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMLeTrnLiFltFb_enum_ovrdflg;/* Referenced by: '<S437>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLeTrnLiFltFb_enum_ovrdval;/* Referenced by: '<S428>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMLeTrnLiFltFb_enum_ovrdval;/* Referenced by: '<S437>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLghtSwSigHi_enum;/* Referenced by: '<S429>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMLghtSwSigHi_enum;/* Referenced by: '<S438>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLghtSwSigLo_enum;/* Referenced by: '<S429>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMLghtSwSigLo_enum;/* Referenced by: '<S438>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLghtSwSig_enum_ovrdflg;/* Referenced by: '<S429>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMLghtSwSig_enum_ovrdflg;/* Referenced by: '<S438>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLghtSwSig_enum_ovrdval;/* Referenced by: '<S429>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMLghtSwSig_enum_ovrdval;/* Referenced by: '<S438>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLightIntensityHi_enum;/* Referenced by: '<S430>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMLightIntensityHi_enum;/* Referenced by: '<S439>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLightIntensityLo_enum;/* Referenced by: '<S430>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMLightIntensityLo_enum;/* Referenced by: '<S439>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLightIntensity_enum_ovrdflg;/* Referenced by: '<S430>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMLightIntensity_enum_ovrdflg;/* Referenced by: '<S439>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLightIntensity_enum_ovrdval;/* Referenced by: '<S430>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMLightIntensity_enum_ovrdval;/* Referenced by: '<S439>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLoBeamLiFltFbHi_enum;/* Referenced by: '<S431>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMLoBeamLiFltFbHi_enum;/* Referenced by: '<S440>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLoBeamLiFltFbLo_enum;/* Referenced by: '<S431>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMLoBeamLiFltFbLo_enum;/* Referenced by: '<S440>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLoBeamLiFltFb_enum_ovrdflg;/* Referenced by: '<S431>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMLoBeamLiFltFb_enum_ovrdflg;/* Referenced by: '<S440>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLoBeamLiFltFb_enum_ovrdval;/* Referenced by: '<S431>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMLoBeamLiFltFb_enum_ovrdval;/* Referenced by: '<S440>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLogoActvFlgHi_enum;/* Referenced by: '<S432>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMLogoActvFlgHi_enum;/* Referenced by: '<S441>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLogoActvFlgLo_enum;/* Referenced by: '<S432>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMLogoActvFlgLo_enum;/* Referenced by: '<S441>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLogoActvFlg_enum_ovrdflg;/* Referenced by: '<S432>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMLogoActvFlg_enum_ovrdflg;/* Referenced by: '<S441>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMLogoActvFlg_enum_ovrdval;/* Referenced by: '<S432>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMLogoActvFlg_enum_ovrdval;/* Referenced by: '<S441>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLowBeamSta_flg_ovrdflg;/* Referenced by: '<S433>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMLowBeamSta_flg_ovrdflg;/* Referenced by: '<S442>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMLowBeamSta_flg_ovrdval;/* Referenced by: '<S433>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMLowBeamSta_flg_ovrdval;/* Referenced by: '<S442>/sat4' */
 
 /* BCM_B_Package_BAC */
 extern CALDATA const volatile uint8 KOPM_BCMLrngData02Hi_nu;/* Referenced by: '<S146>/sat6' */
@@ -1549,154 +1567,154 @@ extern CALDATA const volatile boolean KOPM_BCMLrngsubID_cnt_ovrdflg;/* Reference
 extern CALDATA const volatile uint8 KOPM_BCMLrngsubID_cnt_ovrdval;/* Referenced by: '<S153>/sat4' */
 
 /* BCM_IMMOAuthResp1_EPT */
-extern CALDATA const volatile uint8 KOPM_BCMMaiDrvrSeatStsHi_enum;/* Referenced by: '<S434>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMMaiDrvrSeatStsHi_enum;/* Referenced by: '<S443>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMMaiDrvrSeatStsLo_enum;/* Referenced by: '<S434>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMMaiDrvrSeatStsLo_enum;/* Referenced by: '<S443>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMMaiDrvrSeatSts_enum_ovrdflg;/* Referenced by: '<S434>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMMaiDrvrSeatSts_enum_ovrdflg;/* Referenced by: '<S443>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMMaiDrvrSeatSts_enum_ovrdval;/* Referenced by: '<S434>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMMaiDrvrSeatSts_enum_ovrdval;/* Referenced by: '<S443>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile float32 KOPM_BCMMaiDrvrSeatTempHi_C;/* Referenced by: '<S435>/sat6' */
+extern CALDATA const volatile float32 KOPM_BCMMaiDrvrSeatTempHi_C;/* Referenced by: '<S444>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile float32 KOPM_BCMMaiDrvrSeatTempLo_C;/* Referenced by: '<S435>/sat7' */
+extern CALDATA const volatile float32 KOPM_BCMMaiDrvrSeatTempLo_C;/* Referenced by: '<S444>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMMaiDrvrSeatTemp_C_ovrdflg;/* Referenced by: '<S435>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMMaiDrvrSeatTemp_C_ovrdflg;/* Referenced by: '<S444>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile float32 KOPM_BCMMaiDrvrSeatTemp_C_ovrdval;/* Referenced by: '<S435>/sat4' */
+extern CALDATA const volatile float32 KOPM_BCMMaiDrvrSeatTemp_C_ovrdval;/* Referenced by: '<S444>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMOvrspdCntrlLckSetFb_flg_ovrdflg;/* Referenced by: '<S436>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMOvrspdCntrlLckSetFb_flg_ovrdflg;/* Referenced by: '<S445>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMOvrspdCntrlLckSetFb_flg_ovrdval;/* Referenced by: '<S436>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMOvrspdCntrlLckSetFb_flg_ovrdval;/* Referenced by: '<S445>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMPSAuthentResHi_enum;/* Referenced by: '<S437>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMPSAuthentResHi_enum;/* Referenced by: '<S446>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMPSAuthentResLo_enum;/* Referenced by: '<S437>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMPSAuthentResLo_enum;/* Referenced by: '<S446>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMPSAuthentRes_enum_ovrdflg;/* Referenced by: '<S437>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMPSAuthentRes_enum_ovrdflg;/* Referenced by: '<S446>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMPSAuthentRes_enum_ovrdval;/* Referenced by: '<S437>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMPSAuthentRes_enum_ovrdval;/* Referenced by: '<S446>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMPSReq_flg_ovrdflg;/* Referenced by: '<S438>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMPSReq_flg_ovrdflg;/* Referenced by: '<S447>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMPSReq_flg_ovrdval;/* Referenced by: '<S438>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMPSReq_flg_ovrdval;/* Referenced by: '<S447>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMParkAutoUnlckSetFb_flg_ovrdflg;/* Referenced by: '<S439>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMParkAutoUnlckSetFb_flg_ovrdflg;/* Referenced by: '<S448>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMParkAutoUnlckSetFb_flg_ovrdval;/* Referenced by: '<S439>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMParkAutoUnlckSetFb_flg_ovrdval;/* Referenced by: '<S448>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMPassWinSwSigHi_enum;/* Referenced by: '<S440>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMPassWinSwSigHi_enum;/* Referenced by: '<S449>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMPassWinSwSigLo_enum;/* Referenced by: '<S440>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMPassWinSwSigLo_enum;/* Referenced by: '<S449>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMPassWinSwSig_enum_ovrdflg;/* Referenced by: '<S440>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMPassWinSwSig_enum_ovrdflg;/* Referenced by: '<S449>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMPassWinSwSig_enum_ovrdval;/* Referenced by: '<S440>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMPassWinSwSig_enum_ovrdval;/* Referenced by: '<S449>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMPaswdwInit_flg_ovrdflg;/* Referenced by: '<S441>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMPaswdwInit_flg_ovrdflg;/* Referenced by: '<S450>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMPaswdwInit_flg_ovrdval;/* Referenced by: '<S441>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMPaswdwInit_flg_ovrdval;/* Referenced by: '<S450>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMPosLampSta_flg_ovrdflg;/* Referenced by: '<S350>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMPosLampSta_flg_ovrdflg;/* Referenced by: '<S356>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMPosLampSta_flg_ovrdval;/* Referenced by: '<S350>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMPosLampSta_flg_ovrdval;/* Referenced by: '<S356>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMPosLiFltFbHi_enum;/* Referenced by: '<S442>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMPosLiFltFbHi_enum;/* Referenced by: '<S451>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMPosLiFltFbLo_enum;/* Referenced by: '<S442>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMPosLiFltFbLo_enum;/* Referenced by: '<S451>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMPosLiFltFb_enum_ovrdflg;/* Referenced by: '<S442>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMPosLiFltFb_enum_ovrdflg;/* Referenced by: '<S451>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMPosLiFltFb_enum_ovrdval;/* Referenced by: '<S442>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMPosLiFltFb_enum_ovrdval;/* Referenced by: '<S451>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMRFInitSta_flg_ovrdflg;/* Referenced by: '<S443>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMRFInitSta_flg_ovrdflg;/* Referenced by: '<S452>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMRFInitSta_flg_ovrdval;/* Referenced by: '<S443>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMRFInitSta_flg_ovrdval;/* Referenced by: '<S452>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRKEReqHi_enum;/* Referenced by: '<S444>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMRKEReqHi_enum;/* Referenced by: '<S453>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRKEReqLo_enum;/* Referenced by: '<S444>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMRKEReqLo_enum;/* Referenced by: '<S453>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMRKEReq_enum_ovrdflg;/* Referenced by: '<S444>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMRKEReq_enum_ovrdflg;/* Referenced by: '<S453>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRKEReq_enum_ovrdval;/* Referenced by: '<S444>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMRKEReq_enum_ovrdval;/* Referenced by: '<S453>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMReverseLampSta_flg_ovrdflg;/* Referenced by: '<S445>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMReverseLampSta_flg_ovrdflg;/* Referenced by: '<S454>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMReverseLampSta_flg_ovrdval;/* Referenced by: '<S445>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMReverseLampSta_flg_ovrdval;/* Referenced by: '<S454>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRiTrnLiFltFbHi_enum;/* Referenced by: '<S446>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMRiTrnLiFltFbHi_enum;/* Referenced by: '<S455>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRiTrnLiFltFbLo_enum;/* Referenced by: '<S446>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMRiTrnLiFltFbLo_enum;/* Referenced by: '<S455>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMRiTrnLiFltFb_enum_ovrdflg;/* Referenced by: '<S446>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMRiTrnLiFltFb_enum_ovrdflg;/* Referenced by: '<S455>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRiTrnLiFltFb_enum_ovrdval;/* Referenced by: '<S446>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMRiTrnLiFltFb_enum_ovrdval;/* Referenced by: '<S455>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRrFogLiFltFbHi_enum;/* Referenced by: '<S447>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMRrFogLiFltFbHi_enum;/* Referenced by: '<S456>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRrFogLiFltFbLo_enum;/* Referenced by: '<S447>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMRrFogLiFltFbLo_enum;/* Referenced by: '<S456>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMRrFogLiFltFb_enum_ovrdflg;/* Referenced by: '<S447>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMRrFogLiFltFb_enum_ovrdflg;/* Referenced by: '<S456>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRrFogLiFltFb_enum_ovrdval;/* Referenced by: '<S447>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMRrFogLiFltFb_enum_ovrdval;/* Referenced by: '<S456>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMRrFogLiSwSig_flg_ovrdflg;/* Referenced by: '<S448>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMRrFogLiSwSig_flg_ovrdflg;/* Referenced by: '<S457>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMRrFogLiSwSig_flg_ovrdval;/* Referenced by: '<S448>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMRrFogLiSwSig_flg_ovrdval;/* Referenced by: '<S457>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMRrMirrHeatSts_flg_ovrdflg;/* Referenced by: '<S449>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMRrMirrHeatSts_flg_ovrdflg;/* Referenced by: '<S458>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMRrMirrHeatSts_flg_ovrdval;/* Referenced by: '<S449>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMRrMirrHeatSts_flg_ovrdval;/* Referenced by: '<S458>/sat4' */
 
 /* BCM_B_Package_BAC */
 extern CALDATA const volatile boolean KOPM_BCMRrViewMirrHeatgSts_flg_ovrdflg;/* Referenced by: '<S100>/sat3' */
@@ -1705,292 +1723,304 @@ extern CALDATA const volatile boolean KOPM_BCMRrViewMirrHeatgSts_flg_ovrdflg;/* 
 extern CALDATA const volatile boolean KOPM_BCMRrViewMirrHeatgSts_flg_ovrdval;/* Referenced by: '<S100>/sat4' */
 
 /* AC_ACStatuts_BOD */
-extern CALDATA const volatile uint8 KOPM_BCMRvrsLiFltFbHi_enum;/* Referenced by: '<S450>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMRvrsLiFltFbHi_enum;/* Referenced by: '<S459>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRvrsLiFltFbLo_enum;/* Referenced by: '<S450>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMRvrsLiFltFbLo_enum;/* Referenced by: '<S459>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMRvrsLiFltFb_enum_ovrdflg;/* Referenced by: '<S450>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMRvrsLiFltFb_enum_ovrdflg;/* Referenced by: '<S459>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMRvrsLiFltFb_enum_ovrdval;/* Referenced by: '<S450>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMRvrsLiFltFb_enum_ovrdval;/* Referenced by: '<S459>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMStartReqHi_enum;/* Referenced by: '<S451>/sat6' */
+extern CALDATA const volatile boolean KOPM_BCMSavePwrSt_flg_ovrdflg;/* Referenced by: '<S460>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMStartReqLo_enum;/* Referenced by: '<S451>/sat7' */
+extern CALDATA const volatile boolean KOPM_BCMSavePwrSt_flg_ovrdval;/* Referenced by: '<S460>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMStartReq_enum_ovrdflg;/* Referenced by: '<S451>/sat3' */
+extern CALDATA const volatile uint8 KOPM_BCMStartReqHi_enum;/* Referenced by: '<S461>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMStartReq_enum_ovrdval;/* Referenced by: '<S451>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMStartReqLo_enum;/* Referenced by: '<S461>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMSteerWhlHeatStsHi_flg;/* Referenced by: '<S452>/sat6' */
+extern CALDATA const volatile boolean KOPM_BCMStartReq_enum_ovrdflg;/* Referenced by: '<S461>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMSteerWhlHeatStsLo_flg;/* Referenced by: '<S452>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMStartReq_enum_ovrdval;/* Referenced by: '<S461>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMSteerWhlHeatSts_flg_ovrdflg;/* Referenced by: '<S452>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMSteerWhlHeatStsHi_flg;/* Referenced by: '<S462>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMSteerWhlHeatSts_flg_ovrdval;/* Referenced by: '<S452>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMSteerWhlHeatStsLo_flg;/* Referenced by: '<S462>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile float32 KOPM_BCMSteerWhlTempHi_C;/* Referenced by: '<S453>/sat6' */
+extern CALDATA const volatile boolean KOPM_BCMSteerWhlHeatSts_flg_ovrdflg;/* Referenced by: '<S462>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile float32 KOPM_BCMSteerWhlTempLo_C;/* Referenced by: '<S453>/sat7' */
+extern CALDATA const volatile boolean KOPM_BCMSteerWhlHeatSts_flg_ovrdval;/* Referenced by: '<S462>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMSteerWhlTemp_C_ovrdflg;/* Referenced by: '<S453>/sat3' */
+extern CALDATA const volatile float32 KOPM_BCMSteerWhlTempHi_C;/* Referenced by: '<S463>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile float32 KOPM_BCMSteerWhlTemp_C_ovrdval;/* Referenced by: '<S453>/sat4' */
+extern CALDATA const volatile float32 KOPM_BCMSteerWhlTempLo_C;/* Referenced by: '<S463>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMSysPowerStsHi_enum;/* Referenced by: '<S351>/sat6' */
+extern CALDATA const volatile boolean KOPM_BCMSteerWhlTemp_C_ovrdflg;/* Referenced by: '<S463>/sat3' */
 
-/* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMSysPowerStsLo_enum;/* Referenced by: '<S351>/sat7' */
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile float32 KOPM_BCMSteerWhlTemp_C_ovrdval;/* Referenced by: '<S463>/sat4' */
 
-/* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMSysPowerSts_enum_ovrdflg;/* Referenced by: '<S351>/sat3' */
-
-/* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMSysPowerSts_enum_ovrdval;/* Referenced by: '<S351>/sat4' */
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMSysPowerStsHi_enum;/* Referenced by: '<S357>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMSysPwrModeHi_enum;/* Referenced by: '<S353>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMSysPowerStsLo_enum;/* Referenced by: '<S357>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMSysPwrModeLo_enum;/* Referenced by: '<S353>/sat7' */
+extern CALDATA const volatile boolean KOPM_BCMSysPowerSts_enum_ovrdflg;/* Referenced by: '<S357>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMSysPwrModeVld_flg_ovrdflg;/* Referenced by: '<S352>/sat3' */
+extern CALDATA const volatile uint8 KOPM_BCMSysPowerSts_enum_ovrdval;/* Referenced by: '<S357>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMSysPwrModeVld_flg_ovrdval;/* Referenced by: '<S352>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMSysPwrModeHi_enum;/* Referenced by: '<S359>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_BCMSysPwrMode_enum_ovrdflg;/* Referenced by: '<S353>/sat3' */
+extern CALDATA const volatile uint8 KOPM_BCMSysPwrModeLo_enum;/* Referenced by: '<S359>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMSysPwrMode_enum_ovrdval;/* Referenced by: '<S353>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMSysPwrModeVld_flg_ovrdflg;/* Referenced by: '<S358>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMTPMSRstStsHi_enum;/* Referenced by: '<S454>/sat6' */
+extern CALDATA const volatile boolean KOPM_BCMSysPwrModeVld_flg_ovrdval;/* Referenced by: '<S358>/sat4' */
+
+/* CCU_VehInfo_BAC */
+extern CALDATA const volatile boolean KOPM_BCMSysPwrMode_enum_ovrdflg;/* Referenced by: '<S359>/sat3' */
+
+/* CCU_VehInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMSysPwrMode_enum_ovrdval;/* Referenced by: '<S359>/sat4' */
+
+/* CCU_VehInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_BCMTPMSRstStsHi_enum;/* Referenced by: '<S464>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMTPMSRstStsLo_enum;/* Referenced by: '<S454>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMTPMSRstStsLo_enum;/* Referenced by: '<S464>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTPMSRstSts_enum_ovrdflg;/* Referenced by: '<S454>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMTPMSRstSts_enum_ovrdflg;/* Referenced by: '<S464>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMTPMSRstSts_enum_ovrdval;/* Referenced by: '<S454>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMTPMSRstSts_enum_ovrdval;/* Referenced by: '<S464>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTrnkLckSta_flg_ovrdflg;/* Referenced by: '<S455>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMTrnkLckSta_flg_ovrdflg;/* Referenced by: '<S465>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTrnkLckSta_flg_ovrdval;/* Referenced by: '<S455>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMTrnkLckSta_flg_ovrdval;/* Referenced by: '<S465>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTrnkLckSwCtrlFb_flg_ovrdflg;/* Referenced by: '<S456>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMTrnkLckSwCtrlFb_flg_ovrdflg;/* Referenced by: '<S466>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTrnkLckSwCtrlFb_flg_ovrdval;/* Referenced by: '<S456>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMTrnkLckSwCtrlFb_flg_ovrdval;/* Referenced by: '<S466>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMTrnngLiSwSigHi_enum;/* Referenced by: '<S457>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMTrnngLiSwSigHi_enum;/* Referenced by: '<S467>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMTrnngLiSwSigLo_enum;/* Referenced by: '<S457>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMTrnngLiSwSigLo_enum;/* Referenced by: '<S467>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTrnngLiSwSig_enum_ovrdflg;/* Referenced by: '<S457>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMTrnngLiSwSig_enum_ovrdflg;/* Referenced by: '<S467>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMTrnngLiSwSig_enum_ovrdval;/* Referenced by: '<S457>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMTrnngLiSwSig_enum_ovrdval;/* Referenced by: '<S467>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTrunkSwtSig_flg_ovrdflg;/* Referenced by: '<S458>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMTrunkSwtSig_flg_ovrdflg;/* Referenced by: '<S468>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTrunkSwtSig_flg_ovrdval;/* Referenced by: '<S458>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMTrunkSwtSig_flg_ovrdval;/* Referenced by: '<S468>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTurnLampStaLeft_flg_ovrdflg;/* Referenced by: '<S459>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMTurnLampStaLeft_flg_ovrdflg;/* Referenced by: '<S469>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTurnLampStaLeft_flg_ovrdval;/* Referenced by: '<S459>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMTurnLampStaLeft_flg_ovrdval;/* Referenced by: '<S469>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTurnLampStaRight_flg_ovrdflg;/* Referenced by: '<S460>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMTurnLampStaRight_flg_ovrdflg;/* Referenced by: '<S470>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTurnLampStaRight_flg_ovrdval;/* Referenced by: '<S460>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMTurnLampStaRight_flg_ovrdval;/* Referenced by: '<S470>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMTurnLiStsHi_enum;/* Referenced by: '<S461>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMTurnLiStsHi_enum;/* Referenced by: '<S471>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMTurnLiStsLo_enum;/* Referenced by: '<S461>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMTurnLiStsLo_enum;/* Referenced by: '<S471>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMTurnLiSts_enum_ovrdflg;/* Referenced by: '<S461>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMTurnLiSts_enum_ovrdflg;/* Referenced by: '<S471>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMTurnLiSts_enum_ovrdval;/* Referenced by: '<S461>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMTurnLiSts_enum_ovrdval;/* Referenced by: '<S471>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMVehSeek_flg_ovrdflg;/* Referenced by: '<S462>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMVehSeek_flg_ovrdflg;/* Referenced by: '<S472>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMVehSeek_flg_ovrdval;/* Referenced by: '<S462>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMVehSeek_flg_ovrdval;/* Referenced by: '<S472>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWarnKeyOutRmndr_flg_ovrdflg;/* Referenced by: '<S463>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMWarnKeyOutRmndr_flg_ovrdflg;/* Referenced by: '<S473>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWarnKeyOutRmndr_flg_ovrdval;/* Referenced by: '<S463>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMWarnKeyOutRmndr_flg_ovrdval;/* Referenced by: '<S473>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWarnNoKeyFound_flg_ovrdflg;/* Referenced by: '<S464>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMWarnNoKeyFound_flg_ovrdflg;/* Referenced by: '<S474>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWarnNoKeyFound_flg_ovrdval;/* Referenced by: '<S464>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMWarnNoKeyFound_flg_ovrdval;/* Referenced by: '<S474>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWashLiquidLvlWarn_flg_ovrdflg;/* Referenced by: '<S465>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMWashLiquidLvlWarn_flg_ovrdflg;/* Referenced by: '<S475>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWashLiquidLvlWarn_flg_ovrdval;/* Referenced by: '<S465>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMWashLiquidLvlWarn_flg_ovrdval;/* Referenced by: '<S475>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWinLockSig_flg_ovrdflg;/* Referenced by: '<S466>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMWinLockSig_flg_ovrdflg;/* Referenced by: '<S476>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWinLockSig_flg_ovrdval;/* Referenced by: '<S466>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMWinLockSig_flg_ovrdval;/* Referenced by: '<S476>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWinLockSts_flg_ovrdflg;/* Referenced by: '<S467>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMWinLockSts_flg_ovrdflg;/* Referenced by: '<S477>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWinLockSts_flg_ovrdval;/* Referenced by: '<S467>/sat4' */
+extern CALDATA const volatile boolean KOPM_BCMWinLockSts_flg_ovrdval;/* Referenced by: '<S477>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiperCtrlFrontHi_enum;/* Referenced by: '<S468>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMWiperCtrlFrontHi_enum;/* Referenced by: '<S478>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiperCtrlFrontLo_enum;/* Referenced by: '<S468>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMWiperCtrlFrontLo_enum;/* Referenced by: '<S478>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWiperCtrlFront_enum_ovrdflg;/* Referenced by: '<S468>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMWiperCtrlFront_enum_ovrdflg;/* Referenced by: '<S478>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiperCtrlFront_enum_ovrdval;/* Referenced by: '<S468>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMWiperCtrlFront_enum_ovrdval;/* Referenced by: '<S478>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiperSwSigHi_enum;/* Referenced by: '<S469>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMWiperSwSigHi_enum;/* Referenced by: '<S479>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiperSwSigLo_enum;/* Referenced by: '<S469>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMWiperSwSigLo_enum;/* Referenced by: '<S479>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWiperSwSig_enum_ovrdflg;/* Referenced by: '<S469>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMWiperSwSig_enum_ovrdflg;/* Referenced by: '<S479>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiperSwSig_enum_ovrdval;/* Referenced by: '<S469>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMWiperSwSig_enum_ovrdval;/* Referenced by: '<S479>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiprIntlGrSwtSigHi_enum;/* Referenced by: '<S470>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMWiprIntlGrSwtSigHi_enum;/* Referenced by: '<S480>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiprIntlGrSwtSigLo_enum;/* Referenced by: '<S470>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMWiprIntlGrSwtSigLo_enum;/* Referenced by: '<S480>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWiprIntlGrSwtSig_enum_ovrdflg;/* Referenced by: '<S470>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMWiprIntlGrSwtSig_enum_ovrdflg;/* Referenced by: '<S480>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiprIntlGrSwtSig_enum_ovrdval;/* Referenced by: '<S470>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMWiprIntlGrSwtSig_enum_ovrdval;/* Referenced by: '<S480>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiprIntlTimeSetFbHi_enum;/* Referenced by: '<S471>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BCMWiprIntlTimeSetFbHi_enum;/* Referenced by: '<S481>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiprIntlTimeSetFbLo_enum;/* Referenced by: '<S471>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BCMWiprIntlTimeSetFbLo_enum;/* Referenced by: '<S481>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_BCMWiprIntlTimeSetFb_enum_ovrdflg;/* Referenced by: '<S471>/sat3' */
+extern CALDATA const volatile boolean KOPM_BCMWiprIntlTimeSetFb_enum_ovrdflg;/* Referenced by: '<S481>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BCMWiprIntlTimeSetFb_enum_ovrdval;/* Referenced by: '<S471>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BCMWiprIntlTimeSetFb_enum_ovrdval;/* Referenced by: '<S481>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_BMSShutdownHi_enum;/* Referenced by: '<S319>/sat6' */
+extern CALDATA const volatile boolean KOPM_BCMWiprStopPstnSt_flg_ovrdflg;/* Referenced by: '<S482>/sat3' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile boolean KOPM_BCMWiprStopPstnSt_flg_ovrdval;/* Referenced by: '<S482>/sat4' */
+
+/* BCM_B_Package_BAC */
+extern CALDATA const volatile uint8 KOPM_BMSShutdownHi_enum;/* Referenced by: '<S325>/sat6' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_BMSShutdownLo_enum;/* Referenced by: '<S319>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BMSShutdownLo_enum;/* Referenced by: '<S325>/sat7' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile boolean KOPM_BMSShutdown_enum_ovrdflg;/* Referenced by: '<S319>/sat3' */
+extern CALDATA const volatile boolean KOPM_BMSShutdown_enum_ovrdflg;/* Referenced by: '<S325>/sat3' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile EnumBMSSdnCmd KOPM_BMSShutdown_enum_ovrdval;/* Referenced by: '<S319>/sat4' */
+extern CALDATA const volatile EnumBMSSdnCmd KOPM_BMSShutdown_enum_ovrdval;/* Referenced by: '<S325>/sat4' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_BMSWakeupModeHi_enum;/* Referenced by: '<S313>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BMSWakeupModeHi_enum;/* Referenced by: '<S319>/sat6' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_BMSWakeupModeLo_enum;/* Referenced by: '<S313>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BMSWakeupModeLo_enum;/* Referenced by: '<S319>/sat7' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_BMSWakeupMode_enum_ovrdflg;/* Referenced by: '<S313>/sat3' */
+extern CALDATA const volatile boolean KOPM_BMSWakeupMode_enum_ovrdflg;/* Referenced by: '<S319>/sat3' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile EnumBMSWakeUpMd KOPM_BMSWakeupMode_enum_ovrdval;/* Referenced by: '<S313>/sat4' */
+extern CALDATA const volatile EnumBMSWakeUpMd KOPM_BMSWakeupMode_enum_ovrdval;/* Referenced by: '<S319>/sat4' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_Bat2DrvTrainEnb_flg_ovrdflg;/* Referenced by: '<S314>/sat3' */
+extern CALDATA const volatile boolean KOPM_Bat2DrvTrainEnb_flg_ovrdflg;/* Referenced by: '<S320>/sat3' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_Bat2DrvTrainEnb_flg_ovrdval;/* Referenced by: '<S314>/sat4' */
+extern CALDATA const volatile boolean KOPM_Bat2DrvTrainEnb_flg_ovrdval;/* Referenced by: '<S320>/sat4' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_BraSwi_flg_ovrdflg;/* Referenced by: '<S193>/sat3' */
+extern CALDATA const volatile boolean KOPM_BraSwi_flg_ovrdflg;/* Referenced by: '<S192>/sat3' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile boolean KOPM_BraSwi_flg_ovrdval;/* Referenced by: '<S193>/sat4' */
+extern CALDATA const volatile boolean KOPM_BraSwi_flg_ovrdval;/* Referenced by: '<S192>/sat4' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile uint8 KOPM_BrkPedSnsrPosVRsrvdHi_enum;/* Referenced by: '<S278>/sat6' */
+extern CALDATA const volatile uint8 KOPM_BrkPedSnsrPosVRsrvdHi_enum;/* Referenced by: '<S284>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_BrkPedSnsrPosVRsrvdLo_enum;/* Referenced by: '<S278>/sat7' */
+extern CALDATA const volatile uint8 KOPM_BrkPedSnsrPosVRsrvdLo_enum;/* Referenced by: '<S284>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_BrkPedSnsrPosVRsrvd_enum_ovrdflg;/* Referenced by: '<S278>/sat3' */
+extern CALDATA const volatile boolean KOPM_BrkPedSnsrPosVRsrvd_enum_ovrdflg;/* Referenced by: '<S284>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_BrkPedSnsrPosVRsrvd_enum_ovrdval;/* Referenced by: '<S278>/sat4' */
+extern CALDATA const volatile uint8 KOPM_BrkPedSnsrPosVRsrvd_enum_ovrdval;/* Referenced by: '<S284>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_BrkPedalPosHi_pct;/* Referenced by: '<S279>/sat6' */
+extern CALDATA const volatile float32 KOPM_BrkPedalPosHi_pct;/* Referenced by: '<S285>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_BrkPedalPosLo_pct;/* Referenced by: '<S279>/sat7' */
+extern CALDATA const volatile float32 KOPM_BrkPedalPosLo_pct;/* Referenced by: '<S285>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_BrkPedalPos_pct_ovrdflg;/* Referenced by: '<S279>/sat3' */
+extern CALDATA const volatile boolean KOPM_BrkPedalPos_pct_ovrdflg;/* Referenced by: '<S285>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_BrkPedalPos_pct_ovrdval;/* Referenced by: '<S279>/sat4' */
+extern CALDATA const volatile float32 KOPM_BrkPedalPos_pct_ovrdval;/* Referenced by: '<S285>/sat4' */
 
 /* VCU_D_Status_CHA */
 extern CALDATA const volatile float32 KOPM_BrkPwrRecupActWhlTqHi_Nm;/* Referenced by: '<S163>/sat6' */
@@ -2029,64 +2059,64 @@ extern CALDATA const volatile boolean KOPM_BrkPwrRecupMaxAvlbWhlTq_Nm_ovrdflg;/*
 extern CALDATA const volatile float32 KOPM_BrkPwrRecupMaxAvlbWhlTq_Nm_ovrdval;/* Referenced by: '<S165>/sat4' */
 
 /* VCU_10_Torque_CHA */
-extern CALDATA const volatile uint8 KOPM_CCKeyStgntnHi_enum;/* Referenced by: '<S222>/sat6' */
+extern CALDATA const volatile uint8 KOPM_CCKeyStgntnHi_enum;/* Referenced by: '<S221>/sat6' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint8 KOPM_CCKeyStgntnLo_enum;/* Referenced by: '<S222>/sat7' */
+extern CALDATA const volatile uint8 KOPM_CCKeyStgntnLo_enum;/* Referenced by: '<S221>/sat7' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_CCKeyStgntn_enum_ovrdflg;/* Referenced by: '<S222>/sat3' */
+extern CALDATA const volatile boolean KOPM_CCKeyStgntn_enum_ovrdflg;/* Referenced by: '<S221>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCKeyStgntn_enum_ovrdval;/* Referenced by: '<S222>/sat4' */
+extern CALDATA const volatile uint8 KOPM_CCKeyStgntn_enum_ovrdval;/* Referenced by: '<S221>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCUOpenVentnFbHi_enum;/* Referenced by: '<S223>/sat6' */
+extern CALDATA const volatile uint8 KOPM_CCUOpenVentnFbHi_enum;/* Referenced by: '<S222>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCUOpenVentnFbLo_enum;/* Referenced by: '<S223>/sat7' */
+extern CALDATA const volatile uint8 KOPM_CCUOpenVentnFbLo_enum;/* Referenced by: '<S222>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_CCUOpenVentnFb_enum_ovrdflg;/* Referenced by: '<S223>/sat3' */
+extern CALDATA const volatile boolean KOPM_CCUOpenVentnFb_enum_ovrdflg;/* Referenced by: '<S222>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCUOpenVentnFb_enum_ovrdval;/* Referenced by: '<S223>/sat4' */
+extern CALDATA const volatile uint8 KOPM_CCUOpenVentnFb_enum_ovrdval;/* Referenced by: '<S222>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCURmtCarSearchFbHi_enum;/* Referenced by: '<S224>/sat6' */
+extern CALDATA const volatile uint8 KOPM_CCURmtCarSearchFbHi_enum;/* Referenced by: '<S223>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCURmtCarSearchFbLo_enum;/* Referenced by: '<S224>/sat7' */
+extern CALDATA const volatile uint8 KOPM_CCURmtCarSearchFbLo_enum;/* Referenced by: '<S223>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_CCURmtCarSearchFb_enum_ovrdflg;/* Referenced by: '<S224>/sat3' */
+extern CALDATA const volatile boolean KOPM_CCURmtCarSearchFb_enum_ovrdflg;/* Referenced by: '<S223>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCURmtCarSearchFb_enum_ovrdval;/* Referenced by: '<S224>/sat4' */
+extern CALDATA const volatile uint8 KOPM_CCURmtCarSearchFb_enum_ovrdval;/* Referenced by: '<S223>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCURmtLckFbHi_enum;/* Referenced by: '<S225>/sat6' */
+extern CALDATA const volatile uint8 KOPM_CCURmtLckFbHi_enum;/* Referenced by: '<S224>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCURmtLckFbLo_enum;/* Referenced by: '<S225>/sat7' */
+extern CALDATA const volatile uint8 KOPM_CCURmtLckFbLo_enum;/* Referenced by: '<S224>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_CCURmtLckFb_enum_ovrdflg;/* Referenced by: '<S225>/sat3' */
+extern CALDATA const volatile boolean KOPM_CCURmtLckFb_enum_ovrdflg;/* Referenced by: '<S224>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCURmtLckFb_enum_ovrdval;/* Referenced by: '<S225>/sat4' */
+extern CALDATA const volatile uint8 KOPM_CCURmtLckFb_enum_ovrdval;/* Referenced by: '<S224>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCURmtPwrLckFbHi_enum;/* Referenced by: '<S226>/sat6' */
+extern CALDATA const volatile uint8 KOPM_CCURmtPwrLckFbHi_enum;/* Referenced by: '<S225>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCURmtPwrLckFbLo_enum;/* Referenced by: '<S226>/sat7' */
+extern CALDATA const volatile uint8 KOPM_CCURmtPwrLckFbLo_enum;/* Referenced by: '<S225>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_CCURmtPwrLckFb_enum_ovrdflg;/* Referenced by: '<S226>/sat3' */
+extern CALDATA const volatile boolean KOPM_CCURmtPwrLckFb_enum_ovrdflg;/* Referenced by: '<S225>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_CCURmtPwrLckFb_enum_ovrdval;/* Referenced by: '<S226>/sat4' */
+extern CALDATA const volatile uint8 KOPM_CCURmtPwrLckFb_enum_ovrdval;/* Referenced by: '<S225>/sat4' */
 
 /* VCU_DispInfo_BAC */
 extern CALDATA const volatile float32 KOPM_COMPCompInPwrLimHi_W;/* Referenced by: '<S101>/sat6' */
@@ -2149,36 +2179,42 @@ extern CALDATA const volatile boolean KOPM_COMPEcompSpdCtrl_rpm_ovrdflg;/* Refer
 extern CALDATA const volatile float32 KOPM_COMPEcompSpdCtrl_rpm_ovrdval;/* Referenced by: '<S105>/sat4' */
 
 /* AC_COMP_BOD */
-extern CALDATA const volatile uint8 KOPM_ChrgAllowCmdHi_enum;/* Referenced by: '<S320>/sat6' */
+extern CALDATA const volatile uint8 KOPM_ChrgAllowCmdHi_enum;/* Referenced by: '<S326>/sat6' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_ChrgAllowCmdLo_enum;/* Referenced by: '<S320>/sat7' */
+extern CALDATA const volatile uint8 KOPM_ChrgAllowCmdLo_enum;/* Referenced by: '<S326>/sat7' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile boolean KOPM_ChrgAllowCmd_enum_ovrdflg;/* Referenced by: '<S320>/sat3' */
+extern CALDATA const volatile boolean KOPM_ChrgAllowCmd_enum_ovrdflg;/* Referenced by: '<S326>/sat3' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile EnumChrgAllwCmd KOPM_ChrgAllowCmd_enum_ovrdval;/* Referenced by: '<S320>/sat4' */
+extern CALDATA const volatile EnumChrgAllwCmd KOPM_ChrgAllowCmd_enum_ovrdval;/* Referenced by: '<S326>/sat4' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_ChrgEnaACHi_enum;/* Referenced by: '<S315>/sat6' */
+extern CALDATA const volatile uint8 KOPM_ChrgEnaACHi_enum;/* Referenced by: '<S321>/sat6' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_ChrgEnaACLo_enum;/* Referenced by: '<S315>/sat7' */
+extern CALDATA const volatile uint8 KOPM_ChrgEnaACLo_enum;/* Referenced by: '<S321>/sat7' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_ChrgEnaAC_enum_ovrdflg;/* Referenced by: '<S315>/sat3' */
+extern CALDATA const volatile boolean KOPM_ChrgEnaAC_enum_ovrdflg;/* Referenced by: '<S321>/sat3' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile EnumChrgEnaAC KOPM_ChrgEnaAC_enum_ovrdval;/* Referenced by: '<S315>/sat4' */
+extern CALDATA const volatile EnumChrgEnaAC KOPM_ChrgEnaAC_enum_ovrdval;/* Referenced by: '<S321>/sat4' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_ChrgEnaDC_flg_ovrdflg;/* Referenced by: '<S321>/sat3' */
+extern CALDATA const volatile boolean KOPM_ChrgEnaDC_flg_ovrdflg;/* Referenced by: '<S327>/sat3' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile boolean KOPM_ChrgEnaDC_flg_ovrdval;/* Referenced by: '<S321>/sat4' */
+extern CALDATA const volatile boolean KOPM_ChrgEnaDC_flg_ovrdval;/* Referenced by: '<S327>/sat4' */
 
 /* VCU_4_ChrgCmd_EPT */
+extern CALDATA const volatile boolean KOPM_ChrgngCondsFb_flg_ovrdflg;/* Referenced by: '<S226>/sat3' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile boolean KOPM_ChrgngCondsFb_flg_ovrdval;/* Referenced by: '<S226>/sat4' */
+
+/* VCU_DispInfo_BAC */
 extern CALDATA const volatile float32 KOPM_CruiseCtrTgtSpdHi_kph;/* Referenced by: '<S227>/sat6' */
 
 /* VCU_DispInfo_BAC */
@@ -2203,52 +2239,52 @@ extern CALDATA const volatile boolean KOPM_CruiseCtrlSta_enum_ovrdflg;/* Referen
 extern CALDATA const volatile uint8 KOPM_CruiseCtrlSta_enum_ovrdval;/* Referenced by: '<S228>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_DCCBoostHvVoltHi_V;/* Referenced by: '<S332>/sat6' */
+extern CALDATA const volatile float32 KOPM_DCCBoostHvVoltHi_V;/* Referenced by: '<S338>/sat6' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_DCCBoostHvVoltLo_V;/* Referenced by: '<S332>/sat7' */
+extern CALDATA const volatile float32 KOPM_DCCBoostHvVoltLo_V;/* Referenced by: '<S338>/sat7' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_DCCBoostHvVolt_V_ovrdflg;/* Referenced by: '<S332>/sat3' */
+extern CALDATA const volatile boolean KOPM_DCCBoostHvVolt_V_ovrdflg;/* Referenced by: '<S338>/sat3' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_DCCBoostHvVolt_V_ovrdval;/* Referenced by: '<S332>/sat4' */
+extern CALDATA const volatile float32 KOPM_DCCBoostHvVolt_V_ovrdval;/* Referenced by: '<S338>/sat4' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_DCCBuckLVVoltHi_V;/* Referenced by: '<S333>/sat6' */
+extern CALDATA const volatile float32 KOPM_DCCBuckLVVoltHi_V;/* Referenced by: '<S339>/sat6' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_DCCBuckLVVoltLo_V;/* Referenced by: '<S333>/sat7' */
+extern CALDATA const volatile float32 KOPM_DCCBuckLVVoltLo_V;/* Referenced by: '<S339>/sat7' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_DCCBuckLVVolt_V_ovrdflg;/* Referenced by: '<S333>/sat3' */
+extern CALDATA const volatile boolean KOPM_DCCBuckLVVolt_V_ovrdflg;/* Referenced by: '<S339>/sat3' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_DCCBuckLVVolt_V_ovrdval;/* Referenced by: '<S333>/sat4' */
+extern CALDATA const volatile float32 KOPM_DCCBuckLVVolt_V_ovrdval;/* Referenced by: '<S339>/sat4' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_DCCOprtCmdHi_enum;/* Referenced by: '<S328>/sat6' */
+extern CALDATA const volatile uint8 KOPM_DCCOprtCmdHi_enum;/* Referenced by: '<S334>/sat6' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint8 KOPM_DCCOprtCmdLo_enum;/* Referenced by: '<S328>/sat7' */
+extern CALDATA const volatile uint8 KOPM_DCCOprtCmdLo_enum;/* Referenced by: '<S334>/sat7' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_DCCOprtCmd_enum_ovrdflg;/* Referenced by: '<S328>/sat3' */
+extern CALDATA const volatile boolean KOPM_DCCOprtCmd_enum_ovrdflg;/* Referenced by: '<S334>/sat3' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile EnumDCCOprtCmd KOPM_DCCOprtCmd_enum_ovrdval;/* Referenced by: '<S328>/sat4' */
+extern CALDATA const volatile EnumDCCOprtCmd KOPM_DCCOprtCmd_enum_ovrdval;/* Referenced by: '<S334>/sat4' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint8 KOPM_DrvLfAntDiagStatHi_enum;/* Referenced by: '<S472>/sat6' */
+extern CALDATA const volatile uint8 KOPM_DrvLfAntDiagStatHi_enum;/* Referenced by: '<S483>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_DrvLfAntDiagStatLo_enum;/* Referenced by: '<S472>/sat7' */
+extern CALDATA const volatile uint8 KOPM_DrvLfAntDiagStatLo_enum;/* Referenced by: '<S483>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_DrvLfAntDiagStat_enum_ovrdflg;/* Referenced by: '<S472>/sat3' */
+extern CALDATA const volatile boolean KOPM_DrvLfAntDiagStat_enum_ovrdflg;/* Referenced by: '<S483>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_DrvLfAntDiagStat_enum_ovrdval;/* Referenced by: '<S472>/sat4' */
+extern CALDATA const volatile uint8 KOPM_DrvLfAntDiagStat_enum_ovrdval;/* Referenced by: '<S483>/sat4' */
 
 /* BCM_B_Package_BAC */
 extern CALDATA const volatile uint8 KOPM_DrvModeKeyStgntnHi_enum;/* Referenced by: '<S229>/sat6' */
@@ -2275,16 +2311,16 @@ extern CALDATA const volatile boolean KOPM_DrvMotorSta_enum_ovrdflg;/* Reference
 extern CALDATA const volatile uint8 KOPM_DrvMotorSta_enum_ovrdval;/* Referenced by: '<S230>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_DrvPedHi_pct;/* Referenced by: '<S194>/sat6' */
+extern CALDATA const volatile float32 KOPM_DrvPedHi_pct;/* Referenced by: '<S193>/sat6' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile float32 KOPM_DrvPedLo_pct;/* Referenced by: '<S194>/sat7' */
+extern CALDATA const volatile float32 KOPM_DrvPedLo_pct;/* Referenced by: '<S193>/sat7' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile boolean KOPM_DrvPed_pct_ovrdflg;/* Referenced by: '<S194>/sat3' */
+extern CALDATA const volatile boolean KOPM_DrvPed_pct_ovrdflg;/* Referenced by: '<S193>/sat3' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile float32 KOPM_DrvPed_pct_ovrdval;/* Referenced by: '<S194>/sat4' */
+extern CALDATA const volatile float32 KOPM_DrvPed_pct_ovrdval;/* Referenced by: '<S193>/sat4' */
 
 /* VCU_0_Value_EPT */
 extern CALDATA const volatile float32 KOPM_DrvRangeDistEstHi_km;/* Referenced by: '<S232>/sat6' */
@@ -2323,16 +2359,16 @@ extern CALDATA const volatile boolean KOPM_DrvReqMotorTorq_Nm_ovrdflg;/* Referen
 extern CALDATA const volatile float32 KOPM_DrvReqMotorTorq_Nm_ovrdval;/* Referenced by: '<S167>/sat4' */
 
 /* VCU_10_Torque_CHA */
-extern CALDATA const volatile boolean KOPM_DrvReqTorqOverrideFCM_flg_ovrdflg;/* Referenced by: '<S280>/sat3' */
+extern CALDATA const volatile boolean KOPM_DrvReqTorqOverrideFCM_flg_ovrdflg;/* Referenced by: '<S286>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_DrvReqTorqOverrideFCM_flg_ovrdval;/* Referenced by: '<S280>/sat4' */
+extern CALDATA const volatile boolean KOPM_DrvReqTorqOverrideFCM_flg_ovrdval;/* Referenced by: '<S286>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_DrvReqTorqOvrdESC_flg_ovrdflg;/* Referenced by: '<S281>/sat3' */
+extern CALDATA const volatile boolean KOPM_DrvReqTorqOvrdESC_flg_ovrdflg;/* Referenced by: '<S287>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_DrvReqTorqOvrdESC_flg_ovrdval;/* Referenced by: '<S281>/sat4' */
+extern CALDATA const volatile boolean KOPM_DrvReqTorqOvrdESC_flg_ovrdval;/* Referenced by: '<S287>/sat4' */
 
 /* VCU_D_Status_CHA */
 extern CALDATA const volatile float32 KOPM_DrvReqWhlTqHi_Nm;/* Referenced by: '<S169>/sat6' */
@@ -2353,10 +2389,10 @@ extern CALDATA const volatile boolean KOPM_DrvReqWhlTq_Nm_ovrdflg;/* Referenced 
 extern CALDATA const volatile float32 KOPM_DrvReqWhlTq_Nm_ovrdval;/* Referenced by: '<S169>/sat4' */
 
 /* VCU_10_Torque_CHA */
-extern CALDATA const volatile boolean KOPM_DrvSwi_flg_ovrdflg;/* Referenced by: '<S195>/sat3' */
+extern CALDATA const volatile boolean KOPM_DrvSwi_flg_ovrdflg;/* Referenced by: '<S194>/sat3' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile boolean KOPM_DrvSwi_flg_ovrdval;/* Referenced by: '<S195>/sat4' */
+extern CALDATA const volatile boolean KOPM_DrvSwi_flg_ovrdval;/* Referenced by: '<S194>/sat4' */
 
 /* VCU_0_Value_EPT */
 extern CALDATA const volatile float32 KOPM_DrvWhlTqAllwdMaxHi_Nm;/* Referenced by: '<S170>/sat6' */
@@ -2383,64 +2419,64 @@ extern CALDATA const volatile boolean KOPM_ESCLUnOrLockCrtl_nu_ovrdflg;/* Refere
 extern CALDATA const volatile uint64 KOPM_ESCLUnOrLockCrtl_nu_ovrdval;/* Referenced by: '<S112>/sat4' */
 
 /* BCM_ESCLCommand_BOD */
-extern CALDATA const volatile boolean KOPM_EmgcySdn_flg_ovrdflg;/* Referenced by: '<S200>/sat3' */
+extern CALDATA const volatile boolean KOPM_EmgcySdn_flg_ovrdflg;/* Referenced by: '<S199>/sat3' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile boolean KOPM_EmgcySdn_flg_ovrdval;/* Referenced by: '<S200>/sat4' */
+extern CALDATA const volatile boolean KOPM_EmgcySdn_flg_ovrdval;/* Referenced by: '<S199>/sat4' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile boolean KOPM_EnaDisChg_flg_ovrdflg;/* Referenced by: '<S201>/sat3' */
+extern CALDATA const volatile boolean KOPM_EnaDisChg_flg_ovrdflg;/* Referenced by: '<S200>/sat3' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile boolean KOPM_EnaDisChg_flg_ovrdval;/* Referenced by: '<S201>/sat4' */
+extern CALDATA const volatile boolean KOPM_EnaDisChg_flg_ovrdval;/* Referenced by: '<S200>/sat4' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile boolean KOPM_EnaInvRun_flg_ovrdflg;/* Referenced by: '<S202>/sat3' */
+extern CALDATA const volatile boolean KOPM_EnaInvRun_flg_ovrdflg;/* Referenced by: '<S201>/sat3' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile boolean KOPM_EnaInvRun_flg_ovrdval;/* Referenced by: '<S202>/sat4' */
+extern CALDATA const volatile boolean KOPM_EnaInvRun_flg_ovrdval;/* Referenced by: '<S201>/sat4' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_ErrAmountHi_cnt;/* Referenced by: '<S329>/sat6' */
+extern CALDATA const volatile uint8 KOPM_ErrAmountHi_cnt;/* Referenced by: '<S335>/sat6' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint8 KOPM_ErrAmountLo_cnt;/* Referenced by: '<S329>/sat7' */
+extern CALDATA const volatile uint8 KOPM_ErrAmountLo_cnt;/* Referenced by: '<S335>/sat7' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_ErrAmount_cnt_ovrdflg;/* Referenced by: '<S329>/sat3' */
+extern CALDATA const volatile boolean KOPM_ErrAmount_cnt_ovrdflg;/* Referenced by: '<S335>/sat3' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint8 KOPM_ErrAmount_cnt_ovrdval;/* Referenced by: '<S329>/sat4' */
+extern CALDATA const volatile uint8 KOPM_ErrAmount_cnt_ovrdval;/* Referenced by: '<S335>/sat4' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint16 KOPM_ErrBitHi_nu;/* Referenced by: '<S330>/sat6' */
+extern CALDATA const volatile uint16 KOPM_ErrBitHi_nu;/* Referenced by: '<S336>/sat6' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint16 KOPM_ErrBitLo_nu;/* Referenced by: '<S330>/sat7' */
+extern CALDATA const volatile uint16 KOPM_ErrBitLo_nu;/* Referenced by: '<S336>/sat7' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_ErrBit_nu_ovrdflg;/* Referenced by: '<S330>/sat3' */
+extern CALDATA const volatile boolean KOPM_ErrBit_nu_ovrdflg;/* Referenced by: '<S336>/sat3' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint16 KOPM_ErrBit_nu_ovrdval;/* Referenced by: '<S330>/sat4' */
+extern CALDATA const volatile uint16 KOPM_ErrBit_nu_ovrdval;/* Referenced by: '<S336>/sat4' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_GearShiftInhibited_flg_ovrdflg;/* Referenced by: '<S282>/sat3' */
+extern CALDATA const volatile boolean KOPM_GearShiftInhibited_flg_ovrdflg;/* Referenced by: '<S288>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_GearShiftInhibited_flg_ovrdval;/* Referenced by: '<S282>/sat4' */
+extern CALDATA const volatile boolean KOPM_GearShiftInhibited_flg_ovrdval;/* Referenced by: '<S288>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_HDCStatHi_enum;/* Referenced by: '<S354>/sat6' */
+extern CALDATA const volatile uint8 KOPM_HDCStatHi_enum;/* Referenced by: '<S360>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_HDCStatLo_enum;/* Referenced by: '<S354>/sat7' */
+extern CALDATA const volatile uint8 KOPM_HDCStatLo_enum;/* Referenced by: '<S360>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_HDCStat_enum_ovrdflg;/* Referenced by: '<S354>/sat3' */
+extern CALDATA const volatile boolean KOPM_HDCStat_enum_ovrdflg;/* Referenced by: '<S360>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_HDCStat_enum_ovrdval;/* Referenced by: '<S354>/sat4' */
+extern CALDATA const volatile uint8 KOPM_HDCStat_enum_ovrdval;/* Referenced by: '<S360>/sat4' */
 
 /* CCU_VehInfo_BAC */
 extern CALDATA const volatile uint8 KOPM_HVCHEnbldHi_enum;/* Referenced by: '<S113>/sat6' */
@@ -2491,16 +2527,16 @@ extern CALDATA const volatile boolean KOPM_InfoDisp_enum_ovrdflg;/* Referenced b
 extern CALDATA const volatile uint8 KOPM_InfoDisp_enum_ovrdval;/* Referenced by: '<S233>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_IntLfAntDiagStatHi_enum;/* Referenced by: '<S473>/sat6' */
+extern CALDATA const volatile uint8 KOPM_IntLfAntDiagStatHi_enum;/* Referenced by: '<S484>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_IntLfAntDiagStatLo_enum;/* Referenced by: '<S473>/sat7' */
+extern CALDATA const volatile uint8 KOPM_IntLfAntDiagStatLo_enum;/* Referenced by: '<S484>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_IntLfAntDiagStat_enum_ovrdflg;/* Referenced by: '<S473>/sat3' */
+extern CALDATA const volatile boolean KOPM_IntLfAntDiagStat_enum_ovrdflg;/* Referenced by: '<S484>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_IntLfAntDiagStat_enum_ovrdval;/* Referenced by: '<S473>/sat4' */
+extern CALDATA const volatile uint8 KOPM_IntLfAntDiagStat_enum_ovrdval;/* Referenced by: '<S484>/sat4' */
 
 /* BCM_B_Package_BAC */
 extern CALDATA const volatile uint8 KOPM_LckVehWrmHi_enum;/* Referenced by: '<S234>/sat6' */
@@ -2515,10 +2551,10 @@ extern CALDATA const volatile boolean KOPM_LckVehWrm_enum_ovrdflg;/* Referenced 
 extern CALDATA const volatile uint8 KOPM_LckVehWrm_enum_ovrdval;/* Referenced by: '<S234>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_LimpHomeSta_flg_ovrdflg;/* Referenced by: '<S355>/sat3' */
+extern CALDATA const volatile boolean KOPM_LimpHomeSta_flg_ovrdflg;/* Referenced by: '<S361>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_LimpHomeSta_flg_ovrdval;/* Referenced by: '<S355>/sat4' */
+extern CALDATA const volatile boolean KOPM_LimpHomeSta_flg_ovrdval;/* Referenced by: '<S361>/sat4' */
 
 /* CCU_VehInfo_BAC */
 extern CALDATA const volatile boolean KOPM_MCUHiTempWrning_flg_ovrdflg;/* Referenced by: '<S235>/sat3' */
@@ -2527,64 +2563,64 @@ extern CALDATA const volatile boolean KOPM_MCUHiTempWrning_flg_ovrdflg;/* Refere
 extern CALDATA const volatile boolean KOPM_MCUHiTempWrning_flg_ovrdval;/* Referenced by: '<S235>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_MaxChrgCurntACHi_A;/* Referenced by: '<S322>/sat6' */
+extern CALDATA const volatile uint8 KOPM_MaxChrgCurntACHi_A;/* Referenced by: '<S328>/sat6' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_MaxChrgCurntACLo_A;/* Referenced by: '<S322>/sat7' */
+extern CALDATA const volatile uint8 KOPM_MaxChrgCurntACLo_A;/* Referenced by: '<S328>/sat7' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile boolean KOPM_MaxChrgCurntAC_A_ovrdflg;/* Referenced by: '<S322>/sat3' */
+extern CALDATA const volatile boolean KOPM_MaxChrgCurntAC_A_ovrdflg;/* Referenced by: '<S328>/sat3' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_MaxChrgCurntAC_A_ovrdval;/* Referenced by: '<S322>/sat4' */
+extern CALDATA const volatile uint8 KOPM_MaxChrgCurntAC_A_ovrdval;/* Referenced by: '<S328>/sat4' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxChrgCurntDCHi_A;/* Referenced by: '<S323>/sat6' */
+extern CALDATA const volatile float32 KOPM_MaxChrgCurntDCHi_A;/* Referenced by: '<S329>/sat6' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxChrgCurntDCLo_A;/* Referenced by: '<S323>/sat7' */
+extern CALDATA const volatile float32 KOPM_MaxChrgCurntDCLo_A;/* Referenced by: '<S329>/sat7' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile boolean KOPM_MaxChrgCurntDC_A_ovrdflg;/* Referenced by: '<S323>/sat3' */
+extern CALDATA const volatile boolean KOPM_MaxChrgCurntDC_A_ovrdflg;/* Referenced by: '<S329>/sat3' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxChrgCurntDC_A_ovrdval;/* Referenced by: '<S323>/sat4' */
+extern CALDATA const volatile float32 KOPM_MaxChrgCurntDC_A_ovrdval;/* Referenced by: '<S329>/sat4' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxChrgVoltDCHi_V;/* Referenced by: '<S324>/sat6' */
+extern CALDATA const volatile float32 KOPM_MaxChrgVoltDCHi_V;/* Referenced by: '<S330>/sat6' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxChrgVoltDCLo_V;/* Referenced by: '<S324>/sat7' */
+extern CALDATA const volatile float32 KOPM_MaxChrgVoltDCLo_V;/* Referenced by: '<S330>/sat7' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile boolean KOPM_MaxChrgVoltDC_V_ovrdflg;/* Referenced by: '<S324>/sat3' */
+extern CALDATA const volatile boolean KOPM_MaxChrgVoltDC_V_ovrdflg;/* Referenced by: '<S330>/sat3' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxChrgVoltDC_V_ovrdval;/* Referenced by: '<S324>/sat4' */
+extern CALDATA const volatile float32 KOPM_MaxChrgVoltDC_V_ovrdval;/* Referenced by: '<S330>/sat4' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxHVDCCurntACHi_A;/* Referenced by: '<S334>/sat6' */
+extern CALDATA const volatile float32 KOPM_MaxHVDCCurntACHi_A;/* Referenced by: '<S340>/sat6' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxHVDCCurntACLo_A;/* Referenced by: '<S334>/sat7' */
+extern CALDATA const volatile float32 KOPM_MaxHVDCCurntACLo_A;/* Referenced by: '<S340>/sat7' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_MaxHVDCCurntAC_A_ovrdflg;/* Referenced by: '<S334>/sat3' */
+extern CALDATA const volatile boolean KOPM_MaxHVDCCurntAC_A_ovrdflg;/* Referenced by: '<S340>/sat3' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxHVDCCurntAC_A_ovrdval;/* Referenced by: '<S334>/sat4' */
+extern CALDATA const volatile float32 KOPM_MaxHVDCCurntAC_A_ovrdval;/* Referenced by: '<S340>/sat4' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxHVDCVoltACHi_V;/* Referenced by: '<S335>/sat6' */
+extern CALDATA const volatile float32 KOPM_MaxHVDCVoltACHi_V;/* Referenced by: '<S341>/sat6' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxHVDCVoltACLo_V;/* Referenced by: '<S335>/sat7' */
+extern CALDATA const volatile float32 KOPM_MaxHVDCVoltACLo_V;/* Referenced by: '<S341>/sat7' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_MaxHVDCVoltAC_V_ovrdflg;/* Referenced by: '<S335>/sat3' */
+extern CALDATA const volatile boolean KOPM_MaxHVDCVoltAC_V_ovrdflg;/* Referenced by: '<S341>/sat3' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MaxHVDCVoltAC_V_ovrdval;/* Referenced by: '<S335>/sat4' */
+extern CALDATA const volatile float32 KOPM_MaxHVDCVoltAC_V_ovrdval;/* Referenced by: '<S341>/sat4' */
 
 /* VCU_C_OprtCmd_EPT */
 extern CALDATA const volatile float32 KOPM_MotActPwrHi_Kw;/* Referenced by: '<S237>/sat6' */
@@ -2611,64 +2647,64 @@ extern CALDATA const volatile boolean KOPM_MotActPwr_Kw_ovrdflg;/* Referenced by
 extern CALDATA const volatile float32 KOPM_MotActPwr_Kw_ovrdval;/* Referenced by: '<S237>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_MotDirReqHi_enum;/* Referenced by: '<S203>/sat6' */
+extern CALDATA const volatile uint8 KOPM_MotDirReqHi_enum;/* Referenced by: '<S202>/sat6' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_MotDirReqLo_enum;/* Referenced by: '<S203>/sat7' */
+extern CALDATA const volatile uint8 KOPM_MotDirReqLo_enum;/* Referenced by: '<S202>/sat7' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile boolean KOPM_MotDirReq_enum_ovrdflg;/* Referenced by: '<S203>/sat3' */
+extern CALDATA const volatile boolean KOPM_MotDirReq_enum_ovrdflg;/* Referenced by: '<S202>/sat3' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile EnumMotorDirReq KOPM_MotDirReq_enum_ovrdval;/* Referenced by: '<S203>/sat4' */
+extern CALDATA const volatile EnumMotorDirReq KOPM_MotDirReq_enum_ovrdval;/* Referenced by: '<S202>/sat4' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MotDmpgLmtHi_Nm;/* Referenced by: '<S196>/sat6' */
+extern CALDATA const volatile float32 KOPM_MotDmpgLmtHi_Nm;/* Referenced by: '<S195>/sat6' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile float32 KOPM_MotDmpgLmtLo_Nm;/* Referenced by: '<S196>/sat7' */
+extern CALDATA const volatile float32 KOPM_MotDmpgLmtLo_Nm;/* Referenced by: '<S195>/sat7' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile boolean KOPM_MotDmpgLmt_Nm_ovrdflg;/* Referenced by: '<S196>/sat3' */
+extern CALDATA const volatile boolean KOPM_MotDmpgLmt_Nm_ovrdflg;/* Referenced by: '<S195>/sat3' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile float32 KOPM_MotDmpgLmt_Nm_ovrdval;/* Referenced by: '<S196>/sat4' */
+extern CALDATA const volatile float32 KOPM_MotDmpgLmt_Nm_ovrdval;/* Referenced by: '<S195>/sat4' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile uint8 KOPM_MotModeReqHi_enum;/* Referenced by: '<S204>/sat6' */
+extern CALDATA const volatile uint8 KOPM_MotModeReqHi_enum;/* Referenced by: '<S203>/sat6' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_MotModeReqLo_enum;/* Referenced by: '<S204>/sat7' */
+extern CALDATA const volatile uint8 KOPM_MotModeReqLo_enum;/* Referenced by: '<S203>/sat7' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile boolean KOPM_MotModeReq_enum_ovrdflg;/* Referenced by: '<S204>/sat3' */
+extern CALDATA const volatile boolean KOPM_MotModeReq_enum_ovrdflg;/* Referenced by: '<S203>/sat3' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile EnumMotorModeReq KOPM_MotModeReq_enum_ovrdval;/* Referenced by: '<S204>/sat4' */
+extern CALDATA const volatile EnumMotorModeReq KOPM_MotModeReq_enum_ovrdval;/* Referenced by: '<S203>/sat4' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MotSpdReqHi_rpm;/* Referenced by: '<S205>/sat6' */
+extern CALDATA const volatile float32 KOPM_MotSpdReqHi_rpm;/* Referenced by: '<S204>/sat6' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MotSpdReqLo_rpm;/* Referenced by: '<S205>/sat7' */
+extern CALDATA const volatile float32 KOPM_MotSpdReqLo_rpm;/* Referenced by: '<S204>/sat7' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile boolean KOPM_MotSpdReq_rpm_ovrdflg;/* Referenced by: '<S205>/sat3' */
+extern CALDATA const volatile boolean KOPM_MotSpdReq_rpm_ovrdflg;/* Referenced by: '<S204>/sat3' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MotSpdReq_rpm_ovrdval;/* Referenced by: '<S205>/sat4' */
+extern CALDATA const volatile float32 KOPM_MotSpdReq_rpm_ovrdval;/* Referenced by: '<S204>/sat4' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MotTorqReqHi_Nm;/* Referenced by: '<S206>/sat6' */
+extern CALDATA const volatile float32 KOPM_MotTorqReqHi_Nm;/* Referenced by: '<S205>/sat6' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MotTorqReqLo_Nm;/* Referenced by: '<S206>/sat7' */
+extern CALDATA const volatile float32 KOPM_MotTorqReqLo_Nm;/* Referenced by: '<S205>/sat7' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile boolean KOPM_MotTorqReq_Nm_ovrdflg;/* Referenced by: '<S206>/sat3' */
+extern CALDATA const volatile boolean KOPM_MotTorqReq_Nm_ovrdflg;/* Referenced by: '<S205>/sat3' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MotTorqReq_Nm_ovrdval;/* Referenced by: '<S206>/sat4' */
+extern CALDATA const volatile float32 KOPM_MotTorqReq_Nm_ovrdval;/* Referenced by: '<S205>/sat4' */
 
 /* VCU_1_InvCmd_EPT */
 extern CALDATA const volatile boolean KOPM_MotorHiTempWrning_flg_ovrdflg;/* Referenced by: '<S238>/sat3' */
@@ -2677,28 +2713,28 @@ extern CALDATA const volatile boolean KOPM_MotorHiTempWrning_flg_ovrdflg;/* Refe
 extern CALDATA const volatile boolean KOPM_MotorHiTempWrning_flg_ovrdval;/* Referenced by: '<S238>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_MotorOutputCooltTempHi_C;/* Referenced by: '<S316>/sat6' */
+extern CALDATA const volatile float32 KOPM_MotorOutputCooltTempHi_C;/* Referenced by: '<S322>/sat6' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MotorOutputCooltTempLo_C;/* Referenced by: '<S316>/sat7' */
+extern CALDATA const volatile float32 KOPM_MotorOutputCooltTempLo_C;/* Referenced by: '<S322>/sat7' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_MotorOutputCooltTemp_C_ovrdflg;/* Referenced by: '<S316>/sat3' */
+extern CALDATA const volatile boolean KOPM_MotorOutputCooltTemp_C_ovrdflg;/* Referenced by: '<S322>/sat3' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile float32 KOPM_MotorOutputCooltTemp_C_ovrdval;/* Referenced by: '<S316>/sat4' */
+extern CALDATA const volatile float32 KOPM_MotorOutputCooltTemp_C_ovrdval;/* Referenced by: '<S322>/sat4' */
 
 /* VCU_3_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_OBCIntDchrgEna_flg_ovrdflg;/* Referenced by: '<S336>/sat3' */
+extern CALDATA const volatile boolean KOPM_OBCIntDchrgEna_flg_ovrdflg;/* Referenced by: '<S342>/sat3' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile boolean KOPM_OBCIntDchrgEna_flg_ovrdval;/* Referenced by: '<S336>/sat4' */
+extern CALDATA const volatile boolean KOPM_OBCIntDchrgEna_flg_ovrdval;/* Referenced by: '<S342>/sat4' */
 
 /* VCU_C_OprtCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_OBCOprtCmdHi_enum;/* Referenced by: '<S325>/sat6' */
+extern CALDATA const volatile uint8 KOPM_OBCOprtCmdHi_enum;/* Referenced by: '<S331>/sat6' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_OBCOprtCmdLo_enum;/* Referenced by: '<S325>/sat7' */
+extern CALDATA const volatile uint8 KOPM_OBCOprtCmdLo_enum;/* Referenced by: '<S331>/sat7' */
 
 /* VCU_4_ChrgCmd_EPT */
 extern CALDATA const volatile uint8 KOPM_OBCOprtCmdToICUHi_enum;/* Referenced by: '<S239>/sat6' */
@@ -2713,70 +2749,70 @@ extern CALDATA const volatile boolean KOPM_OBCOprtCmdToICU_enum_ovrdflg;/* Refer
 extern CALDATA const volatile EnumOBCOprtCmd KOPM_OBCOprtCmdToICU_enum_ovrdval;/* Referenced by: '<S239>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_OBCOprtCmd_enum_ovrdflg;/* Referenced by: '<S325>/sat3' */
+extern CALDATA const volatile boolean KOPM_OBCOprtCmd_enum_ovrdflg;/* Referenced by: '<S331>/sat3' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile EnumOBCOprtCmd KOPM_OBCOprtCmd_enum_ovrdval;/* Referenced by: '<S325>/sat4' */
+extern CALDATA const volatile EnumOBCOprtCmd KOPM_OBCOprtCmd_enum_ovrdval;/* Referenced by: '<S331>/sat4' */
 
 /* VCU_4_ChrgCmd_EPT */
-extern CALDATA const volatile boolean KOPM_OTAModeSts_flg_ovrdflg;/* Referenced by: '<S283>/sat3' */
+extern CALDATA const volatile boolean KOPM_OTAModeSts_flg_ovrdflg;/* Referenced by: '<S289>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_OTAModeSts_flg_ovrdval;/* Referenced by: '<S283>/sat4' */
+extern CALDATA const volatile boolean KOPM_OTAModeSts_flg_ovrdval;/* Referenced by: '<S289>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_PCUFailSta_flg_ovrdflg;/* Referenced by: '<S356>/sat3' */
+extern CALDATA const volatile boolean KOPM_PCUFailSta_flg_ovrdflg;/* Referenced by: '<S362>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_PCUFailSta_flg_ovrdval;/* Referenced by: '<S356>/sat4' */
+extern CALDATA const volatile boolean KOPM_PCUFailSta_flg_ovrdval;/* Referenced by: '<S362>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_PGrSwcStHi_enum;/* Referenced by: '<S284>/sat6' */
+extern CALDATA const volatile uint8 KOPM_PGrSwcStHi_enum;/* Referenced by: '<S290>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_PGrSwcStLo_enum;/* Referenced by: '<S284>/sat7' */
+extern CALDATA const volatile uint8 KOPM_PGrSwcStLo_enum;/* Referenced by: '<S290>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_PGrSwcSt_enum_ovrdflg;/* Referenced by: '<S284>/sat3' */
+extern CALDATA const volatile boolean KOPM_PGrSwcSt_enum_ovrdflg;/* Referenced by: '<S290>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_PGrSwcSt_enum_ovrdval;/* Referenced by: '<S284>/sat4' */
+extern CALDATA const volatile uint8 KOPM_PGrSwcSt_enum_ovrdval;/* Referenced by: '<S290>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_PTActlOprtModeHi_enum;/* Referenced by: '<S357>/sat6' */
+extern CALDATA const volatile uint8 KOPM_PTActlOprtModeHi_enum;/* Referenced by: '<S363>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_PTActlOprtModeLo_enum;/* Referenced by: '<S357>/sat7' */
+extern CALDATA const volatile uint8 KOPM_PTActlOprtModeLo_enum;/* Referenced by: '<S363>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_PTActlOprtMode_enum_ovrdflg;/* Referenced by: '<S357>/sat3' */
+extern CALDATA const volatile boolean KOPM_PTActlOprtMode_enum_ovrdflg;/* Referenced by: '<S363>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile EnumPTActMd KOPM_PTActlOprtMode_enum_ovrdval;/* Referenced by: '<S357>/sat4' */
+extern CALDATA const volatile EnumPTActMd KOPM_PTActlOprtMode_enum_ovrdval;/* Referenced by: '<S363>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_PassLfAntDiagStatHi_enum;/* Referenced by: '<S474>/sat6' */
+extern CALDATA const volatile uint8 KOPM_PassLfAntDiagStatHi_enum;/* Referenced by: '<S485>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_PassLfAntDiagStatLo_enum;/* Referenced by: '<S474>/sat7' */
+extern CALDATA const volatile uint8 KOPM_PassLfAntDiagStatLo_enum;/* Referenced by: '<S485>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_PassLfAntDiagStat_enum_ovrdflg;/* Referenced by: '<S474>/sat3' */
+extern CALDATA const volatile boolean KOPM_PassLfAntDiagStat_enum_ovrdflg;/* Referenced by: '<S485>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_PassLfAntDiagStat_enum_ovrdval;/* Referenced by: '<S474>/sat4' */
+extern CALDATA const volatile uint8 KOPM_PassLfAntDiagStat_enum_ovrdval;/* Referenced by: '<S485>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_PrstlsStaFbHi_enum;/* Referenced by: '<S358>/sat6' */
+extern CALDATA const volatile uint8 KOPM_PrstlsStaFbHi_enum;/* Referenced by: '<S364>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_PrstlsStaFbLo_enum;/* Referenced by: '<S358>/sat7' */
+extern CALDATA const volatile uint8 KOPM_PrstlsStaFbLo_enum;/* Referenced by: '<S364>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_PrstlsStaFb_enum_ovrdflg;/* Referenced by: '<S358>/sat3' */
+extern CALDATA const volatile boolean KOPM_PrstlsStaFb_enum_ovrdflg;/* Referenced by: '<S364>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile EnumCrpModeAct KOPM_PrstlsStaFb_enum_ovrdval;/* Referenced by: '<S358>/sat4' */
+extern CALDATA const volatile EnumCrpModeAct KOPM_PrstlsStaFb_enum_ovrdval;/* Referenced by: '<S364>/sat4' */
 
 /* CCU_VehInfo_BAC */
 extern CALDATA const volatile float32 KOPM_PwrRecupActWhlTqHi_Nm;/* Referenced by: '<S171>/sat6' */
@@ -2803,30 +2839,30 @@ extern CALDATA const volatile boolean KOPM_PwrRecupActlWhlTqSts_enum_ovrdflg;/* 
 extern CALDATA const volatile uint8 KOPM_PwrRecupActlWhlTqSts_enum_ovrdval;/* Referenced by: '<S172>/sat4' */
 
 /* VCU_10_Torque_CHA */
-extern CALDATA const volatile uint8 KOPM_PwrRecupIntnstyHi_enum;/* Referenced by: '<S359>/sat6' */
+extern CALDATA const volatile uint8 KOPM_PwrRecupIntnstyHi_enum;/* Referenced by: '<S365>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_PwrRecupIntnstyLo_enum;/* Referenced by: '<S359>/sat7' */
+extern CALDATA const volatile uint8 KOPM_PwrRecupIntnstyLo_enum;/* Referenced by: '<S365>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_PwrRecupIntnsty_enum_ovrdflg;/* Referenced by: '<S359>/sat3' */
+extern CALDATA const volatile boolean KOPM_PwrRecupIntnsty_enum_ovrdflg;/* Referenced by: '<S365>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile EnumRegenModeAct KOPM_PwrRecupIntnsty_enum_ovrdval;/* Referenced by: '<S359>/sat4' */
+extern CALDATA const volatile EnumRegenModeAct KOPM_PwrRecupIntnsty_enum_ovrdval;/* Referenced by: '<S365>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_PwrRecupMaxAvlbMotorTorqStaHi_enum;/* Referenced by: '<S285>/sat6' */
+extern CALDATA const volatile uint8 KOPM_PwrRecupMaxAvlbMotorTorqStaHi_enum;/* Referenced by: '<S291>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_PwrRecupMaxAvlbMotorTorqStaLo_enum;/* Referenced by: '<S285>/sat7' */
+extern CALDATA const volatile uint8 KOPM_PwrRecupMaxAvlbMotorTorqStaLo_enum;/* Referenced by: '<S291>/sat7' */
 
 /* VCU_D_Status_CHA */
 extern CALDATA const volatile boolean
-  KOPM_PwrRecupMaxAvlbMotorTorqSta_enum_ovrdflg;/* Referenced by: '<S285>/sat3' */
+  KOPM_PwrRecupMaxAvlbMotorTorqSta_enum_ovrdflg;/* Referenced by: '<S291>/sat3' */
 
 /* VCU_D_Status_CHA */
 extern CALDATA const volatile uint8
-  KOPM_PwrRecupMaxAvlbMotorTorqSta_enum_ovrdval;/* Referenced by: '<S285>/sat4' */
+  KOPM_PwrRecupMaxAvlbMotorTorqSta_enum_ovrdval;/* Referenced by: '<S291>/sat4' */
 
 /* VCU_D_Status_CHA */
 extern CALDATA const volatile uint8 KOPM_PwrRecupMaxAvlbWhlTqStsHi_enum;/* Referenced by: '<S173>/sat6' */
@@ -2841,124 +2877,184 @@ extern CALDATA const volatile boolean KOPM_PwrRecupMaxAvlbWhlTqSts_enum_ovrdflg;
 extern CALDATA const volatile uint8 KOPM_PwrRecupMaxAvlbWhlTqSts_enum_ovrdval;/* Referenced by: '<S173>/sat4' */
 
 /* VCU_10_Torque_CHA */
-extern CALDATA const volatile float32 KOPM_RsrvdPwrHi_kW;/* Referenced by: '<S240>/sat6' */
+extern CALDATA const volatile boolean KOPM_RmtACCtrlReq_flg_ovrdflg;/* Referenced by: '<S240>/sat3' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile boolean KOPM_RmtACCtrlReq_flg_ovrdval;/* Referenced by: '<S240>/sat4' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtACCtrlStHi_enum;/* Referenced by: '<S241>/sat6' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtACCtrlStLo_enum;/* Referenced by: '<S241>/sat7' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile boolean KOPM_RmtACCtrlSt_enum_ovrdflg;/* Referenced by: '<S241>/sat3' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtACCtrlSt_enum_ovrdval;/* Referenced by: '<S241>/sat4' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile boolean KOPM_RmtACDefrstReq_flg_ovrdflg;/* Referenced by: '<S242>/sat3' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile boolean KOPM_RmtACDefrstReq_flg_ovrdval;/* Referenced by: '<S242>/sat4' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtMainDrvrSeatHeatFbHi_enum;/* Referenced by: '<S243>/sat6' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtMainDrvrSeatHeatFbLo_enum;/* Referenced by: '<S243>/sat7' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile boolean KOPM_RmtMainDrvrSeatHeatFb_enum_ovrdflg;/* Referenced by: '<S243>/sat3' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtMainDrvrSeatHeatFb_enum_ovrdval;/* Referenced by: '<S243>/sat4' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtPwrCtrlFbHi_enum;/* Referenced by: '<S244>/sat6' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtPwrCtrlFbLo_enum;/* Referenced by: '<S244>/sat7' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile boolean KOPM_RmtPwrCtrlFb_enum_ovrdflg;/* Referenced by: '<S244>/sat3' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtPwrCtrlFb_enum_ovrdval;/* Referenced by: '<S244>/sat4' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtSteerWhlHeatFbHi_enum;/* Referenced by: '<S245>/sat6' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtSteerWhlHeatFbLo_enum;/* Referenced by: '<S245>/sat7' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile boolean KOPM_RmtSteerWhlHeatFb_enum_ovrdflg;/* Referenced by: '<S245>/sat3' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile uint8 KOPM_RmtSteerWhlHeatFb_enum_ovrdval;/* Referenced by: '<S245>/sat4' */
+
+/* VCU_DispInfo_BAC */
+extern CALDATA const volatile float32 KOPM_RsrvdPwrHi_kW;/* Referenced by: '<S246>/sat6' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile float32 KOPM_RsrvdPwrLo_kW;/* Referenced by: '<S240>/sat7' */
+extern CALDATA const volatile float32 KOPM_RsrvdPwrLo_kW;/* Referenced by: '<S246>/sat7' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_RsrvdPwr_kW_ovrdflg;/* Referenced by: '<S240>/sat3' */
+extern CALDATA const volatile boolean KOPM_RsrvdPwr_kW_ovrdflg;/* Referenced by: '<S246>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_RsrvdPwr_kW_ovrdval;/* Referenced by: '<S240>/sat4' */
+extern CALDATA const volatile float32 KOPM_RsrvdPwr_kW_ovrdval;/* Referenced by: '<S246>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSBMSBatSOCAllow_flg_ovrdflg;/* Referenced by: '<S241>/sat3' */
+extern CALDATA const volatile boolean KOPM_SIBSBMSBatSOCAllow_flg_ovrdflg;/* Referenced by: '<S247>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSBMSBatSOCAllow_flg_ovrdval;/* Referenced by: '<S241>/sat4' */
+extern CALDATA const volatile boolean KOPM_SIBSBMSBatSOCAllow_flg_ovrdval;/* Referenced by: '<S247>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSChgNumAllow_flg_ovrdflg;/* Referenced by: '<S242>/sat3' */
+extern CALDATA const volatile boolean KOPM_SIBSChgNumAllow_flg_ovrdflg;/* Referenced by: '<S248>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSChgNumAllow_flg_ovrdval;/* Referenced by: '<S242>/sat4' */
+extern CALDATA const volatile boolean KOPM_SIBSChgNumAllow_flg_ovrdval;/* Referenced by: '<S248>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSFbRTCWupFlg_flg_ovrdflg;/* Referenced by: '<S243>/sat3' */
+extern CALDATA const volatile boolean KOPM_SIBSFbRTCWupFlg_flg_ovrdflg;/* Referenced by: '<S249>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSFbRTCWupFlg_flg_ovrdval;/* Referenced by: '<S243>/sat4' */
+extern CALDATA const volatile boolean KOPM_SIBSFbRTCWupFlg_flg_ovrdval;/* Referenced by: '<S249>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_SIBSKL30VoltHi_V;/* Referenced by: '<S244>/sat6' */
+extern CALDATA const volatile float32 KOPM_SIBSKL30VoltHi_V;/* Referenced by: '<S250>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_SIBSKL30VoltLo_V;/* Referenced by: '<S244>/sat7' */
+extern CALDATA const volatile float32 KOPM_SIBSKL30VoltLo_V;/* Referenced by: '<S250>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSKL30Volt_V_ovrdflg;/* Referenced by: '<S244>/sat3' */
+extern CALDATA const volatile boolean KOPM_SIBSKL30Volt_V_ovrdflg;/* Referenced by: '<S250>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_SIBSKL30Volt_V_ovrdval;/* Referenced by: '<S244>/sat4' */
+extern CALDATA const volatile float32 KOPM_SIBSKL30Volt_V_ovrdval;/* Referenced by: '<S250>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_SIBSRTCChrgStHi_enum;/* Referenced by: '<S245>/sat6' */
+extern CALDATA const volatile uint8 KOPM_SIBSRTCChrgStHi_enum;/* Referenced by: '<S251>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_SIBSRTCChrgStLo_enum;/* Referenced by: '<S245>/sat7' */
+extern CALDATA const volatile uint8 KOPM_SIBSRTCChrgStLo_enum;/* Referenced by: '<S251>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSRTCChrgSt_enum_ovrdflg;/* Referenced by: '<S245>/sat3' */
+extern CALDATA const volatile boolean KOPM_SIBSRTCChrgSt_enum_ovrdflg;/* Referenced by: '<S251>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile EnumIBSChrgSt KOPM_SIBSRTCChrgSt_enum_ovrdval;/* Referenced by: '<S245>/sat4' */
+extern CALDATA const volatile EnumIBSChrgSt KOPM_SIBSRTCChrgSt_enum_ovrdval;/* Referenced by: '<S251>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgFailNumHi_cnt;/* Referenced by: '<S246>/sat6' */
+extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgFailNumHi_cnt;/* Referenced by: '<S252>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgFailNumLo_cnt;/* Referenced by: '<S246>/sat7' */
+extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgFailNumLo_cnt;/* Referenced by: '<S252>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSRTCWUChgFailNum_cnt_ovrdflg;/* Referenced by: '<S246>/sat3' */
+extern CALDATA const volatile boolean KOPM_SIBSRTCWUChgFailNum_cnt_ovrdflg;/* Referenced by: '<S252>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgFailNum_cnt_ovrdval;/* Referenced by: '<S246>/sat4' */
+extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgFailNum_cnt_ovrdval;/* Referenced by: '<S252>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgNumHi_cnt;/* Referenced by: '<S247>/sat6' */
+extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgNumHi_cnt;/* Referenced by: '<S253>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgNumLo_cnt;/* Referenced by: '<S247>/sat7' */
+extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgNumLo_cnt;/* Referenced by: '<S253>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSRTCWUChgNum_cnt_ovrdflg;/* Referenced by: '<S247>/sat3' */
+extern CALDATA const volatile boolean KOPM_SIBSRTCWUChgNum_cnt_ovrdflg;/* Referenced by: '<S253>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgNum_cnt_ovrdval;/* Referenced by: '<S247>/sat4' */
+extern CALDATA const volatile uint8 KOPM_SIBSRTCWUChgNum_cnt_ovrdval;/* Referenced by: '<S253>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSWupVoltAllow_flg_ovrdflg;/* Referenced by: '<S248>/sat3' */
+extern CALDATA const volatile boolean KOPM_SIBSWupVoltAllow_flg_ovrdflg;/* Referenced by: '<S254>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_SIBSWupVoltAllow_flg_ovrdval;/* Referenced by: '<S248>/sat4' */
+extern CALDATA const volatile boolean KOPM_SIBSWupVoltAllow_flg_ovrdval;/* Referenced by: '<S254>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ShftKeyStgntnHi_enum;/* Referenced by: '<S249>/sat6' */
+extern CALDATA const volatile uint8 KOPM_ShftKeyStgntnHi_enum;/* Referenced by: '<S255>/sat6' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint8 KOPM_ShftKeyStgntnLo_enum;/* Referenced by: '<S249>/sat7' */
+extern CALDATA const volatile uint8 KOPM_ShftKeyStgntnLo_enum;/* Referenced by: '<S255>/sat7' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_ShftKeyStgntn_enum_ovrdflg;/* Referenced by: '<S249>/sat3' */
+extern CALDATA const volatile boolean KOPM_ShftKeyStgntn_enum_ovrdflg;/* Referenced by: '<S255>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_ShftKeyStgntn_enum_ovrdval;/* Referenced by: '<S249>/sat4' */
+extern CALDATA const volatile uint8 KOPM_ShftKeyStgntn_enum_ovrdval;/* Referenced by: '<S255>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_StrgRecupReqBrkLampOn_flg_ovrdflg;/* Referenced by: '<S286>/sat3' */
+extern CALDATA const volatile boolean KOPM_StrgRecupReqBrkLampOn_flg_ovrdflg;/* Referenced by: '<S292>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_StrgRecupReqBrkLampOn_flg_ovrdval;/* Referenced by: '<S286>/sat4' */
+extern CALDATA const volatile boolean KOPM_StrgRecupReqBrkLampOn_flg_ovrdval;/* Referenced by: '<S292>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_SysFailStaHi_enum;/* Referenced by: '<S331>/sat6' */
+extern CALDATA const volatile uint8 KOPM_SysFailStaHi_enum;/* Referenced by: '<S337>/sat6' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint8 KOPM_SysFailStaLo_enum;/* Referenced by: '<S331>/sat7' */
+extern CALDATA const volatile uint8 KOPM_SysFailStaLo_enum;/* Referenced by: '<S337>/sat7' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_SysFailSta_enum_ovrdflg;/* Referenced by: '<S331>/sat3' */
+extern CALDATA const volatile boolean KOPM_SysFailSta_enum_ovrdflg;/* Referenced by: '<S337>/sat3' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile uint8 KOPM_SysFailSta_enum_ovrdval;/* Referenced by: '<S331>/sat4' */
+extern CALDATA const volatile uint8 KOPM_SysFailSta_enum_ovrdval;/* Referenced by: '<S337>/sat4' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_TMPSAbnmPrsrWarn_flg_ovrdflg;/* Referenced by: '<S475>/sat3' */
+extern CALDATA const volatile boolean KOPM_TMPSAbnmPrsrWarn_flg_ovrdflg;/* Referenced by: '<S486>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_TMPSAbnmPrsrWarn_flg_ovrdval;/* Referenced by: '<S475>/sat4' */
+extern CALDATA const volatile boolean KOPM_TMPSAbnmPrsrWarn_flg_ovrdval;/* Referenced by: '<S486>/sat4' */
 
 /* BCM_B_Package_BAC */
 extern CALDATA const volatile float32 KOPM_TMSACPExhtTmpHi_C;/* Referenced by: '<S106>/sat6' */
@@ -3345,70 +3441,70 @@ extern CALDATA const volatile boolean KOPM_TMSPwrCoolFanSpdDuty_pct_ovrdflg;/* R
 extern CALDATA const volatile uint8 KOPM_TMSPwrCoolFanSpdDuty_pct_ovrdval;/* Referenced by: '<S86>/sat4' */
 
 /* AC_8_status_BOD */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFLHi_enum;/* Referenced by: '<S476>/sat6' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFLHi_enum;/* Referenced by: '<S487>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFLLo_enum;/* Referenced by: '<S476>/sat7' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFLLo_enum;/* Referenced by: '<S487>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_TPMSPressureStaFL_enum_ovrdflg;/* Referenced by: '<S476>/sat3' */
+extern CALDATA const volatile boolean KOPM_TPMSPressureStaFL_enum_ovrdflg;/* Referenced by: '<S487>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFL_enum_ovrdval;/* Referenced by: '<S476>/sat4' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFL_enum_ovrdval;/* Referenced by: '<S487>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFRHi_enum;/* Referenced by: '<S477>/sat6' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFRHi_enum;/* Referenced by: '<S488>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFRLo_enum;/* Referenced by: '<S477>/sat7' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFRLo_enum;/* Referenced by: '<S488>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_TPMSPressureStaFR_enum_ovrdflg;/* Referenced by: '<S477>/sat3' */
+extern CALDATA const volatile boolean KOPM_TPMSPressureStaFR_enum_ovrdflg;/* Referenced by: '<S488>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFR_enum_ovrdval;/* Referenced by: '<S477>/sat4' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaFR_enum_ovrdval;/* Referenced by: '<S488>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRLHi_enum;/* Referenced by: '<S478>/sat6' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRLHi_enum;/* Referenced by: '<S489>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRLLo_enum;/* Referenced by: '<S478>/sat7' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRLLo_enum;/* Referenced by: '<S489>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_TPMSPressureStaRL_enum_ovrdflg;/* Referenced by: '<S478>/sat3' */
+extern CALDATA const volatile boolean KOPM_TPMSPressureStaRL_enum_ovrdflg;/* Referenced by: '<S489>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRL_enum_ovrdval;/* Referenced by: '<S478>/sat4' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRL_enum_ovrdval;/* Referenced by: '<S489>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRRHi_enum;/* Referenced by: '<S479>/sat6' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRRHi_enum;/* Referenced by: '<S490>/sat6' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRRLo_enum;/* Referenced by: '<S479>/sat7' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRRLo_enum;/* Referenced by: '<S490>/sat7' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_TPMSPressureStaRR_enum_ovrdflg;/* Referenced by: '<S479>/sat3' */
+extern CALDATA const volatile boolean KOPM_TPMSPressureStaRR_enum_ovrdflg;/* Referenced by: '<S490>/sat3' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRR_enum_ovrdval;/* Referenced by: '<S479>/sat4' */
+extern CALDATA const volatile uint8 KOPM_TPMSPressureStaRR_enum_ovrdval;/* Referenced by: '<S490>/sat4' */
 
 /* BCM_B_Package_BAC */
-extern CALDATA const volatile boolean KOPM_VCUACCStandstillReq_flg_ovrdflg;/* Referenced by: '<S287>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUACCStandstillReq_flg_ovrdflg;/* Referenced by: '<S293>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUACCStandstillReq_flg_ovrdval;/* Referenced by: '<S287>/sat4' */
+extern CALDATA const volatile boolean KOPM_VCUACCStandstillReq_flg_ovrdval;/* Referenced by: '<S293>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUACCStatHi_enum;/* Referenced by: '<S288>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VCUACCStatHi_enum;/* Referenced by: '<S294>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUACCStatLo_enum;/* Referenced by: '<S288>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VCUACCStatLo_enum;/* Referenced by: '<S294>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUACCStat_enum_ovrdflg;/* Referenced by: '<S288>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUACCStat_enum_ovrdflg;/* Referenced by: '<S294>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUACCStat_enum_ovrdval;/* Referenced by: '<S288>/sat4' */
+extern CALDATA const volatile uint8 KOPM_VCUACCStat_enum_ovrdval;/* Referenced by: '<S294>/sat4' */
 
 /* VCU_D_Status_CHA */
 extern CALDATA const volatile boolean KOPM_VCUAccReqDrvOff_flg_ovrdflg;/* Referenced by: '<S174>/sat3' */
@@ -3423,71 +3519,71 @@ extern CALDATA const volatile boolean KOPM_VCUAccReqStandstill_flg_ovrdflg;/* Re
 extern CALDATA const volatile boolean KOPM_VCUAccReqStandstill_flg_ovrdval;/* Referenced by: '<S175>/sat4' */
 
 /* VCU_10_Torque_CHA */
-extern CALDATA const volatile float32 KOPM_VCUAccTgtAxHi_mps2;/* Referenced by: '<S290>/sat6' */
+extern CALDATA const volatile float32 KOPM_VCUAccTgtAxHi_mps2;/* Referenced by: '<S296>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_VCUAccTgtAxLo_mps2;/* Referenced by: '<S290>/sat7' */
+extern CALDATA const volatile float32 KOPM_VCUAccTgtAxLo_mps2;/* Referenced by: '<S296>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUAccTgtAxReq_flg_ovrdflg;/* Referenced by: '<S289>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUAccTgtAxReq_flg_ovrdflg;/* Referenced by: '<S295>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUAccTgtAxReq_flg_ovrdval;/* Referenced by: '<S289>/sat4' */
+extern CALDATA const volatile boolean KOPM_VCUAccTgtAxReq_flg_ovrdval;/* Referenced by: '<S295>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUAccTgtAx_mps2_ovrdflg;/* Referenced by: '<S290>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUAccTgtAx_mps2_ovrdflg;/* Referenced by: '<S296>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_VCUAccTgtAx_mps2_ovrdval;/* Referenced by: '<S290>/sat4' */
+extern CALDATA const volatile float32 KOPM_VCUAccTgtAx_mps2_ovrdval;/* Referenced by: '<S296>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_VCUBraTorReqHi_Nm;/* Referenced by: '<S291>/sat6' */
+extern CALDATA const volatile float32 KOPM_VCUBraTorReqHi_Nm;/* Referenced by: '<S297>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_VCUBraTorReqLo_Nm;/* Referenced by: '<S291>/sat7' */
+extern CALDATA const volatile float32 KOPM_VCUBraTorReqLo_Nm;/* Referenced by: '<S297>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUBraTorReq_Nm_ovrdflg;/* Referenced by: '<S291>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUBraTorReq_Nm_ovrdflg;/* Referenced by: '<S297>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_VCUBraTorReq_Nm_ovrdval;/* Referenced by: '<S291>/sat4' */
+extern CALDATA const volatile float32 KOPM_VCUBraTorReq_Nm_ovrdval;/* Referenced by: '<S297>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_VCUCruiseCtrTgtSpdHi_kph;/* Referenced by: '<S292>/sat6' */
+extern CALDATA const volatile float32 KOPM_VCUCruiseCtrTgtSpdHi_kph;/* Referenced by: '<S298>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_VCUCruiseCtrTgtSpdLo_kph;/* Referenced by: '<S292>/sat7' */
+extern CALDATA const volatile float32 KOPM_VCUCruiseCtrTgtSpdLo_kph;/* Referenced by: '<S298>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUCruiseCtrTgtSpd_kph_ovrdflg;/* Referenced by: '<S292>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUCruiseCtrTgtSpd_kph_ovrdflg;/* Referenced by: '<S298>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile float32 KOPM_VCUCruiseCtrTgtSpd_kph_ovrdval;/* Referenced by: '<S292>/sat4' */
+extern CALDATA const volatile float32 KOPM_VCUCruiseCtrTgtSpd_kph_ovrdval;/* Referenced by: '<S298>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUCruiseCtrlStaHi_enum;/* Referenced by: '<S293>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VCUCruiseCtrlStaHi_enum;/* Referenced by: '<S299>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUCruiseCtrlStaLo_enum;/* Referenced by: '<S293>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VCUCruiseCtrlStaLo_enum;/* Referenced by: '<S299>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUCruiseCtrlSta_enum_ovrdflg;/* Referenced by: '<S293>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUCruiseCtrlSta_enum_ovrdflg;/* Referenced by: '<S299>/sat3' */
 
 /* VCU_D_Status_CHA */
 extern CALDATA const volatile EnumCruiseStatus
-  KOPM_VCUCruiseCtrlSta_enum_ovrdval;  /* Referenced by: '<S293>/sat4' */
+  KOPM_VCUCruiseCtrlSta_enum_ovrdval;  /* Referenced by: '<S299>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUEPBApplyForbidHi_enum;/* Referenced by: '<S294>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VCUEPBApplyForbidHi_enum;/* Referenced by: '<S300>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUEPBApplyForbidLo_enum;/* Referenced by: '<S294>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VCUEPBApplyForbidLo_enum;/* Referenced by: '<S300>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUEPBApplyForbid_enum_ovrdflg;/* Referenced by: '<S294>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUEPBApplyForbid_enum_ovrdflg;/* Referenced by: '<S300>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUEPBApplyForbid_enum_ovrdval;/* Referenced by: '<S294>/sat4' */
+extern CALDATA const volatile uint8 KOPM_VCUEPBApplyForbid_enum_ovrdval;/* Referenced by: '<S300>/sat4' */
 
 /* VCU_D_Status_CHA */
 extern CALDATA const volatile boolean KOPM_VCUEnaEHBBrkRun_flg_ovrdflg;/* Referenced by: '<S176>/sat3' */
@@ -3520,262 +3616,256 @@ extern CALDATA const volatile boolean KOPM_VCUMotTorqueReqToEHB_Nm_ovrdflg;/* Re
 extern CALDATA const volatile float32 KOPM_VCUMotTorqueReqToEHB_Nm_ovrdval;/* Referenced by: '<S178>/sat4' */
 
 /* VCU_10_Torque_CHA */
-extern CALDATA const volatile boolean KOPM_VCUOprtLicFb_flg_ovrdflg;/* Referenced by: '<S250>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUOprtLicFb_flg_ovrdflg;/* Referenced by: '<S256>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VCUOprtLicFb_flg_ovrdval;/* Referenced by: '<S250>/sat4' */
+extern CALDATA const volatile boolean KOPM_VCUOprtLicFb_flg_ovrdval;/* Referenced by: '<S256>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VCUParkSwStaVld_flg_ovrdflg;/* Referenced by: '<S295>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUParkSwStaVld_flg_ovrdflg;/* Referenced by: '<S301>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUParkSwStaVld_flg_ovrdval;/* Referenced by: '<S295>/sat4' */
+extern CALDATA const volatile boolean KOPM_VCUParkSwStaVld_flg_ovrdval;/* Referenced by: '<S301>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUParkSwSta_flg_ovrdflg;/* Referenced by: '<S296>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUParkSwSta_flg_ovrdflg;/* Referenced by: '<S302>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUParkSwSta_flg_ovrdval;/* Referenced by: '<S296>/sat4' */
+extern CALDATA const volatile boolean KOPM_VCUParkSwSta_flg_ovrdval;/* Referenced by: '<S302>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUPreKeReq_flg_ovrdflg;/* Referenced by: '<S297>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUPreKeReq_flg_ovrdflg;/* Referenced by: '<S303>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUPreKeReq_flg_ovrdval;/* Referenced by: '<S297>/sat4' */
+extern CALDATA const volatile boolean KOPM_VCUPreKeReq_flg_ovrdval;/* Referenced by: '<S303>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUReqAutoBrkHi_enum;/* Referenced by: '<S298>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VCUReqAutoBrkHi_enum;/* Referenced by: '<S304>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUReqAutoBrkLo_enum;/* Referenced by: '<S298>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VCUReqAutoBrkLo_enum;/* Referenced by: '<S304>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUReqAutoBrk_enum_ovrdflg;/* Referenced by: '<S298>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUReqAutoBrk_enum_ovrdflg;/* Referenced by: '<S304>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUReqAutoBrk_enum_ovrdval;/* Referenced by: '<S298>/sat4' */
+extern CALDATA const volatile uint8 KOPM_VCUReqAutoBrk_enum_ovrdval;/* Referenced by: '<S304>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUReqEPBHi_enum;/* Referenced by: '<S300>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VCUReqEPBHi_enum;/* Referenced by: '<S306>/sat6' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUReqEPBLo_enum;/* Referenced by: '<S300>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VCUReqEPBLo_enum;/* Referenced by: '<S306>/sat7' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUReqEPBVld_flg_ovrdflg;/* Referenced by: '<S299>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUReqEPBVld_flg_ovrdflg;/* Referenced by: '<S305>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUReqEPBVld_flg_ovrdval;/* Referenced by: '<S299>/sat4' */
+extern CALDATA const volatile boolean KOPM_VCUReqEPBVld_flg_ovrdval;/* Referenced by: '<S305>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile boolean KOPM_VCUReqEPB_enum_ovrdflg;/* Referenced by: '<S300>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUReqEPB_enum_ovrdflg;/* Referenced by: '<S306>/sat3' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile EnumEPBReq KOPM_VCUReqEPB_enum_ovrdval;/* Referenced by: '<S300>/sat4' */
+extern CALDATA const volatile EnumEPBReq KOPM_VCUReqEPB_enum_ovrdval;/* Referenced by: '<S306>/sat4' */
 
 /* VCU_D_Status_CHA */
-extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlFbHi_enum;/* Referenced by: '<S251>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlFbHi_enum;/* Referenced by: '<S257>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlFbLo_enum;/* Referenced by: '<S251>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlFbLo_enum;/* Referenced by: '<S257>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VCUSpdLimLvlFb_enum_ovrdflg;/* Referenced by: '<S251>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUSpdLimLvlFb_enum_ovrdflg;/* Referenced by: '<S257>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlFb_enum_ovrdval;/* Referenced by: '<S251>/sat4' */
+extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlFb_enum_ovrdval;/* Referenced by: '<S257>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlSetFbHi_enum;/* Referenced by: '<S252>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlSetFbHi_enum;/* Referenced by: '<S258>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlSetFbLo_enum;/* Referenced by: '<S252>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlSetFbLo_enum;/* Referenced by: '<S258>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VCUSpdLimLvlSetFb_enum_ovrdflg;/* Referenced by: '<S252>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUSpdLimLvlSetFb_enum_ovrdflg;/* Referenced by: '<S258>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlSetFb_enum_ovrdval;/* Referenced by: '<S252>/sat4' */
+extern CALDATA const volatile uint8 KOPM_VCUSpdLimLvlSetFb_enum_ovrdval;/* Referenced by: '<S258>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VCUVehSpdFastWarn_flg_ovrdflg;/* Referenced by: '<S179>/sat3' */
-
-/* VCU_10_Torque_CHA */
-extern CALDATA const volatile boolean KOPM_VCUVehSpdFastWarn_flg_ovrdval;/* Referenced by: '<S179>/sat4' */
-
-/* VCU_10_Torque_CHA */
-extern CALDATA const volatile boolean KOPM_VCUVerFb_flg_ovrdflg;/* Referenced by: '<S253>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUVerFb_flg_ovrdflg;/* Referenced by: '<S259>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VCUVerFb_flg_ovrdval;/* Referenced by: '<S253>/sat4' */
+extern CALDATA const volatile boolean KOPM_VCUVerFb_flg_ovrdval;/* Referenced by: '<S259>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VCUVerSetFbHi_enum;/* Referenced by: '<S254>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VCUVerSetFbHi_enum;/* Referenced by: '<S260>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VCUVerSetFbLo_enum;/* Referenced by: '<S254>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VCUVerSetFbLo_enum;/* Referenced by: '<S260>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VCUVerSetFb_enum_ovrdflg;/* Referenced by: '<S254>/sat3' */
+extern CALDATA const volatile boolean KOPM_VCUVerSetFb_enum_ovrdflg;/* Referenced by: '<S260>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VCUVerSetFb_enum_ovrdval;/* Referenced by: '<S254>/sat4' */
+extern CALDATA const volatile uint8 KOPM_VCUVerSetFb_enum_ovrdval;/* Referenced by: '<S260>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehActDrvMod1Hi_enum;/* Referenced by: '<S360>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VehActDrvMod1Hi_enum;/* Referenced by: '<S366>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehActDrvMod1Lo_enum;/* Referenced by: '<S360>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VehActDrvMod1Lo_enum;/* Referenced by: '<S366>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VehActDrvMod1_enum_ovrdflg;/* Referenced by: '<S360>/sat3' */
+extern CALDATA const volatile boolean KOPM_VehActDrvMod1_enum_ovrdflg;/* Referenced by: '<S366>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile EnumDrvModeAct KOPM_VehActDrvMod1_enum_ovrdval;/* Referenced by: '<S360>/sat4' */
+extern CALDATA const volatile EnumDrvModeAct KOPM_VehActDrvMod1_enum_ovrdval;/* Referenced by: '<S366>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehActDrvPwrHi_pct;/* Referenced by: '<S255>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VehActDrvPwrHi_pct;/* Referenced by: '<S261>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehActDrvPwrLo_pct;/* Referenced by: '<S255>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VehActDrvPwrLo_pct;/* Referenced by: '<S261>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VehActDrvPwr_pct_ovrdflg;/* Referenced by: '<S255>/sat3' */
+extern CALDATA const volatile boolean KOPM_VehActDrvPwr_pct_ovrdflg;/* Referenced by: '<S261>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehActDrvPwr_pct_ovrdval;/* Referenced by: '<S255>/sat4' */
+extern CALDATA const volatile uint8 KOPM_VehActDrvPwr_pct_ovrdval;/* Referenced by: '<S261>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehActRecupPwrHi_pct;/* Referenced by: '<S256>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VehActRecupPwrHi_pct;/* Referenced by: '<S262>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehActRecupPwrLo_pct;/* Referenced by: '<S256>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VehActRecupPwrLo_pct;/* Referenced by: '<S262>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VehActRecupPwr_pct_ovrdflg;/* Referenced by: '<S256>/sat3' */
+extern CALDATA const volatile boolean KOPM_VehActRecupPwr_pct_ovrdflg;/* Referenced by: '<S262>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehActRecupPwr_pct_ovrdval;/* Referenced by: '<S256>/sat4' */
+extern CALDATA const volatile uint8 KOPM_VehActRecupPwr_pct_ovrdval;/* Referenced by: '<S262>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehActlGearPosHi_enum;/* Referenced by: '<S362>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VehActlGearPosHi_enum;/* Referenced by: '<S368>/sat6' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehActlGearPosLo_enum;/* Referenced by: '<S362>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VehActlGearPosLo_enum;/* Referenced by: '<S368>/sat7' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VehActlGearPosVld_flg_ovrdflg;/* Referenced by: '<S361>/sat3' */
+extern CALDATA const volatile boolean KOPM_VehActlGearPosVld_flg_ovrdflg;/* Referenced by: '<S367>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VehActlGearPosVld_flg_ovrdval;/* Referenced by: '<S361>/sat4' */
+extern CALDATA const volatile boolean KOPM_VehActlGearPosVld_flg_ovrdval;/* Referenced by: '<S367>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VehActlGearPos_enum_ovrdflg;/* Referenced by: '<S362>/sat3' */
+extern CALDATA const volatile boolean KOPM_VehActlGearPos_enum_ovrdflg;/* Referenced by: '<S368>/sat3' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile EnumGearPstn KOPM_VehActlGearPos_enum_ovrdval;/* Referenced by: '<S362>/sat4' */
+extern CALDATA const volatile EnumGearPstn KOPM_VehActlGearPos_enum_ovrdval;/* Referenced by: '<S368>/sat4' */
 
 /* CCU_VehInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VehPGearError_flg_ovrdflg;/* Referenced by: '<S257>/sat3' */
+extern CALDATA const volatile boolean KOPM_VehPGearError_flg_ovrdflg;/* Referenced by: '<S263>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VehPGearError_flg_ovrdval;/* Referenced by: '<S257>/sat4' */
+extern CALDATA const volatile boolean KOPM_VehPGearError_flg_ovrdval;/* Referenced by: '<S263>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_VehPwrCnsmpAvrgHi_kWh;/* Referenced by: '<S258>/sat6' */
+extern CALDATA const volatile float32 KOPM_VehPwrCnsmpAvrgHi_kWh;/* Referenced by: '<S264>/sat6' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile float32 KOPM_VehPwrCnsmpAvrgLo_kWh;/* Referenced by: '<S258>/sat7' */
+extern CALDATA const volatile float32 KOPM_VehPwrCnsmpAvrgLo_kWh;/* Referenced by: '<S264>/sat7' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_VehPwrCnsmpAvrg_kWh_ovrdflg;/* Referenced by: '<S258>/sat3' */
+extern CALDATA const volatile boolean KOPM_VehPwrCnsmpAvrg_kWh_ovrdflg;/* Referenced by: '<S264>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_VehPwrCnsmpAvrg_kWh_ovrdval;/* Referenced by: '<S258>/sat4' */
+extern CALDATA const volatile float32 KOPM_VehPwrCnsmpAvrg_kWh_ovrdval;/* Referenced by: '<S264>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_VehTrgtGearPosHi_enum;/* Referenced by: '<S207>/sat6' */
+extern CALDATA const volatile uint8 KOPM_VehTrgtGearPosHi_enum;/* Referenced by: '<S206>/sat6' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile uint8 KOPM_VehTrgtGearPosLo_enum;/* Referenced by: '<S207>/sat7' */
+extern CALDATA const volatile uint8 KOPM_VehTrgtGearPosLo_enum;/* Referenced by: '<S206>/sat7' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile boolean KOPM_VehTrgtGearPos_enum_ovrdflg;/* Referenced by: '<S207>/sat3' */
+extern CALDATA const volatile boolean KOPM_VehTrgtGearPos_enum_ovrdflg;/* Referenced by: '<S206>/sat3' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile EnumTgtGearPstn KOPM_VehTrgtGearPos_enum_ovrdval;/* Referenced by: '<S207>/sat4' */
+extern CALDATA const volatile EnumTgtGearPstn KOPM_VehTrgtGearPos_enum_ovrdval;/* Referenced by: '<S206>/sat4' */
 
 /* VCU_1_InvCmd_EPT */
-extern CALDATA const volatile float32 KOPM_VhclActlCnsmPwrHi_kWh;/* Referenced by: '<S259>/sat6' */
+extern CALDATA const volatile float32 KOPM_VhclActlCnsmPwrHi_kWh;/* Referenced by: '<S265>/sat6' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile float32 KOPM_VhclActlCnsmPwrLo_kWh;/* Referenced by: '<S259>/sat7' */
+extern CALDATA const volatile float32 KOPM_VhclActlCnsmPwrLo_kWh;/* Referenced by: '<S265>/sat7' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_VhclActlCnsmPwr_kWh_ovrdflg;/* Referenced by: '<S259>/sat3' */
+extern CALDATA const volatile boolean KOPM_VhclActlCnsmPwr_kWh_ovrdflg;/* Referenced by: '<S265>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_VhclActlCnsmPwr_kWh_ovrdval;/* Referenced by: '<S259>/sat4' */
+extern CALDATA const volatile float32 KOPM_VhclActlCnsmPwr_kWh_ovrdval;/* Referenced by: '<S265>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VhclSpdFstWarn_flg_ovrdflg;/* Referenced by: '<S260>/sat3' */
+extern CALDATA const volatile boolean KOPM_VhclSpdFstWarn_flg_ovrdflg;/* Referenced by: '<S266>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_VhclSpdFstWarn_flg_ovrdval;/* Referenced by: '<S260>/sat4' */
+extern CALDATA const volatile boolean KOPM_VhclSpdFstWarn_flg_ovrdval;/* Referenced by: '<S266>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_WLTPDrvgRngDstHi_km;/* Referenced by: '<S262>/sat6' */
+extern CALDATA const volatile float32 KOPM_WLTPDrvgRngDstHi_km;/* Referenced by: '<S268>/sat6' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile float32 KOPM_WLTPDrvgRngDstLo_km;/* Referenced by: '<S262>/sat7' */
+extern CALDATA const volatile float32 KOPM_WLTPDrvgRngDstLo_km;/* Referenced by: '<S268>/sat7' */
 
 /* VCU_B_AcclPedal_EPT */
-extern CALDATA const volatile boolean KOPM_WLTPDrvgRngDstVld_flg_ovrdflg;/* Referenced by: '<S261>/sat3' */
+extern CALDATA const volatile boolean KOPM_WLTPDrvgRngDstVld_flg_ovrdflg;/* Referenced by: '<S267>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_WLTPDrvgRngDstVld_flg_ovrdval;/* Referenced by: '<S261>/sat4' */
+extern CALDATA const volatile boolean KOPM_WLTPDrvgRngDstVld_flg_ovrdval;/* Referenced by: '<S267>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_WLTPDrvgRngDst_km_ovrdflg;/* Referenced by: '<S262>/sat3' */
+extern CALDATA const volatile boolean KOPM_WLTPDrvgRngDst_km_ovrdflg;/* Referenced by: '<S268>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_WLTPDrvgRngDst_km_ovrdval;/* Referenced by: '<S262>/sat4' */
+extern CALDATA const volatile float32 KOPM_WLTPDrvgRngDst_km_ovrdval;/* Referenced by: '<S268>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_WghConfdence_flg_ovrdflg;/* Referenced by: '<S263>/sat3' */
+extern CALDATA const volatile boolean KOPM_WghConfdence_flg_ovrdflg;/* Referenced by: '<S269>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_WghConfdence_flg_ovrdval;/* Referenced by: '<S263>/sat4' */
+extern CALDATA const volatile boolean KOPM_WghConfdence_flg_ovrdval;/* Referenced by: '<S269>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_WghDistbHi_enum;/* Referenced by: '<S264>/sat6' */
+extern CALDATA const volatile uint8 KOPM_WghDistbHi_enum;/* Referenced by: '<S270>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_WghDistbLo_enum;/* Referenced by: '<S264>/sat7' */
+extern CALDATA const volatile uint8 KOPM_WghDistbLo_enum;/* Referenced by: '<S270>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_WghDistb_enum_ovrdflg;/* Referenced by: '<S264>/sat3' */
+extern CALDATA const volatile boolean KOPM_WghDistb_enum_ovrdflg;/* Referenced by: '<S270>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile uint8 KOPM_WghDistb_enum_ovrdval;/* Referenced by: '<S264>/sat4' */
+extern CALDATA const volatile uint8 KOPM_WghDistb_enum_ovrdval;/* Referenced by: '<S270>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_WghEstHi_kg;/* Referenced by: '<S265>/sat6' */
+extern CALDATA const volatile float32 KOPM_WghEstHi_kg;/* Referenced by: '<S271>/sat6' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_WghEstLo_kg;/* Referenced by: '<S265>/sat7' */
+extern CALDATA const volatile float32 KOPM_WghEstLo_kg;/* Referenced by: '<S271>/sat7' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_WghEst_kg_ovrdflg;/* Referenced by: '<S265>/sat3' */
+extern CALDATA const volatile boolean KOPM_WghEst_kg_ovrdflg;/* Referenced by: '<S271>/sat3' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile float32 KOPM_WghEst_kg_ovrdval;/* Referenced by: '<S265>/sat4' */
+extern CALDATA const volatile float32 KOPM_WghEst_kg_ovrdval;/* Referenced by: '<S271>/sat4' */
 
 /* VCU_DispInfo_BAC */
-extern CALDATA const volatile boolean KOPM_Zdznswi_flg_ovrdflg;/* Referenced by: '<S197>/sat3' */
+extern CALDATA const volatile boolean KOPM_Zdznswi_flg_ovrdflg;/* Referenced by: '<S196>/sat3' */
 
 /* VCU_0_Value_EPT */
-extern CALDATA const volatile boolean KOPM_Zdznswi_flg_ovrdval;/* Referenced by: '<S197>/sat4' */
+extern CALDATA const volatile boolean KOPM_Zdznswi_flg_ovrdval;/* Referenced by: '<S196>/sat4' */
 
 /* VCU_0_Value_EPT */
 #endif                                 /* RTW_HEADER_calPrmsVcu_h_ */

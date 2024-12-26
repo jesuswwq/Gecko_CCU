@@ -76,7 +76,7 @@ extern "C" {
 #define PWM_DEV_ERROR_DETECT            (STD_ON)
 
 /** \brief  Derived Configuration for PwmSafetyEnable */
-#define PWM_SAFETY_ENABLE               (STD_OFF)
+#define PWM_SAFETY_ENABLE               (STD_ON)
 
 /** \brief  Derived Configuration for PwmNonCacheableNeeded */
 #define PWM_NO_CACHEABLE_NEEDED         (STD_OFF)

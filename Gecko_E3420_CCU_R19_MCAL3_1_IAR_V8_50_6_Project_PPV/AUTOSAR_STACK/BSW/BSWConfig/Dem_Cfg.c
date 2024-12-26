@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-07-24 10:01:01>
+ *  @date       <2024-12-03 14:39:01>
  */
 /*============================================================================*/
 
@@ -219,7 +219,8 @@ CONST(Dem_FreezeFrameRecordClassType,AUTOMATIC) DemFreezeFrameRecordClass[DEM_FR
 CONST(uint8,AUTOMATIC) DemFreezeFrameRecordClassRef[DEM_FREEZE_FRAME_RECORD_CLASS_REF_TOTAL_NUM] =
 {
     /* DemFreezeFrameRecNumClass_0 */
-    0x0u
+    0x0u,
+    0x1u
 };
 #define DEM_STOP_SEC_CONST_UNSPECIFIED
 #include "Dem_MemMap.h"
@@ -230,7 +231,7 @@ CONST(Dem_FreezeFrameRecNumClassType,AUTOMATIC) DemFreezeFrameRecNumClass[DEM_FR
 {
     { /* DemFreezeFrameRecNumClass_0 */
         0u,
-        1u,
+        2u,
     }
 };
 #define DEM_STOP_SEC_CONST_UNSPECIFIED
@@ -2249,26 +2250,6 @@ static CONST(Dem_DTCType,AUTOMATIC) DemDTC[DEM_DTC_NUM] =
         3u, /* DTC GroupIndex */
         DEM_DTC_WWHOBD_CLASS_NOCLASS,/*DemWWHOBDDTCClass*/
     },
-    { /* DemDTC_0xC1FF87 */
-        0xc1ff87u, /* DemDtcValue */
-        0u, /* DemDTCAttributesRef  */
-        DEM_OBD_DTC_INVALID, /*DemObdDTC */
-        DEM_DTC_KIND_ALL_DTCS,
-        0x0u, /* DemDTCFunctionalUnit  */
-        DEM_SEVERITY_NO_SEVERITY, /* DemDTCSeverity */
-        3u, /* DTC GroupIndex */
-        DEM_DTC_WWHOBD_CLASS_NOCLASS,/*DemWWHOBDDTCClass*/
-    },
-    { /* DemDTC_0xC1FE87 */
-        0xc1fe87u, /* DemDtcValue */
-        0u, /* DemDTCAttributesRef  */
-        DEM_OBD_DTC_INVALID, /*DemObdDTC */
-        DEM_DTC_KIND_ALL_DTCS,
-        0x0u, /* DemDTCFunctionalUnit  */
-        DEM_SEVERITY_NO_SEVERITY, /* DemDTCSeverity */
-        3u, /* DTC GroupIndex */
-        DEM_DTC_WWHOBD_CLASS_NOCLASS,/*DemWWHOBDDTCClass*/
-    },
     { /* DemDTC_0xC13187 */
         0xc13187u, /* DemDtcValue */
         0u, /* DemDTCAttributesRef  */
@@ -2600,13 +2581,13 @@ static CONST(Dem_DTCType,AUTOMATIC) DemDTC[DEM_DTC_NUM] =
         DEM_DTC_WWHOBD_CLASS_NOCLASS,/*DemWWHOBDDTCClass*/
     },
     { /* DemDTC_0x100F17 */
-        0xc27082u, /* DemDtcValue */
+        0x100f17u, /* DemDtcValue */
         0u, /* DemDTCAttributesRef  */
         DEM_OBD_DTC_INVALID, /*DemObdDTC */
         DEM_DTC_KIND_ALL_DTCS,
         0x0u, /* DemDTCFunctionalUnit  */
         DEM_SEVERITY_NO_SEVERITY, /* DemDTCSeverity */
-        3u, /* DTC GroupIndex */
+        0u, /* DTC GroupIndex */
         DEM_DTC_WWHOBD_CLASS_NOCLASS,/*DemWWHOBDDTCClass*/
     }
 };
@@ -4047,7 +4028,7 @@ static CONST(Dem_EventParameterType,AUTOMATIC) DemEventParameter[DEM_EVENT_PARAM
         TRUE,/*DemEventAvailable*/
         FALSE,  /* DemFFPrestorageSupported Range: true or false */
         DEM_EVENT_KIND_SWC, /* DemEventKind = DEM_EVENT_KIND_BSW or DEM_EVENT_KIND_SWC */
-        REPORT_AFTER_INIT, /* DemReportBehavior = REPORT_AFTER_INIT or REPORT_AFTER_INIT */
+        REPORT_BEFORE_INIT, /* DemReportBehavior = REPORT_AFTER_INIT or REPORT_AFTER_INIT */
         0u, /* DemOperationCycleRef Reference: DemOperationCycle MULTI:1-1*/
         DEM_ENABLE_CONDITION_GROUP_INVALID, /* DemEnableConditionGroupRef: Index Of DemEnableConditionGroup */
         DEM_STORAGE_CONDITION_GROUP_INVALID, /* DemStorageConditionGroupRef: Index Of DemStorageConditionGroup */
@@ -6759,7 +6740,7 @@ static CONST(Dem_EventParameterType,AUTOMATIC) DemEventParameter[DEM_EVENT_PARAM
         TRUE,/*DemEventAvailable*/
         FALSE,  /* DemFFPrestorageSupported Range: true or false */
         DEM_EVENT_KIND_SWC, /* DemEventKind = DEM_EVENT_KIND_BSW or DEM_EVENT_KIND_SWC */
-        REPORT_AFTER_INIT, /* DemReportBehavior = REPORT_AFTER_INIT or REPORT_AFTER_INIT */
+        REPORT_BEFORE_INIT, /* DemReportBehavior = REPORT_AFTER_INIT or REPORT_AFTER_INIT */
         0u, /* DemOperationCycleRef Reference: DemOperationCycle MULTI:1-1*/
         DEM_ENABLE_CONDITION_GROUP_INVALID, /* DemEnableConditionGroupRef: Index Of DemEnableConditionGroup */
         DEM_STORAGE_CONDITION_GROUP_INVALID, /* DemStorageConditionGroupRef: Index Of DemStorageConditionGroup */
@@ -8167,54 +8148,6 @@ static CONST(Dem_EventParameterType,AUTOMATIC) DemEventParameter[DEM_EVENT_PARAM
         0u, /* StatusChangedCbkNum */
         228u, /* DemDTCRef */
         222u, /* AlgorithmRef = DemDebounceCounterBasedClassRef: Index Of DemDebounceCounterBasedClass   */
-        0xFFFF, /* AlgorithmIndex = AlgorithmIndex_Counter++ */
-        DEM_DEBOUNCE_MONITOR_INTERNAL, /* AlgorithmType */
-        0u, /* DemIndicatorAttributeStartIndex */
-        0u, /* AttrNum = COUNT(Event/DemIndicatorAttribute) */
-        0u,/*DemEventFailureCycleCounterThreshold*/
-        TRUE,/*DemEventAvailable*/
-        FALSE,  /* DemFFPrestorageSupported Range: true or false */
-        DEM_EVENT_KIND_SWC, /* DemEventKind = DEM_EVENT_KIND_BSW or DEM_EVENT_KIND_SWC */
-        REPORT_BEFORE_INIT, /* DemReportBehavior = REPORT_AFTER_INIT or REPORT_AFTER_INIT */
-        0u, /* DemOperationCycleRef Reference: DemOperationCycle MULTI:1-1*/
-        DEM_ENABLE_CONDITION_GROUP_INVALID, /* DemEnableConditionGroupRef: Index Of DemEnableConditionGroup */
-        DEM_STORAGE_CONDITION_GROUP_INVALID, /* DemStorageConditionGroupRef: Index Of DemStorageConditionGroup */
-        DEM_COMPONENT_INVALID,/*DemComponentClassRef Reference: DemComponent */ /*if no component shall be DEM_COMPONENT_INVALID*/
-        0xffu,/*DemComponentPriority*/
-        DEM_EVENT_PARAMETER_INVALID,/*DemOBDGroupingAssociativeEventsRef*/
-    },
-    {  /* DemEventParameter_0x100F16*/
-        NULL_PTR,  /* DemCallbackInitMForE */
-        NULL_PTR,  /* DemCallbackEventDataChanged */
-        NULL_PTR, /* DemCallbackClearEventAllowed */
-        0u, /* StatusChangedCbkStartIndex*/
-        0u, /* StatusChangedCbkNum */
-        229u, /* DemDTCRef */
-        223u, /* AlgorithmRef = DemDebounceCounterBasedClassRef: Index Of DemDebounceCounterBasedClass   */
-        0xFFFF, /* AlgorithmIndex = AlgorithmIndex_Counter++ */
-        DEM_DEBOUNCE_MONITOR_INTERNAL, /* AlgorithmType */
-        0u, /* DemIndicatorAttributeStartIndex */
-        0u, /* AttrNum = COUNT(Event/DemIndicatorAttribute) */
-        0u,/*DemEventFailureCycleCounterThreshold*/
-        TRUE,/*DemEventAvailable*/
-        FALSE,  /* DemFFPrestorageSupported Range: true or false */
-        DEM_EVENT_KIND_SWC, /* DemEventKind = DEM_EVENT_KIND_BSW or DEM_EVENT_KIND_SWC */
-        REPORT_BEFORE_INIT, /* DemReportBehavior = REPORT_AFTER_INIT or REPORT_AFTER_INIT */
-        0u, /* DemOperationCycleRef Reference: DemOperationCycle MULTI:1-1*/
-        DEM_ENABLE_CONDITION_GROUP_INVALID, /* DemEnableConditionGroupRef: Index Of DemEnableConditionGroup */
-        DEM_STORAGE_CONDITION_GROUP_INVALID, /* DemStorageConditionGroupRef: Index Of DemStorageConditionGroup */
-        DEM_COMPONENT_INVALID,/*DemComponentClassRef Reference: DemComponent */ /*if no component shall be DEM_COMPONENT_INVALID*/
-        0xffu,/*DemComponentPriority*/
-        DEM_EVENT_PARAMETER_INVALID,/*DemOBDGroupingAssociativeEventsRef*/
-    },
-    {  /* DemEventParameter_0x100F17*/
-        NULL_PTR,  /* DemCallbackInitMForE */
-        NULL_PTR,  /* DemCallbackEventDataChanged */
-        NULL_PTR, /* DemCallbackClearEventAllowed */
-        0u, /* StatusChangedCbkStartIndex*/
-        0u, /* StatusChangedCbkNum */
-        230u, /* DemDTCRef */
-        224u, /* AlgorithmRef = DemDebounceCounterBasedClassRef: Index Of DemDebounceCounterBasedClass   */
         0xFFFF, /* AlgorithmIndex = AlgorithmIndex_Counter++ */
         DEM_DEBOUNCE_MONITOR_INTERNAL, /* AlgorithmType */
         0u, /* DemIndicatorAttributeStartIndex */

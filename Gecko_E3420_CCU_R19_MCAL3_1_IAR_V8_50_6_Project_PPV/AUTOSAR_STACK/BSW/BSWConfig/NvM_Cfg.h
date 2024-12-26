@@ -12,7 +12,7 @@
 **                                                                            **
 **  FILENAME    : NvM_Cfg.h                                                   **
 **                                                                            **
-**  Created on  : 2024/10/10 15:41:04                                 **
+**  Created on  : 2024/12/19 10:37:52                                 **
 **  Author      : <>                                                          **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Pre-compile configuration parameter of NvM                  **
@@ -39,7 +39,7 @@
 #define NVM_API_CONFIG_CLASS                            NVM_API_CONFIG_CLASS_3
 #define NVM_BSWM_MULTIBLOCK_JOBSTATUS_INFORMATION        STD_ON
 #define NVM_BSWM_SINGLEBLOCK_JOBSTATUS_INFORMATION      STD_OFF
-#define NVM_COMPILED_CONFIG_ID                          (0x4u)
+#define NVM_COMPILED_CONFIG_ID                          (0x1u)
 #define NVM_CRC_NUM_OF_BYTES                              (0xffffu)
 #define NVM_DATASET_SELECTION_BITS                      (0x2u)
 #define NVM_DEV_ERROR_DETECT                            STD_ON
@@ -70,75 +70,73 @@
 #define NvMBlock9_DID_F13D               10U
 #define NvMBlock10_DID_F13E               11U
 #define NvMBlock11_27Counter_Level1               12U
-#define NvMBlock12_BL               13U
-#define NvMBlock11_27Counter_Level5               14U
-#define NvMBlock11_27Counter_Level7               15U
-#define NvMBlock_EventEntryPrimary_1               16U
-#define NvMBlock_EventEntryPrimary_2               17U
-#define NvMBlock_EventEntryPrimary_3               18U
-#define NvMBlock_EventEntryPrimary_4               19U
-#define NvMBlock_EventEntryPrimary_5               20U
-#define NvMBlock_EventEntryPrimary_6               21U
-#define NvMBlock_EventEntryPrimary_7               22U
-#define NvMBlock_EventEntryPrimary_8               23U
-#define NvMBlock_EventEntryPrimary_9               24U
-#define NvMBlock_EventEntryPrimary_10               25U
-#define NvMBlock_EventEntryPrimary_11               26U
-#define NvMBlock_EventEntryPrimary_12               27U
-#define NvMBlock_EventEntryPrimary_13               28U
-#define NvMBlock_EventEntryPrimary_14               29U
-#define NvMBlock_EventEntryPrimary_15               30U
-#define NvMBlock_EventEntryPrimary_16               31U
-#define NvMBlock_EventEntryPrimary_17               32U
-#define NvMBlock_EventEntryPrimary_18               33U
-#define NvMBlock_EventEntryPrimary_19               34U
-#define NvMBlock_EventEntryPrimary_20               35U
-#define NvMBlock_EventEntryPrimary_21               36U
-#define NvMBlock_EventEntryPrimary_22               37U
-#define NvMBlock_EventEntryPrimary_23               38U
-#define NvMBlock_EventEntryPrimary_24               39U
-#define NvMBlock_EventEntryPrimary_25               40U
-#define NvMBlock_EventEntryPrimary_26               41U
-#define NvMBlock_EventEntryPrimary_27               42U
-#define NvMBlock_EventEntryPrimary_28               43U
-#define NvMBlock_EventEntryPrimary_29               44U
-#define NvMBlock_EventEntryPrimary_30               45U
-#define NvMBlock_EventEntryPrimary_31               46U
-#define NvMBlock_EventEntryPrimary_32               47U
-#define NvMBlock_EventEntryPrimary_33               48U
-#define NvMBlock_EventEntryPrimary_34               49U
-#define NvMBlock_EventEntryPrimary_35               50U
-#define NvMBlock_EventEntryPrimary_36               51U
-#define NvMBlock_EventEntryPrimary_37               52U
-#define NvMBlock_EventEntryPrimary_38               53U
-#define NvMBlock_EventEntryPrimary_39               54U
-#define NvMBlock_EventEntryPrimary_40               55U
-#define NvMBlock_EventEntryPrimary_41               56U
-#define NvMBlock_EventEntryPrimary_42               57U
-#define NvMBlock_EventEntryPrimary_43               58U
-#define NvMBlock_EventEntryPrimary_44               59U
-#define NvMBlock_EventEntryPrimary_45               60U
-#define NvMBlock_EventEntryPrimary_46               61U
-#define NvMBlock_EventEntryPrimary_47               62U
-#define NvMBlock_EventEntryPrimary_48               63U
-#define NvMBlock_EventEntryPrimary_49               64U
-#define NvMBlock_EventEntryPrimary_50               65U
-#define NvMBlock_UDS_InternalData               66U
-#define NvMBlock_OBD_InternalData               67U
-#define NvMBlock_Swc_VCU_01_64               68U
-#define NvMBlock_Swc_TMS               69U
-#define NvMBlock_Swc_BCM_IMM_20               70U
-#define NvMBlock_Swc_BCM_PD_10               71U
-#define NvMBlock_Swc_BCM_PEPS_256               72U
-#define NvMBlock_Swc_VCU_02_128               73U
+#define NvMBlock11_27Counter_Level5               13U
+#define NvMBlock_EventEntryPrimary_1               14U
+#define NvMBlock_EventEntryPrimary_2               15U
+#define NvMBlock_EventEntryPrimary_3               16U
+#define NvMBlock_EventEntryPrimary_4               17U
+#define NvMBlock_EventEntryPrimary_5               18U
+#define NvMBlock_EventEntryPrimary_6               19U
+#define NvMBlock_EventEntryPrimary_7               20U
+#define NvMBlock_EventEntryPrimary_8               21U
+#define NvMBlock_EventEntryPrimary_9               22U
+#define NvMBlock_EventEntryPrimary_10               23U
+#define NvMBlock_EventEntryPrimary_11               24U
+#define NvMBlock_EventEntryPrimary_12               25U
+#define NvMBlock_EventEntryPrimary_13               26U
+#define NvMBlock_EventEntryPrimary_14               27U
+#define NvMBlock_EventEntryPrimary_15               28U
+#define NvMBlock_EventEntryPrimary_16               29U
+#define NvMBlock_EventEntryPrimary_17               30U
+#define NvMBlock_EventEntryPrimary_18               31U
+#define NvMBlock_EventEntryPrimary_19               32U
+#define NvMBlock_EventEntryPrimary_20               33U
+#define NvMBlock_EventEntryPrimary_21               34U
+#define NvMBlock_EventEntryPrimary_22               35U
+#define NvMBlock_EventEntryPrimary_23               36U
+#define NvMBlock_EventEntryPrimary_24               37U
+#define NvMBlock_EventEntryPrimary_25               38U
+#define NvMBlock_EventEntryPrimary_26               39U
+#define NvMBlock_EventEntryPrimary_27               40U
+#define NvMBlock_EventEntryPrimary_28               41U
+#define NvMBlock_EventEntryPrimary_29               42U
+#define NvMBlock_EventEntryPrimary_30               43U
+#define NvMBlock_EventEntryPrimary_31               44U
+#define NvMBlock_EventEntryPrimary_32               45U
+#define NvMBlock_EventEntryPrimary_33               46U
+#define NvMBlock_EventEntryPrimary_34               47U
+#define NvMBlock_EventEntryPrimary_35               48U
+#define NvMBlock_EventEntryPrimary_36               49U
+#define NvMBlock_EventEntryPrimary_37               50U
+#define NvMBlock_EventEntryPrimary_38               51U
+#define NvMBlock_EventEntryPrimary_39               52U
+#define NvMBlock_EventEntryPrimary_40               53U
+#define NvMBlock_EventEntryPrimary_41               54U
+#define NvMBlock_EventEntryPrimary_42               55U
+#define NvMBlock_EventEntryPrimary_43               56U
+#define NvMBlock_EventEntryPrimary_44               57U
+#define NvMBlock_EventEntryPrimary_45               58U
+#define NvMBlock_EventEntryPrimary_46               59U
+#define NvMBlock_EventEntryPrimary_47               60U
+#define NvMBlock_EventEntryPrimary_48               61U
+#define NvMBlock_EventEntryPrimary_49               62U
+#define NvMBlock_EventEntryPrimary_50               63U
+#define NvMBlock_UDS_InternalData               64U
+#define NvMBlock_Swc_VCU_01_64               65U
+#define NvMBlock_Swc_TMS               66U
+#define NvMBlock_Swc_BCM_IMM_20               67U
+#define NvMBlock_Swc_BCM_PD_10               68U
+#define NvMBlock_Swc_BCM_PEPS_256               69U
+#define NvMBlock_OBD_InternalData               70U
+#define NvMBlock_Swc_Vcu_2_128               71U
 
 /*The total number of user configured*/
-#define NVM_BLOCK_NUM_ALL                                 73
+#define NVM_BLOCK_NUM_ALL                                 71
 #define NVM_REDUNDANT_ALL                                  1
 
 #define NVM_MAX_LENGTH_CONFIGED_RAM_MIRROR                0U
 
-#define NVM_MAX_LENGTH_NV_BLOCK                            710U
+#define NVM_MAX_LENGTH_NV_BLOCK                            704U
 #define NVM_MAX_LENGTH_REDUNDANT_BLOCK                    2U
 
 #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON == NVM_JOB_PRIORITIZATION))
@@ -163,67 +161,65 @@ extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer9[7];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer10[12];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer11[8];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer12[5];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer13[40];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer14[5];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer15[5];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer16[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer17[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer18[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer19[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer20[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer21[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer22[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer23[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer24[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer25[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer26[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer27[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer28[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer29[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer30[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer31[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer32[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer33[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer34[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer35[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer36[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer37[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer38[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer39[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer40[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer41[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer42[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer43[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer44[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer45[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer46[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer47[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer48[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer49[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer50[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer51[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer52[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer53[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer54[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer55[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer56[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer57[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer58[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer59[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer60[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer61[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer62[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer63[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer64[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer65[36];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer66[710];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer67[16];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer68[64];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer13[5];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer14[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer15[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer16[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer17[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer18[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer19[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer20[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer21[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer22[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer23[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer24[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer25[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer26[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer27[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer28[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer29[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer30[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer31[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer32[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer33[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer34[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer35[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer36[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer37[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer38[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer39[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer40[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer41[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer42[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer43[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer44[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer45[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer46[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer47[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer48[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer49[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer50[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer51[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer52[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer53[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer54[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer55[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer56[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer57[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer58[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer59[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer60[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer61[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer62[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer63[52];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer64[704];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer65[64];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer66[256];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer67[128];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer68[10];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer69[256];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[128];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer71[10];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer72[256];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer73[128];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[10];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer71[128];
 
 #endif /* End of NVM_CFG_H*/
 /*******************************************************************************

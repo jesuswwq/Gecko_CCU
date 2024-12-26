@@ -29,8 +29,6 @@
 
 boolean IPDU_COM_VCU_0_Value_EPT_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
-boolean IPDU_COM_VCU_10_Torque_CHA_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
-
 boolean IPDU_COM_AC_3_State_CHA_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_AC_ACStatuts_BOD_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
@@ -75,17 +73,11 @@ boolean IPDU_COM_TX_NM_ASR_CCU_CHA_CANFD3_CHA_CAN5_TxCallout(PduIdType PduId, Pd
 
 boolean IPDU_COM_TX_NM_ASR_CCU_EPT_CANFD6_EPT_CAN2_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
-boolean IPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
-
 boolean IPDU_COM_TX_BCM_ESCLCommand_BOD_CANFD5_BOD_CAN6_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
-
-boolean IPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_TX_CCU_VehInfo_CHA_CANFD3_CHA_CAN5_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_TX_VCU_D_Status_CHA_CANFD3_CHA_CAN5_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
-
-boolean IPDU_COM_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_TX_CCU_VehInfo_BOD_CANFD4_BOD_CAN4_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
@@ -95,9 +87,21 @@ boolean IPDU_COM_TX_VCU_4_ChrgCmd_EPT_CANFD6_EPT_CAN2_TxCallout(PduIdType PduId,
 
 boolean IPDU_COM_TX_CCU_VehInfo_EPT_CANFD6_EPT_CAN2_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
+boolean IPDU_COM_VCU_10_Torque_BAC_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
+
 boolean IPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
+boolean IPDU_COM_TX_VCU_D_Status_BAC_CANFD8_BAC_CAN1_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
+
 boolean IPDU_COM_TX_BCM_B_Package_BAC_CANFD8_BAC_CAN1_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_VCU_10_Torque_CHA_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_FCM_23_Obj0109_CHA_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
@@ -187,27 +191,17 @@ boolean IPDU_COM_ICU_Info_BAC_RxCallout(PduIdType PduId, const PduInfoType* PduI
 
 boolean IPDU_COM_ICU_2_Odo_BAC_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
-boolean IPDU_COM_HU_C_BAC_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
-
 boolean IPDU_COM_TBOX_BJS_Time_BAC_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
-
-boolean IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_RX_SCS_RiSwitchSts_BOD_CANFD5_BOD_CAN6_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
-boolean IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
-
 boolean IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
-
-boolean IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_RX_SRS_1_Status_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_RX_PP_InformAndStatus_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_RX_BMS_HMI_EPT_CANFD6_EPT_CAN2_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
-
-boolean IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_RX_FCM_A_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
@@ -223,6 +217,15 @@ boolean IPDU_COM_RX_BMS_8_TempVoltLimit_EPT_CANFD6_EPT_CAN2_RxCallout(PduIdType 
 
 boolean IPDU_COM_RX_HU_A_BAC_CANFD8_BAC_CAN1_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
+boolean IPDU_COM_HU_C_BAC_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 /* *************************************************************************************** */
 //#define HU_A_BAC_ChksumByte    {0,8,16,24,32,40,48}
 #define HU_B_BAC_ChksumByte    {0,8,16}
@@ -296,7 +299,9 @@ boolean IPDU_COM_RX_HU_A_BAC_CANFD8_BAC_CAN1_RxCallout(PduIdType PduId, const Pd
 #define BCM_HFSData_BAC_ChksumByte    {255}
 #define CCU_VehInfo_BAC_ChksumByte    {0}
 #define VCU_B_AcclPedal_BAC_ChksumByte    {0}
-#define VCU_DispInfo_BAC_ChksumByte    {0,8,16,24,32}
+#define VCU_DispInfo_BAC_ChksumByte    {0,8,16,24,32,40}
+#define VCU_10_Torque_BAC_ChksumByte    {0,8,16,24}
+#define VCU_D_Status_BAC_ChksumByte    {0,8,16,24}
 
 #define AC_1_Command_BOD_ChksumByte    {0}
 #define AC_2_State_BOD_ChksumByte    {0}

@@ -244,53 +244,57 @@ extern "C"{
 #define CanHardwareObject_CANFD6_CAN2_IPU_OBC_3_CP_CC_EPT 60U
 #define CanHardwareObject_CANFD6_CAN2_IPU_OBC_4_state_EPT 61U
 #define CanHardwareObject_CANFD6_CAN2_BMS_HMI_EPT 62U
-#define CanHardwareObject_CANFD6_CAN2_EPT_NM_TX 63U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CCU_OBD 64U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_MCU_OBD 65U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_BMS_OBD 66U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_IPUDCC_OBD 67U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_PTC_OBD 68U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_SCS_OBD 69U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CCP_OBD 70U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_AVAS_OBD 71U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_ESCL_OBD 72U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_ACCM_OBD 73U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_TPMS_OBD 74U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CDCICU_OBD 75U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_ESC_OBD 76U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_EHB_OBD 77U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_EPS_OBD 78U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_PP_OBD 79U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_FCM_OBD 80U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_FRM_OBD 81U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CRRL_OBD 82U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CRRR_OBD 83U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_0X7E0_OBD 84U
-#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_SRS_OBD 85U
-#define CanHardwareObject_CANFD7_CAN3_Diag_FuncReq_OBD 86U
-#define CanHardwareObject_CANFD7_CAN3_OBD_Diag_TX 87U
-#define CanHardwareObject_CANFD8_CAN1_BAC_NM_RX 88U
-#define CanHardwareObject_HU_A_BAC 89U
-#define CanHardwareObject_HU_B_BAC 90U
-#define CanHardwareObject_HU_C_BAC 91U
-#define CanHardwareObject_ICU_2_Odo_BAC 92U
-#define CanHardwareObject_ICU_Info_BAC 93U
-#define CanHardwareObject_TBOX_BJS_Time_BAC 94U
-#define CanHardwareObject_CANFD8_CAN1_Diag_Rx_BAC 95U
-#define CanHardwareObject_CANFD8_BAC_TX 96U
-#define CanHardwareObject_CANFD64_CAN1_BAC_TX 97U
+#define CanHardwareObject_CANFD6_CAN2_BMS_BEM_EPT 63U
+#define CanHardwareObject_CANFD6_CAN2_BMS_CEM_EPT 64U
+#define CanHardwareObject_CANFD6_CAN2_BMS_BST_EPT 65U
+#define CanHardwareObject_CANFD6_CAN2_BMS_CST_EPT 66U
+#define CanHardwareObject_CANFD6_CAN2_EPT_NM_TX 67U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CCU_OBD 68U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_MCU_OBD 69U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_BMS_OBD 70U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_IPUDCC_OBD 71U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_PTC_OBD 72U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_SCS_OBD 73U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CCP_OBD 74U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_AVAS_OBD 75U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_ESCL_OBD 76U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_ACCM_OBD 77U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_TPMS_OBD 78U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CDCICU_OBD 79U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_ESC_OBD 80U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_EHB_OBD 81U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_EPS_OBD 82U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_PP_OBD 83U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_FCM_OBD 84U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_FRM_OBD 85U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CRRL_OBD 86U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CRRR_OBD 87U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_0X7E0_OBD 88U
+#define CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_SRS_OBD 89U
+#define CanHardwareObject_CANFD7_CAN3_Diag_FuncReq_OBD 90U
+#define CanHardwareObject_CANFD7_CAN3_OBD_Diag_TX 91U
+#define CanHardwareObject_CANFD8_CAN1_BAC_NM_RX 92U
+#define CanHardwareObject_HU_A_BAC 93U
+#define CanHardwareObject_HU_B_BAC 94U
+#define CanHardwareObject_HU_C_BAC 95U
+#define CanHardwareObject_ICU_2_Odo_BAC 96U
+#define CanHardwareObject_ICU_Info_BAC 97U
+#define CanHardwareObject_TBOX_BJS_Time_BAC 98U
+#define CanHardwareObject_CANFD8_CAN1_Diag_Rx_BAC 99U
+#define CanHardwareObject_CANFD8_BAC_TX 100U
+#define CanHardwareObject_CANFD64_CAN1_BAC_TX 101U
 
-#define CAN_HOH_MAX 98U
+#define CAN_HOH_MAX 102U
 
 /**
  * @brief The first HTH configuration index.
  */
-#define FIRST_HTH_INDEX (91U)
+#define FIRST_HTH_INDEX (95U)
 
 /**
  * @brief The number of all Rx and Tx MBs.
  */
-#define CAN_MB_COUNT (148U)
+#define CAN_MB_COUNT (151U)
 
 /**
  * @brief The number of all Rx FIFOs.

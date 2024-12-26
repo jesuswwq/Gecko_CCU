@@ -221,8 +221,11 @@ reset_hdlr:
 		  ldr r5 ,=0x10030
           cmp r0, r5
           beq .tcm_clr_jump
-          mov r5,#0
 #endif
+          ldr r5 ,=0x10040
+          cmp r0, r5
+          mov r5,#0
+          beq .tcm_clr_jump
 	cmp r0, r2
 	bhs .skip_tcm_clr
 	stmia r0!, {r4-r5}

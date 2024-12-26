@@ -19,7 +19,7 @@
  *                                                                                                      *
  * <table>                                                                                              *
  * <tr><th>Date                 <th>Version                                                             *
- * <tr><td>2024-03-08 16:29:00  <td>3.0.0 R                                                             *
+ * <tr><td>2024-05-07 17:31:58  <td>3.0.0 R                                                             *
  * </table>                                                                                             *
  *******************************************************************************************************/
 #ifdef __cplusplus
@@ -73,64 +73,6 @@ DMA_LOCAL const Dma_AdcConfigType Dma_AdcConfigTable[] =
 /** \brief  Dma icu module configuration parameters table */
 DMA_LOCAL const Dma_IcuConfigType Dma_IcuConfigTable[] =
 {
-    {
-        /* IcuControllerId = */DMA_ICU_INDEX_ETIMER1,
-        /* CoreId          = */(uint8)DMA_CPU_ID_CORE0,
-        /* Icu_Capture_A   = */
-        {
-            /* *Controller = */DMA_HW_UNDEFINE,
-            /* ChannelId   = */0xFFU,
-        },
-        /* Icu_Capture_B   = */
-        {
-            /* *Controller = */DMA_HW_SF0,
-            /* ChannelId   = */4U,
-        },
-        /* Icu_Capture_C   = */
-        {
-            /* *Controller = */DMA_HW_SF0,
-            /* ChannelId   = */5U,
-        },
-        /* Icu_Capture_D   = */
-        {
-            /* *Controller = */DMA_HW_UNDEFINE,
-            /* ChannelId   = */0xFFU,
-        },
-        /* Icu_Capture_CE   = */
-        {
-            /* *Controller = */DMA_HW_UNDEFINE,
-            /* ChannelId   = */0xFFU,
-        }
-    },
-    {
-        /* IcuControllerId = */DMA_ICU_INDEX_ETIMER3,
-        /* CoreId          = */(uint8)DMA_CPU_ID_CORE0,
-        /* Icu_Capture_A   = */
-        {
-            /* *Controller = */DMA_HW_UNDEFINE,
-            /* ChannelId   = */0xFFU,
-        },
-        /* Icu_Capture_B   = */
-        {
-            /* *Controller = */DMA_HW_SF0,
-            /* ChannelId   = */6U,
-        },
-        /* Icu_Capture_C   = */
-        {
-            /* *Controller = */DMA_HW_UNDEFINE,
-            /* ChannelId   = */0xFFU,
-        },
-        /* Icu_Capture_D   = */
-        {
-            /* *Controller = */DMA_HW_UNDEFINE,
-            /* ChannelId   = */0xFFU,
-        },
-        /* Icu_Capture_CE   = */
-        {
-            /* *Controller = */DMA_HW_UNDEFINE,
-            /* ChannelId   = */0xFFU,
-        }
-    },
     {
         /* IcuControllerId = */DMA_HW_UNIT_UNDEFINE,
         /* CoreId          = */0xFFU,
@@ -374,7 +316,7 @@ DMA_LOCAL const Dma_XtrgConfigType Dma_XtrgConfigTable[] =
 };
 
 /** \brief  Dma SF0 channels allocated on core SF */
-DMA_LOCAL const Dma_ChannelType Dma_SF0AllocateOnCore0 [DMA_CHANNEL_SF0_ON_CORE0_NUMBER + 1U] = {0U, 1U, 2U, 4U, 5U, 6U, 7U, 8U, 0xFFU};
+DMA_LOCAL const Dma_ChannelType Dma_SF0AllocateOnCore0 [DMA_CHANNEL_SF0_ON_CORE0_NUMBER + 1U] = {0U, 1U, 2U, 7U, 8U, 0xFFU};
 
 /** \brief  Dma SF0 channels allocated on core SX0 */
 DMA_LOCAL const Dma_ChannelType Dma_SF0AllocateOnCore1[DMA_CHANNEL_SF0_ON_CORE1_NUMBER + 1U] = {3U, 0xFFU};

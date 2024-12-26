@@ -40,10 +40,6 @@ typedef struct
 } Mcu_PllNodeType;
 
 extern const struct Mcu_PreClkOpsType Mcu_PllOps;
-/********************************************************************************************************
- *                                  Global Function Declarations                                        *
- *******************************************************************************************************/
-Std_ReturnType Mcu_Ip_PllDrvConfigSpread(const Mcu_PllSpreadConfigType *pllConfigPtr);
 
 #endif /* MCU_PLLDRV_H */
 /* End of file */

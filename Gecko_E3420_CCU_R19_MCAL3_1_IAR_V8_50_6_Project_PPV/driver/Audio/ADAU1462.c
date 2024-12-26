@@ -10,11 +10,11 @@ static uint8 QSpi_ADAU1462_DataTx[255] = {0};
 //Byte0                  Byte1                Byte2        Byte3    Byte4 and Subsequent Bytes 
 //Chip Address[6:0], R/W Subaddress[15:8] Subaddress[7:0]  Data         Data
 Std_ReturnType ADAU1462_Frame_Transmit(uint8 rwcmd,uint8 SubaddressHi, uint8 SubaddressLow, 
-                                        uint8* payload_tx, uint8* rxdata, uint8 payload_len)
+                                        uint8* payload_tx, uint8* rxdata, uint16 payload_len)
 {
   Std_ReturnType ret = E_OK;
   uint8 data_idx;
-  uint8 framelen = 0;
+  uint16 framelen = 0;
 
   QSpi_ADAU1462_DataTx[0] = ADAU_DEVICEID<<1 | rwcmd;
   QSpi_ADAU1462_DataTx[1] = SubaddressHi;
@@ -26,7 +26,7 @@ Std_ReturnType ADAU1462_Frame_Transmit(uint8 rwcmd,uint8 SubaddressHi, uint8 Sub
   }
 
   framelen = payload_len + 3;
-
+	SuspendAllInterrupts();
   ret = Spi_SetupEB(SpiConf_SpiChannel_SpiChannel_ADAU1462, 
                     &QSpi_ADAU1462_DataTx[0], 
                     rxdata, 
@@ -36,7 +36,7 @@ Std_ReturnType ADAU1462_Frame_Transmit(uint8 rwcmd,uint8 SubaddressHi, uint8 Sub
   {
     ret = Spi_SyncTransmit(SpiConf_SpiSequence_SpiSequence_ADAU1462);
   }
-  
+   ResumeAllInterrupts();
   return ret;
 }
 
@@ -51,7 +51,7 @@ Std_ReturnType ADAU1462_ReadReg(uint16 regaddr, uint16* RegVal)
   addrHi_u8 = (regaddr&0xff00)>>8;
   addrLow_u8 = (regaddr&0x00ff);
 
-  ret = ADAU1462_Frame_Transmit(ADAU1462_READ, addrHi_u8, addrLow_u8,data_dummy,dataRx,2);
+  ret = ADAU1462_Frame_Transmit(ADAU1462_READ, addrHi_u8, addrLow_u8,data_dummy,dataRx,(uint16)2);
   if(ret == E_OK)
   {
     *RegVal = (uint16)dataRx[3]<<8;
@@ -75,7 +75,7 @@ Std_ReturnType ADAU1462_WriteReg(uint16 regaddr, uint16 RegVal)
   dataTx[0] = (RegVal&0xff00)>>8;
   dataTx[1] = RegVal&0x00ff;
 
-  ret = ADAU1462_Frame_Transmit(ADAU1462_WRITE, addrHi_u8, addrLow_u8,dataTx,dataRx,2);
+  ret = ADAU1462_Frame_Transmit(ADAU1462_WRITE, addrHi_u8, addrLow_u8,dataTx,dataRx,(uint16)2);
   
   return ret;
 }

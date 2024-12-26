@@ -40,46 +40,46 @@
 #define SchM_Exit_Dcm(exclusiveArea)        SchM_Exit_Dcm_##exclusiveArea
 /* PRQA S 0342-- */ /* MISRA Rule 20.10 */
 
-#define SchM_Enter_Dcm_Dcm_ChannelCtrl
-#define SchM_Exit_Dcm_Dcm_ChannelCtrl
+#define SchM_Enter_Dcm_Dcm_ChannelCtrl SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_ChannelCtrl ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_MsgCtrl
-#define SchM_Exit_Dcm_Dcm_MsgCtrl
+#define SchM_Enter_Dcm_Dcm_MsgCtrl SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_MsgCtrl ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_ConnectionCtrl
-#define SchM_Exit_Dcm_Dcm_ConnectionCtrl
+#define SchM_Enter_Dcm_Dcm_ConnectionCtrl SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_ConnectionCtrl ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_ProtocolCtrl
-#define SchM_Exit_Dcm_Dcm_ProtocolCtrl
+#define SchM_Enter_Dcm_Dcm_ProtocolCtrl SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_ProtocolCtrl ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_ProtocolPreemptCtrl
-#define SchM_Exit_Dcm_Dcm_ProtocolPreemptCtrl
+#define SchM_Enter_Dcm_Dcm_ProtocolPreemptCtrl SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_ProtocolPreemptCtrl ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_MkCtrl
-#define SchM_Exit_Dcm_Dcm_MkCtrl
+#define SchM_Enter_Dcm_Dcm_MkCtrl SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_MkCtrl ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_SesCtrl
-#define SchM_Exit_Dcm_Dcm_SesCtrl
+#define SchM_Enter_Dcm_Dcm_SesCtrl SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_SesCtrl ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_SecCtrl
-#define SchM_Exit_Dcm_Dcm_SecCtrl
+#define SchM_Enter_Dcm_Dcm_SecCtrl SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_SecCtrl ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_Channel
-#define SchM_Exit_Dcm_Dcm_Channel
+#define SchM_Enter_Dcm_Dcm_Channel SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_Channel ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_CommCtrl
-#define SchM_Exit_Dcm_Dcm_CommCtrl
+#define SchM_Enter_Dcm_Dcm_CommCtrl SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_CommCtrl ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_LinkControlCtrl
-#define SchM_Exit_Dcm_Dcm_LinkControlCtrl
+#define SchM_Enter_Dcm_Dcm_LinkControlCtrl SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_LinkControlCtrl ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_DspProgram
-#define SchM_Exit_Dcm_Dcm_DspProgram
+#define SchM_Enter_Dcm_Dcm_DspProgram SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_DspProgram ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_PageBufferData
-#define SchM_Exit_Dcm_Dcm_PageBufferData
+#define SchM_Enter_Dcm_Dcm_PageBufferData SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_PageBufferData ResumeAllInterrupts()
 
-#define SchM_Enter_Dcm_Dcm_RoutineControlState
-#define SchM_Exit_Dcm_Dcm_RoutineControlState
+#define SchM_Enter_Dcm_Dcm_RoutineControlState SuspendAllInterrupts()
+#define SchM_Exit_Dcm_Dcm_RoutineControlState ResumeAllInterrupts()
 
 #endif /* SCHM_DCM_H_ */

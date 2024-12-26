@@ -4,7 +4,7 @@
 #include "Platform_Types.h"
 #include "Dem_Cfg.h"
 //#include "NvM_Cfg.h"
-
+extern uint8 CCU_DiagTesterOnlineFlag;
 /* 动态数据DID */
 #define DID_0xF201    2U
 #define DID_0xF202    3U
@@ -38,6 +38,17 @@
 #define DID_0xF21E    37U
 #define DID_0xF21F    38U
 #define DID_0xF220    39U
+#define DID_0xF22C    51U
+#define DID_0xF237    59U
+
+#define DID_0xF230    52U
+#define DID_0xF231    53U
+#define DID_0xF232    54U
+#define DID_0xF233    55U
+#define DID_0xF234    56U
+#define DID_0xF235    57U
+#define DID_0xF236    58U
+#define DID_0xF22B    50U
 
 /* 静态数据DID */
 #define DID_0xF187    3U
@@ -83,7 +94,22 @@ extern uint8 Buffer_DcmDspData_0xF21DH[1];
 extern uint8 Buffer_DcmDspData_0xF21EH[1];
 extern uint8 Buffer_DcmDspData_0xF21FH[1];
 extern uint8 Buffer_DcmDspData_0xF214H[2];
+extern uint8 Buffer_DcmDspData_0xF22CH[1];
+extern uint8 Buffer_DcmDspData_0xF237H[1];
+extern uint8 Buffer_DcmDspData_0xF230H[10];
+extern uint8 Buffer_DcmDspData_0xF231H[10];
+extern uint8 Buffer_DcmDspData_0xF232H[10];
+extern uint8 Buffer_DcmDspData_0xF233H[10];
+extern uint8 Buffer_DcmDspData_0xF234H[23];
+extern uint8 Buffer_DcmDspData_0xF235H[5];
+extern uint8 Buffer_DcmDspData_0xF236H[5];
+extern uint8 Buffer_DcmDspData_0xF22BH[16];
 
+extern uint8 F1B1_Routine_Data[2];
+extern boolean F1B1_31SE_Routine_Flag;
+/*IO_DID*/
+extern uint8 Buffer_DcmDspData_3231[2];
+extern uint8 Buffer_DcmDspData_3232[1];
 /* 20241025新增DTC设置 */
 extern void App_Call_Event_DTC_0x10A796_SetEventStatus(uint8 FaultStatus);  //ESC 1级故障
 extern void App_Call_Event_DTC_0x10A896_SetEventStatus(uint8 FaultStatus);  //ESC 2级故障
@@ -278,4 +304,6 @@ extern void App_Call_Event_IODID_0x3236_GetEventStatus(uint8 *data);
 extern Std_ReturnType Com_RxChksumAliveCnt_Check(uint16 MsgID, uint8 *MsgDataPtr, uint32 MsgDataLen, uint8 *ChksumByte, uint8 ChksumNum, uint8 *LastAliveCnt);
 extern Std_ReturnType Com_TxChksumAliveCnt_Calc(uint16 MsgID, uint8 *MsgDataPtr, uint32 MsgDataLen, uint8 *ChksumByte, uint8 ChksumNum, uint8 *LastAliveCnt);
 
+/*1126,routine check*/
+extern void App_Call_Routine_F1B1_Check(uint8 *data);
 #endif

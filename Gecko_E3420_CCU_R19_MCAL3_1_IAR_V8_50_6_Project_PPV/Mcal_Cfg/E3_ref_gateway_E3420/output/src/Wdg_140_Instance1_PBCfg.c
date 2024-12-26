@@ -88,7 +88,7 @@ static const Wdg_ModeConfigType ModeSettings1[3] =
     /*Slow mode*/
     {
         .clockFrequency   = 24000000U,
-        .timeoutPeriod    = 10000U,
+        .timeoutPeriod    = 100U,
         .timeoutBehavior  = WDG_RESET,
         .triggerCondition = NO_CONDITION_MODE,
         .refreshTime      = 0U,
@@ -97,7 +97,7 @@ static const Wdg_ModeConfigType ModeSettings1[3] =
     /*Fast mode*/
     {
         .clockFrequency   = 24000000U,
-        .timeoutPeriod    = 1000U,
+        .timeoutPeriod    = 50U,
         .timeoutBehavior  = WDG_RESET,
         .triggerCondition = NO_CONDITION_MODE,
         .refreshTime      = 0U,
@@ -108,8 +108,8 @@ static const Wdg_ModeConfigType ModeSettings1[3] =
 const Wdg_ConfigType Wdg_Config1 =
 {
 
-    .initTimeout = 5000U,
-    .maxTimeout  = 10000U,
+    .initTimeout = 500U,
+    .maxTimeout  = 1000U,
     .defaultMode = WDGIF_OFF_MODE,
     .currentInstance = WDT1_INDEX,
     .pfNotification = NULL_PTR,

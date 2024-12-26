@@ -2014,7 +2014,12 @@ void UpdateDIDData(uint8 data,uint8 didId)
 	case DID_0xF220:
 		Buffer_DcmDspData_0xF220H[0]=data;
 		break;
-
+	case DID_0xF22C:
+		Buffer_DcmDspData_0xF22CH[0]=data;
+		break;
+	case DID_0xF237:
+		Buffer_DcmDspData_0xF237H[0]=data;
+		break;
 	default:
 	    break;
 	}
@@ -2195,6 +2200,85 @@ void UpdateDIDDataArray(uint8 *data, uint8 Length,uint8 didId)
 			}
 		}
 		break;
+	case DID_0xF230:
+		if (Length <= sizeof(Buffer_DcmDspData_0xF230H))
+		{
+			for (index = 0;index < Length;index++)
+			{
+				Buffer_DcmDspData_0xF230H[index] = data[index];
+			}
+		}
+		break;
+
+	case DID_0xF231:
+		if (Length <= sizeof(Buffer_DcmDspData_0xF231H))
+		{
+			for (index = 0;index < Length;index++)
+			{
+				Buffer_DcmDspData_0xF231H[index] = data[index];
+			}
+		}
+		break;
+
+	case DID_0xF232:
+		if (Length <= sizeof(Buffer_DcmDspData_0xF232H))
+		{
+			for (index = 0;index < Length;index++)
+			{
+				Buffer_DcmDspData_0xF232H[index] = data[index];
+			}
+		}
+		break;
+
+	case DID_0xF233:
+		if (Length <= sizeof(Buffer_DcmDspData_0xF233H))
+		{
+			for (index = 0;index < Length;index++)
+			{
+				Buffer_DcmDspData_0xF233H[index] = data[index];
+			}
+		}
+		break;	
+
+	case DID_0xF234:
+		if (Length <= sizeof(Buffer_DcmDspData_0xF234H))
+		{
+			for (index = 0;index < Length;index++)
+			{
+				Buffer_DcmDspData_0xF234H[index] = data[index];
+			}
+		}
+		break;
+
+	case DID_0xF235:
+		if (Length <= sizeof(Buffer_DcmDspData_0xF235H))
+		{
+			for (index = 0;index < Length;index++)
+			{
+				Buffer_DcmDspData_0xF235H[index] = data[index];
+			}
+		}
+		break;
+
+	case DID_0xF236:
+		if (Length <= sizeof(Buffer_DcmDspData_0xF236H))
+		{
+			for (index = 0;index < Length;index++)
+			{
+				Buffer_DcmDspData_0xF236H[index] = data[index];
+			}
+		}
+		break;
+
+	case DID_0xF22B:
+		if (Length <= sizeof(Buffer_DcmDspData_0xF22BH))
+		{
+			for (index = 0;index < Length;index++)
+			{
+				Buffer_DcmDspData_0xF22BH[index] = data[index];
+			}
+		}
+		break;
 
 	default:
 	    break;
@@ -2262,14 +2346,22 @@ void SetStaticDIDData(uint8 *data,uint8 didId)
 void App_Call_Event_IODID_0x3231_GetEventStatus(uint8 *data) 
 {
  //Rte_Call_Dcm_CSDataServices_DcmDspData_3231_ReadData(0,data,0);
-  data[0] = 0;
-  data[1] = 0;
+	if(CCU_DiagTesterOnlineFlag == 1)
+	{
+		*data = Buffer_DcmDspData_3231[0];
+	*(data+1) = Buffer_DcmDspData_3231[1];
+	}
+	else{
+		*data = 0;
+		*(data+1) = 0;
+	}
+  
 }
 
 void App_Call_Event_IODID_0x3232_GetEventStatus(uint8 *data) 
 {
  //Rte_Call_Dcm_CSDataServices_DcmDspData_3232_ReadData(0,data,0);
- *data = 0;
+ *data = Buffer_DcmDspData_3232[0];
 }
 void App_Call_Event_IODID_0x3233_GetEventStatus(uint8 *data) 
 {
@@ -2365,5 +2457,15 @@ Std_ReturnType Com_TxChksumAliveCnt_Calc(uint16 MsgID, uint8 *MsgDataPtr, uint32
 
 	return E_OK;
 }
-
-
+void App_Call_Routine_F1B1_Check(uint8 *data)
+{
+	if(F1B1_31SE_Routine_Flag == TRUE)
+	{
+		data = F1B1_Routine_Data;
+		F1B1_31SE_Routine_Flag = FALSE;
+	}
+	else{
+		*data = 0xFF;
+		*(data+1) = 0xFF;
+	}
+}

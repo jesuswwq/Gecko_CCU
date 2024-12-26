@@ -853,6 +853,10 @@ stat_t Lf_Use_ConfigLfDriver(uint8_t ant2_cur, uint8_t ant3_cur, uint8_t ant4_cu
 
 uint8_t _JOKER_Crc8Algorithm(uint8_t *pu8Data, uint8_t u8BytesLen);
 
+stat_t Peps_Cfg_Joker_Tx_Message(uint8_t Ant1,uint8_t DataId_Len1, uint8_t *Lf_Ant1_DataIdx,
+											  uint8_t Ant2,uint8_t DataId_Len2, uint8_t *Lf_Ant2_DataIdx,
+											  uint8_t Ant3,uint8_t DataId_Len3, uint8_t *Lf_Ant3_DataIdx);
+
 stat_t NJJ29C0_ConfigTimerPolling(uint8_t drpi, uint16_t ptime, uint8_t len, uint8_t *dataid);
 
 stat_t Peps_Fun_ConfigTimerPolling(uint8_t Cmd, uint8_t Incar_Ant, uint16_t ptime0, uint8_t LfDoor_Ant, uint16_t ptime1, uint8_t RfDoor_Ant, uint16_t ptime2);
@@ -861,6 +865,7 @@ stat_t WelcomeGuest_ConfigTimerPollingOne(uint8_t Incar_Ant, uint16_t ptime0, ui
 
 stat_t WelcomeGuest_ConfigTimerPollingTwo(uint8_t wakeid_num, uint8_t drpi0, uint16_t ptime0, uint8_t drpi1, uint16_t ptime1, uint8_t Carrier_OnOff);
 
+stat_t WelcomeGuest_ConfigTimerPollingWakeUp(uint8_t drpi,uint16_t ptime);
 void njj29c0_set_datacontent_cb(uint8_t coordinate);
 void njj29c0_set_datacontent_check(void);
 

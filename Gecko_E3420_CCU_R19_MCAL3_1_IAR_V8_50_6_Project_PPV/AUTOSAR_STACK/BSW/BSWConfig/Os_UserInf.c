@@ -72,7 +72,7 @@ Dio_LevelType iolevel = STD_LOW;
 static uint8 wdg_passcnt = 0;
 uint8 NvM_InitReadAll_Flag ;
 //extern uint8 Counter1ms;
-Mcu_ResetType resetreason;
+//Mcu_ResetType Resetreason;
 /*=======[V E R S I O N   I N F O R M A T I O N]===============================*/
 #define OS_USERAPP_C_AR_MAJOR_VERSION     4U
 #define OS_USERAPP_C_AR_MINOR_VERSION     2U
@@ -106,6 +106,10 @@ uint8 Test_5ms_count;
 uint8 Test_10ms_count;
 uint8 Test_50ms_count;
 #endif
+boolean APP_TASK_10MS_Flag = FALSE;
+boolean APP_TASK_100MS_Flag = FALSE;
+boolean APP_TASK_20MS_Flag = FALSE;
+boolean APP_TASK_50MS_Flag = FALSE;
 TASK(OsTask__Core0_100ms)
 {
     /* please insert your code here ... */
@@ -118,6 +122,7 @@ TASK(OsTask__Core0_100ms)
     #endif   
     Xcp_EventIndication(3);
     Os_TaskEntry_Rte_OsTask__Core0_100ms();
+    APP_TASK_100MS_Flag = TRUE;
     if (E_OK != TerminateTask())
     {
         while (1)
@@ -168,6 +173,7 @@ TASK(OsTask__Core0_10ms)
         NvM_MainFunction();
         Ea_MainFunction();
         Eep_62_MainFunction();
+        
     }
   
 
@@ -187,8 +193,9 @@ TASK(OsTask__Core0_10ms)
 #endif
     Nck2910_Task();
     // NJJ29C0_Task();
-    Os_TaskEntry_Rte_OsTask__Core0_10ms();
     PEPS_Interface2CAN();
+    Os_TaskEntry_Rte_OsTask__Core0_10ms();
+    APP_TASK_10MS_Flag = TRUE;
     if (E_OK != TerminateTask())
     {
         while (1)
@@ -267,7 +274,8 @@ TASK(OsTask__Core0_20ms)
     NM_UserDataPackup();
     //ME11_TMSADCSampleFunc();
     //ME11_TMSIODriverFunc();
-    Os_TaskEntry_Rte_OsTask__Core0_20ms();
+        Os_TaskEntry_Rte_OsTask__Core0_20ms();
+    APP_TASK_20MS_Flag = TRUE;
     if (E_OK != TerminateTask())
     {
         while (1)
@@ -282,6 +290,12 @@ TASK(OsTask__Core0_2ms)
     /* please insert your code here ... */
     // Nck2910_Task();
     NJJ29C0_Task();
+      if(0 == NvM_InitReadAll_Flag)
+    {
+        NvM_MainFunction();
+        Ea_MainFunction();
+        Eep_62_MainFunction();
+    }
     if (E_OK != TerminateTask())
     {
         while (1)
@@ -303,7 +317,8 @@ TASK(OsTask__Core0_50ms)
     /* please insert your code here ... */
     
 	Xcp_EventIndication(2);
-	Os_TaskEntry_Rte_OsTask__Core0_50ms();
+    Os_TaskEntry_Rte_OsTask__Core0_50ms();
+	APP_TASK_50MS_Flag = TRUE;
     if (E_OK != TerminateTask())
     {
         while (1)
@@ -322,24 +337,26 @@ TASK(OsTask__Core0_5ms)
         }
     #endif 
 
-  if(100 >= FirstWakeUpSource500ms)
+  if(40 >= FirstWakeUpSource200ms)
   {
-     FirstWakeUpSource500ms++;
+     FirstWakeUpSource200ms++;
   }
-  if(0 == NvM_InitReadAll_Flag)
-    {
-        NvM_MainFunction();
-        Ea_MainFunction();
-        Eep_62_MainFunction();
-    }
+  else
+  {
+    WakeUpSource200msFlag = 1;
+  }
+
     /* please insert your code here ... */
     CanTp_MainFunction();
     CanNm_MainFunction();
-    ADC2_ReadGroup2_4067();
     LinSM_MainFunction();
     LinIf_MainFunction();
-    Com_MainFunctionTx();
+    if((APP_TASK_10MS_Flag == TRUE) && (APP_TASK_20MS_Flag == TRUE) && (APP_TASK_50MS_Flag == TRUE) && (APP_TASK_100MS_Flag == TRUE))
+    {
+        Com_MainFunctionTx();
+    }
     Com_MainFunctionRx();
+    ADC2_ReadGroup2_4067();
     Xcp_MainFunction(); 
 
     if (E_OK != TerminateTask())
@@ -357,13 +374,7 @@ TASK(OsTask_Core0_Init)
     
     NvM_InitReadAll_Flag = 0;
   
-    resetreason = Mcu_GetResetReason();
-    if(resetreason == MCU_WATCHDOG_RESET)
-    {
-       Dio_WriteChannel(DioConf_DioChannel_DioChannel_GPIO_E17, 1);
-       Dio_WriteChannel(DioConf_DioChannel_DioChannel_GPIO_E17, 0);
-       
-    }
+    //Resetreason = Mcu_GetResetReason();
 /*CDD initial start*/
     Dio_WriteChannel(DioConf_DioChannel_DioChannel_GPIO_D3_SYSERR_EN,1);//add system_err_EN
     //Icu_SetActivationCondition(IcuConf_IcuChannel_IcuChannel_Crash_sig,ICU_RISING_EDGE);

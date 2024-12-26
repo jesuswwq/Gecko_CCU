@@ -314,5 +314,6 @@
 #define ROMC1_BOOTROM1_BASE (0x00000000u)
 #define ROMC1_BASE (0x00000000u)
 
+#define RESET_RESON_BASE (0x00010040u)
 #endif /* __REGS_BASE_E3_H */
 /* End of file */

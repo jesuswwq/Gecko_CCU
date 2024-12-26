@@ -12,7 +12,7 @@
 **                                                                            **
 **  FILENAME    : PduR_PBcfg.c                                                **
 **                                                                            **
-**  Created on  : 2024/10/14 16:49:42                                         **
+**  Created on  : 2024/12/10 11:28:32                                         **
 **  Author      : zhengfei.li                                                 **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Configuration parameter of PDUR                             **
@@ -148,21 +148,6 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
-        PDUR_DESTPDU_VCU_10_Torque_CHA,
-        PDUR_DIRECT,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        FALSE,
-        TRUE,
-        PDUR_SRCPDU_COM_VCU_10_Torque_CHA,
-        CANIF_TXPDU_VCU_10_Torque_CHA,
-        PDUR_CANIF,
-        PDUR_UNUSED_UINT16,
-        NULL_PTR,
-
-    },
-    {
         PDUR_DESTPDU_CANIF_TX_CCU_VehInfo_CHA_CANFD3_CHA_CAN5,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -218,6 +203,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         PDUR_SRCPDU_CANIF_RX_FCM_B_CHA_CANFD3_CHA_CAN5,
         COM_RXPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5,
         PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_FCM_B_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_FCM_B_CHA_CANFD3_CHA_CAN5,
+        CANIF_TXPDU_CANIF_TX_FCM_B_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -373,6 +373,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
+        PDUR_DESTPDU_CANIF_TX_ESC_A_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_ESC_A_CHA,
+        CANIF_TXPDU_CANIF_TX_ESC_A_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
         PDUR_DESTPDU_ESC_7_FuncStatus_EPT,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -443,6 +458,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         PDUR_SRCPDU_EHB_B_CHA,
         COM_RXPDU_COM_EHB_B_CHA,
         PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_EHB_B_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_EHB_B_CHA,
+        CANIF_TXPDU_CANIF_TX_EHB_B_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -583,6 +613,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
+        PDUR_DESTPDU_CANIF_TX_EPS_3_LatDrvAndEPSSts_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_EPS_3_LatDrvAndEPSSts_CHA,
+        CANIF_TXPDU_CANIF_TX_EPS_3_LatDrvAndEPSSts_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
         PDUR_DESTPDU_COM_EPS_2_StrWhlAng_CHA,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -593,6 +638,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         PDUR_SRCPDU_EPS_2_StrWhlAng_CHA,
         COM_RXPDU_COM_EPS_2_StrWhlAng_CHA,
         PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_EPS_2_StrWhlAng_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_EPS_2_StrWhlAng_CHA,
+        CANIF_TXPDU_CANIF_TX_EPS_2_StrWhlAng_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -1348,6 +1408,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
+        PDUR_DESTPDU_CANIF_TX_BMS_3_DC_ChargeState_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_BMS_3_DC_ChargeState_EPT,
+        CANIF_TXPDU_CANIF_TX_BMS_3_DC_ChargeState_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
         PDUR_DESTPDU_COM_BMS_4_AC_ChargeState_EPT,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -1358,6 +1433,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         PDUR_SRCPDU_BMS_4_AC_ChargeState_EPT,
         COM_RXPDU_COM_BMS_4_AC_ChargeState_EPT,
         PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_BMS_4_AC_ChargeState_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_BMS_4_AC_ChargeState_EPT,
+        CANIF_TXPDU_CANIF_TX_BMS_4_AC_ChargeState_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -1408,6 +1498,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
+        PDUR_DESTPDU_CANIF_TX_BMS_5_BatTemp_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_BMS_5_BatTemp_EPT,
+        CANIF_TXPDU_CANIF_TX_BMS_5_BatTemp_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
         PDUR_DESTPDU_COM_BMS_6_DischrgRecup_EPT,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -1423,6 +1528,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
+        PDUR_DESTPDU_CANIF_TX_BMS_6_DischrgRecup_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_BMS_6_DischrgRecup_EPT,
+        CANIF_TXPDU_CANIF_TX_BMS_6_DischrgRecup_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
         PDUR_DESTPDU_COM_BMS_7_CellVolt_EPT,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -1433,6 +1553,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         PDUR_SRCPDU_BMS_7_CellVolt_EPT,
         COM_RXPDU_COM_BMS_7_CellVolt_EPT,
         PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_BMS_7_CellVolt_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_BMS_7_CellVolt_EPT,
+        CANIF_TXPDU_CANIF_TX_BMS_7_CellVolt_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -1463,6 +1598,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         PDUR_SRCPDU_BMS_9_BattInfo_EPT,
         COM_RXPDU_COM_BMS_9_BattInfo_EPT,
         PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_BMS_9_BattInfo_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_BMS_9_BattInfo_EPT,
+        CANIF_TXPDU_CANIF_TX_BMS_9_BattInfo_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -1603,6 +1753,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
+        PDUR_DESTPDU_CANIF_TX_IPU_OBC_3_CP_CC_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_IPU_OBC_3_CP_CC_EPT,
+        CANIF_TXPDU_CANIF_TX_IPU_OBC_3_CP_CC_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
         PDUR_DESTPDU_COM_IPU_DCC_1_State_EPT,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -1613,6 +1778,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         PDUR_SRCPDU_IPU_DCC_1_State_EPT,
         COM_RXPDU_COM_IPU_DCC_1_State_EPT,
         PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_IPU_DCC_1_State_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_IPU_DCC_1_State_EPT,
+        CANIF_TXPDU_CANIF_TX_IPU_DCC_1_State_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -1663,6 +1843,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
+        PDUR_DESTPDU_CANIF_TX_IPU_DCC_2_ChrgInValue_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_IPU_DCC_2_ChrgInValue_EPT,
+        CANIF_TXPDU_CANIF_TX_IPU_DCC_2_ChrgInValue_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
         PDUR_DESTPDU_COM_IPU_OBC_2_Inlet_EPT,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -1673,6 +1868,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         PDUR_SRCPDU_IPU_OBC_2_Inlet_EPT,
         COM_RXPDU_COM_IPU_OBC_2_Inlet_EPT,
         PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_IPU_OBC_2_Inlet_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_IPU_OBC_2_Inlet_EPT,
+        CANIF_TXPDU_CANIF_TX_IPU_OBC_2_Inlet_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -1708,7 +1918,7 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
-        PDUR_DESTPDU_COM_INV_1_Value_EPT,
+        PDUR_DESTPDU_Com_INV_1_Value_EPT,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
         PDUR_UNUSED_UINT16,
@@ -1716,14 +1926,14 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         FALSE,
         TRUE,
         PDUR_SRCPDU_INV_1_Value_EPT,
-        COM_RXPDU_COM_INV_1_Value_EPT,
+        COM_RXPDU_Com_INV_1_Value_EPT,
         PDUR_COM,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
     },
     {
-        PDUR_DESTPDU_INV_1_Value_BAC,
+        PDUR_DESTPDU_CANIF_TX_INV_1_Value_BAC_CANFD8_BAC_CAN1,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
         PDUR_UNUSED_UINT16,
@@ -1731,7 +1941,7 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         TRUE,
         TRUE,
         PDUR_SRCPDU_INV_1_Value_EPT,
-        CANIF_TXPDU_INV_1_Value_BAC,
+        CANIF_TXPDU_CANIF_TX_INV_1_Value_BAC_CANFD8_BAC_CAN1,
         PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
@@ -1748,6 +1958,21 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         PDUR_SRCPDU_INV_2_Value_EPT,
         COM_RXPDU_COM_INV_2_Value_EPT,
         PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_INV_2_Value_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_INV_2_Value_EPT,
+        CANIF_TXPDU_CANIF_TX_INV_2_Value_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -1828,36 +2053,6 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
-        PDUR_DESTPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
-        PDUR_DIRECT,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        FALSE,
-        TRUE,
-        PDUR_SRCPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
-        CANIF_TXPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
-        PDUR_CANIF,
-        PDUR_UNUSED_UINT16,
-        NULL_PTR,
-
-    },
-    {
-        PDUR_DESTPDU_CCU_VehInfo_BAC,
-        PDUR_DIRECT,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        FALSE,
-        TRUE,
-        PDUR_SRCPDU_COM_CCU_VehInfo_BAC,
-        CANIF_TXPDU_CCU_VehInfo_BAC,
-        PDUR_CANIF,
-        PDUR_UNUSED_UINT16,
-        NULL_PTR,
-
-    },
-    {
         PDUR_DESTPDU_AC_ACStatuts_BAC,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -1867,21 +2062,6 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         TRUE,
         PDUR_SRCPDU_COM_AC_ACStatuts_BAC,
         CANIF_TXPDU_AC_ACStatuts_BAC,
-        PDUR_CANIF,
-        PDUR_UNUSED_UINT16,
-        NULL_PTR,
-
-    },
-    {
-        PDUR_DESTPDU_BCM_B_Package_BAC,
-        PDUR_DIRECT,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        FALSE,
-        TRUE,
-        PDUR_SRCPDU_COM_BCM_B_Package_BAC,
-        CANIF_TXPDU_BCM_B_Package_BAC,
         PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
@@ -1943,21 +2123,6 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         PDUR_SRCPDU_ICU_Info_BAC,
         CANIF_TXPDU_ICU_Info_CHA,
         PDUR_CANIF,
-        PDUR_UNUSED_UINT16,
-        NULL_PTR,
-
-    },
-    {
-        PDUR_DESTPDU_COM_HU_B_BAC,
-        PDUR_DIRECT,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        FALSE,
-        TRUE,
-        PDUR_SRCPDU_HU_B_BAC,
-        COM_RXPDU_COM_HU_B_BAC,
-        PDUR_COM,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
 
@@ -4123,21 +4288,6 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
-        PDUR_DESTPDU_CANIF_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
-        PDUR_DIRECT,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        PDUR_UNUSED_UINT16,
-        FALSE,
-        TRUE,
-        PDUR_SRCPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
-        CANIF_TXPDU_CANIF_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
-        PDUR_CANIF,
-        PDUR_UNUSED_UINT16,
-        NULL_PTR,
-
-    },
-    {
         PDUR_DESTPDU_COM_RX_BMS_HMI_EPT_CANFD6_EPT_CAN2,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -4168,6 +4318,66 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
 
     },
     {
+        PDUR_DESTPDU_CANIF_TX_VCU_10_Torque_CHA_CANFD3_CHA_CAN5,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_COM_TX_VCU_10_Torque_CHA_CANFD3_CHA_CAN5,
+        CANIF_TXPDU_CANIF_TX_VCU_10_Torque_CHA_CANFD3_CHA_CAN5,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
+        CANIF_TXPDU_CANIF_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_HU_B_BAC_CANFD8_BAC_CAN1,
+        COM_RXPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1,
+        PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_VCU_D_Status_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_COM_TX_VCU_D_Status_BAC_CANFD8_BAC_CAN1,
+        CANIF_TXPDU_CANIF_TX_VCU_D_Status_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
         PDUR_DESTPDU_CANIF_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5,
         PDUR_DIRECT,
         PDUR_UNUSED_UINT16,
@@ -4177,6 +4387,246 @@ PduR_DestPduConfigData[PDUR_DEST_PDU_SUM] =
         TRUE,
         PDUR_SRCPDU_COM_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5,
         CANIF_TXPDU_CANIF_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_COM_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5,
+        COM_RXPDU_COM_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5,
+        PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_CRRR_OBJ12_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5,
+        CANIF_TXPDU_CANIF_TX_CRRR_OBJ12_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_COM_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5,
+        COM_RXPDU_COM_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5,
+        PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_CRRL_OBJ12_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5,
+        CANIF_TXPDU_CANIF_TX_CRRL_OBJ12_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_BCM_B_Package_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_COM_TX_BCM_B_Package_BAC_CANFD8_BAC_CAN1,
+        CANIF_TXPDU_CANIF_TX_BCM_B_Package_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_VCU_10_Torque_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_COM_TX_VCU_10_Torque_BAC_CANFD8_BAC_CAN1,
+        CANIF_TXPDU_CANIF_TX_VCU_10_Torque_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1,
+        CANIF_TXPDU_CANIF_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
+        CANIF_TXPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_COM_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2,
+        COM_RXPDU_COM_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2,
+        PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_BMS_BEM_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2,
+        CANIF_TXPDU_CANIF_TX_BMS_BEM_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_COM_RX_BMS_BST_EPT_CANFD6_EPT_CAN2,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_BMS_BST_EPT_CANFD6_EPT_CAN2,
+        COM_RXPDU_COM_RX_BMS_BST_EPT_CANFD6_EPT_CAN2,
+        PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_BMS_BST_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_BMS_BST_EPT_CANFD6_EPT_CAN2,
+        CANIF_TXPDU_CANIF_TX_BMS_BST_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_COM_RX_BMS_CST_EPT_CANFD6_EPT_CAN2,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_BMS_CST_EPT_CANFD6_EPT_CAN2,
+        COM_RXPDU_COM_RX_BMS_CST_EPT_CANFD6_EPT_CAN2,
+        PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_BMS_CST_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_BMS_CST_EPT_CANFD6_EPT_CAN2,
+        CANIF_TXPDU_CANIF_TX_BMS_CST_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_COM_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        FALSE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2,
+        COM_RXPDU_COM_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2,
+        PDUR_COM,
+        PDUR_UNUSED_UINT16,
+        NULL_PTR,
+
+    },
+    {
+        PDUR_DESTPDU_CANIF_TX_BMS_CEM_BAC_CANFD8_BAC_CAN1,
+        PDUR_DIRECT,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        PDUR_UNUSED_UINT16,
+        TRUE,
+        TRUE,
+        PDUR_SRCPDU_CANIF_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2,
+        CANIF_TXPDU_CANIF_TX_BMS_CEM_BAC_CANFD8_BAC_CAN1,
         PDUR_CANIF,
         PDUR_UNUSED_UINT16,
         NULL_PTR,
@@ -4228,14 +4678,6 @@ PduR_SrcPduConfigData[PDUR_SRC_PDU_SUM] =
         TRUE,
         PDUR_UNUSED_UINT16,
         COM_TXPDU_Com_CAN1_CANFD8_user,
-        PDUR_COM,
-
-    },
-    {
-        PDUR_SRCPDU_COM_VCU_10_Torque_CHA,
-        TRUE,
-        PDUR_UNUSED_UINT16,
-        COM_TXPDU_COM_VCU_10_Torque_CHA,
         PDUR_COM,
 
     },
@@ -4864,34 +5306,10 @@ PduR_SrcPduConfigData[PDUR_SRC_PDU_SUM] =
 
     },
     {
-        PDUR_SRCPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
-        TRUE,
-        PDUR_UNUSED_UINT16,
-        COM_TXPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
-        PDUR_COM,
-
-    },
-    {
-        PDUR_SRCPDU_COM_CCU_VehInfo_BAC,
-        TRUE,
-        PDUR_UNUSED_UINT16,
-        COM_TXPDU_COM_CCU_VehInfo_BAC,
-        PDUR_COM,
-
-    },
-    {
         PDUR_SRCPDU_COM_AC_ACStatuts_BAC,
         TRUE,
         PDUR_UNUSED_UINT16,
         COM_TXPDU_COM_AC_ACStatuts_BAC,
-        PDUR_COM,
-
-    },
-    {
-        PDUR_SRCPDU_COM_BCM_B_Package_BAC,
-        TRUE,
-        PDUR_UNUSED_UINT16,
-        COM_TXPDU_COM_BCM_B_Package_BAC,
         PDUR_COM,
 
     },
@@ -4916,14 +5334,6 @@ PduR_SrcPduConfigData[PDUR_SRC_PDU_SUM] =
         TRUE,
         PDUR_UNUSED_UINT16,
         CANIF_RXPDU_ICU_Info_BAC,
-        PDUR_CANIF,
-
-    },
-    {
-        PDUR_SRCPDU_HU_B_BAC,
-        TRUE,
-        PDUR_UNUSED_UINT16,
-        CANIF_RXPDU_HU_B_BAC,
         PDUR_CANIF,
 
     },
@@ -5824,14 +6234,6 @@ PduR_SrcPduConfigData[PDUR_SRC_PDU_SUM] =
 
     },
     {
-        PDUR_SRCPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
-        TRUE,
-        PDUR_UNUSED_UINT16,
-        COM_TXPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
-        PDUR_COM,
-
-    },
-    {
         PDUR_SRCPDU_CANIF_RX_BMS_HMI_EPT_CANFD6_EPT_CAN2,
         TRUE,
         PDUR_UNUSED_UINT16,
@@ -5840,11 +6242,123 @@ PduR_SrcPduConfigData[PDUR_SRC_PDU_SUM] =
 
     },
     {
+        PDUR_SRCPDU_COM_TX_VCU_10_Torque_CHA_CANFD3_CHA_CAN5,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        COM_TXPDU_COM_TX_VCU_10_Torque_CHA_CANFD3_CHA_CAN5,
+        PDUR_COM,
+
+    },
+    {
+        PDUR_SRCPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        COM_TXPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
+        PDUR_COM,
+
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_HU_B_BAC_CANFD8_BAC_CAN1,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        CANIF_RXPDU_CANIF_RX_HU_B_BAC_CANFD8_BAC_CAN1,
+        PDUR_CANIF,
+
+    },
+    {
+        PDUR_SRCPDU_COM_TX_VCU_D_Status_BAC_CANFD8_BAC_CAN1,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        COM_TXPDU_COM_TX_VCU_D_Status_BAC_CANFD8_BAC_CAN1,
+        PDUR_COM,
+
+    },
+    {
         PDUR_SRCPDU_COM_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5,
         TRUE,
         PDUR_UNUSED_UINT16,
         COM_TXPDU_COM_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5,
         PDUR_COM,
+
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        CANIF_RXPDU_CANIF_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5,
+        PDUR_CANIF,
+
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        CANIF_RXPDU_CANIF_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5,
+        PDUR_CANIF,
+
+    },
+    {
+        PDUR_SRCPDU_COM_TX_BCM_B_Package_BAC_CANFD8_BAC_CAN1,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        COM_TXPDU_COM_TX_BCM_B_Package_BAC_CANFD8_BAC_CAN1,
+        PDUR_COM,
+
+    },
+    {
+        PDUR_SRCPDU_COM_TX_VCU_10_Torque_BAC_CANFD8_BAC_CAN1,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        COM_TXPDU_COM_TX_VCU_10_Torque_BAC_CANFD8_BAC_CAN1,
+        PDUR_COM,
+
+    },
+    {
+        PDUR_SRCPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        COM_TXPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1,
+        PDUR_COM,
+
+    },
+    {
+        PDUR_SRCPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        COM_TXPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
+        PDUR_COM,
+
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        CANIF_RXPDU_CANIF_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2,
+        PDUR_CANIF,
+
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_BMS_BST_EPT_CANFD6_EPT_CAN2,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        CANIF_RXPDU_CANIF_RX_BMS_BST_EPT_CANFD6_EPT_CAN2,
+        PDUR_CANIF,
+
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_BMS_CST_EPT_CANFD6_EPT_CAN2,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        CANIF_RXPDU_CANIF_RX_BMS_CST_EPT_CANFD6_EPT_CAN2,
+        PDUR_CANIF,
+
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2,
+        TRUE,
+        PDUR_UNUSED_UINT16,
+        CANIF_RXPDU_CANIF_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2,
+        PDUR_CANIF,
 
     },
 };
@@ -5900,15 +6414,6 @@ PduR_PDUR_ROUTING_NM_CAN1_CANFD8[1] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_VCU_10_Torque_CHA[1] =
-{
-    PDUR_DESTPDU_VCU_10_Torque_CHA,
-};
-#define PDUR_STOP_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-#define PDUR_START_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-static CONST(uint16,PDUR_CONST)
 PduR_PDUR_ROUTING_CCU_VehInfo_CHA[1] =
 {
     PDUR_DESTPDU_CANIF_TX_CCU_VehInfo_CHA_CANFD3_CHA_CAN5,
@@ -5936,9 +6441,10 @@ PduR_PDUR_ROUTING_AC_3_State_CHA[1] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_FCM_B_CHA[1] =
+PduR_PDUR_ROUTING_FCM_B_CHA[2] =
 {
     PDUR_DESTPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5,
+    PDUR_DESTPDU_CANIF_TX_FCM_B_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -5994,9 +6500,10 @@ PduR_PDUR_ROUTING_ESC_WheelPulseTime_CHA[1] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_ESC_A_CHA[1] =
+PduR_PDUR_ROUTING_ESC_A_CHA[2] =
 {
     PDUR_DESTPDU_COM_ESC_A_CHA,
+    PDUR_DESTPDU_CANIF_TX_ESC_A_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6015,9 +6522,10 @@ PduR_PDUR_ROUTING_ESC_7_FuncStatus_CHA[4] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_EHB_B_CHA[1] =
+PduR_PDUR_ROUTING_EHB_B_CHA[2] =
 {
     PDUR_DESTPDU_COM_EHB_B_CHA,
+    PDUR_DESTPDU_CANIF_TX_EHB_B_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6064,18 +6572,20 @@ PduR_PDUR_ROUTING_SRS_1_Status_CHA[3] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_EPS_3_LatDrvAndEPSSts_CHA[1] =
+PduR_PDUR_ROUTING_EPS_3_LatDrvAndEPSSts_CHA[2] =
 {
     PDUR_DESTPDU_COM_EPS_3_LatDrvAndEPSSts_CHA,
+    PDUR_DESTPDU_CANIF_TX_EPS_3_LatDrvAndEPSSts_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_EPS_2_StrWhlAng_CHA[1] =
+PduR_PDUR_ROUTING_EPS_2_StrWhlAng_CHA[2] =
 {
     PDUR_DESTPDU_COM_EPS_2_StrWhlAng_CHA,
+    PDUR_DESTPDU_CANIF_TX_EPS_2_StrWhlAng_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6419,18 +6929,20 @@ PduR_PDUR_ROUTING_BMS_2_BatState_EPT[2] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_BMS_3_DC_ChargeState_EPT[1] =
+PduR_PDUR_ROUTING_BMS_3_DC_ChargeState_EPT[2] =
 {
     PDUR_DESTPDU_COM_BMS_3_DC_ChargeState_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_3_DC_ChargeState_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_BMS_4_AC_ChargeState_EPT[1] =
+PduR_PDUR_ROUTING_BMS_4_AC_ChargeState_EPT[2] =
 {
     PDUR_DESTPDU_COM_BMS_4_AC_ChargeState_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_4_AC_ChargeState_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6447,27 +6959,30 @@ PduR_PDUR_ROUTING_BMS_10_DC_ChargeStates_EPT[2] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_BMS_5_BatTemp_EPT[1] =
+PduR_PDUR_ROUTING_BMS_5_BatTemp_EPT[2] =
 {
     PDUR_DESTPDU_COM_BMS_5_BatTemp_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_5_BatTemp_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_BMS_6_DischrgRecup_EPT[1] =
+PduR_PDUR_ROUTING_BMS_6_DischrgRecup_EPT[2] =
 {
     PDUR_DESTPDU_COM_BMS_6_DischrgRecup_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_6_DischrgRecup_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_BMS_7_CellVolt_EPT[1] =
+PduR_PDUR_ROUTING_BMS_7_CellVolt_EPT[2] =
 {
     PDUR_DESTPDU_COM_BMS_7_CellVolt_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_7_CellVolt_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6483,9 +6998,10 @@ PduR_PDUR_ROUTING_BMS_8_TempVoltLimit_EPT[1] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_BMS_9_BattInfo_EPT[1] =
+PduR_PDUR_ROUTING_BMS_9_BattInfo_EPT[2] =
 {
     PDUR_DESTPDU_COM_BMS_9_BattInfo_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_9_BattInfo_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6532,18 +7048,20 @@ PduR_PDUR_ROUTING_BMS_D_GB_EPT[2] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_IPU_OBC_3_CP_CC_EPT[1] =
+PduR_PDUR_ROUTING_IPU_OBC_3_CP_CC_EPT[2] =
 {
     PDUR_DESTPDU_COM_IPU_OBC_3_CP_CC_EPT,
+    PDUR_DESTPDU_CANIF_TX_IPU_OBC_3_CP_CC_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_IPU_DCC_1_State_EPT[1] =
+PduR_PDUR_ROUTING_IPU_DCC_1_State_EPT[2] =
 {
     PDUR_DESTPDU_COM_IPU_DCC_1_State_EPT,
+    PDUR_DESTPDU_CANIF_TX_IPU_DCC_1_State_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6560,18 +7078,20 @@ PduR_PDUR_ROUTING_IPU_OBC_1_State_EPT[2] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_IPU_DCC_2_ChrgInValue_EPT[1] =
+PduR_PDUR_ROUTING_IPU_DCC_2_ChrgInValue_EPT[2] =
 {
     PDUR_DESTPDU_COM_IPU_DCC_2_ChrgInValue_EPT,
+    PDUR_DESTPDU_CANIF_TX_IPU_DCC_2_ChrgInValue_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_IPU_OBC_2_Inlet_EPT[1] =
+PduR_PDUR_ROUTING_IPU_OBC_2_Inlet_EPT[2] =
 {
     PDUR_DESTPDU_COM_IPU_OBC_2_Inlet_EPT,
+    PDUR_DESTPDU_CANIF_TX_IPU_OBC_2_Inlet_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6590,17 +7110,18 @@ PduR_PDUR_ROUTING_IPU_OBC_4_state_EPT[2] =
 static CONST(uint16,PDUR_CONST)
 PduR_PDUR_ROUTING_INV_1_Value_EPT[2] =
 {
-    PDUR_DESTPDU_COM_INV_1_Value_EPT,
-    PDUR_DESTPDU_INV_1_Value_BAC,
+    PDUR_DESTPDU_Com_INV_1_Value_EPT,
+    PDUR_DESTPDU_CANIF_TX_INV_1_Value_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_INV_2_Value_EPT[1] =
+PduR_PDUR_ROUTING_INV_2_Value_EPT[2] =
 {
     PDUR_DESTPDU_COM_INV_2_Value_EPT,
+    PDUR_DESTPDU_CANIF_TX_INV_2_Value_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6644,36 +7165,9 @@ PduR_PDUR_ROUTING_INV_IMMO_Req_EPT[1] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_VCU_DispInfo_BAC[1] =
-{
-    PDUR_DESTPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
-};
-#define PDUR_STOP_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-#define PDUR_START_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_CCU_VehInfo_BAC[1] =
-{
-    PDUR_DESTPDU_CCU_VehInfo_BAC,
-};
-#define PDUR_STOP_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-#define PDUR_START_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-static CONST(uint16,PDUR_CONST)
 PduR_PDUR_ROUTING_AC_ACStatuts_BAC[1] =
 {
     PDUR_DESTPDU_AC_ACStatuts_BAC,
-};
-#define PDUR_STOP_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-#define PDUR_START_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_BCM_B_Package_BAC[1] =
-{
-    PDUR_DESTPDU_BCM_B_Package_BAC,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -6702,15 +7196,6 @@ PduR_PDUR_ROUTING_ICU_Info_BAC[2] =
 {
     PDUR_DESTPDU_COM_ICU_Info_BAC,
     PDUR_DESTPDU_ICU_Info_CHA,
-};
-#define PDUR_STOP_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-#define PDUR_START_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_HU_B_BAC[1] =
-{
-    PDUR_DESTPDU_COM_HU_B_BAC,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -7757,15 +8242,6 @@ PduR_PDUR_ROUTING_Tx_Diag_Resp_OBD_2A[1] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_0[1] =
-{
-    PDUR_DESTPDU_CANIF_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
-};
-#define PDUR_STOP_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-#define PDUR_START_SEC_PBCONFIG_DATA_16
-#include "PduR_MemMap.h"
-static CONST(uint16,PDUR_CONST)
 PduR_PDUR_ROUTING_4[2] =
 {
     PDUR_DESTPDU_COM_RX_BMS_HMI_EPT_CANFD6_EPT_CAN2,
@@ -7776,9 +8252,141 @@ PduR_PDUR_ROUTING_4[2] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_PDUR_ROUTING_8[1] =
+PduR_PDUR_DESTPDU_CANIF_TX_VCU_10_Torque_CHA[1] =
+{
+    PDUR_DESTPDU_CANIF_TX_VCU_10_Torque_CHA_CANFD3_CHA_CAN5,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_1[1] =
+{
+    PDUR_DESTPDU_CANIF_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_29[1] =
+{
+    PDUR_DESTPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PduRRoutingPath_VCU_D_Status_BAC[1] =
+{
+    PDUR_DESTPDU_CANIF_TX_VCU_D_Status_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_BCM_B_Package_CHA[1] =
 {
     PDUR_DESTPDU_CANIF_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_CRRR_OBJ12_CHA[2] =
+{
+    PDUR_DESTPDU_COM_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5,
+    PDUR_DESTPDU_CANIF_TX_CRRR_OBJ12_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_RX_CRRL_OBJ12_CHA[2] =
+{
+    PDUR_DESTPDU_COM_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5,
+    PDUR_DESTPDU_CANIF_TX_CRRL_OBJ12_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_BCM_B_Package_BAC[1] =
+{
+    PDUR_DESTPDU_CANIF_TX_BCM_B_Package_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_DESTPDU_CANIF_TX_VCU_10_Torque_BAC[1] =
+{
+    PDUR_DESTPDU_CANIF_TX_VCU_10_Torque_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_CCU_VehInfo_BAC[1] =
+{
+    PDUR_DESTPDU_CANIF_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_VCU_DispInfo_BAC[1] =
+{
+    PDUR_DESTPDU_CANIF_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_BMS_BEM_EPT[2] =
+{
+    PDUR_DESTPDU_COM_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2,
+    PDUR_DESTPDU_CANIF_TX_BMS_BEM_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_BMS_BST_EPT[2] =
+{
+    PDUR_DESTPDU_COM_RX_BMS_BST_EPT_CANFD6_EPT_CAN2,
+    PDUR_DESTPDU_CANIF_TX_BMS_BST_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PDUR_ROUTING_BMS_CST_EPT[2] =
+{
+    PDUR_DESTPDU_COM_RX_BMS_CST_EPT_CANFD6_EPT_CAN2,
+    PDUR_DESTPDU_CANIF_TX_BMS_CST_BAC_CANFD8_BAC_CAN1,
+};
+#define PDUR_STOP_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+#define PDUR_START_SEC_PBCONFIG_DATA_16
+#include "PduR_MemMap.h"
+static CONST(uint16,PDUR_CONST)
+PduR_PduRRoutingPath_BMS_CEM_EPT[2] =
+{
+    PDUR_DESTPDU_COM_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2,
+    PDUR_DESTPDU_CANIF_TX_BMS_CEM_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -7786,7 +8394,7 @@ PduR_PDUR_ROUTING_8[1] =
 #define PDUR_START_SEC_PBCONFIG_DATA_UNSPECIFIED
 #include "PduR_MemMap.h"
 static CONST(PduRRoutingPathType,PDUR_CONST)
-PduR_RoutingPathConfigData0[207] =
+PduR_RoutingPathConfigData0[215] =
 {
     {
         PDUR_SRCPDU_COM_INCA_CRO_XCP,
@@ -7829,14 +8437,6 @@ PduR_RoutingPathConfigData0[207] =
         PDUR_UNUSED_UINT16
     },
     {
-        PDUR_SRCPDU_COM_VCU_10_Torque_CHA,
-        1u,
-        PduR_PDUR_ROUTING_VCU_10_Torque_CHA,
-        FALSE,
-        FALSE,
-        PDUR_UNUSED_UINT16
-    },
-    {
         PDUR_SRCPDU_COM_TX_CCU_VehInfo_CHA_CANFD3_CHA_CAN5,
         1u,
         PduR_PDUR_ROUTING_CCU_VehInfo_CHA,
@@ -7862,7 +8462,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_CANIF_RX_FCM_B_CHA_CANFD3_CHA_CAN5,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_FCM_B_CHA,
         FALSE,
         FALSE,
@@ -7910,7 +8510,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_ESC_A_CHA,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_ESC_A_CHA,
         FALSE,
         FALSE,
@@ -7926,7 +8526,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_EHB_B_CHA,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_EHB_B_CHA,
         FALSE,
         FALSE,
@@ -7966,7 +8566,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_EPS_3_LatDrvAndEPSSts_CHA,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_EPS_3_LatDrvAndEPSSts_CHA,
         FALSE,
         FALSE,
@@ -7974,7 +8574,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_EPS_2_StrWhlAng_CHA,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_EPS_2_StrWhlAng_CHA,
         FALSE,
         FALSE,
@@ -8270,7 +8870,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_BMS_3_DC_ChargeState_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_BMS_3_DC_ChargeState_EPT,
         FALSE,
         FALSE,
@@ -8278,7 +8878,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_BMS_4_AC_ChargeState_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_BMS_4_AC_ChargeState_EPT,
         FALSE,
         FALSE,
@@ -8294,7 +8894,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_BMS_5_BatTemp_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_BMS_5_BatTemp_EPT,
         FALSE,
         FALSE,
@@ -8302,7 +8902,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_BMS_6_DischrgRecup_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_BMS_6_DischrgRecup_EPT,
         FALSE,
         FALSE,
@@ -8310,7 +8910,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_BMS_7_CellVolt_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_BMS_7_CellVolt_EPT,
         FALSE,
         FALSE,
@@ -8326,7 +8926,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_BMS_9_BattInfo_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_BMS_9_BattInfo_EPT,
         FALSE,
         FALSE,
@@ -8366,7 +8966,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_IPU_OBC_3_CP_CC_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_IPU_OBC_3_CP_CC_EPT,
         FALSE,
         FALSE,
@@ -8374,7 +8974,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_IPU_DCC_1_State_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_IPU_DCC_1_State_EPT,
         FALSE,
         FALSE,
@@ -8390,7 +8990,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_IPU_DCC_2_ChrgInValue_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_IPU_DCC_2_ChrgInValue_EPT,
         FALSE,
         FALSE,
@@ -8398,7 +8998,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_IPU_OBC_2_Inlet_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_IPU_OBC_2_Inlet_EPT,
         FALSE,
         FALSE,
@@ -8422,7 +9022,7 @@ PduR_RoutingPathConfigData0[207] =
     },
     {
         PDUR_SRCPDU_INV_2_Value_EPT,
-        1u,
+        2u,
         PduR_PDUR_ROUTING_INV_2_Value_EPT,
         FALSE,
         FALSE,
@@ -8461,33 +9061,9 @@ PduR_RoutingPathConfigData0[207] =
         PDUR_UNUSED_UINT16
     },
     {
-        PDUR_SRCPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
-        1u,
-        PduR_PDUR_ROUTING_VCU_DispInfo_BAC,
-        FALSE,
-        FALSE,
-        PDUR_UNUSED_UINT16
-    },
-    {
-        PDUR_SRCPDU_COM_CCU_VehInfo_BAC,
-        1u,
-        PduR_PDUR_ROUTING_CCU_VehInfo_BAC,
-        FALSE,
-        FALSE,
-        PDUR_UNUSED_UINT16
-    },
-    {
         PDUR_SRCPDU_COM_AC_ACStatuts_BAC,
         1u,
         PduR_PDUR_ROUTING_AC_ACStatuts_BAC,
-        FALSE,
-        FALSE,
-        PDUR_UNUSED_UINT16
-    },
-    {
-        PDUR_SRCPDU_COM_BCM_B_Package_BAC,
-        1u,
-        PduR_PDUR_ROUTING_BCM_B_Package_BAC,
         FALSE,
         FALSE,
         PDUR_UNUSED_UINT16
@@ -8512,14 +9088,6 @@ PduR_RoutingPathConfigData0[207] =
         PDUR_SRCPDU_ICU_Info_BAC,
         2u,
         PduR_PDUR_ROUTING_ICU_Info_BAC,
-        FALSE,
-        FALSE,
-        PDUR_UNUSED_UINT16
-    },
-    {
-        PDUR_SRCPDU_HU_B_BAC,
-        1u,
-        PduR_PDUR_ROUTING_HU_B_BAC,
         FALSE,
         FALSE,
         PDUR_UNUSED_UINT16
@@ -9421,14 +9989,6 @@ PduR_RoutingPathConfigData0[207] =
         PDUR_UNUSED_UINT16
     },
     {
-        PDUR_SRCPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
-        1u,
-        PduR_PDUR_ROUTING_0,
-        FALSE,
-        FALSE,
-        PDUR_UNUSED_UINT16
-    },
-    {
         PDUR_SRCPDU_CANIF_RX_BMS_HMI_EPT_CANFD6_EPT_CAN2,
         2u,
         PduR_PDUR_ROUTING_4,
@@ -9437,9 +9997,121 @@ PduR_RoutingPathConfigData0[207] =
         PDUR_UNUSED_UINT16
     },
     {
+        PDUR_SRCPDU_COM_TX_VCU_10_Torque_CHA_CANFD3_CHA_CAN5,
+        1u,
+        PduR_PDUR_DESTPDU_CANIF_TX_VCU_10_Torque_CHA,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_COM_TX_VCU_B_AcclPedal_BAC_CANFD8_BAC_CAN1,
+        1u,
+        PduR_PDUR_ROUTING_1,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_HU_B_BAC_CANFD8_BAC_CAN1,
+        1u,
+        PduR_PDUR_ROUTING_29,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_COM_TX_VCU_D_Status_BAC_CANFD8_BAC_CAN1,
+        1u,
+        PduR_PduRRoutingPath_VCU_D_Status_BAC,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
         PDUR_SRCPDU_COM_TX_BCM_B_Package_CHA_CANFD3_CHA_CAN5,
         1u,
-        PduR_PDUR_ROUTING_8,
+        PduR_PDUR_ROUTING_BCM_B_Package_CHA,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5,
+        2u,
+        PduR_PDUR_ROUTING_CRRR_OBJ12_CHA,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5,
+        2u,
+        PduR_PDUR_ROUTING_RX_CRRL_OBJ12_CHA,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_COM_TX_BCM_B_Package_BAC_CANFD8_BAC_CAN1,
+        1u,
+        PduR_PDUR_ROUTING_BCM_B_Package_BAC,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_COM_TX_VCU_10_Torque_BAC_CANFD8_BAC_CAN1,
+        1u,
+        PduR_PDUR_DESTPDU_CANIF_TX_VCU_10_Torque_BAC,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1,
+        1u,
+        PduR_PDUR_ROUTING_CCU_VehInfo_BAC,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1,
+        1u,
+        PduR_PDUR_ROUTING_VCU_DispInfo_BAC,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2,
+        2u,
+        PduR_PDUR_ROUTING_BMS_BEM_EPT,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_BMS_BST_EPT_CANFD6_EPT_CAN2,
+        2u,
+        PduR_PDUR_ROUTING_BMS_BST_EPT,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_BMS_CST_EPT_CANFD6_EPT_CAN2,
+        2u,
+        PduR_PDUR_ROUTING_BMS_CST_EPT,
+        FALSE,
+        FALSE,
+        PDUR_UNUSED_UINT16
+    },
+    {
+        PDUR_SRCPDU_CANIF_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2,
+        2u,
+        PduR_PduRRoutingPath_BMS_CEM_EPT,
         FALSE,
         FALSE,
         PDUR_UNUSED_UINT16
@@ -9557,7 +10229,7 @@ PduR_DestPduPathGroup0[85] =
 #define PDUR_START_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
 static CONST(uint16,PDUR_CONST)
-PduR_DestPduPathGroup1[71] =
+PduR_DestPduPathGroup1[115] =
 {
     PDUR_DESTPDU_COM_ESC_7_FuncStatus_CHA,
     PDUR_DESTPDU_ESC_7_FuncStatus_EPT,
@@ -9605,9 +10277,9 @@ PduR_DestPduPathGroup1[71] =
     PDUR_DESTPDU_COM_IPU_OBC_1_State_EPT,
     PDUR_DESTPDU_COM_IPU_OBC_4_state_EPT,
     PDUR_DESTPDU_IPU_OBC_4_state_BAC,
-    PDUR_DESTPDU_COM_INV_1_Value_EPT,
+    PDUR_DESTPDU_Com_INV_1_Value_EPT,
     PDUR_DESTPDU_IPU_OBC_1_State_BAC,
-    PDUR_DESTPDU_INV_1_Value_BAC,
+    PDUR_DESTPDU_CANIF_TX_INV_1_Value_BAC_CANFD8_BAC_CAN1,
     PDUR_DESTPDU_COM_ICU_Info_BAC,
     PDUR_DESTPDU_ICU_Info_CHA,
     PDUR_DESTPDU_COM_ICU_2_Odo_BAC,
@@ -9630,6 +10302,50 @@ PduR_DestPduPathGroup1[71] =
     PDUR_DESTPDU_COM_FCM_24_Obj1018_CHA,
     PDUR_DESTPDU_FCM_25_Line123_CHA_2_BAC,
     PDUR_DESTPDU_COM_RX_FCM_25_Line123_CHA_CANFD3_CHA_CAN5,
+    PDUR_DESTPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5,
+    PDUR_DESTPDU_CANIF_TX_FCM_B_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_ESC_A_CHA,
+    PDUR_DESTPDU_CANIF_TX_ESC_A_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_EHB_B_CHA,
+    PDUR_DESTPDU_CANIF_TX_EHB_B_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_EPS_3_LatDrvAndEPSSts_CHA,
+    PDUR_DESTPDU_CANIF_TX_EPS_3_LatDrvAndEPSSts_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_EPS_2_StrWhlAng_CHA,
+    PDUR_DESTPDU_CANIF_TX_EPS_2_StrWhlAng_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_BMS_3_DC_ChargeState_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_3_DC_ChargeState_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_BMS_4_AC_ChargeState_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_4_AC_ChargeState_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_BMS_5_BatTemp_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_5_BatTemp_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_BMS_6_DischrgRecup_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_6_DischrgRecup_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_BMS_7_CellVolt_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_7_CellVolt_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_BMS_9_BattInfo_EPT,
+    PDUR_DESTPDU_CANIF_TX_BMS_9_BattInfo_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_IPU_OBC_3_CP_CC_EPT,
+    PDUR_DESTPDU_CANIF_TX_IPU_OBC_3_CP_CC_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_IPU_DCC_1_State_EPT,
+    PDUR_DESTPDU_CANIF_TX_IPU_DCC_1_State_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_IPU_DCC_2_ChrgInValue_EPT,
+    PDUR_DESTPDU_CANIF_TX_IPU_DCC_2_ChrgInValue_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_IPU_OBC_2_Inlet_EPT,
+    PDUR_DESTPDU_CANIF_TX_IPU_OBC_2_Inlet_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_INV_2_Value_EPT,
+    PDUR_DESTPDU_CANIF_TX_INV_2_Value_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5,
+    PDUR_DESTPDU_CANIF_TX_CRRR_OBJ12_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5,
+    PDUR_DESTPDU_CANIF_TX_CRRL_OBJ12_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2,
+    PDUR_DESTPDU_CANIF_TX_BMS_BEM_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_RX_BMS_BST_EPT_CANFD6_EPT_CAN2,
+    PDUR_DESTPDU_CANIF_TX_BMS_BST_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_RX_BMS_CST_EPT_CANFD6_EPT_CAN2,
+    PDUR_DESTPDU_CANIF_TX_BMS_CST_BAC_CANFD8_BAC_CAN1,
+    PDUR_DESTPDU_COM_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2,
+    PDUR_DESTPDU_CANIF_TX_BMS_CEM_BAC_CANFD8_BAC_CAN1,
 };
 #define PDUR_STOP_SEC_PBCONFIG_DATA_16
 #include "PduR_MemMap.h"
@@ -9648,7 +10364,7 @@ PduR_RoutingPathGroupConfigData[PDUR_ROUTING_PATH_GROUP_SUM] =
     {
         TRUE,
         PduRRoutingPathGroup_COMRouting,
-        71u,
+        115u,
         PduR_DestPduPathGroup1
     },
 };
@@ -9663,8 +10379,8 @@ CONST(PduR_PBConfigType, PDUR_CONST_PBCFG) PduR_PBConfigData =
 {
     0u,
     2u,
-    207u,
-    274u,
+    215u,
+    304u,
     PduR_RoutingPathGroupConfigData,
     PduR_RoutingTableConfigData,
     PduR_SrcPduConfigData,

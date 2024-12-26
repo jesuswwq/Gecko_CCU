@@ -489,7 +489,7 @@ static CONST(Dcm_DspDataType, DCM_CONST) Dcm_DspDataCfg[147] =
         NULL_PTR, /*DcmDspDataReturnControlToECUFnc*/
         NULL_PTR, /*DcmDspDataShortTermAdjustmentFnc*/
         NULL_PTR, /*DcmDspDataWriteFnc*/
-        88u, /*DcmDspDataSize*/
+        152u, /*DcmDspDataSize*/
         DCM_UINT8, /*DcmDspDataType*/
         USE_DATA_SYNCH_FNC, /*DcmDspDataUsePort*/
         0u, /*DcmDspDataBlockId*/
@@ -511,7 +511,7 @@ static CONST(Dcm_DspDataType, DCM_CONST) Dcm_DspDataCfg[147] =
         NULL_PTR, /*DcmDspDataReturnControlToECUFnc*/
         NULL_PTR, /*DcmDspDataShortTermAdjustmentFnc*/
         NULL_PTR, /*DcmDspDataWriteFnc*/
-        88u, /*DcmDspDataSize*/
+        152u, /*DcmDspDataSize*/
         DCM_UINT8, /*DcmDspDataType*/
         USE_DATA_SYNCH_FNC, /*DcmDspDataUsePort*/
         0u, /*DcmDspDataBlockId*/
@@ -3562,6 +3562,18 @@ static  CONST(Dcm_DspDidReadType,DCM_CONST)Dcm_DidInfo_8_ReadCfg =
 #define  DCM_STOP_SEC_CONST_UNSPECIFIED
 #include "Dcm_MemMap.h"
 
+#define   DCM_START_SEC_CONST_UNSPECIFIED
+#include  "Dcm_MemMap.h"
+static  CONST(Dcm_DspDidReadType,DCM_CONST)Dcm_DidInfo_9_ReadCfg =
+{
+    0u, /*DcmDspDidReadSecurityLevelRefNum*/
+    NULL_PTR, /*pDcmDspDidReadSecurityLevelRow*/
+    0u, /*DcmDspDidReadSessionRefNum*/
+    NULL_PTR, /*pDcmDspDidReadSessionRow*/
+};
+#define  DCM_STOP_SEC_CONST_UNSPECIFIED
+#include "Dcm_MemMap.h"
+
 /*******************************************
  *DcmDspDidWrite container configuration,
  which is in the DcmDspDidInfo container
@@ -3724,12 +3736,29 @@ static CONST(Dcm_DspDidControlType,DCM_CONST) Dcm_DidInfo_7_ControlCfg =
 };
 #define  DCM_STOP_SEC_CONST_UNSPECIFIED
 #include "Dcm_MemMap.h"
+#define   DCM_START_SEC_CONST_UNSPECIFIED
+#include  "Dcm_MemMap.h"
+static CONST(Dcm_DspDidControlType,DCM_CONST) Dcm_DidInfo_9_ControlCfg =
+{
+    DCM_CONTROLMASK_EXTERNAL, /*DcmDspDidControlMask*/
+    5u, /*DcmDspDidControlMaskSize*/
+    0u, /*DcmDspDidControlSecurityLevelRefNum*/
+    NULL_PTR, /*pDcmDspDidControlSecurityLevelRow*/
+    0u, /*DcmDspDidControlSessionRefNum*/
+    NULL_PTR, /*pDcmDspDidControlSessionRow*/
+    FALSE, /*DcmDspDidFreezeCurrentState*/
+    FALSE, /*DcmDspDidResetToDefault*/
+    TRUE, /*DcmDspDidShortTermAdjustement*/
+    NULL_PTR, /*DcmDspDidControlEnableMask*/
+};
+#define  DCM_STOP_SEC_CONST_UNSPECIFIED
+#include "Dcm_MemMap.h"
 /******************************************
  *DcmDspDidInfo container Configuration ***
  ******************************************/
 #define   DCM_START_SEC_CONST_UNSPECIFIED
 #include  "Dcm_MemMap.h"
-static CONST(Dcm_DspDidInfoType,DCM_CONST)Dcm_DspDidInfoCfg[9] =
+static CONST(Dcm_DspDidInfoType,DCM_CONST)Dcm_DspDidInfoCfg[10] =
 {
     {
         0u, /*DcmDspDDDIDMaxElements*/
@@ -3793,6 +3822,13 @@ static CONST(Dcm_DspDidInfoType,DCM_CONST)Dcm_DspDidInfoCfg[9] =
         NULL_PTR, /*pDcmDspDidControl*/
         &Dcm_DidInfo_8_ReadCfg, /*pDcmDspDidRead*/
         &Dcm_DidInfo_8_WriteCfg, /*pDcmDspDidWrite*/
+    },
+    {
+        0u, /*DcmDspDDDIDMaxElements*/
+        FALSE, /*DcmDspDidDynamicallyDefined*/
+        &Dcm_DidInfo_9_ControlCfg, /*pDcmDspDidControl*/
+        &Dcm_DidInfo_9_ReadCfg, /*pDcmDspDidRead*/
+        NULL_PTR, /*pDcmDspDidWrite*/
     }
 };
 #define  DCM_STOP_SEC_CONST_UNSPECIFIED
@@ -6535,7 +6571,7 @@ static CONST(Dcm_DspDidType,DCM_CONST)Dcm_DspDidCfg[147] =
     { /* Did_0x3238 */
         0x3238u,     /*DcmDspDidId*/
         TRUE,     /*DcmDspDidUsed*/
-        3u,     /*DcmDspDidInfoIndex*/
+        9u,     /*DcmDspDidInfoIndex*/
         0u,     /*DcmDspRefDidNum*/
         NULL_PTR,     /*pDcmDspRefDidIdArray*/
         1u, /*DcmDspDidSignalNum*/
@@ -7743,7 +7779,7 @@ static CONST(Dcm_DspRoutineType,DCM_CONST)Dcm_DspRoutineCfg[13] =
  ************************************************/
 #define   DCM_START_SEC_CONST_UNSPECIFIED
 #include  "Dcm_MemMap.h"
-static CONST(Dcm_DspSecurityRowType,DCM_CONST)Dcm_DspSecurityRow[3] =
+static CONST(Dcm_DspSecurityRowType,DCM_CONST)Dcm_DspSecurityRow[2] =
 {
     { /* DcmDspSecurityRow_level_1 */
         1u,          /*DcmDspSecurityLevel*/
@@ -7778,23 +7814,6 @@ static CONST(Dcm_DspSecurityRowType,DCM_CONST)Dcm_DspSecurityRow[3] =
         Rte_SetSecurityAttemptCounter_Level5,    /*DcmDspSecurityUsePort*/
         /* PRQA S 0674-- */ /* MISRA Rule 1.1 */
         USE_ASYNCH_FNC,    /*DcmDspSecurityUsePort*/
-    },
-    { /* DcmDspSecurityRow_level_FBL */
-        5u,          /*DcmDspSecurityLevel*/
-        4u,          /*DcmDspSecuritySeedSize*/
-        4u,          /*DcmDspSecurityKeySize*/
-        0u,          /*DcmDspSecurityADRSize*/
-        TRUE,        /*DcmDspSecurityAttemptCounterEnabled*/
-        3u,    /*DcmDspSecurityNumAttDelay*/
-        10000u,  /*DcmDspSecurityDelayTime,10s */
-        10000u,/*DcmDspSecurityDelayTimeOnBoot*/
-        /* PRQA S 0674++ */ /* MISRA Rule 1.1 */                
-        Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_LevelFBL_GetSeed,    /*Dcm_GetSeedFnc*/
-        Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_LevelFBL_CompareKey,    /*Dcm_CompareKeyFnc*/
-        Rte_GetSecurityAttemptCounter_LevelFBL,    /*Dcm_GetSecurityAttemptCounterFnc*/
-        Rte_SetSecurityAttemptCounter_LevelFBL,    /*DcmDspSecurityUsePort*/
-        /* PRQA S 0674-- */ /* MISRA Rule 1.1 */
-        USE_ASYNCH_FNC,    /*DcmDspSecurityUsePort*/
     }
 };
 #define  DCM_STOP_SEC_CONST_UNSPECIFIED
@@ -7807,7 +7826,7 @@ static CONST(Dcm_DspSecurityRowType,DCM_CONST)Dcm_DspSecurityRow[3] =
 static CONST(Dcm_DspSecurityType,DCM_CONST)Dcm_DspSecurity =
 {
     &Dcm_DspSecurityRow[0],    /*pDcm_DspSecurityRow*/
-    3u,    /*DcmDspSecurityRow_Num*/
+    2u,    /*DcmDspSecurityRow_Num*/
 };
 #define  DCM_STOP_SEC_CONST_UNSPECIFIED
 #include "Dcm_MemMap.h"
@@ -7887,7 +7906,7 @@ CONST(Dcm_DspCfgType,DCM_CONST) Dcm_DspCfg =
     &Dcm_DspDataCfg[0],    /*pDcmDspData*/    NULL_PTR,    /*pDcmDspDataInfo*/
     147u,    /*DcmDspDidNum*/
     &Dcm_DspDidCfg[0],        /*pDcmDspDid*/
-    9u,    /*DcmDspDidInfoNum*/
+    10u,    /*DcmDspDidInfoNum*/
     &Dcm_DspDidInfoCfg[0],        /*pDcmDspDidInfo*/
     0u,    /*DcmDspDidRangeNum*/
     NULL_PTR,        /*pDcmDspDidRange*/
@@ -8119,19 +8138,7 @@ static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x27_6_SesRef[1] = {3u};
 
 #define   DCM_START_SEC_CONST_UNSPECIFIED
 #include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x27_9_SesRef[1] = {2u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x27_A_SesRef[1] = {2u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(Dcm_DsdSubServiceCfgType,DCM_CONST)Dcm_DcmDsdServiceTable_DsdSubService_UDS0x27[6] =
+static  CONST(Dcm_DsdSubServiceCfgType,DCM_CONST)Dcm_DcmDsdServiceTable_DsdSubService_UDS0x27[4] =
 {
     {
         NULL_PTR,    /*DcmDsdSubServiceFnc*/
@@ -8171,26 +8178,6 @@ static  CONST(Dcm_DsdSubServiceCfgType,DCM_CONST)Dcm_DcmDsdServiceTable_DsdSubSe
         NULL_PTR,    /*DcmDsdSubServiceSecurityLevelRef*/
         0u,    /*DcmDsdSubServiceSecurityLevel_Num*/
         &Dcm_DcmDsdServiceTable_UDS0x27_6_SesRef[0],    /*DcmDsdSubServiceSessionLevelRef*/
-        1u    /*DcmDsdSubServiceSessionLevel_Num*/
-    },
-    {
-        NULL_PTR,    /*DcmDsdSubServiceFnc*/
-        0x9u,    /*DcmDsdSubServiceId*/
-        TRUE,    /*DcmDsdSubServiceUsed*/
-        NULL_PTR,    /*DcmDsdSubServiceModeRuleRef*/
-        NULL_PTR,    /*DcmDsdSubServiceSecurityLevelRef*/
-        0u,    /*DcmDsdSubServiceSecurityLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x27_9_SesRef[0],    /*DcmDsdSubServiceSessionLevelRef*/
-        1u    /*DcmDsdSubServiceSessionLevel_Num*/
-    },
-    {
-        NULL_PTR,    /*DcmDsdSubServiceFnc*/
-        0xAu,    /*DcmDsdSubServiceId*/
-        TRUE,    /*DcmDsdSubServiceUsed*/
-        NULL_PTR,    /*DcmDsdSubServiceModeRuleRef*/
-        NULL_PTR,    /*DcmDsdSubServiceSecurityLevelRef*/
-        0u,    /*DcmDsdSubServiceSecurityLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x27_A_SesRef[0],    /*DcmDsdSubServiceSessionLevelRef*/
         1u    /*DcmDsdSubServiceSessionLevel_Num*/
     }
 };
@@ -8468,39 +8455,6 @@ static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x2F_SesRef[1] = {3u};
 #include "Dcm_MemMap.h"
 #define   DCM_START_SEC_CONST_UNSPECIFIED
 #include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x34_SecRef[1] = {5u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x34_SesRef[1] = {2u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x36_SecRef[1] = {5u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x36_SesRef[1] = {2u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x37_SecRef[1] = {5u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
-static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x37_SesRef[1] = {2u};
-#define  DCM_STOP_SEC_CONST_UNSPECIFIED
-#include "Dcm_MemMap.h"
-#define   DCM_START_SEC_CONST_UNSPECIFIED
-#include  "Dcm_MemMap.h"
 static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x2A_SesRef[1] = {3u};
 #define  DCM_STOP_SEC_CONST_UNSPECIFIED
 #include "Dcm_MemMap.h"
@@ -8519,7 +8473,7 @@ static  CONST(uint8,DCM_CONST)Dcm_DcmDsdServiceTable_UDS0x2C_SesRef[1] = {3u};
 #define   DCM_START_SEC_CONST_UNSPECIFIED
 #include  "Dcm_MemMap.h"
 /*DcmDsdService DcmDsdServiceTable*/    
-static  CONST(Dcm_DsdServiceCfgType,DCM_CONST)DcmDsdServiceTable_Service[17] =
+static  CONST(Dcm_DsdServiceCfgType,DCM_CONST)DcmDsdServiceTable_Service[14] =
 {
     { /*DiagnosticSessionControl*/
         TRUE,    /*DcmDsdServiceUsed*/
@@ -8623,7 +8577,7 @@ static  CONST(Dcm_DsdServiceCfgType,DCM_CONST)DcmDsdServiceTable_Service[17] =
         NULL_PTR,    /*pDcmDsdSecurityLevelRef*/
         2u,    /*DcmDsdSessionLevel_Num*/
         &Dcm_DcmDsdServiceTable_UDS0x27_SesRef[0],    /*pDcmDsdSessionLevelRef*/
-        6u,    /*DcmDsdSubService_Num*/
+        4u,    /*DcmDsdSubService_Num*/
         &Dcm_DcmDsdServiceTable_DsdSubService_UDS0x27[0],    /*DcmDsdSubService*/
     },
     { /*CommunicationControl*/
@@ -8701,51 +8655,6 @@ static  CONST(Dcm_DsdServiceCfgType,DCM_CONST)DcmDsdServiceTable_Service[17] =
         0u,    /*DcmDsdSubService_Num*/
         NULL_PTR,    /*DcmDsdSubService*/
     },
-    { /*RequestDownload*/
-        TRUE,    /*DcmDsdServiceUsed*/
-        Dcm_UDS0x34,    /*DcmDsdSidTabFnc*/
-        0x34u,    /*DcmDsdServiceId*/
-        FALSE,    /*DcmDsdSubfuncAvial*/
-        FALSE,  /*DcmDsdSuppressPosRsp*/
-        DCM_PHYSICAL, /*DcmDsdSidTabAddressingFormat*/
-        NULL_PTR,    /*DcmDsdModeRuleRef*/
-        1u, /*DcmDsdSecurityLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x34_SecRef[0],    /*pDcmDsdSecurityLevelRef*/
-        1u,    /*DcmDsdSessionLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x34_SesRef[0],    /*pDcmDsdSessionLevelRef*/
-        0u,    /*DcmDsdSubService_Num*/
-        NULL_PTR,    /*DcmDsdSubService*/
-    },
-    { /*TransferData*/
-        TRUE,    /*DcmDsdServiceUsed*/
-        Dcm_UDS0x36,    /*DcmDsdSidTabFnc*/
-        0x36u,    /*DcmDsdServiceId*/
-        FALSE,    /*DcmDsdSubfuncAvial*/
-        FALSE,  /*DcmDsdSuppressPosRsp*/
-        DCM_PHYSICAL, /*DcmDsdSidTabAddressingFormat*/
-        NULL_PTR,    /*DcmDsdModeRuleRef*/
-        1u, /*DcmDsdSecurityLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x36_SecRef[0],    /*pDcmDsdSecurityLevelRef*/
-        1u,    /*DcmDsdSessionLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x36_SesRef[0],    /*pDcmDsdSessionLevelRef*/
-        0u,    /*DcmDsdSubService_Num*/
-        NULL_PTR,    /*DcmDsdSubService*/
-    },
-    { /*RequestTransferExit*/
-        TRUE,    /*DcmDsdServiceUsed*/
-        Dcm_UDS0x37,    /*DcmDsdSidTabFnc*/
-        0x37u,    /*DcmDsdServiceId*/
-        FALSE,    /*DcmDsdSubfuncAvial*/
-        FALSE,  /*DcmDsdSuppressPosRsp*/
-        DCM_PHYSICAL, /*DcmDsdSidTabAddressingFormat*/
-        NULL_PTR,    /*DcmDsdModeRuleRef*/
-        1u, /*DcmDsdSecurityLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x37_SecRef[0],    /*pDcmDsdSecurityLevelRef*/
-        1u,    /*DcmDsdSessionLevel_Num*/
-        &Dcm_DcmDsdServiceTable_UDS0x37_SesRef[0],    /*pDcmDsdSessionLevelRef*/
-        0u,    /*DcmDsdSubService_Num*/
-        NULL_PTR,    /*DcmDsdSubService*/
-    },
     { /*ReadDataByPeriodicIdentifier*/
         TRUE,    /*DcmDsdServiceUsed*/
         Dcm_UDS0x2A,    /*DcmDsdSidTabFnc*/
@@ -8789,7 +8698,7 @@ static  CONST(Dcm_DsdServiceTableCfgType,DCM_CONST)Dcm_DsdServiceTable[DCM_SERVI
     {
         0x0u,    /*DcmDsdSidTabId*/
         &DcmDsdServiceTable_Service[0],    /*pDcmDsdService*/
-        17u    /*DcmDsdSidTab_ServiceNum*/
+        14u    /*DcmDsdSidTab_ServiceNum*/
     }
 };
 #define  DCM_STOP_SEC_CONST_UNSPECIFIED
