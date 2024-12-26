@@ -1,0 +1,39 @@
+tcm_init(tcma_base, tcmb_base)
+{
+    __var actlr;
+
+    actlr = __jtagCP15ReadReg(1, 0, 0, 1);
+    actlr &= ~((1 << 25) | (1 << 26) | (1 << 27));
+    __jtagCP15WriteReg(1, 0, 0, 1, actlr);
+    __jtagCP15WriteReg(9, 1, 0, 1, tcma_base | 1);
+    __jtagCP15WriteReg(9, 1, 0, 0, tcmb_base | 1);
+}
+
+mpu_disable()
+{
+    __var sctlr;
+    sctlr = __jtagCP15ReadReg(1, 0, 0, 0);
+    sctlr &= ~(1 << 0);
+    __jtagCP15WriteReg(1, 0, 0, 0, sctlr);
+}
+
+/*********************************************************************
+* execUserFlashInit()
+*********************************************************************/
+execUserFlashInit()
+{
+    __message "------------------------------ execUserFlashInit ---------------------------------";
+    mpu_disable();
+
+    tcm_init(0x3E0000, 0x3F0000);
+}
+
+/*********************************************************************
+* execUserFlashReset()
+*********************************************************************/
+execUserFlashReset()
+{
+    __message "------------------------------ execUserFlashReset ---------------------------------";
+    /* Disable MPU*/
+    __jtagCP15WriteReg(1, 0, 0, 0, 0x08E7087A);
+}

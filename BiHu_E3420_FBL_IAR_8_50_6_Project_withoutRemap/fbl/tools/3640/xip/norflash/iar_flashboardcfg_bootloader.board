@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flash_board>
+    <pass>
+        <loader>sfs.flash</loader>
+        <range>CODE 0x10000000 0x10000080</range>
+        <abs_offset>0x10000000</abs_offset>
+        <args>
+            255
+            0
+        </args>
+    </pass>
+    <pass>
+        <loader>bootloader.flash</loader>
+        <range>CODE 0x10008000 0x100fffff</range>
+        <abs_offset>0x10008000</abs_offset>
+        <args>
+            0
+            1
+            0x404000
+        </args>
+    </pass>
+    <pass>
+        <loader>sf.flash</loader>
+        <range>CODE 0x10140000 0x10287FFF</range>
+        <abs_offset>0x10140000</abs_offset>
+        <args>
+            0
+            0
+            0x10140000
+        </args>
+    </pass>
+    <pass>
+        <loader>sp0.flash</loader>
+        <range>CODE 0x10288000 0x10307FFF</range>
+        <abs_offset>0x10288000</abs_offset>
+        <args>
+            2
+            0
+            0x10288000
+        </args>
+    </pass>
+    <pass>
+        <loader>sp1.flash</loader>
+        <range>CODE 0x10308000 0x10387FFF</range>
+        <abs_offset>0x10308000</abs_offset>
+        <args>
+            3
+            0
+            0x10308000
+        </args>
+    </pass>
+    <pass>
+        <loader>sx0.flash</loader>
+        <range>CODE 0x10388000 0x10407FFF</range>
+        <abs_offset>0x10388000</abs_offset>
+        <args>
+            4
+            0
+            0x10388000
+        </args>
+    </pass>
+    <pass>
+        <loader>sx1.flash</loader>
+        <range>CODE 0x10408000 0x10487FFF</range>
+        <abs_offset>0x10408000</abs_offset>
+        <args>
+            5
+            0
+            0x10408000
+        </args>
+    </pass>
+</flash_board>
