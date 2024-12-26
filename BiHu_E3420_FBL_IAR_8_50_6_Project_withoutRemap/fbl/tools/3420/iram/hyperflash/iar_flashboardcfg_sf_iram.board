@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flash_board>
+    <pass>
+        <loader>sfs.flash</loader>
+        <range>CODE 0x10000000 0x10000080</range>
+        <abs_offset>0x10000000</abs_offset>
+        <args>
+            255
+            0
+        </args>
+    </pass>
+    <pass>
+        <loader>sf.flash</loader>
+        <range>CODE 0x404000 0x7FFFFF</range>
+        <abs_offset>0x100c1000</abs_offset>
+        <args>
+            0
+            1
+            0x404000
+        </args>
+    </pass>
+</flash_board>
