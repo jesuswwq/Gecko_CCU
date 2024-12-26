@@ -87,6 +87,7 @@
 /*******************************************************************************
 **                      Private Variable Definitions                          **
 *******************************************************************************/
+#pragma default_function_attributes = @".iram_func"
 #if (STD_ON == PDUR_DEV_ERROR_DETECT)
 #define PDUR_START_SEC_VAR_INIT_8
 #include "PduR_MemMap.h"
@@ -1768,6 +1769,6 @@ static FUNC(Std_ReturnType, PDUR_CODE)
 
 #define PDUR_STOP_SEC_CODE
 #include "PduR_MemMap.h"
-
+#pragma default_function_attributes =
 #endif /* STD_OFF == PDUR_ZERO_COST_OPERATION */
 /*=======[E N D   O F   F I L E]==============================================*/

@@ -122,7 +122,7 @@ static void sdrv_mbox_receive(mbox_dev_t *dev, uint8 rproc, uint8 msg_id)
         rx_buf = sdrv_mbox_lld_get_rxbuf(dev->mem_base, rproc, msg_id);
         arch_invalidate_cache_range((volatile uint32)rx_buf, mb_len);
 #else
-        rx_buf = sdrv_mbox_lld_get_rxbuf(dev->base, rproc, msg_id);
+        rx_buf = sdrv_mbox_lld_get_rxbuf(dev->mem_base, rproc, msg_id);
 #endif
 
     }
@@ -291,7 +291,7 @@ static int sdrv_mbox_send_mask(mbox_chan_t *chan, uint8 *data, uint32 len, uint1
     memcpy(tx_buf, data, len);
     arch_clean_cache_range((volatile uint32)tx_buf, len);
 #else
-    tx_buf = sdrv_mbox_lld_get_txbuf(dev->base, sdrv_chan->msg_id);
+    tx_buf = sdrv_mbox_lld_get_txbuf(dev->mem_base, sdrv_chan->msg_id);
     memcpy(tx_buf, data, len);
 #endif
 
@@ -348,7 +348,7 @@ static int sdrv_mbox_send(mbox_chan_t *chan, uint8 *data, uint32 len)
     memcpy(tx_buf, data, len);
     arch_clean_cache_range((volatile uint32)tx_buf, len);
 #else
-    tx_buf = sdrv_mbox_lld_get_txbuf(dev->base, sdrv_chan->msg_id);
+    tx_buf = sdrv_mbox_lld_get_txbuf(dev->mem_base, sdrv_chan->msg_id);
     memcpy(tx_buf, data, len);
 #endif
 
@@ -402,7 +402,7 @@ static uint8 *sdrv_mbox_alloc_buffer(mbox_chan_t *chan, uint32 len)
 #if CONFIG_MBOX_FLUSH_CACHE
     tx_buf = sdrv_mbox_lld_get_txbuf(dev->mem_base, sdrv_chan->msg_id);
 #else
-    tx_buf = sdrv_mbox_lld_get_txbuf(dev->base, sdrv_chan->msg_id);
+    tx_buf = sdrv_mbox_lld_get_txbuf(dev->mem_base, sdrv_chan->msg_id);
 #endif
 
     spin_unlock_irqrestore(&sdrv_mbox->lock, flag);
@@ -532,9 +532,11 @@ static void sdrv_mbox_init(mbox_dev_t *dev)
     sdrv_mbox->msg_bitmap = 0;
 
     sdrv_mbox_lld_init(dev->base, dev->set_masterid_num);
-
-    sdrv_mbox_lld_buff_clr(dev->base + SDRV_MBOX_TX_BUF_DIFF, SDRV_MBOX_BUF_LEN);
-
+#if defined(BOARD_E3_ref_gateway_E3640) || defined(BOARD_E3_ref_gateway_E3648)
+    sdrv_mbox_lld_buff_clr(dev->mem_base + SDRV_MBOX_TX_BUF(arch_get_cpuid()) , SDRV_MBOX_BUF_LEN);
+#else
+    sdrv_mbox_lld_buff_clr(dev->mem_base + SDRV_MBOX_TX_BUF(Mcu_GetCoreID()) , SDRV_MBOX_BUF_LEN);
+#endif
     if (dev->irq >= 0) {
         irq_attach(dev->irq, (irq_handler)sdrv_mbox_irq_handler, (void *)dev);
         irq_enable(dev->irq);

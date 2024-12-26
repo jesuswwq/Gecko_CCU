@@ -67,6 +67,7 @@ typedef struct
     unsigned int irq;
     unsigned long refClkHz;
     boolean prefetchEnable;
+    boolean useRomConfig;
 } Fls_IpConfigType;
 
 typedef struct
@@ -82,8 +83,10 @@ typedef struct
     boolean dqsEnable;
     uint8 fifoDepth;
     uint8 fifoWidth;
+    uint32 fifoSize;
     uint32 directRangeSize;
     boolean prefetchEnable;
+    boolean useRomConfig;
 #if FLS_IP_USE_DMA
     uint8 dmaBurstWidth;
     uint32 dmaBurstSize;
@@ -221,12 +224,40 @@ FLS_IP_IRQ_HANDLER_FUNC(3);
 #ifdef FLS_RFD_ENABLE_CNT
 int Fls_IpEnableRfd(Fls_BusHandleType *bus);
 #endif /* #ifdef FLS_RFD_ENABLE_CNT */
+
+/** *****************************************************************************************************
+ * \brief This function restores the configuration state.
+ *
+ * \verbatim
+ * Syntax             : int Fls_IpRestoredState(Fls_BusHandleType *nor)
+ *
+ * Service ID[hex]    : None
+ *
+ * Sync/Async         : Synchronous
+ *
+ * Reentrancy         : Non reentrant
+ *
+ * Parameters (in)    : nor - spi norflash instance contex handle, the data memory need alloc by user
+ *
+ * Parameters (inout) : None
+ *
+ * Parameters (out)   : None
+ *
+ * Return value       : 0 - Sucessfully
+ *                     !0 - Failed
+ *
+ * Description        : Restores the configuration state of the registers,
+ *                       after which you can jump directly to XIP mode.
+ * \endverbatim
+ *******************************************************************************************************/
+void Fls_IpRestoredState(Fls_BusHandleType *nor);
+
 void Fls_BusSetupXfer(Fls_BusHandleType *nor, Fls_BusOpsType opt,
                       Fls_AddressType addr, uint8 *readBuf,
                       const uint8 *writeBuf, Fls_LengthType size);
 void Fls_BusXferComplete(Fls_BusHandleType *nor);
 void Fls_BusXferError(Fls_BusHandleType *nor);
-int Fls_BusSetupClockCallback(Fls_IpHostType *host, Fls_IpClockOpsType *clkOps);
+int Fls_BusSetupClockCallback(Fls_IpHostType *host, const Fls_IpClockOpsType *clkOps);
 int Fls_BusWaitIdle(Fls_BusHandleType *bus);
 int Fls_BusWriteEnable(Fls_BusHandleType *bus, boolean enable);
 int Fls_BusInit(Fls_BusHandleType *bus, Fls_IpHostType *host,

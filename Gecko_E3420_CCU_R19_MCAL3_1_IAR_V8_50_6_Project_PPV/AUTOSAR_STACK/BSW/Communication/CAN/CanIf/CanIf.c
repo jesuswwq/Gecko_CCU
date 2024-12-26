@@ -107,6 +107,7 @@
 /*******************************************************************************
 **                      Private Macro Definitions                             **
 *******************************************************************************/
+#pragma default_function_attributes = @".iram_func"
 #define CANIF_TXPDU(TxPdu_Index)            CanIf_ConfigStd->CanIfTxPduConfigRef[(TxPdu_Index)]
 #define CANIF_TXBUFFER_SIZE(TxBuffer_Index) CanIf_ConfigStd->CanIfBufferSize[(TxBuffer_Index)]
 #define CANIF_CONTROLLER(Controller_Index)  CanIf_ConfigStd->CanIfCtrlConfigRef[(Controller_Index)]
@@ -1979,7 +1980,7 @@ CanIf_RxIndication(
     if (TRUE == detNoErr)
 #endif /*STD_ON == CANIF_PUBLIC_DEV_ERROR_DETECT*/
     {
-            if(((0xFF == CCUWakeupReturnValue)||(0x22 == CCUWakeupReturnValue)||(0x31 == CCUWakeupReturnValue))&&(0x55 != App_ComMReqFlag)&&(100 > FirstWakeUpSource500ms ))
+            if(((0xFF == CCUWakeupReturnValue)||(0x22 == CCUWakeupReturnValue)||(0x31 == CCUWakeupReturnValue))&&(40 > FirstWakeUpSource200ms))
             {
                 if((((Mailbox->CanId)>= 0x40000400u)&&((Mailbox->CanId)<= 0x400004FFu)&&((0 == (Mailbox->ControllerId))||(5 == (Mailbox->ControllerId))))
                     ||(((Mailbox->CanId)>= 0x00000400u)&&((Mailbox->CanId)<= 0x000004FFu)&&((3 == (Mailbox->ControllerId))||(1 == (Mailbox->ControllerId)))))
@@ -3478,3 +3479,4 @@ static FUNC(Std_ReturnType, CANIF_CODE)
 
 #define CANIF_STOP_SEC_CODE
 #include "CanIf_MemMap.h"
+#pragma default_function_attributes =

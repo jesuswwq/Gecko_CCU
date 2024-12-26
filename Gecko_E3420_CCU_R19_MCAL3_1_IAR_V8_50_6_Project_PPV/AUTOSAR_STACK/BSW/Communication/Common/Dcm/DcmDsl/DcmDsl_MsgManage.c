@@ -2053,6 +2053,8 @@ FUNC(void, DCM_CODE) DslInternal_ProcessingDone(uint8 ProtocolCtrlId)
     }
     if (ProcessOn == TRUE)
     {
+        /****Close P2Server Timer****/
+        DslInternal_P2ServerStop(ProtocolCtrlId);
         ret = PduR_DcmTransmit(DcmTxPduIdx, &PduInfo);
         if (E_NOT_OK == ret)
         {
@@ -2067,8 +2069,6 @@ FUNC(void, DCM_CODE) DslInternal_ProcessingDone(uint8 ProtocolCtrlId)
         Dcm_MsgCtrl[MsgCtrlIndexx].SendFlag = TRUE;
         SchM_Exit_Dcm(Dcm_MsgCtrl);
 
-        /****Close P2Server Timer****/
-        DslInternal_P2ServerStop(ProtocolCtrlId);
     }
 }
 #define DCM_STOP_SEC_CODE

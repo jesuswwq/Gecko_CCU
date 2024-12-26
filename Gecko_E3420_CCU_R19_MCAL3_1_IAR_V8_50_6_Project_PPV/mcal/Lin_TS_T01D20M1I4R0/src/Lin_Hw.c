@@ -311,12 +311,12 @@ void Lin_TransmitCallBk(uint8 numNodeID)
             Lin_Wakeup_Flag[numNodeID] = TRUE;
             Lin_UartRstMod(locNodeCfg);
             /**************Add by Jxy*****************/
-            if(((0xFF == CCUWakeupReturnValue)||(0x22 == CCUWakeupReturnValue)||(0x31 == CCUWakeupReturnValue))&&(0x55 != App_ComMReqFlag)&&(100 > FirstWakeUpSource500ms ))
+            if(((0xFF == CCUWakeupReturnValue)||(0x22 == CCUWakeupReturnValue)||(0x31 == CCUWakeupReturnValue))&&(40 > FirstWakeUpSource200ms))
             {
                CCUWakeupReturnValue = 0x13;
                HW_Trigger_Timer = (2000/10);
             }
-            else if((0 == HW_Active_ComReq)&&(100 <= FirstWakeUpSource500ms)&&(0 == CanIf_FirstCallRxInd[0])
+            else if((0 == HW_Active_ComReq)&&(40 <= FirstWakeUpSource200ms)&&(0 == CanIf_FirstCallRxInd[0])
             &&(0 == CanIf_FirstCallRxInd[1])&&(0 == CanIf_FirstCallRxInd[3])&&(0 == CanIf_FirstCallRxInd[5]))
             {
                 HW_Trigger_Timer = (2000/10);

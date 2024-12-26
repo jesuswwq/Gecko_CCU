@@ -14,6 +14,8 @@
 #include "RegHelper.h"
 #include <sdrv_mbox.h>
 #include "Compiler.h"
+#include "arch.h"
+#include "Mcu_Soc.h"
 #define MAILBOX_START_SEC_CODE
 #include "Mailbox_MemMap.h"
 
@@ -245,9 +247,15 @@ uint16 sdrv_mbox_lld_get_msg_head(volatile uint32 base, uint8 remote, uint8 msg_
  */
 uint8 *sdrv_mbox_lld_get_txbuf(volatile uint32 mem_base, uint8 buf_id)
 {
+#if defined(BOARD_E3_ref_gateway_E3640) || defined(BOARD_E3_ref_gateway_E3648)
     return (uint8 *)mem_base
-           + SDRV_MBOX_TX_BUF
+           + SDRV_MBOX_TX_BUF(arch_get_cpuid())
            + (buf_id * SDRV_MBOX_BANK_LEN);
+#else
+    return (uint8 *)mem_base
+           + SDRV_MBOX_TX_BUF(Mcu_GetCoreID())
+           + (buf_id * SDRV_MBOX_BANK_LEN);
+#endif
 }
 
 /**
@@ -260,6 +268,12 @@ uint8 *sdrv_mbox_lld_get_txbuf(volatile uint32 mem_base, uint8 buf_id)
  */
 uint8 *sdrv_mbox_lld_get_rxbuf(volatile uint32 mem_base, uint8 remote, uint8 buf_id)
 {
+#if defined(BOARD_E3_ref_gateway_E3430) || defined(BOARD_E3_ref_gateway_E3420)
+    if (remote)
+    {
+        remote >>= 1;
+    }
+#endif
     return (uint8 *)mem_base
            + SDRV_MBOX_RX_BUF(remote)
            + (buf_id * SDRV_MBOX_BANK_LEN);

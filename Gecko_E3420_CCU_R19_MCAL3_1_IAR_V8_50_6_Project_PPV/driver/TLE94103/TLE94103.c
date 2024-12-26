@@ -51,11 +51,11 @@ static Std_ReturnType TLE94103_read_reg(TLE94103_CHIPID_e ChipID ,uint8 reg, uin
   SpiSeq = TLE94103_List[ChipID].SpiSeq;
 
   QSpi_TLE94103_DataTx =  (TLE94103_OP_READ<<7)| (uint16)(reg<<2) | (NO_DAISY_CHAIN_LABT<<1) | 0x1;
-
+  SuspendAllInterrupts();
   ret = Spi_SetupEB(SpiCh, 
               (uint8*)&QSpi_TLE94103_DataTx, 
               (uint8*)&QSpi_TLE94103_DataRx, 
-              1);
+              (uint16)1);
 
   if(ret == E_OK)
   {
@@ -67,7 +67,7 @@ static Std_ReturnType TLE94103_read_reg(TLE94103_CHIPID_e ChipID ,uint8 reg, uin
       TLE94103_SYS_DIAG1.U = (QSpi_TLE94103_DataRx&0x00FF);
     }
   }
-  
+  ResumeAllInterrupts();  
   return ret;
 }
 
@@ -81,7 +81,7 @@ static Std_ReturnType TLE94103_write_reg(TLE94103_CHIPID_e ChipID, uint8 reg, ui
   SpiSeq = TLE94103_List[ChipID].SpiSeq;
 
   QSpi_TLE94103_DataTx = ((uint16)reg_Value<<8)|(TLE94103_OP_WRITE<<7)| (uint16)(reg<<2) | (NO_DAISY_CHAIN_LABT<<1) | 0x1;
-
+  SuspendAllInterrupts();
   ret = Spi_SetupEB(SpiCh, 
               (uint8*)&QSpi_TLE94103_DataTx, 
               (uint8*)&QSpi_TLE94103_DataRx, 
@@ -92,7 +92,7 @@ static Std_ReturnType TLE94103_write_reg(TLE94103_CHIPID_e ChipID, uint8 reg, ui
     ret = Spi_SyncTransmit(SpiSeq);
     TLE94103_SYS_DIAG1.U = (QSpi_TLE94103_DataRx&0x00FF);
   }
-  
+  ResumeAllInterrupts();  
   return ret;
 }
 

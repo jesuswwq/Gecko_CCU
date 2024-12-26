@@ -30,17 +30,17 @@
 #define SDRV_MBOX_RMH(id, n, m)         ((0x2c + (id * 0x4)) +  (m * 0xc) + (n * 0x30))
 #define SDRV_MBOX_MASTERID(id)          (0x500 + (id * 0x4))
 
-#if defined(CONFIG_MBOX_FLUSH_CACHE)
+#if CONFIG_MBOX_FLUSH_CACHE
 #define SDRV_MBOX_TX_BUF                0x0
-#define SDRV_MBOX_RX_BUF(n)             (0x1000 + (n * 0x1000))
+#define SDRV_MBOX_RX_BUF(n)             (0x1000 + ((n) * 0x1000))
 #else
-#define SDRV_MBOX_TX_BUF                0x1000
-#define SDRV_MBOX_RX_BUF(n)             (0x2000 + (n * 0x1000))
+#define SDRV_MBOX_TX_BUF(n)             ((n) * 0x1000)
+#define SDRV_MBOX_RX_BUF(n)             ((n) * 0x1000)
 #endif
 #define SDRV_MBOX_TX_BUF_DIFF           0x1000
 
-#define SDRV_MBOX_SEMAG(id)             (0x200 + (id * 0x8))
-#define SDRV_MBOX_SEMAGPC(id)           (0x204 + (id * 0x8))
+#define SDRV_MBOX_SEMAG(id)             (0x200 + ((id) * 0x8))
+#define SDRV_MBOX_SEMAGPC(id)           (0x204 + ((id) * 0x8))
 #define SDRV_MBOX_SGR                   0x400
 #define SDRV_MBOX_SGI                   0x404
 

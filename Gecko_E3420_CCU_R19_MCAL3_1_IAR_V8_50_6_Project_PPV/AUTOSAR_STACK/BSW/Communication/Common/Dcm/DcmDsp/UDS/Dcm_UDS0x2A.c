@@ -706,6 +706,11 @@ static Std_ReturnType DspInternalUDS0x2A_DidCheck(
                             *pDidCfgIndex = Index;
                             ret = E_OK;
                         }
+                        else
+                        {
+                            *pDidCfgIndex = Index;
+                            ret = E_OK;
+                        }
                     }
 #endif
                 }
@@ -1075,6 +1080,7 @@ FUNC(void, DCM_CODE) Dcm_UDS0x2ACheckNewSession(Dcm_SesCtrlType NewSes) /* PRQA 
 #include "Dcm_MemMap.h"
 static FUNC(Std_ReturnType, DCM_CODE) Dcm_UDS0x2A_SubFunSubDeal(
     Dcm_OpStatusType OpStatus,
+    uint8 pDidCfgIndex,
     uint8 DidSupportNum,
     P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, DCM_VAR) ErrorCode) /* PRQA S 3432 */ /* MISRA Rule 20.7 */
 {
@@ -1084,6 +1090,7 @@ static FUNC(Std_ReturnType, DCM_CODE) Dcm_UDS0x2A_SubFunSubDeal(
     uint8 index;
     uint16 Size = 0;
 
+    DidCfgIndex = pDidCfgIndex;
     /*call the ConditionCheckRead function*/
     for (index = 0; index < Dcm_DspCfg.pDcmDspDid[DidCfgIndex].DcmDspDidSignalNum; index++)
     {
@@ -1220,18 +1227,28 @@ static FUNC(Std_ReturnType, DCM_CODE) Dcm_UDS0x2A_SubFunDeal_0x01_0x03(
 #endif
                             if (DDDid == FALSE)
                         {
-                            ret = Dcm_UDS0x2A_SubFunSubDeal(OpStatus, *Dcm_0x2AType->DidSupportNum, ErrorCode);
+                            ret = Dcm_UDS0x2A_SubFunSubDeal(OpStatus,DidCfgIndex, *Dcm_0x2AType->DidSupportNum, ErrorCode);
                         }
                         else
                         {
                             /*idle*/
                         }
+#if (STD_ON == CANTP_FD)
+                        if (DidRxQueue[*Dcm_0x2AType->DidSupportNum].Length > 63u)
+                        {
+                            /*can only transfer IF PDU*/
+                            DidRxQueue[*Dcm_0x2AType->DidSupportNum].Length = 0;
+                            DidRxQueue[*Dcm_0x2AType->DidSupportNum].DDDid = FALSE;
+                        }
+
+#else
                         if (DidRxQueue[*Dcm_0x2AType->DidSupportNum].Length > 7u)
                         {
                             /*can only transfer IF PDU*/
                             DidRxQueue[*Dcm_0x2AType->DidSupportNum].Length = 0;
                             DidRxQueue[*Dcm_0x2AType->DidSupportNum].DDDid = FALSE;
                         }
+#endif
                         else
                         {
                             DidRxQueue[*Dcm_0x2AType->DidSupportNum].Did = RecDid;

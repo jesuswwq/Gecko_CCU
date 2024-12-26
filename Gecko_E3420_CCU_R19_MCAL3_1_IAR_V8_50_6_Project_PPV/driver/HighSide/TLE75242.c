@@ -497,6 +497,7 @@ Std_ReturnType TLE75242_tGetStdDiag(TLE75242_Chip_e_ chip, TLE75242_StdDiag_t *p
 	g_SpiInBuf_Tle75242 = 0;
 
     /**************************Diag frame ***************************************/
+	SuspendAllInterrupts();
     ret = Spi_SetupEB( SpiCh, (Spi_DataBufferType*)&g_SpiOutBuf_Tle75242, 
 					(Spi_DataBufferType*)&g_SpiInBuf_Tle75242, 1u );
 
@@ -504,7 +505,8 @@ Std_ReturnType TLE75242_tGetStdDiag(TLE75242_Chip_e_ chip, TLE75242_StdDiag_t *p
 	{
             Spi_SyncTransmit(SpiSeq);
 	}
-	
+	  ResumeAllInterrupts();
+	  SuspendAllInterrupts();
 	/***************************data get frame***********************************/
 	ret = Spi_SetupEB( SpiCh, (Spi_DataBufferType*)&g_SpiOutBuf_Tle75242, 
 					(Spi_DataBufferType*)&g_SpiInBuf_Tle75242, 1u );
@@ -527,7 +529,7 @@ Std_ReturnType TLE75242_tGetStdDiag(TLE75242_Chip_e_ chip, TLE75242_StdDiag_t *p
 			
 		}
 	}
-
+	ResumeAllInterrupts();
 	return ret;
 }
 
@@ -640,14 +642,14 @@ Std_ReturnType TLE75242_8bitDataWrite(TLE75242_Chip_e_ chip, uint8 regName, uint
 	
 	g_SpiOutBuf_Tle75242 = (TLE75242_CMD_WRITE |(regName<<8)| CmdData);
 	g_SpiInBuf_Tle75242 = 0;
-
+	 SuspendAllInterrupts();
 	ret = Spi_SetupEB( SpiCh, (Spi_DataBufferType*)&g_SpiOutBuf_Tle75242, 
 					(Spi_DataBufferType*)&g_SpiInBuf_Tle75242, 1u );
 	if(ret == E_OK)
 	{
 		ret = Spi_SyncTransmit(SpiSeq);
 	}
-
+	ResumeAllInterrupts();
 	return ret;
 }
 
@@ -669,14 +671,16 @@ Std_ReturnType TLE75242_8bitDataRead(TLE75242_Chip_e_ chip, uint8 regName, uint8
 	g_SpiInBuf_Tle75242 = 0;
 
     /**************************Diag frame ***************************************/
+	 SuspendAllInterrupts();
     ret = Spi_SetupEB( SpiCh, (Spi_DataBufferType*)&g_SpiOutBuf_Tle75242, 
 					(Spi_DataBufferType*)&g_SpiInBuf_Tle75242, 1u );
 	if(ret == E_OK)
 	{
 		Spi_SyncTransmit(SpiSeq);
 	}
-	
+	ResumeAllInterrupts();
 	/***************************data get frame***********************************/
+	 SuspendAllInterrupts();
 	ret = Spi_SetupEB( SpiCh, (Spi_DataBufferType*)&g_SpiOutBuf_Tle75242, 
 					(Spi_DataBufferType*)&g_SpiInBuf_Tle75242, 1u );
 	if(ret == E_OK)
@@ -698,7 +702,7 @@ Std_ReturnType TLE75242_8bitDataRead(TLE75242_Chip_e_ chip, uint8 regName, uint8
 			
 		}
 	}
-
+	ResumeAllInterrupts();
 	return ret;
 }
 
@@ -714,14 +718,14 @@ Std_ReturnType TLE75242_10bitDataWrite(TLE75242_Chip_e_ chip, uint8 regName, uin
 	
 	g_SpiOutBuf_Tle75242 = (TLE75242_CMD_WRITE |(regName<<10)| CmdData);
 	g_SpiInBuf_Tle75242 = 0;
-
+	SuspendAllInterrupts();
 	ret = Spi_SetupEB( SpiCh, (Spi_DataBufferType*)&g_SpiOutBuf_Tle75242, 
 					(Spi_DataBufferType*)&g_SpiInBuf_Tle75242, 1u );
 	if(ret == E_OK)
 	{
 		ret = Spi_SyncTransmit(SpiSeq);
 	}
-
+	ResumeAllInterrupts();
 	return ret;
 }
 
@@ -738,13 +742,15 @@ Std_ReturnType TLE75242_10bitDataRead(TLE75242_Chip_e_ chip, uint8 regName, uint
 	g_SpiInBuf_Tle75242 = 0;
 
     /**************************Diag frame ***************************************/
+	SuspendAllInterrupts();
     ret = Spi_SetupEB( SpiCh, (Spi_DataBufferType*)&g_SpiOutBuf_Tle75242, 
 					(Spi_DataBufferType*)&g_SpiInBuf_Tle75242, 1u );
 	if(ret == E_OK)
 	{
 		Spi_SyncTransmit(SpiSeq);
 	}
-
+	ResumeAllInterrupts();
+	SuspendAllInterrupts();
 	/***************************data get frame***********************************/
 	ret = Spi_SetupEB( SpiCh, (Spi_DataBufferType*)&g_SpiOutBuf_Tle75242, 
 					(Spi_DataBufferType*)&g_SpiInBuf_Tle75242, 1u );
@@ -757,7 +763,7 @@ Std_ReturnType TLE75242_10bitDataRead(TLE75242_Chip_e_ chip, uint8 regName, uint
 			*RxData = (g_SpiInBuf_Tle75242&TLE75XXX_10BIT_DATA_MAK);
 		}
 	}
-
+	ResumeAllInterrupts();
 	return ret;
 }
 

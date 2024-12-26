@@ -17,6 +17,7 @@
 #include "Rte_Dcm.h"
 #include "Dcm_internal.h"
 #include "PEPS_ABI.h"
+#include "Pke_Pks_App.h"
 
 #define DCM_UNUSED(a) (void)(a)
 #include "NvM.h"
@@ -67,24 +68,7 @@ Std_ReturnType  Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_Level5_CompareKey(
 }
 #define DCM_STOP_SEC_CODE
 #include "Dcm_MemMap.h"
-#define DCM_START_SEC_CODE
-#include "Dcm_MemMap.h"
-Std_ReturnType  Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_LevelFBL_CompareKey( const  uint8*  Key,Dcm_OpStatusType  OpStatus,Dcm_NegativeResponseCodeType*  ErrorCode )
-{
-    DCM_UNUSED(Key);
-    DCM_UNUSED(OpStatus);
-    DCM_UNUSED(ErrorCode);
-    uint8 GetKey[4] = {0};
-    SeedToKeyLevel7(Lastseed,GetKey);
-    if((Key[0] == GetKey[0])  && (Key[1] == GetKey[1]) && (Key[2] == GetKey[2]) && (Key[3] == GetKey[3]))
-    {
-        return E_OK;
-    }
-	else
-		return E_COMPARE_KEY_FAILED;
-}
-#define DCM_STOP_SEC_CODE
-#include "Dcm_MemMap.h"
+
 
 #define DCM_START_SEC_CODE
 #include "Dcm_MemMap.h"
@@ -120,23 +104,7 @@ Std_ReturnType  Rte_GetSecurityAttemptCounter_Level5( Dcm_OpStatusType  OpStatus
 }
 #define DCM_STOP_SEC_CODE
 #include "Dcm_MemMap.h"
-#define DCM_START_SEC_CODE
-#include "Dcm_MemMap.h"
-Std_ReturnType  Rte_GetSecurityAttemptCounter_LevelFBL( Dcm_OpStatusType  OpStatus,uint8*  AttemptCounter )
-{
-    DCM_UNUSED(OpStatus);
-      NvM_RequestResultType NvmStatus = 0;
-    NvM_GetErrorStatus(NvMBlock11_27Counter_Level7,&NvmStatus);
-    if(NvmStatus != NVM_REQ_PENDING && NvmStatus != NVM_REQ_NOT_OK)
-    {
-	(*AttemptCounter) = *(NvM_BlockDescriptor[NvMBlock11_27Counter_Level7 - 1].NvmRamBlockDataAddress);
-    return E_OK;
-    }
-    else
-    	return DCM_E_PENDING;
-}
-#define DCM_STOP_SEC_CODE
-#include "Dcm_MemMap.h"
+
 
 #define DCM_START_SEC_CODE
 #include "Dcm_MemMap.h"
@@ -164,19 +132,7 @@ Std_ReturnType  Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_Level5_GetSeed(
 }
 #define DCM_STOP_SEC_CODE
 #include "Dcm_MemMap.h"
-#define DCM_START_SEC_CODE
-#include "Dcm_MemMap.h"
-Std_ReturnType  Rte_Call_Dcm_SecurityAccess_DcmDspSecurityRow_LevelFBL_GetSeed(
-        Dcm_OpStatusType OpStatus,uint8* Seed,Dcm_NegativeResponseCodeType* ErrorCode)
-{
-    DCM_UNUSED(OpStatus);
-    DCM_UNUSED(Seed);
-    DCM_UNUSED(ErrorCode);
-    GenerateSeed(Seed,Lastseed);
-    return E_OK;
-}
-#define DCM_STOP_SEC_CODE
-#include "Dcm_MemMap.h"
+
 
 #define DCM_START_SEC_CODE
 #include "Dcm_MemMap.h"
@@ -222,28 +178,7 @@ Std_ReturnType  Rte_SetSecurityAttemptCounter_Level5( Dcm_OpStatusType  OpStatus
 }
 #define DCM_STOP_SEC_CODE
 #include "Dcm_MemMap.h"
-#define DCM_START_SEC_CODE
-#include "Dcm_MemMap.h"
-Std_ReturnType  Rte_SetSecurityAttemptCounter_LevelFBL( Dcm_OpStatusType  OpStatus,  uint8  AttemptCounter )
-{
-    DCM_UNUSED(OpStatus);
-    NvM_RequestResultType NvmStatus = 0;
-    *(NvM_BlockDescriptor[NvMBlock11_27Counter_Level7 - 1].NvmRamBlockDataAddress) = AttemptCounter;
-    NvM_GetErrorStatus(NvMBlock11_27Counter_Level7,&NvmStatus);
-    if(NvmStatus != NVM_REQ_PENDING)
-    	{
-    		NvM_WriteBlock(NvMBlock11_27Counter_Level7, NULL_PTR);
-    	}
-    	else
-    	{
-    		NvM_CancelJobs(NvMBlock11_27Counter_Level7);
-    		NvM_WriteBlock(NvMBlock11_27Counter_Level7, NULL_PTR);
-    	}
 
-    	return E_OK;
-}
-#define DCM_STOP_SEC_CODE
-#include "Dcm_MemMap.h"
 /***************************Did Part****************************************/
 
 #define  DataLength_DcmDspData_F197 10u
@@ -351,32 +286,18 @@ uint8 Buffer_DcmDspData_F158[ DataLength_DcmDspData_F158 ] = {0x20} ;
 uint8 Buffer_DcmDspData_F158_Default[ DataLength_DcmDspData_F158 ] = {0x0} ;
 #define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
 #include "Dcm_MemMap.h"
-#define  DataLength_DcmDspData_F080 11u
+#define  DataLength_DcmDspData_F080 19u
 #define  DCM_START_SEC_VAR_POWER_ON_INIT_8
 #include "Dcm_MemMap.h"
 uint8 Buffer_DcmDspData_F080[ DataLength_DcmDspData_F080 ] = {0x20} ;
 uint8 Buffer_DcmDspData_F080_Default[ DataLength_DcmDspData_F080 ] = {0x0} ;
 #define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
 #include "Dcm_MemMap.h"
-#define  DataLength_DcmDspData_F081 11u
+#define  DataLength_DcmDspData_F081 19u
 #define  DCM_START_SEC_VAR_POWER_ON_INIT_8
 #include "Dcm_MemMap.h"
 uint8 Buffer_DcmDspData_F081[ DataLength_DcmDspData_F081 ] = {0x20} ;
 uint8 Buffer_DcmDspData_F081_Default[ DataLength_DcmDspData_F081 ] = {0x0} ;
-#define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
-#include "Dcm_MemMap.h"
-#define  DataLength_DcmDspData_F082 2u
-#define  DCM_START_SEC_VAR_POWER_ON_INIT_8
-#include "Dcm_MemMap.h"
-uint8 Buffer_DcmDspData_F082[ DataLength_DcmDspData_F082 ] = {0x20} ;
-uint8 Buffer_DcmDspData_F082_Default[ DataLength_DcmDspData_F082 ] = {0x0} ;
-#define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
-#include "Dcm_MemMap.h"
-#define  DataLength_DcmDspData_F083 5u
-#define  DCM_START_SEC_VAR_POWER_ON_INIT_8
-#include "Dcm_MemMap.h"
-uint8 Buffer_DcmDspData_F083[ DataLength_DcmDspData_F083 ] = {0x20} ;
-uint8 Buffer_DcmDspData_F083_Default[ DataLength_DcmDspData_F083 ] = {0x0} ;
 #define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
 #include "Dcm_MemMap.h"
 #define  DataLength_DcmDspData_F084 10u
@@ -391,27 +312,6 @@ uint8 Buffer_DcmDspData_F084_Default[ DataLength_DcmDspData_F084 ] = {0x0} ;
 #include "Dcm_MemMap.h"
 uint8 Buffer_DcmDspData_F085[ DataLength_DcmDspData_F085 ] = {0x20} ;
 uint8 Buffer_DcmDspData_F085_Default[ DataLength_DcmDspData_F085 ] = {0x0} ;
-#define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
-#include "Dcm_MemMap.h"
-#define  DataLength_DcmDspData_F086 9u
-#define  DCM_START_SEC_VAR_POWER_ON_INIT_8
-#include "Dcm_MemMap.h"
-uint8 Buffer_DcmDspData_F086[ DataLength_DcmDspData_F086 ] = {0x20} ;
-uint8 Buffer_DcmDspData_F086_Default[ DataLength_DcmDspData_F086 ] = {0x0} ;
-#define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
-#include "Dcm_MemMap.h"
-#define  DataLength_DcmDspData_F089 3u
-#define  DCM_START_SEC_VAR_POWER_ON_INIT_8
-#include "Dcm_MemMap.h"
-uint8 Buffer_DcmDspData_F089[ DataLength_DcmDspData_F089 ] = {0x20} ;
-uint8 Buffer_DcmDspData_F089_Default[ DataLength_DcmDspData_F089 ] = {0x0} ;
-#define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
-#include "Dcm_MemMap.h"
-#define  DataLength_DcmDspData_F092 24u
-#define  DCM_START_SEC_VAR_POWER_ON_INIT_8
-#include "Dcm_MemMap.h"
-uint8 Buffer_DcmDspData_F092[ DataLength_DcmDspData_F092 ] = {0x20} ;
-uint8 Buffer_DcmDspData_F092_Default[ DataLength_DcmDspData_F092 ] = {0x0} ;
 #define  DCM_STOP_SEC_VAR_POWER_ON_INIT_8
 #include "Dcm_MemMap.h"
 #define  DataLength_DcmDspData_3231 2u
@@ -2917,6 +2817,11 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_F190_ReadData( Dcm_OpStat
 
        return E_OK;
     }
+    else if (NvmStatus == NVM_REQ_NOT_OK)
+    {   
+        *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+        return E_NOT_OK;
+    }
     else
     	return DCM_E_PENDING;
     DCM_UNUSED(OpStatus);
@@ -2989,6 +2894,11 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_F101_ReadData( Dcm_OpStat
 
        return E_OK;
     }
+    else if (NvmStatus == NVM_REQ_NOT_OK)
+    {   
+        *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+        return E_NOT_OK;
+    }
     else
     	return DCM_E_PENDING;
 }
@@ -3010,6 +2920,11 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_F157_ReadData( Dcm_OpStat
 
        return E_OK;
     }
+    else if (NvmStatus == NVM_REQ_NOT_OK)
+    {   
+        *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+        return E_NOT_OK;
+    }
     else
     	return DCM_E_PENDING;
 }
@@ -3030,6 +2945,11 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_F158_ReadData( Dcm_OpStat
         }
 
        return E_OK;
+    }
+    else if (NvmStatus == NVM_REQ_NOT_OK)
+    {   
+        *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+        return E_NOT_OK;
     }
     else
     	return DCM_E_PENDING;
@@ -3327,6 +3247,11 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_F13A_ReadData( Dcm_OpStat
 
        return E_OK;
     }
+    else if (NvmStatus == NVM_REQ_NOT_OK)
+    {   
+        *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+        return E_NOT_OK;
+    }
     else
     	return DCM_E_PENDING;
 }
@@ -3347,6 +3272,11 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_F13B_ReadData( Dcm_OpStat
         }
 
        return E_OK;
+    }
+    else if (NvmStatus == NVM_REQ_NOT_OK)
+    {   
+        *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+        return E_NOT_OK;
     }
     else
     	return DCM_E_PENDING;
@@ -3369,6 +3299,11 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_F13C_ReadData( Dcm_OpStat
 
        return E_OK;
     }
+    else if (NvmStatus == NVM_REQ_NOT_OK)
+    {   
+        *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+        return E_NOT_OK;
+    }
     else
     	return DCM_E_PENDING;
 }
@@ -3390,6 +3325,11 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_F13D_ReadData( Dcm_OpStat
 
        return E_OK;
     }
+    else if (NvmStatus == NVM_REQ_NOT_OK)
+    {   
+        *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+        return E_NOT_OK;
+    }
     else
     	return DCM_E_PENDING;
 }
@@ -3410,6 +3350,11 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_F13E_ReadData( Dcm_OpStat
         }
 
        return E_OK;
+    }
+    else if (NvmStatus == NVM_REQ_NOT_OK)
+    {   
+        *ErrorCode = DCM_E_CONDITIONSNOTCORRECT;
+        return E_NOT_OK;
     }
     else
     	return DCM_E_PENDING;
@@ -5271,7 +5216,7 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_3237_ReturnControlToECU(
 {
     DCM_UNUSED(ControlEnableMaskRecord);
     DCM_UNUSED(ErrorCode);
-    Rte_DcmDspData_3238_CtlFlg=(uint8)0;
+    Rte_DcmDspData_3237_CtlFlg=(uint8)0;
     Buffer_DcmDspData_3237[0]=0x00;
     return E_OK;
 }
@@ -5460,7 +5405,7 @@ Std_ReturnType  Rte_Call_Dcm_CSDataServices_DcmDspData_3237_ShortTermAdjustment(
 /* PRQA S 3432-- */     /* MISRA Rule 20.7 */
 {
     uint8  index;
-    Rte_DcmDspData_3238_CtlFlg=(uint8)1;
+    Rte_DcmDspData_3237_CtlFlg=(uint8)1;
     for(index = 0;index < DataLength_DcmDspData_3237;index++)
     {
         Buffer_DcmDspData_3237[index] = ControlOptionRecord[index];
@@ -5909,6 +5854,22 @@ Std_ReturnType  Rte_DcmDspRequestRoutineResultsFnc_5234(
     P2VAR(Dcm_NegativeResponseCodeType,AUTOMATIC,DCM_VAR)ErrorCode)
 /* PRQA S 3432-- */     /* MISRA Rule 20.7 */
 {
+    if(u8_Auth_KeyTest_Feedback == 0)
+    {
+        *OutBuffer = 0xA3;
+    }
+    else if(u8_Auth_KeyTest_Feedback == 1)
+    {
+        *OutBuffer = 0xA1;
+    }
+    else if(u8_Auth_KeyTest_Feedback == 2)
+    {
+        *OutBuffer = 0xA2;
+    }    
+    else if(u8_Auth_KeyTest_Feedback == 3)
+    {
+        *OutBuffer = 0xA4;
+    }
     DCM_UNUSED(InBuffer);
     DCM_UNUSED(OutBuffer);
     DCM_UNUSED(currentDataLength);
@@ -6024,6 +5985,7 @@ Std_ReturnType  Rte_DcmDspRequestRoutineResultsFnc_5236(
     P2VAR(Dcm_NegativeResponseCodeType,AUTOMATIC,DCM_VAR)ErrorCode)
 /* PRQA S 3432-- */     /* MISRA Rule 20.7 */
 {
+    *OutBuffer = GetTransmitterCountVal();
     DCM_UNUSED(InBuffer);
     DCM_UNUSED(OutBuffer);
     DCM_UNUSED(currentDataLength);
@@ -6149,6 +6111,7 @@ Std_ReturnType  Rte_DcmRoutineStart_0x5234(
     P2VAR(Dcm_NegativeResponseCodeType,AUTOMATIC,DCM_VAR)ErrorCode)
 /* PRQA S 3432-- */     /* MISRA Rule 20.7 */
 {
+    u8_Auth_KeyTestReq = 1;
     DCM_UNUSED(InBuffer);
     DCM_UNUSED(OutBuffer);
     DCM_UNUSED(currentDataLength);
@@ -6307,6 +6270,8 @@ Std_ReturnType  Rte_DcmRoutineStart_F1B0(
 #include "Dcm_MemMap.h"
 #define DCM_START_SEC_CODE
 #include "Dcm_MemMap.h"
+uint8 F1B1_Routine_Data[2];
+boolean F1B1_31SE_Routine_Flag = FALSE;
 Std_ReturnType  Rte_DcmRoutineStart_F1B1(
     /* PRQA S 3432++ */ /* MISRA Rule 20.7 */
     P2CONST(uint8,AUTOMATIC,DCM_VAR)InBuffer,
@@ -6320,6 +6285,9 @@ Std_ReturnType  Rte_DcmRoutineStart_F1B1(
     DCM_UNUSED(OutBuffer);
     DCM_UNUSED(currentDataLength);
     DCM_UNUSED(ErrorCode);
+    F1B1_31SE_Routine_Flag = TRUE;
+    F1B1_Routine_Data[0] = *(InBuffer);
+    F1B1_Routine_Data[1] = *(InBuffer+1);
     return E_OK;
 }
 #define DCM_STOP_SEC_CODE

@@ -186,6 +186,7 @@ Com_MaskNewDifferMaskOldTimeOut[COM_RXSIGNALMASKNEWDIFFERMASKOLD_NUMBER];
 /*******************************************************************************
 **                      Private Function Declarations                         **
 *******************************************************************************/
+#pragma default_function_attributes = @".iram_func"
 #define COM_START_SEC_CODE
 #include "Com_MemMap.h"
 /* called by Com_Init
@@ -4605,6 +4606,7 @@ static FUNC(void, COM_CODE) Com_ReceiveSignalGroupHandle(PduIdType RxPduId, Com_
 
 #define COM_STOP_SEC_CODE
 #include "Com_MemMap.h"
+#pragma default_function_attributes =
 /*******************************************************************************
 **                            General Notes                                   **
 *******************************************************************************/

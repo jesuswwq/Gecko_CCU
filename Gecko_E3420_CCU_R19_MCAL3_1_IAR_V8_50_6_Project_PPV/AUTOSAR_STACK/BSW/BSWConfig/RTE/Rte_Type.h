@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-11-14 16:56:11>
+ *  @date       <2024-12-19 16:41:55>
  */
 /*============================================================================*/
 
@@ -314,6 +314,11 @@ typedef struct
     UInt8 BCM_ReverseLiFaultFb;
     UInt8 BCM_BrakeLiFaultFb;
     UInt8 BCM_BackLiFaultFb;
+    Boolean BCM_DomeLightSta;
+    Boolean BCM_CarriageLightSta;
+    Boolean BCM_BackLampSta;
+    Boolean BCM_WiperStopPosSta;
+    Boolean BCM_SavePowerSta;
 } BCM_B_Package_BAC;
 
 #define _DEFINED_TYPEDEF_FOR_BCM_B_Package_BAC_
@@ -491,6 +496,17 @@ typedef struct
 } BMS_9_BattInfo_EPT;
 
 #define _DEFINED_TYPEDEF_FOR_BMS_9_BattInfo_EPT_
+
+typedef struct
+{
+    UInt8 VBSW_WakeupReasn_enum;
+    Boolean VBSW_ECURst_flg;
+    UInt16 VBSW_RTCWupRmningT_min;
+    Boolean VBSW_F1B1PwrOnReq_flg;
+    Boolean VBSW_F1B1PwrOffReq_flg;
+} BSW2VCU_outputs;
+
+#define _DEFINED_TYPEDEF_FOR_BSW2VCU_outputs_
 
 typedef struct
 {
@@ -797,8 +813,8 @@ typedef struct
     UInt8 BCM_IndicationKeyCloser;
     UInt8 BCM_IllmndSts;
     UInt8 BCM_SteerWhlHeatSts;
-    UInt8 BCM_SteerWhlTemp;
-    UInt8 BCM_MaiDrvrSeatTemp;
+    SInt8 BCM_SteerWhlTemp;
+    SInt8 BCM_MaiDrvrSeatTemp;
     UInt8 BCM_RearMirrorHeatSts;
     UInt8 BCM_BackLadjvalFb;
     UInt8 BCM_MaiDrvrSeatSts;
@@ -852,6 +868,14 @@ typedef struct
     UInt8 CCU_RemoteCarSearchFb;
     UInt8 CCU_RemoteLockFb;
     UInt8 CCU_RemotePowerLockFb;
+    UInt8 CCU_RemtMaiDrSeatHeatFb;
+    UInt8 CCU_RemtPowerCtrlFb;
+    UInt8 CCU_RemtSteerWhlHeatFb;
+    UInt8 BCM_WiperStopPosSta;
+    UInt8 BCM_DomeLightSta;
+    UInt8 BCM_CarriageLightSta;
+    UInt8 BCM_BackLampSta;
+    UInt8 BCM_SavePowerSta;
 } DT_Bcm2OpmBAC_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_DT_Bcm2OpmBAC_outputs_
@@ -1465,6 +1489,16 @@ typedef struct
     Boolean VIPM_TBOXVCUCCMSpdLimLvlVld_flg;
     UInt8 VIPM_TBoxRmtLck_enum;
     Boolean VIPM_TBoxRmtLckVld_flg;
+    UInt8 VIPM_TBOXRemtPwrCtrlReq_enum;
+    Boolean VIPM_TBOXRemtPwrCtrlReqVld_flg;
+    UInt8 VIPM_TBOXRemtStrWhlHeatReq_enum;
+    Boolean VIPM_TBOXRemtStrWhlHeatReqVld_flg;
+    UInt8 VIPM_TBOXRemtMaiDrSeatHeatReq_enum;
+    Boolean VIPM_TBOXRemtMaiDrSeatHeatReqVld_flg;
+    UInt8 VIPM_HUBCMCargoLghtSet_enum;
+    Boolean VIPM_HUBCMCargoLghtSetVld_flg;
+    UInt8 VIPM_HUBCMOTAModeSet_enum;
+    Boolean VIPM_HUBCMOTAModeSetVld_flg;
 } DT_IPM_HU_B_BAC;
 
 #define _DEFINED_TYPEDEF_FOR_DT_IPM_HU_B_BAC_
@@ -1839,6 +1873,10 @@ typedef struct
     Boolean VTBX_VCUVerFb_flg;
     Boolean VTBX_VCUOprtLicFb_flg;
     UInt8 VTBX_VCUSpdLimLvlFb_enum;
+    Boolean VTBX_VCUChrgngCondsFb_flg;
+    Boolean VTBX_VCURmtACCtrlReq_flg;
+    Boolean VTBX_VCURmtACDefrstReq_flg;
+    UInt8 VTBX_VCURmtACCtrlSt_enum;
     Boolean VVSO_WghConfdence_flg;
     Float VVSO_WghEst_kg;
     UInt8 VVSO_WghDistb_enum;
@@ -1869,7 +1907,6 @@ typedef struct
     UInt8 VVTM_CruzCtrlStat_enum;
     Float VVTM_CCTgtSpd_kph;
     UInt8 VVTM_AutoBrkReq_enum;
-    Boolean VGSM_VehSpdFstWrn_flg;
     UInt8 VGSM_ReqEPB_enum;
     Boolean VGSM_ReqEPBV_flg;
     Boolean VGSM_GrShftInhbed_flg;
@@ -2025,6 +2062,8 @@ typedef struct
     UInt8 TrunkAjarSw;
     UInt8 DrvSeatSw;
     UInt8 RemotePwrLckSta;
+    UInt8 SysPwrMode;
+    UInt8 StartReq;
 } EEReadCtl;
 
 #define _DEFINED_TYPEDEF_FOR_EEReadCtl_
@@ -2077,6 +2116,8 @@ typedef struct
     UInt8 EHB_B_Chksum1;
     UInt8 EHB_B_Chksum2;
     UInt8 EHB_B_Chksum3;
+    Boolean EHB_BrakePedalApplied;
+    UInt8 EHB_BrakePedalApplied_Q;
     UInt16 EHB_BrkPedlVal;
     UInt8 EHB_BrkPedlValPerc;
     Boolean EHB_BrkPedlValPercVld;
@@ -2086,9 +2127,14 @@ typedef struct
     Boolean EHB_CDDActive;
     Boolean EHB_CDDAvailable;
     Boolean EHB_CDDTempOff;
+    Boolean EHB_DiagActiveSts;
     UInt8 EHB_EPB_ActuatorSt_R;
     UInt8 EHB_EPB_DynamicApplySta;
     UInt8 EHB_FaultLevel;
+    Boolean EHB_HBCRequestActive;
+    Boolean EHB_HbbRequest;
+    UInt16 EHB_MotBrkRegnTqTar;
+    Boolean EHB_MotBrkRegnTqTarVld;
     Boolean EHB_NoBrakeForce;
     UInt8 EHB_PBCInApplyRelsReq;
     Boolean EHB_PBCRollrBenchActv;
@@ -2097,6 +2143,14 @@ typedef struct
     Boolean EHB_PedlTrvlSnsrFail_PDT;
     UInt8 EHB_PedlTrvlSnsrPlauSta;
     Boolean EHB_ReqBrkLiOn;
+    UInt8 EHB_pRunoutPressure;
+    Boolean EHB_pRunoutPressureVld;
+    UInt16 EHB_pSetEbr;
+    UInt8 EHB_pSetEbr_Q;
+    UInt8 EHB_sOutputRodDriverPerc;
+    Boolean EHB_sOutputRodDriverSnsrFail;
+    UInt16 EHB_sOutputRodHydraulicTarget;
+    Boolean EHB_sOutputRodHydraulicTarget_Q;
 } EHB_B_CHA;
 
 #define _DEFINED_TYPEDEF_FOR_EHB_B_CHA_
@@ -2194,6 +2248,8 @@ typedef struct
     UInt8 ESC_EPB_ActuatorSt_R;
     UInt8 ESC_EPB_RightFaultState;
     UInt16 ESC_EPB_Right_Current;
+    UInt8 ESC_HbbHbcActive;
+    UInt8 ESC_HbbHbcAvailable;
     UInt16 ESC_LatAccSensorValue;
     Boolean ESC_LatAccSensorValueVld;
     UInt16 ESC_LongAccSensorValue;
@@ -2245,6 +2301,7 @@ typedef struct
     Boolean FCM_AEBStandstillSts;
     Boolean FCM_AEBStandstillStsV;
     UInt16 FCM_AEBTgtAx;
+    UInt8 FCM_AEB_Status;
     UInt8 FCM_AWBLevel;
     Boolean FCM_AWBReq;
     UInt8 FCM_AccMode;
@@ -2279,6 +2336,7 @@ typedef struct
     UInt8 FCM_FltSts;
     UInt8 FCM_HMASuppsAbortn;
     UInt8 FCM_LKALDWSuppsAbortn;
+    UInt8 FCM_LKATorqFactReq;
     Boolean FCM_LgtFctActvFlg;
     Boolean FCM_OvertakeAssSysSts;
     UInt8 FCM_SteerTqReqActive;
@@ -2319,6 +2377,8 @@ typedef struct
     UInt8 HU_ACPowerCtl;
     UInt8 HU_ACUnlockVentSet;
     UInt8 HU_AirInletModeSet;
+    UInt8 HU_BCMCargoLightSet;
+    UInt8 HU_BCMOTAModeSet;
     UInt8 HU_B_AliveCnt1;
     UInt8 HU_B_AliveCnt2;
     UInt8 HU_B_AliveCnt3;
@@ -2357,6 +2417,9 @@ typedef struct
     UInt8 TBOX_AC_TempSet;
     UInt8 TBOX_RemotePowerLock;
     Boolean TBOX_RemotePowerLockV;
+    UInt8 TBOX_RemtMaiDrSeatHeatReq;
+    UInt8 TBOX_RemtPowerCtrlReq;
+    UInt8 TBOX_RemtSteerWhlHeatReq;
     UInt8 TBOX_VCU_CCM_SpeedLimitLevel;
     Boolean TBOX_VCU_ChargingConditions;
     Boolean TBOX_VCU_OperatLicence;
@@ -2432,6 +2495,7 @@ typedef struct
     Float VHVM_DCCBuckLVVolt_V;
     Boolean VHVM_OTAModeSts_flg;
     UInt8 VHVM_ACChrgModeFb_enum;
+    Boolean VHVM_HVRdy_flg;
 } HVM_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_HVM_outputs_
@@ -2554,14 +2618,16 @@ typedef struct
     UInt8 DoorLlckCtlFlg;
     UInt8 WiperHiSpdCtlFlg;
     UInt8 WiperLowSpdCtlFlg;
-    UInt8 WinFLCtlFlg;
-    UInt8 WinFRCtlFlg;
+    UInt8 WinFRCloselFlg;
+    UInt8 WinFROpenFlg;
     UInt8 IG1RlyCtlFlg;
     UInt8 IG2RlyCtlFlg;
     UInt8 HornCtlFlg;
     UInt8 BatSaveCtlFlg;
     UInt8 BSDRightCtlFlg;
     UInt8 BSDLeftCtlFlg;
+    UInt8 WinFLCloselFlg;
+    UInt8 WinFLOpenFlg;
 } IODID;
 
 #define _DEFINED_TYPEDEF_FOR_IODID_
@@ -2742,6 +2808,9 @@ typedef struct
     Boolean VNVM_VCUVerFb_flg;
     UInt8 VNVM_VCUSpdLimSt_enum;
     Boolean VNVM_TBOXOffline_flg;
+    Boolean VNVM_HVRdy_flg;
+    UInt8 VNVM_PTActOprtMode_enum;
+    UInt8 VNVM_VehActGearPstn_enum;
 } NVM_Imdt_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_NVM_Imdt_outputs_
@@ -2749,7 +2818,6 @@ typedef struct
 typedef struct
 {
     Boolean VNVM_EE01ReadOK_flg;
-    UInt8 VBSW_WakeupReasn_enum;
     UInt8 VNVM_IBSChrgNum_cnt;
     UInt8 VNVM_IBSChrgFailNum_cnt;
     Boolean VNVM_iTPMSWrng_flg;
@@ -3209,7 +3277,6 @@ typedef struct
     UInt16 VCU_DrvReq_MotorTorq;
     Boolean VCU_DrvReq_MotorTorqV;
     Boolean VCU_EparkSysSta;
-    Boolean VCU_VhclSpeedFastWarn;
     Boolean VCU_EnaEHBBrkRun;
     Boolean VCU_AccReqStandstill;
     UInt16 VCU_1_MotTorqueReqToEHB;
@@ -3372,6 +3439,13 @@ typedef struct
     UInt8 VCU_WghDistb;
     UInt8 VCU_CruiseCtrlSta_forBAC;
     UInt16 VCU_CruiseCtrTgtSpd_forBAC;
+    Boolean VCU_ChargingConditionsFb;
+    Boolean VCU_RemtACCtrlReq;
+    Boolean VCU_RemtACDefrostlReq;
+    UInt8 VCU_RemtACCtrlSt;
+    UInt8 CCU_RemtPowerCtrlFb;
+    UInt8 CCU_RemtSteerWhlHeatFb;
+    UInt8 CCU_RemtMaiDrSeatHeatFb;
 } VCU_DispInfo_BAC;
 
 #define _DEFINED_TYPEDEF_FOR_VCU_DispInfo_BAC_

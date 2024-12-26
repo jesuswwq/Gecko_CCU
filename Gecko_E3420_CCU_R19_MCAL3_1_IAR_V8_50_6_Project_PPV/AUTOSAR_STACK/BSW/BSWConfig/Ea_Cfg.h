@@ -12,7 +12,7 @@
 **                                                                            **
 **  FILENAME    : Ea_Cfg.h                                                    **
 **                                                                            **
-**  Created on  : 2024/10/10 15:41:17                                         **
+**  Created on  : 2024/12/13 17:08:22                                         **
 **  Author      : tao.yu                                                      **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Ea pre compile globle macro define                          **
@@ -47,7 +47,7 @@
 /*The size in bytes to which logical blocks shall be aligned.*/
 #define EA_VIRTUAL_PAGE_SIZE                                 (32u)
 
-#define EA_NUMBER_OF_BLOCKS                                  (0x4au)
+#define EA_NUMBER_OF_BLOCKS                                  (0x48u)
 
 /*Management overhead per logical block in bytes.*/
 #define EA_BLOCK_OVER_HEAD                                   (14U)

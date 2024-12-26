@@ -46,6 +46,14 @@ typedef struct
     P2VAR(boolean, AUTOMATIC, AUTOMATIC) readDidSignalFlag; /* PRQA S 3432 */       /* MISRA Rule 20.7 */
 } Dcm_0x22Types;
 
+#if (STD_ON == DCM_DSP_DID_FUNC_ENABLED)
+static FUNC(Std_ReturnType, DCM_CODE) Dcm_UdsAssembleResponse(
+    Dcm_OpStatusType OpStatus,
+    uint16 DidCfgIndex,
+    /* PRQA S 3432++ */ /* MISRA Rule 20.7 */
+    P2VAR(uint32, AUTOMATIC, AUTOMATIC) ResOffset,
+    P2VAR(Dcm_NegativeResponseCodeType, AUTOMATIC, AUTOMATIC) pNrc);
+#endif
 /************************/
 /*************************************************************************/
 /*
@@ -268,8 +276,16 @@ static FUNC(Std_ReturnType, DCM_CODE) Dcm_UdsAssembleResponse_0x2C(
     }
     else
     {
-        *pNrc = DCM_E_REQUESTOUTOFRANGE;
-        ret = E_NOT_OK;
+        // *pNrc = DCM_E_REQUESTOUTOFRANGE;
+        // ret = E_NOT_OK;
+        /*set the response message*/
+        ret = Dcm_UdsAssembleResponse(OpStatus, Dcm_0x22Type->DidCfgIndex, Dcm_0x22Type->ResOffset, pNrc);
+        if (DCM_E_PENDING == ret)
+        {
+            SchM_Enter_Dcm(Dcm_MsgCtrl);
+            Dcm_MsgCtrl[MsgCtrlId].Dcm_OpStatus = DCM_PENDING;
+            SchM_Exit_Dcm(Dcm_MsgCtrl);
+        }
     }
     return ret;
 }
@@ -421,26 +437,26 @@ static FUNC(Std_ReturnType, DCM_CODE)
         if ((Dcm_0x22Type->RecDid == Dcm_DspCfg.pDcmDspDid[Index].DcmDspDidId)
             && (TRUE == Dcm_DspCfg.pDcmDspDid[Index].DcmDspDidUsed))
         {
-#if ((STD_ON == DCM_UDS_SERVICE0X2C_ENABLED) && (DCM_DSP_DDDID_MAX_NUMBER > 0u))
-            if ((Dcm_0x22Type->RecDid >= 0xF200u) && (Dcm_0x22Type->RecDid <= 0xF3FFu)
-                && (Dcm_DspCfg.pDcmDspDidInfo[Dcm_DspCfg.pDcmDspDid[Index].DcmDspDidInfoIndex]
-                        .DcmDspDidDynamicallyDefined
-                    == TRUE)
-                && (Dcm_DspCfg.pDcmDspDidInfo[Dcm_DspCfg.pDcmDspDid[Index].DcmDspDidInfoIndex].DcmDspDDDIDMaxElements
-                    > 0u))
-            {
-                for (iloop = 0; (iloop < DCM_DSP_DDDID_MAX_NUMBER) && (Flag == FALSE); iloop++)
-                {
-                    if (Dcm_DspCfg.pDcmDspDid[Index].DcmDspDidId == Dcm_DDDid[iloop].DDDid)
-                    {
-                        Flag = TRUE;
-                        (*Dcm_0x22Type->pDidCfgIndex) = Index;
-                        ret = E_OK;
-                    }
-                }
-            }
-            else
-#endif
+// #if ((STD_ON == DCM_UDS_SERVICE0X2C_ENABLED) && (DCM_DSP_DDDID_MAX_NUMBER > 0u))
+//             if ((Dcm_0x22Type->RecDid >= 0xF200u) && (Dcm_0x22Type->RecDid <= 0xF3FFu)
+//                 && (Dcm_DspCfg.pDcmDspDidInfo[Dcm_DspCfg.pDcmDspDid[Index].DcmDspDidInfoIndex]
+//                         .DcmDspDidDynamicallyDefined
+//                     == TRUE)
+//                 && (Dcm_DspCfg.pDcmDspDidInfo[Dcm_DspCfg.pDcmDspDid[Index].DcmDspDidInfoIndex].DcmDspDDDIDMaxElements
+//                     > 0u))
+//             {
+//                 for (iloop = 0; (iloop < DCM_DSP_DDDID_MAX_NUMBER) && (Flag == FALSE); iloop++)
+//                 {
+//                     if (Dcm_DspCfg.pDcmDspDid[Index].DcmDspDidId == Dcm_DDDid[iloop].DDDid)
+//                     {
+//                         Flag = TRUE;
+//                         (*Dcm_0x22Type->pDidCfgIndex) = Index;
+//                         ret = E_OK;
+//                     }
+//                 }
+//             }
+//             else
+// #endif
             {
                 Flag = TRUE;
                 (*Dcm_0x22Type->pDidCfgIndex) = Index;

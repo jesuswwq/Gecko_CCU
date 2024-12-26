@@ -154,6 +154,94 @@ static Std_ReturnType Mcu_Ip_CkgenSpBusSetDivRate(uint32 base, uint32 ratio)
     return errStatus;
 }
 
+#ifdef SEMIDRIVE_E3_SERIES
+/* Bus Slice NP divider update. This function change bus slice NP div.*/
+static Std_ReturnType Mcu_Ip_CkgenBusSliceSetNPUpdate(uint32 base, uint32 id, uint8 divN,
+        uint8 divP)
+{
+    uint8 currentDivN, currentDivP;
+    Std_ReturnType errStatus = E_OK;
+    uint32 syncCtrl = CKGEN_BUS_SYNC_CTL_BASE(base, id);
+    uint32 val;
+    boolean timeoutFlag;
+
+    val = readl(syncCtrl);
+
+    currentDivN = ((val >> CKGEN_BUS_SYNC_CTL_DIV_N_LSB) & CKGEN_BUS_SYNC_CTL_DIV_MASK) + 1U;
+    currentDivP = ((val >> CKGEN_BUS_SYNC_CTL_DIV_P_LSB) & CKGEN_BUS_SYNC_CTL_DIV_MASK) + 1U;
+
+    if ((divN == currentDivN) && (divP == currentDivP))
+    {
+        errStatus = E_OK;
+    }
+    else
+    {
+        if (divN >= currentDivN)
+        {
+            /* frequency decrease, update divP first */
+            if (divP % currentDivN)
+            {
+                errStatus = MCU_E_CKGEN_AP_BUS_MNPQ_RATIO_ERROR;
+            }
+            else
+            {
+                RMWREG32(syncCtrl, CKGEN_BUS_SYNC_CTL_DIV_P_LSB, 4U, (divP - 1U));
+                timeoutFlag = Mcu_Ip_WaitForBitTimes(syncCtrl, CKGEN_BUS_SYNC_CTL_DIV_CHG_BUSY_P_LSB,
+                                                     0U, CKGEN_WAIT_TIME);
+
+                if (FALSE == timeoutFlag)
+                {
+                    errStatus = MCU_E_TIMEOUT;
+                }
+                else
+                {
+                    RMWREG32(syncCtrl, CKGEN_BUS_SYNC_CTL_DIV_N_LSB, 4U, (divN - 1U));
+                    timeoutFlag = Mcu_Ip_WaitForBitTimes(syncCtrl, CKGEN_BUS_SYNC_CTL_DIV_CHG_BUSY_N_LSB,
+                                                         0U, CKGEN_WAIT_TIME);
+
+                    if (FALSE == timeoutFlag)
+                    {
+                        errStatus = MCU_E_TIMEOUT;
+                    }
+                }
+            }
+        }
+        else
+        {
+            /* frequency increase, update divN first */
+            if (currentDivP % divN)
+            {
+                errStatus = MCU_E_CKGEN_AP_BUS_MNPQ_RATIO_ERROR;
+            }
+            else
+            {
+                RMWREG32(syncCtrl, CKGEN_BUS_SYNC_CTL_DIV_N_LSB, 4U, (divN - 1U));
+                timeoutFlag = Mcu_Ip_WaitForBitTimes(syncCtrl, CKGEN_BUS_SYNC_CTL_DIV_CHG_BUSY_N_LSB,
+                                                     0U, CKGEN_WAIT_TIME);
+
+                if (FALSE == timeoutFlag)
+                {
+                    errStatus = MCU_E_TIMEOUT;
+                }
+                else
+                {
+                    RMWREG32(syncCtrl, CKGEN_BUS_SYNC_CTL_DIV_P_LSB, 4U, (divP - 1U));
+                    timeoutFlag = Mcu_Ip_WaitForBitTimes(syncCtrl, CKGEN_BUS_SYNC_CTL_DIV_CHG_BUSY_P_LSB,
+                                                         0U, CKGEN_WAIT_TIME);
+
+                    if (FALSE == timeoutFlag)
+                    {
+                        errStatus = MCU_E_TIMEOUT;
+                    }
+                }
+            }
+        }
+    }
+
+    return errStatus;
+}
+#endif
+
 /** Traceability       : SW_SM005*/
 static Std_ReturnType Mcu_Ip_CkgenBusSliceSetMnpqDivOnetime(uint32 base, uint32 id, uint8 divM,
         uint8 divN, uint8 divP, uint8 divQ)
@@ -400,9 +488,24 @@ static Std_ReturnType Mcu_Ip_CkgenBusDivRootSetRate(uint32 base, uint32 id, uint
 
             }
 
+#ifdef SEMIDRIVE_E3_SERIES
+
             /* set div m/n/p to avoid freq is too high */
+            if ((APB_CKGEN_AP_BASE == base) && (((id) & CKGEN_BUS_ID_NUM_MASK) == 0U))
+            {
+                /*PRQA S 2986 1*/
+                errStatus = errStatus | Mcu_Ip_CkgenBusSliceSetNPUpdate(base, id, 6U, 12U);
+            }
+            else
+            {
+                /*PRQA S 2986 1*/
+                errStatus = errStatus | Mcu_Ip_CkgenBusSliceSetMnpqDivOnetime(base, id, 2U, 4U, 8U, 0U);
+            }
+
+#else
             /*PRQA S 2986 1*/
             errStatus = errStatus | Mcu_Ip_CkgenBusSliceSetMnpqDivOnetime(base, id, 2U, 4U, 8U, 0U);
+#endif
 
             if (E_OK == errStatus)
             {
@@ -464,27 +567,32 @@ static Std_ReturnType Mcu_Ip_CkgenBusDivMnpqSetRate(uint32 base, uint32 id,
                 errStatus = MCU_E_TIMEOUT;
             } /* else not needed */
         }
+
+#ifdef SEMIDRIVE_E3_SERIES
         else
         {
             if (type == CKGEN_BUS_ID_TYPE_DIV_N)
             {
-#ifndef SEMIDRIVE_E3_LITE_SERIES
-
                 if (((2U * divNum) - 1U) > CKGEN_BUS_SYNC_CTL_DIV_MASK)
                 {
                     errStatus = MCU_E_PARAM_CONFIG;
                 }
                 else
                 {
-                    errStatus = Mcu_Ip_CkgenBusSliceSetMnpqDivOnetime(base, id, 0U, (uint8)divNum, (2U * (uint8)divNum),
-                                0U);
-                }
+                    if (((id) & CKGEN_BUS_ID_NUM_MASK) == 0U)
+                    {
+                        errStatus = Mcu_Ip_CkgenBusSliceSetNPUpdate(base, id, (uint8)divNum, (2U * (uint8)divNum));
 
-#else
-                errStatus = Mcu_Ip_CkgenBusSliceSetMnpqDivOnetime(base, id, 0U, (uint8)divNum, (uint8)divNum, 0U);
-#endif
+                    }
+                    else
+                    {
+                        errStatus = Mcu_Ip_CkgenBusSliceSetMnpqDivOnetime(base, id, 0U, (uint8)divNum, (2U * (uint8)divNum),
+                                    0U);
+                    }
+                }
             }
         }
+#endif
     }
 
 

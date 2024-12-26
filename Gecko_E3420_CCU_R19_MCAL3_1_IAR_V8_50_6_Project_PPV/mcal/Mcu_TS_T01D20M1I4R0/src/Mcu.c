@@ -330,34 +330,6 @@ static void Mcu_PowerGate(const Mcu_PowerDomType *domPtr)
         Mcu_Ip_SocPowerGate(*domainPtr);
     }
 }
-#if (MCU_PLL_SPREAD == STD_ON)
-/** Traceability       : SW_SM006*/
-static Std_ReturnType Mcu_PllSpread(const Mcu_PllSpreadConfigType *pllSpreadPtr)
-{
-    Std_ReturnType errStatus = MCU_E_PARAM_POINTER;
-    uint32 i;
-    const Mcu_PllSpreadConfigType *pllSpreadTest;
-
-    if (NULL_PTR != pllSpreadPtr)
-    {
-        pllSpreadTest = pllSpreadPtr;
-
-        for (i = 0U; i <  Mcu_GetPllSpreadArraySize(); i++)
-        {
-            errStatus = Mcu_Ip_PllDrvConfigSpread(pllSpreadTest);
-
-            if (E_OK != errStatus)
-            {
-                break;
-            } /* else not needed */
-
-            pllSpreadTest++;
-        }
-    } /* else not needed */
-
-    return errStatus;
-}
-#endif /**#if (MCU_PLL_SPREAD == STD_ON)*/
 
 /** Traceability       : SW_SM006*/
 static Std_ReturnType Mcu_RamSectionConfig(const Mcu_RamConfigType *cfgPtr)
@@ -741,11 +713,6 @@ Std_ReturnType Mcu_InitClock(Mcu_ClockType ClockSetting)
     /* #70 assert unused module */
     CALL_RET_CHECK(errStatus, Mcu_AssertUnusedModule(clkConfigsPtr->rstAssert));
 
-    /* #80 pll spread */
-#if (MCU_PLL_SPREAD == STD_ON)
-    CALL_RET_CHECK(errStatus, Mcu_PllSpread(clkConfigsPtr->pllSpread));
-#endif /**#if (MCU_PLL_SPREAD == STD_ON)*/
-
     /* #90 power gate unused memory for different part */
     if (E_OK == errStatus)
     {
@@ -1021,7 +988,8 @@ Mcu_ResetType Mcu_GetResetReason(void)
     {
         /* ----- Implementation ----------------------------------------------- */
         /* #20  read raw reset reason from register */
-        resetType = Mcu_Ip_GetResetReason(APB_RSTGEN_SF_BASE);
+        //resetType = Mcu_Ip_GetResetReason(APB_RSTGEN_SF_BASE);/*change the resetreason value address,so need to mask the code*/
+        resetType = Mcu_Ip_GetResetReason_bihuchange(RESET_RESON_BASE);
     }/* else not needed */
 
     /* ----- Development Error Report --------------------------------------- */

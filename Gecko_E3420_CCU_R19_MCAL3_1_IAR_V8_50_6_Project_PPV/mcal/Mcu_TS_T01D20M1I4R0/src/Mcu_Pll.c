@@ -27,6 +27,7 @@
 #include "RegHelper.h"
 #include "Mcu_Pll.h"
 #include "Mcu_GeneralTypes.h"
+#include "Mcu_Cfg.h"
 
 /********************************************************************************************************
  *                                  Global Constant Declarations                                        *
@@ -211,6 +212,10 @@ static Std_ReturnType Mcu_Ip_PllVcoPrepare(uint32 base, Mcu_PllRateType srcRate,
     Std_ReturnType errStatus;
     uint32 valuePd;
     uint32 valueRst;
+#if (MCU_PLL_SPREAD == STD_ON)
+    uint32 i;
+    const Mcu_ClkNodeType *pllSpreadNode;
+#endif
 
     ctrlVal = readl(base + PLL_CTRL);
     valuePd = MCU_BIT(ctrlVal, PLL_CTRL_PD);
@@ -223,6 +228,27 @@ static Std_ReturnType Mcu_Ip_PllVcoPrepare(uint32 base, Mcu_PllRateType srcRate,
     } /* else not needed */
 
     Mcu_Ip_PllVcoDisable(base);
+
+#if (MCU_PLL_SPREAD == STD_ON)
+    if(TRUE == dsmEn)
+    {
+        for (i = 0U; i < Mcu_GetPllSpreadArraySize(); i++)
+        {
+            pllSpreadNode = Mcu_PllSpreadConfigs[i].pllNode;
+            if(base == pllSpreadNode->core->base)
+            {
+                break;
+            }
+        }
+
+        if (i != Mcu_GetPllSpreadArraySize())
+        {
+            Mcu_Ip_PllSetSscAmplitude(base, Mcu_PllSpreadConfigs[i].amplitude);
+            Mcu_Ip_PllSetSscFrequency(base, Mcu_PllSpreadConfigs[i].frequency);
+            Mcu_Ip_PllSetSscMode(base, Mcu_PllSpreadConfigs[i].mode);
+        }
+    }
+#endif
 
     errStatus = Mcu_Ip_PllVcoGetBestPostDiv(srcRate, rate, &postDiv, &mVal, &nVal);
 
@@ -711,23 +737,10 @@ void Mcu_Ip_PllSetSscFrequency(uint32 base, Mcu_CkgenSscFreqType sscFreq)
  *
  * \param [in] base PLL base.
  * \param [in] sscMode SSC mode.
- * \return 0 represents success, otherwise failed.
  */
-Std_ReturnType Mcu_Ip_PllSetSscMode(uint32 base, Mcu_CkgenSscModeType sscMode)
+void Mcu_Ip_PllSetSscMode(uint32 base, Mcu_CkgenSscModeType sscMode)
 {
-    Std_ReturnType errStatus;
-
-    if ((0U != MCU_BIT(readl(base + PLL_CTRL), PLL_CTRL_DSM_DISABLE)) && (CKGEN_NO_SSC != sscMode))
-    {
-        errStatus = MCU_E_PARAM_CONFIG;
-    }
-    else
-    {
-        RMWREG32(base + PLL_DSM, PLL_DSM_SSC_MODE_LSB, 2U, sscMode);
-        errStatus = E_OK;
-    }
-
-    return errStatus;
+	RMWREG32(base + PLL_DSM, PLL_DSM_SSC_MODE_LSB, 2U, sscMode);
 }
 
 #define MCU_STOP_SEC_CODE

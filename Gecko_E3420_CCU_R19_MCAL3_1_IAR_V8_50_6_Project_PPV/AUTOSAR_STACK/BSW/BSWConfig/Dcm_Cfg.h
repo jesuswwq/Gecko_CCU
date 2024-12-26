@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-14 11:01:21>
+ *  @date       <2024-12-03 14:38:57>
  */
 /*============================================================================*/
 
@@ -75,7 +75,7 @@
 /*UDS protocol*/
 #define  DCM_UDS_FUNC_ENABLED                       (STD_ON) /*Enable/Disable UDS Protocol*/
 
-    #define  DCM_UDS_SERVICE_NUM                    (17u)
+    #define  DCM_UDS_SERVICE_NUM                    (14u)
     #define  DCM_UDS_SERVICE0X10_ENABLED            (STD_ON) /*DiagnosticSessionControl*/
     #define  DCM_UDS_SERVICE0X11_ENABLED            (STD_ON) /*ECUReset*/
     #define  DCM_UDS_SERVICE0X14_ENABLED            (STD_ON) /*ClearDiagnosticInformation*/
@@ -90,10 +90,10 @@
     #define  DCM_UDS_SERVICE0X2E_ENABLED            (STD_ON) /*WriteDataByIdentifier*/
     #define  DCM_UDS_SERVICE0X2F_ENABLED            (STD_ON) /*InputOutputControlByIdentifier*/
     #define  DCM_UDS_SERVICE0X31_ENABLED            (STD_ON) /*RoutineControl*/
-    #define  DCM_UDS_SERVICE0X34_ENABLED            (STD_ON) /*RequestDownload*/
+    #define  DCM_UDS_SERVICE0X34_ENABLED            (STD_OFF) /*RequestDownload*/
     #define  DCM_UDS_SERVICE0X35_ENABLED            (STD_OFF) /*RequestUpload*/
-    #define  DCM_UDS_SERVICE0X36_ENABLED            (STD_ON) /*TransferData*/
-    #define  DCM_UDS_SERVICE0X37_ENABLED            (STD_ON) /*RequestTransferExit*/
+    #define  DCM_UDS_SERVICE0X36_ENABLED            (STD_OFF) /*TransferData*/
+    #define  DCM_UDS_SERVICE0X37_ENABLED            (STD_OFF) /*RequestTransferExit*/
     #define  DCM_UDS_SERVICE0X38_ENABLED            (STD_OFF) /*RequestFileTransfer*/
     #define  DCM_UDS_SERVICE0X3D_ENABLED            (STD_OFF) /*WriteMemoryByAddress*/
     #define  DCM_UDS_SERVICE0X3E_ENABLED            (STD_ON) /*TesterPresent*/
@@ -157,7 +157,7 @@
 #define  DCM_SESSION_FUNC_ENABLED                    (STD_ON)           /*Enable/disable SessionControl Function*/
 /**=======================================================**/
 #define  DCM_SECURITY_FUNC_ENABLED                    (STD_ON)           /*Enable/disable SecurityAccess Function*/
-#define  DCM_SECURITY_NUM                           (3u)            /*security total number*/
+#define  DCM_SECURITY_NUM                           (2u)            /*security total number*/
 #define  DCM_SEED_MAX_SIZE                          (4u)            /*security total number*/
 #define  DCM_SECURITY_MAX_READOUT_TIME              (500u)
 #if (STD_ON == DCM_SECURITY_FUNC_ENABLED)

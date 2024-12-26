@@ -43,6 +43,7 @@ extern uint8 Get_KeyNotInCar_Warn(void);
 extern uint8 u8KeyTempBuffVal[256]; // ��ȡ�ʹ洢������ʱ����
 extern uint8 u8PS_Auth_KeyPosReq;   // PS����������֤��λң��Կ��
 extern uint8 u8PE_Auth_KeyPosReq;   // PE����������֤��λң��Կ��
+extern uint8 u8_Auth_KeyTestReq;
 
 extern uint8 u8FobKeyEnterWorkState;
 
@@ -89,4 +90,5 @@ extern void Clear_RKECommd(void);
 extern void PEPS_Interface2CAN(void);
 extern void PEPS_KL30_RessetMonit(void);
 extern void PEPS_KL30Resset_ParamWrt(void);
+extern void Clear_PollingCommd(void);
 #endif

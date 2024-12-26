@@ -89,7 +89,7 @@ extern "C" {
 
 #define CAN_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Can_MemMap.h"
-
+#pragma default_function_attributes = @".iram_func"
 /**
  * @brief Controller state machine variable.
  */
@@ -1323,3 +1323,4 @@ static FUNC(Std_ReturnType, CAN_CODE) Can_ValidateBaudRateConfigID
 #ifdef __cplusplus
 }
 #endif
+#pragma default_function_attributes =

@@ -114,27 +114,6 @@ static uint8 Mcu_Ip_PllDrvIsLocked(const Mcu_ClkNodeType *clkPtr)
     return pllLocked;
 }
 
-/** Traceability       : SW_SM006*/
-Std_ReturnType Mcu_Ip_PllDrvConfigSpread(const Mcu_PllSpreadConfigType *pllConfigPtr)
-{
-    Std_ReturnType errStatus = MCU_E_PARAM_POINTER;
-    const Mcu_ClkNodeType *nodePtr;
-
-    if (NULL_PTR != pllConfigPtr)
-    {
-        nodePtr = pllConfigPtr->pllNode;
-
-        if (NULL_PTR != nodePtr)
-        {
-            Mcu_Ip_PllSetSscAmplitude(nodePtr->core->base, pllConfigPtr->amplitude);
-            Mcu_Ip_PllSetSscFrequency(nodePtr->core->base, pllConfigPtr->frequency);
-            errStatus = Mcu_Ip_PllSetSscMode(nodePtr->core->base, pllConfigPtr->mode);
-        } /* else not needed */
-    } /* else not needed */
-
-    return errStatus;
-}
-
 #define MCU_STOP_SEC_CODE
 #include "Mcu_MemMap.h"
 

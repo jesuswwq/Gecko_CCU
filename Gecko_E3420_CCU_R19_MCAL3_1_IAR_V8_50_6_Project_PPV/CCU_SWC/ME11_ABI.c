@@ -7,7 +7,7 @@
 #include "IoExp_TCA6408_Api.h"
 #include "TLE75242_Api.h"
 #include "Icu.h"
-
+#include "RegBase.h"
 #define VCC 2600.0
 #define  DataLength_BCM_IMM_NVMData 128u
 #define  DataLength_BCM_PD_NVMData  10u
@@ -17,7 +17,6 @@
 // #define RTC_TEST   /*for test RTC wakeup*/
 #define SWCTimer_Min 0U 
 #define SWCTimer_Max 65535U
-
 extern uint32 AD4067Avalue[adsize_4067A];
 extern uint32 AD4067Bvalue[adsize_4067B];
 extern uint32 AD4067Cvalue[adsize_4067C];
@@ -38,8 +37,8 @@ extern uint16 tle8108;
 extern uint16 tle75004;
 extern uint8 App_ComMReqFlag;
 extern uint8 App_SleepReqFlag ;
-
-
+extern Mcu_ResetType ResetReason;
+uint8 bcm_old_data[128];
 
 
 uint16 ABIRTC_Timer = 0;
@@ -48,8 +47,8 @@ uint8 u8Key_Match_flg;
 uint8 key_word[256] = {0};
 boolean INV_IMMO_Req_EPT_RevFlag =0;
 //================BSWversion============================
-uint8  VBSW_BswVer0_cnt = 24;
-uint8  VBSW_BswVer1_cnt = 5;
+uint8  VBSW_BswVer0_cnt = 25;
+uint8  VBSW_BswVer1_cnt = 1;
 //======================================================
 
 /*新增高压互锁电压20241025*/
@@ -1262,8 +1261,17 @@ void SetHw_BackLightDrv(uint8 frq,uint8 duty)  // 背光灯驱动
 uint16 GetHw_DrvSeatTempFrb(void)   // 座椅加热温度反馈
 {
   	float ad_V = 0.0;
+	uint16 AD_R =0;
 	ad_V = ((float)AD4067Avalue[7]) / 4095.0 * 3300.0* 6.0 / 5.0;
-	return (uint16)ad_V;
+	if(ad_V >2400)
+    {
+        AD_R =0xFFFF;
+    }
+    else
+    {
+        AD_R =(uint16)(ad_V / (VCC - ad_V) *3000.0);
+    }
+	return AD_R;
 }
 void SetHw_DrvSeatHeat(uint8 frq,uint8 duty)  // 座椅加热PWM驱动
 {
@@ -1334,6 +1342,7 @@ Std_ReturnType NvmBCmBlock_Imm_ReadData(uint8 *data, uint8 Length)
         for(index = 0;index < Length;index++)
         {
             data[index] = *(NvM_BlockDescriptor[NvMBlock_Swc_BCM_IMM_20 - 1].NvmRamBlockDataAddress + index);
+			bcm_old_data[index] = *(NvM_BlockDescriptor[NvMBlock_Swc_BCM_IMM_20 - 1].NvmRamBlockDataAddress + index);
         }
     	return E_OK;
 //    }
@@ -1344,11 +1353,12 @@ Std_ReturnType NvmBCmBlock_Imm_ReadData(uint8 *data, uint8 Length)
    
 
 }
+
 Std_ReturnType  NvmBcmBlock_Imm_WriteData(uint8 *data, uint8 Length)//即时存
 {
     uint8  index = 0;
-	static uint8 bcm_old_data[128];
     NvM_RequestResultType NvmStatus = 0;
+	boolean flag = FALSE;
     if(Length >DataLength_BCM_IMM_NVMData)
     {
          return E_NOT_OK;
@@ -1362,12 +1372,16 @@ Std_ReturnType  NvmBcmBlock_Imm_WriteData(uint8 *data, uint8 Length)//即时存
 		}
 		else
 		{
+			flag = TRUE;
 			*(NvM_BlockDescriptor[NvMBlock_Swc_BCM_IMM_20 - 1].NvmRamBlockDataAddress + index) = data[index];
 			bcm_old_data[index] = data[index];
-			NvM_WriteBlock(NvMBlock_Swc_BCM_IMM_20, NULL_PTR);
-			return E_OK;
 		}
     }
+	if(flag == TRUE)
+	{
+		NvM_WriteBlock(NvMBlock_Swc_BCM_IMM_20, NULL_PTR);
+	}
+	return E_OK;
 }	
 
 Std_ReturnType NvmBcmBlock02ReadData(uint8 *data, uint8 Length)
@@ -1401,8 +1415,7 @@ uint8 olddata[128];
 Std_ReturnType NvmVcuBlockImdtWriteData(uint8 *data, uint8 Length)
 {
     uint8  index = 0;
-	static uint8 testcounter;
-	testcounter++;
+	boolean flag = FALSE;
     if(Length >DataLength_VCU_IMM128_NVMData)
     {
         return E_NOT_OK;
@@ -1415,14 +1428,16 @@ Std_ReturnType NvmVcuBlockImdtWriteData(uint8 *data, uint8 Length)
 		}
 		else
 		{
-			#if 1
-			*(NvM_BlockDescriptor[NvMBlock_Swc_VCU_02_128 - 1].NvmRamBlockDataAddress + index) = data[index];
+			flag = TRUE;
+			*(NvM_BlockDescriptor[NvMBlock_Swc_Vcu_2_128 - 1].NvmRamBlockDataAddress + index) = data[index];
 			olddata[index] = data[index];
-			NvM_WriteBlock(NvMBlock_Swc_VCU_02_128, NULL_PTR);
-			#endif
 		}
         
     }
+	if(flag == TRUE)
+	{
+		NvM_WriteBlock(NvMBlock_Swc_Vcu_2_128, NULL_PTR);
+	}
 	
     return E_OK;
 }
@@ -1432,7 +1447,8 @@ Std_ReturnType NvmVcuBlockImdtReadData(uint8 *data, uint8 Length)
 	uint8  index = 0;
     for(index = 0;index < Length;index++)
     {
-        data[index] = *(NvM_BlockDescriptor[NvMBlock_Swc_VCU_02_128 - 1].NvmRamBlockDataAddress + index);
+        data[index] = *(NvM_BlockDescriptor[NvMBlock_Swc_Vcu_2_128 - 1].NvmRamBlockDataAddress + index);
+		olddata[index] = *(NvM_BlockDescriptor[NvMBlock_Swc_Vcu_2_128 - 1].NvmRamBlockDataAddress + index);
     }
 
     return E_OK;
@@ -1771,7 +1787,37 @@ boolean GetHw_CrashSig_Flag(void)//Crash signal flag
 	#endif
 }
 #pragma default_function_attributes =
-	
+
+uint32 Get_RTC_SleepTime(void)
+{
+	Mcu_RtcSleepTimeType RTC_SleepTime;
+	Mcu_RtcTimerModeType RTC_TimerMode = RTC_TIMER_MODE_MIN;
+	uint32 RTC_RET_Time;
+
+	Mcu_Ip_RtcGetSleepTime(APB_RTC1_BASE, &RTC_SleepTime, &RTC_TimerMode);
+
+	RTC_RET_Time = (uint32)(RTC_SleepTime / 60) + 1;
+
+	return RTC_RET_Time;
+}
+
+uint8 Get_EcuResetStatus(void)
+{
+	uint8 Ret  = 0;
+	if(ResetReason == MCU_WATCHDOG_RESET)
+	{
+		Ret = 0x5;
+	}
+	else{
+		Ret = 0x0;
+	}
+	return Ret;
+}
+void Set_EcuReset(void)
+{
+	//Mcu_PerformReset();
+	while (1);
+}
 #if 1
 uint8 GetHw_HiBeamDigSts(void)
 {

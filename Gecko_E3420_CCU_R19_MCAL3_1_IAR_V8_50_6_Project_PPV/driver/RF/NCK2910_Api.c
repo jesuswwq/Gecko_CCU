@@ -69,7 +69,7 @@ Std_ReturnType NCK2910_Frame_Transmit(uint8 cmd, uint8 sub_cmd, uint8* payload_t
 {
   Std_ReturnType ret = E_OK;
   uint8 data_idx;
-  uint8 framelen = 0;
+  uint16 framelen = 0;
 
   QSpi_NCK2910_DataTx[0] = payload_len + 3;  //cmd + subcmd + crc
   QSpi_NCK2910_DataTx[1] = cmd;
@@ -80,20 +80,20 @@ Std_ReturnType NCK2910_Frame_Transmit(uint8 cmd, uint8 sub_cmd, uint8* payload_t
     QSpi_NCK2910_DataTx[(3+data_idx)] = payload_tx[data_idx];
   }
 
-  framelen = QSpi_NCK2910_DataTx[0] + 1;
+  framelen = (uint16)QSpi_NCK2910_DataTx[0] + 1;
 
   QSpi_NCK2910_DataTx[payload_len + 3] = calculateCRC8(QSpi_NCK2910_DataTx, framelen);
-
+SuspendAllInterrupts();
   ret = Spi_SetupEB(SpiConf_SpiChannel_SpiChannel_NCK2910, 
               (uint8*)&QSpi_NCK2910_DataTx[0], 
               (uint8*)rxdata, 
-              framelen);
+              (uint16)framelen);
 
   if(ret == E_OK)
   {
     ret = Spi_SyncTransmit(SpiConf_SpiSequence_SpiSequence_NCK2910);
   }
-  
+  ResumeAllInterrupts();
   return ret;
 }
 

@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcVcu'.
  *
- * Model version                  : 9.642
+ * Model version                  : 9.704
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Wed Nov 20 11:28:45 2024
+ * C/C++ source code generated on : Wed Dec 25 17:16:37 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -110,6 +110,32 @@ typedef uint8 EnumRegenModeAct;
 #define EnumRegenModeAct_Strong        ((EnumRegenModeAct)2U)
 #endif
 
+#ifndef DEFINED_TYPEDEF_FOR_EnumPTActMd_
+#define DEFINED_TYPEDEF_FOR_EnumPTActMd_
+
+/* N/A */
+typedef uint8 EnumPTActMd;
+
+/* enum EnumPTActMd */
+#define EnumPTActMd_OFF                ((EnumPTActMd)0U)         /* Default value */
+#define EnumPTActMd_Standby            ((EnumPTActMd)1U)
+#define EnumPTActMd_Ready              ((EnumPTActMd)2U)
+#define EnumPTActMd_EmgcySdn           ((EnumPTActMd)3U)
+#endif
+
+#ifndef DEFINED_TYPEDEF_FOR_EnumGearPstn_
+#define DEFINED_TYPEDEF_FOR_EnumGearPstn_
+
+/* N/A */
+typedef uint8 EnumGearPstn;
+
+/* enum EnumGearPstn */
+#define EnumGearPstn_P                 ((EnumGearPstn)0U)        /* Default value */
+#define EnumGearPstn_N                 ((EnumGearPstn)1U)
+#define EnumGearPstn_D                 ((EnumGearPstn)2U)
+#define EnumGearPstn_R                 ((EnumGearPstn)3U)
+#endif
+
 #ifndef DEFINED_TYPEDEF_FOR_EnumIBSChrgSt_
 #define DEFINED_TYPEDEF_FOR_EnumIBSChrgSt_
 
@@ -149,6 +175,7 @@ typedef uint8 EnumSysSta;
 #define EnumSysSta_HVCutOff            ((EnumSysSta)71U)
 #define EnumSysSta_HVDschrg            ((EnumSysSta)72U)
 #define EnumSysSta_EmgcyPwrDwn         ((EnumSysSta)73U)
+#define EnumSysSta_ECURst              ((EnumSysSta)80U)
 #endif
 
 #ifndef DEFINED_TYPEDEF_FOR_EnumTBOXLimGrd_
@@ -294,6 +321,7 @@ typedef uint8 EnumVCUMode;
 #define EnumVCUMode_PwrOnACChrg        ((EnumVCUMode)5U)
 #define EnumVCUMode_PwrOnACDcha        ((EnumVCUMode)6U)
 #define EnumVCUMode_PwrDwn             ((EnumVCUMode)7U)
+#define EnumVCUMode_ECURst             ((EnumVCUMode)8U)
 #endif
 
 #ifndef DEFINED_TYPEDEF_FOR_EnumBMSSdnCmd_
@@ -320,19 +348,6 @@ typedef uint8 EnumChrgAllwCmd;
 #define EnumChrgAllwCmd_DCChrg         ((EnumChrgAllwCmd)1U)
 #define EnumChrgAllwCmd_ACChrg         ((EnumChrgAllwCmd)2U)
 #define EnumChrgAllwCmd_ACDcha         ((EnumChrgAllwCmd)3U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_EnumPTActMd_
-#define DEFINED_TYPEDEF_FOR_EnumPTActMd_
-
-/* N/A */
-typedef uint8 EnumPTActMd;
-
-/* enum EnumPTActMd */
-#define EnumPTActMd_OFF                ((EnumPTActMd)0U)         /* Default value */
-#define EnumPTActMd_Standby            ((EnumPTActMd)1U)
-#define EnumPTActMd_Ready              ((EnumPTActMd)2U)
-#define EnumPTActMd_EmgcySdn           ((EnumPTActMd)3U)
 #endif
 
 #ifndef DEFINED_TYPEDEF_FOR_EnumDCCOprtCmd_
@@ -371,19 +386,6 @@ typedef uint8 EnumEPBReq;
 #define EnumEPBReq_NoCmd               ((EnumEPBReq)0U)          /* Default value */
 #define EnumEPBReq_Apply               ((EnumEPBReq)1U)
 #define EnumEPBReq_Release             ((EnumEPBReq)2U)
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_EnumGearPstn_
-#define DEFINED_TYPEDEF_FOR_EnumGearPstn_
-
-/* N/A */
-typedef uint8 EnumGearPstn;
-
-/* enum EnumGearPstn */
-#define EnumGearPstn_P                 ((EnumGearPstn)0U)        /* Default value */
-#define EnumGearPstn_N                 ((EnumGearPstn)1U)
-#define EnumGearPstn_D                 ((EnumGearPstn)2U)
-#define EnumGearPstn_R                 ((EnumGearPstn)3U)
 #endif
 
 #ifndef DEFINED_TYPEDEF_FOR_EnumTgtGearPstn_

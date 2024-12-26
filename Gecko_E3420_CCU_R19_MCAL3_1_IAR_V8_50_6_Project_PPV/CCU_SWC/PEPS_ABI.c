@@ -47,6 +47,7 @@ uint8 u8FobKey_Information_Management_Feedback = 0; // Կ��ѧϰ�Լ���
 uint8 u8FobKey_Disable_Status_Feedback = 0;			// Կ�׽���״̬����(ȫ�ֱ���)
 uint8 u8SpiCurReadUhfDataBuf[18];					// ��ƵЭ������(ȫ�ֱ���)
 uint8 u8Fobkey_Cur_RkeCmd = 0;
+uint8 u8_Auth_KeyTestReq = 0;
 
 uint8 psreq_count = 0;
 uint8 psclear_count = 0;
@@ -233,6 +234,11 @@ void Clear_PEStatus(void)
 void Clear_RKECommd(void)
 {
 	u8Fobkey_Cur_RkeCmd = 0;
+}
+
+void Clear_PollingCommd(void)
+{
+	u8Welcome_Function_Request = 0;
 }
 
 void PEPS_KL30_RessetMonit(void)

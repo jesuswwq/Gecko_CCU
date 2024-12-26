@@ -95,7 +95,7 @@
 
 /*******************************The other Definition**********************************/
 #define WDGM_TRIGGER_CONDITION_STOP 0u /*Trigger condition for Stop*/
-#define WDG_FUNCTION_SWITCH  STD_OFF
+#define WDG_FUNCTION_SWITCH  STD_ON
 
 /*************************************************************************************/
 

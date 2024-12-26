@@ -312,5 +312,8 @@ extern uint8 GetHw_DrvModeSw(void);
 extern uint8 GetHw_CreepModeSw(void);
 uint8 GetHw_HiBeamDigSts(void);
 uint8 GetHw_LoBeamDigSts(void);
+uint32 Get_RTC_SleepTime(void);//RTC get sleep time
+uint8 Get_EcuResetStatus(void);
+void Set_EcuReset(void);
 #endif
 // extern uint8 

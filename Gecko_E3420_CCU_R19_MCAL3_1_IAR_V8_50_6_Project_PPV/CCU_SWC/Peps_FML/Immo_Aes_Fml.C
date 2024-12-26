@@ -4,6 +4,7 @@
 #include "joker.h"
 #include "uhf_fml.h"
 #include "Immo_Aes_Fml.h"
+#include "Pke_Pks_App.h"
 
 struct Immo_Auth_Buff sImmo_Auth_Message;
 
@@ -16,11 +17,14 @@ phscaCendricCadsUC_Immo_States_t sphscaCendricCadsUCImmoState = IMMO_SETTING;
 FobKeyLearn_Immo_States_t sphscaCendricCadsLearnImmoState = FOBKEYLEARN_SET_INIT;
 
 
-const uint8_t u8ImmoPage_Wr_Cmd[5][2]={{0x8b,0x80},{0x93,0x40},{0x9b,0x00},{0xa2,0xc0},{0xaa,0x80}};
+const uint8_t u8ImmoPage_Wr_Cmd[5][2]={{0x8b,0x80},{0x93,0x40},{0x9b,0x00},{0xa2,0xc0},{0xaa,0x80}};//ҳд1��2��3��4��5
 
-const uint8_t u8ImmoPage_Rd_Cmd[5][2]={{0xc9,0x80},{0xd1,0x40},{0xd9,0x00},{0xe0,0xc0},{0xe8,0x80}};
+const uint8_t u8ImmoPage_Rd_Cmd[5][2]={{0xc9,0x80},{0xd1,0x40},{0xd9,0x00},{0xe0,0xc0},{0xe8,0x80}};//ҳ��1��2��3��4��5
 
 uint8 u8ImmoLearnWorkCnt = 0;
+
+extern void Rke_Flash_Write(uint32_t addr,void *buf,uint32_t len);
+
 
 Immo_FeedBack_States_t Get_Fobs_Learn_Status(void)
 {
@@ -196,7 +200,12 @@ void NJJ29C0_Immo_Auth(void)
 					}
 				}
 				JOKER_StopImmo();
+				
 				sphscaCendricCadsUCImmoState = IMMO_AUTH_OK;
+
+				SetPs_AuthFobStatus(3);
+				JOKER_StartSleepForced();
+				Change_Njj29c0_WorkStatus(0);
 
 				#ifdef QN_DEBUG
 					sdrv_gpio_toggle_pin_output_level(GPIO_L8);
@@ -211,6 +220,9 @@ void NJJ29C0_Immo_Auth(void)
 			if(u8ImmoLearnWorkCnt >= 3)
 			{
 				sphscaCendricCadsUCImmoState = IMMO_AUTH_FAIL;
+				SetPs_AuthFobStatus(2);
+				JOKER_StartSleepForced();
+				Change_Njj29c0_WorkStatus(0);
 			}
 			else
 			{
@@ -238,6 +250,113 @@ void NJJ29C0_Immo_Auth(void)
 }
 
 
+void NJJ29C0_Immo_Check_Uid(void)
+{
+	static uint8_t 	u8ImmoAuthWaitTimeCnt = 0;
+	static uint8_t u8ImmoAuthUseCnt = 0;
+	uint8_t	Immo_Auth_Cmd[8] = {0};
+	LONG_UNION Temp_Val;
+	
+	switch(sphscaCendricCadsUCImmoState)
+	{
+		case IMMO_SETTING:
+			JOKER_ConfigImmoDriver();
+			JOKER_ConfigImmoBPLM();
+			JOKER_ConfigImmoReceiver();
+			sphscaCendricCadsUCImmoState = IMMO_START_CMD;
+
+		break;
+
+		case IMMO_START_CMD:
+			JOKER_StartImmo();
+			sphscaCendricCadsUCImmoState = IMMO_TRANSCEIVE_GET_IDE_REQ;
+			u8ImmoAuthWaitTimeCnt = IMMO_WAIT_MAX_PERIOD;
+		break;
+		
+		case IMMO_TRANSCEIVE_GET_IDE_REQ:
+			if(u8ImmoAuthWaitTimeCnt > 0)
+			{
+				u8ImmoAuthWaitTimeCnt--;
+			}
+			else
+			{
+				Immo_Auth_Cmd[0]	=	AES_START_AUTH;
+	   			JOKER_StartImmoTransceive(&Immo_Auth_Cmd[0], 5, 32);
+				u8ImmoAuthWaitTimeCnt = IMMO_WAIT_MAX_PERIOD;
+				sphscaCendricCadsUCImmoState = IMMO_TRANSCEIVE_GET_IDE_RES;
+			}
+		break;
+
+		case IMMO_TRANSCEIVE_GET_IDE_RES:
+			if(u8ImmoAuthWaitTimeCnt > 0)
+			{
+				u8ImmoAuthWaitTimeCnt--;
+			}
+			else
+			{	
+				JOKER_GetImmoResponse(sImmo_Auth_Message.Id, 32);
+
+				Temp_Val.CHAR_BYTE.High_byte = sImmo_Auth_Message.Id[0];
+				Temp_Val.CHAR_BYTE.Mhigh_byte = sImmo_Auth_Message.Id[1];
+				Temp_Val.CHAR_BYTE.Mlow_byte = sImmo_Auth_Message.Id[2];
+				Temp_Val.CHAR_BYTE.Low_byte = sImmo_Auth_Message.Id[3];
+
+				if((sImmo_Auth_Message.Id[3] & 0xF0) == 0xE0)
+				{
+					if(GetCurUseSecretKey(Temp_Val.Value,sImmo_Auth_Message.Use_SecretKey) > 0)
+					{
+						u8_Auth_KeyTest_Feedback = 1;
+					}
+					else
+					{
+						u8_Auth_KeyTest_Feedback = 2;
+					}
+					JOKER_StopImmo();
+					JOKER_StartSleepForced();
+					Change_Njj29c0_WorkStatus(0);
+				}
+				else
+				{
+					sphscaCendricCadsUCImmoState = IMMO_REPEAT_AUTH_STATE;
+				}
+				
+			}
+		break;
+		
+		case IMMO_REPEAT_AUTH_STATE:
+			JOKER_StopImmo();
+			u8ImmoLearnWorkCnt++;
+			if(u8ImmoLearnWorkCnt >= 3)
+			{
+				u8_Auth_KeyTest_Feedback = 3;
+				JOKER_StartSleepForced();
+				Change_Njj29c0_WorkStatus(0);
+			}
+			else
+			{
+				u8ImmoAuthWaitTimeCnt = IMMO_WAIT_MAX_PERIOD << 1;
+				sphscaCendricCadsUCImmoState = IMMO_AUTH_STATE_WAIT;
+			}
+		break;
+		
+		case IMMO_AUTH_STATE_WAIT:
+			if(u8ImmoAuthWaitTimeCnt > 0)
+			{
+				u8ImmoAuthWaitTimeCnt--;
+			}
+			else
+			{	
+				sphscaCendricCadsUCImmoState = IMMO_SETTING;
+			}
+		break;
+
+		default:
+
+		break;
+	
+	}
+}
+
 void FobKey_Immo_Learn_Process(void)
 {
 	LONG_UNION	 	Temp_Val;
@@ -247,7 +366,8 @@ void FobKey_Immo_Learn_Process(void)
 	uint8_t Immo_RecvFrame[16];
 	static uint8_t u8FobKey_Num_Set = 0;
 	static uint8_t u8ImmoUseCnt = 0;
-
+	LONG_UNION Rand_Val;
+	
 	uint8_t byteIdx = 0u;
 	uint8_t tmpData[16u] =	{ 0u };
 	uint8_t* keyFobIde;
@@ -314,6 +434,8 @@ void FobKey_Immo_Learn_Process(void)
 							JOKER_StopImmo();
 							teFobKey_Learn_Feedback_Status = IMMO_LEARN_MAX_NUM_LIMIT;
 							u8FobKey_Information_Management_Feedback = 3;//Keys  Full
+							JOKER_StartSleepForced();
+							Change_Njj29c0_WorkStatus(0);
 							return;
 						}
 						else
@@ -334,6 +456,8 @@ void FobKey_Immo_Learn_Process(void)
 						u8ImmoUseCnt = 0;
 						teFobKey_Learn_Feedback_Status = IMMO_LEARN_GET_IDE_FAIL;
 						u8FobKey_Information_Management_Feedback = 2;//
+						JOKER_StartSleepForced();
+						Change_Njj29c0_WorkStatus(0);
 					}
 					else
 					{
@@ -432,9 +556,17 @@ void FobKey_Immo_Learn_Process(void)
 			}
 			else
 			{
+				if(u8TransmitterCount == 0)
+				{
+					Rand_Val.Value = GetSysRandTimeCount();
+
+					u8WelcomeGuestPollingWakeUpUid[0] = Rand_Val.CHAR_BYTE.Low_byte;
+					u8WelcomeGuestPollingWakeUpUid[1] = Rand_Val.CHAR_BYTE.Mlow_byte;
+					Rke_Flash_Write(PKE_POLLING_ID_SAVE_ADDR, u8WelcomeGuestPollingWakeUpUid, 2);
+				}
 				Immo_Cmd[0] = 0x00;
-				Immo_Cmd[1] = 0x00;
-				Immo_Cmd[2] = 0x00;
+				Immo_Cmd[1] = u8WelcomeGuestPollingWakeUpUid[0];
+				Immo_Cmd[2] = u8WelcomeGuestPollingWakeUpUid[1];
 				Immo_Cmd[3] = u8FobKey_Num_Set;
 			}
 			
@@ -545,8 +677,8 @@ void FobKey_Immo_Learn_Process(void)
 					u8IskIndex = 0;
 					
 					if((Immo_RecvFrame[0] != 0)||
-						(Immo_RecvFrame[1] != 0)||
-						(Immo_RecvFrame[2] != 0)||
+						(Immo_RecvFrame[1] != u8WelcomeGuestPollingWakeUpUid[0])||
+						(Immo_RecvFrame[2] != u8WelcomeGuestPollingWakeUpUid[1])||
 						(Immo_RecvFrame[3] != u8FobKey_Num_Set))
 					{
 						JOKER_StopImmo();
@@ -688,6 +820,8 @@ void FobKey_Immo_Learn_Process(void)
 				JOKER_StopImmo();
 				UhfFobKeyLearnRxProcess();
 				u8FobKey_Information_Management_Feedback = 1;//Success
+				JOKER_StartSleepForced();
+				Change_Njj29c0_WorkStatus(0);
 
 			#ifdef QN_DEBUG
 				sdrv_gpio_set_pin_output_level(GPIO_L6,0);	
@@ -703,6 +837,8 @@ void FobKey_Immo_Learn_Process(void)
 				if(u8ImmoLearnWorkCnt >= 5)
 				{
 					u8FobKey_Information_Management_Feedback = 2;
+					JOKER_StartSleepForced();
+					Change_Njj29c0_WorkStatus(0);
 				}
 				else
 				{

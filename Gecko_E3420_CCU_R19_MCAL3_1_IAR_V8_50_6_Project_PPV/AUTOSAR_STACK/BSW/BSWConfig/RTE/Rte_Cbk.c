@@ -42,6 +42,7 @@ extern boolean VIPM_HwKL15B_flg;
 extern boolean VIPM_HwOBCWakeup_flg;
 extern boolean VIPM_HwBMSWakeup_flg;
 extern boolean VIBS_NMReq_flg;
+extern boolean INV_IMMO_Req_EPT_RevFlag;
 /*******************************************************************************
  **                        Global Function                                    **
 ******************************************************************************/
@@ -233,6 +234,7 @@ void Rte_COMCbkRxTOut_EHB_A_CHA_IPDU_COM_RX_EHB_A_CHA_CANFD3_CHA_CAN5(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5(void)
 {
+    
     if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
     {
         Dem_UdsStatusByteType tmp = 0;
@@ -341,6 +343,7 @@ void Rte_COMCbkRxTOut_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANF
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_FCM_23_Obj0109_CHA_IPDU_COM_FCM_23_Obj0109_CHA(void)
 {
+#if 0
     if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
     {
         Dem_UdsStatusByteType tmp = 0;
@@ -352,6 +355,7 @@ void Rte_COMCbkRxTOut_FCM_23_Obj0109_CHA_IPDU_COM_FCM_23_Obj0109_CHA(void)
             }
         }
     }
+#endif
     if (RteInitState == RTE_INITED)
     {
     }
@@ -376,6 +380,7 @@ void Rte_COMCbkRxTOut_FCM_23_Obj0109_CHA_IPDU_COM_FCM_23_Obj0109_CHA(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_FCM_25_Line123_CHA_IPDU_COM_RX_FCM_25_Line123_CHA_CANFD3_CHA_CAN5(void)
 {
+#if 0
     if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
     {
         Dem_UdsStatusByteType tmp = 0;
@@ -387,6 +392,7 @@ void Rte_COMCbkRxTOut_FCM_25_Line123_CHA_IPDU_COM_RX_FCM_25_Line123_CHA_CANFD3_C
             }
         }
     }
+#endif
     if (RteInitState == RTE_INITED)
     {
     }
@@ -521,6 +527,7 @@ void Rte_COMCbkRxTOut_ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC(void)
 {
     if (RteInitState == RTE_INITED)
     {
+        Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC->status |= RTE_E_TIMEOUT;
     }
 }
 #define RTE_STOP_SEC_CODE
@@ -5769,6 +5776,10 @@ void Rte_COMCbk_EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5(void)
             {
                 isSuccess = FALSE;
             }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_DiagActiveSts_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_DiagActiveSts))
+            {
+                isSuccess = FALSE;
+            }
             if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_PedlTrvlSnsrFail_PDF_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_PedlTrvlSnsrFail_PDF))
             {
                 isSuccess = FALSE;
@@ -5781,7 +5792,51 @@ void Rte_COMCbk_EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5(void)
             {
                 isSuccess = FALSE;
             }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_pRunoutPressure_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_pRunoutPressure))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_HBCRequestActive_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_HBCRequestActive))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_sOutputRodHydraulicTarget_Q_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_sOutputRodHydraulicTarget_Q))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_pRunoutPressureVld_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_pRunoutPressureVld))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_MotBrkRegnTqTarVld_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_MotBrkRegnTqTarVld))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_MotBrkRegnTqTar_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_MotBrkRegnTqTar))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_BrakePedalApplied_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_BrakePedalApplied))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_BrakePedalApplied_Q_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_BrakePedalApplied_Q))
+            {
+                isSuccess = FALSE;
+            }
             if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_CDDTempOff_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_CDDTempOff))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_sOutputRodDriverSnsrFail_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_sOutputRodDriverSnsrFail))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_sOutputRodHydraulicTarget_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_sOutputRodHydraulicTarget))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_sOutputRodDriverPerc_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_sOutputRodDriverPerc))
             {
                 isSuccess = FALSE;
             }
@@ -5797,7 +5852,15 @@ void Rte_COMCbk_EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5(void)
             {
                 isSuccess = FALSE;
             }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_HbbRequest_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_HbbRequest))
+            {
+                isSuccess = FALSE;
+            }
             if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_BrkPwrRecupTarWhlTqSts_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_BrkPwrRecupTarWhlTqSts))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_pSetEbr_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_pSetEbr))
             {
                 isSuccess = FALSE;
             }
@@ -5814,6 +5877,10 @@ void Rte_COMCbk_EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5(void)
                 isSuccess = FALSE;
             }
             if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_EPB_ActuatorSt_R_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_EPB_ActuatorSt_R))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_EHB_pSetEbr_Q_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5, &data.EHB_pSetEbr_Q))
             {
                 isSuccess = FALSE;
             }
@@ -5999,13 +6066,13 @@ void Rte_COMCbk_ESCL_ESCLStatus_BOD_IPDU_COM_ESCL_ESCLStatus_BOD(void)
 void Rte_COMCbk_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANFD3_CHA_CAN5(void)
 {
     Dem_UdsStatusByteType tmp = 0;
-	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC12287, &tmp))
-	{
-		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
-		{
-			Dem_SetEventStatus(DemEventParameter_0xC12287, DEM_EVENT_STATUS_PASSED);
-		}
-	}
+     if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC12287, &tmp))
+    {
+         if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+            {
+                Dem_SetEventStatus(DemEventParameter_0xC12287, DEM_EVENT_STATUS_PASSED);
+            }
+    }
     if (RteInitState == RTE_INITED)
     {
         ESC_7_FuncStatus_CHA data;
@@ -6104,12 +6171,281 @@ void Rte_COMCbk_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANFD3_CHA
             {
                 isSuccess = FALSE;
             }
+            
             if (isSuccess == TRUE)
             {
                 if (isSuccess == TRUE)
                 {
+                    
                     rte_memcpy((uint8*)&Rte_Buf_Runbl_IpmCanRx_10ms_ESC_7_FuncStatus_CHA_ESC_7_FuncStatus_CHA,(uint8*)&data,sizeof(ESC_7_FuncStatus_CHA));
                     Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_10ms_ESC_7_FuncStatus_CHA_ESC_7_FuncStatus_CHA->status = RTE_E_OK;
+                    
+                }
+            }
+
+        }
+    }
+        
+	
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbk_ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbk_ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5(void)
+{
+    if (RteInitState == RTE_INITED)
+    {
+        ESC_A_CHA data;
+        boolean isSuccess = TRUE;
+        if (E_OK == Com_ReceiveSignalGroup(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5))
+        {
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_Chksum1_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_Chksum1))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_AliveCnt1_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_AliveCnt1))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_DTC_ActiveSts_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_DTC_ActiveSts))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_BrakeTempOverHeat_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_BrakeTempOverHeat))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_DTCFailureSts_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_DTCFailureSts))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_DTCRequestRBSSts_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_DTCRequestRBSSts))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_VhclStandstillSta_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_VhclStandstillSta))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_Chksum2_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_Chksum2))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_AliveCnt2_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_AliveCnt2))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelDirection_FL_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelDirection_FL))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedKphV_FL_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedKphV_FL))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedKph_FL_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedKph_FL))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelDirection_FR_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelDirection_FR))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedKphV_FR_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedKphV_FR))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedKph_FR_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedKph_FR))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_MasterCylinderPresr_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_MasterCylinderPresr))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_MasterCylinderPresrV_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_MasterCylinderPresrV))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_Chksum3_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_Chksum3))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_AliveCnt3_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_AliveCnt3))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelDirection_RL_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelDirection_RL))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedKphV_RL_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedKphV_RL))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedKph_RL_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedKph_RL))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelDirection_RR_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelDirection_RR))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedKphV_RR_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedKphV_RR))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedKph_RR_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedKph_RR))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_Chksum4_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_Chksum4))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_AliveCnt4_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_AliveCnt4))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedRCSts_RR_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedRCSts_RR))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedRCSts_RL_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedRCSts_RL))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedRCSts_FR_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedRCSts_FR))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedRCSts_FL_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedRCSts_FL))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedRC_FL_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedRC_FL))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedRC_FR_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedRC_FR))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedRC_RL_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedRC_RL))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WheelSpeedRC_RR_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WheelSpeedRC_RR))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_Chksum5_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_Chksum5))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_AliveCnt5_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_AliveCnt5))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_LatAccSensorValueVld_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_LatAccSensorValueVld))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_LongAccSensorValueVld_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_LongAccSensorValueVld))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_LongAccSensorValue_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_LongAccSensorValue))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_YawRateVld_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_YawRateVld))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_LatAccSensorValue_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_LatAccSensorValue))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_YawRate_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_YawRate))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_Chksum6_RihgtEPB_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_Chksum6_RihgtEPB))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_AliveCnt6_RihgtEPB_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_AliveCnt6_RihgtEPB))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_HbbHbcAvailable_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_HbbHbcAvailable))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_EPB_RightFaultState_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_EPB_RightFaultState))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_EPB_Right_Current_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_EPB_Right_Current))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_HbbHbcActive_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_HbbHbcActive))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_EPB_ActuatorSt_R_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_EPB_ActuatorSt_R))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_Chksum7_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_Chksum7))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_A_AliveCnt7_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_A_AliveCnt7))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WhlTqDecReqActv_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WhlTqDecReqActv))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WhlTqDecReqVal_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WhlTqDecReqVal))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WhlTqIncReqActv_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WhlTqIncReqActv))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_ESC_WhlTqIncReqVal_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5, &data.ESC_WhlTqIncReqVal))
+            {
+                isSuccess = FALSE;
+            }
+            if (isSuccess == TRUE)
+            {
+                if (isSuccess == TRUE)
+                {
+                    SuspendAllInterrupts();
+                    rte_memcpy((uint8*)&Rte_Buf_Runbl_IpmCanRx_10ms_ESC_A_CHA_ESC_A_CHA,(uint8*)&data,sizeof(ESC_A_CHA));
+                    Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_10ms_ESC_A_CHA_ESC_A_CHA->status = RTE_E_OK;
+                    ResumeAllInterrupts();
                 }
             }
         }
@@ -6781,8 +7117,8 @@ void Rte_COMCbk_FCLL_TiWngSt_FCLL_Status_LIN3(void)
             data = (UInt8)FCLL_TiWngSt_FCLL_Status_LIN3_buf;
             if (isSuccess == TRUE)
             {
-                Rte_Buf_Runbl_AppSwcBcm_20ms_FCLL_TiWngSt_FCLL_TiWngSt = data;
-                Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_FCLL_TiWngSt_FCLL_TiWngSt->status = RTE_E_OK;
+                Rte_Buf_Runbl_AppSwcBcm_50ms_FCLL_TiWngSt_FCLL_TiWngSt = data;
+                Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_50ms_FCLL_TiWngSt_FCLL_TiWngSt->status = RTE_E_OK;
             }
         }
     }
@@ -6823,8 +7159,8 @@ void Rte_COMCbk_FCLR_TiWngSt_FCLR_Status_LIN3(void)
             data = (UInt8)FCLR_TiWngSt_FCLR_Status_LIN3_buf;
             if (isSuccess == TRUE)
             {
-                Rte_Buf_Runbl_AppSwcBcm_20ms_FCLR_TiWngSt_FCLR_TiWngSt = data;
-                Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_20ms_FCLR_TiWngSt_FCLR_TiWngSt->status = RTE_E_OK;
+                Rte_Buf_Runbl_AppSwcBcm_50ms_FCLR_TiWngSt_FCLR_TiWngSt = data;
+                Rte_Inst_AppSwcBcm.Runbl_AppSwcBcm_50ms_FCLR_TiWngSt_FCLR_TiWngSt->status = RTE_E_OK;
             }
         }
     }
@@ -6849,6 +7185,7 @@ void Rte_COMCbk_FCLR_TiWngSt_FCLR_Status_LIN3(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_FCM_23_Obj0109_CHA_IPDU_COM_FCM_23_Obj0109_CHA(void)
 {
+#if 0
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC1FF87, &tmp))
 	{
@@ -6857,6 +7194,7 @@ void Rte_COMCbk_FCM_23_Obj0109_CHA_IPDU_COM_FCM_23_Obj0109_CHA(void)
 			Dem_SetEventStatus(DemEventParameter_0xC1FF87, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+#endif
     if (RteInitState == RTE_INITED)
     {
     }
@@ -6881,6 +7219,7 @@ void Rte_COMCbk_FCM_23_Obj0109_CHA_IPDU_COM_FCM_23_Obj0109_CHA(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_FCM_25_Line123_CHA_IPDU_COM_RX_FCM_25_Line123_CHA_CANFD3_CHA_CAN5(void)
 {
+#if 0
     Dem_UdsStatusByteType tmp = 0;
 	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC1FE87, &tmp))
 	{
@@ -6889,6 +7228,7 @@ void Rte_COMCbk_FCM_25_Line123_CHA_IPDU_COM_RX_FCM_25_Line123_CHA_CANFD3_CHA_CAN
 			Dem_SetEventStatus(DemEventParameter_0xC1FE87, DEM_EVENT_STATUS_PASSED);
 		}
 	}
+#endif
     if (RteInitState == RTE_INITED)
     {
     }
@@ -6984,6 +7324,10 @@ void Rte_COMCbk_FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5(void)
                 isSuccess = FALSE;
             }
             if (E_NOT_OK == Com_ReceiveSignal(FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5_FCM_OvertakeAssSysSts_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5, &data.FCM_OvertakeAssSysSts))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5_FCM_LKATorqFactReq_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5, &data.FCM_LKATorqFactReq))
             {
                 isSuccess = FALSE;
             }
@@ -7120,6 +7464,10 @@ void Rte_COMCbk_FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5(void)
                 isSuccess = FALSE;
             }
             if (E_NOT_OK == Com_ReceiveSignal(FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5_FCM_ABALevel_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5, &data.FCM_ABALevel))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5_FCM_AEB_Status_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5, &data.FCM_AEB_Status))
             {
                 isSuccess = FALSE;
             }
@@ -8720,7 +9068,27 @@ void Rte_COMCbk_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1(void)
             {
                 isSuccess = FALSE;
             }
+            if (E_NOT_OK == Com_ReceiveSignal(HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_TBOX_RemtPowerCtrlReq_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1, &data.TBOX_RemtPowerCtrlReq))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_TBOX_RemtSteerWhlHeatReq_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1, &data.TBOX_RemtSteerWhlHeatReq))
+            {
+                isSuccess = FALSE;
+            }
             if (E_NOT_OK == Com_ReceiveSignal(HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_TBox_RemoteLock_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1, &data.TBox_RemoteLock))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_TBOX_RemtMaiDrSeatHeatReq_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1, &data.TBOX_RemtMaiDrSeatHeatReq))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_HU_BCMCargoLightSet_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1, &data.HU_BCMCargoLightSet))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_HU_BCMOTAModeSet_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1, &data.HU_BCMOTAModeSet))
             {
                 isSuccess = FALSE;
             }
@@ -8899,6 +9267,31 @@ void Rte_COMCbk_ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC(void)
 {
     if (RteInitState == RTE_INITED)
     {
+        ICU_2_Odo_BAC data;
+        boolean isSuccess = TRUE;
+        if (E_OK == Com_ReceiveSignalGroup(ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC))
+        {
+            if (E_NOT_OK == Com_ReceiveSignal(ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC_ICU_ICUTotalOdometer_IPDU_COM_ICU_2_Odo_BAC, &data.ICU_ICUTotalOdometer))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC_ICU_ICUTripAOdometer_IPDU_COM_ICU_2_Odo_BAC, &data.ICU_ICUTripAOdometer))
+            {
+                isSuccess = FALSE;
+            }
+            if (E_NOT_OK == Com_ReceiveSignal(ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC_ICU_ICUTripBOdometer_IPDU_COM_ICU_2_Odo_BAC, &data.ICU_ICUTripBOdometer))
+            {
+                isSuccess = FALSE;
+            }
+            if (isSuccess == TRUE)
+            {
+                if (isSuccess == TRUE)
+                {
+                    rte_memcpy((uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC,(uint8*)&data,sizeof(ICU_2_Odo_BAC));
+                    Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_ICU_2_Odo_BAC_ICU_2_Odo_BAC->status = RTE_E_OK;
+                }
+            }
+        }
     }
 }
 #define RTE_STOP_SEC_CODE
@@ -9243,6 +9636,7 @@ void Rte_COMCbk_INV_IMMO_Req_EPT_IPDU_COM_INV_IMMO_Req_EPT(void)
         boolean isSuccess = TRUE;
         if (E_OK == Com_ReceiveSignalGroup(INV_IMMO_Req_EPT_IPDU_COM_INV_IMMO_Req_EPT))
         {
+            INV_IMMO_Req_EPT_RevFlag = TRUE;
             if (E_NOT_OK == Com_ReceiveSignal(INV_IMMO_Req_EPT_IPDU_COM_INV_IMMO_Req_EPT_INV_LrngSubID_IPDU_COM_INV_IMMO_Req_EPT, &data.INV_LrngSubID))
             {
                 isSuccess = FALSE;

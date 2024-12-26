@@ -12,7 +12,7 @@
 **                                                                            **
 **  FILENAME    : PduR_Cfg.h                                                  **
 **                                                                            **
-**  Created on  : 2024/01/31 17:53:07                                         **
+**  Created on  : 2024/12/10 11:21:30                                         **
 **  Author      : zhengfei.li                                                 **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Configuration parameter of PDUR                             **
@@ -74,7 +74,7 @@
 #define PDUR_TP_COPYTXDATA                    STD_ON
 #define PDUR_TP_TXCONFIRMATION                STD_ON
 
-#define PDUR_ROUTINGPATH_MAX                  212u
+#define PDUR_ROUTINGPATH_MAX                  215u
 #define PDUR_ROUTING_PATH_GROUP_MAX           2u
 
 #define PDUR_TP_BUFFER_SUM           0u

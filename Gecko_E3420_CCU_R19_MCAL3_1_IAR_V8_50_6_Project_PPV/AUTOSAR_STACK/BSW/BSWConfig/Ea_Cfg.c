@@ -12,7 +12,7 @@
 **                                                                            **
 **  FILENAME    : Ea_Cfg.c                                                    **
 **                                                                            **
-**  Created on  : 2024/10/10 15:41:17                                         **
+**  Created on  : 2024/12/20 11:40:58                                         **
 **  Author      : tao.yu                                                      **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Ea globle data define                                       **
@@ -136,14 +136,6 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
     },
     {
         480U,
-        208U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        544U,
         256U,
         32U,
         FALSE,
@@ -151,33 +143,25 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
         0u
     },
     {
-        576U,
-        272U,
-        32U,
+        512U,
+        288U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         608U,
-        288U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        672U,
         304U,
-        64U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        736U,
+        704U,
         320U,
-        64U,
+        96U,
         FALSE,
         0u,
         0u
@@ -185,381 +169,381 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
     {
         800U,
         336U,
-        64U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        864U,
+        896U,
         352U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        928U,
-        368U,
-        64U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         992U,
+        368U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        1088U,
         384U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        1056U,
-        400U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        1120U,
-        416U,
-        64U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         1184U,
-        432U,
-        64U,
+        400U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        1248U,
-        448U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        1312U,
-        464U,
-        64U,
+        1280U,
+        416U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         1376U,
-        480U,
-        64U,
+        432U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        1440U,
-        496U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        1504U,
-        512U,
-        64U,
+        1472U,
+        448U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         1568U,
-        528U,
-        64U,
+        464U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        1632U,
-        544U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        1696U,
-        560U,
-        64U,
+        1664U,
+        480U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         1760U,
-        576U,
-        64U,
+        496U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        1824U,
-        592U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        1888U,
-        608U,
-        64U,
+        1856U,
+        512U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         1952U,
-        624U,
-        64U,
+        528U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        2016U,
-        640U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        2080U,
-        656U,
-        64U,
+        2048U,
+        544U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         2144U,
-        672U,
-        64U,
+        560U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        2208U,
-        688U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        2272U,
-        704U,
-        64U,
+        2240U,
+        576U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         2336U,
-        720U,
-        64U,
+        592U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        2400U,
-        736U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        2464U,
-        752U,
-        64U,
+        2432U,
+        608U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         2528U,
-        768U,
-        64U,
+        624U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        2592U,
-        784U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        2656U,
-        800U,
-        64U,
+        2624U,
+        640U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         2720U,
-        816U,
-        64U,
+        656U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        2784U,
-        832U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        2848U,
-        848U,
-        64U,
+        2816U,
+        672U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         2912U,
-        864U,
-        64U,
+        688U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        2976U,
-        880U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        3040U,
-        896U,
-        64U,
+        3008U,
+        704U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         3104U,
-        912U,
-        64U,
+        720U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        3168U,
-        928U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        3232U,
-        944U,
-        64U,
+        3200U,
+        736U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         3296U,
-        960U,
-        64U,
+        752U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        3360U,
-        976U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        3424U,
-        992U,
-        64U,
+        3392U,
+        768U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         3488U,
-        1008U,
-        64U,
+        784U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        3552U,
-        1024U,
-        64U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        3616U,
-        1040U,
-        64U,
+        3584U,
+        800U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
         3680U,
+        816U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        3776U,
+        832U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        3872U,
+        848U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        3968U,
+        864U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        4064U,
+        880U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        4160U,
+        896U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        4256U,
+        912U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        4352U,
+        928U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        4448U,
+        944U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        4544U,
+        960U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        4640U,
+        976U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        4736U,
+        992U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        4832U,
+        1008U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        4928U,
+        1024U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        5024U,
+        1040U,
+        96U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        5120U,
         1056U,
-        64U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        3744U,
+        5216U,
         1072U,
-        64U,
+        96U,
         FALSE,
         0u,
         0u
     },
     {
-        3808U,
+        5312U,
         1088U,
         736U,
         FALSE,
@@ -567,15 +551,7 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
         0u
     },
     {
-        4544U,
-        1104U,
-        32U,
-        FALSE,
-        0u,
-        0u
-    },
-    {
-        4576U,
+        6048U,
         1120U,
         96U,
         FALSE,
@@ -583,7 +559,7 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
         0u
     },
     {
-        4672U,
+        6144U,
         1136U,
         288U,
         FALSE,
@@ -591,33 +567,41 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
         0u
     },
     {
-        4960U,
-        1148U,
+        6432U,
+        1152U,
         160U,
         FALSE,
         0u,
         0u
     },
     {
-        5120U,
-        1164U,
+        6592U,
+        1168U,
         32U,
         FALSE,
         0u,
         0u
     },
     {
-        5152U,
-        1180U,
+        6624U,
+        1184U,
         288U,
         FALSE,
         0u,
         0u
     },
     {
-        5440U,
-        1196U,
+        6912U,
+        1200U,
         160U,
+        FALSE,
+        0u,
+        0u
+    },
+    {
+        7072U,
+        1216U,
+        32U,
         FALSE,
         0u,
         0u

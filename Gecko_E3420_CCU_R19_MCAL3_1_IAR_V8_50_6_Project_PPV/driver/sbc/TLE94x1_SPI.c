@@ -79,7 +79,7 @@ uint16 SBC_SPI_TRANSFER16(uint8 Upper, uint8 Lower) {
     txBuf[0] = Upper;
     txBuf[1] = Lower;
     Mcu_PmuCounterInit();
-
+    SuspendAllInterrupts();
     ret = Spi_SetupEB(SpiConf_SpiChannel_SpiChannel_32,
         (void*)&txBuf[0],
         (void*)&rxBuf[0],
@@ -91,7 +91,7 @@ uint16 SBC_SPI_TRANSFER16(uint8 Upper, uint8 Lower) {
     if(Spi_SyncTransmit(SpiConf_SpiSequence_SpiSequence_5) != 0){
         DBG("Fail sequence Busy. \n");
     }
-
+    ResumeAllInterrupts(); 
     /* CSN High Time at least 3us. See datasheet 162 */
     Mcu_udelay(3);
 

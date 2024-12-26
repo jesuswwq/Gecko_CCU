@@ -198,7 +198,7 @@ void Mcu_Ip_PllForceBypass(uint32 base, boolean enable);
 
 void Mcu_Ip_PllSetSscAmplitude(uint32 base, Mcu_CkgenSscAmplitudeType amplitude);
 void Mcu_Ip_PllSetSscFrequency(uint32 base, Mcu_CkgenSscFreqType sscFreq);
-Std_ReturnType Mcu_Ip_PllSetSscMode(uint32 base, Mcu_CkgenSscModeType sscMode);
+void Mcu_Ip_PllSetSscMode(uint32 base, Mcu_CkgenSscModeType sscMode);
 
 #endif /* MCU_PLL_H */
 /* End of file */

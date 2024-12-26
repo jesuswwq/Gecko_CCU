@@ -18,11 +18,7 @@ void MaWindow(uint32_t data, uint8_t windowSize,uint32_t Threshold)
 	index				= (index + 1) % windowSize;
 
 	// 窗口数据计数
-	if (count < windowSize)
-	{
-		count++;
-	}
-
+	count++;
 	// 计算平均值
 	if (count == windowSize)
 	{

@@ -325,42 +325,42 @@ CONST(Os_StackType, OS_CONST) Os_SystemStackCore2 =
 
 #define OS_START_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
-static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_100ms_Stack[512];
+static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_100ms_Stack[1024];
 #define OS_STOP_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
 #define OS_START_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
-static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_10ms_Stack[512];
+static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_10ms_Stack[1024];
 #define OS_STOP_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
 #define OS_START_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
-static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_1ms_Stack[512];
+static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_1ms_Stack[1024];
 #define OS_STOP_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
 #define OS_START_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
-static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_1s_Stack[512];
+static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_1s_Stack[1024];
 #define OS_STOP_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
 #define OS_START_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
-static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_20ms_Stack[512];
+static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_20ms_Stack[1024];
 #define OS_STOP_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
 #define OS_START_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
-static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_2ms_Stack[512];
+static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_2ms_Stack[1024];
 #define OS_STOP_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
 #define OS_START_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
-static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_50ms_Stack[512];
+static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_50ms_Stack[1024];
 #define OS_STOP_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
 #define OS_START_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
-static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_5ms_Stack[512];
+static VAR(Os_StackDataType, OS_VAR) Os_OsTask__Core0_5ms_Stack[1024];
 #define OS_STOP_SEC_VAR_STACK_CORE0
 #include "Os_MemMap.h"
 #define OS_START_SEC_VAR_STACK_CORE0

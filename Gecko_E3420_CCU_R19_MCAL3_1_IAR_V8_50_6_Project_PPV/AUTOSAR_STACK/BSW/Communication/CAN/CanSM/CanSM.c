@@ -3986,6 +3986,7 @@ static FUNC(void, CANSM_CODE) CanSM_FullCom_S_Tx_Off(uint8 netID, CanSM_NetWorkR
     /*G_TX_ON state is OK*/
     if (networkPtr->busOffEventStartTime >= busOffContinueTime)
     {
+        networkPtr->fullComState = FULLCOM_S_BUS_OFF_CHECK;
 /*do the E_TX_ON action*/
 #if (STD_ON == CANSM_TX_OFFLINE_ACTIVE_SUPPORT)
         if ((boolean)TRUE == CanSM_EcuPassive)
@@ -4009,7 +4010,7 @@ static FUNC(void, CANSM_CODE) CanSM_FullCom_S_Tx_Off(uint8 netID, CanSM_NetWorkR
         ComMode = COMM_FULL_COMMUNICATION;
         ComM_BusSM_ModeIndication(CANSM_NETWORK_HANDLE(netID), ComMode);
         /*enter FULLCOM_S_BUS_OFF_CHECK state*/
-        networkPtr->fullComState = FULLCOM_S_BUS_OFF_CHECK;
+        //networkPtr->fullComState = FULLCOM_S_BUS_OFF_CHECK;
         if (networkPtr->busOffCounter < BUS_OFF_COUNTER_UP_LIMIT)
         {
             networkPtr->busOffCounter++;

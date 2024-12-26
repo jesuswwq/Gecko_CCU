@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-26 17:51:02>
+ *  @date       <2024-12-24 14:55:20>
  */
 /*============================================================================*/
 
@@ -301,6 +301,8 @@ void Rte_COMCbk_EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA(void);
 void Rte_COMCbk_ESCL_ESCLStatus_BOD_IPDU_COM_ESCL_ESCLStatus_BOD(void);
 
 void Rte_COMCbk_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANFD3_CHA_CAN5(void);
+
+void Rte_COMCbk_ESC_A_CHA_IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5(void);
 
 void Rte_COMCbk_EXV_CurrentInitState_AC_EXV_Rsp_LIN1(void);
 

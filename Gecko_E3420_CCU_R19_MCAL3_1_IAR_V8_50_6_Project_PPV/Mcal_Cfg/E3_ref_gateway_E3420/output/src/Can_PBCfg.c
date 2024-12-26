@@ -18,7 +18,7 @@
 /**
  * @file  Can_PBCfg.c
  * @brief Semidrive. AUTOSAR 4.3.1 MCAL Can Driver.
- * @date 2024-09-10 16:01:53
+ * @date 2024-12-20 13:44:18
  */
 #ifdef __cplusplus
 extern "C" {
@@ -1023,13 +1023,65 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
         0xFFFFFFFFU,  /* filterMask */
     },
 
-    {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CCU_OBD */
+    {   /* CanHardwareObject_CANFD6_CAN2_BMS_BEM_EPT */
+        CAN_ID_STANDARD, /* idType */
+        RECEIVE,    /* hohType */
+        63U,  /* canObjId */
+        3U,  /* controllerId */
+        32U,   /* mbId */
+        8U,  /* payloadSize */
+        0U, /* fdPaddingVal */
+        FALSE,    /* usePolling */
+        0x30aU,   /* filterCode */
+        0xFFFFFFFFU,  /* filterMask */
+    },
+
+    {   /* CanHardwareObject_CANFD6_CAN2_BMS_CEM_EPT */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
         64U,  /* canObjId */
-        4U,  /* controllerId */
-        0U,   /* mbId */
+        3U,  /* controllerId */
+        33U,   /* mbId */
         8U,  /* payloadSize */
+        0U, /* fdPaddingVal */
+        FALSE,    /* usePolling */
+        0x30bU,   /* filterCode */
+        0xFFFFFFFFU,  /* filterMask */
+    },
+
+    {   /* CanHardwareObject_CANFD6_CAN2_BMS_BST_EPT */
+        CAN_ID_STANDARD, /* idType */
+        RECEIVE,    /* hohType */
+        65U,  /* canObjId */
+        3U,  /* controllerId */
+        34U,   /* mbId */
+        8U,  /* payloadSize */
+        0U, /* fdPaddingVal */
+        FALSE,    /* usePolling */
+        0x30cU,   /* filterCode */
+        0xFFFFFFFFU,  /* filterMask */
+    },
+
+    {   /* CanHardwareObject_CANFD6_CAN2_BMS_CST_EPT */
+        CAN_ID_STANDARD, /* idType */
+        RECEIVE,    /* hohType */
+        66U,  /* canObjId */
+        3U,  /* controllerId */
+        35U,   /* mbId */
+        8U,  /* payloadSize */
+        0U, /* fdPaddingVal */
+        FALSE,    /* usePolling */
+        0x30dU,   /* filterCode */
+        0xFFFFFFFFU,  /* filterMask */
+    },
+
+    {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CCU_OBD */
+        CAN_ID_STANDARD, /* idType */
+        RECEIVE,    /* hohType */
+        68U,  /* canObjId */
+        4U,  /* controllerId */
+        32U,   /* mbId */
+        64U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
         0x701U,   /* filterCode */
@@ -1039,9 +1091,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_MCU_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        65U,  /* canObjId */
+        69U,  /* canObjId */
         4U,  /* controllerId */
-        1U,   /* mbId */
+        0U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1052,9 +1104,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_BMS_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        66U,  /* canObjId */
+        70U,  /* canObjId */
         4U,  /* controllerId */
-        2U,   /* mbId */
+        1U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1065,9 +1117,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_IPUDCC_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        67U,  /* canObjId */
+        71U,  /* canObjId */
         4U,  /* controllerId */
-        3U,   /* mbId */
+        2U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1078,9 +1130,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_PTC_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        68U,  /* canObjId */
+        72U,  /* canObjId */
         4U,  /* controllerId */
-        4U,   /* mbId */
+        3U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1091,9 +1143,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_SCS_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        69U,  /* canObjId */
+        73U,  /* canObjId */
         4U,  /* controllerId */
-        5U,   /* mbId */
+        4U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1104,9 +1156,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CCP_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        70U,  /* canObjId */
+        74U,  /* canObjId */
         4U,  /* controllerId */
-        6U,   /* mbId */
+        5U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1117,9 +1169,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_AVAS_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        71U,  /* canObjId */
+        75U,  /* canObjId */
         4U,  /* controllerId */
-        7U,   /* mbId */
+        6U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1130,9 +1182,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_ESCL_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        72U,  /* canObjId */
+        76U,  /* canObjId */
         4U,  /* controllerId */
-        8U,   /* mbId */
+        7U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1143,9 +1195,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_ACCM_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        73U,  /* canObjId */
+        77U,  /* canObjId */
         4U,  /* controllerId */
-        9U,   /* mbId */
+        8U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1156,9 +1208,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_TPMS_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        74U,  /* canObjId */
+        78U,  /* canObjId */
         4U,  /* controllerId */
-        10U,   /* mbId */
+        9U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1169,9 +1221,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CDCICU_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        75U,  /* canObjId */
+        79U,  /* canObjId */
         4U,  /* controllerId */
-        11U,   /* mbId */
+        10U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1182,9 +1234,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_ESC_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        76U,  /* canObjId */
+        80U,  /* canObjId */
         4U,  /* controllerId */
-        12U,   /* mbId */
+        11U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1195,9 +1247,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_EHB_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        77U,  /* canObjId */
+        81U,  /* canObjId */
         4U,  /* controllerId */
-        13U,   /* mbId */
+        12U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1208,9 +1260,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_EPS_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        78U,  /* canObjId */
+        82U,  /* canObjId */
         4U,  /* controllerId */
-        14U,   /* mbId */
+        13U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1221,9 +1273,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_PP_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        79U,  /* canObjId */
+        83U,  /* canObjId */
         4U,  /* controllerId */
-        15U,   /* mbId */
+        14U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1234,9 +1286,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_FCM_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        80U,  /* canObjId */
+        84U,  /* canObjId */
         4U,  /* controllerId */
-        32U,   /* mbId */
+        33U,   /* mbId */
         64U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1247,9 +1299,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_FRM_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        81U,  /* canObjId */
+        85U,  /* canObjId */
         4U,  /* controllerId */
-        16U,   /* mbId */
+        15U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1260,9 +1312,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CRRL_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        82U,  /* canObjId */
+        86U,  /* canObjId */
         4U,  /* controllerId */
-        17U,   /* mbId */
+        16U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1273,9 +1325,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_CRRR_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        83U,  /* canObjId */
+        87U,  /* canObjId */
         4U,  /* controllerId */
-        18U,   /* mbId */
+        17U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1286,9 +1338,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_0X7E0_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        84U,  /* canObjId */
+        88U,  /* canObjId */
         4U,  /* controllerId */
-        19U,   /* mbId */
+        18U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1299,9 +1351,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_PhyReq_SRS_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        85U,  /* canObjId */
+        89U,  /* canObjId */
         4U,  /* controllerId */
-        20U,   /* mbId */
+        19U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1312,9 +1364,9 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_Diag_FuncReq_OBD */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        86U,  /* canObjId */
+        90U,  /* canObjId */
         4U,  /* controllerId */
-        21U,   /* mbId */
+        20U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1325,7 +1377,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD8_CAN1_BAC_NM_RX */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        88U,  /* canObjId */
+        92U,  /* canObjId */
         5U,  /* controllerId */
         0U,   /* mbId */
         32U,  /* payloadSize */
@@ -1338,7 +1390,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_HU_A_BAC */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        89U,  /* canObjId */
+        93U,  /* canObjId */
         5U,  /* controllerId */
         12U,   /* mbId */
         64U,  /* payloadSize */
@@ -1351,7 +1403,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_HU_B_BAC */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        90U,  /* canObjId */
+        94U,  /* canObjId */
         5U,  /* controllerId */
         1U,   /* mbId */
         32U,  /* payloadSize */
@@ -1364,7 +1416,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_HU_C_BAC */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        91U,  /* canObjId */
+        95U,  /* canObjId */
         5U,  /* controllerId */
         2U,   /* mbId */
         32U,  /* payloadSize */
@@ -1377,7 +1429,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_ICU_2_Odo_BAC */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        92U,  /* canObjId */
+        96U,  /* canObjId */
         5U,  /* controllerId */
         3U,   /* mbId */
         32U,  /* payloadSize */
@@ -1390,7 +1442,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_ICU_Info_BAC */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        93U,  /* canObjId */
+        97U,  /* canObjId */
         5U,  /* controllerId */
         4U,   /* mbId */
         32U,  /* payloadSize */
@@ -1403,7 +1455,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_TBOX_BJS_Time_BAC */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        94U,  /* canObjId */
+        98U,  /* canObjId */
         5U,  /* controllerId */
         5U,   /* mbId */
         32U,  /* payloadSize */
@@ -1416,7 +1468,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD8_CAN1_Diag_Rx_BAC */
         CAN_ID_STANDARD, /* idType */
         RECEIVE,    /* hohType */
-        95U,  /* canObjId */
+        99U,  /* canObjId */
         5U,  /* controllerId */
         13U,   /* mbId */
         64U,  /* payloadSize */
@@ -1754,59 +1806,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
-        3U,  /* controllerId */
-        32U,   /* mbId */
-        8U,  /* payloadSize */
-        0U, /* fdPaddingVal */
-        FALSE,    /* usePolling */
-        0U,   /* filterCode */
-        0U,   /* filterMask */
-    },
-
-    {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
-        CAN_ID_STANDARD, /* idType */
-        TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
-        3U,  /* controllerId */
-        33U,   /* mbId */
-        8U,  /* payloadSize */
-        0U, /* fdPaddingVal */
-        FALSE,    /* usePolling */
-        0U,   /* filterCode */
-        0U,   /* filterMask */
-    },
-
-    {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
-        CAN_ID_STANDARD, /* idType */
-        TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
-        3U,  /* controllerId */
-        34U,   /* mbId */
-        8U,  /* payloadSize */
-        0U, /* fdPaddingVal */
-        FALSE,    /* usePolling */
-        0U,   /* filterCode */
-        0U,   /* filterMask */
-    },
-
-    {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
-        CAN_ID_STANDARD, /* idType */
-        TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
-        3U,  /* controllerId */
-        35U,   /* mbId */
-        8U,  /* payloadSize */
-        0U, /* fdPaddingVal */
-        FALSE,    /* usePolling */
-        0U,   /* filterCode */
-        0U,   /* filterMask */
-    },
-
-    {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
-        CAN_ID_STANDARD, /* idType */
-        TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         36U,   /* mbId */
         8U,  /* payloadSize */
@@ -1819,7 +1819,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         37U,   /* mbId */
         8U,  /* payloadSize */
@@ -1832,7 +1832,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         38U,   /* mbId */
         8U,  /* payloadSize */
@@ -1845,7 +1845,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         39U,   /* mbId */
         8U,  /* payloadSize */
@@ -1858,7 +1858,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         40U,   /* mbId */
         8U,  /* payloadSize */
@@ -1871,7 +1871,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         41U,   /* mbId */
         8U,  /* payloadSize */
@@ -1884,7 +1884,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         42U,   /* mbId */
         8U,  /* payloadSize */
@@ -1897,7 +1897,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         43U,   /* mbId */
         8U,  /* payloadSize */
@@ -1910,7 +1910,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         44U,   /* mbId */
         8U,  /* payloadSize */
@@ -1923,7 +1923,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         45U,   /* mbId */
         8U,  /* payloadSize */
@@ -1936,9 +1936,61 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        63U,  /* canObjId */
+        67U,  /* canObjId */
         3U,  /* controllerId */
         46U,   /* mbId */
+        8U,  /* payloadSize */
+        0U, /* fdPaddingVal */
+        FALSE,    /* usePolling */
+        0U,   /* filterCode */
+        0U,   /* filterMask */
+    },
+
+    {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
+        CAN_ID_STANDARD, /* idType */
+        TRANSMIT,    /* hohType */
+        67U,  /* canObjId */
+        3U,  /* controllerId */
+        47U,   /* mbId */
+        8U,  /* payloadSize */
+        0U, /* fdPaddingVal */
+        FALSE,    /* usePolling */
+        0U,   /* filterCode */
+        0U,   /* filterMask */
+    },
+
+    {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
+        CAN_ID_STANDARD, /* idType */
+        TRANSMIT,    /* hohType */
+        67U,  /* canObjId */
+        3U,  /* controllerId */
+        48U,   /* mbId */
+        8U,  /* payloadSize */
+        0U, /* fdPaddingVal */
+        FALSE,    /* usePolling */
+        0U,   /* filterCode */
+        0U,   /* filterMask */
+    },
+
+    {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
+        CAN_ID_STANDARD, /* idType */
+        TRANSMIT,    /* hohType */
+        67U,  /* canObjId */
+        3U,  /* controllerId */
+        49U,   /* mbId */
+        8U,  /* payloadSize */
+        0U, /* fdPaddingVal */
+        FALSE,    /* usePolling */
+        0U,   /* filterCode */
+        0U,   /* filterMask */
+    },
+
+    {   /* CanHardwareObject_CANFD6_CAN2_EPT_NM_TX */
+        CAN_ID_STANDARD, /* idType */
+        TRANSMIT,    /* hohType */
+        67U,  /* canObjId */
+        3U,  /* controllerId */
+        50U,   /* mbId */
         8U,  /* payloadSize */
         0U, /* fdPaddingVal */
         FALSE,    /* usePolling */
@@ -1949,20 +2001,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_OBD_Diag_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        87U,  /* canObjId */
-        4U,  /* controllerId */
-        33U,   /* mbId */
-        64U,  /* payloadSize */
-        0U, /* fdPaddingVal */
-        FALSE,    /* usePolling */
-        0U,   /* filterCode */
-        0U,   /* filterMask */
-    },
-
-    {   /* CanHardwareObject_CANFD7_CAN3_OBD_Diag_TX */
-        CAN_ID_STANDARD, /* idType */
-        TRANSMIT,    /* hohType */
-        87U,  /* canObjId */
+        91U,  /* canObjId */
         4U,  /* controllerId */
         34U,   /* mbId */
         64U,  /* payloadSize */
@@ -1975,7 +2014,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_OBD_Diag_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        87U,  /* canObjId */
+        91U,  /* canObjId */
         4U,  /* controllerId */
         35U,   /* mbId */
         64U,  /* payloadSize */
@@ -1988,7 +2027,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_OBD_Diag_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        87U,  /* canObjId */
+        91U,  /* canObjId */
         4U,  /* controllerId */
         36U,   /* mbId */
         64U,  /* payloadSize */
@@ -2001,7 +2040,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_OBD_Diag_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        87U,  /* canObjId */
+        91U,  /* canObjId */
         4U,  /* controllerId */
         37U,   /* mbId */
         64U,  /* payloadSize */
@@ -2014,7 +2053,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD7_CAN3_OBD_Diag_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        87U,  /* canObjId */
+        91U,  /* canObjId */
         4U,  /* controllerId */
         38U,   /* mbId */
         64U,  /* payloadSize */
@@ -2027,7 +2066,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD8_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        96U,  /* canObjId */
+        100U,  /* canObjId */
         5U,  /* controllerId */
         6U,   /* mbId */
         32U,  /* payloadSize */
@@ -2040,7 +2079,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD8_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        96U,  /* canObjId */
+        100U,  /* canObjId */
         5U,  /* controllerId */
         7U,   /* mbId */
         32U,  /* payloadSize */
@@ -2053,7 +2092,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD8_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        96U,  /* canObjId */
+        100U,  /* canObjId */
         5U,  /* controllerId */
         8U,   /* mbId */
         32U,  /* payloadSize */
@@ -2066,7 +2105,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD8_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        96U,  /* canObjId */
+        100U,  /* canObjId */
         5U,  /* controllerId */
         9U,   /* mbId */
         32U,  /* payloadSize */
@@ -2079,7 +2118,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD8_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        96U,  /* canObjId */
+        100U,  /* canObjId */
         5U,  /* controllerId */
         10U,   /* mbId */
         32U,  /* payloadSize */
@@ -2092,7 +2131,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD8_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        96U,  /* canObjId */
+        100U,  /* canObjId */
         5U,  /* controllerId */
         11U,   /* mbId */
         32U,  /* payloadSize */
@@ -2105,7 +2144,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD64_CAN1_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        97U,  /* canObjId */
+        101U,  /* canObjId */
         5U,  /* controllerId */
         14U,   /* mbId */
         64U,  /* payloadSize */
@@ -2118,7 +2157,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD64_CAN1_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        97U,  /* canObjId */
+        101U,  /* canObjId */
         5U,  /* controllerId */
         15U,   /* mbId */
         64U,  /* payloadSize */
@@ -2131,7 +2170,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD64_CAN1_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        97U,  /* canObjId */
+        101U,  /* canObjId */
         5U,  /* controllerId */
         16U,   /* mbId */
         64U,  /* payloadSize */
@@ -2144,7 +2183,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD64_CAN1_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        97U,  /* canObjId */
+        101U,  /* canObjId */
         5U,  /* controllerId */
         17U,   /* mbId */
         64U,  /* payloadSize */
@@ -2157,7 +2196,7 @@ static const VAR(Can_MBConfigType, CAN_VAR) Can_MBConfig[] = {
     {   /* CanHardwareObject_CANFD64_CAN1_BAC_TX */
         CAN_ID_STANDARD, /* idType */
         TRANSMIT,    /* hohType */
-        97U,  /* canObjId */
+        101U,  /* canObjId */
         5U,  /* controllerId */
         18U,   /* mbId */
         64U,  /* payloadSize */

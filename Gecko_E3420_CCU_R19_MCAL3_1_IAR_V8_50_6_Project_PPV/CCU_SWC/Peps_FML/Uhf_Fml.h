@@ -5,6 +5,7 @@
 #include <types.h>
 #include "aes.h"
 #include "aes_cf.h"
+#include "platform_cfg.h"
 
 #define MAX_TRANSMITTERS		(uint32_t)4U //最大钥匙数量
 
@@ -18,13 +19,15 @@
 
 #define TRANSMITTER_ID_SAVE_ADDR 		(uint8_t)0x10//最近使用的两个遥控器ID保存地址
 
+#define PKE_POLLING_ID_SAVE_ADDR 		(uint8_t)0x12//迎宾功能通用ID保存地址
+
 #define TRANSMITTERS_EEPROM_ADDR 		(uint8_t)0x18//遥控信息保存地址A区
 
 #define TRANSMITTERS_EEPROM_BAK_ADDR 	(uint8_t)0x80//遥控信息保存地址B区(备份区域)
 
 #define PABS_LONGPRESS_MAX		14u
 
-#define DOUBLE_CLICK_MAXIMUM_TIME 100u // 500MS
+#define DOUBLE_CLICK_MAXIMUM_TIME	200u  //2000MS
 
 #define NOT_PRESSED 				0u
 #define SHORT_PRESSED 				1u
@@ -162,6 +165,12 @@ extern uint16_t u16UhfFrameRkeAuthOkCount;
 extern uint16_t u16UhfFramePkeAuthOkCount;
 extern uint8_t u8PlanUseFobKeyUid_Index[2];
 extern uint32_t u32PlanUseFobKeyUid[2];
+extern uint8_t u8WelcomeGuestPollingWakeUpUid[2];
+
+
+extern LONG_UNION		u32InCarAntRssi;
+extern LONG_UNION		u32LfAntRssi;
+extern LONG_UNION		u32RfAntRssi;
 
 void SetFobKeyEnterMatchPattern(void);
 void SetFobKeyEnterErase(void);

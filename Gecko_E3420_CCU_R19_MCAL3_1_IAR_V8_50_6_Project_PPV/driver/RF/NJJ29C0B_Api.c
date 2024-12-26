@@ -7,21 +7,21 @@ static uint8 QSpi_NJJ29C0B_DataRx[255] ={0} ;
 static uint8 QSpi_NJJ29C0B_DataTx[255] = {0};
 
 
-Std_ReturnType NJJ29C0B_Frame_Transmit(uint8* payload_tx, uint8* rxdata, uint8 payload_len)
+Std_ReturnType NJJ29C0B_Frame_Transmit(uint8* payload_tx, uint8* rxdata, uint16 payload_len)
 {
   Std_ReturnType ret = E_OK;
   uint8 data_idx;
-
+SuspendAllInterrupts();
   ret = Spi_SetupEB(SpiConf_SpiChannel_SpiChannel_NJJ29C0B, 
               (uint8*)payload_tx, 
               (uint8*)rxdata, 
-              payload_len);
+              (uint16)payload_len);
 
   if(ret == E_OK)
   {
     ret = Spi_SyncTransmit(SpiConf_SpiSequence_SpiSequence_NJJ29C0B);
   }
-  
+ResumeAllInterrupts();  
   return ret;
 }
 

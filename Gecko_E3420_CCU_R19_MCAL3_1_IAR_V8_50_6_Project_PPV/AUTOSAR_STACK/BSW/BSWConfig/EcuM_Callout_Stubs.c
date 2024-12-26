@@ -220,7 +220,6 @@ EcuM_AL_DriverInitOne(
     Spi_Init(Spi_Config);
     I2c_Init();
     Pwm_Init(&Pwm_Config);
-
     TCA6424_Init();
     IoExp_TCA6424_SetAllPortHigh(TCA6424_CHIP_A);
     //IoExp_TCA6424_SetAllPortHigh(TCA6424_CHIP_B);
@@ -298,16 +297,16 @@ EcuM_AL_DriverInitBswM(
     NvM_ReadPRAMBlock(NvMBlock3_DID_F157);
     NvM_ReadPRAMBlock(NvMBlock_Swc_VCU_01_64);
     NvM_ReadPRAMBlock(NvMBlock_Swc_TMS);
-
     NvM_ReadPRAMBlock(NvMBlock_Swc_BCM_IMM_20);
     NvM_ReadPRAMBlock(NvMBlock_Swc_BCM_PD_10);
     NvM_ReadPRAMBlock(NvMBlock_Swc_BCM_PEPS_256);
+    NvM_ReadPRAMBlock(NvMBlock_Swc_Vcu_2_128);
     while ((NVM_REQ_PENDING == l_BlockStatus) && (NvMCounter > 0))
     {
         NvM_MainFunction();
         Ea_MainFunction();
         Eep_62_MainFunction();
-        (void)NvM_GetErrorStatus(NvMBlock_Swc_BCM_PEPS_256, &l_BlockStatus);
+        (void)NvM_GetErrorStatus(NvMBlock_Swc_Vcu_2_128, &l_BlockStatus);
         NvMCounter--;
     }
     /*Enter in RUN after initialized all BSW mode.*/
