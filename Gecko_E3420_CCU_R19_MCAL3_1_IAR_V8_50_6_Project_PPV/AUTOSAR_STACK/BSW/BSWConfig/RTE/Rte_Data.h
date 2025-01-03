@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-12-19 16:45:18>
+ *  @date       <2024-12-31 16:13:29>
  */
 /*============================================================================*/
 
@@ -72,6 +72,8 @@ extern BMS_9_BattInfo_EPT Rte_Buf_Runbl_IpmCanRx_100ms_BMS_9_BattInfo_EPT_BMS_9_
 extern BSW2VCU_outputs Irv_AppSwcVcu_BSW2VCU_outputs;
 
 extern BSW2VCU_outputs Irv_AppSwcVcu_Runbl_VCU_100ms_BSW2VCU_outputs;
+
+extern BSW2VCU_outputs Irv_AppSwcVcu_Runbl_VCU_10ms_BSW2VCU_outputs;
 
 extern BSW2VCU_outputs Irv_AppSwcVcu_Runbl_VCU_20ms_BSW2VCU_outputs;
 
@@ -785,6 +787,8 @@ extern NVM_Imdt_outputs Irv_AppSwcVcu_AppSwcVcu_Init_NVM_Imdt_outputs;
 
 extern NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VCU_100ms_NVM_Imdt_outputs;
 
+extern NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VCU_10ms_NVM_Imdt_outputs;
+
 extern NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VCU_20ms_NVM_Imdt_outputs;
 
 extern NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VcuRx_10ms_NVM_Imdt_outputs;
@@ -1286,8 +1290,6 @@ extern TMS2VCU_AC_2_State_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_AC_2_Stat
 extern TMS2VCU_AC_2_State_Outputs Rte_Buf_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs;
 
 extern TMS2VCU_AC_2_State_Outputs Irv_AppSwcVcu_TMS2VCU_AC_2_State_Outputs;
-
-extern TMS2VCU_AC_2_State_Outputs Irv_AppSwcVcu_Runbl_VCU_100ms_TMS2VCU_AC_2_State_Outputs;
 
 extern TMS2VCU_AC_2_State_Outputs Irv_AppSwcVcu_Runbl_VCU_20ms_TMS2VCU_AC_2_State_Outputs;
 

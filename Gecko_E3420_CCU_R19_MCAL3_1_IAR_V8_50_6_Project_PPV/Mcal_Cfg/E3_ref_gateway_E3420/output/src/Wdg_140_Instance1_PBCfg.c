@@ -88,7 +88,7 @@ static const Wdg_ModeConfigType ModeSettings1[3] =
     /*Slow mode*/
     {
         .clockFrequency   = 24000000U,
-        .timeoutPeriod    = 100U,
+        .timeoutPeriod    = 50U,
         .timeoutBehavior  = WDG_RESET,
         .triggerCondition = NO_CONDITION_MODE,
         .refreshTime      = 0U,
@@ -108,7 +108,7 @@ static const Wdg_ModeConfigType ModeSettings1[3] =
 const Wdg_ConfigType Wdg_Config1 =
 {
 
-    .initTimeout = 500U,
+    .initTimeout = 100U,
     .maxTimeout  = 1000U,
     .defaultMode = WDGIF_OFF_MODE,
     .currentInstance = WDT1_INDEX,

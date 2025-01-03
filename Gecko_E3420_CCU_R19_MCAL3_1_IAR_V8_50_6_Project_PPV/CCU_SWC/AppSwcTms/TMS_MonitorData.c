@@ -502,6 +502,7 @@ MONPRM volatile boolean PWRCtl_bKL15swtSt = false;
 MONPRM volatile boolean PWRCtl_bUnlockVentTimeFlg = false;
 MONPRM volatile uint8 PWRCtl_eBatChargSts = ((uint8)0U);
 MONPRM volatile PwrModes PWRCtl_eTMSStatus = PwrOff;
+MONPRM volatile uint8 PWRCtl_eUnlockActFlg = ((uint8)0U);
 MONPRM volatile uint8 PWRCtl_eVCUPTSts = ((uint8)0U);
 MONPRM volatile float32 PWRCtl_sCOMPActlPwr = 0.0F;
 MONPRM volatile float32 PWRCtl_sLmtPwrCOMP = 0.0F;

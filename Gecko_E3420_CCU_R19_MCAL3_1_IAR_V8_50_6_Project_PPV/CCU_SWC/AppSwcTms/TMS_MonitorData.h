@@ -505,6 +505,7 @@ extern MONPRM volatile boolean PWRCtl_bKL15swtSt;
 extern MONPRM volatile boolean PWRCtl_bUnlockVentTimeFlg;
 extern MONPRM volatile uint8 PWRCtl_eBatChargSts;
 extern MONPRM volatile PwrModes PWRCtl_eTMSStatus;
+extern MONPRM volatile uint8 PWRCtl_eUnlockActFlg;
 extern MONPRM volatile uint8 PWRCtl_eVCUPTSts;
 extern MONPRM volatile float32 PWRCtl_sCOMPActlPwr;
 extern MONPRM volatile float32 PWRCtl_sLmtPwrCOMP;

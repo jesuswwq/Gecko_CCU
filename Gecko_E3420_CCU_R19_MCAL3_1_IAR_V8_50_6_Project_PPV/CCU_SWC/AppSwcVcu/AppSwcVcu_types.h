@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcVcu'.
  *
- * Model version                  : 9.704
+ * Model version                  : 9.715
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Wed Dec 25 17:16:37 2024
+ * C/C++ source code generated on : Tue Dec 31 15:16:54 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4

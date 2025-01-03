@@ -2696,7 +2696,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x224,
+        0x22c,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 
@@ -2736,7 +2736,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x224,
+        0x22c,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 
@@ -2776,7 +2776,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x224,
+        0x22c,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 
@@ -2816,7 +2816,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x224,
+        0x22c,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 
@@ -2856,7 +2856,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x224,
+        0x22c,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 
@@ -2936,7 +2936,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x204,
+        0x20c,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 

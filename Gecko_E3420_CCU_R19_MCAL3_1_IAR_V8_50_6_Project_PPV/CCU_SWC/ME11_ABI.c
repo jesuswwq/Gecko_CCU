@@ -48,7 +48,7 @@ uint8 key_word[256] = {0};
 boolean INV_IMMO_Req_EPT_RevFlag =0;
 //================BSWversion============================
 uint8  VBSW_BswVer0_cnt = 25;
-uint8  VBSW_BswVer1_cnt = 1;
+uint8  VBSW_BswVer1_cnt = 2;
 //======================================================
 
 /*新增高压互锁电压20241025*/
@@ -1816,7 +1816,10 @@ uint8 Get_EcuResetStatus(void)
 void Set_EcuReset(void)
 {
 	//Mcu_PerformReset();
+	SuspendAllInterrupts();
+	  Dio_WriteChannel(175U, 0);
 	while (1);
+	ResumeAllInterrupts();
 }
 #if 1
 uint8 GetHw_HiBeamDigSts(void)

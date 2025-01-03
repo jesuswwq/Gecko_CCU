@@ -1156,10 +1156,17 @@ Std_ReturnType Wdg_Ip_SetMode(const Wdg_ModeConfigType *pModeSetting, uint8 inst
  *                      SWSR_WDG_032 SWSR_WDG_033 SWSR_WDG_034 SWSR_WDG_051 SWSR_WDG_073
  *                      SWSR_WDG_075
  *******************************************************************************************************/
+uint32 glb_wdt_cnt;
+uint32 glb_wdt_cnt_old;
 void Wdg_Ip_SetTriggerCondition(uint16 timeout, uint8 instanceId)
 {
     uint32 base = Wdg_Ip_GetBaseAddr(instanceId);
 
+    glb_wdt_cnt = Wdg_Get_Ip_Cnt(instanceId);
+    if(glb_wdt_cnt_old < glb_wdt_cnt)
+    {
+        glb_wdt_cnt_old = glb_wdt_cnt;
+    }
     /*#10 null point check*/
     if (WDT_IP_ZERO != base)
     {
@@ -1367,6 +1374,22 @@ void  Wdg_Ip_GlbResetEn(uint8 instanceId)
 #endif /*SEMIDRIVE_E3_LITE_SERIES*/
         REG_WRITE32(val, APB_RSTGEN_SF_BASE + WDG_IP_GLOBAL_RESET_CONTROL_OFF);
     }
+}
+/*----------------------------------------------------------------------------------------------
+gets the timeout value for the trigger counter.
+author:wwq
+date:2024-12-31
+bihu added wdg reset function
+----------------------------------------------------------------------------------------------*/
+
+uint32 Wdg_Get_Ip_Cnt(uint8 instanceId)
+{
+    uint32 wdt_cnt;
+    uint32 base = Wdg_Ip_GetBaseAddr(instanceId);
+
+    wdt_cnt = REG_READ32(base + WDT_CNT_OFF);
+
+    return wdt_cnt;
 }
 
 #define WDG_STOP_SEC_CODE

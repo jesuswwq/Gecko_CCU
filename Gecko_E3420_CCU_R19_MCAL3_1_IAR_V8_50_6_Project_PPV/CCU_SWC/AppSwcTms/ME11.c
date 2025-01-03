@@ -3192,6 +3192,7 @@ void Task_100ms(void)
   FaultStatus rtb_Compare_oik_tmp_tmp;
   uint8 rtb_VectorConcatenate_dq[13];
   uint8 PWRCtl_eTMSStatus_a;
+  uint8 rtb_Add1_oy;
   uint8 rtb_Add2_j5;
   uint8 rtb_Add3_do;
   uint8 rtb_Add4_ox;
@@ -3200,17 +3201,16 @@ void Task_100ms(void)
   uint8 rtb_Add7_i;
   uint8 rtb_Add_ge3;
   uint8 rtb_Compare;
-  uint8 rtb_Compare_bxp;
-  uint8 rtb_Compare_i1;
+  uint8 rtb_Compare_br;
+  uint8 rtb_Compare_cy1;
   uint8 rtb_Compare_ij;
-  uint8 rtb_Compare_nw0;
-  uint8 rtb_DataTypeConversion19;
+  uint8 rtb_Compare_iqy;
+  uint8 rtb_Compare_mqd;
   uint8 rtb_DataTypeConversion1_g;
   uint8 rtb_DataTypeConversion1_l;
   uint8 rtb_DataTypeConversion1_on;
   uint8 rtb_DataTypeConversion2_a;
   uint8 rtb_Delay1_i;
-  uint8 rtb_Delay_ku;
   uint8 rtb_IFreezFlag;
   uint8 rtb_IFreezFlag_bd;
   uint8 rtb_IFreezFlag_c;
@@ -3229,7 +3229,8 @@ void Task_100ms(void)
   uint8 u1_0;
   uint8 u1_1;
   uint8 u1_2;
-  boolean rtb_Compare_hdh[7];
+  uint8 u1_3;
+  boolean rtb_Compare_jy[7];
   boolean rtb_Compare_mjv[6];
   boolean rtb_Compare_btd[5];
   boolean FixPtRelationalOperator;
@@ -3237,15 +3238,16 @@ void Task_100ms(void)
   boolean guard2 = false;
   boolean rtb_ACTCtl_bEXVDiagFlg_0;
   boolean rtb_ACTCtl_bPMPDiagFlg;
+  boolean rtb_ACTCtl_bPTCDiagFlg;
   boolean rtb_AND1_c;
   boolean rtb_AND1_h0y;
   boolean rtb_AND1_hh;
   boolean rtb_AND4_f;
   boolean rtb_AND_hi;
+  boolean rtb_Compare_afv_0;
   boolean rtb_Compare_bdq;
   boolean rtb_Compare_bu;
   boolean rtb_Compare_c;
-  boolean rtb_Compare_cd_tmp;
   boolean rtb_Compare_cj1;
   boolean rtb_Compare_cls;
   boolean rtb_Compare_cvf;
@@ -3254,12 +3256,10 @@ void Task_100ms(void)
   boolean rtb_Compare_d0e;
   boolean rtb_Compare_dsx;
   boolean rtb_Compare_e5;
+  boolean rtb_Compare_ehr;
   boolean rtb_Compare_ej;
   boolean rtb_Compare_f2;
-  boolean rtb_Compare_fe4;
   boolean rtb_Compare_fhh;
-  boolean rtb_Compare_gzu;
-  boolean rtb_Compare_h1;
   boolean rtb_Compare_ip;
   boolean rtb_Compare_j2e;
   boolean rtb_Compare_jac;
@@ -3267,6 +3267,7 @@ void Task_100ms(void)
   boolean rtb_Compare_jkh;
   boolean rtb_Compare_kq;
   boolean rtb_Compare_l;
+  boolean rtb_Compare_l4;
   boolean rtb_Compare_l5;
   boolean rtb_Compare_lfo;
   boolean rtb_Compare_lwc;
@@ -3274,10 +3275,10 @@ void Task_100ms(void)
   boolean rtb_Compare_mcu;
   boolean rtb_Compare_mdjr;
   boolean rtb_Compare_mos;
+  boolean rtb_Compare_mpn;
   boolean rtb_Compare_mwc;
   boolean rtb_Compare_ny;
   boolean rtb_Compare_nzl;
-  boolean rtb_Compare_oc;
   boolean rtb_Compare_ppz;
   boolean rtb_Compare_pw;
   boolean rtb_Delay1_ag;
@@ -3289,15 +3290,15 @@ void Task_100ms(void)
   boolean rtb_FixPtRelationalOperator_ka;
   boolean rtb_LogicalOperator1_f;
   boolean rtb_LogicalOperator5;
+  boolean rtb_LogicalOperator_c4;
   boolean rtb_LogicalOperator_j0;
-  boolean rtb_OR2_a;
   boolean rtb_OR_i4;
+  boolean rtb_OR_lq;
   boolean rtb_RelationalOperator3_d;
+  boolean rtb_RelationalOperator_ht;
   boolean rtb_RelationalOperator_kh;
-  boolean rtb_RelationalOperator_lt;
   boolean rtb_RelationalOperator_pl;
   boolean rtb_Switch_kl;
-  boolean rtb_Switch_n2;
   GLB_ESC_VehicleSpeedValid =
     (Rte_IRead_Task_100ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA())
     ->VIPM_ESCVehSpdVld_flg;
@@ -3324,9 +3325,9 @@ void Task_100ms(void)
   rtb_Compare_lfo = COMP_TempError;
   HU_LeftTempSet = (Rte_IRead_Task_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC())
     ->VIPM_HULeftTempSet_enum;
-  rtb_Compare_bxp = GetHw_KL15A();
-  rtb_Compare_i1 = GetHw_KL15B();
-  PWRCtl_bKL15swtSt = ((rtb_Compare_bxp != 0) || (rtb_Compare_i1 != 0));
+  rtb_Compare_cy1 = GetHw_KL15A();
+  rtb_Compare_br = GetHw_KL15B();
+  PWRCtl_bKL15swtSt = ((rtb_Compare_cy1 != 0) || (rtb_Compare_br != 0));
   PWRCtl_eVCUPTSts = (Rte_IRead_Task_100ms_Vcu2BcmTms_outputs_Vcu2BcmTms_outputs
                       ())->VHVM_PTActOprtMode_enum;
   if (ME11_ARID_DEF.is_active_c58_ME11 == 0U) {
@@ -5859,8 +5860,8 @@ void Task_100ms(void)
     rtb_DataTypeConversion23 = 1.0F;
   }
 
-  rtb_Compare_fe4 = (ACSen_eFootDuctSenSts != Normal);
-  rtb_RelationalOperator_kh = (rtb_OR_i4 || rtb_Compare_fe4);
+  rtb_Compare_l4 = (ACSen_eFootDuctSenSts != Normal);
+  rtb_RelationalOperator_kh = (rtb_OR_i4 || rtb_Compare_l4);
   rtb_Delay_n2 = ME11_ARID_DEF.Delay_DSTATE_fl;
   SEN_TDuctRaw = look1_iflf_binlca(rtb_Delay1_ie, (const float32 *)
     &cal_TDuctRaw_1X[0], (const float32 *)&cal_TDuctRaw_CUR[0], 25U);
@@ -6203,12 +6204,12 @@ void Task_100ms(void)
   }
 
   rtb_Gain8 = ME11_ARID_DEF.FixPtUnitDelay1_DSTATE_dn - ACCtl_tLeftDuct;
-  rtb_Compare_l = (rtb_Gain8 < cal_tCabinCondToCoolDvtDiff);
+  rtb_Compare_mpn = (rtb_Gain8 < cal_tCabinCondToCoolDvtDiff);
   rtb_AND_hi = ME11_ARID_DEF.Delay1_DSTATE_b;
   rtb_Divide_ox =
     Rte_IRead_Task_100ms_HP_EXV_CurrentPosition_B_HP_EXV_CurrentPosition_B();
   HP_EXV_CurrentPosition_B = 0.15625F * (float32)rtb_Divide_ox;
-  FixPtRelationalOperator = (rtb_Compare_l && (ME11_ARID_DEF.Delay1_DSTATE_b &&
+  FixPtRelationalOperator = (rtb_Compare_mpn && (ME11_ARID_DEF.Delay1_DSTATE_b &&
     SOMCtl_bMD1CLMSts && (HP_EXV_CurrentPosition_B >=
     cal_CabinCondToCoolHPEXVPos1)));
   if (ME11_ARID_DEF.temporalCounter_i1_dt < 1023U) {
@@ -6282,7 +6283,7 @@ void Task_100ms(void)
     ACSen_sEvapSurTemp = ME11_ARID_DEF.FixPtUnitDelay1_DSTATE_a;
   }
 
-  FixPtRelationalOperator = (FixPtRelationalOperator && rtb_Compare_l &&
+  FixPtRelationalOperator = (FixPtRelationalOperator && rtb_Compare_mpn &&
     (SOMCtl_bMD1CLMSts && (ACSen_sEvapSurTemp <= cal_tCabinCondToCoolEvapTemp)));
   if (ME11_ARID_DEF.temporalCounter_i1_h2 < 511U) {
     ME11_ARID_DEF.temporalCounter_i1_h2++;
@@ -6369,12 +6370,12 @@ void Task_100ms(void)
 
   COMP_EcompActSpd = (Rte_IRead_Task_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD())
     ->VIPM_COMPEcompActSpd_rpm;
-  rtb_Compare_l = (COMP_EcompActSpd < cal_CabinEvpToCondCompLmt);
+  rtb_Compare_mpn = (COMP_EcompActSpd < cal_CabinEvpToCondCompLmt);
   FixPtRelationalOperator = (((ME11_ARID_DEF.FixPtUnitDelay1_DSTATE_dn -
     ACSen_sFaceDuctTempFilter < cal_tCabinEvpToCondDvtDiff) ||
     (ME11_ARID_DEF.FixPtUnitDelay1_DSTATE_dn - ACSen_sFootDuctTempFilter <
      cal_tCabinEvpToCondDvtDiff)) && (ME11_ARID_DEF.Delay_DSTATE_d2 &&
-    SOMCtl_bMD2DHMD1Flg && rtb_Compare_l));
+    SOMCtl_bMD2DHMD1Flg && rtb_Compare_mpn));
   if (ME11_ARID_DEF.temporalCounter_i1_e < 511U) {
     ME11_ARID_DEF.temporalCounter_i1_e++;
   }
@@ -6413,7 +6414,7 @@ void Task_100ms(void)
     }
   }
 
-  FixPtRelationalOperator = (rtb_Compare_l && SOMCtl_bMD3DHMD2Flg &&
+  FixPtRelationalOperator = (rtb_Compare_mpn && SOMCtl_bMD3DHMD2Flg &&
     ((HP_EXV_CurrentPosition_B > cal_CabinCondToEvpHPEXVPos) &&
      (ACSen_sEvapSurTemp <= cal_tCabinCondToEvpEvapTemp)));
   if (ME11_ARID_DEF.temporalCounter_i1_dj < 511U) {
@@ -6705,12 +6706,12 @@ void Task_100ms(void)
   EXV_FaultState = Rte_IRead_Task_100ms_EXV_FaultState_EXV_FaultState();
   rtb_Compare_mcu = (EXV_FaultState != 0);
   EXV_VoltageState = Rte_IRead_Task_100ms_EXV_VoltageState_EXV_VoltageState();
-  rtb_Compare_l = (EXV_VoltageState != 0);
+  rtb_Compare_mpn = (EXV_VoltageState != 0);
   EXV_TemperatureWarn =
     Rte_IRead_Task_100ms_EXV_TemperatureWarn_EXV_TemperatureWarn();
   rtb_Compare_ej = (EXV_TemperatureWarn == 1);
-  ACTCtl_bAEXVFaultFlg = (EXV_ResponseError || rtb_Compare_mcu || rtb_Compare_l ||
-    rtb_Compare_ej);
+  ACTCtl_bAEXVFaultFlg = (EXV_ResponseError || rtb_Compare_mcu ||
+    rtb_Compare_mpn || rtb_Compare_ej);
   BAT_EXV_ResponseError_B =
     Rte_IRead_Task_100ms_BAT_EXV_ResponseError_B_BAT_EXV_ResponseError_B();
   rtb_Compare_ppz = BAT_EXV_ResponseError_B;
@@ -6810,8 +6811,6 @@ void Task_100ms(void)
   ACTCtl_bCOMPCoolEnvPrtFlg = !ME11_ARID_DEF.Relay_Mode;
   rtb_Delay1_ie = BMS_HVBatCellTempMax - BMS_HVBatCellTempMin;
   rtb_Delay_ci = (float32)fabs(rtb_Delay1_ie);
-  rtb_Compare_cd_tmp = (ACTCtl_bAEXVFaultFlg || ACTCtl_bBEXVFaultFlg ||
-                        ACTCtl_bHPEXVFaultFlg);
   SOMCtl_eBatCoolB2tB1 = (uint8)((((((uint32)((((BMS_HVBatCellTempMax <=
     cal_tBatCoolDCChrgCellTempOff) && (ME11_ARID_DEF.DataTypeConversion1 == 4)) ||
     ((BMS_HVBatCellTempMax <= cal_tBatCoolACChrgCellTempOff) &&
@@ -6824,16 +6823,17 @@ void Task_100ms(void)
      (((ME11_ARID_DEF.Delay_DSTATE_gh == 2) || (ME11_ARID_DEF.Delay_DSTATE_gh ==
     5)) && ((ME11_ARID_DEF.DataTypeConversion1 != 2) &&
             (ME11_ARID_DEF.DataTypeConversion1 != 5))))) + (uint32)
-    ((rtb_Compare_cd_tmp || ACTCtl_bBatPMPFaultFlg || ACTCtl_bCOMPForbidFlg) <<
-     2)) + (uint32)((rtb_Delay_ci >= cal_tBatHeatExitMaxToMinCellDiff) << 3)) +
-    (uint32)((PWRCtl_VCUACCMLimitPwr <= cal_BatHeatPwrLoLmt) << 4)) + (uint32)
+    ((ACTCtl_bAEXVFaultFlg || ACTCtl_bBEXVFaultFlg || ACTCtl_bHPEXVFaultFlg ||
+      ACTCtl_bBatPMPFaultFlg || ACTCtl_bCOMPForbidFlg) << 2)) + (uint32)
+    ((rtb_Delay_ci >= cal_tBatHeatExitMaxToMinCellDiff) << 3)) + (uint32)
+    ((PWRCtl_VCUACCMLimitPwr <= cal_BatHeatPwrLoLmt) << 4)) + (uint32)
     (ACTCtl_bCOMPCoolEnvPrtFlg << 5));
   rtb_FixPtRelationalOperator_gf = (SOMCtl_eBatCoolB2tB1 != 0);
-  rtb_AND1_c = !ACTCtl_bBatPMPFaultFlg;
-  rtb_RelationalOperator_lt = ((!ACTCtl_bAEXVFaultFlg) && (!ACTCtl_bBEXVFaultFlg)
+  rtb_Compare_ehr = !ACTCtl_bBatPMPFaultFlg;
+  rtb_RelationalOperator_ht = ((!ACTCtl_bAEXVFaultFlg) && (!ACTCtl_bBEXVFaultFlg)
     && (!ACTCtl_bHPEXVFaultFlg));
-  rtb_OR2_a = !ACTCtl_bCOMPForbidFlg;
-  b_previousEvent = (rtb_RelationalOperator_lt && rtb_AND1_c && rtb_OR2_a);
+  rtb_AND1_c = !ACTCtl_bCOMPForbidFlg;
+  b_previousEvent = (rtb_RelationalOperator_ht && rtb_Compare_ehr && rtb_AND1_c);
   rtb_Compare_bu = !ACTCtl_bCOMPCoolEnvPrtFlg;
   SOMCtl_eBatCoolB1tB21 = (uint8)(((((uint32)(((BMS_HVBatCellTempMax >=
     cal_tDCBatCoolCellTempOn) && (ME11_ARID_DEF.DataTypeConversion1 == 4)) ||
@@ -6956,7 +6956,7 @@ void Task_100ms(void)
     ACTCtl_bMotPMPFaultFlg = ME11_ARID_DEF.ACTCtl_bAcPMPFaultFlg_e;
   }
 
-  rtb_AND1_h0y = (rtb_AND1_c && (!ACTCtl_bMotPMPFaultFlg));
+  rtb_AND1_h0y = (rtb_Compare_ehr && (!ACTCtl_bMotPMPFaultFlg));
   SOMCtl_bBatBalEntBFlg = ((SOMCtl_eBatBalEntBFlg != 0) && (rtb_Delay1_ie <
     cal_tBatHeatExitMaxToMinCellDiff) && rtb_AND1_h0y);
   rtb_Compare_f2 =
@@ -7088,14 +7088,16 @@ void Task_100ms(void)
   ME11_ARID_DEF.Relay_Mode_o = ((BMS_BatSOCAct_pct >= cal_ACChgBatHighSOCHeat) ||
     ((BMS_BatSOCAct_pct > cal_ACChgBatLowSOCHeat) && ME11_ARID_DEF.Relay_Mode_o));
   if (ME11_ARID_DEF.Relay_Mode_o) {
-    rtb_Compare_gzu = (BMS_HVBatCellTempMin <= cal_tBatHeatACChrgSOCHighTempOn);
+    rtb_LogicalOperator_c4 = (BMS_HVBatCellTempMin <=
+      cal_tBatHeatACChrgSOCHighTempOn);
   } else {
-    rtb_Compare_gzu = (BMS_HVBatCellTempMin <= cal_tBatHeatACChrgCellTempOn);
+    rtb_LogicalOperator_c4 = (BMS_HVBatCellTempMin <=
+      cal_tBatHeatACChrgCellTempOn);
   }
 
   SOMCtl_bBatHeatChrgFlgAB = (((BMS_HVBatCellTempMin <=
     cal_tBatHeatDCChrgCellTempOn) && (ME11_ARID_DEF.DataTypeConversion1 == 4)) ||
-    ((ME11_ARID_DEF.DataTypeConversion1 == 3) && rtb_Compare_gzu));
+    ((ME11_ARID_DEF.DataTypeConversion1 == 3) && rtb_LogicalOperator_c4));
   AcPMP_RESP_ERROR = Rte_IRead_Task_100ms_AcPMP_RESP_ERROR_AcPMP_RESP_ERROR();
   rtb_FixPtRelationalOperator_ex = AcPMP_RESP_ERROR;
   AcPMP_PumpMotorSta =
@@ -7134,23 +7136,25 @@ void Task_100ms(void)
   SOMCtl_bBatHeatTempDiffE = (rtb_Delay_ci < cal_tBatHeatExitMaxToMinCellDiff);
   rtb_Add = PWRCtl_VCUACCMLimitPwr + PWRCtl_VCUACCMLimitPwr;
   SOMCtl_bBatHeatPwrLmtF = (rtb_Add >= cal_HeatPwrOn);
-  rtb_AND1_c = (rtb_RelationalOperator_lt && ((!ACTCtl_bAcPMPFaultFlg) &&
-    rtb_AND1_c) && rtb_OR2_a && ACTCtl_bHVCHFaultFlg);
-  SOMCtl_bBatB1TB41Flg = (SOMCtl_bBatHeatChrgFlgAB && rtb_AND1_c &&
+  rtb_Compare_ehr = (rtb_RelationalOperator_ht && ((!ACTCtl_bAcPMPFaultFlg) &&
+    rtb_Compare_ehr) && rtb_AND1_c && ACTCtl_bHVCHFaultFlg);
+  SOMCtl_bBatB1TB41Flg = (SOMCtl_bBatHeatChrgFlgAB && rtb_Compare_ehr &&
     SOMCtl_bBatHeatTempDiffE && SOMCtl_bBatHeatPwrLmtF);
   ME11_ARID_DEF.Relay_Mode_f = ((BMS_BatSOCAct_pct >= cal_ACChgBatHighSOCHeat) ||
     ((BMS_BatSOCAct_pct > cal_ACChgBatLowSOCHeat) && ME11_ARID_DEF.Relay_Mode_f));
   if (ME11_ARID_DEF.Relay_Mode_f) {
-    rtb_Compare_gzu = (BMS_HVBatCellTempMin >= cal_tBatHeatACChrgSOCHighTempOff);
+    rtb_LogicalOperator_c4 = (BMS_HVBatCellTempMin >=
+      cal_tBatHeatACChrgSOCHighTempOff);
   } else {
-    rtb_Compare_gzu = (BMS_HVBatCellTempMin >= cal_tBatHeatACChrgCellTempOff);
+    rtb_LogicalOperator_c4 = (BMS_HVBatCellTempMin >=
+      cal_tBatHeatACChrgCellTempOff);
   }
 
   if ((ME11_ARID_DEF.DataTypeConversion1 == 3) ||
       (ME11_ARID_DEF.DataTypeConversion1 == 4)) {
-    rtb_RelationalOperator_lt = false;
+    rtb_RelationalOperator_ht = false;
   } else {
-    rtb_RelationalOperator_lt = (BMS_BatSOCAct_pct <= cal_VehHeatSOCOff);
+    rtb_RelationalOperator_ht = (BMS_BatSOCAct_pct <= cal_VehHeatSOCOff);
   }
 
   SOMCtl_eBatHeatOffVal = (uint8)((((((uint32)(((((ME11_ARID_DEF.Delay_DSTATE_bd
@@ -7161,16 +7165,15 @@ void Task_100ms(void)
     ME11_ARID_DEF.Delay_DSTATE_bg) << 4) + (uint32)
     ((((ME11_ARID_DEF.DataTypeConversion1 == 4) && (BMS_HVBatCellTempMin >=
     cal_tBatHeatDCChrgCellTempOff)) || ((ME11_ARID_DEF.DataTypeConversion1 == 3)
-    && rtb_Compare_gzu) || ((ME11_ARID_DEF.DataTypeConversion1 == 5) &&
+    && rtb_LogicalOperator_c4) || ((ME11_ARID_DEF.DataTypeConversion1 == 5) &&
     (BMS_HVBatCellTempMin >= cal_tBatHeatVehReadyCellTempOff))) << 5)) + (uint32)
-    ((rtb_Compare_cd_tmp || (ACTCtl_bAcPMPFaultFlg || ACTCtl_bBatPMPFaultFlg) ||
-      ACTCtl_bCOMPForbidFlg || (!ACTCtl_bHVCHFaultFlg)) << 2)) + (uint32)
-    (rtb_RelationalOperator_lt << 3)) + (uint32)(rtb_Delay_ci >=
+    ((ACTCtl_bAcPMPFaultFlg || ACTCtl_bBatPMPFaultFlg || (!ACTCtl_bHVCHFaultFlg))
+     << 2)) + (uint32)(rtb_RelationalOperator_ht << 3)) + (uint32)(rtb_Delay_ci >=
     cal_tBatHeatExitMaxToMinCellDiff)) + (uint32)((rtb_Add <=
     cal_BatHeatPwrLoLmt) << 1));
   SOMCtl_bBatHeatOffFlg = (SOMCtl_eBatHeatOffVal != 0);
   SOMCtl_bBatB1TB42Flg = ((ME11_ARID_DEF.DataTypeConversion1 == 5) &&
-    (BMS_HVBatCellTempMin <= cal_tBatHeatVehReadyCellTempOn) && rtb_AND1_c &&
+    (BMS_HVBatCellTempMin <= cal_tBatHeatVehReadyCellTempOn) && rtb_Compare_ehr &&
     (BMS_BatSOCAct_pct >= cal_VehHeatSOCOn) && (rtb_Delay_ci <
     cal_tBatHeatExitMaxToMinCellDiff) && (rtb_Add >= cal_HeatPwrOn));
   if (ME11_ARID_DEF.is_active_c71_ME11 == 0U) {
@@ -7218,10 +7221,9 @@ void Task_100ms(void)
   ME11_Chart_p(ACSen_sMotTempFilter >= BMS_InletCooltActlTemp +
                cal_TSBatInletTempOffsetP, &ME11_ARID_DEF.B_i,
                &ME11_ARID_DEF.ARID_DEF_Chart1_d);
+  rtb_OR_lq = ((Rte_IRead_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT()
+               )->VIPM_INV2IgbtMaxTemp_C >= cal_TSIGBTMinTempExitG);
   rtb_Compare_dsx =
-    ((Rte_IRead_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT())
-     ->VIPM_INV2IgbtMaxTemp_C >= cal_TSIGBTMinTempExitG);
-  rtb_RelationalOperator_lt =
     ((Rte_IRead_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT())
      ->VIPM_IPUDeviceIntTemp_C >= cal_TSIPUExitTempI);
   SOMCtl_bBatTSExitFlg = ((rtb_Delay1_ie >= cal_tBatHeatExitMaxToMinCellDiff) ||
@@ -7231,12 +7233,11 @@ void Task_100ms(void)
     look1_iflf_binlca(ACSen_sEnvTempCor, (const float32 *)
                       &cal_TSBatMaxTempForEnvExitC_1X[0], (const float32 *)
                       &cal_TSBatMaxTempForEnvExitC_CUR[0], 4U)) ||
-    (ME11_ARID_DEF.B_a && ME11_ARID_DEF.B_i) || rtb_Compare_dsx ||
-    (ACSen_sMotTempFilter >= cal_TSMotorMinTempExitH) ||
-    rtb_RelationalOperator_lt || (BMS_HVBatCellTempMin <= cal_TSBatMinExitTempJ)
-    || ((BMS_HVBatCellTempMin <= cal_TSACBatMinExitTempN) &&
-        (ME11_ARID_DEF.DataTypeConversion1 == 3) && (BMS_BatSOCAct_pct <=
-    cal_ACChgBatLowSOCHeat)));
+    (ME11_ARID_DEF.B_a && ME11_ARID_DEF.B_i) || rtb_OR_lq ||
+    (ACSen_sMotTempFilter >= cal_TSMotorMinTempExitH) || rtb_Compare_dsx ||
+    (BMS_HVBatCellTempMin <= cal_TSBatMinExitTempJ) || ((BMS_HVBatCellTempMin <=
+    cal_TSACBatMinExitTempN) && (ME11_ARID_DEF.DataTypeConversion1 == 3) &&
+    (BMS_BatSOCAct_pct <= cal_ACChgBatLowSOCHeat)));
   rtb_AND1_h0y = (SOMCtl_bBatCoolFlg || (((ME11_ARID_DEF.DataTypeConversion1 ==
     3) || (ME11_ARID_DEF.DataTypeConversion1 == 4)) &&
     ME11_ARID_DEF.Delay_DSTATE_jm));
@@ -7631,24 +7632,25 @@ void Task_100ms(void)
     ACTCrl_bEnvCOMPLmt = false;
   } else {
     for (b_previousEvent = 0; b_previousEvent < 7; b_previousEvent++) {
-      rtb_Compare_hdh[b_previousEvent] = (SOMCtl_eRefModes ==
+      rtb_Compare_jy[b_previousEvent] = (SOMCtl_eRefModes ==
         ME11_ConstP.Constant_Value_dw[b_previousEvent]);
     }
 
-    rtb_Compare_gzu = rtb_Compare_hdh[0];
+    rtb_LogicalOperator_c4 = rtb_Compare_jy[0];
     for (b_previousEvent = 0; b_previousEvent < 6; b_previousEvent++) {
-      rtb_Compare_gzu = (rtb_Compare_gzu || rtb_Compare_hdh[b_previousEvent + 1]);
+      rtb_LogicalOperator_c4 = (rtb_LogicalOperator_c4 ||
+        rtb_Compare_jy[b_previousEvent + 1]);
     }
 
-    if (rtb_Compare_gzu) {
+    if (rtb_LogicalOperator_c4) {
       ACTCrl_bEnvCOMPLmt = !ME11_ARID_DEF.Relay1_Mode;
     } else {
       ACTCrl_bEnvCOMPLmt = ACTCtl_bCOMPCoolEnvPrtFlg;
     }
   }
 
-  rtb_Compare_cd_tmp = (ACTCtl_bAEXVFaultFlg || ACTCtl_bBEXVFaultFlg ||
-                        ACTCtl_bHPEXVFaultFlg);
+  rtb_Compare_afv_0 = (ACTCtl_bAEXVFaultFlg || ACTCtl_bBEXVFaultFlg ||
+                       ACTCtl_bHPEXVFaultFlg);
   SENCtl_uWCCHPVol = get_WCCHighPressValtage();
   rtb_Gain8 = (float32)((sint16)SENCtl_uWCCHPVol -
                         look1_iu16lu64n48ts16Ds32_binlcas(SENCtl_uWCCHPVol, (
@@ -8187,7 +8189,7 @@ void Task_100ms(void)
   ACTCtl_bCOMPRealFault = (ME11_ARID_DEF.Sts_h || ME11_ARID_DEF.Sts_b ||
     ME11_ARID_DEF.Sts_a || ME11_ARID_DEF.Sts_e || ME11_ARID_DEF.Sts_d3 ||
     ME11_ARID_DEF.Sts_d);
-  ACTCtl_bCOMPForbidFlg = (ACTCrl_bEnvCOMPLmt || rtb_Compare_cd_tmp ||
+  ACTCtl_bCOMPForbidFlg = (ACTCrl_bEnvCOMPLmt || rtb_Compare_afv_0 ||
     ACTCtl_bOCOLmtFlg || ACTCtl_bCOMPEnbDelay || ACTCtl_bPressProtectFlg ||
     ACTCtl_bPressRateFlg || ACTCtl_bCOMPRealFault);
   if (ME11_ARID_DEF.temporalCounter_i1_c < 15U) {
@@ -8228,9 +8230,9 @@ void Task_100ms(void)
     }
   }
 
-  rtb_Compare_gzu = (rtb_Compare_mos || rtb_Compare_cj1 || rtb_Compare_fhh ||
-                     rtb_Compare_e5 || rtb_Compare_kq || rtb_Compare_lfo ||
-                     ME11_ARID_DEF.ACTCtl_bCOMPForbidFlg_p);
+  rtb_LogicalOperator_c4 = (rtb_Compare_mos || rtb_Compare_cj1 ||
+    rtb_Compare_fhh || rtb_Compare_e5 || rtb_Compare_kq || rtb_Compare_lfo ||
+    ME11_ARID_DEF.ACTCtl_bCOMPForbidFlg_p);
   BatPMP_RealRPM = 0.400390625F * (float32)
     Rte_IRead_Task_100ms_BatPMP_RealRPM_BatPMP_RealRPM();
   if (ME11_ARID_DEF.is_active_c145_ME11 == 0U) {
@@ -8329,106 +8331,98 @@ void Task_100ms(void)
   }
 
   rtb_DataTypeConversion1_g = SOMCtl_eWaterMode;
-  rtb_RelationalOperator_lt = (cal_LTRIGBTTempMotPMPCtrl_1X[0] >
-    (Rte_IRead_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT())
-    ->VIPM_INV2IgbtMaxTemp_C);
-  if (rtb_RelationalOperator_lt) {
-    rtb_Compare_i1 = cal_LTRIGBTTempMotPMPCtrl_1Y[0];
+  rtb_Compare_dsx = (cal_LTRIGBTTempMotPMPCtrl_1X[0] >
+                     (Rte_IRead_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT
+                      ())->VIPM_INV2IgbtMaxTemp_C);
+  if (rtb_Compare_dsx) {
+    rtb_Compare_br = cal_LTRIGBTTempMotPMPCtrl_1Y[0];
   } else {
     rtb_AND1_h0y =
       ((Rte_IRead_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT())
        ->VIPM_INV2IgbtMaxTemp_C >= cal_LTRIGBTTempMotPMPCtrl_1X[1]);
     if (rtb_AND1_h0y) {
-      rtb_Compare_i1 = cal_LTRIGBTTempMotPMPCtrl_1Y[2];
+      rtb_Compare_br = cal_LTRIGBTTempMotPMPCtrl_1Y[2];
     } else {
-      rtb_Compare_i1 = cal_LTRIGBTTempMotPMPCtrl_1Y[1];
+      rtb_Compare_br = cal_LTRIGBTTempMotPMPCtrl_1Y[1];
     }
   }
 
-  rtb_RelationalOperator_lt = (cal_LTRMotorTempMotPMPCtrl_1X[0] >
-    (Rte_IRead_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT())
-    ->VIPM_INV2MotorMaxTemp_C);
-  if (rtb_RelationalOperator_lt) {
-    rtb_Compare_bxp = cal_LTRMotorTempMotPMPCtrl_1Y[0];
+  rtb_Compare_dsx = (cal_LTRMotorTempMotPMPCtrl_1X[0] >
+                     (Rte_IRead_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT
+                      ())->VIPM_INV2MotorMaxTemp_C);
+  if (rtb_Compare_dsx) {
+    rtb_Compare_cy1 = cal_LTRMotorTempMotPMPCtrl_1Y[0];
   } else {
     rtb_AND1_h0y =
       ((Rte_IRead_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT())
        ->VIPM_INV2MotorMaxTemp_C >= cal_LTRMotorTempMotPMPCtrl_1X[1]);
     if (rtb_AND1_h0y) {
-      rtb_Compare_bxp = cal_LTRMotorTempMotPMPCtrl_1Y[2];
+      rtb_Compare_cy1 = cal_LTRMotorTempMotPMPCtrl_1Y[2];
     } else {
-      rtb_Compare_bxp = cal_LTRMotorTempMotPMPCtrl_1Y[1];
+      rtb_Compare_cy1 = cal_LTRMotorTempMotPMPCtrl_1Y[1];
     }
   }
 
-  rtb_RelationalOperator_lt = (cal_LTRIPUTempMotPMPCtrl_1X[0] >
-    (Rte_IRead_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT())
-    ->VIPM_IPUDeviceIntTemp_C);
-  if (rtb_RelationalOperator_lt) {
-    rtb_Compare_nw0 = cal_LTRIPUTempMotPMPCtrl_1Y[0];
+  rtb_Compare_dsx = (cal_LTRIPUTempMotPMPCtrl_1X[0] >
+                     (Rte_IRead_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT
+                      ())->VIPM_IPUDeviceIntTemp_C);
+  if (rtb_Compare_dsx) {
+    rtb_Compare_mqd = cal_LTRIPUTempMotPMPCtrl_1Y[0];
   } else {
     rtb_AND1_h0y =
       ((Rte_IRead_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT()
        )->VIPM_IPUDeviceIntTemp_C >= cal_LTRIPUTempMotPMPCtrl_1X[1]);
     if (rtb_AND1_h0y) {
-      rtb_Compare_nw0 = cal_LTRIPUTempMotPMPCtrl_1Y[2];
+      rtb_Compare_mqd = cal_LTRIPUTempMotPMPCtrl_1Y[2];
     } else {
-      rtb_Compare_nw0 = cal_LTRIPUTempMotPMPCtrl_1Y[1];
+      rtb_Compare_mqd = cal_LTRIPUTempMotPMPCtrl_1Y[1];
     }
-  }
-
-  if (rtb_Compare_i1 >= rtb_Compare_bxp) {
-    rtb_Compare_bxp = rtb_Compare_i1;
-  }
-
-  if (rtb_Compare_bxp < rtb_Compare_nw0) {
-    rtb_Compare_bxp = rtb_Compare_nw0;
   }
 
   BCV_PosRec = Rte_IRead_Task_100ms_C5WVPosRec_C5WVPosRec();
   if (ACCtl_bExhFlg) {
-    rtb_Compare_nw0 = cal_C5WVExhPosVal;
+    rtb_Compare_iqy = cal_C5WVExhPosVal;
   } else if (cal_BatModeTestCtrl) {
-    rtb_Compare_nw0 = 13U;
+    rtb_Compare_iqy = 13U;
   } else if (rtb_Switch2_ht == 13) {
-    rtb_Compare_nw0 = 12U;
+    rtb_Compare_iqy = 12U;
   } else if (rtb_Switch2_ht == 10) {
-    rtb_Compare_nw0 = 25U;
+    rtb_Compare_iqy = 25U;
   } else {
     switch (SOMCtl_eWaterMode) {
      case 1:
-      rtb_Compare_nw0 = 12U;
+      rtb_Compare_iqy = 12U;
       break;
 
      case 2:
-      rtb_Compare_nw0 = 25U;
+      rtb_Compare_iqy = 25U;
       break;
 
      case 3:
-      rtb_Compare_nw0 = 13U;
+      rtb_Compare_iqy = 13U;
       break;
 
      case 4:
-      rtb_Compare_nw0 = 25U;
+      rtb_Compare_iqy = 25U;
       break;
 
      case 5:
-      rtb_Compare_nw0 = 0U;
+      rtb_Compare_iqy = 0U;
       break;
 
      case 6:
-      rtb_Compare_nw0 = 0U;
+      rtb_Compare_iqy = 0U;
       break;
 
      default:
-      rtb_Compare_nw0 = 25U;
+      rtb_Compare_iqy = 25U;
       break;
     }
   }
 
-  rtb_RelationalOperator_lt = ((uint16)(BCV_PosRec - rtb_Compare_nw0) >=
-    cal_BCVPosDiffMaxVal);
-  rtb_AND1_h0y = !rtb_RelationalOperator_lt;
+  rtb_Compare_dsx = ((uint16)(BCV_PosRec - rtb_Compare_iqy) >=
+                     cal_BCVPosDiffMaxVal);
+  rtb_AND1_h0y = !rtb_Compare_dsx;
   if (ME11_ARID_DEF.temporalCounter_i1_ev < 63U) {
     ME11_ARID_DEF.temporalCounter_i1_ev++;
   }
@@ -8468,43 +8462,106 @@ void Task_100ms(void)
   }
 
   if (cal_MotPMPSpdSetDataEnb) {
-    rtb_Compare_bxp = cal_MotPMPSpdSetData;
+    rtb_Compare_cy1 = cal_MotPMPSpdSetData;
   } else if (rtb_AND1_h0y && ME11_ARID_DEF.C_b) {
     if (ACCtl_bExhFlg) {
-      rtb_Compare_bxp = 50U;
+      rtb_Compare_cy1 = 50U;
     } else if (rtb_Switch2_ht == 10) {
-      rtb_Compare_bxp = 100U;
+      rtb_Compare_cy1 = 100U;
     } else {
       switch (SOMCtl_eWaterMode) {
        case 1:
+        if (rtb_Compare_br >= rtb_Compare_cy1) {
+          rtb_Compare_cy1 = rtb_Compare_br;
+        }
+
+        if (rtb_Compare_cy1 >= rtb_Compare_mqd) {
+          rtb_Compare_mqd = rtb_Compare_cy1;
+        }
+
+        rtb_Compare_cy1 = look1_iflftu8Df_binlca(BMS_HVBatCellTempMax -
+          BMS_HVBatCellTempMin, (const float32 *)&cal_BatPumpLTR_1X[0], (const
+          uint8 *)&cal_BatPumpLTR_CUR[0], 3U);
+        if (rtb_Compare_mqd >= rtb_Compare_cy1) {
+          rtb_Compare_cy1 = rtb_Compare_mqd;
+        }
+        break;
+
        case 4:
+        if (rtb_Compare_br >= rtb_Compare_cy1) {
+          rtb_Compare_cy1 = rtb_Compare_br;
+        }
+
+        if (rtb_Compare_cy1 >= rtb_Compare_mqd) {
+          rtb_Compare_mqd = rtb_Compare_cy1;
+        }
+
+        rtb_Compare_cy1 = look1_iflftu8Df_binlca(BMS_HVBatCellTempMax -
+          BMS_HVBatCellTempMin, (const float32 *)&cal_BatPumpLTR_1X[0], (const
+          uint8 *)&cal_BatPumpLTR_CUR[0], 3U);
+        if (rtb_Compare_mqd >= rtb_Compare_cy1) {
+          rtb_Compare_cy1 = rtb_Compare_mqd;
+        }
+        break;
+
        case 2:
+        if (rtb_Compare_br >= rtb_Compare_cy1) {
+          rtb_Compare_cy1 = rtb_Compare_br;
+        }
+
+        if (rtb_Compare_cy1 >= rtb_Compare_mqd) {
+          rtb_Compare_mqd = rtb_Compare_cy1;
+        }
+
+        rtb_Compare_cy1 = look1_iflftu8Df_binlca(BMS_HVBatCellTempMax -
+          BMS_HVBatCellTempMin, (const float32 *)&cal_BatPumpLTR_1X[0], (const
+          uint8 *)&cal_BatPumpLTR_CUR[0], 3U);
+        if (rtb_Compare_mqd >= rtb_Compare_cy1) {
+          rtb_Compare_cy1 = rtb_Compare_mqd;
+        }
         break;
 
        case 5:
-        rtb_Compare_bxp = cal_MotPMPMotHeatBatSpd;
+        rtb_Compare_cy1 = cal_MotPMPMotHeatBatSpd;
         break;
 
        case 3:
-        rtb_Compare_bxp = cal_MotPMPThStoSpd;
+        rtb_Compare_cy1 = cal_MotPMPThStoSpd;
+        break;
+
+       default:
+        if (rtb_Compare_br >= rtb_Compare_cy1) {
+          rtb_Compare_cy1 = rtb_Compare_br;
+        }
+
+        if (rtb_Compare_cy1 >= rtb_Compare_mqd) {
+          rtb_Compare_mqd = rtb_Compare_cy1;
+        }
+
+        rtb_Compare_cy1 = look1_iflftu8Df_binlca(BMS_HVBatCellTempMax -
+          BMS_HVBatCellTempMin, (const float32 *)&cal_BatPumpLTR_1X[0], (const
+          uint8 *)&cal_BatPumpLTR_CUR[0], 3U);
+        if (rtb_Compare_mqd >= rtb_Compare_cy1) {
+          rtb_Compare_cy1 = rtb_Compare_mqd;
+        }
         break;
       }
 
-      if (rtb_Compare_bxp < cal_MotPMPDefaultSpd) {
-        rtb_Compare_bxp = cal_MotPMPDefaultSpd;
+      if (rtb_Compare_cy1 < cal_MotPMPDefaultSpd) {
+        rtb_Compare_cy1 = cal_MotPMPDefaultSpd;
       }
     }
   } else {
-    rtb_Compare_bxp = 10U;
+    rtb_Compare_cy1 = 10U;
   }
 
-  if (rtb_Compare_bxp > 100) {
-    rtb_Compare_bxp = 100U;
-  } else if (rtb_Compare_bxp < 10) {
-    rtb_Compare_bxp = 10U;
+  if (rtb_Compare_cy1 > 100) {
+    rtb_Compare_cy1 = 100U;
+  } else if (rtb_Compare_cy1 < 10) {
+    rtb_Compare_cy1 = 10U;
   }
 
-  rtb_Compare_oc = (ME11_ARID_DEF.Delay_DSTATE_lv == 1);
+  rtb_Compare_ehr = (ME11_ARID_DEF.Delay_DSTATE_lv == 1);
   if (rtb_DataTypeConversion1_l == 1) {
     ME11_ARID_DEF.Delay_DSTATE_lv = 1U;
   } else if (rtb_DataTypeConversion1_l == 6) {
@@ -8519,8 +8576,8 @@ void Task_100ms(void)
     ME11_ARID_DEF.BatPMPSpd = 10U;
     ME11_ARID_DEF.counter = 0U;
   } else if (ME11_ARID_DEF.is_c151_ME11 == ME11_IN_OFF) {
-    if (rtb_Compare_oc && (ME11_ARID_DEF.Delay_DSTATE_lv !=
-                           ME11_ARID_DEF.DelayInput1_DSTATE_ju)) {
+    if (rtb_Compare_ehr && (ME11_ARID_DEF.Delay_DSTATE_lv !=
+                            ME11_ARID_DEF.DelayInput1_DSTATE_ju)) {
       ME11_ARID_DEF.is_c151_ME11 = ME11_IN_ON;
       ME11_ARID_DEF.BatPMPSpd = cal_BatCoolStopBatPMPSpd;
     }
@@ -8564,7 +8621,7 @@ void Task_100ms(void)
         break;
 
        case 1:
-        rtb_MultiportSwitch1 = rtb_Compare_bxp;
+        rtb_MultiportSwitch1 = rtb_Compare_cy1;
         break;
 
        case 2:
@@ -8700,8 +8757,8 @@ void Task_100ms(void)
   }
 
   rtb_AND1_h0y = ME11_ARID_DEF.Delay_DSTATE_po;
-  rtb_Compare_oc = ((sint32)ME11_ARID_DEF.Delay_DSTATE_po < (sint32)
-                    ME11_ARID_DEF.DelayInput1_DSTATE_kp);
+  rtb_Compare_ehr = ((sint32)ME11_ARID_DEF.Delay_DSTATE_po < (sint32)
+                     ME11_ARID_DEF.DelayInput1_DSTATE_kp);
   if (ME11_ARID_DEF.temporalCounter_i1_fy < 1023U) {
     ME11_ARID_DEF.temporalCounter_i1_fy++;
   }
@@ -8713,14 +8770,14 @@ void Task_100ms(void)
   } else {
     switch (ME11_ARID_DEF.is_c121_ME11) {
      case ME11_IN_Default_k:
-      if (rtb_Compare_oc) {
+      if (rtb_Compare_ehr) {
         ME11_ARID_DEF.is_c121_ME11 = ME11_IN_On_li;
         ME11_ARID_DEF.AcSpd = cal_PTCOffAcPMPSpd;
       }
       break;
 
      case ME11_IN_On_li:
-      if (!rtb_Compare_oc) {
+      if (!rtb_Compare_ehr) {
         ME11_ARID_DEF.is_c121_ME11 = ME11_IN_wait_k;
         ME11_ARID_DEF.temporalCounter_i1_fy = 0U;
       }
@@ -8730,7 +8787,7 @@ void Task_100ms(void)
       if (ME11_ARID_DEF.temporalCounter_i1_fy >= 600U) {
         ME11_ARID_DEF.is_c121_ME11 = ME11_IN_Default_k;
         ME11_ARID_DEF.AcSpd = 10U;
-      } else if (rtb_Compare_oc) {
+      } else if (rtb_Compare_ehr) {
         ME11_ARID_DEF.is_c121_ME11 = ME11_IN_On_li;
         ME11_ARID_DEF.AcSpd = cal_PTCOffAcPMPSpd;
       }
@@ -8818,7 +8875,7 @@ void Task_100ms(void)
     ME11_ARID_DEF.Merge = 0U;
   }
 
-  rtb_Compare_oc = (ME11_ARID_DEF.DataTypeConversion1 == 3);
+  rtb_Compare_ehr = (ME11_ARID_DEF.DataTypeConversion1 == 3);
   if (ME11_ARID_DEF.DataTypeConversion1 == 4) {
     SOMCtl_sBatHeatPTCTrgT = look1_iflf_binlca(ACSen_sEnvTempCor, (const float32
       *)&cal_DCChrgBatHeatTrgTemp_1X[0], (const float32 *)
@@ -8936,7 +8993,7 @@ void Task_100ms(void)
     }
   }
 
-  rtb_Delay_ku = ME11_ARID_DEF.Delay_DSTATE_hr;
+  rtb_Compare_br = ME11_ARID_DEF.Delay_DSTATE_hr;
   ACPTCDrDesFanCor = look1_iu8lftf_binlca(ME11_ARID_DEF.Delay_DSTATE_hr, (const
     uint8 *)&cal_ACPTCDesFanCor_1X[0], (const float32 *)&cal_ACPTCDesFanCor_CUR
     [0], 3U);
@@ -8997,34 +9054,37 @@ void Task_100ms(void)
     ACCtl_tDrSetBasicPTC = -40.0F;
   }
 
-  rtb_OR2_a = ((rtb_Delay_n2 != BlowerModes_DeforstMode) &&
-               ((ME11_ARID_DEF.Switch1_nv != ACOff) && ME11_ARID_DEF.Switch_c));
-  rtb_Compare_ny = !rtb_RelationalOperator_kh;
-  rtb_LogicalOperator1_f = (rtb_Compare_ny && rtb_OR2_a);
+  rtb_Compare_ny = ((rtb_Delay_n2 != BlowerModes_DeforstMode) &&
+                    ((ME11_ARID_DEF.Switch1_nv != ACOff) &&
+                     ME11_ARID_DEF.Switch_c));
+  rtb_Compare_cls = !rtb_RelationalOperator_kh;
+  rtb_LogicalOperator1_f = (rtb_Compare_cls && rtb_Compare_ny);
   if (cal_FixPIDSecletFlag) {
     rtb_Delay1_ie = ACCtl_tDrDVT - ACCtl_tLeftDuct;
     ME11_deadzone_h(rtb_Delay1_ie, 0.5, &rtb_flag_nk);
-    rtb_Compare_dsx = (ACCtl_tDrDVT >= ACCtl_tLeftDuct);
+    rtb_RelationalOperator_ht = (ACCtl_tDrDVT >= ACCtl_tLeftDuct);
     if (rtb_flag_nk) {
       rtb_Delay1_ie = 0.0F;
-    } else if (!rtb_Compare_dsx) {
+    } else if (!rtb_RelationalOperator_ht) {
       rtb_Delay1_ie = ACCtl_tLeftDuct - ACCtl_tDrDVT;
     }
 
-    if (rtb_Compare_dsx) {
+    if (rtb_RelationalOperator_ht) {
       rtb_Add = cal_DrPtcDesValPIDIntegDeadBand4InHeat;
     } else {
       rtb_Add = cal_DrPtcDesValPIDIntegDeadBand4OutHeat;
     }
 
-    ME11_P_NEG(!rtb_Compare_dsx, rtb_Delay1_ie, rtb_Add, cal_DrPtcDesValPIDKiNeg,
-               cal_DrPtcDesValPIDKi, (float32 *)&ACCtl_tDrPTCICor);
-    ME11_P_POS(rtb_Compare_dsx, rtb_Delay1_ie, rtb_Add, cal_DrPtcDesValPIDKiPos,
-               cal_DrPtcDesValPIDKi, (float32 *)&ACCtl_tDrPTCICor);
+    ME11_P_NEG(!rtb_RelationalOperator_ht, rtb_Delay1_ie, rtb_Add,
+               cal_DrPtcDesValPIDKiNeg, cal_DrPtcDesValPIDKi, (float32 *)
+               &ACCtl_tDrPTCICor);
+    ME11_P_POS(rtb_RelationalOperator_ht, rtb_Delay1_ie, rtb_Add,
+               cal_DrPtcDesValPIDKiPos, cal_DrPtcDesValPIDKi, (float32 *)
+               &ACCtl_tDrPTCICor);
     if (rtb_LogicalOperator1_f) {
       switch (ME11_ARID_DEF.Delay_DSTATE_b4) {
        case 0:
-        if (rtb_Compare_dsx) {
+        if (rtb_RelationalOperator_ht) {
           ACCtl_tDrPTCISum = ACCtl_tDrPTCISum + ACCtl_tDrPTCICor;
         } else {
           ACCtl_tDrPTCISum = ACCtl_tDrPTCISum - ACCtl_tDrPTCICor;
@@ -9032,13 +9092,13 @@ void Task_100ms(void)
         break;
 
        case 1:
-        if (!rtb_Compare_dsx) {
+        if (!rtb_RelationalOperator_ht) {
           ACCtl_tDrPTCISum = ACCtl_tDrPTCISum - ACCtl_tDrPTCICor;
         }
         break;
 
        case 2:
-        if (rtb_Compare_dsx) {
+        if (rtb_RelationalOperator_ht) {
           ACCtl_tDrPTCISum = ACCtl_tDrPTCISum + ACCtl_tDrPTCICor;
         }
         break;
@@ -9061,13 +9121,13 @@ void Task_100ms(void)
 
     ME11_PI_Controller1(!rtb_LogicalOperator1_f, ACCtl_tDrSetBasicPTC,
                         &ME11_ARID_DEF.PI_Cor_p, &ME11_ARID_DEF.Delay_DSTATE_b4);
-    ME11_P_NEG_p(!rtb_Compare_dsx, rtb_Delay1_ie, cal_DrPtcDesValPID_pWinNeg,
-                 cal_DrPtcDesValPIDKpNeg, cal_DrPtcDesValPIDKp, (float32 *)
-                 &ACCtl_tDrPTCPCor);
-    ME11_P_POS_l(rtb_Compare_dsx, rtb_Delay1_ie, cal_DrPtcDesValPID_pWinPos,
-                 cal_DrPtcDesValPIDKpPos, cal_DrPtcDesValPIDKp, (float32 *)
-                 &ACCtl_tDrPTCPCor);
-    ME11_PI_Controller(rtb_LogicalOperator1_f, rtb_Compare_dsx,
+    ME11_P_NEG_p(!rtb_RelationalOperator_ht, rtb_Delay1_ie,
+                 cal_DrPtcDesValPID_pWinNeg, cal_DrPtcDesValPIDKpNeg,
+                 cal_DrPtcDesValPIDKp, (float32 *)&ACCtl_tDrPTCPCor);
+    ME11_P_POS_l(rtb_RelationalOperator_ht, rtb_Delay1_ie,
+                 cal_DrPtcDesValPID_pWinPos, cal_DrPtcDesValPIDKpPos,
+                 cal_DrPtcDesValPIDKp, (float32 *)&ACCtl_tDrPTCPCor);
+    ME11_PI_Controller(rtb_LogicalOperator1_f, rtb_RelationalOperator_ht,
                        ACCtl_tDrSetBasicPTC, ACCtl_tDrPTCPCor, ACCtl_tDrPTCISum,
                        cal_DrPtcDesValPIDUL, cal_DrPtcDesValPIDLL,
                        &ME11_ARID_DEF.PI_Cor_p, &ME11_ARID_DEF.Delay_DSTATE_b4);
@@ -9167,7 +9227,7 @@ void Task_100ms(void)
     }
   }
 
-  rtb_LogicalOperator5 = (rtb_OR2_a && rtb_Compare_ny);
+  rtb_LogicalOperator5 = (rtb_Compare_ny && rtb_Compare_cls);
   if (cal_FixPIDSecletFlag) {
     rtb_Delay1_ie = ACCtl_tPsDVT - ACCtl_tRightDuct;
     ME11_deadzone_h(rtb_Delay1_ie, 0.5, &rtb_flag_n);
@@ -9337,7 +9397,7 @@ void Task_100ms(void)
     }
   }
 
-  if (rtb_Compare_oc) {
+  if (rtb_Compare_ehr) {
     ACTCtl_sBatHeatInletTrgT = cal_ACBatHeatTrgTemp;
   } else if (ME11_ARID_DEF.DataTypeConversion1 == 4) {
     ACTCtl_sBatHeatInletTrgT = cal_DCBatHeatTrgTemp;
@@ -9412,24 +9472,24 @@ void Task_100ms(void)
   }
 
   if (ACCtl_bExhFlg) {
-    rtb_Compare_i1 = cal_C3WVExhPosVal;
+    rtb_Compare_mqd = cal_C3WVExhPosVal;
   } else if (rtb_Switch2_ht == 12) {
     if (rtb_Relay_f > 0) {
-      rtb_Compare_i1 = 0U;
+      rtb_Compare_mqd = 0U;
     } else {
-      rtb_Compare_i1 = 20U;
+      rtb_Compare_mqd = 20U;
     }
   } else if ((rtb_Switch2_ht == 10) && rtb_AND1_c) {
-    rtb_Compare_i1 = 20U;
+    rtb_Compare_mqd = 20U;
   } else if (rtb_Switch2_ht == 5) {
-    rtb_Compare_i1 = 20U;
+    rtb_Compare_mqd = 20U;
   } else if (rtb_Switch2_ht == 6) {
-    rtb_Compare_i1 = ME11_ARID_DEF.Merge;
+    rtb_Compare_mqd = ME11_ARID_DEF.Merge;
   } else {
-    rtb_Compare_i1 = 0U;
+    rtb_Compare_mqd = 0U;
   }
 
-  rtb_RelationalOperator_pl = ((uint16)(MCV_PosRec - rtb_Compare_i1) >=
+  rtb_RelationalOperator_pl = ((uint16)(MCV_PosRec - rtb_Compare_mqd) >=
     cal_MCVPosDiffMaxVal);
   ME11_Delay1(ME11_ARID_DEF.DataTypeConversion1, &ME11_ARID_DEF.C_o,
               &ME11_ARID_DEF.ARID_DEF_Delay1_o);
@@ -9528,8 +9588,8 @@ void Task_100ms(void)
 
   ACTCtl_bAcPMPSpdFlt = ((rtb_Switch2_gua > 12) &&
     ME11_ARID_DEF.ACTCtl_bAcPMPSpdFlt_a);
-  rtb_OR2_a = (ACTCtl_bBatPMPSpdFlt || ACTCtl_bAcPMPSpdFlt);
-  rtb_Compare_dsx = (ACTCtl_bAcPMPFaultFlg || ACTCtl_bBatPMPFaultFlg);
+  rtb_Compare_ny = (ACTCtl_bBatPMPSpdFlt || ACTCtl_bAcPMPSpdFlt);
+  rtb_OR_lq = (ACTCtl_bAcPMPFaultFlg || ACTCtl_bBatPMPFaultFlg);
   if (ME11_ARID_DEF.temporalCounter_i1_a < MAX_uint32_T) {
     ME11_ARID_DEF.temporalCounter_i1_a++;
   }
@@ -9567,8 +9627,8 @@ void Task_100ms(void)
     }
   }
 
-  rtb_Compare_ny = ((!rtb_OR2_a) && (!rtb_Compare_dsx) && ACTCtl_bHVCHFaultFlg &&
-                    ME11_ARID_DEF.ACTCtl_bAcPMPRunFFForPTC);
+  rtb_ACTCtl_bPTCDiagFlg = ((!rtb_Compare_ny) && (!rtb_OR_lq) &&
+    ACTCtl_bHVCHFaultFlg && ME11_ARID_DEF.ACTCtl_bAcPMPRunFFForPTC);
   rtb_ACTCtl_bEXVDiagFlg_0 = (ACTCtl_bAEXVFaultFlg || ACTCtl_bBEXVFaultFlg ||
     ACTCtl_bHPEXVFaultFlg);
   MotPMP_RealRPM = 0.400390625F * (float32)
@@ -9585,7 +9645,7 @@ void Task_100ms(void)
     switch (ME11_ARID_DEF.is_c127_ME11) {
      case ME11_IN_Default_k:
       ACTCtl_bMotPMPSpdFlt = false;
-      if (rtb_Compare_bxp > MotPMP_RealRPM + (float32)cal_MotPMPSpdDiffVal) {
+      if (rtb_Compare_cy1 > MotPMP_RealRPM + (float32)cal_MotPMPSpdDiffVal) {
         ME11_ARID_DEF.is_c127_ME11 = ME11_IN_wait_k;
         ME11_ARID_DEF.temporalCounter_i1_fp = 0U;
       }
@@ -9593,8 +9653,8 @@ void Task_100ms(void)
 
      case ME11_IN_Fault_b:
       ACTCtl_bMotPMPSpdFlt = true;
-      if ((rtb_Compare_bxp < MotPMP_RealRPM + (float32)cal_MotPMPSpdDiffVal) &&
-          (rtb_Compare_bxp > MotPMP_RealRPM - (float32)cal_MotPMPSpdDiffVal)) {
+      if ((rtb_Compare_cy1 < MotPMP_RealRPM + (float32)cal_MotPMPSpdDiffVal) &&
+          (rtb_Compare_cy1 > MotPMP_RealRPM - (float32)cal_MotPMPSpdDiffVal)) {
         ME11_ARID_DEF.is_c127_ME11 = ME11_IN_Default_k;
         ACTCtl_bMotPMPSpdFlt = false;
       }
@@ -9604,8 +9664,8 @@ void Task_100ms(void)
       if (ME11_ARID_DEF.temporalCounter_i1_fp >= 50U) {
         ME11_ARID_DEF.is_c127_ME11 = ME11_IN_Fault_b;
         ACTCtl_bMotPMPSpdFlt = true;
-      } else if ((rtb_Compare_bxp < MotPMP_RealRPM + (float32)
-                  cal_MotPMPSpdDiffVal) && (rtb_Compare_bxp > MotPMP_RealRPM -
+      } else if ((rtb_Compare_cy1 < MotPMP_RealRPM + (float32)
+                  cal_MotPMPSpdDiffVal) && (rtb_Compare_cy1 > MotPMP_RealRPM -
                   (float32)cal_MotPMPSpdDiffVal)) {
         ME11_ARID_DEF.is_c127_ME11 = ME11_IN_Default_k;
         ACTCtl_bMotPMPSpdFlt = false;
@@ -9624,7 +9684,7 @@ void Task_100ms(void)
   MCV_TempSts = Rte_IRead_Task_100ms_C3WV_TempSts_C3WV_TempSts();
   rtb_Compare_cls = (MCV_TempSts > 1);
   MCV_FltSts = Rte_IRead_Task_100ms_C3WV_FltSts_C3WV_FltSts();
-  rtb_Compare_h1 = (MCV_FltSts > 0);
+  rtb_Compare_l = (MCV_FltSts > 0);
   BCV_ErrResp = Rte_IRead_Task_100ms_ErrRespC5WV_ErrRespC5WV();
   rtb_Compare_l5 = BCV_ErrResp;
   BCV_VoltSts = Rte_IRead_Task_100ms_C5WVVoltSts_C5WVVoltSts();
@@ -9633,9 +9693,9 @@ void Task_100ms(void)
   rtb_Compare_jkf = (BCV_TempSts > 1);
   BCV_FltSts = Rte_IRead_Task_100ms_C5WVFltSts_C5WVFltSts();
   rtb_Switch_kl = (BCV_FltSts > 0);
-  rtb_Switch_n2 = (MCV_ErrResp || rtb_Compare_bdq || rtb_Compare_cls ||
-                   rtb_Compare_h1 || BCV_ErrResp || rtb_Compare_c ||
-                   rtb_Compare_jkf || rtb_Switch_kl);
+  rtb_RelationalOperator_ht = (MCV_ErrResp || rtb_Compare_bdq || rtb_Compare_cls
+    || rtb_Compare_l || BCV_ErrResp || rtb_Compare_c || rtb_Compare_jkf ||
+    rtb_Switch_kl);
   rtb_Compare_ecv_tmp_tmp = ACSen_eMOTORTSenSts;
   if (cal_EnvFailSwFlg) {
     rtb_RelationalOperator_kh = false;
@@ -9703,7 +9763,7 @@ void Task_100ms(void)
   ME11_Judge(rtb_LowPressLmt > cal_SensorVolUpFlg, rtb_LowPressLmt <
              cal_SensorVolDownFlg, 20, &ME11_ARID_DEF.SenSts_e,
              &ME11_ARID_DEF.ARID_DEF_Judge_pp);
-  rtb_Compare_oc = (ME11_ARID_DEF.SenSts_e != 0);
+  rtb_Compare_ehr = (ME11_ARID_DEF.SenSts_e != 0);
   ME11_Judge(rtb_Switch4_a > cal_SensorVolUpFlg, rtb_Switch4_a <
              cal_SensorVolDownFlg, 20, &ME11_ARID_DEF.SenSts_fr,
              &ME11_ARID_DEF.ARID_DEF_Judge_n);
@@ -9712,20 +9772,20 @@ void Task_100ms(void)
                ME11_TMSADCSampleFunc_ARID_DEF.Compare ||
                ME11_TMSADCSampleFunc_ARID_DEF.Compare_n ||
                (rtb_Compare_ecv_tmp_tmp != Normal) || rtb_RelationalOperator_kh ||
-               ACTCtl_bCabinFltFlg || rtb_OR_i4 || rtb_Compare_fe4 ||
+               ACTCtl_bCabinFltFlg || rtb_OR_i4 || rtb_Compare_l4 ||
                (rtb_Compare_gt_tmp_tmp != Normal) || (rtb_Compare_dz_tmp_tmp !=
     Normal) || (rtb_Compare_oik_tmp_tmp != Normal) || (rtb_Compare_jvo_tmp_tmp
     != Normal) || (ACSen_eChillerTSenSts != Normal) || (ACSen_eEVAPSurfTSenSts
-    != Normal) || rtb_Compare_pw || rtb_Compare_oc || (ACSen_eSOLARSenSts !=
+    != Normal) || rtb_Compare_pw || rtb_Compare_ehr || (ACSen_eSOLARSenSts !=
     Normal));
-  ME11_ARID_DEF.GLB_TMSFaultSort[0] = (rtb_Compare_gzu || rtb_Compare_ny ||
-    rtb_ACTCtl_bEXVDiagFlg_0 || rtb_ACTCtl_bPMPDiagFlg || rtb_Switch_n2 ||
-    rtb_OR_i4);
-  ME11_ARID_DEF.GLB_TMSFaultSort[1] = rtb_Compare_gzu;
-  ME11_ARID_DEF.GLB_TMSFaultSort[2] = rtb_Compare_ny;
+  ME11_ARID_DEF.GLB_TMSFaultSort[0] = (rtb_LogicalOperator_c4 ||
+    rtb_ACTCtl_bPTCDiagFlg || rtb_ACTCtl_bEXVDiagFlg_0 || rtb_ACTCtl_bPMPDiagFlg
+    || rtb_RelationalOperator_ht || rtb_OR_i4);
+  ME11_ARID_DEF.GLB_TMSFaultSort[1] = rtb_LogicalOperator_c4;
+  ME11_ARID_DEF.GLB_TMSFaultSort[2] = rtb_ACTCtl_bPTCDiagFlg;
   ME11_ARID_DEF.GLB_TMSFaultSort[3] = rtb_ACTCtl_bEXVDiagFlg_0;
   ME11_ARID_DEF.GLB_TMSFaultSort[4] = rtb_ACTCtl_bPMPDiagFlg;
-  ME11_ARID_DEF.GLB_TMSFaultSort[5] = rtb_Switch_n2;
+  ME11_ARID_DEF.GLB_TMSFaultSort[5] = rtb_RelationalOperator_ht;
   ME11_ARID_DEF.GLB_TMSFaultSort[6] = false;
   ME11_ARID_DEF.GLB_TMSFaultSort[7] = rtb_OR_i4;
   if (ME11_ARID_DEF.is_active_c165_ME11 == 0U) {
@@ -10004,21 +10064,21 @@ void Task_100ms(void)
   rtb_Gain8 = ACCtl_tDrDVT - ACCtl_tLeftDuct;
   rtb_Switch4_a = rtb_Gain8;
   ME11_deadzone_h(rtb_Gain8, 0.5, &rtb_flag_de);
-  rtb_OR_i4 = (ACCtl_tDrDVT >= ACCtl_tLeftDuct);
+  rtb_RelationalOperator_ht = (ACCtl_tDrDVT >= ACCtl_tLeftDuct);
   if (rtb_flag_de) {
     rtb_Switch4_a = 0.0F;
-  } else if (!rtb_OR_i4) {
+  } else if (!rtb_RelationalOperator_ht) {
     rtb_Switch4_a = ACCtl_tLeftDuct - ACCtl_tDrDVT;
   }
 
-  ME11_P_NEG(!rtb_OR_i4, rtb_Switch4_a, cal_DcutTPidDeadBand,
+  ME11_P_NEG(!rtb_RelationalOperator_ht, rtb_Switch4_a, cal_DcutTPidDeadBand,
              cal_DcutTempPid_KiNeg, cal_DcutTempPid_Ki, &rtb_Merge1);
-  ME11_P_POS(rtb_OR_i4, rtb_Switch4_a, cal_DcutTPidDeadBand,
+  ME11_P_POS(rtb_RelationalOperator_ht, rtb_Switch4_a, cal_DcutTPidDeadBand,
              cal_DcutTempPid_KiPos, cal_DcutTempPid_Ki, &rtb_Merge1);
   if (rtb_LogicalOperator1_f) {
     switch (ME11_ARID_DEF.Delay_DSTATE_o3) {
      case 0:
-      if (rtb_OR_i4) {
+      if (rtb_RelationalOperator_ht) {
         ME11_ARID_DEF.Delay_DSTATE_m += rtb_Merge1;
       } else {
         ME11_ARID_DEF.Delay_DSTATE_m -= rtb_Merge1;
@@ -10026,13 +10086,13 @@ void Task_100ms(void)
       break;
 
      case 1:
-      if (!rtb_OR_i4) {
+      if (!rtb_RelationalOperator_ht) {
         ME11_ARID_DEF.Delay_DSTATE_m -= rtb_Merge1;
       }
       break;
 
      case 2:
-      if (rtb_OR_i4) {
+      if (rtb_RelationalOperator_ht) {
         ME11_ARID_DEF.Delay_DSTATE_m += rtb_Merge1;
       }
       break;
@@ -10057,32 +10117,33 @@ void Task_100ms(void)
 
   ME11_PI_Controller1(!rtb_LogicalOperator1_f, 0.0F, &rtb_Merge1,
                       &rtb_IFreezFlag);
-  ME11_P_NEG_p(!rtb_OR_i4, rtb_Switch4_a, cal_DcutTempPid_pWinNeg,
-               cal_DcutTempPid_KpNeg, cal_DcutTempPid_Kp, &rtb_Merge);
-  ME11_P_POS_l(rtb_OR_i4, rtb_Switch4_a, cal_DcutTempPid_pWinPos,
+  ME11_P_NEG_p(!rtb_RelationalOperator_ht, rtb_Switch4_a,
+               cal_DcutTempPid_pWinNeg, cal_DcutTempPid_KpNeg,
+               cal_DcutTempPid_Kp, &rtb_Merge);
+  ME11_P_POS_l(rtb_RelationalOperator_ht, rtb_Switch4_a, cal_DcutTempPid_pWinPos,
                cal_DcutTempPid_KpPos, cal_DcutTempPid_Kp, &rtb_Merge);
-  ME11_PI_Controller(rtb_LogicalOperator1_f, rtb_OR_i4, 0.0F, rtb_Merge,
-                     ME11_ARID_DEF.Delay_DSTATE_m, cal_DcutTempPidUL,
+  ME11_PI_Controller(rtb_LogicalOperator1_f, rtb_RelationalOperator_ht, 0.0F,
+                     rtb_Merge, ME11_ARID_DEF.Delay_DSTATE_m, cal_DcutTempPidUL,
                      cal_DcutTempPidLL, &rtb_Merge1, &rtb_IFreezFlag);
   rtb_Delay1_i = ME11_ARID_DEF.Delay1_DSTATE_e0;
   rtb_Switch4_a = ACCtl_tPsDVT - ACCtl_tRightDuct;
   rtb_Merge = rtb_Switch4_a;
   ME11_deadzone_h(rtb_Switch4_a, 0.5, &rtb_flag_g4);
-  rtb_OR_i4 = (ACCtl_tPsDVT >= ACCtl_tRightDuct);
+  rtb_RelationalOperator_ht = (ACCtl_tPsDVT >= ACCtl_tRightDuct);
   if (rtb_flag_g4) {
     rtb_Merge = 0.0F;
-  } else if (!rtb_OR_i4) {
+  } else if (!rtb_RelationalOperator_ht) {
     rtb_Merge = ACCtl_tRightDuct - ACCtl_tPsDVT;
   }
 
-  ME11_P_NEG(!rtb_OR_i4, rtb_Merge, cal_DcutTPidDeadBand, cal_DcutTempPid_KiNeg,
-             cal_DcutTempPid_Ki, &rtb_Merge1_m);
-  ME11_P_POS(rtb_OR_i4, rtb_Merge, cal_DcutTPidDeadBand, cal_DcutTempPid_KiPos,
-             cal_DcutTempPid_Ki, &rtb_Merge1_m);
+  ME11_P_NEG(!rtb_RelationalOperator_ht, rtb_Merge, cal_DcutTPidDeadBand,
+             cal_DcutTempPid_KiNeg, cal_DcutTempPid_Ki, &rtb_Merge1_m);
+  ME11_P_POS(rtb_RelationalOperator_ht, rtb_Merge, cal_DcutTPidDeadBand,
+             cal_DcutTempPid_KiPos, cal_DcutTempPid_Ki, &rtb_Merge1_m);
   if (rtb_LogicalOperator5) {
     switch (ME11_ARID_DEF.Delay_DSTATE_bf) {
      case 0:
-      if (rtb_OR_i4) {
+      if (rtb_RelationalOperator_ht) {
         ME11_ARID_DEF.Delay_DSTATE_mf += rtb_Merge1_m;
       } else {
         ME11_ARID_DEF.Delay_DSTATE_mf -= rtb_Merge1_m;
@@ -10090,13 +10151,13 @@ void Task_100ms(void)
       break;
 
      case 1:
-      if (!rtb_OR_i4) {
+      if (!rtb_RelationalOperator_ht) {
         ME11_ARID_DEF.Delay_DSTATE_mf -= rtb_Merge1_m;
       }
       break;
 
      case 2:
-      if (rtb_OR_i4) {
+      if (rtb_RelationalOperator_ht) {
         ME11_ARID_DEF.Delay_DSTATE_mf += rtb_Merge1_m;
       }
       break;
@@ -10121,13 +10182,14 @@ void Task_100ms(void)
 
   ME11_PI_Controller1(!rtb_LogicalOperator5, 0.0F, &rtb_Merge1_m,
                       &rtb_IFreezFlag_d);
-  ME11_P_NEG_p(!rtb_OR_i4, rtb_Merge, cal_DcutTempPid_pWinNeg,
+  ME11_P_NEG_p(!rtb_RelationalOperator_ht, rtb_Merge, cal_DcutTempPid_pWinNeg,
                cal_DcutTempPid_KpNeg, cal_DcutTempPid_Kp, &rtb_Merge_g);
-  ME11_P_POS_l(rtb_OR_i4, rtb_Merge, cal_DcutTempPid_pWinPos,
+  ME11_P_POS_l(rtb_RelationalOperator_ht, rtb_Merge, cal_DcutTempPid_pWinPos,
                cal_DcutTempPid_KpPos, cal_DcutTempPid_Kp, &rtb_Merge_g);
-  ME11_PI_Controller(rtb_LogicalOperator5, rtb_OR_i4, 0.0F, rtb_Merge_g,
-                     ME11_ARID_DEF.Delay_DSTATE_mf, cal_DcutTempPidUL,
-                     cal_DcutTempPidLL, &rtb_Merge1_m, &rtb_IFreezFlag_d);
+  ME11_PI_Controller(rtb_LogicalOperator5, rtb_RelationalOperator_ht, 0.0F,
+                     rtb_Merge_g, ME11_ARID_DEF.Delay_DSTATE_mf,
+                     cal_DcutTempPidUL, cal_DcutTempPidLL, &rtb_Merge1_m,
+                     &rtb_IFreezFlag_d);
   if (rtb_LogicalOperator_j0) {
     ME11_ARID_DEF.FixPtUnitDelay1_DSTATE_ma = ACSen_sCabinTempFilter;
   } else {
@@ -10138,7 +10200,7 @@ void Task_100ms(void)
   Eva_CoolingCond2 = ACSen_sEnvTempCor + cal_ErrAmbTDvtForEvaUL;
   Eva_CloseCond1 = ACSen_sEnvTempCor + cal_ErrAmbTDvtForEvaLL;
   Eva_CooledCond1 = ME11_ARID_DEF.Delay_DSTATE_n + cal_TevapLoStepMin;
-  EvapDesTempDrFanCor = look1_iu8lftf_binlca(rtb_Delay_ku, (const uint8 *)
+  EvapDesTempDrFanCor = look1_iu8lftf_binlca(rtb_Compare_br, (const uint8 *)
     &cal_EvapDesTempFanCor_1X[0], (const float32 *)&cal_EvapDesTempFanCor_CUR[0],
     3U);
   EvapDesTempDrEnvCor = look2_iflf_binlca(ACSen_sEnvTempCor,
@@ -10204,23 +10266,23 @@ void Task_100ms(void)
   if (cal_FixPIDSecletFlag) {
     ACCtl_tErrDrDVT2Duct = rtb_Gain8;
     ME11_deadzone(ACCtl_tErrDrDVT2Duct, 0.5F, &rtb_flag_a);
-    rtb_LogicalOperator_j0 = (ACCtl_tDrDVT >= ACCtl_tLeftDuct);
+    rtb_RelationalOperator_ht = (ACCtl_tDrDVT >= ACCtl_tLeftDuct);
     if (rtb_flag_a) {
       ACCtl_tErrDrDVT2Duct = 0.0F;
-    } else if (!rtb_LogicalOperator_j0) {
+    } else if (!rtb_RelationalOperator_ht) {
       ACCtl_tErrDrDVT2Duct = ACCtl_tLeftDuct - ACCtl_tDrDVT;
     }
 
-    ME11_P_NEG(!rtb_LogicalOperator_j0, ACCtl_tErrDrDVT2Duct,
+    ME11_P_NEG(!rtb_RelationalOperator_ht, ACCtl_tErrDrDVT2Duct,
                cal_DrEvaDesValPIDIntegDeadBandNeg, cal_DrEvaDesValPIDKiNeg,
                cal_DrEvaDesValPIDKi, (float32 *)&ACCtl_tDrEvapICor);
-    ME11_P_POS(rtb_LogicalOperator_j0, ACCtl_tErrDrDVT2Duct,
+    ME11_P_POS(rtb_RelationalOperator_ht, ACCtl_tErrDrDVT2Duct,
                cal_DrEvaDesValPIDIntegDeadBandPos, cal_DrEvaDesValPIDKiPos,
                cal_DrEvaDesValPIDKi, (float32 *)&ACCtl_tDrEvapICor);
     if (rtb_LogicalOperator1_f) {
       switch (ME11_ARID_DEF.Delay_DSTATE_opd) {
        case 0:
-        if (rtb_LogicalOperator_j0) {
+        if (rtb_RelationalOperator_ht) {
           ACCtl_tDrEvapISum = ACCtl_tDrEvapISum + ACCtl_tDrEvapICor;
         } else {
           ACCtl_tDrEvapISum = ACCtl_tDrEvapISum - ACCtl_tDrEvapICor;
@@ -10228,13 +10290,13 @@ void Task_100ms(void)
         break;
 
        case 1:
-        if (!rtb_LogicalOperator_j0) {
+        if (!rtb_RelationalOperator_ht) {
           ACCtl_tDrEvapISum = ACCtl_tDrEvapISum - ACCtl_tDrEvapICor;
         }
         break;
 
        case 2:
-        if (rtb_LogicalOperator_j0) {
+        if (rtb_RelationalOperator_ht) {
           ACCtl_tDrEvapISum = ACCtl_tDrEvapISum + ACCtl_tDrEvapICor;
         }
         break;
@@ -10258,13 +10320,13 @@ void Task_100ms(void)
 
     ME11_PI_Controller1(!rtb_LogicalOperator1_f, ACCtl_tDrSetBasicEvap, (float32
       *)&ACCtl_tDrEvapDesPI, &ME11_ARID_DEF.Delay_DSTATE_opd);
-    ME11_P_NEG_p(!rtb_LogicalOperator_j0, ACCtl_tErrDrDVT2Duct,
+    ME11_P_NEG_p(!rtb_RelationalOperator_ht, ACCtl_tErrDrDVT2Duct,
                  cal_DrEvaDesValPID_pWinNeg, cal_DrEvaDesValPIDKpNeg,
                  cal_DrEvaDesValPIDKp, (float32 *)&ACCtl_tDrEvapPCor);
-    ME11_P_POS_l(rtb_LogicalOperator_j0, ACCtl_tErrDrDVT2Duct,
+    ME11_P_POS_l(rtb_RelationalOperator_ht, ACCtl_tErrDrDVT2Duct,
                  cal_DrEvaDesValPID_pWinPos, cal_DrEvaDesValPIDKpPos,
                  cal_DrEvaDesValPIDKp, (float32 *)&ACCtl_tDrEvapPCor);
-    ME11_PI_Controller(rtb_LogicalOperator1_f, rtb_LogicalOperator_j0,
+    ME11_PI_Controller(rtb_LogicalOperator1_f, rtb_RelationalOperator_ht,
                        ACCtl_tDrSetBasicEvap, ACCtl_tDrEvapPCor,
                        ACCtl_tDrEvapISum, cal_DrEvaDesValPIDUL,
                        cal_DrEvaDesValPIDLL, (float32 *)&ACCtl_tDrEvapDesPI,
@@ -10291,7 +10353,7 @@ void Task_100ms(void)
   if (ACCtl_tDrEvapDes > cal_EvaDesLLMax) {
     ACCtl_tDrEvapDes = cal_EvaDesLLMax;
   } else {
-    rtb_Add_ax = look2_iu8flftf_binlca(rtb_Delay_ku, HMICtl_sLeftSetPoint, (
+    rtb_Add_ax = look2_iu8flftf_binlca(rtb_Compare_br, HMICtl_sLeftSetPoint, (
       const uint8 *)&cal_DrEvaDesValPIDLL_2X[0], (const float32 *)
       &cal_DrEvaDesValPIDLL_2Y[0], (const float32 *)&cal_DrEvaDesValPIDLL_MAP[0],
       ME11_ConstP.pooled35, 4U);
@@ -10300,7 +10362,7 @@ void Task_100ms(void)
     }
   }
 
-  EvapDesTempPsFanCor = look1_iu8lftf_binlca(rtb_Delay_ku, (const uint8 *)
+  EvapDesTempPsFanCor = look1_iu8lftf_binlca(rtb_Compare_br, (const uint8 *)
     &cal_EvapDesTempPsFanCor_1X[0], (const float32 *)
     &cal_EvapDesTempPsFanCor_CUR[0], 3U);
   EvapDesTempPsEnvCor = look2_iflf_binlca(ACSen_sEnvTempCor,
@@ -10366,31 +10428,31 @@ void Task_100ms(void)
   if (cal_FixPIDSecletFlag) {
     ME11_PI_Controller1(!rtb_LogicalOperator5, ACCtl_tPsSetBasicEvap, (float32 *)
                         &ACCtl_tPsEvapDesPI, &rtb_IFreezFlag_k);
-    rtb_LogicalOperator_j0 = (ACCtl_tPsDVT >= ACCtl_tRightDuct);
+    rtb_RelationalOperator_ht = (ACCtl_tPsDVT >= ACCtl_tRightDuct);
     ACCtl_tErrPsDVT2Duct = rtb_Switch4_a;
     ME11_deadzone(ACCtl_tErrPsDVT2Duct, 0.5F, &rtb_flag_d);
     if (rtb_flag_d) {
       ACCtl_tErrPsDVT2Duct = 0.0F;
-    } else if (!rtb_LogicalOperator_j0) {
+    } else if (!rtb_RelationalOperator_ht) {
       ACCtl_tErrPsDVT2Duct = ACCtl_tRightDuct - ACCtl_tPsDVT;
     }
 
-    ME11_P_NEG_p(!rtb_LogicalOperator_j0, ACCtl_tErrPsDVT2Duct,
+    ME11_P_NEG_p(!rtb_RelationalOperator_ht, ACCtl_tErrPsDVT2Duct,
                  cal_PsEvaDesValPID_pWinNeg, cal_PsEvaDesValPIDKpNeg,
                  cal_PsEvaDesValPIDKp, (float32 *)&ACCtl_tPsEvapPCor);
-    ME11_P_POS_l(rtb_LogicalOperator_j0, ACCtl_tErrPsDVT2Duct,
+    ME11_P_POS_l(rtb_RelationalOperator_ht, ACCtl_tErrPsDVT2Duct,
                  cal_PsEvaDesValPID_pWinPos, cal_PsEvaDesValPIDKpPos,
                  cal_PsEvaDesValPIDKp, (float32 *)&ACCtl_tPsEvapPCor);
-    ME11_P_NEG(!rtb_LogicalOperator_j0, ACCtl_tErrPsDVT2Duct,
+    ME11_P_NEG(!rtb_RelationalOperator_ht, ACCtl_tErrPsDVT2Duct,
                cal_PsEvaDesValPIDIntegDeadBandNeg, cal_PsEvaDesValPIDKiNeg,
                cal_PsEvaDesValPIDKi, (float32 *)&ACCtl_tPsEvapICor);
-    ME11_P_POS(rtb_LogicalOperator_j0, ACCtl_tErrPsDVT2Duct,
+    ME11_P_POS(rtb_RelationalOperator_ht, ACCtl_tErrPsDVT2Duct,
                cal_PsEvaDesValPIDIntegDeadBandPos, cal_PsEvaDesValPIDKiPos,
                cal_PsEvaDesValPIDKi, (float32 *)&ACCtl_tPsEvapICor);
     if (rtb_LogicalOperator5) {
       switch (ME11_ARID_DEF.Delay_DSTATE_fe) {
        case 0:
-        if (rtb_LogicalOperator_j0) {
+        if (rtb_RelationalOperator_ht) {
           ACCtl_tPsEvapISum = ACCtl_tPsEvapISum + ACCtl_tPsEvapICor;
         } else {
           ACCtl_tPsEvapISum = ACCtl_tPsEvapISum - ACCtl_tPsEvapICor;
@@ -10398,13 +10460,13 @@ void Task_100ms(void)
         break;
 
        case 1:
-        if (!rtb_LogicalOperator_j0) {
+        if (!rtb_RelationalOperator_ht) {
           ACCtl_tPsEvapISum = ACCtl_tPsEvapISum - ACCtl_tPsEvapICor;
         }
         break;
 
        case 2:
-        if (rtb_LogicalOperator_j0) {
+        if (rtb_RelationalOperator_ht) {
           ACCtl_tPsEvapISum = ACCtl_tPsEvapISum + ACCtl_tPsEvapICor;
         }
         break;
@@ -10426,7 +10488,7 @@ void Task_100ms(void)
       ACCtl_tPsEvapISum = 0.0F;
     }
 
-    ME11_PI_Controller(rtb_LogicalOperator5, rtb_LogicalOperator_j0,
+    ME11_PI_Controller(rtb_LogicalOperator5, rtb_RelationalOperator_ht,
                        ACCtl_tPsSetBasicEvap, ACCtl_tPsEvapPCor,
                        ACCtl_tPsEvapISum, cal_PsEvaDesValPIDUL,
                        cal_PsEvaDesValPIDLL, (float32 *)&ACCtl_tPsEvapDesPI,
@@ -10454,7 +10516,7 @@ void Task_100ms(void)
   if (ACCtl_tPsEvapDes > cal_EvaDesLLMax) {
     ACCtl_tPsEvapDes = cal_EvaDesLLMax;
   } else {
-    rtb_Add_ax = look2_iu8flftf_binlca(rtb_Delay_ku, HMICtl_sLeftSetPoint, (
+    rtb_Add_ax = look2_iu8flftf_binlca(rtb_Compare_br, HMICtl_sLeftSetPoint, (
       const uint8 *)&cal_PsEvaDesValPIDLL_2X[0], (const float32 *)
       &cal_PsEvaDesValPIDLL_2Y[0], (const float32 *)&cal_PsEvaDesValPIDLL_MAP[0],
       ME11_ConstP.pooled35, 4U);
@@ -10536,7 +10598,7 @@ void Task_100ms(void)
 
   rtb_DataTypeConversion1_kh = (sint16)(float32)floor(rtb_Add_ax);
   rtb_DataTypeConversion2 = (sint16)(float32)floor(ACCtl_tDrDVT);
-  rtb_LogicalOperator_j0 = (((ME11_ARID_DEF.Switch1_nv & 1U) != 0U) &&
+  rtb_RelationalOperator_ht = (((ME11_ARID_DEF.Switch1_nv & 1U) != 0U) &&
     ((ME11_ARID_DEF.Switch1_nv & 2U) != 0U));
   rtb_DataTypeConversion4 = (sint16)(float32)floor
     ((Rte_IRead_Task_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD())
@@ -10548,14 +10610,14 @@ void Task_100ms(void)
     ME11_ARID_DEF.is_FanWorkTimeMng = ME11_IN_IGN_OFF;
     ME11_ARID_DEF.BlowerFanRunTime = 0U;
     ME11_ARID_DEF.IGN_ONTime = 0U;
-    rtb_Compare_gzu = !HMICtl_bACDefrost;
-    if ((rtb_DataTypeConversion4 < cal_CAPStartCoolantMin) && rtb_Compare_gzu &&
-        (rtb_DataTypeConversion1_kh > 8) && rtb_LogicalOperator_j0 &&
-        (rtb_DataTypeConversion3 < 15)) {
+    rtb_LogicalOperator_c4 = !HMICtl_bACDefrost;
+    if ((rtb_DataTypeConversion4 < cal_CAPStartCoolantMin) &&
+        rtb_LogicalOperator_c4 && (rtb_DataTypeConversion1_kh > 8) &&
+        rtb_RelationalOperator_ht && (rtb_DataTypeConversion3 < 15)) {
       ME11_ARID_DEF.is_ACStartModeMng = ME11_IN_Cold_Air_Protection;
       ACCtl_stStartState = ME11_ColdStart;
       ME11_ARID_DEF.time = 0U;
-    } else if (rtb_LogicalOperator_j0 && rtb_Compare_gzu &&
+    } else if (rtb_RelationalOperator_ht && rtb_LogicalOperator_c4 &&
                (rtb_DataTypeConversion2 < rtb_DataTypeConversion_dt) &&
                (rtb_DataTypeConversion3 > 30) && (rtb_DataTypeConversion_dt >
                 cal_HAPevap_min) && (AC_tiAfterRun >= cal_HAPparkdly_time) &&
@@ -10594,7 +10656,7 @@ void Task_100ms(void)
       ME11_ARID_DEF.IGN_ONTime = 0U;
     } else {
       if (ME11_ARID_DEF.is_BlowerFanTime == ME11_IN_BlowerFan_Off) {
-        if (rtb_Delay_ku > 0) {
+        if (rtb_Compare_br > 0) {
           ME11_ARID_DEF.BlowerFanRunTime = 0U;
           ME11_ARID_DEF.is_BlowerFanTime = ME11_IN_BlowerFan_On;
           if (ME11_ARID_DEF.BlowerFanRunTime >= cal_tiColdStartTimeMax) {
@@ -10605,7 +10667,7 @@ void Task_100ms(void)
             ME11_ARID_DEF.BlowerFanRunTime = 0U;
           }
         }
-      } else if (rtb_Delay_ku == 0) {
+      } else if (rtb_Compare_br == 0) {
         ME11_ARID_DEF.is_BlowerFan_On = ME11_IN_NO_ACTIVE_CHILD_gl;
         ME11_ARID_DEF.is_BlowerFanTime = ME11_IN_BlowerFan_Off;
       } else if (ME11_ARID_DEF.is_BlowerFan_On == ME11_IN_BlowerFanWorkTimeAdd)
@@ -10636,7 +10698,7 @@ void Task_100ms(void)
      case ME11_IN_Cold_Air_Protection:
       ACCtl_stStartState = ME11_ColdStart;
       if (HMICtl_bACDefrost || (rtb_DataTypeConversion1_kh < 2) ||
-          (!rtb_LogicalOperator_j0)) {
+          (!rtb_RelationalOperator_ht)) {
         ME11_ARID_DEF.is_ACStartModeMng = ME11_IN_Normal_Op;
         ACCtl_stStartState = ME11_NormalStart;
       } else if ((rtb_DataTypeConversion4 > cal_CAPStartCoolantMin + 3) ||
@@ -10657,7 +10719,7 @@ void Task_100ms(void)
      case ME11_IN_Hot_Air_Protection:
       ACCtl_stStartState = ME11_HotStart;
       if ((ME11_ARID_DEF.BlowerFanRunTime >= cal_HAPpurge_time) ||
-          HMICtl_bACDefrost || (!rtb_LogicalOperator_j0)) {
+          HMICtl_bACDefrost || (!rtb_RelationalOperator_ht)) {
         ME11_ARID_DEF.is_ACStartModeMng = ME11_IN_Normal_Op;
         ACCtl_stStartState = ME11_NormalStart;
       }
@@ -10667,7 +10729,7 @@ void Task_100ms(void)
       ACCtl_stStartState = ME11_LittleCold;
       if ((rtb_DataTypeConversion4 < cal_CAPStartCoolantMin) &&
           (!HMICtl_bACDefrost) && (rtb_DataTypeConversion1_kh > 8) &&
-          rtb_LogicalOperator_j0 && (rtb_DataTypeConversion3 < 15) &&
+          rtb_RelationalOperator_ht && (rtb_DataTypeConversion3 < 15) &&
           (ME11_ARID_DEF.BlowerFanRunTime < cal_tiColdStartTimeMax) &&
           (ME11_ARID_DEF.time >= rtb_Gain_az)) {
         ME11_ARID_DEF.is_ACStartModeMng = ME11_IN_Cold_Air_Protection;
@@ -10675,8 +10737,8 @@ void Task_100ms(void)
         ME11_ARID_DEF.time = 0U;
       } else if ((rtb_DataTypeConversion4 > cal_CAPStartCoolantMin + 8) ||
                  HMICtl_bACDefrost || (rtb_DataTypeConversion1_kh < 2) ||
-                 (!rtb_LogicalOperator_j0) || (ME11_ARID_DEF.time >= rtb_Gain_az))
-      {
+                 (!rtb_RelationalOperator_ht) || (ME11_ARID_DEF.time >=
+                  rtb_Gain_az)) {
         ME11_ARID_DEF.is_ACStartModeMng = ME11_IN_Normal_Op;
         ACCtl_stStartState = ME11_NormalStart;
       } else {
@@ -10691,7 +10753,7 @@ void Task_100ms(void)
 
      default:
       ACCtl_stStartState = ME11_NormalStart;
-      if (rtb_LogicalOperator_j0 && (!HMICtl_bACDefrost) &&
+      if (rtb_RelationalOperator_ht && (!HMICtl_bACDefrost) &&
           (rtb_DataTypeConversion2 < rtb_DataTypeConversion_dt) &&
           (rtb_DataTypeConversion3 > 30) && (rtb_DataTypeConversion_dt >
            cal_HAPevap_min) && (ME11_ARID_DEF.BlowerFanRunTime <
@@ -10699,17 +10761,17 @@ void Task_100ms(void)
         ME11_ARID_DEF.is_ACStartModeMng = ME11_IN_Hot_Air_Protection;
         ACCtl_stStartState = ME11_HotStart;
       } else {
-        rtb_Compare_gzu = !HMICtl_bACDefrost;
+        rtb_LogicalOperator_c4 = !HMICtl_bACDefrost;
         if ((rtb_DataTypeConversion4 < cal_CAPStartCoolantMin) &&
-            rtb_Compare_gzu && (rtb_DataTypeConversion1_kh > 8) &&
-            rtb_LogicalOperator_j0 && (rtb_DataTypeConversion3 < 15) &&
+            rtb_LogicalOperator_c4 && (rtb_DataTypeConversion1_kh > 8) &&
+            rtb_RelationalOperator_ht && (rtb_DataTypeConversion3 < 15) &&
             (ME11_ARID_DEF.BlowerFanRunTime < cal_tiColdStartTimeMax)) {
           ME11_ARID_DEF.is_ACStartModeMng = ME11_IN_Cold_Air_Protection;
           ACCtl_stStartState = ME11_ColdStart;
           ME11_ARID_DEF.time = 0U;
         } else if ((rtb_DataTypeConversion4 < cal_CAPStartCoolantMin + 5) &&
-                   rtb_Compare_gzu && (rtb_DataTypeConversion1_kh > 8) &&
-                   rtb_LogicalOperator_j0 && (rtb_DataTypeConversion3 < 15) &&
+                   rtb_LogicalOperator_c4 && (rtb_DataTypeConversion1_kh > 8) &&
+                   rtb_RelationalOperator_ht && (rtb_DataTypeConversion3 < 15) &&
                    (ME11_ARID_DEF.BlowerFanRunTime < cal_tiColdStartTimeMax)) {
           ME11_ARID_DEF.is_ACStartModeMng = ME11_IN_Normal_LittleCold;
           ACCtl_stStartState = ME11_LittleCold;
@@ -10787,42 +10849,54 @@ void Task_100ms(void)
     }
   }
 
-  rtb_Switch_n2 = ((Rte_IRead_Task_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC())
-                   ->VIPM_HUACUnlckVentSet_enum !=
-                   ME11_ARID_DEF.DelayInput1_DSTATE_ez);
-  rtb_Compare_gzu = ((Rte_IRead_Task_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC())
-                     ->VIPM_HUACUnlckVentSet_enum != 0);
-  rtb_LogicalOperator_j0 = (rtb_Switch_n2 && rtb_Compare_gzu);
-  if (rtb_LogicalOperator_j0) {
+  rtb_RelationalOperator_ht = ((Rte_IRead_Task_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC())
+    ->VIPM_HUACUnlckVentSet_enum != ME11_ARID_DEF.DelayInput1_DSTATE_ez);
+  rtb_LogicalOperator_c4 = ((Rte_IRead_Task_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC())
+    ->VIPM_HUACUnlckVentSet_enum != 0);
+  rtb_RelationalOperator_ht = (rtb_RelationalOperator_ht &&
+    rtb_LogicalOperator_c4);
+  if (rtb_RelationalOperator_ht) {
     ME11_ARID_DEF.Delay_DSTATE_b2 =
       (Rte_IRead_Task_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC())
       ->VIPM_HUACUnlckVentSet_enum;
   }
 
+  if (ME11_ARID_DEF.EERead_UnlockVentSts > 2) {
+    HMICtl_eUnlckVentSts = 2U;
+  } else if (ME11_ARID_DEF.EERead_UnlockVentSts < 1) {
+    HMICtl_eUnlckVentSts = 1U;
+  } else {
+    HMICtl_eUnlckVentSts = ME11_ARID_DEF.EERead_UnlockVentSts;
+  }
+
   if (ME11_ARID_DEF.is_active_c159_ME11 == 0U) {
     ME11_ARID_DEF.is_active_c159_ME11 = 1U;
     ME11_ARID_DEF.is_c159_ME11 = ME11_IN_init_f;
-    ME11_ARID_DEF.data = ME11_ARID_DEF.EERead_UnlockVentSts;
   } else if (ME11_ARID_DEF.is_c159_ME11 == ME11_IN_after) {
-    ME11_ARID_DEF.data = ME11_ARID_DEF.Delay_DSTATE_b2;
-  } else if (rtb_LogicalOperator_j0) {
+    HMICtl_eUnlckVentSts = ME11_ARID_DEF.Delay_DSTATE_b2;
+  } else if (rtb_RelationalOperator_ht) {
     ME11_ARID_DEF.is_c159_ME11 = ME11_IN_after;
-    ME11_ARID_DEF.data = ME11_ARID_DEF.Delay_DSTATE_b2;
+    HMICtl_eUnlckVentSts = ME11_ARID_DEF.Delay_DSTATE_b2;
   }
 
   if (cal_HMIUnlckVentEnb) {
     HMICtl_eUnlckVentSts = cal_HMIUnlckVentEnbData;
-  } else {
-    HMICtl_eUnlckVentSts = ME11_ARID_DEF.data;
   }
 
-  rtb_Switch_n2 = ((Rte_IRead_Task_100ms_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs())
-                   ->BCM_BodyWarnSts == 0);
-  rtb_LogicalOperator_j0 =
+  rtb_RelationalOperator_ht =
     ((Rte_IRead_Task_100ms_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs())
-     ->BCM_DoorAjarSta_FL > ME11_ARID_DEF.DelayInput1_DSTATE_j5);
+     ->BCM_BodyWarnSts == 1);
+  rtb_LogicalOperator_j0 = ((ME11_ARID_DEF.Delay1_DSTATE_dt == 0) &&
+    rtb_RelationalOperator_ht);
+  rtb_RelationalOperator_ht = (ME11_ARID_DEF.DataTypeConversion1 < 2);
+  rtb_Compare_br = (uint8)((((uint32)((AC_tiAfterRun >= 120) << 1) + (uint32)
+    (HMICtl_eUnlckVentSts == 2)) + (uint32)(rtb_LogicalOperator_j0 << 2)) +
+    (uint32)(rtb_RelationalOperator_ht << 3));
+  rtb_LogicalOperator_j0 = (rtb_Compare_br == 15);
   rtb_OR_i4 = ((Rte_IRead_Task_100ms_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs())
-               ->BCM_DoorAjarSta_FR > ME11_ARID_DEF.DelayInput1_DSTATE_mu);
+               ->BCM_DoorAjarSta_FL > ME11_ARID_DEF.DelayInput1_DSTATE_j5);
+  rtb_Compare_l4 = ((Rte_IRead_Task_100ms_Bcm2VcuTms_outputs_Bcm2VcuTms_outputs())
+                    ->BCM_DoorAjarSta_FR > ME11_ARID_DEF.DelayInput1_DSTATE_mu);
   if (ME11_ARID_DEF.temporalCounter_i1_mj < 1023U) {
     ME11_ARID_DEF.temporalCounter_i1_mj++;
   }
@@ -10835,9 +10909,7 @@ void Task_100ms(void)
     switch (ME11_ARID_DEF.is_c158_ME11) {
      case ME11_IN_Init_i:
       PWRCtl_bUnlockVentTimeFlg = false;
-      if ((HMICtl_eUnlckVentSts == 2) && (AC_tiAfterRun >= 120) &&
-          (rtb_Switch_n2 && (ME11_ARID_DEF.Delay1_DSTATE_dt == 1)) &&
-          (ME11_ARID_DEF.DataTypeConversion1 < 2)) {
+      if (rtb_LogicalOperator_j0) {
         ME11_ARID_DEF.is_c158_ME11 = ME11_IN_On_kf;
         ME11_ARID_DEF.temporalCounter_i1_mj = 0U;
         PWRCtl_bUnlockVentTimeFlg = true;
@@ -10850,8 +10922,8 @@ void Task_100ms(void)
 
      default:
       PWRCtl_bUnlockVentTimeFlg = true;
-      if ((ME11_ARID_DEF.temporalCounter_i1_mj >= 600U) ||
-          (rtb_LogicalOperator_j0 || rtb_OR_i4)) {
+      if ((ME11_ARID_DEF.temporalCounter_i1_mj >= 600U) || (rtb_OR_i4 ||
+           rtb_Compare_l4)) {
         ME11_ARID_DEF.is_c158_ME11 = ME11_IN_Off_l;
         PWRCtl_bUnlockVentTimeFlg = false;
       }
@@ -10869,8 +10941,8 @@ void Task_100ms(void)
     rtb_Switch1_e3 = HMICtl_eBlwSts;
   }
 
-  rtb_LogicalOperator_j0 = (ME11_ARID_DEF.Switch1_nv != ACOff);
-  if (!rtb_LogicalOperator_j0) {
+  rtb_OR_i4 = (ME11_ARID_DEF.Switch1_nv != ACOff);
+  if (!rtb_OR_i4) {
     ACCtl_BloweFanSpeed = 0U;
     AC_FanLevelAct = 0U;
     AC_FanLeVel = rtb_Switch1_e3;
@@ -10905,7 +10977,7 @@ void Task_100ms(void)
     ACCtl_stRecForceChangeEna = false;
   }
 
-  rtb_OR_i4 = (cal_AQS2OutRecThreVal > 0);
+  rtb_Compare_l4 = (cal_AQS2OutRecThreVal > 0);
   if (ME11_ARID_DEF.is_active_c27_ME11 == 0U) {
     ME11_ARID_DEF.is_active_c27_ME11 = 1U;
     ME11_ARID_DEF.is_c27_ME11 = ME11_IN_Initi;
@@ -10919,7 +10991,7 @@ void Task_100ms(void)
       ME11_ARID_DEF.is_c27_ME11 = ME11_IN_Recirc_AQS;
       ACCtl_stRecAQSEna = true;
       ME11_ARID_DEF.ACCtl_tiAQSLo = 0U;
-      if (rtb_OR_i4) {
+      if (rtb_Compare_l4) {
         ME11_ARID_DEF.is_Recirc_AQS = ME11_IN_ACCtl_tiAQSLo_cnt;
         rtb_Divide1_f = ME11_ARID_DEF.ACCtl_tiAQSLo + 1U;
         if (ME11_ARID_DEF.ACCtl_tiAQSLo + 1U > 65535U) {
@@ -10947,7 +11019,7 @@ void Task_100ms(void)
       ME11_ARID_DEF.is_Initi = ME11_IN_ACCtl_tiAQSHi_cntClear;
       ME11_ARID_DEF.ACCtl_tiAQSHi = 0U;
     } else if (ME11_ARID_DEF.is_Recirc_AQS == ME11_IN_ACCtl_tiAQSLo_cnt) {
-      if (rtb_OR_i4) {
+      if (rtb_Compare_l4) {
         ME11_ARID_DEF.is_Recirc_AQS = ME11_IN_ACCtl_tiAQSLo_cnt;
         rtb_Divide1_f = ME11_ARID_DEF.ACCtl_tiAQSLo + 1U;
         if (ME11_ARID_DEF.ACCtl_tiAQSLo + 1U > 65535U) {
@@ -10959,7 +11031,7 @@ void Task_100ms(void)
         ME11_ARID_DEF.is_Recirc_AQS = ME11_IN_ACCtl_tiAQSLo_cntClear;
         ME11_ARID_DEF.ACCtl_tiAQSLo = 0U;
       }
-    } else if (rtb_OR_i4) {
+    } else if (rtb_Compare_l4) {
       ME11_ARID_DEF.is_Recirc_AQS = ME11_IN_ACCtl_tiAQSLo_cnt;
       rtb_Divide1_f = ME11_ARID_DEF.ACCtl_tiAQSLo + 1U;
       if (ME11_ARID_DEF.ACCtl_tiAQSLo + 1U > 65535U) {
@@ -10975,11 +11047,11 @@ void Task_100ms(void)
 
   ACCtl_stRecNormalDefogEna = ((ACSen_sEnvTempCor < 30.0F) && (ACSen_sEnvTempCor
     > 5.0F));
-  rtb_OR_i4 = (ME11_ARID_DEF.Switch1_nv != ACOff);
-  ACCtl_stRecTargetOutTempEna = (((!rtb_OR_i4) ||
+  rtb_Compare_l4 = (ME11_ARID_DEF.Switch1_nv != ACOff);
+  ACCtl_stRecTargetOutTempEna = (((!rtb_Compare_l4) ||
     (ME11_ARID_DEF.Delay1_Reset_ZCE == POS_ZCSIG)) &&
     ACCtl_stRecTargetOutTempEna);
-  ME11_ARID_DEF.Delay1_Reset_ZCE = rtb_OR_i4;
+  ME11_ARID_DEF.Delay1_Reset_ZCE = rtb_Compare_l4;
   if (ACCtl_tDrDVT < cal_REC_DVTRecirc) {
     ACCtl_stRecTargetOutTempEna = true;
   } else {
@@ -10993,10 +11065,10 @@ void Task_100ms(void)
   rtb_Gain_az = (uint16)((ACCtl_tSetPointPTC -
     (Rte_IRead_Task_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD())
     ->VIPM_HVCHOutlTemp_C) * 2.0F + 400.0F);
-  rtb_OR_i4 = (ME11_ARID_DEF.Switch1_nv != ACOff);
-  ACCtl_stRecPTCDvtEna = (((!rtb_OR_i4) || (ME11_ARID_DEF.Delay1_Reset_ZCE_a ==
-    POS_ZCSIG)) && ACCtl_stRecPTCDvtEna);
-  ME11_ARID_DEF.Delay1_Reset_ZCE_a = rtb_OR_i4;
+  rtb_Compare_l4 = (ME11_ARID_DEF.Switch1_nv != ACOff);
+  ACCtl_stRecPTCDvtEna = (((!rtb_Compare_l4) ||
+    (ME11_ARID_DEF.Delay1_Reset_ZCE_a == POS_ZCSIG)) && ACCtl_stRecPTCDvtEna);
+  ME11_ARID_DEF.Delay1_Reset_ZCE_a = rtb_Compare_l4;
   rtb_MultiportSwitch2_e = (float32)rtb_Gain_az * 0.5F - 200.0F;
   if (rtb_MultiportSwitch2_e >= cal_PTCTempRecircOn) {
     ACCtl_stRecPTCDvtEna = true;
@@ -11020,10 +11092,10 @@ void Task_100ms(void)
   }
 
   ACCtl_stRecRemoteACEna = (ME11_ARID_DEF.Delay_DSTATE_ke >= 100);
-  rtb_Switch_n2 =
+  rtb_LogicalOperator_c4 =
     ((Rte_IRead_Task_100ms_IPM_BMS_10_DC_ChargeStates_EPT_IPM_BMS_10_DC_ChargeStates_EPT
       ())->VIPM_BMSDCSActOprtMode_enum == 5);
-  ACCtl_stRecQkChargeCoolingEna = (rtb_Switch_n2 &&
+  ACCtl_stRecQkChargeCoolingEna = (rtb_LogicalOperator_c4 &&
     (ME11_ARID_DEF.Delay_DSTATE_lv == 1));
   if (ACSen_sMotTempFilter > cal_AirInletRecInPCUTemp) {
     ACCtl_stRecPCUTempEna = true;
@@ -11075,39 +11147,39 @@ void Task_100ms(void)
   }
 
   if (ACCtl_stRecSummerCondEna) {
-    rtb_DataTypeConversion19 = cal_ACCtlRecLevelForSummer;
-  } else {
-    rtb_DataTypeConversion19 = 0U;
-  }
-
-  if (ACCtl_stRecPTCDvtEna) {
-    rtb_DataTypeConversion2_a = cal_ACCtlRecLevelForPTCDvt;
+    rtb_DataTypeConversion2_a = cal_ACCtlRecLevelForSummer;
   } else {
     rtb_DataTypeConversion2_a = 0U;
   }
 
-  if (ACCtl_stRecACHotStartEna) {
-    u1 = cal_ACCtlRecLevelForACHotStart;
+  if (ACCtl_stRecPTCDvtEna) {
+    u1 = cal_ACCtlRecLevelForPTCDvt;
   } else {
     u1 = 0U;
   }
 
-  if (ACCtl_stRecForceDefogEna) {
-    u1_0 = cal_ACCtlRecLevelForForceDefog;
+  if (ACCtl_stRecACHotStartEna) {
+    u1_0 = cal_ACCtlRecLevelForACHotStart;
   } else {
     u1_0 = 0U;
   }
 
-  if (ACCtl_stRecManualEna) {
-    u1_1 = cal_ACCtlRecLevelForManual;
+  if (ACCtl_stRecForceDefogEna) {
+    u1_1 = cal_ACCtlRecLevelForForceDefog;
   } else {
     u1_1 = 0U;
   }
 
-  if (ACCtl_stRecRemoteACEna) {
-    u1_2 = cal_ACCtlRecLevelForRemoteAC;
+  if (ACCtl_stRecManualEna) {
+    u1_2 = cal_ACCtlRecLevelForManual;
   } else {
     u1_2 = 0U;
+  }
+
+  if (ACCtl_stRecRemoteACEna) {
+    u1_3 = cal_ACCtlRecLevelForRemoteAC;
+  } else {
+    u1_3 = 0U;
   }
 
   if (ACCtl_stRecQkChargeCoolingEna) {
@@ -11146,12 +11218,8 @@ void Task_100ms(void)
     rtb_Add4_ox = rtb_Add5_d;
   }
 
-  if (rtb_Add4_ox >= rtb_DataTypeConversion19) {
-    rtb_DataTypeConversion19 = rtb_Add4_ox;
-  }
-
-  if (rtb_DataTypeConversion19 >= rtb_DataTypeConversion2_a) {
-    rtb_DataTypeConversion2_a = rtb_DataTypeConversion19;
+  if (rtb_Add4_ox >= rtb_DataTypeConversion2_a) {
+    rtb_DataTypeConversion2_a = rtb_Add4_ox;
   }
 
   if (rtb_DataTypeConversion2_a >= u1) {
@@ -11170,8 +11238,12 @@ void Task_100ms(void)
     u1_2 = u1_1;
   }
 
-  if (u1_2 >= rtb_IFreezFlag_k) {
-    rtb_IFreezFlag_k = u1_2;
+  if (u1_2 >= u1_3) {
+    u1_3 = u1_2;
+  }
+
+  if (u1_3 >= rtb_IFreezFlag_k) {
+    rtb_IFreezFlag_k = u1_3;
   }
 
   if (rtb_IFreezFlag_k >= ACCtl_stRecLevelFinal) {
@@ -11217,19 +11289,19 @@ void Task_100ms(void)
     rtb_IFreezFlag_k = HMICtl_eInner;
   }
 
-  rtb_OR_i4 = ((sint32)HMICtl_bACDefrost > (sint32)
-               ME11_ARID_DEF.DelayInput1_DSTATE_lk);
+  rtb_Compare_l4 = ((sint32)HMICtl_bACDefrost > (sint32)
+                    ME11_ARID_DEF.DelayInput1_DSTATE_lk);
   if (ACCtl_stRecForceDefogEna) {
     if ((sint32)HMICtl_bACDefrost > (sint32)ME11_ARID_DEF.DelayInput1_DSTATE_ne)
     {
-      rtb_Delay_ku = DriveFRESH;
+      rtb_Add1_oy = DriveFRESH;
     } else if (rtb_IFreezFlag_k != 0) {
-      rtb_Delay_ku = RECIRC;
+      rtb_Add1_oy = RECIRC;
     } else {
-      rtb_Delay_ku = DriveFRESH;
+      rtb_Add1_oy = DriveFRESH;
     }
   } else {
-    rtb_Delay_ku = 100U;
+    rtb_Add1_oy = 100U;
   }
 
   if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForPTCDvt) {
@@ -11269,39 +11341,39 @@ void Task_100ms(void)
   }
 
   if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForPCUTemp) {
-    rtb_DataTypeConversion19 = 8U;
-  } else {
-    rtb_DataTypeConversion19 = 0U;
-  }
-
-  if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForForceDefog) {
-    rtb_DataTypeConversion2_a = 9U;
+    rtb_DataTypeConversion2_a = 8U;
   } else {
     rtb_DataTypeConversion2_a = 0U;
   }
 
-  if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForManual) {
-    u1 = 10U;
+  if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForForceDefog) {
+    u1 = 9U;
   } else {
     u1 = 0U;
   }
 
-  if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForQkChargeCooling) {
-    u1_0 = 11U;
+  if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForManual) {
+    u1_0 = 10U;
   } else {
     u1_0 = 0U;
   }
 
-  if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForForceChange) {
-    u1_1 = 12U;
+  if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForQkChargeCooling) {
+    u1_1 = 11U;
   } else {
     u1_1 = 0U;
   }
 
-  if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForRemoteAC) {
-    u1_2 = 13U;
+  if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForForceChange) {
+    u1_2 = 12U;
   } else {
     u1_2 = 0U;
+  }
+
+  if (ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForRemoteAC) {
+    u1_3 = 13U;
+  } else {
+    u1_3 = 0U;
   }
 
   rtb_Add6_d = (uint8)((ACCtl_stRecLevelFinal == cal_ACCtlRecLevelForSummer) ||
@@ -11331,12 +11403,8 @@ void Task_100ms(void)
     rtb_Add4_ox = rtb_Add5_d;
   }
 
-  if (rtb_Add4_ox >= rtb_DataTypeConversion19) {
-    rtb_DataTypeConversion19 = rtb_Add4_ox;
-  }
-
-  if (rtb_DataTypeConversion19 >= rtb_DataTypeConversion2_a) {
-    rtb_DataTypeConversion2_a = rtb_DataTypeConversion19;
+  if (rtb_Add4_ox >= rtb_DataTypeConversion2_a) {
+    rtb_DataTypeConversion2_a = rtb_Add4_ox;
   }
 
   if (rtb_DataTypeConversion2_a >= u1) {
@@ -11355,7 +11423,11 @@ void Task_100ms(void)
     u1_2 = u1_1;
   }
 
-  switch (u1_2) {
+  if (u1_2 >= u1_3) {
+    u1_3 = u1_2;
+  }
+
+  switch (u1_3) {
    case 1:
     ACCtl_stRecOut = (ACCtl_IntakeRatio == 100);
     break;
@@ -11396,8 +11468,8 @@ void Task_100ms(void)
     break;
 
    case 9:
-    ACCtl_stRecOut = ((!rtb_OR_i4) && (rtb_IFreezFlag_k != 0));
-    if (rtb_OR_i4) {
+    ACCtl_stRecOut = ((!rtb_Compare_l4) && (rtb_IFreezFlag_k != 0));
+    if (rtb_Compare_l4) {
       ACCtl_IntakeRatio = DriveFRESH;
     } else if (rtb_IFreezFlag_k != 0) {
       ACCtl_IntakeRatio = RECIRC;
@@ -11442,12 +11514,12 @@ void Task_100ms(void)
       ACCtl_IntakeRatio = 100U;
     }
 
-    if (rtb_Add6_d <= rtb_Delay_ku) {
-      rtb_Delay_ku = rtb_Add6_d;
+    if (rtb_Add6_d <= rtb_Add1_oy) {
+      rtb_Add1_oy = rtb_Add6_d;
     }
 
-    if (rtb_Delay_ku <= rtb_Switch1_mn) {
-      rtb_Switch1_mn = rtb_Delay_ku;
+    if (rtb_Add1_oy <= rtb_Switch1_mn) {
+      rtb_Switch1_mn = rtb_Add1_oy;
     }
 
     if (rtb_Switch1_mn <= rtb_Add_ge3) {
@@ -11470,7 +11542,7 @@ void Task_100ms(void)
     break;
   }
 
-  if (rtb_LogicalOperator_j0) {
+  if (rtb_OR_i4) {
     rtb_Add_ax = look1_iflf_binlca(ACSen_sEnvTempCor, (const float32 *)
       &cal_ACFanLevel0EnvCor_1X[0], (const float32 *)&cal_ACFanLevel0EnvCor_CUR
       [0], 1U);
@@ -11502,11 +11574,11 @@ void Task_100ms(void)
       if (!HMICtl_bACDefrost) {
         ACCtl_tDVTFlt = (1.0F - cal_PsDVTWeight) * ACCtl_tDrDVT + ACCtl_tPsDVT *
           cal_PsDVTWeight;
-        rtb_LogicalOperator_j0 =
+        rtb_OR_i4 =
           ((Rte_IRead_Task_100ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA
             ())->VIPM_ESCVehSpdVld_flg && (ACSen_eAirInletPer <
             cal_ACRecirRatioLmt));
-        if (rtb_LogicalOperator_j0) {
+        if (rtb_OR_i4) {
           rtb_Saturation_ou = look1_iflf_binlca
             ((Rte_IRead_Task_100ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA
               ())->VIPM_ESCVehSpd_kph, (const float32 *)&cal_ACFanSpdVssCor_1X[0],
@@ -11528,11 +11600,11 @@ void Task_100ms(void)
           &cal_ACFanSpdSolarCorByEnv_MAP[0], ME11_ConstP.pooled33, 15U);
         rtb_MultiportSwitch2_e = (float32)cal_FanLevelToPWM[8] + rtb_LowPressLmt;
         if (rtb_MultiportSwitch2_e > 100.0F) {
-          rtb_Delay_ku = 100U;
+          rtb_Add1_oy = 100U;
         } else if (rtb_MultiportSwitch2_e < 0.0F) {
-          rtb_Delay_ku = 0U;
+          rtb_Add1_oy = 0U;
         } else {
-          rtb_Delay_ku = (uint8)rtb_MultiportSwitch2_e;
+          rtb_Add1_oy = (uint8)rtb_MultiportSwitch2_e;
         }
 
         ACCCtl_sBlowerFanSpd = ((((float32)(uint8)(look1_iflf_binlca
@@ -11550,14 +11622,14 @@ void Task_100ms(void)
           ACCCtl_sBlowerFanSpd = 0.0F;
         }
 
-        if (rtb_Delay_ku <= ACCCtl_sBlowerFanSpd) {
-          ACCCtl_sBlowerFanSpd = (float32)rtb_Delay_ku;
+        if (rtb_Add1_oy <= ACCCtl_sBlowerFanSpd) {
+          ACCCtl_sBlowerFanSpd = (float32)rtb_Add1_oy;
         }
 
         rtb_Add_ge3 = (uint8)(((float32)cal_FanLevelToPWM[0] + rtb_Add_ax) +
                               100.0F);
-        rtb_Delay_ku = (uint8)(((float32)cal_FanLevelToPWM[1] + rtb_Merge_g) +
-          100.0F);
+        rtb_Add1_oy = (uint8)(((float32)cal_FanLevelToPWM[1] + rtb_Merge_g) +
+                              100.0F);
         rtb_Add2_j5 = (uint8)(((float32)cal_FanLevelToPWM[2] + rtb_Merge1_m) +
                               100.0F);
         rtb_Add3_do = (uint8)(((float32)cal_FanLevelToPWM[3] + rtb_Merge) +
@@ -11653,15 +11725,15 @@ void Task_100ms(void)
 
            case ME11_IN_Fan_02:
             ME11_ARID_DEF.AC_FanLevel = 2U;
-            if (rtb_Delay_ku > 200) {
-              rtb_Delay_ku = 100U;
-            } else if (rtb_Delay_ku < 100) {
-              rtb_Delay_ku = 0U;
+            if (rtb_Add1_oy > 200) {
+              rtb_Add1_oy = 100U;
+            } else if (rtb_Add1_oy < 100) {
+              rtb_Add1_oy = 0U;
             } else {
-              rtb_Delay_ku = (uint8)(rtb_Delay_ku + -100);
+              rtb_Add1_oy = (uint8)(rtb_Add1_oy + -100);
             }
 
-            if ((uint8)ACCCtl_sBlowerFanSpd < rtb_Delay_ku) {
+            if ((uint8)ACCCtl_sBlowerFanSpd < rtb_Add1_oy) {
               ME11_ARID_DEF.is_AmbienceTempHighZero = ME11_IN_Fan_01;
               ME11_ARID_DEF.AC_FanLevel = 1U;
             } else if ((uint8)ACCCtl_sBlowerFanSpd > rtb_Add3_do) {
@@ -11721,15 +11793,15 @@ void Task_100ms(void)
               ME11_ARID_DEF.AC_FanLevel = 6U;
             } else {
               if ((uint8)(rtb_MultiportSwitch2_e + 100.0F) > 200) {
-                rtb_Delay_ku = 100U;
+                rtb_Add1_oy = 100U;
               } else if ((uint8)(rtb_MultiportSwitch2_e + 100.0F) < 100) {
-                rtb_Delay_ku = 0U;
+                rtb_Add1_oy = 0U;
               } else {
-                rtb_Delay_ku = (uint8)((uint8)(rtb_MultiportSwitch2_e + 100.0F)
-                  + -100);
+                rtb_Add1_oy = (uint8)((uint8)(rtb_MultiportSwitch2_e + 100.0F) +
+                                      -100);
               }
 
-              if ((uint8)ACCCtl_sBlowerFanSpd >= rtb_Delay_ku) {
+              if ((uint8)ACCCtl_sBlowerFanSpd >= rtb_Add1_oy) {
                 ME11_ARID_DEF.is_AmbienceTempHighZero = ME11_IN_Fan_08;
                 ME11_ARID_DEF.AC_FanLevel = 8U;
               }
@@ -11802,15 +11874,15 @@ void Task_100ms(void)
           break;
         }
 
-        rtb_Delay_ku = (uint8)(((float32)
+        rtb_Add1_oy = (uint8)(((float32)
           cal_FanLevelToPWM[ME11_ARID_DEF.AC_FanLevel] + rtb_MultiportSwitch2_e)
-          + 100.0F);
-        if (rtb_Delay_ku > 200) {
+                              + 100.0F);
+        if (rtb_Add1_oy > 200) {
           ACCtl_BloweFanSpeed = 100U;
-        } else if (rtb_Delay_ku < 100) {
+        } else if (rtb_Add1_oy < 100) {
           ACCtl_BloweFanSpeed = 0U;
         } else {
-          ACCtl_BloweFanSpeed = (uint8)(rtb_Delay_ku + -100);
+          ACCtl_BloweFanSpeed = (uint8)(rtb_Add1_oy + -100);
         }
       }
     }
@@ -11850,14 +11922,14 @@ void Task_100ms(void)
         break;
       }
 
-      rtb_Delay_ku = (uint8)(((float32)cal_FanLevelToPWM[rtb_Switch1_e3] +
+      rtb_Add1_oy = (uint8)(((float32)cal_FanLevelToPWM[rtb_Switch1_e3] +
         rtb_LowPressLmt) + 100.0F);
-      if (rtb_Delay_ku > 200) {
+      if (rtb_Add1_oy > 200) {
         ACCtl_BloweFanSpeed = 100U;
-      } else if (rtb_Delay_ku < 100) {
+      } else if (rtb_Add1_oy < 100) {
         ACCtl_BloweFanSpeed = 0U;
       } else {
-        ACCtl_BloweFanSpeed = (uint8)(rtb_Delay_ku + -100);
+        ACCtl_BloweFanSpeed = (uint8)(rtb_Add1_oy + -100);
       }
 
       ME11_ARID_DEF.AC_FanLevel = rtb_Switch1_e3;
@@ -11876,12 +11948,12 @@ void Task_100ms(void)
     rtb_DataTypeConversion_jf = HMICtl_eModeMotor;
   }
 
-  rtb_LogicalOperator_j0 = (ME11_ARID_DEF.Switch1_nv != ACOff);
-  ME11_ManualMode(!rtb_LogicalOperator_j0, rtb_DataTypeConversion_jf,
-                  (BlowerModes *)&ACCtl_BlowerMode);
-  if (rtb_LogicalOperator_j0) {
-    rtb_LogicalOperator_j0 = (ME11_ARID_DEF.Switch1_nv == 0);
-    if (!rtb_LogicalOperator_j0) {
+  rtb_OR_i4 = (ME11_ARID_DEF.Switch1_nv != ACOff);
+  ME11_ManualMode(!rtb_OR_i4, rtb_DataTypeConversion_jf, (BlowerModes *)
+                  &ACCtl_BlowerMode);
+  if (rtb_OR_i4) {
+    rtb_OR_i4 = (ME11_ARID_DEF.Switch1_nv == 0);
+    if (!rtb_OR_i4) {
       if (!HMICtl_bACDefrost) {
         ACCtl_RFaceFloor2Face = look1_iflf_binlca(ACSen_sEnvTempCor, (const
           float32 *)&cal_RFaceFloor2FaceByEnv_1X[0], (const float32 *)
@@ -11900,68 +11972,68 @@ void Task_100ms(void)
           ME11_ARID_DEF.is_c3_ME11 = ME11_IN_BlowerNormal;
           if (ACCtl_tDrDVT < ACCtl_RFaceFloor2Face) {
             ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face;
-            rtb_Delay_ku = BlowerACMode;
+            rtb_Add1_oy = BlowerACMode;
           } else if (ACCtl_tDrDVT > ACCtl_RFaceFloor2Floor) {
             ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Floor;
-            rtb_Delay_ku = BlowerHeaterMode;
+            rtb_Add1_oy = BlowerHeaterMode;
           } else {
             ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face_Floor;
-            rtb_Delay_ku = BlowerBILevelMode;
+            rtb_Add1_oy = BlowerBILevelMode;
           }
         } else {
           switch (ME11_ARID_DEF.is_c3_ME11) {
            case ME11_IN_BlowerModeLim:
-            rtb_Delay_ku = BlowerHeaterMode;
+            rtb_Add1_oy = BlowerHeaterMode;
             if (ACCtl_stStartState != ME11_HotStart) {
               ME11_ARID_DEF.is_c3_ME11 = ME11_IN_BlowerNormal;
               if (ACCtl_tDrDVT < ACCtl_RFaceFloor2Face) {
                 ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face;
-                rtb_Delay_ku = BlowerACMode;
+                rtb_Add1_oy = BlowerACMode;
               } else if (ACCtl_tDrDVT > ACCtl_RFaceFloor2Floor) {
                 ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Floor;
               } else {
                 ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face_Floor;
-                rtb_Delay_ku = BlowerBILevelMode;
+                rtb_Add1_oy = BlowerBILevelMode;
               }
             }
             break;
 
            case ME11_IN_BlowerModeLockFloor:
-            rtb_Delay_ku = BlowerDefrostMode;
+            rtb_Add1_oy = BlowerDefrostMode;
             if (ACCtl_stStartState == ME11_NormalStart) {
               ME11_ARID_DEF.is_c3_ME11 = ME11_IN_BlowerNormal;
               if (ACCtl_tDrDVT < ACCtl_RFaceFloor2Face) {
                 ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face;
-                rtb_Delay_ku = BlowerACMode;
+                rtb_Add1_oy = BlowerACMode;
               } else if (ACCtl_tDrDVT > ACCtl_RFaceFloor2Floor) {
                 ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Floor;
-                rtb_Delay_ku = BlowerHeaterMode;
+                rtb_Add1_oy = BlowerHeaterMode;
               } else {
                 ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face_Floor;
-                rtb_Delay_ku = BlowerBILevelMode;
+                rtb_Add1_oy = BlowerBILevelMode;
               }
             } else if (ACCtl_stStartState == ME11_LittleCold) {
               ME11_ARID_DEF.is_c3_ME11 = ME11_IN_BlowerModeLockFloor1;
-              rtb_Delay_ku = BlowerHeaterDefrostMode;
+              rtb_Add1_oy = BlowerHeaterDefrostMode;
             }
             break;
 
            case ME11_IN_BlowerModeLockFloor1:
-            rtb_Delay_ku = BlowerHeaterDefrostMode;
+            rtb_Add1_oy = BlowerHeaterDefrostMode;
             if (ACCtl_stStartState == ME11_ColdStart) {
               ME11_ARID_DEF.is_c3_ME11 = ME11_IN_BlowerModeLockFloor;
-              rtb_Delay_ku = BlowerDefrostMode;
+              rtb_Add1_oy = BlowerDefrostMode;
             } else if (ACCtl_stStartState == ME11_NormalStart) {
               ME11_ARID_DEF.is_c3_ME11 = ME11_IN_BlowerNormal;
               if (ACCtl_tDrDVT < ACCtl_RFaceFloor2Face) {
                 ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face;
-                rtb_Delay_ku = BlowerACMode;
+                rtb_Add1_oy = BlowerACMode;
               } else if (ACCtl_tDrDVT > ACCtl_RFaceFloor2Floor) {
                 ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Floor;
-                rtb_Delay_ku = BlowerHeaterMode;
+                rtb_Add1_oy = BlowerHeaterMode;
               } else {
                 ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face_Floor;
-                rtb_Delay_ku = BlowerBILevelMode;
+                rtb_Add1_oy = BlowerBILevelMode;
               }
             }
             break;
@@ -11970,41 +12042,41 @@ void Task_100ms(void)
             if (ACCtl_stStartState == ME11_ColdStart) {
               ME11_ARID_DEF.is_BlowerNormal = ME11_IN_NO_ACTIVE_CHILD_gl;
               ME11_ARID_DEF.is_c3_ME11 = ME11_IN_BlowerModeLockFloor;
-              rtb_Delay_ku = BlowerDefrostMode;
+              rtb_Add1_oy = BlowerDefrostMode;
             } else if (ACCtl_stStartState == ME11_HotStart) {
               ME11_ARID_DEF.is_BlowerNormal = ME11_IN_NO_ACTIVE_CHILD_gl;
               ME11_ARID_DEF.is_c3_ME11 = ME11_IN_BlowerModeLim;
-              rtb_Delay_ku = BlowerHeaterMode;
+              rtb_Add1_oy = BlowerHeaterMode;
             } else if (ACCtl_stStartState == ME11_LittleCold) {
               ME11_ARID_DEF.is_BlowerNormal = ME11_IN_NO_ACTIVE_CHILD_gl;
               ME11_ARID_DEF.is_c3_ME11 = ME11_IN_BlowerModeLockFloor1;
-              rtb_Delay_ku = BlowerHeaterDefrostMode;
+              rtb_Add1_oy = BlowerHeaterDefrostMode;
             } else {
               switch (ME11_ARID_DEF.is_BlowerNormal) {
                case ME11_IN_Face:
-                rtb_Delay_ku = BlowerACMode;
+                rtb_Add1_oy = BlowerACMode;
                 if (ACCtl_tDrDVT > ACCtl_RFace2FaceFloor) {
                   ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face_Floor;
-                  rtb_Delay_ku = BlowerBILevelMode;
+                  rtb_Add1_oy = BlowerBILevelMode;
                 }
                 break;
 
                case ME11_IN_Face_Floor:
-                rtb_Delay_ku = BlowerBILevelMode;
+                rtb_Add1_oy = BlowerBILevelMode;
                 if (ACCtl_tDrDVT < ACCtl_RFaceFloor2Face) {
                   ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face;
-                  rtb_Delay_ku = BlowerACMode;
+                  rtb_Add1_oy = BlowerACMode;
                 } else if (ACCtl_tDrDVT > ACCtl_RFaceFloor2Floor) {
                   ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Floor;
-                  rtb_Delay_ku = BlowerHeaterMode;
+                  rtb_Add1_oy = BlowerHeaterMode;
                 }
                 break;
 
                default:
-                rtb_Delay_ku = BlowerHeaterMode;
+                rtb_Add1_oy = BlowerHeaterMode;
                 if (ACCtl_tDrDVT < ACCtl_RFloor2FaceFloor) {
                   ME11_ARID_DEF.is_BlowerNormal = ME11_IN_Face_Floor;
-                  rtb_Delay_ku = BlowerBILevelMode;
+                  rtb_Add1_oy = BlowerBILevelMode;
                 }
                 break;
               }
@@ -12013,14 +12085,14 @@ void Task_100ms(void)
           }
         }
 
-        ACCtl_BlowerMode = rtb_Delay_ku;
+        ACCtl_BlowerMode = rtb_Add1_oy;
       } else {
         ACCtl_BlowerMode = BlowerModes_DeforstMode;
       }
     }
 
-    ME11_ManualMode(rtb_LogicalOperator_j0, rtb_DataTypeConversion_jf,
-                    (BlowerModes *)&ACCtl_BlowerMode);
+    ME11_ManualMode(rtb_OR_i4, rtb_DataTypeConversion_jf, (BlowerModes *)
+                    &ACCtl_BlowerMode);
   }
 
   rtb_Switch1_e3 = ACCtl_BlowerMode;
@@ -12037,8 +12109,7 @@ void Task_100ms(void)
       (ACCtl_BlowerMode, (const uint8 *)&cal_ModeMotorTrgPos_1X[0], 4U)];
   }
 
-  rtb_LogicalOperator_j0 = (IOCtl_sModeMotorTrgPos !=
-    ME11_ARID_DEF.DelayInput1_DSTATE_m);
+  rtb_OR_i4 = (IOCtl_sModeMotorTrgPos != ME11_ARID_DEF.DelayInput1_DSTATE_m);
   if (ME11_ARID_DEF.temporalCounter_i1_g < 1023U) {
     ME11_ARID_DEF.temporalCounter_i1_g++;
   }
@@ -12087,7 +12158,7 @@ void Task_100ms(void)
       ME11_ARID_DEF.n = 0U;
       ME11_ARID_DEF.MoveSts = false;
       if ((IOCtl_sModeMotorTrgPos > ACSen_sModeMotorVol + cal_ModeMotorPErr) &&
-          rtb_LogicalOperator_j0) {
+          rtb_OR_i4) {
         ME11_ARID_DEF.Stuck_Sts = 0U;
         ME11_ARID_DEF.is_Move = ME11_IN_Face_f;
         ME11_ARID_DEF.temporalCounter_i1_g = 0U;
@@ -12095,7 +12166,7 @@ void Task_100ms(void)
         ME11_ARID_DEF.n = 1U;
         ME11_ARID_DEF.MoveSts = true;
       } else if ((IOCtl_sModeMotorTrgPos < ACSen_sModeMotorVol -
-                  cal_ModeMotorNErr) && rtb_LogicalOperator_j0) {
+                  cal_ModeMotorNErr) && rtb_OR_i4) {
         ME11_ARID_DEF.Stuck_Sts = 0U;
         ME11_ARID_DEF.is_Move = ME11_IN_Defrost_j;
         ME11_ARID_DEF.temporalCounter_i1_g = 0U;
@@ -12273,20 +12344,20 @@ void Task_100ms(void)
 
   IOCtl_bModeMoveSts = ME11_ARID_DEF.MoveSts;
   rtb_DataTypeConversion_jf = ACCtl_BlowerMode;
-  rtb_OR_i4 = (ACCtl_BlowerMode != ME11_ARID_DEF.DelayInput1_DSTATE_hd);
+  rtb_Compare_l4 = (ACCtl_BlowerMode != ME11_ARID_DEF.DelayInput1_DSTATE_hd);
   if (ME11_ARID_DEF.is_active_c2_ME11 == 0U) {
     ME11_ARID_DEF.is_active_c2_ME11 = 1U;
     ME11_ARID_DEF.is_c2_ME11 = ME11_IN_Mode;
-    rtb_LogicalOperator_j0 = false;
+    rtb_OR_i4 = false;
     ME11_ARID_DEF.FanLimitTime = 0U;
   } else {
     switch (ME11_ARID_DEF.is_c2_ME11) {
      case ME11_IN_Limit:
-      rtb_LogicalOperator_j0 = true;
-      if (((!rtb_OR_i4) && (!IOCtl_bModeMoveSts)) || (ME11_ARID_DEF.FanLimitTime
-           >= 2000)) {
+      rtb_OR_i4 = true;
+      if (((!rtb_Compare_l4) && (!IOCtl_bModeMoveSts)) ||
+          (ME11_ARID_DEF.FanLimitTime >= 2000)) {
         ME11_ARID_DEF.is_c2_ME11 = ME11_IN_Mode;
-        rtb_LogicalOperator_j0 = false;
+        rtb_OR_i4 = false;
         ME11_ARID_DEF.FanLimitTime = 0U;
       } else {
         b_previousEvent = ME11_ARID_DEF.FanLimitTime + 1;
@@ -12299,22 +12370,22 @@ void Task_100ms(void)
       break;
 
      case ME11_IN_Mode:
-      rtb_LogicalOperator_j0 = false;
-      if (rtb_OR_i4) {
+      rtb_OR_i4 = false;
+      if (rtb_Compare_l4) {
         ME11_ARID_DEF.is_c2_ME11 = ME11_IN_Modehaschanged;
-        rtb_LogicalOperator_j0 = true;
+        rtb_OR_i4 = true;
         ME11_ARID_DEF.FanLimitTime = 0U;
       }
       break;
 
      default:
-      rtb_LogicalOperator_j0 = true;
+      rtb_OR_i4 = true;
       if (IOCtl_bModeMoveSts) {
         ME11_ARID_DEF.is_c2_ME11 = ME11_IN_Limit;
         ME11_ARID_DEF.FanLimitTime = 0U;
       } else if (ME11_ARID_DEF.FanLimitTime >= 50) {
         ME11_ARID_DEF.is_c2_ME11 = ME11_IN_Mode;
-        rtb_LogicalOperator_j0 = false;
+        rtb_OR_i4 = false;
         ME11_ARID_DEF.FanLimitTime = 0U;
       } else {
         b_previousEvent = ME11_ARID_DEF.FanLimitTime + 1;
@@ -12328,19 +12399,19 @@ void Task_100ms(void)
     }
   }
 
-  rtb_Switch_n2 =
+  rtb_LogicalOperator_c4 =
     ((Rte_IRead_Task_100ms_IPM_BMS_10_DC_ChargeStates_EPT_IPM_BMS_10_DC_ChargeStates_EPT
       ())->VIPM_BMSDCSActOprtMode_enum == 5);
   if ((ACCtl_stStartState == AC_ColdStart) || (AC_LittleColdStart ==
        ACCtl_stStartState)) {
-    rtb_Delay_ku = look1_iflftu8Df_binlca(AC_DVT2PTCErr, (const float32 *)
+    rtb_Add1_oy = look1_iflftu8Df_binlca(AC_DVT2PTCErr, (const float32 *)
       &cal_ACFanMaxSpdDvtLim_1X[0], (const uint8 *)&cal_ACFanMaxSpdDvtLim_CUR[0],
       4U);
   } else {
-    rtb_Delay_ku = 93U;
+    rtb_Add1_oy = 93U;
   }
 
-  if (rtb_Switch_n2 && (ME11_ARID_DEF.Delay_DSTATE_lv == 1)) {
+  if (rtb_LogicalOperator_c4 && (ME11_ARID_DEF.Delay_DSTATE_lv == 1)) {
     rtb_Add2_j5 = look1_iflftu8Df_binlca(BMS_HVBatCellTempMax, (const float32 *)
       &cal_ACFanMaxSpdCellTempLim_1X[0], (const uint8 *)
       &cal_ACFanMaxSpdCellTempLim_CUR[0], 4U);
@@ -12348,7 +12419,7 @@ void Task_100ms(void)
     rtb_Add2_j5 = 93U;
   }
 
-  if (rtb_LogicalOperator_j0) {
+  if (rtb_OR_i4) {
     rtb_Add_ge3 = cal_FANSpdModeShiftMax;
   } else {
     rtb_Add_ge3 = 93U;
@@ -12366,8 +12437,8 @@ void Task_100ms(void)
     AC_BlowerFanSpeedMax = 93U;
   }
 
-  if (rtb_Delay_ku <= rtb_Add_ge3) {
-    rtb_Add_ge3 = rtb_Delay_ku;
+  if (rtb_Add1_oy <= rtb_Add_ge3) {
+    rtb_Add_ge3 = rtb_Add1_oy;
   }
 
   if (rtb_Add_ge3 <= rtb_Add7_i) {
@@ -12388,13 +12459,12 @@ void Task_100ms(void)
     AC_BlowerFanSpeedMin = cal_BlowerFanSpdLL;
   }
 
-  rtb_LogicalOperator_j0 =
-    ((Rte_IRead_Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD())
-     ->VIPM_HVCHFltCod_enum == 14);
-  ME11_Abnormal_Over_temperatura_via_software_monitoring(rtb_LogicalOperator_j0,
+  rtb_OR_i4 = ((Rte_IRead_Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD())
+               ->VIPM_HVCHFltCod_enum == 14);
+  ME11_Abnormal_Over_temperatura_via_software_monitoring(rtb_OR_i4,
     &ME11_ARID_DEF.ErrSts_e, &ME11_ARID_DEF.ARID_DEF_Outlet_Temp_Sensor_Fault);
   if (ME11_ARID_DEF.Switch1_nv != ACOff) {
-    if (rtb_Compare_oc || rtb_Compare_pw) {
+    if (rtb_Compare_ehr || rtb_Compare_pw) {
       rtb_Add_ax = 0.0F;
     } else {
       rtb_Add_ax = ACSen_sEvapTempFilter;
@@ -12540,9 +12610,9 @@ void Task_100ms(void)
       ME11_PI_Controller1(!rtb_LogicalOperator1_f, (float32)
                           ACCtl_rDrBasicMixDoor, &rtb_PI_Cor_d,
                           &rtb_IFreezFlag_bd);
-      rtb_LogicalOperator_j0 = (ACCtl_tDrDVT >= ACCtl_tRightDuct);
-      rtb_OR_i4 = ((rtb_Switch2_ht == 7) || (rtb_Switch2_ht == 8));
-      if (rtb_OR_i4) {
+      rtb_OR_i4 = (ACCtl_tDrDVT >= ACCtl_tRightDuct);
+      rtb_Compare_l4 = ((rtb_Switch2_ht == 7) || (rtb_Switch2_ht == 8));
+      if (rtb_Compare_l4) {
         ACCtl_sMixDoorClsFF = look1_iflf_binlca(rtb_Add_ax, (const float32 *)
           &cal_MixDoorClsFF_1X[0], (const float32 *)&cal_MixDoorClsFF_CUR[0], 7U);
       } else {
@@ -12552,13 +12622,13 @@ void Task_100ms(void)
       ME11_deadzone_h(rtb_Add_ax, 0.5, &rtb_flag_g);
       if (rtb_flag_g) {
         rtb_Merge_g = 0.0F;
-      } else if (rtb_LogicalOperator_j0) {
+      } else if (rtb_OR_i4) {
         rtb_Merge_g = rtb_Add_ax;
       } else {
         rtb_Merge_g = ACCtl_tRightDuct - ACCtl_tDrDVT;
       }
 
-      if (rtb_OR_i4) {
+      if (rtb_Compare_l4) {
         ACTCtl_sCOMPSetPoint = look1_iflf_binlca(rtb_Add_ax, (const float32 *)
           &cal_MixDoorKp_1X[0], (const float32 *)&cal_MixDoorKp_CUR[0], 7U);
         ACTCtl_sCOMPActure = ACTCtl_sCOMPSetPoint;
@@ -12571,19 +12641,19 @@ void Task_100ms(void)
         rtb_MultiportSwitch2_e = cal_DrMixDesValPID_pWinNeg;
       }
 
-      ME11_P_NEG_p(!rtb_LogicalOperator_j0, rtb_Merge_g, rtb_MultiportSwitch2_e,
+      ME11_P_NEG_p(!rtb_OR_i4, rtb_Merge_g, rtb_MultiportSwitch2_e,
                    ACTCtl_sCOMPActure, rtb_Merge1_m, (float32 *)
                    &ACCtl_rDrSetMixDoorPCor);
-      if (rtb_OR_i4) {
+      if (rtb_Compare_l4) {
         rtb_MultiportSwitch2_e = 0.0F;
       } else {
         rtb_MultiportSwitch2_e = cal_DrMixDesValPID_pWinPos;
       }
 
-      ME11_P_POS_l(rtb_LogicalOperator_j0, rtb_Merge_g, rtb_MultiportSwitch2_e,
+      ME11_P_POS_l(rtb_OR_i4, rtb_Merge_g, rtb_MultiportSwitch2_e,
                    ACTCtl_sCOMPSetPoint, rtb_Merge1_m, (float32 *)
                    &ACCtl_rDrSetMixDoorPCor);
-      if (rtb_OR_i4) {
+      if (rtb_Compare_l4) {
         ACTCtl_sCOMPSetPoint = look1_iflf_binlca(rtb_Add_ax, (const float32 *)
           &cal_MixDoorKi_1X[0], (const float32 *)&cal_MixDoorKi_CUR[0], 7U);
         ACTCtl_sCOMPActure = ACTCtl_sCOMPSetPoint;
@@ -12592,17 +12662,17 @@ void Task_100ms(void)
         ACTCtl_sCOMPActure = cal_DrMixDesValPID_KiNeg;
       }
 
-      ME11_P_NEG(!rtb_LogicalOperator_j0, rtb_Merge_g,
-                 cal_DrMixDesValPIDIntegDeadBand, ACTCtl_sCOMPActure,
-                 cal_DrMixDesValPID_Ki, (float32 *)&ACCtl_rDrSetMixDoorICor);
-      ME11_P_POS(rtb_LogicalOperator_j0, rtb_Merge_g,
-                 cal_DrMixDesValPIDIntegDeadBand, ACTCtl_sCOMPSetPoint,
-                 cal_DrMixDesValPID_Ki, (float32 *)&ACCtl_rDrSetMixDoorICor);
-      if ((rtb_OR_i4 == ME11_ARID_DEF.DelayInput1_DSTATE_dw) &&
+      ME11_P_NEG(!rtb_OR_i4, rtb_Merge_g, cal_DrMixDesValPIDIntegDeadBand,
+                 ACTCtl_sCOMPActure, cal_DrMixDesValPID_Ki, (float32 *)
+                 &ACCtl_rDrSetMixDoorICor);
+      ME11_P_POS(rtb_OR_i4, rtb_Merge_g, cal_DrMixDesValPIDIntegDeadBand,
+                 ACTCtl_sCOMPSetPoint, cal_DrMixDesValPID_Ki, (float32 *)
+                 &ACCtl_rDrSetMixDoorICor);
+      if ((rtb_Compare_l4 == ME11_ARID_DEF.DelayInput1_DSTATE_dw) &&
           rtb_LogicalOperator1_f) {
         switch (ME11_ARID_DEF.Delay_DSTATE_axe) {
          case 0:
-          if (rtb_LogicalOperator_j0) {
+          if (rtb_OR_i4) {
             ACCtl_rDrSetMixDoorISum = ACCtl_rDrSetMixDoorISum +
               ACCtl_rDrSetMixDoorICor;
           } else {
@@ -12612,14 +12682,14 @@ void Task_100ms(void)
           break;
 
          case 1:
-          if (!rtb_LogicalOperator_j0) {
+          if (!rtb_OR_i4) {
             ACCtl_rDrSetMixDoorISum = ACCtl_rDrSetMixDoorISum -
               ACCtl_rDrSetMixDoorICor;
           }
           break;
 
          case 2:
-          if (rtb_LogicalOperator_j0) {
+          if (rtb_OR_i4) {
             ACCtl_rDrSetMixDoorISum = ACCtl_rDrSetMixDoorISum +
               ACCtl_rDrSetMixDoorICor;
           }
@@ -12638,19 +12708,18 @@ void Task_100ms(void)
         ACCtl_rDrSetMixDoorISum = 0.0F;
       }
 
-      ME11_PI_Controller(rtb_LogicalOperator1_f, rtb_LogicalOperator_j0,
-                         ACCtl_sMixDoorClsFF, ACCtl_rDrSetMixDoorPCor,
-                         ACCtl_rDrSetMixDoorISum, (float32)cal_DrMixDesValPIDUL,
-                         (float32)cal_DrMixDesValPIDLL, &rtb_PI_Cor_d,
-                         &rtb_IFreezFlag_bd);
+      ME11_PI_Controller(rtb_LogicalOperator1_f, rtb_OR_i4, ACCtl_sMixDoorClsFF,
+                         ACCtl_rDrSetMixDoorPCor, ACCtl_rDrSetMixDoorISum,
+                         (float32)cal_DrMixDesValPIDUL, (float32)
+                         cal_DrMixDesValPIDLL, &rtb_PI_Cor_d, &rtb_IFreezFlag_bd);
       ACCtl_rDrMixDoorDes = (uint8)rtb_PI_Cor_d;
       ME11_ARID_DEF.Delay_DSTATE_axe = rtb_IFreezFlag_bd;
-      ME11_ARID_DEF.DelayInput1_DSTATE_dw = rtb_OR_i4;
+      ME11_ARID_DEF.DelayInput1_DSTATE_dw = rtb_Compare_l4;
     }
   }
 
   if (ME11_ARID_DEF.Switch1_nv != ACOff) {
-    if (rtb_Compare_oc || rtb_Compare_pw) {
+    if (rtb_Compare_ehr || rtb_Compare_pw) {
       rtb_PI_Cor_d = 0.0F;
     } else {
       rtb_PI_Cor_d = ACSen_sEvapTempFilter;
@@ -12794,31 +12863,31 @@ void Task_100ms(void)
     if (cal_FixPIDSecletFlag) {
       ME11_PI_Controller1(!rtb_LogicalOperator5, (float32)ACCtl_rPsBasicMixDoor,
                           &rtb_PI_Cor_a, &rtb_IFreezFlag_jz);
-      rtb_LogicalOperator_j0 = (ACCtl_tPsDVT >= ACCtl_tLeftDuct);
+      rtb_OR_i4 = (ACCtl_tPsDVT >= ACCtl_tLeftDuct);
       rtb_PI_Cor_d = ACCtl_tPsDVT - ACCtl_tLeftDuct;
       ME11_deadzone_h(rtb_PI_Cor_d, 0.5, &rtb_flag_f);
       if (rtb_flag_f) {
         rtb_PI_Cor_d = 0.0F;
-      } else if (!rtb_LogicalOperator_j0) {
+      } else if (!rtb_OR_i4) {
         rtb_PI_Cor_d = ACCtl_tLeftDuct - ACCtl_tPsDVT;
       }
 
-      ME11_P_NEG_p(!rtb_LogicalOperator_j0, rtb_PI_Cor_d,
-                   cal_PsMixDesValPID_pWinNeg, cal_PsMixDesValPID_KpNeg,
-                   cal_PsMixDesValPID_Kp, (float32 *)&ACCtl_rPsSetMixDoorPCor);
-      ME11_P_POS_l(rtb_LogicalOperator_j0, rtb_PI_Cor_d,
-                   cal_PsMixDesValPID_pWinPos, cal_PsMixDesValPID_KpPos,
-                   cal_PsMixDesValPID_Kp, (float32 *)&ACCtl_rPsSetMixDoorPCor);
-      ME11_P_NEG(!rtb_LogicalOperator_j0, rtb_PI_Cor_d,
-                 cal_PsMixDesValPIDIntegDeadBand, cal_PsMixDesValPID_KiNeg,
-                 cal_PsMixDesValPID_Ki, (float32 *)&ACCtl_rPsSetMixDoorICor);
-      ME11_P_POS(rtb_LogicalOperator_j0, rtb_PI_Cor_d,
-                 cal_PsMixDesValPIDIntegDeadBand, cal_PsMixDesValPID_KiPos,
-                 cal_PsMixDesValPID_Ki, (float32 *)&ACCtl_rPsSetMixDoorICor);
+      ME11_P_NEG_p(!rtb_OR_i4, rtb_PI_Cor_d, cal_PsMixDesValPID_pWinNeg,
+                   cal_PsMixDesValPID_KpNeg, cal_PsMixDesValPID_Kp, (float32 *)
+                   &ACCtl_rPsSetMixDoorPCor);
+      ME11_P_POS_l(rtb_OR_i4, rtb_PI_Cor_d, cal_PsMixDesValPID_pWinPos,
+                   cal_PsMixDesValPID_KpPos, cal_PsMixDesValPID_Kp, (float32 *)
+                   &ACCtl_rPsSetMixDoorPCor);
+      ME11_P_NEG(!rtb_OR_i4, rtb_PI_Cor_d, cal_PsMixDesValPIDIntegDeadBand,
+                 cal_PsMixDesValPID_KiNeg, cal_PsMixDesValPID_Ki, (float32 *)
+                 &ACCtl_rPsSetMixDoorICor);
+      ME11_P_POS(rtb_OR_i4, rtb_PI_Cor_d, cal_PsMixDesValPIDIntegDeadBand,
+                 cal_PsMixDesValPID_KiPos, cal_PsMixDesValPID_Ki, (float32 *)
+                 &ACCtl_rPsSetMixDoorICor);
       if (rtb_LogicalOperator5) {
         switch (ME11_ARID_DEF.Delay_DSTATE_nz) {
          case 0:
-          if (rtb_LogicalOperator_j0) {
+          if (rtb_OR_i4) {
             ACCtl_rPsSetMixDoorISum = ACCtl_rPsSetMixDoorISum +
               ACCtl_rPsSetMixDoorICor;
           } else {
@@ -12828,14 +12897,14 @@ void Task_100ms(void)
           break;
 
          case 1:
-          if (!rtb_LogicalOperator_j0) {
+          if (!rtb_OR_i4) {
             ACCtl_rPsSetMixDoorISum = ACCtl_rPsSetMixDoorISum -
               ACCtl_rPsSetMixDoorICor;
           }
           break;
 
          case 2:
-          if (rtb_LogicalOperator_j0) {
+          if (rtb_OR_i4) {
             ACCtl_rPsSetMixDoorISum = ACCtl_rPsSetMixDoorISum +
               ACCtl_rPsSetMixDoorICor;
           }
@@ -12859,7 +12928,7 @@ void Task_100ms(void)
         ACCtl_rPsSetMixDoorISum = 0.0F;
       }
 
-      ME11_PI_Controller(rtb_LogicalOperator5, rtb_LogicalOperator_j0, (float32)
+      ME11_PI_Controller(rtb_LogicalOperator5, rtb_OR_i4, (float32)
                          ACCtl_rPsBasicMixDoor, ACCtl_rPsSetMixDoorPCor,
                          ACCtl_rPsSetMixDoorISum, (float32)cal_PsMixDesValPIDUL,
                          (float32)cal_PsMixDesValPIDLL, &rtb_PI_Cor_a,
@@ -12883,16 +12952,16 @@ void Task_100ms(void)
     ThCo_rSetLeftMixDoor = (float32)ACCtl_rDrMixDoorDes;
   }
 
-  rtb_LogicalOperator_j0 = (ME11_ARID_DEF.Switch1_nv == ACOff);
-  rtb_OR_i4 = (ACCtl_BlowerMode == BlowerModes_DeforstMode);
-  rtb_Compare_fe4 = (HMICtl_sLeftSetPoint < 16.5F);
-  rtb_LogicalOperator1_f = (HMICtl_sLeftSetPoint > 31.5F);
-  rtb_LogicalOperator5 = (AC_FanLevelAct == 5);
-  rtb_Compare_gzu = (rtb_DataTypeConversion_f == ACEconMode_FanOnly);
+  rtb_OR_i4 = (ME11_ARID_DEF.Switch1_nv == ACOff);
+  rtb_Compare_l4 = (ACCtl_BlowerMode == BlowerModes_DeforstMode);
+  rtb_LogicalOperator1_f = (HMICtl_sLeftSetPoint < 16.5F);
+  rtb_LogicalOperator5 = (HMICtl_sLeftSetPoint > 31.5F);
+  rtb_LogicalOperator_c4 = (AC_FanLevelAct == 5);
+  rtb_Compare_pw = (rtb_DataTypeConversion_f == ACEconMode_FanOnly);
   if (ME11_ARID_DEF.is_active_c57_ME11 == 0U) {
     ME11_ARID_DEF.is_active_c57_ME11 = 1U;
-    if (rtb_OR_i4 && rtb_LogicalOperator1_f && rtb_Compare_fe4 &&
-        rtb_LogicalOperator5 && rtb_Compare_gzu && ACCtl_stRecOut) {
+    if (rtb_Compare_l4 && rtb_LogicalOperator5 && rtb_LogicalOperator1_f &&
+        rtb_LogicalOperator_c4 && rtb_Compare_pw && ACCtl_stRecOut) {
       ME11_ARID_DEF.is_c57_ME11 = ME11_IN_Exhaust_Check;
       ME11_ARID_DEF.ExhaustTime = 0U;
       ME11_ARID_DEF.is_Exhaust_Check = ME11_IN_Exhaust_intl;
@@ -12908,7 +12977,7 @@ void Task_100ms(void)
       AC_stExhaust = false;
     } else if (ME11_ARID_DEF.is_Exhaust_Check == ME11_IN_Exhaust_ON) {
       AC_stExhaust = true;
-      if (!rtb_LogicalOperator_j0) {
+      if (!rtb_OR_i4) {
         ME11_ARID_DEF.is_Exhaust_Check = ME11_IN_NO_ACTIVE_CHILD_gl;
         ME11_ARID_DEF.is_c57_ME11 = ME11_IN_Exhaust_OFF;
         AC_stExhaust = false;
@@ -12922,12 +12991,12 @@ void Task_100ms(void)
       }
     } else {
       AC_stExhaust = false;
-      if (rtb_LogicalOperator_j0) {
+      if (rtb_OR_i4) {
         ME11_ARID_DEF.is_Exhaust_Check = ME11_IN_Exhaust_ON;
         AC_stExhaust = true;
-      } else if ((!rtb_OR_i4) || (!rtb_LogicalOperator1_f) || (!rtb_Compare_fe4)
-                 || (!rtb_LogicalOperator5) || (!rtb_Compare_gzu) ||
-                 (!ACCtl_stRecOut)) {
+      } else if ((!rtb_Compare_l4) || (!rtb_LogicalOperator5) ||
+                 (!rtb_LogicalOperator1_f) || (!rtb_LogicalOperator_c4) ||
+                 (!rtb_Compare_pw) || (!ACCtl_stRecOut)) {
         ME11_ARID_DEF.is_Exhaust_Check = ME11_IN_NO_ACTIVE_CHILD_gl;
         ME11_ARID_DEF.is_c57_ME11 = ME11_IN_Exhaust_OFF;
         AC_stExhaust = false;
@@ -12935,8 +13004,8 @@ void Task_100ms(void)
     }
   } else {
     AC_stExhaust = false;
-    if (rtb_OR_i4 && rtb_LogicalOperator1_f && rtb_Compare_fe4 &&
-        rtb_LogicalOperator5 && rtb_Compare_gzu && ACCtl_stRecOut) {
+    if (rtb_Compare_l4 && rtb_LogicalOperator5 && rtb_LogicalOperator1_f &&
+        rtb_LogicalOperator_c4 && rtb_Compare_pw && ACCtl_stRecOut) {
       ME11_ARID_DEF.is_c57_ME11 = ME11_IN_Exhaust_Check;
       ME11_ARID_DEF.ExhaustTime = 0U;
       ME11_ARID_DEF.is_Exhaust_Check = ME11_IN_Exhaust_intl;
@@ -13212,7 +13281,7 @@ void Task_100ms(void)
     (rtb_IFreezFlag_bd == 0)));
   ME11_ARID_DEF.GLB_TMSFaultCOMP[13] = (ACTCtl_eCOMPPrsPrtSts >= 4);
   ME11_ARID_DEF.GLB_TMSFaultCOMP[14] = ME11_ARID_DEF.Delay2_DSTATE_lz;
-  ME11_ARID_DEF.GLB_TMSFaultCOMP[15] = rtb_Compare_cd_tmp;
+  ME11_ARID_DEF.GLB_TMSFaultCOMP[15] = rtb_Compare_afv_0;
   ME11_ARID_DEF.GLB_TMSFaultCOMP[16] = ACTCtl_bOCOLmtFlg;
   ME11_ARID_DEF.GLB_TMSFaultCOMP[17] = ACTCtl_bPressProtectFlg;
   ME11_ARID_DEF.GLB_TMSFaultCOMP[18] = ACTCtl_bPressRateFlg;
@@ -13259,17 +13328,16 @@ void Task_100ms(void)
   if (((ME11_ARID_DEF.DataTypeConversion1 == 3) ||
        (ME11_ARID_DEF.DataTypeConversion1 == 4)) && ((rtb_Switch2_ht == 5) ||
        (rtb_Switch2_ht == 6))) {
-    rtb_Switch_n2 = false;
+    rtb_Compare_afv_0 = false;
   } else if (cal_BatHeatACCMEnb) {
-    rtb_Switch_n2 = ((rtb_Switch2_ht == 10) ||
-                     ((((ME11_ARID_DEF.DataTypeConversion1 == 2) ||
-                        (ME11_ARID_DEF.DataTypeConversion1 == 5)) &&
-                       (rtb_DataTypeConversion1_l == 6)) ||
-                      (rtb_DataTypeConversion1_l == 1)) ||
-                     (ME11_ARID_DEF.ACTCtl_eACCMCtlEnb_a && rtb_Compare_mos));
+    rtb_Compare_afv_0 = ((rtb_Switch2_ht == 10) ||
+                         ((((ME11_ARID_DEF.DataTypeConversion1 == 2) ||
+      (ME11_ARID_DEF.DataTypeConversion1 == 5)) && (rtb_DataTypeConversion1_l ==
+      6)) || (rtb_DataTypeConversion1_l == 1)) ||
+                         (ME11_ARID_DEF.ACTCtl_eACCMCtlEnb_a && rtb_Compare_mos));
   } else {
-    rtb_Switch_n2 = ((rtb_Switch2_ht == 10) || (rtb_DataTypeConversion1_l == 1) ||
-                     (ME11_ARID_DEF.ACTCtl_eACCMCtlEnb_a && rtb_Compare_mos));
+    rtb_Compare_afv_0 = ((rtb_Switch2_ht == 10) || (rtb_DataTypeConversion1_l ==
+      1) || (ME11_ARID_DEF.ACTCtl_eACCMCtlEnb_a && rtb_Compare_mos));
   }
 
   for (b_previousEvent = 0; b_previousEvent < 5; b_previousEvent++) {
@@ -13301,10 +13369,10 @@ void Task_100ms(void)
     3) && (rtb_DataTypeConversion1_on != 4)) || (!ACTCtl_bAcPMPSpdFlt)) &&
     ((!ACTCtl_bBatPMPSpdFlt) || ((rtb_DataTypeConversion1_l != 1) &&
     (rtb_DataTypeConversion1_l != 6)))) << 3) + (uint32)
-    (!ME11_ARID_DEF.ACTCtl_bCOMPForbidFlg_p << 1)) + rtb_Switch_n2) + (uint32)
-    (!ACTCtl_bCOMPStopFlg << 4)) + (uint32)((((!rtb_Compare_btd[0]) &&
-    (!rtb_Compare_btd[1]) && (!rtb_Compare_btd[2]) && (!rtb_Compare_btd[3]) && (
-    !rtb_Compare_btd[4])) || ME11_ARID_DEF.ACTCtl_bAcPMPRunFFForPTC) << 5)) +
+    (!ME11_ARID_DEF.ACTCtl_bCOMPForbidFlg_p << 1)) + rtb_Compare_afv_0) +
+    (uint32)(!ACTCtl_bCOMPStopFlg << 4)) + (uint32)((((!rtb_Compare_btd[0]) && (
+    !rtb_Compare_btd[1]) && (!rtb_Compare_btd[2]) && (!rtb_Compare_btd[3]) &&
+    (!rtb_Compare_btd[4])) || ME11_ARID_DEF.ACTCtl_bAcPMPRunFFForPTC) << 5)) +
     (uint32)(ME11_ARID_DEF.Relay_Mode_l << 6)) + (uint32)
     ((ACTCtl_bHPEXVInitFinishFlg && ACTCtl_bAEXVInitFinishFlg &&
       ACTCtl_bBEXVInitFinishFlg) << 7)) + 4U);
@@ -13721,7 +13789,7 @@ void Task_100ms(void)
     (ME11_ARID_DEF.ClearFlt_c != 0.0) || (ME11_ARID_DEF.ClearFlt_f != 0.0) ||
     (ME11_ARID_DEF.ClearFlt != 0.0));
   rtb_BusCreator6.COMP_EcompErrorClean = ACTCtl_bCOMPFaultClc;
-  rtb_Switch_n2 =
+  rtb_Compare_afv_0 =
     ((Rte_IRead_Task_100ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA()
      )->VIPM_ESCVehSpd_kph > cal_COMPCoolLowSpd);
   ACTCtl_sCOMPATNoiseLmtHVSSpd = look1_iflf_binlca(ACSen_sEnvTempCor, (const
@@ -13732,7 +13800,7 @@ void Task_100ms(void)
     uint8 *)&cal_COMPATNoiseSpdLmt_2Y[0], (const float32 *)
     &cal_COMPATNoiseSpdLmt_MAP[0], ME11_ConstP.pooled34, 10U);
   if ((rtb_Switch2_ht == 3) && ((ME11_ARID_DEF.DataTypeConversion1 == 3) ||
-       (ME11_ARID_DEF.DataTypeConversion1 == 4) || rtb_Switch_n2)) {
+       (ME11_ARID_DEF.DataTypeConversion1 == 4) || rtb_Compare_afv_0)) {
     ACTCtl_sCOMPCoolLmtSpd = ACTCtl_sCOMPATNoiseLmtHVSSpd;
   } else {
     rtb_Compare_mos =
@@ -14140,12 +14208,13 @@ void Task_100ms(void)
       ME11_ConstP.Constant_Value_ig[b_previousEvent]);
   }
 
-  rtb_Compare_gzu = rtb_Compare_mjv[0];
+  rtb_LogicalOperator_c4 = rtb_Compare_mjv[0];
   for (b_previousEvent = 0; b_previousEvent < 5; b_previousEvent++) {
-    rtb_Compare_gzu = (rtb_Compare_gzu || rtb_Compare_mjv[b_previousEvent + 1]);
+    rtb_LogicalOperator_c4 = (rtb_LogicalOperator_c4 ||
+      rtb_Compare_mjv[b_previousEvent + 1]);
   }
 
-  rtb_Compare_mos = (ME11_ARID_DEF.Delay_DSTATE_kf && rtb_Compare_gzu);
+  rtb_Compare_mos = (ME11_ARID_DEF.Delay_DSTATE_kf && rtb_LogicalOperator_c4);
   if (rtb_Compare_mos) {
     rtb_IFreezFlag_bd = ACTCtl_eEvapProSts;
   } else {
@@ -14227,7 +14296,7 @@ void Task_100ms(void)
   ME11_ARID_DEF.GLB_TMSFaultECV[1] = rtb_Compare_jkf;
   ME11_ARID_DEF.GLB_TMSFaultECV[2] = rtb_Compare_c;
   ME11_ARID_DEF.GLB_TMSFaultECV[3] = rtb_Compare_l5;
-  ME11_ARID_DEF.GLB_TMSFaultECV[4] = rtb_Compare_h1;
+  ME11_ARID_DEF.GLB_TMSFaultECV[4] = rtb_Compare_l;
   ME11_ARID_DEF.GLB_TMSFaultECV[5] = rtb_Compare_cls;
   ME11_ARID_DEF.GLB_TMSFaultECV[6] = rtb_Compare_bdq;
   ME11_ARID_DEF.GLB_TMSFaultECV[7] = rtb_Compare_ip;
@@ -14346,7 +14415,7 @@ void Task_100ms(void)
   ME11_Chart((BCV_FltSts == 1) || (BCV_FltSts == 2), (uint16)
              (cal_BCVFltStsDelayTime * 10U), &ME11_ARID_DEF.Flag_da,
              &ME11_ARID_DEF.ARID_DEF_Chart_j);
-  rtb_Compare_cj1 = ((ACTCtl_eC5WVSLSts <= 0) && rtb_RelationalOperator_lt);
+  rtb_Compare_cj1 = ((ACTCtl_eC5WVSLSts <= 0) && rtb_Compare_dsx);
   if (ME11_ARID_DEF.temporalCounter_i1_o < MAX_uint32_T) {
     ME11_ARID_DEF.temporalCounter_i1_o++;
   }
@@ -14403,17 +14472,17 @@ void Task_100ms(void)
   if (cal_eC3WVValueEnb) {
     ACTCtl_eC3WVValue = cal_eC3WVValueData;
   } else {
-    ACTCtl_eC3WVValue = rtb_Compare_i1;
+    ACTCtl_eC3WVValue = rtb_Compare_mqd;
   }
 
   if (cal_eC5WVValueEnb) {
     ACTCtl_eC5WVValue = cal_eC5WVValueData;
   } else {
-    ACTCtl_eC5WVValue = rtb_Compare_nw0;
+    ACTCtl_eC5WVValue = rtb_Compare_iqy;
   }
 
   ME11_ARID_DEF.GLB_TMSFaultEXV[0] = rtb_Compare_cwj;
-  ME11_ARID_DEF.GLB_TMSFaultEXV[1] = rtb_Compare_l;
+  ME11_ARID_DEF.GLB_TMSFaultEXV[1] = rtb_Compare_mpn;
   ME11_ARID_DEF.GLB_TMSFaultEXV[2] = rtb_Compare_mcu;
   ME11_ARID_DEF.GLB_TMSFaultEXV[3] = rtb_Compare_ej;
   ME11_ARID_DEF.GLB_TMSFaultEXV[4] = rtb_Compare_ppz;
@@ -15589,13 +15658,13 @@ void Task_100ms(void)
   ME11_ARID_DEF.GLB_TMSFaultPTC[0] = (uint8)
     (Rte_IRead_Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD())
     ->VIPM_HVCHFltCod_enum;
-  ME11_ARID_DEF.GLB_TMSFaultPTC[1] = rtb_OR2_a;
-  ME11_ARID_DEF.GLB_TMSFaultPTC[2] = rtb_Compare_dsx;
+  ME11_ARID_DEF.GLB_TMSFaultPTC[1] = rtb_Compare_ny;
+  ME11_ARID_DEF.GLB_TMSFaultPTC[2] = rtb_OR_lq;
   ME11_ARID_DEF.GLB_TMSFaultPTC[3] = (uint8)
     !ME11_ARID_DEF.ACTCtl_bAcPMPRunFFForPTC;
   if (cal_PTCEnableDataEnb) {
     ACTCtl_sPTCEnable = cal_PTCEnableData;
-  } else if (rtb_Compare_ny && (ACTCtl_sPTCRequestTemp > 0.0F)) {
+  } else if (rtb_ACTCtl_bPTCDiagFlg && (ACTCtl_sPTCRequestTemp > 0.0F)) {
     ACTCtl_sPTCEnable = 3U;
   } else {
     ACTCtl_sPTCEnable = 0U;
@@ -15708,10 +15777,10 @@ void Task_100ms(void)
   }
 
   ME11_ARID_DEF.Delay_DSTATE_en = (ACTCtl_sPTCReqPower > 0.5F);
-  rtb_Delay_ku = (uint8)
+  rtb_Add1_oy = (uint8)
     ((Rte_IRead_Task_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD())
      ->VIPM_HVCHInletTemp_C + 40.0F);
-  Rte_DIDReadData(rtb_Delay_ku, ((uint8)DID_0xF277));
+  Rte_DIDReadData(rtb_Add1_oy, ((uint8)DID_0xF277));
   rtb_Compare_mos =
     ((Rte_IRead_Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD())
      ->VIPM_HVCHFltCod_enum == 8);
@@ -15893,14 +15962,14 @@ void Task_100ms(void)
   ME11_External_Com_Fault(rtb_Compare_mos, &ME11_ARID_DEF.ErrSts_c,
     &ME11_ARID_DEF.ARID_DEF_Internal_Com_Fault);
   Dem_SetEventStatus(((uint8)DemEventParameter_0x942604), ME11_ARID_DEF.ErrSts_c);
-  rtb_Delay_ku = (uint8)
+  rtb_Add1_oy = (uint8)
     ((Rte_IRead_Task_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD())
      ->VIPM_HVCHPCBTemp_C + 40.0F);
-  Rte_DIDReadData(rtb_Delay_ku, ((uint8)DID_0xF275));
-  rtb_Delay_ku = (uint8)
+  Rte_DIDReadData(rtb_Add1_oy, ((uint8)DID_0xF275));
+  rtb_Add1_oy = (uint8)
     ((Rte_IRead_Task_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD())
      ->VIPM_HVCHOutlTemp_C + 40.0F);
-  Rte_DIDReadData(rtb_Delay_ku, ((uint8)DID_0xF276));
+  Rte_DIDReadData(rtb_Add1_oy, ((uint8)DID_0xF276));
   ME11_ARID_DEF.GLB_TMSFaultPMP[0] = rtb_FixPtRelationalOperator_ex;
   ME11_ARID_DEF.GLB_TMSFaultPMP[1] = rtb_Compare_f2;
   ME11_ARID_DEF.GLB_TMSFaultPMP[2] = rtb_Compare_bu;
@@ -15921,13 +15990,13 @@ void Task_100ms(void)
   ME11_ARID_DEF.GLB_TMSFaultPMP[17] = ACTCtl_bMotPMPSpdFlt;
   ACTCtl_eAcPMPSpdSet = (uint8)((float32)rtb_Switch2_gua * 2.5F);
   ACTCtl_eBatPMPSpdSet = (uint8)((float32)rtb_MultiportSwitch1 * 2.5F);
-  ACTCtl_eMotPMPSpdSet = (uint8)((float32)rtb_Compare_bxp * 2.5F);
+  ACTCtl_eMotPMPSpdSet = (uint8)((float32)rtb_Compare_cy1 * 2.5F);
   if (cal_LTRFanCtrl_1X[0] > ACSen_sMotTempFilter) {
-    rtb_IFreezFlag_bd = cal_LTRFanCtrl_1Y[0];
+    rtb_IFreezFlag_jz = cal_LTRFanCtrl_1Y[0];
   } else if (ACSen_sMotTempFilter >= cal_LTRFanCtrl_1X[1]) {
-    rtb_IFreezFlag_bd = cal_LTRFanCtrl_1Y[2];
+    rtb_IFreezFlag_jz = cal_LTRFanCtrl_1Y[2];
   } else {
-    rtb_IFreezFlag_bd = cal_LTRFanCtrl_1Y[1];
+    rtb_IFreezFlag_jz = cal_LTRFanCtrl_1Y[1];
   }
 
   if ((Rte_IRead_Task_100ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA()
@@ -15944,30 +16013,30 @@ void Task_100ms(void)
     float32 *)&cal_CoolFanCtrl_2Y[0], (const uint8 *)&cal_CoolFanCtrl_MAP[0],
     ME11_ConstP.pooled39, 4U);
   if (COMP_EcompActSpd >= cal_COMPSpdLmt[3]) {
-    rtb_Compare_bxp = cal_COMPFanSpdLmt[2];
+    rtb_Compare_iqy = cal_COMPFanSpdLmt[2];
     ME11_ARID_DEF.Flg = 3U;
   } else if (COMP_EcompActSpd >= cal_COMPSpdLmt[2]) {
     if (ME11_ARID_DEF.Flg == 3) {
-      rtb_Compare_bxp = cal_COMPFanSpdLmt[2];
+      rtb_Compare_iqy = cal_COMPFanSpdLmt[2];
       ME11_ARID_DEF.Flg = 3U;
     } else {
-      rtb_Compare_bxp = cal_COMPFanSpdLmt[1];
+      rtb_Compare_iqy = cal_COMPFanSpdLmt[1];
       ME11_ARID_DEF.Flg = 2U;
     }
   } else if (COMP_EcompActSpd >= cal_COMPSpdLmt[1]) {
     if (ME11_ARID_DEF.Flg >= 2) {
-      rtb_Compare_bxp = cal_COMPFanSpdLmt[1];
+      rtb_Compare_iqy = cal_COMPFanSpdLmt[1];
       ME11_ARID_DEF.Flg = 2U;
     } else {
-      rtb_Compare_bxp = cal_COMPFanSpdLmt[0];
+      rtb_Compare_iqy = cal_COMPFanSpdLmt[0];
       ME11_ARID_DEF.Flg = 1U;
     }
   } else if ((COMP_EcompActSpd >= cal_COMPSpdLmt[0]) && (ME11_ARID_DEF.Flg >= 1))
   {
-    rtb_Compare_bxp = cal_COMPFanSpdLmt[0];
+    rtb_Compare_iqy = cal_COMPFanSpdLmt[0];
     ME11_ARID_DEF.Flg = 1U;
   } else {
-    rtb_Compare_bxp = 10U;
+    rtb_Compare_iqy = 10U;
     ME11_ARID_DEF.Flg = 0U;
   }
 
@@ -16097,38 +16166,38 @@ void Task_100ms(void)
     if (rtb_Compare_btd[0] || rtb_Compare_btd[1] || rtb_Compare_btd[2] ||
         rtb_Compare_btd[3] || rtb_Compare_btd[4]) {
       if (ME11_ARID_DEF.B_aq) {
-        rtb_Compare_nw0 = cal_ACCMHiTempFanCtrl;
+        rtb_Compare_mqd = cal_ACCMHiTempFanCtrl;
       } else {
-        rtb_Compare_nw0 = 10U;
+        rtb_Compare_mqd = 10U;
       }
     } else {
-      rtb_Compare_nw0 = 10U;
+      rtb_Compare_mqd = 10U;
     }
 
     if ((rtb_DataTypeConversion1_l == 0) || (rtb_DataTypeConversion1_l == 4)) {
-      rtb_Compare_i1 = rtb_IFreezFlag_bd;
+      rtb_IFreezFlag_bd = rtb_IFreezFlag_jz;
     } else if (rtb_DataTypeConversion1_l == 5) {
       rtb_Compare_mos = (cal_LTRIPUTempFanCtrl_1X[0] >
                          (Rte_IRead_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT
                           ())->VIPM_IPUDeviceIntTemp_C);
       if (rtb_Compare_mos) {
-        rtb_Compare_i1 = cal_LTRIPUTempFanCtrl_1Y[0];
+        rtb_IFreezFlag_bd = cal_LTRIPUTempFanCtrl_1Y[0];
       } else {
         rtb_Compare_mos =
           ((Rte_IRead_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT
             ())->VIPM_IPUDeviceIntTemp_C >= cal_LTRIPUTempFanCtrl_1X[1]);
         if (rtb_Compare_mos) {
-          rtb_Compare_i1 = cal_LTRIPUTempFanCtrl_1Y[2];
+          rtb_IFreezFlag_bd = cal_LTRIPUTempFanCtrl_1Y[2];
         } else {
-          rtb_Compare_i1 = cal_LTRIPUTempFanCtrl_1Y[1];
+          rtb_IFreezFlag_bd = cal_LTRIPUTempFanCtrl_1Y[1];
         }
       }
 
-      if (rtb_IFreezFlag_bd >= rtb_Compare_i1) {
-        rtb_Compare_i1 = rtb_IFreezFlag_bd;
+      if (rtb_IFreezFlag_jz >= rtb_IFreezFlag_bd) {
+        rtb_IFreezFlag_bd = rtb_IFreezFlag_jz;
       }
     } else {
-      rtb_Compare_i1 = 10U;
+      rtb_IFreezFlag_bd = 10U;
     }
 
     if ((rtb_DataTypeConversion1_on == 0) && ((rtb_DataTypeConversion1_l == 0) ||
@@ -16166,16 +16235,16 @@ void Task_100ms(void)
       ACTCtl_eFanPerc = 10U;
     }
 
-    if (rtb_Compare_i1 >= rtb_Add_ge3) {
-      rtb_Add_ge3 = rtb_Compare_i1;
+    if (rtb_IFreezFlag_bd >= rtb_Add_ge3) {
+      rtb_Add_ge3 = rtb_IFreezFlag_bd;
     }
 
-    if (rtb_Add_ge3 >= rtb_Compare_nw0) {
-      rtb_Compare_nw0 = rtb_Add_ge3;
+    if (rtb_Add_ge3 >= rtb_Compare_mqd) {
+      rtb_Compare_mqd = rtb_Add_ge3;
     }
 
-    if (rtb_Compare_nw0 >= rtb_Add7_i) {
-      rtb_Add7_i = rtb_Compare_nw0;
+    if (rtb_Compare_mqd >= rtb_Add7_i) {
+      rtb_Add7_i = rtb_Compare_mqd;
     }
 
     if (rtb_Add7_i >= rtb_Add2_j5) {
@@ -16192,8 +16261,8 @@ void Task_100ms(void)
 
     if (ACTCtl_eFanPerc > 100) {
       ACTCtl_eFanPerc = 100U;
-    } else if (ACTCtl_eFanPerc < rtb_Compare_bxp) {
-      ACTCtl_eFanPerc = rtb_Compare_bxp;
+    } else if (ACTCtl_eFanPerc < rtb_Compare_iqy) {
+      ACTCtl_eFanPerc = rtb_Compare_iqy;
     }
   }
 
@@ -16302,6 +16371,10 @@ void Task_100ms(void)
 
   ME11_ARID_DEF.EEWrite_PCUInletTemp = (uint8)((uint8)(rtb_MultiportSwitch2_e +
     40.0F) << 1);
+  if (rtb_LogicalOperator_j0 && rtb_RelationalOperator_ht) {
+    PWRCtl_eUnlockActFlg = rtb_Compare_br;
+  }
+
   if (ME11_ARID_DEF.temporalCounter_i1_ex < 1U) {
     ME11_ARID_DEF.temporalCounter_i1_ex++;
   }
@@ -16330,8 +16403,8 @@ void Task_100ms(void)
 
   ME11_ARID_DEF.VectorConcatenate[0] = (rtb_Compare != 0);
   ME11_ARID_DEF.VectorConcatenate[1] = (rtb_Compare_ij != 0);
-  rtb_Delay_ku = (uint8)(ACSen_eFaceDuctSenSts == Ground);
-  ME11_ARID_DEF.VectorConcatenate[2] = (rtb_Delay_ku != 0);
+  rtb_Add1_oy = (uint8)(ACSen_eFaceDuctSenSts == Ground);
+  ME11_ARID_DEF.VectorConcatenate[2] = (rtb_Add1_oy != 0);
   rtb_Compare_ij = (uint8)(ACSen_eFaceDuctSenSts == Power);
   ME11_ARID_DEF.VectorConcatenate[3] = (rtb_Compare_ij != 0);
   rtb_Add2_j5 = (uint8)(ACSen_eFootDuctSenSts == Ground);
@@ -16355,17 +16428,17 @@ void Task_100ms(void)
   ME11_ARID_DEF.VectorConcatenate[12] = (rtb_Add6_d != 0);
   rtb_Add5_d = (uint8)(ACSen_eWCCHTSenSts == Power);
   ME11_ARID_DEF.VectorConcatenate[13] = (rtb_Add5_d != 0);
-  rtb_Compare_nw0 = (uint8)(ACSen_eChillerTSenSts == Ground);
-  ME11_ARID_DEF.VectorConcatenate[14] = (rtb_Compare_nw0 != 0);
-  rtb_Compare_i1 = (uint8)(ACSen_eChillerTSenSts == Power);
-  ME11_ARID_DEF.VectorConcatenate[15] = (rtb_Compare_i1 != 0);
+  rtb_Compare_iqy = (uint8)(ACSen_eChillerTSenSts == Ground);
+  ME11_ARID_DEF.VectorConcatenate[14] = (rtb_Compare_iqy != 0);
+  rtb_Compare_mqd = (uint8)(ACSen_eChillerTSenSts == Power);
+  ME11_ARID_DEF.VectorConcatenate[15] = (rtb_Compare_mqd != 0);
   ACSen_eLPSenSts = ME11_ARID_DEF.SenSts_e;
-  rtb_Compare_bxp = (uint8)(ACSen_eLPSenSts == Ground);
-  ME11_ARID_DEF.VectorConcatenate[16] = (rtb_Compare_bxp != 0);
-  rtb_Add4_ox = (uint8)(ACSen_eLPSenSts == Power);
-  ME11_ARID_DEF.VectorConcatenate[17] = (rtb_Add4_ox != 0);
-  rtb_DataTypeConversion19 = (uint8)(ACSen_eACCMHTSenSts == Ground);
-  ME11_ARID_DEF.VectorConcatenate[18] = (rtb_DataTypeConversion19 != 0);
+  rtb_Compare_br = (uint8)(ACSen_eLPSenSts == Ground);
+  ME11_ARID_DEF.VectorConcatenate[16] = (rtb_Compare_br != 0);
+  rtb_Compare_cy1 = (uint8)(ACSen_eLPSenSts == Power);
+  ME11_ARID_DEF.VectorConcatenate[17] = (rtb_Compare_cy1 != 0);
+  rtb_Add4_ox = (uint8)(ACSen_eACCMHTSenSts == Ground);
+  ME11_ARID_DEF.VectorConcatenate[18] = (rtb_Add4_ox != 0);
   rtb_DataTypeConversion2_a = (uint8)(ACSen_eACCMHTSenSts == Power);
   ME11_ARID_DEF.VectorConcatenate[19] = (rtb_DataTypeConversion2_a != 0);
   rtb_Add_ge3 = (uint8)(ACSen_eOHXTSenSts == Ground);
@@ -16885,7 +16958,7 @@ void Task_100ms(void)
   rtb_Divide_ox = (uint16)((ACSen_sFaceDuctTempFilter + 40.0F) * 10.0F);
   Buffer_DcmDspData_F266H[0] = (uint8)rtb_Divide_ox;
   Buffer_DcmDspData_F266H[1] = (uint8)((uint32)rtb_Divide_ox >> 8);
-  Dem_SetEventStatus(((uint8)DemEventParameter_0x941311), rtb_Delay_ku);
+  Dem_SetEventStatus(((uint8)DemEventParameter_0x941311), rtb_Add1_oy);
   Dem_SetEventStatus(((uint8)DemEventParameter_0x941315), rtb_Compare_ij);
   rtb_Divide_ox = (uint16)((ACSen_sFootDuctTempFilter + 40.0F) * 10.0F);
   Buffer_DcmDspData_F267H[0] = (uint8)rtb_Divide_ox;
@@ -16898,11 +16971,11 @@ void Task_100ms(void)
   Rte_DIDReadData((uint8)(2.0F * (ACSen_sEnvTempCor + 40.0F)), ((uint8)
     DID_0xF260));
   Rte_DIDReadData((uint8)(100.0F * ACSen_sLoPressFilter), ((uint8)DID_0xF282));
-  Dem_SetEventStatus(((uint8)DemEventParameter_0x942011), rtb_Compare_bxp);
-  Dem_SetEventStatus(((uint8)DemEventParameter_0x942015), rtb_Add4_ox);
+  Dem_SetEventStatus(((uint8)DemEventParameter_0x942011), rtb_Compare_br);
+  Dem_SetEventStatus(((uint8)DemEventParameter_0x942015), rtb_Compare_cy1);
   Rte_DIDReadData((uint8)(ACSen_sChiTempFilter + 10.0F), ((uint8)DID_0xF27F));
-  Dem_SetEventStatus(((uint8)DemEventParameter_0x941F11), rtb_Compare_nw0);
-  Dem_SetEventStatus(((uint8)DemEventParameter_0x941F15), rtb_Compare_i1);
+  Dem_SetEventStatus(((uint8)DemEventParameter_0x941F11), rtb_Compare_iqy);
+  Dem_SetEventStatus(((uint8)DemEventParameter_0x941F15), rtb_Compare_mqd);
   Dem_SetEventStatus(((uint8)DemEventParameter_0x941B11), rtb_MultiportSwitch1);
   Dem_SetEventStatus(((uint8)DemEventParameter_0x941B15), rtb_Switch2_gua);
   Rte_DIDReadData((uint8)(ACSen_sEvapTempFilter + 40.0F), ((uint8)DID_0xF263));
@@ -16919,8 +16992,7 @@ void Task_100ms(void)
   Dem_SetEventStatus(((uint8)DemEventParameter_0x941D11), rtb_Add7_i);
   Dem_SetEventStatus(((uint8)DemEventParameter_0x941D15), rtb_Add3_do);
   Rte_DIDReadData((uint8)(ACSen_sACCMHiTempFilter + 10.0F), ((uint8)DID_0xF281));
-  Dem_SetEventStatus(((uint8)DemEventParameter_0x942111),
-                     rtb_DataTypeConversion19);
+  Dem_SetEventStatus(((uint8)DemEventParameter_0x942111), rtb_Add4_ox);
   Dem_SetEventStatus(((uint8)DemEventParameter_0x942115),
                      rtb_DataTypeConversion2_a);
   if (ME11_ARID_DEF.temporalCounter_i1_j2 < 1U) {
@@ -16952,7 +17024,7 @@ void Task_100ms(void)
   ME11_ARID_DEF.EEWrite_UnlockVentSts = HMICtl_eUnlckVentSts;
   rtb_BusCreator.TMS_HVReq_flg = (ME11_ARID_DEF.Delay_DSTATE_kf ||
     (ACTCtl_sPTCReqPower >= 0.5F));
-  rtb_Compare_bxp = Rte_IOCtrl(((uint8)IODID_0x0x3237));
+  rtb_Compare_br = Rte_IOCtrl(((uint8)IODID_0x0x3237));
   if (ME11_ARID_DEF.temporalCounter_i1_hy < 15U) {
     ME11_ARID_DEF.temporalCounter_i1_hy++;
   }
@@ -16994,7 +17066,7 @@ void Task_100ms(void)
   if (cal_PwrHVPartEnb) {
     rtb_Compare_mos = cal_PwrHVPartData;
   } else if (Rte_DcmDspData_3237_CtlFlg == 1) {
-    rtb_Compare_mos = ((rtb_Compare_bxp & 1) == 1);
+    rtb_Compare_mos = ((rtb_Compare_br & 1) == 1);
   } else {
     rtb_Compare_mos = ME11_ARID_DEF.C;
   }
@@ -17002,18 +17074,18 @@ void Task_100ms(void)
   ME11_Delay(rtb_Compare_mos, &ME11_ARID_DEF.C_i,
              &ME11_ARID_DEF.ARID_DEF_Delay_l);
   if (cal_PwrACPumpEnb) {
-    rtb_Switch_n2 = cal_PwrACPumpData;
+    rtb_RelationalOperator_ht = cal_PwrACPumpData;
   } else if (Rte_DcmDspData_3237_CtlFlg == 1) {
-    rtb_Switch_n2 = ((rtb_Compare_bxp & 4) == 4);
+    rtb_RelationalOperator_ht = ((rtb_Compare_br & 4) == 4);
   } else {
-    rtb_Switch_n2 = ME11_ARID_DEF.C_i;
+    rtb_RelationalOperator_ht = ME11_ARID_DEF.C_i;
   }
 
   ME11_Delay(rtb_Compare_mos, &ME11_ARID_DEF.C_g, &ME11_ARID_DEF.ARID_DEF_Delay);
   if (cal_PwrFanAndPumpDataEnb) {
     rtb_Compare = cal_PwrFanAndPumpData;
   } else if (Rte_DcmDspData_3237_CtlFlg == 1) {
-    rtb_Compare = (uint8)((rtb_Compare_bxp & 2) == 2);
+    rtb_Compare = (uint8)((rtb_Compare_br & 2) == 2);
   } else {
     rtb_Compare = ME11_ARID_DEF.C_g;
   }
@@ -17021,12 +17093,12 @@ void Task_100ms(void)
   if (cal_SOVEnb) {
     rtb_Switch_kl = cal_SOVData;
   } else if (Rte_DcmDspData_3237_CtlFlg == 1) {
-    rtb_Switch_kl = ((rtb_Compare_bxp & 8) == 8);
+    rtb_Switch_kl = ((rtb_Compare_br & 8) == 8);
   } else {
     rtb_Switch_kl = ((ME11_ARID_DEF.DataTypeConversion1 >= 2) && ACTCtl_bSOVCmd);
   }
 
-  rtb_Add_ge3 = (uint8)((((uint32)(rtb_Switch_n2 << 3) + (uint32)
+  rtb_Add_ge3 = (uint8)((((uint32)(rtb_RelationalOperator_ht << 3) + (uint32)
     (rtb_Compare_mos << 2)) + (uint32)(rtb_Compare << 1)) + rtb_Switch_kl);
   IOCtl_PwrNmReqFlg = (rtb_Add_ge3 != 0);
   rtb_BusCreator.AppSwcTmsVersion = 5U;
@@ -17124,7 +17196,7 @@ void Task_100ms(void)
      ->VIPM_HVCHPCBTemp_C);
   rtb_BusCreator4.AC_8_Checksum = 0U;
   rtb_BusCreator4.AC_8_RollingCounter = 0U;
-  rtb_BusCreator4.AC_RefrgLoPressureV = !rtb_Compare_oc;
+  rtb_BusCreator4.AC_RefrgLoPressureV = !rtb_Compare_ehr;
   rtb_BusCreator4.AC_RefrgLoPressure = ACSen_sLoPressFilter;
   rtb_BusCreator4.AC_L_Currt_Slct_Frg_Dirct = false;
   rtb_BusCreator4.AC_HV_PTC_heating_rq = ACTCtl_sPTCEnable;
@@ -17165,36 +17237,36 @@ void Task_100ms(void)
   rtb_BusCreator11.AC_RemoteDefrostCtlFb = RMTCtl_bRemtACDefFlg;
   ME11_TMSIODriverFunc();
   if (ME11_ARID_DEF.Stuck_Sts_a) {
-    rtb_Delay_ku = (uint8)(ME11_ARID_DEF.Stuck_Sts_a ? 3 : 0);
+    rtb_Add1_oy = (uint8)(ME11_ARID_DEF.Stuck_Sts_a ? 3 : 0);
   } else if (ME11_ARID_DEF.MoveSts_d) {
-    rtb_Delay_ku = (uint8)(ME11_ARID_DEF.MoveSts_d << 1);
+    rtb_Add1_oy = (uint8)(ME11_ARID_DEF.MoveSts_d << 1);
   } else {
-    rtb_Delay_ku = (uint8)(cal_RecircTrgPosDataEnb || cal_RecircMotorEnb);
+    rtb_Add1_oy = (uint8)(cal_RecircTrgPosDataEnb || cal_RecircMotorEnb);
   }
 
-  Rte_DIDReadData(rtb_Delay_ku, ((uint8)DID_0xF26A));
+  Rte_DIDReadData(rtb_Add1_oy, ((uint8)DID_0xF26A));
   Dem_SetEventStatus(((uint8)DemEventParameter_0x943271),
                      ME11_ARID_DEF.Stuck_Sts_a);
   if (ME11_ARID_DEF.Stuck_Sts_f) {
-    rtb_Delay_ku = (uint8)(ME11_ARID_DEF.Stuck_Sts_f ? 3 : 0);
+    rtb_Add1_oy = (uint8)(ME11_ARID_DEF.Stuck_Sts_f ? 3 : 0);
   } else if (ME11_ARID_DEF.MoveSts_m) {
-    rtb_Delay_ku = (uint8)(ME11_ARID_DEF.MoveSts_m << 1);
+    rtb_Add1_oy = (uint8)(ME11_ARID_DEF.MoveSts_m << 1);
   } else {
-    rtb_Delay_ku = (uint8)(cal_SetLeftMixDoorTrgDataEnb || cal_MixDoorEnb);
+    rtb_Add1_oy = (uint8)(cal_SetLeftMixDoorTrgDataEnb || cal_MixDoorEnb);
   }
 
-  Rte_DIDReadData(rtb_Delay_ku, ((uint8)DID_0xF26B));
+  Rte_DIDReadData(rtb_Add1_oy, ((uint8)DID_0xF26B));
   Dem_SetEventStatus(((uint8)DemEventParameter_0x943571),
                      ME11_ARID_DEF.Stuck_Sts_f);
   if (ME11_ARID_DEF.Stuck_Sts > 0) {
-    rtb_Delay_ku = (uint8)(3U * ME11_ARID_DEF.Stuck_Sts);
+    rtb_Add1_oy = (uint8)(3U * ME11_ARID_DEF.Stuck_Sts);
   } else if (ME11_ARID_DEF.MoveSts) {
-    rtb_Delay_ku = (uint8)(ME11_ARID_DEF.MoveSts << 1);
+    rtb_Add1_oy = (uint8)(ME11_ARID_DEF.MoveSts << 1);
   } else {
-    rtb_Delay_ku = (uint8)(cal_ModeMotorTrgPosDataEnb || cal_ModeMotorEnb);
+    rtb_Add1_oy = (uint8)(cal_ModeMotorTrgPosDataEnb || cal_ModeMotorEnb);
   }
 
-  Rte_DIDReadData(rtb_Delay_ku, ((uint8)DID_0xF269));
+  Rte_DIDReadData(rtb_Add1_oy, ((uint8)DID_0xF269));
   Dem_SetEventStatus(((uint8)DemEventParameter_0x943371),
                      ME11_ARID_DEF.Stuck_Sts);
   if (cal_BlwFanEnb) {
@@ -17211,28 +17283,28 @@ void Task_100ms(void)
   set_BlwFan(cal_BlwFrqVal, (uint8)(100 - IOCtl_BloweFanSpeed));
   Rte_DIDReadData(rtb_DataTypeConversion2_a, ((uint8)DID_0xF26D));
   if (cal_PwrBlwEnb) {
-    rtb_Compare_gzu = cal_PwrBlwData;
+    rtb_LogicalOperator_c4 = cal_PwrBlwData;
   } else {
-    rtb_Compare_gzu = ((ME11_ARID_DEF.DataTypeConversion1 >= 2) ||
-                       PWRCtl_bUnlockVentTimeFlg);
+    rtb_LogicalOperator_c4 = ((ME11_ARID_DEF.DataTypeConversion1 >= 2) ||
+      PWRCtl_bUnlockVentTimeFlg);
   }
 
-  SetHw_PwrBlower(rtb_Compare_gzu);
+  SetHw_PwrBlower(rtb_LogicalOperator_c4);
   if (cal_PwrFanEnb) {
-    rtb_Compare_gzu = cal_PwrFanData;
+    rtb_LogicalOperator_c4 = cal_PwrFanData;
   } else {
-    rtb_Compare_gzu = (ME11_ARID_DEF.DataTypeConversion1 >= 1);
+    rtb_LogicalOperator_c4 = (ME11_ARID_DEF.DataTypeConversion1 >= 1);
   }
 
-  set_PwrFanCabin(rtb_Compare_gzu);
+  set_PwrFanCabin(rtb_LogicalOperator_c4);
   if (cal_PwrSensorEnb) {
-    rtb_Compare_gzu = cal_PwrSensorData;
+    rtb_LogicalOperator_c4 = cal_PwrSensorData;
   } else {
-    rtb_Compare_gzu = (ME11_ARID_DEF.DataTypeConversion1 >= 1);
+    rtb_LogicalOperator_c4 = (ME11_ARID_DEF.DataTypeConversion1 >= 1);
   }
 
-  set_PwrSensor(rtb_Compare_gzu);
-  set_PwrACPump(rtb_Switch_n2);
+  set_PwrSensor(rtb_LogicalOperator_c4);
+  set_PwrACPump(rtb_RelationalOperator_ht);
   Rte_DIDReadData(rtb_Add_ge3, ((uint8)DID_0xF26F));
   set_PwrFanAndPump(rtb_Compare);
   set_PwrHVPart(rtb_Compare_mos);
@@ -17275,10 +17347,10 @@ void Task_100ms(void)
   rtb_DataTypeConversion1_l = ACTCtl_bBEXVInitReq;
   rtb_Gain1_j_0 = (uint16)(6.4F * ACTCtl_sAEXVPos);
   rtb_Compare_fhh = ACTCtl_bAEXVEnb;
-  rtb_Compare_bxp = ACTCtl_bAEXVInitReq;
-  rtb_Compare_nw0 = ACTCtl_eC3WVValue;
+  rtb_Compare_br = ACTCtl_bAEXVInitReq;
+  rtb_Compare_iqy = ACTCtl_eC3WVValue;
   rtb_IFreezFlag_k = ACTCtl_eC3WVSLSts;
-  rtb_Compare_i1 = ACTCtl_eC5WVValue;
+  rtb_Compare_mqd = ACTCtl_eC5WVValue;
   rtb_Compare = ACTCtl_eC5WVSLSts;
   rtb_Compare_ij = ACTCtl_eAcPMPSpdSet;
   rtb_DataTypeConversion1_g = ACTCtl_eBatPMPSpdSet;
@@ -17510,17 +17582,17 @@ void Task_100ms(void)
     (rtb_Gain1_j_0);
   Rte_IWrite_Task_100ms_TMM_EXV_EnableRequest_TMM_EXV_EnableRequest
     (rtb_Compare_fhh);
-  Rte_IWrite_Task_100ms_TMM_EXV_initRequest_TMM_EXV_initRequest(rtb_Compare_bxp);
+  Rte_IWrite_Task_100ms_TMM_EXV_initRequest_TMM_EXV_initRequest(rtb_Compare_br);
   Rte_IWrite_Task_100ms_BAT_EXV_position_command_B_BAT_EXV_position_command_B
     (rtb_Gain_az);
   Rte_IWrite_Task_100ms_BAT_EXV_movenable_command_B_BAT_EXV_movenable_command_B
     (rtb_Compare_cj1);
   Rte_IWrite_Task_100ms_BAT_EXV_initialize_command_B_BAT_EXV_initialize_command_B
     (rtb_DataTypeConversion1_l);
-  Rte_IWrite_Task_100ms_C3WV_BPosSetReq_C3WV_BPosSetReq(rtb_Compare_nw0);
+  Rte_IWrite_Task_100ms_C3WV_BPosSetReq_C3WV_BPosSetReq(rtb_Compare_iqy);
   Rte_IWrite_Task_100ms_C3WV_RefDrvReq_C3WV_RefDrvReq(rtb_IFreezFlag_k);
   Rte_IWrite_Task_100ms_C3WV_SpdLvlReq_C3WV_SpdLvlReq(0U);
-  Rte_IWrite_Task_100ms_C5WV_BPosSetReq_C5WV_BPosSetReq(rtb_Compare_i1);
+  Rte_IWrite_Task_100ms_C5WV_BPosSetReq_C5WV_BPosSetReq(rtb_Compare_mqd);
   Rte_IWrite_Task_100ms_C5WV_RefDrvReq_C5WV_RefDrvReq(rtb_Compare);
   Rte_IWrite_Task_100ms_C5WV_SpdLvlReq_C5WV_SpdLvlReq(0U);
   Rte_IWrite_Task_100ms_HP_EXV_position_command_B_HP_EXV_position_command_B
@@ -17725,7 +17797,7 @@ void ME11_Init(void)
     ME11_Chart_a_Init(&ME11_ARID_DEF.B_m);
     ME11_Chart_a_Init(&ME11_ARID_DEF.B_p);
     ME11_Chart_a_Init(&ME11_ARID_DEF.B);
-    NvmTmsBlockReadData(&rtb_CCaller_i[0], 12U);
+    NvmTmsBlockReadData(&rtb_CCaller_i[0], 13U);
     rtb_Divide1_ae = rtb_CCaller_i[1];
     ACNvm_bACAutoSts = (rtb_Divide1_ae != 0);
     ME11_ARID_DEF.EERead_bACAutoSts = ACNvm_bACAutoSts;
@@ -17751,9 +17823,12 @@ void ME11_Init(void)
     ACNvm_sPCUInletTemp = (float32)(uint8)((float64)rtb_Divide1_ae / 2.0) -
       40.0F;
     ME11_ARID_DEF.EERead_PCUInletTemp = ACNvm_sPCUInletTemp;
-    ME11_ARID_DEF.EERead_TimeHour = rtb_CCaller_i[7];
-    ME11_ARID_DEF.EERead_TimeMin = rtb_CCaller_i[8];
-    ME11_ARID_DEF.EERead_TimeDay = rtb_CCaller_i[9];
+    EE_TimeHour = rtb_CCaller_i[7];
+    ME11_ARID_DEF.EERead_TimeHour = EE_TimeHour;
+    EE_TimeMin = rtb_CCaller_i[8];
+    ME11_ARID_DEF.EERead_TimeMin = EE_TimeMin;
+    EE_TimeDay = rtb_CCaller_i[9];
+    ME11_ARID_DEF.EERead_TimeDay = EE_TimeDay;
     set_PwrFanAndPump(0U);
     set_PwrHVPart(0U);
     SetHw_PwrBlower(0U);
