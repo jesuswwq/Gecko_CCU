@@ -212,6 +212,7 @@ EcuM_AL_DriverInitOne(
     P2CONST(EcuM_GenBSWPbCfgType, AUTOMATIC, CANIF_APPL_DATA)
     pbCfg = EcuM_ConfigPtr->modulePBCfg;
     Port_Init(&Port_Cfg);
+    //Dio_WriteChannel(GPIO_D30, 1);
     Adc_Init(&Adc_Config);
     Can_Init(pbCfg->canPbCfg);
     Lin_Init(pbCfg->linPbCfg);

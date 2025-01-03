@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-12-19 16:43:51>
+ *  @date       <2024-12-31 16:11:59>
  */
 /*============================================================================*/
 
@@ -144,6 +144,12 @@ BSW2VCU_outputs Irv_AppSwcVcu_BSW2VCU_outputs = {0,0,0,0,0};
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 BSW2VCU_outputs Irv_AppSwcVcu_Runbl_VCU_100ms_BSW2VCU_outputs = {0,0,0,0,0};
+#define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+
+#define RTE_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+BSW2VCU_outputs Irv_AppSwcVcu_Runbl_VCU_10ms_BSW2VCU_outputs = {0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2177,37 +2183,37 @@ IODID Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_IODID_Bus = {0,0,0,0,0,0,0,0,0,0,0,0,0,
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-IPC_outputs Irv_AppSwcVcu_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+IPC_outputs Irv_AppSwcVcu_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-IPC_outputs Irv_AppSwcVcu_AppSwcVcu_Init_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+IPC_outputs Irv_AppSwcVcu_AppSwcVcu_Init_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-IPC_outputs Irv_AppSwcVcu_Runbl_VCU_100ms_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+IPC_outputs Irv_AppSwcVcu_Runbl_VCU_100ms_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-IPC_outputs Irv_AppSwcVcu_Runbl_VCU_10ms_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+IPC_outputs Irv_AppSwcVcu_Runbl_VCU_10ms_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-IPC_outputs Irv_AppSwcVcu_Runbl_VCU_20ms_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+IPC_outputs Irv_AppSwcVcu_Runbl_VCU_20ms_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-IPC_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+IPC_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_IPC_outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2267,31 +2273,37 @@ LampCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_LampCtl_Bus = {0,0,0,0,0,0,0,0,0,0,0,
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-NVM_Imdt_outputs Irv_AppSwcVcu_NVM_Imdt_outputs = {0,0,0,0,0,0,0};
+NVM_Imdt_outputs Irv_AppSwcVcu_NVM_Imdt_outputs = {0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-NVM_Imdt_outputs Irv_AppSwcVcu_AppSwcVcu_Init_NVM_Imdt_outputs = {0,0,0,0,0,0,0};
+NVM_Imdt_outputs Irv_AppSwcVcu_AppSwcVcu_Init_NVM_Imdt_outputs = {0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VCU_100ms_NVM_Imdt_outputs = {0,0,0,0,0,0,0};
+NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VCU_100ms_NVM_Imdt_outputs = {0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VCU_20ms_NVM_Imdt_outputs = {0,0,0,0,0,0,0};
+NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VCU_10ms_NVM_Imdt_outputs = {0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VcuRx_10ms_NVM_Imdt_outputs = {0,0,0,0,0,0,0};
+NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VCU_20ms_NVM_Imdt_outputs = {0,0,0,0,0,0,0,0};
+#define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+
+#define RTE_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VcuRx_10ms_NVM_Imdt_outputs = {0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -3786,12 +3798,6 @@ TMS2VCU_AC_2_State_Outputs Rte_Buf_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs_T
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 TMS2VCU_AC_2_State_Outputs Irv_AppSwcVcu_TMS2VCU_AC_2_State_Outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0};
-#define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
-#include "Rte_MemMap.h"
-
-#define RTE_START_SEC_VAR_INIT_UNSPECIFIED
-#include "Rte_MemMap.h"
-TMS2VCU_AC_2_State_Outputs Irv_AppSwcVcu_Runbl_VCU_100ms_TMS2VCU_AC_2_State_Outputs = {0,0,0,0,0,0,0,0,0,0,0,0,0};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 

@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-12-19 16:41:55>
+ *  @date       <2024-12-31 16:10:03>
  */
 /*============================================================================*/
 
@@ -2638,6 +2638,7 @@ typedef struct
     Boolean VIPC_AccPedPstnVld_flg;
     UInt8 VIPC_AccPedSnsrSta_enum;
     Boolean VIPC_DrvSw_flg;
+    Float VIPC_AccPedZeroPstn_pct;
     Float VIPC_BrkPedPstn_pct;
     Boolean VIPC_BrkPedPstnVld_flg;
     Boolean VIPC_BrkSwActv_flg;
@@ -2811,6 +2812,7 @@ typedef struct
     Boolean VNVM_HVRdy_flg;
     UInt8 VNVM_PTActOprtMode_enum;
     UInt8 VNVM_VehActGearPstn_enum;
+    UInt8 VNVM_AccPedZeroPstn_pct;
 } NVM_Imdt_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_NVM_Imdt_outputs_

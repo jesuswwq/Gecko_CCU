@@ -5,7 +5,7 @@
  *
  * Model version                  : 1.1537
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Fri Dec 20 09:37:55 2024
+ * C/C++ source code generated on : Mon Dec 30 17:33:19 2024
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -362,9 +362,10 @@ CALDATA const volatile float32 RVMCtl_Ts_C = 0.1F;/* Referenced by: '<S132>/Cons
 CALDATA const volatile boolean SeatCtl_CN167DrvSeatHtPWMOvrdFlg_C = false;/* Referenced by: '<S136>/Constant18' */
 CALDATA const volatile uint8 SeatCtl_CN167DrvSeatHtPWMOvrdVal_C = 0U;/* Referenced by: '<S136>/Constant19' */
 CALDATA const volatile float32 SeatCtl_DrvSeatTempLookUp_X[23] = { 1738.0F,
-2068.0F, 2473.0F, 2971.0F, 3588.0F, 4355.0F, 5314.0F, 6522.0F, 8051.0F,
-10000.0F, 12500.0F, 15731.0F, 19938.0F, 25456.0F, 32754.0F, 42490.0F, 55595.0F,
-73401.0F, 97839.0F, 131733.0F, 179266.0F, 246717.0F, 343636.0F };               /* Referenced by: '<S136>/1-D Lookup Table2' */
+  2068.0F, 2473.0F, 2971.0F, 3588.0F, 4355.0F, 5314.0F, 6522.0F, 8051.0F,
+  10000.0F, 12500.0F, 15731.0F, 19938.0F, 25456.0F, 32754.0F, 42490.0F, 55595.0F,
+  73401.0F, 97839.0F, 131733.0F, 179266.0F, 246717.0F, 343636.0F } ;
+                                 /* Referenced by: '<S136>/1-D Lookup Table2' */
 
 CALDATA const volatile float32 SeatCtl_DrvSeatTempLookUp_Y[23] = { 70.0F, 65.0F,
   60.0F, 55.0F, 50.0F, 45.0F, 40.0F, 35.0F, 30.0F, 25.0F, 20.0F, 15.0F, 10.0F,
@@ -552,11 +553,11 @@ CALDATA const volatile uint16 WiperCtl_WashTimInValid_C = 10U;/* Referenced by: 
 CALDATA const volatile uint16 WiperCtl_WashTimValid_C = 60U;/* Referenced by: '<S354>/Constant25' */
 CALDATA const volatile boolean WiperCtl_WashVal_C = true;/* Referenced by: '<S354>/Constant29' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ð§ */
+/* µÍÓÐÐ§ */
 CALDATA const volatile uint16 WiperCtl_WiperParkPosTimValid_C = 4U;/* Referenced by: '<S354>/Constant32' */
 CALDATA const volatile boolean WiperCtl_WiperParkPosVal_C = true;/* Referenced by: '<S354>/Constant36' */
 
-/* ï¿½ï¿½ï¿½ï¿½Ð§ */
+/* µÍÓÐÐ§ */
 CALDATA const volatile uint16 WiperCtl_WiperPosTimInValid_C = 4U;/* Referenced by: '<S354>/Constant33' */
 CALDATA const volatile uint16 WiperCtl_WiperReturnDelayTim_C = 50U;/* Referenced by: '<S356>/Chart' */
 CALDATA const volatile uint8 WiperCtl_WiperSwVal_C = 0U;/* Referenced by: '<S354>/Constant60' */

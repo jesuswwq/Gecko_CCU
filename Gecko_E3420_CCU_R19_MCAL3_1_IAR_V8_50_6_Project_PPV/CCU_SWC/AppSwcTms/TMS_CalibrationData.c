@@ -1112,6 +1112,11 @@ CALDATA const volatile float32 cal_BatPumpBal_1X[4] = { 2.0F, 5.0F, 10.0F, 15.0F
 CALDATA const volatile uint8 cal_BatPumpBal_CUR[4] = { 22U, 60U, 80U, 80U } ;
 
 CALDATA const volatile uint8 cal_BatPumpCtrlASpd = 80U;
+CALDATA const volatile float32 cal_BatPumpLTR_1X[4] = { 2.0F, 5.0F, 10.0F, 15.0F
+} ;
+
+CALDATA const volatile uint8 cal_BatPumpLTR_CUR[4] = { 22U, 60U, 80U, 80U } ;
+
 CALDATA const volatile uint8 cal_BatPumpMotHeatBatSpd = 100U;
 CALDATA const volatile uint8 cal_BatPumpMotLTRAndBatCHSpd = 100U;
 CALDATA const volatile float32 cal_BatPumpThSto_1X[4] = { 2.0F, 5.0F, 10.0F,

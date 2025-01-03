@@ -741,7 +741,7 @@ static void UhfPkePkgProcess(void)
 					}
 
 
-#if 1
+#if 0
 					if (InCar_CurRssiCalcVal.value >= Ps_Ant_Rssi_Limit)
 					{
 						SetPe_AuthFobStatus(3);
@@ -759,7 +759,14 @@ static void UhfPkePkgProcess(void)
 					}
 #else
 
-					SetPe_AuthFobStatus(1);
+					if (Lf_Door_CurRssiCalcVal.value >= Lf_DoorAnt_Rssi_Limit)
+					{
+						SetPe_AuthFobStatus(1);
+					}
+					else
+					{
+						SetPe_AuthFobStatus(2);
+					}
 #endif
 
 					if (u8PlanUseFobKeyUid_Index[0] != FOBKEY_NUM)
@@ -784,7 +791,7 @@ static void UhfPkePkgProcess(void)
 					{
 						Lf_Door_CurRssiCalcVal.value = 0.0f;
 					}
-#if 1
+#if 0
 
 					if (InCar_CurRssiCalcVal.value >= Ps_Ant_Rssi_Limit)
 					{
@@ -802,8 +809,15 @@ static void UhfPkePkgProcess(void)
 						}
 					}
 #else
-
-					SetPe_AuthFobStatus(1);
+		
+					if (Rf_Door_CurRssiCalcVal.value >= Rf_DoorAnt_Rssi_Limit)
+					{
+						SetPe_AuthFobStatus(1);
+					}
+					else
+					{
+						SetPe_AuthFobStatus(2);
+					}
 #endif
 
 					if (u8PlanUseFobKeyUid_Index[0] != FOBKEY_NUM)

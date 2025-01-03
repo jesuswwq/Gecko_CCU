@@ -25,7 +25,7 @@
 #define WELCOMEGUEST_PILOT_RSSI_LF_CMD 		(uint8)0x15
 #define WELCOMEGUEST_COPILOT_RSSI_LF_CMD 	(uint8)0x16
 
-#define TRAVERSAL_CNT			(uint8)2 // ï¿½ï¿½ï¿½LFÉ¨ï¿½ï¿½ï¿½ï¿½ï¿?
+#define TRAVERSAL_CNT			(uint8)2 // ï¿½ï¿½ï¿½LFÉ¨ï¿½ï¿½ï¿½ï¿½ï¿½?
 
 #define DR_DOOR_ANT 			(uint8)2	   // ï¿½ï¿½ï¿½ï¿½Ê»ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½
 #define CODR_DOOR_ANT			(uint8)3	   // ï¿½ï¿½ï¿½ï¿½Ê»ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½
@@ -38,8 +38,8 @@
 
 #define PEPS_TX_MAX_COUNT			(uint8)2
 
-#define PE_LF_TX_MAX_PERIOD			(uint8)(120/2) //PEµÍÆµ·¢ËÍ¼ä¸ôÖÜÆÚ
-#define RSSI_LF_TX_MAX_PERIOD		(uint8)(60/2) // RSSIµÍÆµ·¢ËÍ¼ä¸ôÖÜÆÚ
+#define PE_LF_TX_MAX_PERIOD			(uint8)(250/2) //PEï¿½ï¿½Æµï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define RSSI_LF_TX_MAX_PERIOD		(uint8)(60/2) // RSSIï¿½ï¿½Æµï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
 #define LEFTSIDE_ANT_INDEX		0
@@ -110,7 +110,7 @@ struct LF_Auth_Buff
 {
 uint8			Id[4];								// ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½Ô¿ï¿½ï¿½UID
 uint8			Command;
-uint8			Random[4];							// 4ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?seed
+uint8			Random[4];							// 4ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?seed
 uint8			Sum;								// crc8
 };
 

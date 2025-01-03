@@ -23,6 +23,7 @@
 #include "ComStack_Types.h"
 #include "Com_Cfg_Cbk.h"
 #include "DIAG_ABI.h"
+//#include "Wdg_Ip.h"
 
 /* *************************************************************************************** */
 //uint8 HU_A_BAC_AliveCnt[7] = {15,15,15,15,15,15,15};    //ChksumByte  {0,8,16,24,32,40,48}
@@ -128,6 +129,9 @@ uint8 VCU_3_OprtCmd_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
 uint8 VCU_4_ChrgCmd_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
 uint8 VCU_B_AcclPedal_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
 uint8 VCU_C_OprtCmd_EPT_AliveCnt[1] = {15};    //ChksumByte  {0}
+/*--------------------------------------------------------------------------------*/
+
+
 /* *************************************************************************************** */
 
 boolean IPDU_COM_VCU_0_Value_EPT_TxCallout(
@@ -397,6 +401,7 @@ extern uint8 Test_5ms_count;
 extern uint8 Test_10ms_count;
 extern uint8 Test_50ms_count;
 #endif
+extern uint32 glb_wdt_cnt_old;
 boolean IPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
     PduIdType PduId,
     PduInfoType* PduInfoPtr
@@ -412,6 +417,11 @@ boolean IPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
     *((PduInfoPtr->SduDataPtr) + 16) = Test_20ms_count;
     *((PduInfoPtr->SduDataPtr) + 24) = Test_10ms_count;
     *((PduInfoPtr->SduDataPtr) + 32) = Test_5ms_count;
+    #endif
+    #if 0
+    *(PduInfoPtr->SduDataPtr) = glb_wdt_cnt_old;
+    *((PduInfoPtr->SduDataPtr) + 8) = ((glb_wdt_cnt_old && 0xff00) >> 8);
+    *((PduInfoPtr->SduDataPtr) + 16) = ((glb_wdt_cnt_old && 0xff0000) >> 16);
     #endif
     return TRUE;
 }

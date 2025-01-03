@@ -144,5 +144,7 @@
 #define WDT_LOCK_OFF (0x40U)
 /** \brief Driver WDT_LOCK EXT_RST_LOCK bit offset */
 #define BM_WDT_LOCK_EXT_RST_LOCK (4U)
+
+#define WDT_CNT_OFF (0x1CU)
 #endif  /* __WDT_REG_H__ */
 /* End of file */

@@ -123,6 +123,7 @@ TASK(OsTask__Core0_100ms)
     Xcp_EventIndication(3);
     Os_TaskEntry_Rte_OsTask__Core0_100ms();
     APP_TASK_100MS_Flag = TRUE;
+
     if (E_OK != TerminateTask())
     {
         while (1)
@@ -351,8 +352,9 @@ TASK(OsTask__Core0_5ms)
     CanNm_MainFunction();
     LinSM_MainFunction();
     LinIf_MainFunction();
-    if((APP_TASK_10MS_Flag == TRUE) && (APP_TASK_20MS_Flag == TRUE) && (APP_TASK_50MS_Flag == TRUE) && (APP_TASK_100MS_Flag == TRUE))
+    if((APP_TASK_10MS_Flag == TRUE) && (APP_TASK_20MS_Flag == TRUE) && (APP_TASK_50MS_Flag == TRUE) &&(APP_TASK_100MS_Flag == TRUE))
     {
+        
         Com_MainFunctionTx();
     }
     Com_MainFunctionRx();
@@ -370,6 +372,7 @@ TASK(OsTask__Core0_5ms)
 TASK(OsTask_Core0_Init)
 {
     /* please insert your code here ... */
+    
     EcuM_StartupTwo();
     
     NvM_InitReadAll_Flag = 0;
@@ -396,16 +399,12 @@ TASK(OsTask_Core0_Init)
     Adc_rte_init();
     VNQ7E100_Init();
     Wdg_140_Instance1_Wdt_Init(&Wdg_Config1);
-#if WDG_FUNCTION_SWITCH
-    
-    WdgM_Init(&WdgMConfigRoot[0]);
-#endif
+
     
 /*CDD initial end**/
 
     Rte_Start();
     Os_TaskEntry_Rte_OsTask_Core0_Init();
-
     SetRelAlarm(OsAlarm_Core0_1ms, 1, 1);
     SetRelAlarm(OsAlarm_Core0_2ms, 3, 2);
     SetRelAlarm(OsAlarm_Core0_5ms, 5, 5);
@@ -419,6 +418,10 @@ TASK(OsTask_Core0_Init)
     NCK2910_Init();
     PEPS_Module_Init();
     PEPS_KL30Resset_ParamWrt();
+     #if WDG_FUNCTION_SWITCH
+    
+    WdgM_Init(&WdgMConfigRoot[0]);
+    #endif
     if (E_OK != TerminateTask())
     {
         while (1)

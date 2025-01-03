@@ -393,7 +393,6 @@ typedef struct {
   uint8 Merge;
   uint8 FltSortVal;
   uint8 FltNum;
-  uint8 data;
   uint8 SenSts;
   uint8 SenSts_f;
   uint8 SenSts_fm;

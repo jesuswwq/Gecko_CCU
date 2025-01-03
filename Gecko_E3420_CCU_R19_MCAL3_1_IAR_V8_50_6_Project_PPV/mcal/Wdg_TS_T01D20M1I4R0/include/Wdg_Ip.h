@@ -79,6 +79,7 @@ extern "C" {
 #define WDG_IP_MIN_TIME_VAL  (0x0u)
 /** \brief define 0 = zero */
 #define WDT_IP_ZERO       (0x0U)
+
 /********************************************************************************************************
  *                                  Global Function Declarations                                        *
  *******************************************************************************************************/
@@ -291,6 +292,8 @@ void  Wdg_Ip_TriggerRoutine(uint8 instanceId);
  * Traceability       : SWSR_WDG_075
  *******************************************************************************************************/
 void  Wdg_Ip_GlbResetEn(uint8 instanceId);
+
+uint32 Wdg_Get_Ip_Cnt(uint8 instanceId); /*bihu added for wdg reset functionality*/
 #endif /* WDG_INSTANCE1_SUPPORT||WDG_INSTANCE2_SUPPORT||WDG_INSTANCE3_SUPPORT||WDG_INSTANCE4_SUPPORT||WDG_INSTANCE5_SUPPORT||WDG_INSTANCE6_SUPPORT||WDG_INSTANCE8_SUPPORT */
 #ifdef __cplusplus
 }

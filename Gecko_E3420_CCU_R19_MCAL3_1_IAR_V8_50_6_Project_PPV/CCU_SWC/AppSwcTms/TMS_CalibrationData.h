@@ -490,6 +490,8 @@ extern CALDATA const volatile uint8 cal_BatPumpB1Off_CUR[4];
 extern CALDATA const volatile float32 cal_BatPumpBal_1X[4];
 extern CALDATA const volatile uint8 cal_BatPumpBal_CUR[4];
 extern CALDATA const volatile uint8 cal_BatPumpCtrlASpd;
+extern CALDATA const volatile float32 cal_BatPumpLTR_1X[4];
+extern CALDATA const volatile uint8 cal_BatPumpLTR_CUR[4];
 extern CALDATA const volatile uint8 cal_BatPumpMotHeatBatSpd;
 extern CALDATA const volatile uint8 cal_BatPumpMotLTRAndBatCHSpd;
 extern CALDATA const volatile float32 cal_BatPumpThSto_1X[4];

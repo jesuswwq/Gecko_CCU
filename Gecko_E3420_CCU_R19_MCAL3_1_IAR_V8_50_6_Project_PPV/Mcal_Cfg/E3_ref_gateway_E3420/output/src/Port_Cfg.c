@@ -1347,7 +1347,7 @@ const Port_SettingsConfigType Port_PinInitConfig[NUM_OF_CONFIGURED_PINS] = {
         .driveStrength    =  PORT_PIN_DS_8MA,
         .dataDirection    =  PORT_PIN_OUT,
         .interruptConfig  =  PORT_PIN_INTERRUPT_DISABLED,
-        .initialValue     =  PORT_PIN_LEVEL_LOW,
+        .initialValue     =  PORT_PIN_LEVEL_HIGH,
         .forceInput       =  PORT_PIN_FORCE_INPUT_NORMAL,
         .directChangable  =  FALSE,
     },
