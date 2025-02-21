@@ -39,7 +39,7 @@ initialize manually { section .iram_data };
 initialize manually { section .tcm_data };
 initialize manually { section .tcm_func, section .mcal_text.fast.* };
 initialize manually { section .iram_func };
-initialize manually { section .CalData};
+initialize manually { section .calData};
 
 define block VECTOR_TBL with alignment = 32        { readonly section .vector };
 
@@ -81,7 +81,7 @@ define block HEAP            with alignment = 32, minimum size = HEAP_SZ, expand
 /* xcp */
 //define block CALDATA   with alignment = 32	{ section .calData };
 
-define overlay CALRAM_overlay with alignment = 8    { section .calData };
+define overlay CALRAM_overlay with alignment = 32    { section .calData };
 place in XCP_CAL_IRAM    { overlay CALRAM_overlay };
 place in XCP_CAL_FLASH    { section .calData_init };
 
