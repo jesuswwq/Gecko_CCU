@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-12-19 16:44:33>
+ *  @date       <2025-02-19 14:26:23>
  */
 /*============================================================================*/
 
@@ -74,6 +74,7 @@ static void Rte_PRE_Runbl_IpmCanRx_100ms(void)
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT, sizeof(BMS_5_BatTemp_EPT));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_BMS_9_BattInfo_EPT_BMS_9_BattInfo_EPT->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_BMS_9_BattInfo_EPT_BMS_9_BattInfo_EPT, sizeof(BMS_9_BattInfo_EPT));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD, sizeof(COMP_AC_BOD));
+        rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA, sizeof(FCM_A_CHA));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC, sizeof(HU_B_BAC));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD, sizeof(HVCH_Status1_BOD));
         rte_memcpy((uint8*)&(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD->value), (uint8*)&Rte_Buf_Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD, sizeof(HVCH_Status2_BOD));
@@ -292,6 +293,7 @@ static void Rte_POST_Runbl_IpmCanRx_100ms(void)
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_BMS_5_BatTemp_EPT_IPM_BMS_5_BatTemp_EPT(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_BMS_5_BatTemp_EPT_IPM_BMS_5_BatTemp_EPT->value);
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_BMS_9_BattInfo_EPT_IPM_BMS_9_BattInfo_EPT(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_BMS_9_BattInfo_EPT_IPM_BMS_9_BattInfo_EPT->value);
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD->value);
+        Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA->value);
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC->value);
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD->value);
         Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD(Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD->value);
@@ -905,6 +907,28 @@ Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_BMS_9_BattInfo_EPT_BMS_9_BattInf
 Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD(void)
 {
     return Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD->status;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IStatus_Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               Std_ReturnType
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA(void)
+{
+    return Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA->status;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"

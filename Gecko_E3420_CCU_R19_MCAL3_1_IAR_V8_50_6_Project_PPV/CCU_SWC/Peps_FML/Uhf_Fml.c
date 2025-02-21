@@ -16,201 +16,194 @@
 #include "nxpMath.h"
 #include "joker.h"
 
-uint8_t 		u8Universal_Key[16] =
-{
-	0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf1, 0x23, 0x45, 0x67, 0x89, 0xab, 0xcd, 0xef, 0x01
-};
-
+uint8_t u8Universal_Key[16] =
+	{
+		0x12, 0x34, 0x56, 0x78, 0x9a, 0xbc, 0xde, 0xf1, 0x23, 0x45, 0x67, 0x89, 0xab, 0xcd, 0xef, 0x01};
 
 EEPROM_Save_Buffer tsFobKeyMessageSave_A;
 
 EEPROM_Save_Buffer tsFobKeyMessageSave_B;
 
-Aes128_Buffer	tsAes_Crypt_Buffer;
+Aes128_Buffer tsAes_Crypt_Buffer;
 
-static Rke_CommandMessage tsRke_ReceiveBuf; //RKE¸ßÆµ½ÓÊÕ»º´æ
+static Rke_CommandMessage tsRke_ReceiveBuf; // RKEï¿½ï¿½Æµï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½
 
-TransmitterInfo tsFob_LearnBuf; //Ô¿³×Ñ§Ï°»º´æÐÅÏ¢
+TransmitterInfo tsFob_LearnBuf; // Ô¿ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 
-static uint8_t	u8FobKey_Volt_Status = 0; //Ò£¿ØÔ¿³×µçÁ¦×´Ì¬£¬1ÎªµçÁ¦µÍ 0ÎªÕý³£
+static uint8_t u8FobKey_Volt_Status = 0; // Ò£ï¿½ï¿½Ô¿ï¿½×µï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½1Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0Îªï¿½ï¿½ï¿½ï¿½
 
-static uint8_t	u8EcuLearnMatch_Status = 0; // ECU??????????
+static uint8_t u8EcuLearnMatch_Status = 0; // ECU??????????
 
-static uint8_t	u8FobKey_Id_Message = 0; // µ±Ç°Ò£¿ØµÚ¼¸°ÑµÄ²Ù×÷
+static uint8_t u8FobKey_Id_Message = 0; // ï¿½ï¿½Ç°Ò£ï¿½ØµÚ¼ï¿½ï¿½ÑµÄ²ï¿½ï¿½ï¿½
 
 static uint16_t u16PressKeyWait = 0;
 
 static UHF_MessageTypeDef tsNck2910RecvFrame;
 
-uint32_t		u32Time1sCount = 0x23dc98f6;
+uint32_t u32Time1sCount = 0x23dc98f6;
 
-uint8_t 		u8TransmitterCount; //Ò£¿ØÔ¿³×ÊýÁ¿Ö¸¶¨EEPROMÖÐµÄµØÖ·
+uint8_t u8TransmitterCount; // Ò£ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½EEPROMï¿½ÐµÄµï¿½Ö·
 
-TransmitterInfo tsTransmitters[MAX_TRANSMITTERS]; //Ò£¿ØÐÅÏ¢Ö¸¶¨ÔÚEEPROMÖÐµÄµØÖ·
+TransmitterInfo tsTransmitters[MAX_TRANSMITTERS]; // Ò£ï¿½ï¿½ï¿½ï¿½Ï¢Ö¸ï¿½ï¿½ï¿½ï¿½EEPROMï¿½ÐµÄµï¿½Ö·
 
 extern LPFifo_TypeDef LPFifo;
 
-static uint8	u8EcuLearnMatchRepeat = 0; //ÖØ¸´Ñ§Ï°Ö¸Ê¾
+static uint8 u8EcuLearnMatchRepeat = 0; // ï¿½Ø¸ï¿½Ñ§Ï°Ö¸Ê¾
 
-static uint8	u8FobKeyButtonPressInd = 0;
+static uint8 u8FobKeyButtonPressInd = 0;
 
-static uint8	u8FobKeyButtonCmdPre = 0;
+static uint8 u8FobKeyButtonCmdPre = 0;
 
-static uint8_t	u8FobkeyLongPressValidTimeCnt = 0;
+static uint8_t u8FobkeyLongPressValidTimeCnt = 0;
 
 static uint16_t u16UnlockLongPressTimingCnt = 0;
 static uint16_t u16LockLongPressTimingCnt = 0;
 static uint16_t u16TrunkLongPressTimingCnt = 0;
 
-uint8_t 		u8PlanUseFobKeyUid_Index[2];
+uint8_t u8PlanUseFobKeyUid_Index[2];
 
-uint8_t 		u8WelcomeGuestPollingWakeUpUid[2];
+uint8_t u8WelcomeGuestPollingWakeUpUid[2];
 
-uint32_t		u32PlanUseFobKeyUid[2];
+uint32_t u32PlanUseFobKeyUid[2];
 
-uint8_t 		bWaitAllFobKey_A_WakeUp = 0;
-uint8_t 		bWaitAllFobKey_B_WakeUp = 0;
+uint8_t bWaitAllFobKey_A_WakeUp = 0;
+uint8_t bWaitAllFobKey_B_WakeUp = 0;
 
-uint16_t		u16FobKeyA_Updata_Cnt = 0;
-uint16_t		u16FobKeyB_Updata_Cnt = 0;
+uint16_t u16FobKeyA_Updata_Cnt = 0;
+uint16_t u16FobKeyB_Updata_Cnt = 0;
 
-uint16_t		u16UhfFrameRkeAuthOkCount = 0;
-uint16_t		u16UhfFramePkeAuthOkCount = 0;
+uint16_t u16UhfFrameRkeAuthOkCount = 0;
+uint16_t u16UhfFramePkeAuthOkCount = 0;
 
-uint8			u8Sync_Counter_Err_Flag = 0;
+uint8 u8Sync_Counter_Err_Flag = 0;
 
-BITBYTE 		tuHf_Func01;
+BITBYTE tuHf_Func01;
 
-BITBYTE 		tuHf_Func02;
+BITBYTE tuHf_Func02;
 
-BITBYTE 		tuHf_Bid;
+BITBYTE tuHf_Bid;
 
+LONG_UNION u32InCarAntRssi;
+LONG_UNION u32LfAntRssi;
+LONG_UNION u32RfAntRssi;
 
-LONG_UNION 		u32InCarAntRssi;
-LONG_UNION		u32LfAntRssi;
-LONG_UNION		u32RfAntRssi;
-
-
+extern uint8 u8LearnFobkey;
 
 static void FobKeyMessageErase(void);
-extern uint8 GetCrc8(uint8 * pBuffer, uint16 bufSize);
+extern uint8 GetCrc8(uint8 *pBuffer, uint16 bufSize);
 
-//extern void Rke_Flash_Write(uint32_t addr,void *buf,uint32_t len);
-//extern  void Rke_Flash_Read(uint32_t addr,void *buf,uint32_t len);
-void Rke_Flash_Write(uint32_t addr, void * buf, uint32_t len)
+// extern void Rke_Flash_Write(uint32_t addr,void *buf,uint32_t len);
+// extern  void Rke_Flash_Read(uint32_t addr,void *buf,uint32_t len);
+
+void Rke_Flash_Write(uint32_t addr, void *buf, uint32_t len)
 {
-	if ((addr <= 256) && (len <= 256))
+	if (addr > MAX_EEPROM_ADDR || len > MAX_EEPROM_LEN || addr + len > MAX_EEPROM_LEN)
+	{
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ò·µ»Ø´ï¿½ï¿½ï¿½ï¿½ï¿½
+	}
+	else
 	{
 		memcpy(&u8KeyTempBuffVal[addr], buf, len);
 	}
 }
 
-
-void Rke_Flash_Read(uint32_t addr, void * buf, uint32_t len)
+void Rke_Flash_Read(uint32_t addr, void *buf, uint32_t len)
 {
-	if ((addr <= 256) && (len <= 256))
+	if (addr > MAX_EEPROM_ADDR || len > MAX_EEPROM_LEN || addr + len > MAX_EEPROM_LEN)
+	{
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ò·µ»Ø´ï¿½ï¿½ï¿½ï¿½ï¿½
+	}
+	else
 	{
 		memcpy(buf, &u8KeyTempBuffVal[addr], len);
 	}
 }
 
-
-
 static void Execute_Command(void);
-extern uint8_t _CalculateCRC8(uint8_t * pu8FrameBuf, uint8_t u8Len);
-
+extern uint8_t _CalculateCRC8(uint8_t *pu8FrameBuf, uint8_t u8Len);
 
 uint32_t GetSysRandTimeCount(void)
 {
 	return u32Time1sCount;
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : GetTransmitterCountVal
- * ÃèÊö	 : »ñÈ¡Ô¿³×´æ´¢ÔÚEEPROMÖÐµÄÊýÁ¿
- * ÊäÈë	 : None
- * ·µ»Ø	 : ÒÑ¾­Æ¥ÅäÒ£¿ØÆ÷µÄÊýÁ¿
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : GetTransmitterCountVal
+ * ï¿½ï¿½ï¿½ï¿½	 : ï¿½ï¿½È¡Ô¿ï¿½×´æ´¢ï¿½ï¿½EEPROMï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½	 : None
+ * ï¿½ï¿½ï¿½ï¿½	 : ï¿½Ñ¾ï¿½Æ¥ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *******************************************************************************/
 uint8_t GetTransmitterCountVal(void)
 {
 	return u8TransmitterCount;
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : GetVariableFobKeyVoltStatus
- * ÃèÊö	 : »ñÈ¡Ô¿³×µç³ØµçÑ¹×´Ì¬
- * ÊäÈë	 : None
- * ·µ»Ø	 : Ò£¿ØÔ¿³×µçÁ¦×´Ì¬£¬1ÎªµçÁ¦µÍ 0ÎªÕý³£
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : GetVariableFobKeyVoltStatus
+ * ï¿½ï¿½ï¿½ï¿½	 : ï¿½ï¿½È¡Ô¿ï¿½×µï¿½Øµï¿½Ñ¹×´Ì¬
+ * ï¿½ï¿½ï¿½ï¿½	 : None
+ * ï¿½ï¿½ï¿½ï¿½	 : Ò£ï¿½ï¿½Ô¿ï¿½×µï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½1Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0Îªï¿½ï¿½ï¿½ï¿½
  *******************************************************************************/
 uint8_t GetVariableFobKeyVoltStatus(void)
 {
 	return u8FobKey_Volt_Status;
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : GetRemotButtonCmd
- * ÃèÊö	 : »ñÈ¡Ò£¿Øµ±Ç°°´¼ü°´ÏÂ×´Ì¬
- * ÊäÈë	 : None
- * ·µ»Ø	 : 
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : GetRemotButtonCmd
+ * ï¿½ï¿½ï¿½ï¿½	 : ï¿½ï¿½È¡Ò£ï¿½Øµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+ * ï¿½ï¿½ï¿½ï¿½	 : None
+ * ï¿½ï¿½ï¿½ï¿½	 :
  *******************************************************************************/
 uint8_t GetFobKeyCmdRequest(void)
 {
 	return u8Fobkey_Cur_RkeCmd;
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : ClrRemotButtonCmd
- * ÃèÊö	 : Çå³ýÒ£¿Øµ±Ç°°´¼ü°´ÏÂ×´Ì¬
- * ÊäÈë	 : None
- * ·µ»Ø	 : none
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : ClrRemotButtonCmd
+ * ï¿½ï¿½ï¿½ï¿½	 : ï¿½ï¿½ï¿½Ò£ï¿½Øµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+ * ï¿½ï¿½ï¿½ï¿½	 : None
+ * ï¿½ï¿½ï¿½ï¿½	 : none
  *******************************************************************************/
 void ClrRemotButtonCmd(void)
 {
 	u8Fobkey_Cur_RkeCmd = RKE_NULL;
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : GetFobKeyLearnCompleteStatus
- * ÃèÊö	 : »ñÈ¡Ò£¿ØÆ¥ÅäÊÇ·ñ³É¹¦
- * ÊäÈë	 : None
- * ·µ»Ø	 : 0£ºÆ¥ÅäÎ´³É¹¦,ÆäËüÖµ£ºÆ¥ÅäÁË¼¸¸öÒ£¿ØÆ÷³É¹¦
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : GetFobKeyLearnCompleteStatus
+ * ï¿½ï¿½ï¿½ï¿½	 : ï¿½ï¿½È¡Ò£ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½
+ * ï¿½ï¿½ï¿½ï¿½	 : None
+ * ï¿½ï¿½ï¿½ï¿½	 : 0ï¿½ï¿½Æ¥ï¿½ï¿½Î´ï¿½É¹ï¿½,ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ë¼ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½
  *******************************************************************************/
 uint8_t GetFobKeyLearnCompleteStatus(void)
 {
 	return u8EcuLearnMatch_Status;
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : GetFobKeyId
- * ÃèÊö	 : »ñÈ¡Ò£¿Øµ±Ç°ÊÇµÚ¼¸°Ñ
- * ÊäÈë	 : None
- * ·µ»Ø	 : Ò£¿ØÆ÷µ±Ç°ÊÇµÚ¼¸°Ñ
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : GetFobKeyId
+ * ï¿½ï¿½ï¿½ï¿½	 : ï¿½ï¿½È¡Ò£ï¿½Øµï¿½Ç°ï¿½ÇµÚ¼ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½	 : None
+ * ï¿½ï¿½ï¿½ï¿½	 : Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ÇµÚ¼ï¿½ï¿½ï¿½
  *******************************************************************************/
 uint8_t GetFobKeyId(void)
 {
 	return u8FobKey_Id_Message;
 }
 
-
 void SetPs_AuthFobStatus(uint8_t sta)
 {
 	u8PS_Auth_FobStatus = sta;
 }
-
 
 void SetPe_AuthFobStatus(uint8_t sta)
 {
 	u8PE_Auth_FobStatus = sta;
 }
 
-
-uint8_t GetTransmitterMaxNumErr(void) //Ò£¿ØÔ¿³×Æ¥ÅäÒÑ´ï×î´óÊýÁ¿
+uint8_t GetTransmitterMaxNumErr(void) // Ò£ï¿½ï¿½Ô¿ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
 	if (u8TransmitterCount >= MAX_TRANSMITTERS)
 	{
@@ -220,12 +213,10 @@ uint8_t GetTransmitterMaxNumErr(void) //Ò£¿ØÔ¿³×Æ¥ÅäÒÑ´ï×î´óÊýÁ¿
 	return 0;
 }
 
-
 uint8 GetSyncCountErr(void)
 {
 	return u8Sync_Counter_Err_Flag;
 }
-
 
 void All_FobKey_Lift_En(void)
 {
@@ -234,40 +225,39 @@ void All_FobKey_Lift_En(void)
 	tsTransmitters[2].FobKeyEn = 0;
 	tsTransmitters[3].FobKeyEn = 0;
 
-	//tsTransmitters[4].FobKeyEn = 0;
+	// tsTransmitters[4].FobKeyEn = 0;
 	memcpy(&tsFobKeyMessageSave_A.Fifo_Data[0], &tsTransmitters[0].SerialNo, 25);
 	memcpy(&tsFobKeyMessageSave_A.Fifo_Data[25], &tsTransmitters[1].SerialNo, 25);
 	memcpy(&tsFobKeyMessageSave_A.Fifo_Data[50], &tsTransmitters[2].SerialNo, 25);
 	memcpy(&tsFobKeyMessageSave_A.Fifo_Data[75], &tsTransmitters[3].SerialNo, 25);
 
-	//memcpy(&tsFobKeyMessageSave_A.Fifo_Data[100],&tsTransmitters[4].SerialNo,25);
+	// memcpy(&tsFobKeyMessageSave_A.Fifo_Data[100],&tsTransmitters[4].SerialNo,25);
 	tsFobKeyMessageSave_A.Crc8 = _CalculateCRC8(tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A) - 1);
 
-	//¸üÐÂEEPROMÊý¾ÝAÇø,BÇø
+	// ï¿½ï¿½ï¿½ï¿½EEPROMï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½,Bï¿½ï¿½
 	Rke_Flash_Write(TRANSMITTERS_EEPROM_ADDR, tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A));
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : GetCurUseSecretKey
- * ÃèÊö	 : µÍÆµÑéÖ¤Ê±£¬¶ÁÈ¡¶ÔÓ¦IDµÄÃØÔ¿
- * ÊäÈë	 : Id->IDÖµ£¬*buf->ÃØÔ¿»º´æµØÖ·Ö¸Õë
- * ·µ»Ø	 : TRUE»òFALSE
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : GetCurUseSecretKey
+ * ï¿½ï¿½ï¿½ï¿½	 : ï¿½ï¿½Æµï¿½ï¿½Ö¤Ê±ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ó¦IDï¿½ï¿½ï¿½ï¿½Ô¿
+ * ï¿½ï¿½ï¿½ï¿½	 : Id->IDÖµï¿½ï¿½*buf->ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ï¿½ï¿½Ö·Ö¸ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½	 : TRUEï¿½ï¿½FALSE
  *******************************************************************************/
-uint8_t GetCurUseSecretKey(uint32_t Id, uint8_t * buf)
+uint8_t GetCurUseSecretKey(uint32_t Id, uint8_t *buf)
 {
-	uint8_t 		u8TransmitterIdx = 0;
-	TransmitterInfo * tsTransmitter = tsTransmitters;
+	uint8_t u8TransmitterIdx = 0;
+	TransmitterInfo *tsTransmitter = tsTransmitters;
 
 	while (u8TransmitterIdx < GetTransmitterCountVal())
 	{
 		if (Id == tsTransmitter->SerialNo)
 		{
-			memcpy(buf, tsTransmitter->SecretKey, KEY_BIT_SIZE >> 3);
+			memcpy(buf, tsTransmitter->SecretKey, KEY_BIT_SIZE_SHIFT);
 			u8FobKey_Id_Message = u8TransmitterIdx + 1;
 			return 1;
 		}
-		else 
+		else
 		{
 			++u8TransmitterIdx;
 			++tsTransmitter;
@@ -277,23 +267,22 @@ uint8_t GetCurUseSecretKey(uint32_t Id, uint8_t * buf)
 	return 0;
 }
 
-
 void UhfFobKeyLearnRxProcess(void)
 {
-	uint8_t 		u8TransmitterIdx = 0;
-	uint8_t 		u8Found = 0;
+	uint8_t u8TransmitterIdx = 0;
+	uint8_t u8Found = 0;
 
-	TransmitterInfo * tsTransmitter = tsTransmitters;
+	TransmitterInfo *tsTransmitter = tsTransmitters;
 
-	memcpy(tsFob_LearnBuf.SecretKey, u8Universal_Key, KEY_BIT_SIZE >> 3);
+	memcpy(tsFob_LearnBuf.SecretKey, u8Universal_Key, KEY_BIT_SIZE_SHIFT);
 
 	while ((u8TransmitterIdx < u8TransmitterCount) && (u8Found == 0))
 	{
 		if (tsFob_LearnBuf.SerialNo == tsTransmitter->SerialNo)
 		{
-			u8Found 			= 1;
+			u8Found = 1;
 		}
-		else 
+		else
 		{
 			++u8TransmitterIdx;
 			++tsTransmitter;
@@ -302,16 +291,16 @@ void UhfFobKeyLearnRxProcess(void)
 
 	if (0 == u8Found)
 	{
-		//Ô¿³×UID»¹Ã»Ñ§Ï°¹ý
+		// Ô¿ï¿½ï¿½UIDï¿½ï¿½Ã»Ñ§Ï°ï¿½ï¿½
 		tsTransmitters[u8TransmitterCount].SerialNo = tsFob_LearnBuf.SerialNo;
 		tsTransmitters[u8TransmitterCount].Sync_Counter = 0;
-		memcpy(tsTransmitters[u8TransmitterCount].SecretKey, tsFob_LearnBuf.SecretKey, KEY_BIT_SIZE >> 3);
+		memcpy(tsTransmitters[u8TransmitterCount].SecretKey, tsFob_LearnBuf.SecretKey, KEY_BIT_SIZE_SHIFT);
 
 		u8EcuLearnMatch_Status++;
 
 		if (u8PlanUseFobKeyUid_Index[0] != u8TransmitterCount)
 		{
-			u8Found 			= u8PlanUseFobKeyUid_Index[0];
+			u8Found = u8PlanUseFobKeyUid_Index[0];
 			u8PlanUseFobKeyUid_Index[0] = u8TransmitterCount;
 			u8PlanUseFobKeyUid_Index[1] = u8Found;
 			Rke_Flash_Write(TRANSMITTER_ID_SAVE_ADDR, u8PlanUseFobKeyUid_Index, 2);
@@ -319,15 +308,15 @@ void UhfFobKeyLearnRxProcess(void)
 
 		u8TransmitterCount++;
 	}
-	else 
+	else
 	{
 		tsTransmitters[u8TransmitterIdx].SerialNo = tsFob_LearnBuf.SerialNo;
 		tsTransmitters[u8TransmitterIdx].Sync_Counter = 0;
-		memcpy(tsTransmitters[u8TransmitterIdx].SecretKey, tsFob_LearnBuf.SecretKey, KEY_BIT_SIZE >> 3);
+		memcpy(tsTransmitters[u8TransmitterIdx].SecretKey, tsFob_LearnBuf.SecretKey, KEY_BIT_SIZE_SHIFT);
 
 		if (u8PlanUseFobKeyUid_Index[0] != u8TransmitterIdx)
 		{
-			u8Found 			= u8PlanUseFobKeyUid_Index[0];
+			u8Found = u8PlanUseFobKeyUid_Index[0];
 			u8PlanUseFobKeyUid_Index[0] = u8TransmitterIdx;
 			u8PlanUseFobKeyUid_Index[1] = u8Found;
 			Rke_Flash_Write(TRANSMITTER_ID_SAVE_ADDR, u8PlanUseFobKeyUid_Index, 2);
@@ -340,35 +329,33 @@ void UhfFobKeyLearnRxProcess(void)
 	memcpy(&tsFobKeyMessageSave_A.Fifo_Data[50], &tsTransmitters[2].SerialNo, 25);
 	memcpy(&tsFobKeyMessageSave_A.Fifo_Data[75], &tsTransmitters[3].SerialNo, 25);
 
-	//memcpy(&tsFobKeyMessageSave_A.Fifo_Data[100],&tsTransmitters[4].SerialNo,25);
+	// memcpy(&tsFobKeyMessageSave_A.Fifo_Data[100],&tsTransmitters[4].SerialNo,25);
 	tsFobKeyMessageSave_A.Crc8 = _CalculateCRC8(tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A) - 1);
 
-	//memcpy(tsFobKeyMessageSave_B.Fifo_Data, tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A));
+	// memcpy(tsFobKeyMessageSave_B.Fifo_Data, tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A));
 
 	memcpy(&tsFobKeyMessageSave_B, &tsFobKeyMessageSave_A, sizeof(tsFobKeyMessageSave_A));
 
-	//¸üÐÂEEPROMÊý¾ÝAÇø,BÇø
+	// ï¿½ï¿½ï¿½ï¿½EEPROMï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½,Bï¿½ï¿½
 	Rke_Flash_Write(TRANSMITTERS_EEPROM_ADDR, tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A));
 	Rke_Flash_Write(TRANSMITTERS_EEPROM_BAK_ADDR, tsFobKeyMessageSave_B.Fifo_Data, sizeof(tsFobKeyMessageSave_B));
-
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : UhfFobKeyRkeProcess
- * ÃèÊö	 : Ò£¿ØRke¹¦ÄÜ´¦Àí
- * ÊäÈë	 : None
- * ·µ»Ø	 : None
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : UhfFobKeyRkeProcess
+ * ï¿½ï¿½ï¿½ï¿½	 : Ò£ï¿½ï¿½Rkeï¿½ï¿½ï¿½Ü´ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½	 : None
+ * ï¿½ï¿½ï¿½ï¿½	 : None
  *******************************************************************************/
 static void UhfFobKeyRkeProcess(void)
 {
-	static uint32	Save_CounterValue = 0;
-	LONG_UNION		Rand_Val;
-	static uint8_t	u8Tmp_Mac[6];
-	uint8_t 		u8arr_AESInreg[16]; 			// array for Inreg data
-	uint8_t 		u8arr_AESOutreg[16];			// array for outreg data
-	uint8_t 		u8arr_AESKey[16];				// array for crypto key
-	uint32_t		u32tmp_reg = 0;
+	static uint32 Save_CounterValue = 0;
+	LONG_UNION Rand_Val;
+	static uint8_t u8Tmp_Mac[6];
+	uint8_t u8arr_AESInreg[16];	 // array for Inreg data
+	uint8_t u8arr_AESOutreg[16]; // array for outreg data
+	uint8_t u8arr_AESKey[16];	 // array for crypto key
+	uint32_t u32tmp_reg = 0;
 
 	if ((FRAME_LEN != 8) || (tsTransmitters[FOBKEY_NUM].FobKeyEn == 1))
 	{
@@ -380,185 +367,186 @@ static void UhfFobKeyRkeProcess(void)
 	tsRke_ReceiveBuf.Mac[2] = tsNck2910RecvFrame.m_Data[7];
 
 	if ((u8Tmp_Mac[0] == tsRke_ReceiveBuf.Mac[0]) && (u8Tmp_Mac[1] == tsRke_ReceiveBuf.Mac[1]) &&
-		 (u8Tmp_Mac[2] == tsRke_ReceiveBuf.Mac[2]))
+		(u8Tmp_Mac[2] == tsRke_ReceiveBuf.Mac[2]))
 	{
-		return; //ÖØ¸´Ö¡
+		return; // ï¿½Ø¸ï¿½Ö¡
 	}
 
 	memcpy(u8SpiCurReadUhfDataBuf, &tsNck2910RecvFrame.m_Data[0], 8);
 
 	tsRke_ReceiveBuf.Fun = tsNck2910RecvFrame.m_Data[0];
 
-	tuHf_Bid.DATA_BYTE	= tsNck2910RecvFrame.m_Data[1];
+	tuHf_Bid.DATA_BYTE = tsNck2910RecvFrame.m_Data[1];
 
 	tsRke_ReceiveBuf.CommandCode = KEY_CMD;
 
 	tsRke_ReceiveBuf.Sync_Counter = (uint32_t)
-	tsNck2910RecvFrame.m_Data[4];
-	tsRke_ReceiveBuf.Sync_Counter |= ((uint32_t) tsNck2910RecvFrame.m_Data[3]) << 8;
-	tsRke_ReceiveBuf.Sync_Counter |= ((uint32_t) tsNck2910RecvFrame.m_Data[2]) << 16;
+										tsNck2910RecvFrame.m_Data[4];
+	tsRke_ReceiveBuf.Sync_Counter |= ((uint32_t)tsNck2910RecvFrame.m_Data[3]) << 8;
+	tsRke_ReceiveBuf.Sync_Counter |= ((uint32_t)tsNck2910RecvFrame.m_Data[2]) << 16;
 
 	tsRke_ReceiveBuf.SerialNo = tsTransmitters[FOBKEY_NUM].SerialNo;
 
-	Rand_Val.Value		= tsRke_ReceiveBuf.SerialNo;
+	Rand_Val.Value = tsRke_ReceiveBuf.SerialNo;
 
-	u8arr_AESInreg[0]	= Rand_Val.CHAR_BYTE.High_byte;
-	u8arr_AESInreg[1]	= Rand_Val.CHAR_BYTE.Mhigh_byte;
-	u8arr_AESInreg[2]	= Rand_Val.CHAR_BYTE.Mlow_byte;
-	u8arr_AESInreg[3]	= Rand_Val.CHAR_BYTE.Low_byte;
-	u8arr_AESInreg[4]	= tsRke_ReceiveBuf.CommandCode;
-	u8arr_AESInreg[5]	= tsNck2910RecvFrame.m_Data[4]; //LSB
-	u8arr_AESInreg[6]	= tsNck2910RecvFrame.m_Data[3];
-	u8arr_AESInreg[7]	= tsNck2910RecvFrame.m_Data[2];
+	u8arr_AESInreg[0] = Rand_Val.CHAR_BYTE.High_byte;
+	u8arr_AESInreg[1] = Rand_Val.CHAR_BYTE.Mhigh_byte;
+	u8arr_AESInreg[2] = Rand_Val.CHAR_BYTE.Mlow_byte;
+	u8arr_AESInreg[3] = Rand_Val.CHAR_BYTE.Low_byte;
+	u8arr_AESInreg[4] = tsRke_ReceiveBuf.CommandCode;
+	u8arr_AESInreg[5] = tsNck2910RecvFrame.m_Data[4]; // LSB
+	u8arr_AESInreg[6] = tsNck2910RecvFrame.m_Data[3];
+	u8arr_AESInreg[7] = tsNck2910RecvFrame.m_Data[2];
 
-	u8arr_AESInreg[8]	= u8arr_AESInreg[0];
-	u8arr_AESInreg[9]	= u8arr_AESInreg[1];
-	u8arr_AESInreg[10]	= u8arr_AESInreg[2];
-	u8arr_AESInreg[11]	= u8arr_AESInreg[3];
-	u8arr_AESInreg[12]	= u8arr_AESInreg[4];
-	u8arr_AESInreg[13]	= u8arr_AESInreg[5];
-	u8arr_AESInreg[14]	= u8arr_AESInreg[6];
-	u8arr_AESInreg[15]	= u8arr_AESInreg[7];
+	u8arr_AESInreg[8] = u8arr_AESInreg[0];
+	u8arr_AESInreg[9] = u8arr_AESInreg[1];
+	u8arr_AESInreg[10] = u8arr_AESInreg[2];
+	u8arr_AESInreg[11] = u8arr_AESInreg[3];
+	u8arr_AESInreg[12] = u8arr_AESInreg[4];
+	u8arr_AESInreg[13] = u8arr_AESInreg[5];
+	u8arr_AESInreg[14] = u8arr_AESInreg[6];
+	u8arr_AESInreg[15] = u8arr_AESInreg[7];
 
 	memcpy(u8arr_AESKey, tsTransmitters[FOBKEY_NUM].SecretKey, 16);
 	AES_ExpandKey(u8arr_AESKey);
 	AES_Encrypt(u8arr_AESInreg, u8arr_AESOutreg);
 
 	/* Calculate "Select Bytes" */
-	uint8_t 		S0	= 0;
+	uint8_t S0 = 0;
 
 	if ((tsNck2910RecvFrame.m_Data[4] & (1 << 7)) != 0)
 	{
-		S0					|= (1 << 0);
+		S0 |= (1 << 0);
 	} /* S0 Bit0: SiCounter 0b7 */
 
 	if ((tsNck2910RecvFrame.m_Data[4] & (1 << 5)) != 0)
 	{
-		S0					|= (1 << 1);
+		S0 |= (1 << 1);
 	} /* S0 Bit1: SiCounter 0b5 */
 
 	if ((tsNck2910RecvFrame.m_Data[4] & (1 << 3)) != 0)
 	{
-		S0					|= (1 << 2);
+		S0 |= (1 << 2);
 	} /* S0 Bit2: SiCounter 1b3 */
 
 	if ((tsNck2910RecvFrame.m_Data[4] & (1 << 1)) != 0)
 	{
-		S0					|= (1 << 3);
+		S0 |= (1 << 3);
 	} /* S0 Bit3: SiCounter 1b1 */
 
-	uint8_t 		S1	= 0;
+	uint8_t S1 = 0;
 
 	if ((tsNck2910RecvFrame.m_Data[3] & (1 << 6)) != 0)
 	{
-		S1					|= (1 << 0);
+		S1 |= (1 << 0);
 	} /* S1 Bit0: SiCounter 0b6 */
 
 	if ((tsNck2910RecvFrame.m_Data[3] & (1 << 4)) != 0)
 	{
-		S1					|= (1 << 1);
+		S1 |= (1 << 1);
 	} /* S1 Bit1: SiCounter 0b4 */
 
 	if ((tsNck2910RecvFrame.m_Data[4] & (1 << 2)) != 0)
 	{
-		S1					|= (1 << 2);
+		S1 |= (1 << 2);
 	} /* S1 Bit2: SiCounter 1b2 */
 
 	if ((tsNck2910RecvFrame.m_Data[4] & (1 << 0)) != 0)
 	{
-		S1					|= (1 << 3);
+		S1 |= (1 << 3);
 	} /* S1 Bit3: SiCounter 1b0 */
 
-	uint8_t 		S2	= 0;
+	uint8_t S2 = 0;
 
 	if ((tsNck2910RecvFrame.m_Data[3] & (1 << 4)) != 0)
 	{
-		S2					|= (1 << 0);
+		S2 |= (1 << 0);
 	} /* S2 Bit0: SiCounter 0b4 */
 
 	if ((tsNck2910RecvFrame.m_Data[3] & (1 << 5)) != 0)
 	{
-		S2					|= (1 << 1);
+		S2 |= (1 << 1);
 	} /* S2 Bit1: SiCounter 0b5 */
 
 	if ((tsNck2910RecvFrame.m_Data[4] & (1 << 2)) != 0)
 	{
-		S2					|= (1 << 2);
+		S2 |= (1 << 2);
 	} /* S2 Bit2: SiCounter 0b2 */
 
 	if ((tsNck2910RecvFrame.m_Data[4] & (1 << 1)) != 0)
 	{
-		S2					|= (1 << 3);
+		S2 |= (1 << 3);
 	} /* S2 Bit3: SiCounter 0b1 */
 
-	u8arr_AESInreg[0]	= u8arr_AESOutreg[S2];
-	u8arr_AESInreg[1]	= u8arr_AESOutreg[S1];
-	u8arr_AESInreg[2]	= u8arr_AESOutreg[S0];
+	u8arr_AESInreg[0] = u8arr_AESOutreg[S2];
+	u8arr_AESInreg[1] = u8arr_AESOutreg[S1];
+	u8arr_AESInreg[2] = u8arr_AESOutreg[S0];
 
 	u16UhfFrameRkeAuthOkCount++;
 
 	if ((tsRke_ReceiveBuf.Mac[0] == u8arr_AESInreg[0]) && (tsRke_ReceiveBuf.Mac[1] == u8arr_AESInreg[1]) &&
-		 (tsRke_ReceiveBuf.Mac[2] == u8arr_AESInreg[2]))
+		(tsRke_ReceiveBuf.Mac[2] == u8arr_AESInreg[2]))
 	{
 		u8FobKey_Id_Message = FOBKEY_NUM + 1;
 
 		u8FobKey_Volt_Status = BAT_VOL_LOW_IND;
 
+#if 1
 		u16UhfFrameRkeAuthOkCount++;
 
-		//=============================Í¬²½¼ÆÊýÖµÊÇ·ñÂú×ãÒªÇó=============================
+		//=============================Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½=============================
 		if (Save_CounterValue > 0)
 		{
-			u32tmp_reg			= 0;
+			u32tmp_reg = 0;
 
 			if (tsRke_ReceiveBuf.Sync_Counter > Save_CounterValue)
 			{
-				u32tmp_reg			= tsRke_ReceiveBuf.Sync_Counter - Save_CounterValue;
+				u32tmp_reg = tsRke_ReceiveBuf.Sync_Counter - Save_CounterValue;
 			}
 
 			if ((u32tmp_reg == 0) || (u32tmp_reg > 0x7FFF))
 			{
-				//²»ÔÚË«²Ù×÷´°¿ÚÄÚ
+				// ï¿½ï¿½ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				return;
 			}
 			else if (u32tmp_reg > WINDOW_SIZE)
 			{
 
-				//»¹ÔÚµÚ¶þ²Ù×÷´°¿ÚÄÚ
-				Save_CounterValue	= tsRke_ReceiveBuf.Sync_Counter; //¼ÌÐøÍ¬²½
+				// ï¿½ï¿½ï¿½ÚµÚ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				Save_CounterValue = tsRke_ReceiveBuf.Sync_Counter; // ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½
 				return;
 			}
-			else 
+			else
 			{
-				Save_CounterValue	= 0;			//Í¬²½³É¹¦
+				Save_CounterValue = 0; // Í¬ï¿½ï¿½ï¿½É¹ï¿½
 			}
 		}
-		else 
+		else
 		{
 			if (tsRke_ReceiveBuf.Sync_Counter <= tsTransmitters[FOBKEY_NUM].Sync_Counter)
 			{
 				u8Sync_Counter_Err_Flag = 1 << FOBKEY_NUM;
 				return;
 			}
-			else 
+			else
 			{
-				u32tmp_reg			= tsRke_ReceiveBuf.Sync_Counter - tsTransmitters[FOBKEY_NUM].Sync_Counter;
+				u32tmp_reg = tsRke_ReceiveBuf.Sync_Counter - tsTransmitters[FOBKEY_NUM].Sync_Counter;
 
 				if (u32tmp_reg > 0x7FFFF)
 				{
-					//²»ÔÚË«²Ù×÷´°¿ÚÄÚ
+					// ï¿½ï¿½ï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					u8Sync_Counter_Err_Flag = 1 << FOBKEY_NUM;
 					return;
 				}
 				else if (u32tmp_reg > WINDOW_SIZE)
 				{
-					//Í¬²½ÖµÔÚË«²Ù×÷´°¿ÚÄÚ,ÐèÒª°´ÏÂÒ»´ÎÒ£¿Ø£¬½øÐÐÍ¬²½
-					Save_CounterValue	= tsRke_ReceiveBuf.Sync_Counter;
+					// Í¬ï¿½ï¿½Öµï¿½ï¿½Ë«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ò£ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½
+					Save_CounterValue = tsRke_ReceiveBuf.Sync_Counter;
 					return;
 				}
 			}
 		}
-
+#endif
 		u16UhfFrameRkeAuthOkCount++;
 
 		Execute_Command();
@@ -567,53 +555,48 @@ static void UhfFobKeyRkeProcess(void)
 
 		if (u8PlanUseFobKeyUid_Index[0] != FOBKEY_NUM)
 		{
-			u32tmp_reg			= u8PlanUseFobKeyUid_Index[0];
+			u32tmp_reg = u8PlanUseFobKeyUid_Index[0];
 			u8PlanUseFobKeyUid_Index[0] = FOBKEY_NUM;
 			u8PlanUseFobKeyUid_Index[1] = (uint8)
-			u32tmp_reg;
+				u32tmp_reg;
 			Rke_Flash_Write(TRANSMITTER_ID_SAVE_ADDR, u8PlanUseFobKeyUid_Index, 2);
 		}
 
 		tsTransmitters[FOBKEY_NUM].Sync_Counter = tsRke_ReceiveBuf.Sync_Counter;
 
-		//¸üÐÂÍ¬²½¼ÆÊýÖµ
+		// ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 		tsFobKeyMessageSave_A.FobKeyCount = u8TransmitterCount;
 		memcpy(&tsFobKeyMessageSave_A.Fifo_Data[0], &tsTransmitters[0].SerialNo, 25);
 		memcpy(&tsFobKeyMessageSave_A.Fifo_Data[25], &tsTransmitters[1].SerialNo, 25);
 		memcpy(&tsFobKeyMessageSave_A.Fifo_Data[50], &tsTransmitters[2].SerialNo, 25);
 		memcpy(&tsFobKeyMessageSave_A.Fifo_Data[75], &tsTransmitters[3].SerialNo, 25);
 
-		//memcpy(&tsFobKeyMessageSave_A.Fifo_Data[100],&tsTransmitters[4].SerialNo,25);
+		// memcpy(&tsFobKeyMessageSave_A.Fifo_Data[100],&tsTransmitters[4].SerialNo,25);
 		tsFobKeyMessageSave_A.Crc8 = _CalculateCRC8(tsFobKeyMessageSave_A.Fifo_Data,
-			 sizeof(tsFobKeyMessageSave_A) - 1);
+													sizeof(tsFobKeyMessageSave_A) - 1);
 
-		//¸üÐÂEEPROMÊý¾ÝAÇø,BÇø
+		// ï¿½ï¿½ï¿½ï¿½EEPROMï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½,Bï¿½ï¿½
 		Rke_Flash_Write(TRANSMITTERS_EEPROM_ADDR, tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A));
 
 #ifdef QN_DEBUG
 		sdrv_gpio_toggle_pin_output_level(GPIO_L7);
 #endif
-
 	}
-	else 
+	else
 	{
-
-
 	}
 }
 
-
-uint32_t		u32calc_val01 = 0;
-uint32_t		u32calc_val02 = 0;
-
+uint32_t u32calc_val01 = 0;
+uint32_t u32calc_val02 = 0;
 
 static void UhfPkePkgProcess(void)
 {
-	uint8_t 		u8arr_AESInreg[16]; 			// array for Inreg data
-	uint8_t 		u8arr_AESKey[16];				// array for crypto key
-	uint8_t 		u8arr_AESOutreg[16];			// array for outreg data
-
-	static uint8_t	u8RecodeCnt = 0;
+	uint8_t u8arr_AESInreg[16];	 // array for Inreg data
+	uint8_t u8arr_AESKey[16];	 // array for crypto key
+	uint8_t u8arr_AESOutreg[16]; // array for outreg data
+	LONG_UNION Rand_Val;
+	static uint8_t u8RecodeCnt = 0;
 
 	if (Get_Njj29c0_WorkStatus() == lf_ide)
 	{
@@ -628,27 +611,24 @@ static void UhfPkePkgProcess(void)
 
 		if ((FRAME_LF_CMD >= 0x10) && (FRAME_LF_CMD <= 0x14))
 		{
-			JOKER_StopLfTransmit();
-			JOKER_StartSleep();
-		
-			u8arr_AESInreg[0]	= tsAes_Crypt_Buffer.Use_Seed[3];
-			u8arr_AESInreg[1]	= tsAes_Crypt_Buffer.Use_Seed[2];
-			u8arr_AESInreg[2]	= tsAes_Crypt_Buffer.Use_Seed[1];
-			u8arr_AESInreg[3]	= tsAes_Crypt_Buffer.Use_Seed[0];
+			u8arr_AESInreg[0] = tsAes_Crypt_Buffer.Use_Seed[3];
+			u8arr_AESInreg[1] = tsAes_Crypt_Buffer.Use_Seed[2];
+			u8arr_AESInreg[2] = tsAes_Crypt_Buffer.Use_Seed[1];
+			u8arr_AESInreg[3] = tsAes_Crypt_Buffer.Use_Seed[0];
 
-			u8arr_AESInreg[4]	= tsAes_Crypt_Buffer.Use_Id[0] ^tsAes_Crypt_Buffer.Use_Id[2];
-			u8arr_AESInreg[5]	= tsAes_Crypt_Buffer.Use_Id[1] ^tsAes_Crypt_Buffer.Use_Id[3];
+			u8arr_AESInreg[4] = tsAes_Crypt_Buffer.Use_Id[0] ^ tsAes_Crypt_Buffer.Use_Id[2];
+			u8arr_AESInreg[5] = tsAes_Crypt_Buffer.Use_Id[1] ^ tsAes_Crypt_Buffer.Use_Id[3];
 
-			u8arr_AESInreg[6]	= ((tsAes_Crypt_Buffer.Use_Seed[0] ^tsAes_Crypt_Buffer.Use_Id[3]));
-			u8arr_AESInreg[7]	= ((tsAes_Crypt_Buffer.Use_Seed[1] ^tsAes_Crypt_Buffer.Use_Id[2]));
-			u8arr_AESInreg[8]	= ((tsAes_Crypt_Buffer.Use_Seed[2] ^tsAes_Crypt_Buffer.Use_Id[1]));
-			u8arr_AESInreg[9]	= ((tsAes_Crypt_Buffer.Use_Seed[3] ^tsAes_Crypt_Buffer.Use_Id[0]));
-			u8arr_AESInreg[10]	= ((tsAes_Crypt_Buffer.Use_Seed[0] ^tsAes_Crypt_Buffer.Use_Seed[1]));
-			u8arr_AESInreg[11]	= ((tsAes_Crypt_Buffer.Use_Seed[0] ^tsAes_Crypt_Buffer.Use_Seed[2]));
-			u8arr_AESInreg[12]	= ((tsAes_Crypt_Buffer.Use_Seed[0] ^tsAes_Crypt_Buffer.Use_Seed[3]));
-			u8arr_AESInreg[13]	= ((tsAes_Crypt_Buffer.Use_Seed[1] ^tsAes_Crypt_Buffer.Use_Seed[2]));
-			u8arr_AESInreg[14]	= ((tsAes_Crypt_Buffer.Use_Seed[1] ^tsAes_Crypt_Buffer.Use_Seed[3]));
-			u8arr_AESInreg[15]	= ((tsAes_Crypt_Buffer.Use_Seed[2] ^tsAes_Crypt_Buffer.Use_Seed[3]));
+			u8arr_AESInreg[6] = ((tsAes_Crypt_Buffer.Use_Seed[0] ^ tsAes_Crypt_Buffer.Use_Id[3]));
+			u8arr_AESInreg[7] = ((tsAes_Crypt_Buffer.Use_Seed[1] ^ tsAes_Crypt_Buffer.Use_Id[2]));
+			u8arr_AESInreg[8] = ((tsAes_Crypt_Buffer.Use_Seed[2] ^ tsAes_Crypt_Buffer.Use_Id[1]));
+			u8arr_AESInreg[9] = ((tsAes_Crypt_Buffer.Use_Seed[3] ^ tsAes_Crypt_Buffer.Use_Id[0]));
+			u8arr_AESInreg[10] = ((tsAes_Crypt_Buffer.Use_Seed[0] ^ tsAes_Crypt_Buffer.Use_Seed[1]));
+			u8arr_AESInreg[11] = ((tsAes_Crypt_Buffer.Use_Seed[0] ^ tsAes_Crypt_Buffer.Use_Seed[2]));
+			u8arr_AESInreg[12] = ((tsAes_Crypt_Buffer.Use_Seed[0] ^ tsAes_Crypt_Buffer.Use_Seed[3]));
+			u8arr_AESInreg[13] = ((tsAes_Crypt_Buffer.Use_Seed[1] ^ tsAes_Crypt_Buffer.Use_Seed[2]));
+			u8arr_AESInreg[14] = ((tsAes_Crypt_Buffer.Use_Seed[1] ^ tsAes_Crypt_Buffer.Use_Seed[3]));
+			u8arr_AESInreg[15] = ((tsAes_Crypt_Buffer.Use_Seed[2] ^ tsAes_Crypt_Buffer.Use_Seed[3]));
 
 			memcpy(u8arr_AESKey, tsAes_Crypt_Buffer.Use_SecretKey, 16);
 
@@ -661,26 +641,23 @@ static void UhfPkePkgProcess(void)
 			u16UhfFramePkeAuthOkCount++;
 
 			if ((tsAes_Crypt_Buffer.Calc_Mac_Code[0] == tsNck2910RecvFrame.m_Data[2]) &&
-				 (tsAes_Crypt_Buffer.Calc_Mac_Code[1] == tsNck2910RecvFrame.m_Data[3]))
+				(tsAes_Crypt_Buffer.Calc_Mac_Code[1] == tsNck2910RecvFrame.m_Data[3]))
 			{
 				memcpy(u8SpiCurReadUhfDataBuf, &tsNck2910RecvFrame.m_Data[0], 14);
 
 				u16UhfFramePkeAuthOkCount++;
 
-				u8HitagAuthPass 	= 1;
+				u8HitagAuthPass = 1;
 
 				if (FRAME_LF_CMD == 0x10)
-				{         
+				{
 					InCar_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[4]);
+					Lf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[7]);
+					Rf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[10]);
 
-					/*if(LF_ANT_CHANNEL_FOUR_STATUS > 0)
-					{
-						InCar_CurRssiCalcVal.value = 0.0f;
-					}*/
-					
-					//Lf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[7]);
-					//Rf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[10]);
-					//u32calc_val01		= (uint32_t) (InCar_CurRssiCalcVal.value * 1000.0);
+					u32InCarAntRssi.Value = (uint32_t)(InCar_CurRssiCalcVal.value * 1000.0);
+					u32LfAntRssi.Value = (uint32_t)(Lf_Door_CurRssiCalcVal.value * 1000.0);
+					u32RfAntRssi.Value = (uint32_t)(Rf_Door_CurRssiCalcVal.value * 1000.0);
 
 					if (Get_Njj29c0_WorkStatus() == lf_ps)
 					{
@@ -692,6 +669,17 @@ static void UhfPkePkgProcess(void)
 						else
 						{
 							SetPs_AuthFobStatus(2);
+							// zch debug
+							memset(g_datCan1Tx_0x330, 0, 8);
+							g_datCan1Tx_0x330[0] = 0x80;
+							g_datCan1Tx_0x330[1] = 0x02;
+							g_datCan1Tx_0x330[2] = 0x01;
+							g_datCan1Tx_0x330[3] = u32InCarAntRssi.CHAR_BYTE.Low_byte;
+							g_datCan1Tx_0x330[4] = u32InCarAntRssi.CHAR_BYTE.Mlow_byte;
+							g_datCan1Tx_0x330[5] = u32InCarAntRssi.CHAR_BYTE.Mhigh_byte;
+							g_datCan1Tx_0x330[6] = u32InCarAntRssi.CHAR_BYTE.High_byte;
+
+							BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 						}
 
 #else
@@ -700,16 +688,16 @@ static void UhfPkePkgProcess(void)
 
 						if (u8PlanUseFobKeyUid_Index[0] != FOBKEY_NUM)
 						{
-							u8arr_AESOutreg[0]	= u8PlanUseFobKeyUid_Index[0];
+							u8arr_AESOutreg[0] = u8PlanUseFobKeyUid_Index[0];
 							u8PlanUseFobKeyUid_Index[0] = FOBKEY_NUM;
 							u8PlanUseFobKeyUid_Index[1] = u8arr_AESOutreg[0];
 							Rke_Flash_Write(TRANSMITTER_ID_SAVE_ADDR, u8PlanUseFobKeyUid_Index, 2);
 						}
 					}
-					else if (Get_Njj29c0_WorkStatus() == lf_prohibit_key)
+					else if ((Get_Njj29c0_WorkStatus() == lf_prohibit_key) || (Get_Njj29c0_WorkStatus() == lf_prohibit_WelcomeGuest_key))
 					{
 #if 1
-						if(InCar_CurRssiCalcVal.value >= Ps_Ant_Rssi_Limit)
+						if (InCar_CurRssiCalcVal.value >= Ps_Ant_Rssi_Limit)
 						{
 							if (u8PlanUseFobKeyUid_Index[0] != FOBKEY_NUM)
 							{
@@ -720,33 +708,45 @@ static void UhfPkePkgProcess(void)
 						tsTransmitters[FOBKEY_NUM].FobKeyEn = 1;
 #endif
 					}
-					else 
+					else
 					{
-
 					}
 				}
 				else if (FRAME_LF_CMD == 0x11)
 				{
 					Lf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[4]);
 					InCar_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[7]);
-					//u32calc_val01		= (uint32_t) (InCar_CurRssiCalcVal.value * 1000.0);
-					if(LF_ANT_CHANNEL_FOUR_STATUS > 0)
+
+					if (LF_ANT_CHANNEL_FOUR_STATUS > 0)
 					{
 						InCar_CurRssiCalcVal.value = 0.0f;
 					}
-					
-					if(LF_ANT_CHANNEL_TWO_STATUS > 0)
+
+					if (LF_ANT_CHANNEL_TWO_STATUS > 0)
 					{
 						Lf_Door_CurRssiCalcVal.value = 0.0f;
 					}
 
+					u32InCarAntRssi.Value = (uint32_t)(InCar_CurRssiCalcVal.value * 1000.0);
+					u32LfAntRssi.Value = (uint32_t)(Lf_Door_CurRssiCalcVal.value * 1000.0);
+					u32RfAntRssi.Value = 0;
 
-#if 0
+#if 1
 					if (InCar_CurRssiCalcVal.value >= Ps_Ant_Rssi_Limit)
 					{
 						SetPe_AuthFobStatus(3);
+						// zch debug
+						memset(g_datCan1Tx_0x330, 0, 8);
+						g_datCan1Tx_0x330[0] = 0x80;
+						g_datCan1Tx_0x330[1] = 0x01;
+						g_datCan1Tx_0x330[2] = 0x05;
+						g_datCan1Tx_0x330[3] = u32InCarAntRssi.CHAR_BYTE.Low_byte;
+						g_datCan1Tx_0x330[4] = u32InCarAntRssi.CHAR_BYTE.Mlow_byte;
+						g_datCan1Tx_0x330[5] = u32InCarAntRssi.CHAR_BYTE.Mhigh_byte;
+						g_datCan1Tx_0x330[6] = u32InCarAntRssi.CHAR_BYTE.High_byte;
+						BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 					}
-					else 
+					else
 					{
 						if (Lf_Door_CurRssiCalcVal.value >= Lf_DoorAnt_Rssi_Limit)
 						{
@@ -755,6 +755,17 @@ static void UhfPkePkgProcess(void)
 						else
 						{
 							SetPe_AuthFobStatus(2);
+							// zch debug
+							memset(g_datCan1Tx_0x330, 0, 8);
+							g_datCan1Tx_0x330[0] = 0x80;
+							g_datCan1Tx_0x330[1] = 0x01;
+							g_datCan1Tx_0x330[2] = 0x06;
+
+							g_datCan1Tx_0x330[3] = u32LfAntRssi.CHAR_BYTE.Low_byte;
+							g_datCan1Tx_0x330[4] = u32LfAntRssi.CHAR_BYTE.Mlow_byte;
+							g_datCan1Tx_0x330[5] = u32LfAntRssi.CHAR_BYTE.Mhigh_byte;
+							g_datCan1Tx_0x330[6] = u32LfAntRssi.CHAR_BYTE.High_byte;
+							BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 						}
 					}
 #else
@@ -771,7 +782,7 @@ static void UhfPkePkgProcess(void)
 
 					if (u8PlanUseFobKeyUid_Index[0] != FOBKEY_NUM)
 					{
-						u8arr_AESOutreg[0]	= u8PlanUseFobKeyUid_Index[0];
+						u8arr_AESOutreg[0] = u8PlanUseFobKeyUid_Index[0];
 						u8PlanUseFobKeyUid_Index[0] = FOBKEY_NUM;
 						u8PlanUseFobKeyUid_Index[1] = u8arr_AESOutreg[0];
 						Rke_Flash_Write(TRANSMITTER_ID_SAVE_ADDR, u8PlanUseFobKeyUid_Index, 2);
@@ -781,23 +792,38 @@ static void UhfPkePkgProcess(void)
 				{
 					Rf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[4]);
 					InCar_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[7]);
-					//u32calc_val01		= (uint32_t) (InCar_CurRssiCalcVal.value * 1000.0);
-					if(LF_ANT_CHANNEL_FOUR_STATUS > 0)
+
+					if (LF_ANT_CHANNEL_FOUR_STATUS > 0)
 					{
 						InCar_CurRssiCalcVal.value = 0.0f;
 					}
-					
-					if(LF_ANT_CHANNEL_THREE_STATUS > 0)
+
+					if (LF_ANT_CHANNEL_THREE_STATUS > 0)
 					{
 						Lf_Door_CurRssiCalcVal.value = 0.0f;
 					}
-#if 0
+
+					u32InCarAntRssi.Value = (uint32_t)(InCar_CurRssiCalcVal.value * 1000.0);
+					u32LfAntRssi.Value = 0;
+					u32RfAntRssi.Value = (uint32_t)(Rf_Door_CurRssiCalcVal.value * 1000.0);
+
+#if 1
 
 					if (InCar_CurRssiCalcVal.value >= Ps_Ant_Rssi_Limit)
 					{
 						SetPe_AuthFobStatus(3);
+						// zch debug
+						memset(g_datCan1Tx_0x330, 0, 8);
+						g_datCan1Tx_0x330[0] = 0x80;
+						g_datCan1Tx_0x330[1] = 0x01;
+						g_datCan1Tx_0x330[2] = 0x07;
+						g_datCan1Tx_0x330[3] = u32InCarAntRssi.CHAR_BYTE.Low_byte;
+						g_datCan1Tx_0x330[4] = u32InCarAntRssi.CHAR_BYTE.Mlow_byte;
+						g_datCan1Tx_0x330[5] = u32InCarAntRssi.CHAR_BYTE.Mhigh_byte;
+						g_datCan1Tx_0x330[6] = u32InCarAntRssi.CHAR_BYTE.High_byte;
+						BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 					}
-					else 
+					else
 					{
 						if (Rf_Door_CurRssiCalcVal.value >= Rf_DoorAnt_Rssi_Limit)
 						{
@@ -806,10 +832,20 @@ static void UhfPkePkgProcess(void)
 						else
 						{
 							SetPe_AuthFobStatus(2);
+							// zch debug
+							memset(g_datCan1Tx_0x330, 0, 8);
+							g_datCan1Tx_0x330[0] = 0x80;
+							g_datCan1Tx_0x330[1] = 0x01;
+							g_datCan1Tx_0x330[2] = 0x08;
+							g_datCan1Tx_0x330[3] = u32RfAntRssi.CHAR_BYTE.Low_byte;
+							g_datCan1Tx_0x330[4] = u32RfAntRssi.CHAR_BYTE.Mlow_byte;
+							g_datCan1Tx_0x330[5] = u32RfAntRssi.CHAR_BYTE.Mhigh_byte;
+							g_datCan1Tx_0x330[6] = u32RfAntRssi.CHAR_BYTE.High_byte;
+							BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 						}
 					}
 #else
-		
+
 					if (Rf_Door_CurRssiCalcVal.value >= Rf_DoorAnt_Rssi_Limit)
 					{
 						SetPe_AuthFobStatus(1);
@@ -822,7 +858,7 @@ static void UhfPkePkgProcess(void)
 
 					if (u8PlanUseFobKeyUid_Index[0] != FOBKEY_NUM)
 					{
-						u8arr_AESOutreg[0]	= u8PlanUseFobKeyUid_Index[0];
+						u8arr_AESOutreg[0] = u8PlanUseFobKeyUid_Index[0];
 						u8PlanUseFobKeyUid_Index[0] = FOBKEY_NUM;
 						u8PlanUseFobKeyUid_Index[1] = u8arr_AESOutreg[0];
 						Rke_Flash_Write(TRANSMITTER_ID_SAVE_ADDR, u8PlanUseFobKeyUid_Index, 2);
@@ -832,48 +868,118 @@ static void UhfPkePkgProcess(void)
 				{
 					Lf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[4]);
 				}
-				else 
+				else
 				{
-					;
 				}
 
 #ifdef QN_DEBUG
 				sdrv_gpio_toggle_pin_output_level(GPIO_L8);
 #endif
 			}
+			else
+			{
+				// zch debug
+				memset(g_datCan1Tx_0x330, 0, 8);
+				g_datCan1Tx_0x330[0] = 0x80;
+				g_datCan1Tx_0x330[1] = 0x03;
+				g_datCan1Tx_0x330[2] = 0x00;
+				BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+			}
 		}
 		else if (FRAME_LF_CMD == 0x15)
 		{
 			bWaitAllFobKey_A_WakeUp = 1;
 			Lf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[2]);
+			u32InCarAntRssi.Value = 0;
+			u32LfAntRssi.Value = (uint32_t)(Lf_Door_CurRssiCalcVal.value * 1000.0);
+			u32RfAntRssi.Value = 0;
+
+			// zch debug
+			memset(g_datCan1Tx_0x330, 0, 8);
+			g_datCan1Tx_0x330[0] = 0x80;
+			g_datCan1Tx_0x330[1] = 0x04;
+			g_datCan1Tx_0x330[2] = u32LfAntRssi.CHAR_BYTE.Low_byte;
+			g_datCan1Tx_0x330[3] = u32LfAntRssi.CHAR_BYTE.Mlow_byte;
+			g_datCan1Tx_0x330[4] = u32LfAntRssi.CHAR_BYTE.Mhigh_byte;
+			g_datCan1Tx_0x330[5] = u32LfAntRssi.CHAR_BYTE.High_byte;
+			BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 		}
 		else if (FRAME_LF_CMD == 0x16)
 		{
 			bWaitAllFobKey_B_WakeUp = 1;
 			Rf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[2]);
+			u32InCarAntRssi.Value = 0;
+			u32LfAntRssi.Value = 0;
+			u32RfAntRssi.Value = (uint32_t)(Rf_Door_CurRssiCalcVal.value * 1000.0);
+
+			// zch debug
+			memset(g_datCan1Tx_0x330, 0, 8);
+			g_datCan1Tx_0x330[0] = 0x80;
+			g_datCan1Tx_0x330[1] = 0x05;
+			g_datCan1Tx_0x330[2] = u32RfAntRssi.CHAR_BYTE.Low_byte;
+			g_datCan1Tx_0x330[3] = u32RfAntRssi.CHAR_BYTE.Mlow_byte;
+			g_datCan1Tx_0x330[4] = u32RfAntRssi.CHAR_BYTE.Mhigh_byte;
+			g_datCan1Tx_0x330[5] = u32RfAntRssi.CHAR_BYTE.High_byte;
+			BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 		}
 		else if (FRAME_LF_CMD == 0x09)
 		{
-			if (u8PlanUseFobKeyUid_Index[0] != FOBKEY_NUM)
+#if 0
+			if((u8PlanUseFobKeyUid_Index[0] == FOBKEY_NUM) || (u8PlanUseFobKeyUid_Index[1] == FOBKEY_NUM))	
 			{
-				u8arr_AESOutreg[0]	= u8PlanUseFobKeyUid_Index[0];
-				u8PlanUseFobKeyUid_Index[0] = FOBKEY_NUM;
-				u8PlanUseFobKeyUid_Index[1] = u8arr_AESOutreg[0];
-				Rke_Flash_Write(TRANSMITTER_ID_SAVE_ADDR, u8PlanUseFobKeyUid_Index, 2);
-			}
-			u8HitagAuthPass 	= 1;
-		}
+				if(tsTransmitters[FOBKEY_NUM].FobKeyEn == 0)
+				{
+					Rand_Val.Value = tsTransmitters[FOBKEY_NUM].SerialNo;
 
-		Change_Njj29c0_WorkStatus(lf_ide);
+					u8arr_AESInreg[0] = Rand_Val.CHAR_BYTE.High_byte^Rand_Val.CHAR_BYTE.Mlow_byte;	//Borrow  u8arr_AESInreg
+					u8arr_AESInreg[1] = Rand_Val.CHAR_BYTE.Mhigh_byte^Rand_Val.CHAR_BYTE.Low_byte;  //Borrow  u8arr_AESInreg
+
+					if((tsNck2910RecvFrame.m_Data[2] == u8arr_AESInreg[0])&&(tsNck2910RecvFrame.m_Data[3] == u8arr_AESInreg[1]))
+					{
+						if((u8WelcomeGuestWakeUpInd & 0x01) == 0x00)
+						{
+							u8WelcomeGuestWakeUpInd |= 0x01;
+							u8PlanUseFobKeyUid_Index[0] = FOBKEY_NUM;
+						}
+						else if((u8WelcomeGuestWakeUpInd & 0x02) == 0x00)
+						{
+							u8WelcomeGuestWakeUpInd 	|= 0x02;
+							u8PlanUseFobKeyUid_Index[1] = FOBKEY_NUM;
+						}
+					}
+				}
+			}
+#else
+			if (tsTransmitters[FOBKEY_NUM].FobKeyEn == 0)
+			{
+				if ((u8WelcomeGuestWakeUpInd & 0x01) == 0x00)
+				{
+					u8WelcomeGuestWakeUpInd |= 0x01;
+				}
+				else if ((u8WelcomeGuestWakeUpInd & 0x02) == 0x00)
+				{
+					u8WelcomeGuestWakeUpInd |= 0x02;
+				}
+			}
+#endif
+		}
+	}
+	else
+	{
+		// zch debug
+		memset(g_datCan1Tx_0x330, 0, 8);
+		g_datCan1Tx_0x330[0] = 0x80;
+		g_datCan1Tx_0x330[1] = 0x03;
+		g_datCan1Tx_0x330[2] = 0x01;
+		BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 	}
 }
 
-
 static void Calibration_Rssi_Process(void)
 {
-	uint32			u32tmpreg = 0;
+	uint32 u32tmpreg = 0;
 
-	if(Vehicle_Calibration_Ant == 0)
+	if (Vehicle_Calibration_Ant == 0)
 	{
 		InCar_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[2]);
 
@@ -881,7 +987,7 @@ static void Calibration_Rssi_Process(void)
 
 		Rf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[8]);
 	}
-	else if(Vehicle_Calibration_Ant == 1)
+	else if (Vehicle_Calibration_Ant == 1)
 	{
 		Lf_Door_CurRssiCalcVal.value = NXPFloat24_to_IEEEFloat(&tsNck2910RecvFrame.m_Data[2]);
 
@@ -899,8 +1005,8 @@ static void Calibration_Rssi_Process(void)
 	}
 
 	Change_Njj29c0_WorkStatus(lf_ide);
-        
-    JOKER_StopLfTransmit();
+
+	JOKER_StopLfTransmit();
 
 	JOKER_StartSleep();
 
@@ -909,23 +1015,22 @@ static void Calibration_Rssi_Process(void)
 	u32RfAntRssi.Value = (uint32)(Rf_Door_CurRssiCalcVal.value * 1000.0);
 
 	u8HitagAuthPass = 11;
-		
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : UhfRxHandler
- * ÃèÊö	 : ¸ßÆµ½ÓÊÕÊý¾Ý´¦Àí
- * ÊäÈë	 : None
- * ·µ»Ø	 : None
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : UhfRxHandler
+ * ï¿½ï¿½ï¿½ï¿½	 : ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½	 : None
+ * ï¿½ï¿½ï¿½ï¿½	 : None
  *******************************************************************************/
 void UhfRxHandler(void)
 {
-	static uint8_t	u8FobKeyEnterMatchPatternLast = 0;
+	static uint8_t u8FobKeyEnterMatchPatternLast = 0;
+	static uint8 u8FobKeyClrCycye = 12;
 
 	if (False == Fifo_IsEmpty(&LPFifo))
 	{
-		tsNck2910RecvFrame	= Fifo_Read(&LPFifo);
+		tsNck2910RecvFrame = Fifo_Read(&LPFifo);
 
 		if (tsNck2910RecvFrame.m_DataLength > 4)
 		{
@@ -935,35 +1040,35 @@ void UhfRxHandler(void)
 			{
 				Calibration_Rssi_Process();
 			}
-			else 
+			else
 			{
 				if (0 == FRAME_TYPE)
 				{
 					UhfFobKeyRkeProcess();
 				}
-				else 
+				else
 				{
 					UhfPkePkgProcess();
+					u8FobKeyButtonCmdPre = 0;
 				}
 			}
 		}
-		else 
+		else
 		{
 			if (u8FobKeyButtonCmdPre > 0)
 			{
-				tsNck2910RecvFrame.m_Data[0] = tsNck2910RecvFrame.m_Data[0] &0x0f;
+				tsNck2910RecvFrame.m_Data[0] = tsNck2910RecvFrame.m_Data[0] & 0x0f;
 
 				if (tsNck2910RecvFrame.m_Data[0] == 0x08)
 				{
-
 				}
-				else 
+				else
 				{
 					u8FobkeyLongPressValidTimeCnt = 0;
 					u8FobKeyButtonPressInd = 0;
 					u8FobKeyButtonCmdPre = 0;
 
-					if (u8Fobkey_Cur_RkeCmd >= 0x31)
+					if (u8Fobkey_Cur_RkeCmd >= FOBKEY_RKE_OPENWINDOW)
 					{
 						u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_IDLE;
 					}
@@ -971,21 +1076,21 @@ void UhfRxHandler(void)
 					return;
 				}
 
-				if ((tsNck2910RecvFrame.m_Data[1] &0x10) == 0x10)
+				if ((tsNck2910RecvFrame.m_Data[1] & 0x10) == 0x10)
 				{
-					//Ò£¿Ø×îºóÒ»Ö¡Êý¾Ý
-					if (u8Fobkey_Cur_RkeCmd >= 0x31)
+					// Ò£ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ö¡ï¿½ï¿½ï¿½ï¿½
+					if (u8Fobkey_Cur_RkeCmd >= FOBKEY_RKE_OPENWINDOW)
 					{
 						u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_IDLE;
 					}
 				}
-				else if ((tsNck2910RecvFrame.m_Data[1] &0x10) == 0x00)
+				else if ((tsNck2910RecvFrame.m_Data[1] & 0x10) == 0x00)
 				{
-					tsNck2910RecvFrame.m_Data[1] = tsNck2910RecvFrame.m_Data[1] &0x07;
+					tsNck2910RecvFrame.m_Data[1] = tsNck2910RecvFrame.m_Data[1] & 0x07;
 
 					if (tsNck2910RecvFrame.m_Data[1] == u8FobKeyButtonCmdPre)
 					{
-						//Ç°ºó2¸ö°´¼üÊÇÍ¬Ò»¸ö°´¼ü
+						// Ç°ï¿½ï¿½2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						u8FobKeyButtonPressInd = 1;
 						u8FobkeyLongPressValidTimeCnt = 0;
 
@@ -1019,6 +1124,12 @@ void UhfRxHandler(void)
 					}
 				}
 			}
+			else
+			{
+				u16LockLongPressTimingCnt = 0;
+				u16UnlockLongPressTimingCnt = 0;
+				u16TrunkLongPressTimingCnt = 0;
+			}
 		}
 	}
 
@@ -1032,12 +1143,28 @@ void UhfRxHandler(void)
 			u8FobKeyButtonCmdPre = 0;
 			u8FobKeyButtonPressInd = 0;
 
-			if (u8Fobkey_Cur_RkeCmd >= 0x31)
+			if (u8Fobkey_Cur_RkeCmd >= FOBKEY_RKE_OPENWINDOW)
 			{
 				u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_IDLE;
 			}
-		} //°´¼üÐÅºÅ³¬¹ý300ms¶¼Ã»ÓÐ¸üÐÂ¡£
+		} // ï¿½ï¿½ï¿½ï¿½ï¿½ÅºÅ³ï¿½ï¿½ï¿½300msï¿½ï¿½Ã»ï¿½Ð¸ï¿½ï¿½Â¡ï¿½
 	}
+
+	if (((u8Fobkey_Cur_RkeCmd >= FOBKEY_RKE_UNLOCK) && (u8Fobkey_Cur_RkeCmd <= FOBKEY_RKE_TRUNK_UNLOCK)) ||
+		(u8Fobkey_Cur_RkeCmd == FOBKEY_RKE_TRUNK_ALWAYS))
+	{
+		u8FobKeyClrCycye--;
+		if (u8FobKeyClrCycye == 0) // ï¿½ï¿½Ð§Ê±ï¿½ï¿½120ms
+		{
+			u8Fobkey_Cur_RkeCmd = 0;
+		}
+	}
+	else
+	{
+		u8FobKeyClrCycye = 12;
+	}
+
+	// u8FobKeyEnterWorkState = u8LearnFobkey;
 
 	if (1 == u8FobKeyEnterWorkState)
 	{
@@ -1048,6 +1175,7 @@ void UhfRxHandler(void)
 	}
 	else if (2 == u8FobKeyEnterWorkState)
 	{
+		u8FobKeyEnterWorkState = 0;
 		if (u8FobKeyEnterMatchPatternLast != 2)
 		{
 			u8FobKey_Id_Message = 0;
@@ -1061,126 +1189,134 @@ void UhfRxHandler(void)
 	u32Time1sCount++;
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : Execute_Command
- * ÃèÊö	 : Ö´ÐÐRKE¶¯×÷
- * ÊäÈë	 : Button_Mode	FALSE:¶Ì°´  TRUE: ³¤°´
- * ·µ»Ø	 : None
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : Execute_Command
+ * ï¿½ï¿½ï¿½ï¿½	 : Ö´ï¿½ï¿½RKEï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½	 : Button_Mode	FALSE:ï¿½Ì°ï¿½  TRUE: ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½	 : None
  *******************************************************************************/
 static void Execute_Command(void)
 {
-	static uint8_t	u8UnlockPressOn = 0;
+	static uint8_t u8UnlockPressOn = 0;
 	static uint32_t u32UnlockPressOnLastTime[2];
 
-	static uint8_t	u8LockPressOn = 0;
+	static uint8_t u8LockPressOn = 0;
 	static uint32_t u32LockPressOnLastTime[2];
 
-	static uint8_t	u8TrunkPressOn = 0;
+	static uint8_t u8TrunkPressOn = 0;
 	static uint32_t u32TrunkPressOnLastTime[2];
-	uint32_t		tmpreg = 0;
+	uint32_t tmpreg = 0;
 
 	tsRke_ReceiveBuf.CommandCode = tsRke_ReceiveBuf.CommandCode & 0x07;
 
 	if (tsRke_ReceiveBuf.CommandCode == 0x01)
 	{
+		u8TrunkPressOn = 0;
+		u8UnlockPressOn = 0;
+		// u8LockPressOn = 0;
 		u32LockPressOnLastTime[u8LockPressOn++] = u32Time1sCount;
 
 		if (u8LockPressOn >= 2)
 		{
 			if (u32LockPressOnLastTime[1] >= u32LockPressOnLastTime[0])
 			{
-				tmpreg				= u32LockPressOnLastTime[1] -u32LockPressOnLastTime[0];
+				tmpreg = u32LockPressOnLastTime[1] - u32LockPressOnLastTime[0];
 			}
-			else 
+			else
 			{
-				tmpreg				= u32LockPressOnLastTime[1] + (0xFFFFFFFF - u32LockPressOnLastTime[0]);
+				tmpreg = u32LockPressOnLastTime[1] + (0xFFFFFFFF - u32LockPressOnLastTime[0]);
 			}
 
 			if (tmpreg < DOUBLE_CLICK_MAXIMUM_TIME)
 			{
 				u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_SEEK_CAK;
-				u8LockPressOn		= 0;
+				u8LockPressOn = 0;
 			}
-			else 
+			else
 			{
 				u32LockPressOnLastTime[0] = u32LockPressOnLastTime[1];
-				u8LockPressOn		= 1;
+				u8LockPressOn = 1;
 				u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_LOCK;
 			}
 		}
-		else 
+		else
 		{
 			u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_LOCK;
 		}
 	}
 	else if (tsRke_ReceiveBuf.CommandCode == 0x02)
 	{
+		u8TrunkPressOn = 0;
+		// u8UnlockPressOn = 0;
+		u8LockPressOn = 0;
 		u32UnlockPressOnLastTime[u8UnlockPressOn++] = u32Time1sCount;
 
 		if (u8UnlockPressOn >= 2)
 		{
 			if (u32UnlockPressOnLastTime[1] >= u32UnlockPressOnLastTime[0])
 			{
-				tmpreg				= u32UnlockPressOnLastTime[1] -u32UnlockPressOnLastTime[0];
+				tmpreg = u32UnlockPressOnLastTime[1] - u32UnlockPressOnLastTime[0];
 			}
-			else 
+			else
 			{
-				tmpreg				= u32UnlockPressOnLastTime[1] + (0xFFFFFFFF - u32UnlockPressOnLastTime[0]);
+				tmpreg = u32UnlockPressOnLastTime[1] + (0xFFFFFFFF - u32UnlockPressOnLastTime[0]);
 			}
 
 			if (tmpreg < DOUBLE_CLICK_MAXIMUM_TIME)
 			{
 				u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_UNLOCK_REPEAT;
-				u8UnlockPressOn 	= 0;
+				u8UnlockPressOn = 0;
 			}
-			else 
+			else
 			{
 				u32UnlockPressOnLastTime[0] = u32UnlockPressOnLastTime[1];
-				u8UnlockPressOn 	= 1;
+				u8UnlockPressOn = 1;
 				u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_UNLOCK;
 			}
 		}
-		else 
+		else
 		{
 			u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_UNLOCK;
 		}
 	}
 	else if (tsRke_ReceiveBuf.CommandCode == 0x04)
 	{
+		// u8TrunkPressOn = 0;
+		u8UnlockPressOn = 0;
+		u8LockPressOn = 0;
 		u32TrunkPressOnLastTime[u8TrunkPressOn++] = u32Time1sCount;
 
 		if (u8TrunkPressOn >= 2)
 		{
 			if (u32TrunkPressOnLastTime[1] >= u32TrunkPressOnLastTime[0])
 			{
-				tmpreg				= u32TrunkPressOnLastTime[1] -u32TrunkPressOnLastTime[0];
+				tmpreg = u32TrunkPressOnLastTime[1] - u32TrunkPressOnLastTime[0];
 			}
-			else 
+			else
 			{
-				tmpreg				= u32TrunkPressOnLastTime[1] + (0xFFFFFFFF - u32TrunkPressOnLastTime[0]);
+				tmpreg = u32TrunkPressOnLastTime[1] + (0xFFFFFFFF - u32TrunkPressOnLastTime[0]);
 			}
 
 			if (tmpreg < DOUBLE_CLICK_MAXIMUM_TIME)
 			{
 				u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_TRUNK_UNLOCK;
-				u8TrunkPressOn		= 0;
+				u8TrunkPressOn = 0;
 			}
-			else 
+			else
 			{
 				u32TrunkPressOnLastTime[0] = u32TrunkPressOnLastTime[1];
-				u8TrunkPressOn		= 1;
+				u8TrunkPressOn = 1;
 				u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_FINDCAR;
 			}
 		}
-		else 
+		else
 		{
 			u8Fobkey_Cur_RkeCmd = FOBKEY_RKE_FINDCAR;
 		}
 	}
-	else 
+	else
 	{
-		return; //Ã»ÓÐÈÎºÎ°´¼ü»ò¸´ºÏ¼ü
+		return; // Ã»ï¿½ï¿½ï¿½ÎºÎ°ï¿½ï¿½ï¿½ï¿½ò¸´ºÏ¼ï¿½
 	}
 
 	u8FobKeyButtonCmdPre = tsRke_ReceiveBuf.CommandCode;
@@ -1190,12 +1326,11 @@ static void Execute_Command(void)
 	u16TrunkLongPressTimingCnt = 0;
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû	: FobKeyMessageErase()
- * ÃèÊö	: Ô¿³×ÐÅÏ¢²Á³ý
- * ÊäÈë	: None
- * ·µ»Ø	: None
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	: FobKeyMessageErase()
+ * ï¿½ï¿½ï¿½ï¿½	: Ô¿ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½	: None
+ * ï¿½ï¿½ï¿½ï¿½	: None
  *******************************************************************************/
 static void FobKeyMessageErase(void)
 {
@@ -1203,93 +1338,68 @@ static void FobKeyMessageErase(void)
 	tsFobKeyMessageSave_A.Crc8 = _CalculateCRC8(tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A) - 1);
 	memcpy(&tsFobKeyMessageSave_B, &tsFobKeyMessageSave_A, sizeof(tsFobKeyMessageSave_A));
 
-	//¸üÐÂEEPROMÊý¾ÝAÇø,BÇø
+	// ï¿½ï¿½ï¿½ï¿½EEPROMï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½,Bï¿½ï¿½
 	Rke_Flash_Write(TRANSMITTERS_EEPROM_ADDR, tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A));
 	Rke_Flash_Write(TRANSMITTERS_EEPROM_BAK_ADDR, tsFobKeyMessageSave_B.Fifo_Data, sizeof(tsFobKeyMessageSave_B));
 
-
-	u8TransmitterCount	= tsFobKeyMessageSave_A.FobKeyCount;
+	u8TransmitterCount = tsFobKeyMessageSave_A.FobKeyCount;
 
 	memcpy(&tsTransmitters[0].SerialNo, &tsFobKeyMessageSave_A.Fifo_Data[0], 25);
 	memcpy(&tsTransmitters[1].SerialNo, &tsFobKeyMessageSave_A.Fifo_Data[25], 25);
 	memcpy(&tsTransmitters[2].SerialNo, &tsFobKeyMessageSave_A.Fifo_Data[50], 25);
 	memcpy(&tsTransmitters[3].SerialNo, &tsFobKeyMessageSave_A.Fifo_Data[75], 25);
 
-	//memcpy(&tsTransmitters[4].SerialNo,&tsFobKeyMessageSave_A.Fifo_Data[100],25);
+	// memcpy(&tsTransmitters[4].SerialNo,&tsFobKeyMessageSave_A.Fifo_Data[100],25);
 }
 
-
 /*******************************************************************************
- * º¯ÊýÃû  : InitFobKeyEepromMessage
- * ÃèÊö	 : ³õÊ¼»¯Ò£¿ØÔ¿³×ÐÅÏ¢
- * ÊäÈë	 : None
- * ·µ»Ø	 : None
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  : InitFobKeyEepromMessage
+ * ï¿½ï¿½ï¿½ï¿½	 : ï¿½ï¿½Ê¼ï¿½ï¿½Ò£ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ï¿½Ï¢
+ * ï¿½ï¿½ï¿½ï¿½	 : None
+ * ï¿½ï¿½ï¿½ï¿½	 : None
  *******************************************************************************/
 void InitFobKeyEepromMessage(void)
 {
-	uint8			u8ReadBuf[8];
+	uint8 u8ReadBuf[8];
+	// EEPROM readout data area A and B
 
-	//EEPROM¶Á³öÊý¾ÝAÇøºÍBÇø
-	Rke_Flash_Read(TRANSMITTERS_EEPROM_ADDR, (void *) &tsFobKeyMessageSave_A.Fifo_Data,
-		 sizeof(tsFobKeyMessageSave_A));
-	Rke_Flash_Read(TRANSMITTERS_EEPROM_BAK_ADDR, (void *) &tsFobKeyMessageSave_B.Fifo_Data,
-		 sizeof(tsFobKeyMessageSave_B));
+	// EEPROMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½
+	Rke_Flash_Read(TRANSMITTERS_EEPROM_ADDR, (void *)&tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A));
+	Rke_Flash_Read(TRANSMITTERS_EEPROM_BAK_ADDR, (void *)&tsFobKeyMessageSave_B.Fifo_Data, sizeof(tsFobKeyMessageSave_B));
 
-	if (tsFobKeyMessageSave_A.Crc8 ==
-		 _CalculateCRC8(tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A) - 1))
+	if (tsFobKeyMessageSave_A.Crc8 == _CalculateCRC8(tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A) - 1))
 	{
-		uint8			u8DoCnt = 3;
-
-		while (u8DoCnt > 0)
-		{
-			Rke_Flash_Write(TRANSMITTERS_EEPROM_BAK_ADDR, tsFobKeyMessageSave_A.Fifo_Data,
-				 sizeof(tsFobKeyMessageSave_A));
-
-			Rke_Flash_Read(TRANSMITTERS_EEPROM_BAK_ADDR, (void *) &tsFobKeyMessageSave_B.Fifo_Data,
-				 sizeof(tsFobKeyMessageSave_B));
-
-			if (tsFobKeyMessageSave_A.Crc8 ==
-				 _CalculateCRC8(tsFobKeyMessageSave_B.Fifo_Data, sizeof(tsFobKeyMessageSave_B) - 1))
-			{
-				u8DoCnt 			= 0;
-			}
-			else 
-			{
-				u8DoCnt--;
-			}
-		}
+		// Update Area A data to Area B
+		Rke_Flash_Write(TRANSMITTERS_EEPROM_BAK_ADDR, tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A));
 	}
-	else 
+	else
 	{
-		if (tsFobKeyMessageSave_B.Crc8 ==
-			 _CalculateCRC8(tsFobKeyMessageSave_B.Fifo_Data, sizeof(tsFobKeyMessageSave_B) - 1))
+		if (tsFobKeyMessageSave_B.Crc8 == _CalculateCRC8(tsFobKeyMessageSave_B.Fifo_Data, sizeof(tsFobKeyMessageSave_B) - 1))
 		{
-			//¸üÐÂBÇøÊý¾Ýµ½AÇø	
+			// Update Area B data to Area A
 			Rke_Flash_Write(TRANSMITTERS_EEPROM_ADDR, tsFobKeyMessageSave_B.Fifo_Data, sizeof(tsFobKeyMessageSave_B));
 		}
-		else 
+		else
 		{
-			//µÚÒ»´ÎÉÏµç
+			// First power on, clear EEPROM data area A, area B
 			memset(&tsFobKeyMessageSave_A.Fifo_Data[0], 0, sizeof(tsFobKeyMessageSave_A));
-			tsFobKeyMessageSave_A.Crc8 = _CalculateCRC8(tsFobKeyMessageSave_A.Fifo_Data,
-				 sizeof(tsFobKeyMessageSave_A) - 1);
+			tsFobKeyMessageSave_A.Crc8 = _CalculateCRC8(tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A) - 1);
+
 			memcpy(&tsFobKeyMessageSave_B, &tsFobKeyMessageSave_A, sizeof(tsFobKeyMessageSave_A));
 
-			//¸üÐÂEEPROMÊý¾ÝAÇø,BÇø
 			Rke_Flash_Write(TRANSMITTERS_EEPROM_ADDR, tsFobKeyMessageSave_A.Fifo_Data, sizeof(tsFobKeyMessageSave_A));
-			Rke_Flash_Write(TRANSMITTERS_EEPROM_BAK_ADDR, tsFobKeyMessageSave_B.Fifo_Data,
-				 sizeof(tsFobKeyMessageSave_B));
+			Rke_Flash_Write(TRANSMITTERS_EEPROM_BAK_ADDR, tsFobKeyMessageSave_B.Fifo_Data, sizeof(tsFobKeyMessageSave_B));
 		}
 	}
 
-	u8TransmitterCount	= tsFobKeyMessageSave_A.FobKeyCount;
+	u8TransmitterCount = tsFobKeyMessageSave_A.FobKeyCount;
 
 	memcpy(&tsTransmitters[0].SerialNo, &tsFobKeyMessageSave_A.Fifo_Data[0], 25);
 	memcpy(&tsTransmitters[1].SerialNo, &tsFobKeyMessageSave_A.Fifo_Data[25], 25);
 	memcpy(&tsTransmitters[2].SerialNo, &tsFobKeyMessageSave_A.Fifo_Data[50], 25);
 	memcpy(&tsTransmitters[3].SerialNo, &tsFobKeyMessageSave_A.Fifo_Data[75], 25);
 
-	//memcpy(&tsTransmitters[4].SerialNo,&tsFobKeyMessageSave_A.Fifo_Data[100],25);
+	// memcpy(&tsTransmitters[4].SerialNo,&tsFobKeyMessageSave_A.Fifo_Data[100],25);
 	Rke_Flash_Read(SK_CODE_SAVE_ADDR, u8Universal_Key, 16);
 
 	Rke_Flash_Read(PKE_POLLING_ID_SAVE_ADDR, u8WelcomeGuestPollingWakeUpUid, 2);
@@ -1312,35 +1422,32 @@ void InitFobKeyEepromMessage(void)
 	Fifo_Init(&LPFifo, 5);
 
 #ifdef QN_DEBUG
-	tsTransmitters[0].SerialNo = 0xf647B3e3;		//0xd52280ec;
+	tsTransmitters[0].SerialNo = 0xfb5203eb;
 	tsTransmitters[0].Sync_Counter = 0x00000000;
 
-	//tsTransmitters[0].SerialNo = 0x2f607ee1;
-	//tsTransmitters[0].Sync_Counter = 0x00000000;
-	tsTransmitters[0].SecretKey[0] = 0x5c;
-	tsTransmitters[0].SecretKey[1] = 0xba;
-	tsTransmitters[0].SecretKey[2] = 0x10;
-	tsTransmitters[0].SecretKey[3] = 0x77;
+	tsTransmitters[0].SecretKey[0] = 0x12;
+	tsTransmitters[0].SecretKey[1] = 0x34;
+	tsTransmitters[0].SecretKey[2] = 0x56;
+	tsTransmitters[0].SecretKey[3] = 0x78;
 
-	tsTransmitters[0].SecretKey[4] = 0x48;
-	tsTransmitters[0].SecretKey[5] = 0xd8;
-	tsTransmitters[0].SecretKey[6] = 0xe8;
-	tsTransmitters[0].SecretKey[7] = 0x09;
+	tsTransmitters[0].SecretKey[4] = 0x9a;
+	tsTransmitters[0].SecretKey[5] = 0xbc;
+	tsTransmitters[0].SecretKey[6] = 0xde;
+	tsTransmitters[0].SecretKey[7] = 0xf1;
 
-	tsTransmitters[0].SecretKey[8] = 0x4c;
-	tsTransmitters[0].SecretKey[9] = 0xe6;
-	tsTransmitters[0].SecretKey[10] = 0xaf;
-	tsTransmitters[0].SecretKey[11] = 0x7e;
+	tsTransmitters[0].SecretKey[8] = 0x23;
+	tsTransmitters[0].SecretKey[9] = 0x45;
+	tsTransmitters[0].SecretKey[10] = 0x67;
+	tsTransmitters[0].SecretKey[11] = 0x89;
 
-	tsTransmitters[0].SecretKey[12] = 0x2b;
-	tsTransmitters[0].SecretKey[13] = 0x14;
-	tsTransmitters[0].SecretKey[14] = 0x67;
-	tsTransmitters[0].SecretKey[15] = 0xcd;
+	tsTransmitters[0].SecretKey[12] = 0xab;
+	tsTransmitters[0].SecretKey[13] = 0xcd;
+	tsTransmitters[0].SecretKey[14] = 0xef;
+	tsTransmitters[0].SecretKey[15] = 0x01;
 
 	tsTransmitters[0].FobKeyEn = 0;
 
-
-	tsTransmitters[1].SerialNo = 0x3bb97fec;
+	tsTransmitters[1].SerialNo = 0x1c8fd4e4;
 	tsTransmitters[1].Sync_Counter = 0x00000000;
 
 	tsTransmitters[1].SecretKey[0] = 0x12;
@@ -1365,11 +1472,12 @@ void InitFobKeyEepromMessage(void)
 
 	tsTransmitters[1].FobKeyEn = 0;
 
-	u8TransmitterCount	= 0;
+	u8TransmitterCount = 1;
 
-	u8PlanUseFobKeyUid_Index[0] = 0;				//0x3bb97fec;
-	u8PlanUseFobKeyUid_Index[1] = 1;				//0xd52280ec;
+	u8PlanUseFobKeyUid_Index[0] = 0; // 0x3bb97fec;
+	u8PlanUseFobKeyUid_Index[1] = 1; // 0xd52280ec;
+
+	u8WelcomeGuestPollingWakeUpUid[0] = 0x5D;
+	u8WelcomeGuestPollingWakeUpUid[1] = 0x9A;
 #endif
 }
-
-

@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-12-31 16:13:29>
+ *  @date       <2025-02-19 14:27:08>
  */
 /*============================================================================*/
 
@@ -75,7 +75,7 @@ typedef struct
     P2VAR(Rte_DE_DT_IPM_SRS_1_Status_CHA_status, AUTOMATIC, RTE_DATA)  Runbl_VcuRx_10ms_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA;
     P2VAR(Rte_DE_DT_MsgActv_status, AUTOMATIC, RTE_DATA)  Runbl_VcuRx_10ms_MsgActv_outputs_MsgActv_outputs;
     P2VAR(Rte_DE_TMS2VCU_AC_2_State_Outputs_status, AUTOMATIC, RTE_DATA)  Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs;
-    P2VAR(Rte_DE_Tms2Vcu_Info_status, AUTOMATIC, RTE_DATA)  Runbl_VcuTx_10ms_Tms2Vcu_Info_Tms2Vcu_Info;
+    P2VAR(Rte_DE_Tms2Vcu_Info_status, AUTOMATIC, RTE_DATA)  Runbl_VcuRx_10ms_Tms2Vcu_Info_Tms2Vcu_Info;
     P2VAR(Rte_DE_DAG_Comm_outputs_status, AUTOMATIC, RTE_DATA)  Runbl_VcuTx_10ms_DAG_Comm_outputs_DAG_Comm_outputs;
     P2VAR(Rte_DE_DT_Vcu2BcmTms_outputs_status, AUTOMATIC, RTE_DATA)  Runbl_VcuTx_10ms_Vcu2BcmTms_outputs_Vcu2BcmTms_outputs;
     P2VAR(Rte_DE_DT_Vcu2OpmBAC_outputs_status, AUTOMATIC, RTE_DATA)  Runbl_VcuTx_10ms_Vcu2OpmBAC_outputs_Vcu2OpmBAC_outputs;
@@ -347,6 +347,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #define Rte_IrvIWrite_Runbl_VcuRx_10ms_NVM_Imdt_outputs Rte_IrvIWrite_Runbl_VcuRx_10ms_NVM_Imdt_outputs
 
+#define Rte_IrvIRead_Runbl_VcuTx_10ms_NVM_Imdt_outputs Rte_IrvIRead_Runbl_VcuTx_10ms_NVM_Imdt_outputs
+
 #define Rte_IrvIWrite_AppSwcVcu_Init_NVM_outputs Rte_IrvIWrite_AppSwcVcu_Init_NVM_outputs
 
 #define Rte_IrvIRead_Runbl_VCU_100ms_NVM_outputs Rte_IrvIRead_Runbl_VCU_100ms_NVM_outputs
@@ -384,6 +386,12 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IrvIRead_Runbl_VCU_20ms_TMS2VCU_AC_2_State_Outputs Rte_IrvIRead_Runbl_VCU_20ms_TMS2VCU_AC_2_State_Outputs
 
 #define Rte_IrvIWrite_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs Rte_IrvIWrite_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs
+
+#define Rte_IrvIRead_Runbl_VCU_20ms_Tms2Vcu_Info Rte_IrvIRead_Runbl_VCU_20ms_Tms2Vcu_Info
+
+#define Rte_IrvIWrite_Runbl_VcuRx_10ms_Tms2Vcu_Info Rte_IrvIWrite_Runbl_VcuRx_10ms_Tms2Vcu_Info
+
+#define Rte_IrvIRead_Runbl_VcuTx_10ms_Tms2Vcu_Info Rte_IrvIRead_Runbl_VcuTx_10ms_Tms2Vcu_Info
 
 #define Rte_IrvIWrite_Runbl_VCU_20ms_VDAG_VCUErrCode_enum Rte_IrvIWrite_Runbl_VCU_20ms_VDAG_VCUErrCode_enum
 
@@ -487,7 +495,7 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcVcu, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #define Rte_IRead_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs() (&Rte_Inst_AppSwcVcu.Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs->value)
 
-#define Rte_IRead_Runbl_VcuTx_10ms_Tms2Vcu_Info_Tms2Vcu_Info() (&Rte_Inst_AppSwcVcu.Runbl_VcuTx_10ms_Tms2Vcu_Info_Tms2Vcu_Info->value)
+#define Rte_IRead_Runbl_VcuRx_10ms_Tms2Vcu_Info_Tms2Vcu_Info() (&Rte_Inst_AppSwcVcu.Runbl_VcuRx_10ms_Tms2Vcu_Info_Tms2Vcu_Info->value)
 
 #define Rte_IWrite_Runbl_VcuTx_10ms_DAG_Comm_outputs_DAG_Comm_outputs(data) (Rte_Inst_AppSwcVcu.Runbl_VcuTx_10ms_DAG_Comm_outputs_DAG_Comm_outputs->value = *(data))
 
@@ -875,6 +883,8 @@ void Rte_IrvIWrite_Runbl_VcuRx_10ms_NVM_Imdt_outputs(NVM_Imdt_outputs* data);
 
 NVM_Imdt_outputs * Rte_IrvIWriteRef_Runbl_VcuRx_10ms_NVM_Imdt_outputs(void);
 
+NVM_Imdt_outputs* Rte_IrvIRead_Runbl_VcuTx_10ms_NVM_Imdt_outputs(void);
+
 void Rte_IrvIWrite_AppSwcVcu_Init_NVM_outputs(NVM_outputs* data);
 
 NVM_outputs * Rte_IrvIWriteRef_AppSwcVcu_Init_NVM_outputs(void);
@@ -930,6 +940,14 @@ TMS2VCU_AC_2_State_Outputs* Rte_IrvIRead_Runbl_VCU_20ms_TMS2VCU_AC_2_State_Outpu
 void Rte_IrvIWrite_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs(TMS2VCU_AC_2_State_Outputs* data);
 
 TMS2VCU_AC_2_State_Outputs * Rte_IrvIWriteRef_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs(void);
+
+Tms2Vcu_Info* Rte_IrvIRead_Runbl_VCU_20ms_Tms2Vcu_Info(void);
+
+void Rte_IrvIWrite_Runbl_VcuRx_10ms_Tms2Vcu_Info(Tms2Vcu_Info* data);
+
+Tms2Vcu_Info * Rte_IrvIWriteRef_Runbl_VcuRx_10ms_Tms2Vcu_Info(void);
+
+Tms2Vcu_Info* Rte_IrvIRead_Runbl_VcuTx_10ms_Tms2Vcu_Info(void);
 
 void Rte_IrvIWrite_Runbl_VCU_20ms_VDAG_VCUErrCode_enum(UInt16 data);
 
@@ -1049,7 +1067,7 @@ Std_ReturnType Rte_IStatus_Runbl_VcuRx_10ms_MsgActv_outputs_MsgActv_outputs(void
 
 Std_ReturnType Rte_IStatus_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs(void);
 
-Std_ReturnType Rte_IStatus_Runbl_VcuTx_10ms_Tms2Vcu_Info_Tms2Vcu_Info(void);
+Std_ReturnType Rte_IStatus_Runbl_VcuRx_10ms_Tms2Vcu_Info_Tms2Vcu_Info(void);
 
 /** runnables */
 

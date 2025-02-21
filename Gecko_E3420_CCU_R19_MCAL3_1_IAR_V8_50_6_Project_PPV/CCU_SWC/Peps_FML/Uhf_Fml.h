@@ -25,6 +25,13 @@
 
 #define TRANSMITTERS_EEPROM_BAK_ADDR 	(uint8_t)0x80//遥控信息保存地址B区(备份区域)
 
+// 定义常量
+#define KEY_BIT_SIZE_SHIFT (KEY_BIT_SIZE >> 3)
+
+#define MAX_EEPROM_ADDR 	255
+
+#define MAX_EEPROM_LEN	 	256
+
 #define PABS_LONGPRESS_MAX		14u
 
 #define DOUBLE_CLICK_MAXIMUM_TIME	200u  //2000MS

@@ -3,6 +3,9 @@
 
 #include "XcpTest_types.h"
 
+MONPRM volatile uint8 ACCAN_TBOX_BJS_Time_Day = ((uint8)0U);
+MONPRM volatile uint8 ACCAN_TBOX_BJS_Time_Hour = ((uint8)0U);
+MONPRM volatile uint8 ACCAN_TBOX_BJS_Time_Min = ((uint8)0U);
 MONPRM volatile float32 ACCCtl_sACCabinPreSetByEnv = 0.0F;
 MONPRM volatile float32 ACCCtl_sACCabinPreSetByEnvECO = 0.0F;
 MONPRM volatile float32 ACCCtl_sBlowerFanSpd = 0.0F;
@@ -94,6 +97,7 @@ MONPRM volatile float32 ACCtl_tRightDuct = 0.0F;
 MONPRM volatile float32 ACCtl_tRightSetPointModeCor = 0.0F;
 MONPRM volatile float32 ACCtl_tSetPointEvap = 0.0F;
 MONPRM volatile float32 ACCtl_tSetPointPTC = 0.0F;
+MONPRM volatile boolean ACDIA_bFltVal = false;
 MONPRM volatile uint8 ACDIA_eFltNum = ((uint8)0U);
 MONPRM volatile uint8 ACDIA_eFltSortVal = ((uint8)0U);
 MONPRM volatile float32 ACDVTPreSetSolarCor = 0.0F;
@@ -604,6 +608,6 @@ MONPRM volatile float32 SOMCtl_sBatHeatTrgTempComp = 0.0F;
 MONPRM volatile float32 SOMCtl_sBatTrgTemp = 0.0F;
 MONPRM volatile float32 SOMCtl_sF1Value = 0.0F;
 MONPRM volatile float32 SOMCtl_sF2Value = 0.0F;
-MONPRM volatile uint8 TMS_VersionNumber = ((uint8)5U);
+MONPRM volatile uint8 TMS_VersionNumber = ((uint8)7U);
 MONPRM volatile float32 ThCo_rSetLeftMixDoor = 0.0F;
 MONPRM volatile float32 ThCo_rSetRightMixDoor = 0.0F;

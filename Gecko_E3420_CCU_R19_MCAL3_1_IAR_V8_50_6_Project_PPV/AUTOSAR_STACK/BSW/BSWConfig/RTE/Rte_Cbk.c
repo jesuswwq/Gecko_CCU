@@ -43,9 +43,560 @@ extern boolean VIPM_HwOBCWakeup_flg;
 extern boolean VIPM_HwBMSWakeup_flg;
 extern boolean VIBS_NMReq_flg;
 extern boolean INV_IMMO_Req_EPT_RevFlag;
+extern boolean HV_Pwr_flag;
+extern boolean FirstimeoutFlag;
+
+/*Lin lost communication flag*/
+boolean ACPUMPLostComm = FALSE;
+boolean BATPUMPLostComm = FALSE;
+boolean MOTPUMPLostComm = FALSE;
+boolean HPEXVLostComm = FALSE;
+boolean ACEXVLostComm = FALSE;
+boolean BATEXVLostComm = FALSE;
+boolean C3WVLostComm = FALSE;
+boolean C5WVLostComm = FALSE;
 /*******************************************************************************
  **                        Global Function                                    **
 ******************************************************************************/
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_AIL_FromInterlock_Payload5_Frm_InterlockToVehicle_LIN3
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_AIL_FromInterlock_Payload5_Frm_InterlockToVehicle_LIN3(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04A87, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04A87, DEM_EVENT_STATUS_FAILED);
+		}
+	}
+    if (RteInitState == RTE_INITED)
+    {
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_AcPMP_RealRPM_AcPMP_Sts_LIN2
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_AcPMP_RealRPM_AcPMP_Sts_LIN2(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+    if(HV_Pwr_flag == TRUE)
+        {
+        if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04087, &tmp))
+        {
+            if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+            {
+                Dem_SetEventStatus(DemEventParameter_0xD04087, DEM_EVENT_STATUS_FAILED);
+                ACPUMPLostComm = TRUE;
+            }
+        }
+    }
+    if (RteInitState == RTE_INITED)
+    {
+        Rte_Inst_ME11.Task_100ms_AcPMP_RealRPM_AcPMP_RealRPM->status |= RTE_E_TIMEOUT;
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_BAT_EXV_CurrentPosition_B_BAT_EXV_Rsp_LIN2
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_BAT_EXV_CurrentPosition_B_BAT_EXV_Rsp_LIN2(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+    if(HV_Pwr_flag == TRUE)
+    {
+        if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04587, &tmp))
+        {
+            if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+            {
+                Dem_SetEventStatus(DemEventParameter_0xD04587, DEM_EVENT_STATUS_FAILED);
+                BATEXVLostComm = TRUE;
+            }
+        }
+    }
+    if (RteInitState == RTE_INITED)
+    {
+        Rte_Inst_ME11.Task_100ms_BAT_EXV_CurrentPosition_B_BAT_EXV_CurrentPosition_B->status |= RTE_E_TIMEOUT;
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_BatPMP_RealRPM_BatPMP_Sts_LIN2
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_BatPMP_RealRPM_BatPMP_Sts_LIN2(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+    if(HV_Pwr_flag == TRUE)
+        {
+        if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04187, &tmp))
+        {
+            if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+            {
+                Dem_SetEventStatus(DemEventParameter_0xD04187, DEM_EVENT_STATUS_FAILED);
+                BATPUMPLostComm = TRUE;
+            }
+        }
+    }
+    if (RteInitState == RTE_INITED)
+    {
+        Rte_Inst_ME11.Task_100ms_BatPMP_RealRPM_BatPMP_RealRPM->status |= RTE_E_TIMEOUT;
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_C3WV_VoltSts_C3WV_Sts_LIN2
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_C3WV_VoltSts_C3WV_Sts_LIN2(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+    if(HV_Pwr_flag == TRUE)
+    {
+        if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04687, &tmp))
+        {
+            if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+            {
+                Dem_SetEventStatus(DemEventParameter_0xD04687, DEM_EVENT_STATUS_FAILED);
+                C3WVLostComm = TRUE;
+            }
+        }
+    }
+    if (RteInitState == RTE_INITED)
+    {
+        Rte_Inst_ME11.Task_100ms_C3WV_VoltSts_C3WV_VoltSts->status |= RTE_E_TIMEOUT;
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_C5WVVoltSts_C5WV_Sts_LIN2
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_C5WVVoltSts_C5WV_Sts_LIN2(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+    if(HV_Pwr_flag == TRUE)
+    {
+        if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04787, &tmp))
+        {
+            if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+            {
+                Dem_SetEventStatus(DemEventParameter_0xD04787, DEM_EVENT_STATUS_FAILED);
+                C5WVLostComm = TRUE;
+            }
+        }
+    }
+    if (RteInitState == RTE_INITED)
+    {
+        Rte_Inst_ME11.Task_100ms_C5WVVoltSts_C5WVVoltSts->status |= RTE_E_TIMEOUT;
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_EXV_CurrentPosition_AC_EXV_Rsp_LIN2
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_EXV_CurrentPosition_AC_EXV_Rsp_LIN2(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+    if(HV_Pwr_flag == TRUE)
+    {
+        if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04487, &tmp))
+        {
+            if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+            {
+                Dem_SetEventStatus(DemEventParameter_0xD04487, DEM_EVENT_STATUS_FAILED);
+                ACEXVLostComm = TRUE;
+            }
+        }
+    }
+    if (RteInitState == RTE_INITED)
+    {
+        Rte_Inst_ME11.Task_100ms_EXV_CurrentPosition_EXV_CurrentPosition->status |= RTE_E_TIMEOUT;
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_FCLL_DrlLightSt_FCLL_Status_LIN3
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_FCLL_DrlLightSt_FCLL_Status_LIN3(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04887, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04887, DEM_EVENT_STATUS_FAILED);
+		}
+	}
+    if (RteInitState == RTE_INITED)
+    {
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_FCLR_DrlLightSt_FCLR_Status_LIN3
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_FCLR_DrlLightSt_FCLR_Status_LIN3(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04987, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04987, DEM_EVENT_STATUS_FAILED);
+		}
+	}
+    if (RteInitState == RTE_INITED)
+    {
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_HP_EXV_CurrentPosition_B_HP_EXV_Rsp_LIN2
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_HP_EXV_CurrentPosition_B_HP_EXV_Rsp_LIN2(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+    if(HV_Pwr_flag == TRUE)
+    {
+        if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04387, &tmp))
+        {
+            if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+            {
+                Dem_SetEventStatus(DemEventParameter_0xD04387, DEM_EVENT_STATUS_FAILED);
+                HPEXVLostComm = TRUE;
+            }
+        }
+    }
+    if (RteInitState == RTE_INITED)
+    {
+        Rte_Inst_ME11.Task_100ms_HP_EXV_CurrentPosition_B_HP_EXV_CurrentPosition_B->status |= RTE_E_TIMEOUT;
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkRxTOut_MotPMP_RealRPM_MotPMP_Sts_LIN2
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkRxTOut_MotPMP_RealRPM_MotPMP_Sts_LIN2(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+    if(HV_Pwr_flag == TRUE)
+    {
+        if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04287, &tmp))
+        {
+            if (DEM_UDS_STATUS_TF != (tmp & DEM_UDS_STATUS_TF))
+            {
+                Dem_SetEventStatus(DemEventParameter_0xD04287, DEM_EVENT_STATUS_FAILED);
+                MOTPUMPLostComm = TRUE;
+            }
+        }
+    }
+    if (RteInitState == RTE_INITED)
+    {
+        Rte_Inst_ME11.Task_100ms_MotPMP_RealRPM_MotPMP_RealRPM->status |= RTE_E_TIMEOUT;
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkTAck_CCU_VehInfo_BAC_IPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkTAck_CCU_VehInfo_BAC_IPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1(void)
+{
+    if (RteInitState == RTE_INITED)
+    {
+        if (RTE_E_OK == (Rte_Inst_AppSwcOpm.Runbl_OpmCanTx_50ms_CCU_VehInfo_BAC_CCU_VehInfo_BAC->status & RTE_FLAG_TRANSMIT_ACK))
+        {
+            Rte_Inst_AppSwcOpm.Runbl_OpmCanTx_50ms_CCU_VehInfo_BAC_CCU_VehInfo_BAC->status |= RTE_FLAG_TRANSMIT_ACK;
+        }
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbkTAck_CCU_VehInfo_EPT_IPDU_COM_TX_CCU_VehInfo_EPT_CANFD6_EPT_CAN2
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbkTAck_CCU_VehInfo_EPT_IPDU_COM_TX_CCU_VehInfo_EPT_CANFD6_EPT_CAN2(void)
+{
+    if (RteInitState == RTE_INITED)
+    {
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbk_AIL_FromInterlock_Payload5_Frm_InterlockToVehicle_LIN3
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbk_AIL_FromInterlock_Payload5_Frm_InterlockToVehicle_LIN3(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04A87, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04A87, DEM_EVENT_STATUS_PASSED);
+		}
+	}
+    if (RteInitState == RTE_INITED)
+    {
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbk_FCLL_DrlLightSt_FCLL_Status_LIN3
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbk_FCLL_DrlLightSt_FCLL_Status_LIN3(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04887, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04887, DEM_EVENT_STATUS_PASSED);
+		}
+	}
+    if (RteInitState == RTE_INITED)
+    {
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_COMCbk_FCLR_DrlLightSt_FCLR_Status_LIN3
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               void
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+void Rte_COMCbk_FCLR_DrlLightSt_FCLR_Status_LIN3(void)
+{
+	Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04987, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04987, DEM_EVENT_STATUS_PASSED);
+		}
+	}
+    if (RteInitState == RTE_INITED)
+    {
+    }
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
 
 /*******************************************************************************
 *Function-Name        Rte_COMCbkRxTOut_BMS_2_BatState_EPT_IPDU_COM_BMS_2_BatState_EPT
@@ -65,7 +616,7 @@ extern boolean INV_IMMO_Req_EPT_RevFlag;
 void Rte_COMCbkRxTOut_BMS_2_BatState_EPT_IPDU_COM_BMS_2_BatState_EPT(void)
 {
     if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (VIPM_HwOBCWakeup_flg == TRUE) || \
-    (VIPM_HwBMSWakeup_flg == TRUE) || (VIBS_NMReq_flg == TRUE))
+    (VIPM_HwBMSWakeup_flg == TRUE) || (Get_NetWorkWakeup() == 1))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC11287, &tmp))
@@ -101,7 +652,7 @@ void Rte_COMCbkRxTOut_BMS_2_BatState_EPT_IPDU_COM_BMS_2_BatState_EPT(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_CCP_PanelStatus_BOD_IPDU_COM_CCP_PanelStatus_BOD(void)
 {
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC27087, &tmp))
@@ -137,7 +688,7 @@ void Rte_COMCbkRxTOut_CCP_PanelStatus_BOD_IPDU_COM_CCP_PanelStatus_BOD(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_COMP_AC_BOD_IPDU_COM_COMP_AC_BOD(void)
 {
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if(HV_Pwr_flag == TRUE)
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC10F87, &tmp))
@@ -173,7 +724,7 @@ void Rte_COMCbkRxTOut_COMP_AC_BOD_IPDU_COM_COMP_AC_BOD(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_CRRR_A_CHA_IPDU_COM_CRRR_A_CHA(void)
 {
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE)) && ((NvMBlockRamBuffer3[30] >> 4) & 0x01) == 1 ? 1 : 0)
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11287, &tmp))
@@ -235,7 +786,7 @@ void Rte_COMCbkRxTOut_EHB_A_CHA_IPDU_COM_RX_EHB_A_CHA_CANFD3_CHA_CAN5(void)
 void Rte_COMCbkRxTOut_EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5(void)
 {
     
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC13187, &tmp))
@@ -307,7 +858,7 @@ void Rte_COMCbkRxTOut_EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANFD3_CHA_CAN5(void)
 {
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC12287, &tmp))
@@ -453,7 +1004,7 @@ void Rte_COMCbkRxTOut_FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1(void)
 {
-    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE)) && (((NvMBlockRamBuffer3[23] & 0x20) == 0x20) ? 1 : 0 || ((NvMBlockRamBuffer3[23] & 0x30) == 0x30) ? 1 : 0))
+    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1)) && (((NvMBlockRamBuffer3[23] & 0x20) == 0x20) ? 1 : 0 || ((NvMBlockRamBuffer3[23] & 0x30) == 0x30) ? 1 : 0))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11D87, &tmp))
@@ -489,7 +1040,7 @@ void Rte_COMCbkRxTOut_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_HVCH_Status1_BOD_IPDU_COM_HVCH_Status1_BOD(void)
 {
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if(HV_Pwr_flag == TRUE)
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC23087, &tmp))
@@ -550,7 +1101,7 @@ void Rte_COMCbkRxTOut_ICU_2_Odo_BAC_IPDU_COM_ICU_2_Odo_BAC(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_ICU_Info_BAC_IPDU_COM_ICU_Info_BAC(void)
 {
-    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE)) && (((NvMBlockRamBuffer3[23] & 0x10) == 0x10 ? 1 : 0) && ((NvMBlockRamBuffer3[23] & 0x30) == 0x30 ? 0 : 1)))
+    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1)) && (((NvMBlockRamBuffer3[23] & 0x10) == 0x10 ? 1 : 0) && ((NvMBlockRamBuffer3[23] & 0x30) == 0x30 ? 0 : 1)))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD11687, &tmp))
@@ -586,7 +1137,7 @@ void Rte_COMCbkRxTOut_ICU_Info_BAC_IPDU_COM_ICU_Info_BAC(void)
 void Rte_COMCbkRxTOut_INV_1_Value_EPT_IPDU_COM_INV_1_Value_EPT(void)
 {
     if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (VIPM_HwOBCWakeup_flg == TRUE) || \
-    (VIPM_HwBMSWakeup_flg == TRUE) || (VIBS_NMReq_flg == TRUE))
+    (VIPM_HwBMSWakeup_flg == TRUE) || (Get_NetWorkWakeup() == 1))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD10887, &tmp))
@@ -623,7 +1174,7 @@ void Rte_COMCbkRxTOut_INV_1_Value_EPT_IPDU_COM_INV_1_Value_EPT(void)
 void Rte_COMCbkRxTOut_IPU_DCC_1_State_EPT_IPDU_COM_IPU_DCC_1_State_EPT(void)
 {
     if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (VIPM_HwOBCWakeup_flg == TRUE) || \
-    (VIPM_HwBMSWakeup_flg == TRUE) || (VIBS_NMReq_flg == TRUE))
+    (VIPM_HwBMSWakeup_flg == TRUE) || (Get_NetWorkWakeup() == 1))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC14687, &tmp))
@@ -744,7 +1295,7 @@ void Rte_COMCbkRxTOut_SCS_LeSwitchSts_BOD_IPDU_COM_SCS_LeSwitchSts_BOD(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_SCS_RiSwitchSts_BOD_IPDU_COM_RX_SCS_RiSwitchSts_BOD_CANFD4_BOD_CAN4(void)
 {
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC24087, &tmp))
@@ -840,7 +1391,7 @@ void Rte_COMCbkRxTOut_SRS_2_YRSOriginalSts_CHA_IPDU_COM_SRS_2_YRSOriginalSts_CHA
 #include "Rte_MemMap.h"
 void Rte_COMCbkRxTOut_TBOX_BJS_Time_BAC_IPDU_COM_TBOX_BJS_Time_BAC(void)
 {
-    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1))
     {
         Dem_UdsStatusByteType tmp = 0;
         if (E_OK == Dem_GetEventStatus(DemEventParameter_0xC19887, &tmp))
@@ -1845,6 +2396,15 @@ void Rte_COMCbk_AcPMP_RealRPM_AcPMP_Sts_LIN1(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_AcPMP_RealRPM_AcPMP_Sts_LIN2(void)
 {
+    Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04087, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04087, DEM_EVENT_STATUS_PASSED);
+            ACPUMPLostComm = FALSE;
+		}
+	}
     if (RteInitState == RTE_INITED)
     {
         UInt8 data;
@@ -2265,6 +2825,15 @@ void Rte_COMCbk_BAT_EXV_CurrentPosition_B_BAT_EXV_Rsp_LIN1(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_BAT_EXV_CurrentPosition_B_BAT_EXV_Rsp_LIN2(void)
 {
+    Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04587, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04587, DEM_EVENT_STATUS_PASSED);
+            BATEXVLostComm = FALSE;
+		}
+	}
     if (RteInitState == RTE_INITED)
     {
         UInt16 data;
@@ -3844,6 +4413,15 @@ void Rte_COMCbk_BatPMP_RealRPM_BatPMP_Sts_LIN1(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_BatPMP_RealRPM_BatPMP_Sts_LIN2(void)
 {
+    Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04187, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04187, DEM_EVENT_STATUS_PASSED);
+            BATPUMPLostComm = FALSE;
+		}
+	}
     if (RteInitState == RTE_INITED)
     {
         UInt8 data;
@@ -4834,6 +5412,15 @@ void Rte_COMCbk_C3WV_TempSts_C3WV_Sts_LIN2(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_C3WV_VoltSts_C3WV_Sts_LIN2(void)
 {
+    Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04687, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04687, DEM_EVENT_STATUS_PASSED);
+            C3WVLostComm = FALSE;
+		}
+	}
     if (RteInitState == RTE_INITED)
     {
         UInt8 data;
@@ -5128,6 +5715,15 @@ void Rte_COMCbk_C5WVTempSts_C5WV_Sts_LIN2(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_C5WVVoltSts_C5WV_Sts_LIN2(void)
 {
+    Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04787, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04787, DEM_EVENT_STATUS_PASSED);
+            C5WVLostComm = FALSE;
+		}
+	}
     if (RteInitState == RTE_INITED)
     {
         UInt8 data;
@@ -6597,6 +7193,15 @@ void Rte_COMCbk_EXV_CurrentPosition_AC_EXV_Rsp_LIN1(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_EXV_CurrentPosition_AC_EXV_Rsp_LIN2(void)
 {
+    Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04487, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04487, DEM_EVENT_STATUS_PASSED);
+                        ACEXVLostComm = FALSE;
+		}
+	}
     if (RteInitState == RTE_INITED)
     {
         UInt16 data;
@@ -7510,6 +8115,15 @@ void Rte_COMCbk_FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_HP_EXV_CurrentPosition_B_HP_EXV_Rsp_LIN2(void)
 {
+    Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04387, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04387, DEM_EVENT_STATUS_PASSED);
+            HPEXVLostComm = FALSE;
+		}
+	}
     if (RteInitState == RTE_INITED)
     {
         UInt16 data;
@@ -10550,6 +11164,15 @@ void Rte_COMCbk_MotPMP_RealRPM_MotPMP_Sts_LIN1(void)
 #include "Rte_MemMap.h"
 void Rte_COMCbk_MotPMP_RealRPM_MotPMP_Sts_LIN2(void)
 {
+    Dem_UdsStatusByteType tmp = 0;
+	if (E_OK == Dem_GetEventStatus(DemEventParameter_0xD04287, &tmp))
+	{
+		if (DEM_UDS_STATUS_TF == (tmp & DEM_UDS_STATUS_TF))
+		{
+			Dem_SetEventStatus(DemEventParameter_0xD04287, DEM_EVENT_STATUS_PASSED);
+            MOTPUMPLostComm = FALSE;
+		}
+	}
     if (RteInitState == RTE_INITED)
     {
         UInt8 data;

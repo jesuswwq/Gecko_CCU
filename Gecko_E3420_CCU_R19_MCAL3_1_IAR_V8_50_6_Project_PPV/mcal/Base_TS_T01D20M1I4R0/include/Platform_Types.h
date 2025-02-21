@@ -55,10 +55,10 @@ extern "C" {
 #define CPU_BYTE_ORDER (LOW_BYTE_FIRST)
 
 #ifndef TRUE
-#define TRUE (1u)
+#define TRUE (0x01)
 #endif
 #ifndef FALSE
-#define FALSE (0u)
+#define FALSE (0x00)
 #endif
 
 #if (CPU_TYPE == CPU_TYPE_64)

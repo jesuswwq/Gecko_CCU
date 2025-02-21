@@ -90,13 +90,14 @@ FUNC(void, DCM_CODE) DslInternal_InitSecCtrl(void) /* PRQA S 1532 */ /* MISRA Ru
                     {
                         Dcm_SecCtrl.Dcm_FalseAcessCount[SecCfgIndex] = pSecurityRow->DcmDspSecurityNumAttDelay;
                     }
-                    if (Dcm_SecCtrl.Dcm_FalseAcessCount[SecCfgIndex] >= pSecurityRow->DcmDspSecurityNumAttDelay)
-                    {
+                    // if (Dcm_SecCtrl.Dcm_FalseAcessCount[SecCfgIndex] >= pSecurityRow->DcmDspSecurityNumAttDelay)
+                    // {
+                    /*Add for GECKO*/
                         Dcm_ResetTime(&Dcm_SecCtrl.Dcm_RunDlyCtrl.Dcm_SecCurTimer[SecCfgIndex]);
                         Dcm_SecCtrl.Dcm_RunDlyCtrl.Dcm_SecExpiredTimer[SecCfgIndex] =
                             (Dcm_DspCfg.pDcm_DspSecurity->pDcm_DspSecurityRow)[SecCfgIndex].DcmDspSecurityDelayTime;
                         Dcm_SecCtrl.Dcm_RunDlyCtrl.Dcm_SecTimerState[SecCfgIndex] = DCM_SECTIMER_ON;
-                    }
+                    // }
                 }
             }
         }

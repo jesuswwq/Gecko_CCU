@@ -213,6 +213,15 @@ extern "C" {
 #define RTC_REG_H_HOLD_SHADOW   0x54U
 #define RTC_REG_L_HOLD_SHADOW   0x58U
 
+//--------------------------------------------------------------------------
+//EGISTER Name:General purpose register
+//Register Offset:0x44 0x48 0x4c 0x50
+//--------------------------------------------------------------------------
+#define RTC_GP0 0x44U
+#define RTC_GP1 0x48U
+#define RTC_GP2 0x4CU
+#define RTC_GP3 0x50U
+
 #ifdef __cplusplus
 }
 #endif

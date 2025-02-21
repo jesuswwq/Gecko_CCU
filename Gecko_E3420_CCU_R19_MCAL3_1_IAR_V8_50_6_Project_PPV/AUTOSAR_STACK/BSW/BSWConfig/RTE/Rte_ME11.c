@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-10 14:07:22>
+ *  @date       <2025-01-09 15:35:44>
  */
 /*============================================================================*/
 
@@ -144,6 +144,7 @@ static void Rte_PRE_Task_100ms(void)
         rte_memcpy((uint8*)&(Rte_Inst_ME11.Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD->value), (uint8*)&Rte_Buf_Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD, sizeof(DT_IPM_HVCH_Status2_BOD));
         rte_memcpy((uint8*)&(Rte_Inst_ME11.Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT->value), (uint8*)&Rte_Buf_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT, sizeof(DT_IPM_INV_2_Value_EPT));
         rte_memcpy((uint8*)&(Rte_Inst_ME11.Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT->value), (uint8*)&Rte_Buf_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT, sizeof(DT_IPM_IPU_OBC_2_Inlet_EPT));
+        rte_memcpy((uint8*)&(Rte_Inst_ME11.Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC->value), (uint8*)&Rte_Buf_Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC, sizeof(DT_IPM_TBOX_BJS_Time_BAC));
         Rte_Inst_ME11.Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta->value = Rte_Buf_Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta;
         Rte_Inst_ME11.Task_100ms_MotPMP_PumpInputVolt_MotPMP_PumpInputVolt->value = Rte_Buf_Task_100ms_MotPMP_PumpInputVolt_MotPMP_PumpInputVolt;
         Rte_Inst_ME11.Task_100ms_MotPMP_PumpMotorSta_MotPMP_PumpMotorSta->value = Rte_Buf_Task_100ms_MotPMP_PumpMotorSta_MotPMP_PumpMotorSta;
@@ -2246,6 +2247,28 @@ Std_ReturnType Rte_IStatus_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT(vo
 Std_ReturnType Rte_IStatus_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT(void)
 {
     return Rte_Inst_ME11.Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT->status;
+}
+#define RTE_STOP_SEC_CODE
+#include "Rte_MemMap.h"
+
+/*******************************************************************************
+*Function-Name        Rte_IStatus_Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC
+*Service ID           <None>
+*Sync/Async           <Synchronous>
+*Reentrancy           <Non Reentrant>
+*param-Name[in]       <None>
+*Param-Name[out]      <None>
+*Param-Name[in/out]   <None>
+*return               Std_ReturnType
+*PreCondition         <None>
+*CallByAPI            <None>
+******************************************************************************/
+
+#define RTE_START_SEC_CODE
+#include "Rte_MemMap.h"
+Std_ReturnType Rte_IStatus_Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC(void)
+{
+    return Rte_Inst_ME11.Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC->status;
 }
 #define RTE_STOP_SEC_CODE
 #include "Rte_MemMap.h"

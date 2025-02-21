@@ -16,8 +16,8 @@
 #ifndef RTW_HEADER_XcpTest_types_h_
 #define RTW_HEADER_XcpTest_types_h_
 
-#define CALDATA      __attribute__((section (".calData")))
-#define MONPRM      __attribute__((section (".meaData")))
+#define CALDATA     __attribute__((aligned(4)))__attribute__((section (".calData")))
+#define MONPRM      __attribute__((aligned(4)))__attribute__((section (".meaData")))
 
 /* Forward declaration for rtModel */
 typedef struct tag_RTM_XcpTest_T RT_MODEL_XcpTest_T;

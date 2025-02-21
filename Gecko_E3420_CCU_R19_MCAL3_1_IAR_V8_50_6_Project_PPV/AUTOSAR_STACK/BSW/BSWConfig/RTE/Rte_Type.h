@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-12-31 16:10:03>
+ *  @date       <2025-02-19 14:23:38>
  */
 /*============================================================================*/
 
@@ -504,6 +504,9 @@ typedef struct
     UInt16 VBSW_RTCWupRmningT_min;
     Boolean VBSW_F1B1PwrOnReq_flg;
     Boolean VBSW_F1B1PwrOffReq_flg;
+    Boolean VBSW_NetWorkWakeup_flg;
+    Boolean VBSW_SrvClrDTCReq_flg;
+    Boolean VBSW_DiagInitCmpl_flg;
 } BSW2VCU_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_BSW2VCU_outputs_
@@ -1367,6 +1370,16 @@ typedef struct
 
 typedef struct
 {
+    Boolean VIPM_FCMHMAHiBeamReq_flg;
+    Boolean VIPM_FCMHMAHiBeamReqVld_flg;
+    Boolean VIPM_FCMHMASetFb_flg;
+    Boolean VIPM_FCMHMASetFbVld_flg;
+} DT_IPM_FCM_A_CHA;
+
+#define _DEFINED_TYPEDEF_FOR_DT_IPM_FCM_A_CHA_
+
+typedef struct
+{
     Boolean VIPM_FCMACCWhlTqReqActv_flg;
     Boolean VIPM_FCMACCWhlTqReqActvVld_flg;
     Float VIPM_FCMACCWhlTqReqVal_Nm;
@@ -2026,6 +2039,7 @@ typedef struct
     Boolean TboxUnlck;
     Boolean TrunkTboxUnlck;
     UInt8 RemoteLockFb;
+    Boolean TboxAntiLck;
 } DoorLckCtl;
 
 #define _DEFINED_TYPEDEF_FOR_DoorLckCtl_
@@ -2064,6 +2078,10 @@ typedef struct
     UInt8 RemotePwrLckSta;
     UInt8 SysPwrMode;
     UInt8 StartReq;
+    UInt8 BJSTimeDay;
+    UInt8 BJSTimeHour;
+    UInt8 BJSTimeMonth;
+    UInt16 BJSTimeYear;
 } EEReadCtl;
 
 #define _DEFINED_TYPEDEF_FOR_EEReadCtl_
@@ -2286,6 +2304,75 @@ typedef struct
 } ESC_A_CHA;
 
 #define _DEFINED_TYPEDEF_FOR_ESC_A_CHA_
+
+typedef struct
+{
+    Boolean FCM_ACCStart;
+    Boolean FCM_ACCTakeOverReq;
+    UInt8 FCM_ADASDrvrReq;
+    UInt8 FCM_ADASNotAvlReas;
+    UInt8 FCM_ADASQuitReas;
+    UInt8 FCM_AEBObjID;
+    Boolean FCM_AEBRecReq;
+    Boolean FCM_AEBSetFb;
+    UInt8 FCM_A_AliveCnt1;
+    UInt8 FCM_A_AliveCnt2;
+    UInt8 FCM_A_AliveCnt3;
+    UInt8 FCM_A_AliveCnt4;
+    UInt8 FCM_A_AliveCnt5;
+    UInt8 FCM_A_AliveCnt6;
+    UInt8 FCM_A_Chksum1;
+    UInt8 FCM_A_Chksum2;
+    UInt8 FCM_A_Chksum3;
+    UInt8 FCM_A_Chksum4;
+    UInt8 FCM_A_Chksum5;
+    UInt8 FCM_A_Chksum6;
+    UInt8 FCM_AccModeHMI;
+    UInt8 FCM_ActDrvAsstStsHMI;
+    Boolean FCM_AudioWarnHandsOff;
+    UInt8 FCM_ELKLeftMode;
+    UInt8 FCM_ELKRightMode;
+    UInt8 FCM_ELKSetFb;
+    UInt8 FCM_FCM_intialization;
+    UInt8 FCM_FCWSetFb;
+    UInt8 FCM_FaultTextInfo;
+    Boolean FCM_HMASetFb;
+    UInt8 FCM_HMASts;
+    Boolean FCM_HMA_HighbeamReq;
+    Boolean FCM_ICASetFb;
+    Boolean FCM_ICATruckSetFb;
+    UInt8 FCM_LDWAlertMethodSetFb;
+    UInt8 FCM_LDWAudioWarn;
+    Boolean FCM_LDWSetFb;
+    UInt8 FCM_LDWSts;
+    Boolean FCM_LKASetFb;
+    UInt8 FCM_LKASts;
+    Boolean FCM_LKA_AudioWarning;
+    UInt8 FCM_Laterallimit;
+    UInt8 FCM_LeLineColorFct;
+    Boolean FCM_PCWLatentWarn;
+    Boolean FCM_PCWPreWarn;
+    UInt8 FCM_RAEB_WorkSts;
+    UInt8 FCM_RiLineColorFct;
+    UInt8 FCM_SLIFOperSts;
+    UInt8 FCM_SLIFSetFb;
+    UInt8 FCM_SLWFSetFb;
+    UInt8 FCM_TJATakeoverReq;
+    UInt8 FCM_TSRLatDst;
+    UInt8 FCM_TSRLgtDst;
+    UInt8 FCM_TSRSpdLim;
+    UInt8 FCM_TSRSpdLimSts;
+    Boolean FCM_TSRSpdLimWarn;
+    Boolean FCM_TSRSpdLimWarnAu;
+    Boolean FCM_TSR_SetFb;
+    UInt8 FCM_TarObjACC;
+    UInt8 FCM_TauGapSet;
+    UInt8 FCM_TextInfoLKA1;
+    UInt8 FCM_TrfcSign;
+    UInt16 FCM_vSetDis;
+} FCM_A_CHA;
+
+#define _DEFINED_TYPEDEF_FOR_FCM_A_CHA_
 
 typedef struct
 {
@@ -2799,6 +2886,9 @@ typedef struct
     Boolean LowBeamShortToBat;
     Boolean HiBeamShortToBat;
     UInt8 VehSeekStaFb;
+    Boolean AutoHiBeam;
+    Boolean BrkLampShortToBatOrOpen;
+    Boolean BrkLampShortToGnd;
 } LampCtl;
 
 #define _DEFINED_TYPEDEF_FOR_LampCtl_
@@ -2813,6 +2903,7 @@ typedef struct
     UInt8 VNVM_PTActOprtMode_enum;
     UInt8 VNVM_VehActGearPstn_enum;
     UInt8 VNVM_AccPedZeroPstn_pct;
+    UInt8 VNVM_ECURstCntr_cnt;
 } NVM_Imdt_outputs;
 
 #define _DEFINED_TYPEDEF_FOR_NVM_Imdt_outputs_
@@ -3239,9 +3330,21 @@ typedef struct
 
 typedef struct
 {
+    UInt8 BJSTimeDay;
+    UInt8 BJSTimeHour;
+    UInt8 BJSTimeMonth;
+    UInt16 BJSTimeYear;
+    UInt8 HourDiff;
+} TboxTim;
+
+#define _DEFINED_TYPEDEF_FOR_TboxTim_
+
+typedef struct
+{
     UInt8 AppSwcTmsVersion;
     Boolean TMS_NMReq_flg;
     Boolean TMS_HVReq_flg;
+    Boolean IOCtl_bPwrHVPart;
 } Tms2Vcu_Info;
 
 #define _DEFINED_TYPEDEF_FOR_Tms2Vcu_Info_
@@ -3615,6 +3718,7 @@ typedef struct
     UInt8 DynDID_0xF237PwrModeSta;
     rt_Array_UInt8_5 DynDID_0xF235DigtInSampleValue;
     UInt8 DynDID_DoorOpRecord;
+    UInt8 DynDID_0xF200ECUPwrMode;
 } DynDID;
 
 #define _DEFINED_TYPEDEF_FOR_DynDID_

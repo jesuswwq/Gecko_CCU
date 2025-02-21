@@ -12,7 +12,7 @@
 **                                                                            **
 **  FILENAME    : NvM_Cfg.h                                                   **
 **                                                                            **
-**  Created on  : 2024/12/19 10:37:52                                 **
+**  Created on  : 2025/02/10 13:54:33                                 **
 **  Author      : <>                                                          **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Pre-compile configuration parameter of NvM                  **
@@ -39,7 +39,7 @@
 #define NVM_API_CONFIG_CLASS                            NVM_API_CONFIG_CLASS_3
 #define NVM_BSWM_MULTIBLOCK_JOBSTATUS_INFORMATION        STD_ON
 #define NVM_BSWM_SINGLEBLOCK_JOBSTATUS_INFORMATION      STD_OFF
-#define NVM_COMPILED_CONFIG_ID                          (0x1u)
+#define NVM_COMPILED_CONFIG_ID                          (0x2u)
 #define NVM_CRC_NUM_OF_BYTES                              (0xffffu)
 #define NVM_DATASET_SELECTION_BITS                      (0x2u)
 #define NVM_DEV_ERROR_DETECT                            STD_ON
@@ -63,7 +63,7 @@
 #define NvMBlock2_DID_F101               3U
 #define NvMBlock3_DID_F157               4U
 #define NvMBlock4_DID_F158               5U
-#define NvMBlock5_DID_F086               6U
+#define NvMBlock5_DID_F16E               6U
 #define NvMBlock6_DID_F13A               7U
 #define NvMBlock7_DID_F13B               8U
 #define NvMBlock8_DID_F13C               9U
@@ -136,7 +136,7 @@
 
 #define NVM_MAX_LENGTH_CONFIGED_RAM_MIRROR                0U
 
-#define NVM_MAX_LENGTH_NV_BLOCK                            704U
+#define NVM_MAX_LENGTH_NV_BLOCK                            900U
 #define NVM_MAX_LENGTH_REDUNDANT_BLOCK                    2U
 
 #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON == NVM_JOB_PRIORITIZATION))
@@ -151,7 +151,7 @@
 
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer1[2];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer2[17];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer3[30];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer3[33];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer4[16];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer5[16];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer6[9];
@@ -212,13 +212,13 @@ extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer60[52];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer61[52];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer62[52];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer63[52];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer64[704];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer64[900];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer65[64];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer66[256];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer67[128];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer68[10];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer69[256];
-extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[10];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[16];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer71[128];
 
 #endif /* End of NVM_CFG_H*/

@@ -82,6 +82,7 @@ static FUNC(void, DCM_CODE) DspInternal_DcmConfirmForRePrg(uint8 ProtocolCtrlId)
                 {
                     /* By this mode switch the DCM
                      * informs the BswM to jump to the bootloader.*/
+                    Set_FunOff_Appjumpboot();//turn off ig...
                     (void)SchM_Switch_DcmEcuReset(RTE_MODE_DcmEcuReset_EXECUTE);
                 }
                 else if (ret == DCM_E_PENDING)

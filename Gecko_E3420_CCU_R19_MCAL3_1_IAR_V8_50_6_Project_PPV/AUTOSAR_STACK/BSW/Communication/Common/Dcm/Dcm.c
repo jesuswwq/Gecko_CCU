@@ -1256,7 +1256,10 @@ static FUNC(void, DCM_CODE) Dcm_MainFunction_SecTimer(void)
                 SchM_Enter_Dcm(Dcm_SecCtrl);
                 Dcm_SecCtrl.Dcm_RunDlyCtrl.Dcm_SecTimerState[SecCfgIndex] = DCM_SECTIMER_OFF;
                 /*********************************/
-                Dcm_SecCtrl.Dcm_FalseAcessCount[SecCfgIndex] --;
+                if (Dcm_SecCtrl.Dcm_FalseAcessCount[SecCfgIndex] > 0)
+                {
+                    Dcm_SecCtrl.Dcm_FalseAcessCount[SecCfgIndex]--;
+                }
                 Dcm_SecCtrl.Dcm_SubfunctionForSeed = 0;
                 Dcm_SecCtrl.Dcm_SecServiceState = DCM_SERVICE_IDLE;
                 SchM_Exit_Dcm(Dcm_SecCtrl);

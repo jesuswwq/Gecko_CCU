@@ -26,6 +26,33 @@ typedef enum
   OFF_Mode = 3
 }TLE8108EM_ChannelMode;
 
+typedef enum
+{
+  Chip_7012 = 0, //it is 7012_b
+  Chip_7012_A,
+  Chip_7012_C,
+
+  Chip_7020_A,
+  Chip_7020_B,
+
+  Chip_7120_A,
+  Chip_7120_B,
+  Chip_7120_C,
+  Chip_7120_D,
+
+  MAX_Chip_Num
+}HS_Diag_Chip;
+
+typedef enum
+{
+  Ant1 = 0,
+  Ant2,
+  Ant3,
+  Ant4,
+
+  MAX_Ant_Num
+}AntType;
+
 typedef union
 {
   struct
@@ -68,6 +95,7 @@ typedef union
 #define DID_0xF281                     103U                      /* Referenced by: '<S1515>/Constant5' */
 #define DID_0xF282                     104U                      /* Referenced by: '<S1502>/Constant5' */
 #define IODID_0x0x3237                 7U                        /* Referenced by: '<S1129>/Constant1' */
+#define DID_0xF286                     108U                      /* Referenced by: '<S1130>/Constant1' */
 
 extern uint8 Buffer_DcmDspData_F260H[ 1 ]  ;
 extern uint8 Buffer_DcmDspData_F261H[ 1 ]  ;
@@ -96,6 +124,7 @@ extern uint8 Buffer_DcmDspData_3237[ 1 ]  ;
 extern uint8 Buffer_DcmDspData_F281H[ 1 ] ;
 extern uint8 Buffer_DcmDspData_F280H[ 1 ] ;
 extern uint8 Buffer_DcmDspData_F282H[ 1 ] ;
+extern uint8 Buffer_DcmDspData_F286H[ 1 ] ;
 
 extern uint8 u8Key_Match_flg;
 extern void startAuKeyMatch();
@@ -278,6 +307,11 @@ extern void SetHw_FrontFogLamps(uint8 Sts); // 前雾灯驱动
 extern void SetHw_BackLightDrv(uint8 frq,uint8 duty); // 背光灯驱动
 extern void SetHw_DrvSeatHeat(uint8 frq,uint8 duty);  // 座椅加热PWM驱动
 extern uint16 GetHw_DrvSeatTempFrb(void);   // 座椅加热温度反馈
+extern void SetHw_DrvTurnLo_Tr(uint8 frq,uint8 duty);// Left Light PWM 
+extern void SetHw_DrvTurnRo_Tr(uint8 frq,uint8 duty);// Left Light PWM 
+extern void SetHw_DrvSeatHeat_TR(uint8 frq,uint8 duty);// SEAT HEAT PWM 
+extern void SetHw_DrvPwrOut(uint8 frq,uint8 duty); //jiedian shuchu 
+
 
 
 extern Std_ReturnType NvmVcuBlock01ReadData(uint8 *data, uint8 Length);
@@ -315,5 +349,10 @@ uint8 GetHw_LoBeamDigSts(void);
 uint32 Get_RTC_SleepTime(void);//RTC get sleep time
 uint8 Get_EcuResetStatus(void);
 void Set_EcuReset(void);
+void Set_FunOff_Appjumpboot(void);
+uint8 Get_Diag7x_CV(HS_Diag_Chip Chipselect, uint8 channel);
+uint8 Get_DiagAnt_CV(AntType channel);
+void Set_PEPSstatus_BeforeRTC(void);
+void Get_PEPSstatus_WkFromRTC(void);
 #endif
 // extern uint8 

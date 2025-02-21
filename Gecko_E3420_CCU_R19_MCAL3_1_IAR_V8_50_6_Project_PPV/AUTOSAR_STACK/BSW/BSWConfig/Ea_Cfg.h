@@ -12,7 +12,7 @@
 **                                                                            **
 **  FILENAME    : Ea_Cfg.h                                                    **
 **                                                                            **
-**  Created on  : 2024/12/13 17:08:22                                         **
+**  Created on  : 2025/02/06 16:54:32                                         **
 **  Author      : tao.yu                                                      **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Ea pre compile globle macro define                          **
@@ -55,6 +55,6 @@
 /*Management overhead per page in bytes.*/
 #define EA_PAGE_OVER_HEAD                                    (0U)
 
-#define EA_BLOCK_MAX_SIZE                                    (722U)
+#define EA_BLOCK_MAX_SIZE                                    (914U)
 
 #endif /* EA_CFG_H */

@@ -57,7 +57,7 @@ typedef struct
 {
     uint8            I2C_Channel;
 //    I2c_adap_dev_t*  I2C_CtrlBlock;
-    uint8            Device_Addr;
+    uint16            Device_Addr;
     uint8            Port0Dir;
     uint8            Port1Dir;
 	Dio_ChannelType  RstPin;

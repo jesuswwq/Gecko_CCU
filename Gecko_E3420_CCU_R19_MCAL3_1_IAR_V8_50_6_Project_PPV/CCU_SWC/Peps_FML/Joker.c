@@ -5,8 +5,8 @@
 
 uint8_t g_peps_ide[4] = {0x2e, 0x3c, 0xbc, 0x2b}; /**< \brief o?ï¿½ï¿½ï¿½ï¿½IDE */
 
-static uint8_t u8CmdBuff[255]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
-static uint8_t u8ResBuff[255];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+static uint8_t u8CmdBuff[255]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
+static uint8_t u8ResBuff[255]; /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 
 uint8_t Joker_Init_Status = 0xff;
 
@@ -16,6 +16,7 @@ extern uint8 u8JokerInitInCarAntDrvCur;
 extern uint8 u8JokerInitLfAntDrvCur;
 extern uint8 u8JokerInitRfAntDrvCur;
 
+extern uint8_t g_datCan1Tx_0x330[8];
 /*********************************************************************************************************
   Local function prototypes
 *********************************************************************************************************/
@@ -225,7 +226,7 @@ uint8 NJJ29C0_COM_ReadWriteFrame(uint8 *sendFrame, uint8 *recvFrame, uint8 sendF
 ** @param	pu8ResBuff	: Respond buff
 ** @param	u8ParamLen	: param bytes len
 ** @param	u32DelayUs	: Delay between CMD & Respond @spec
-** @retval	u8Res    : SPIï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ï¿½ï¿?:ï¿½É¹ï¿½ï¿½ï¿½1:Ê§ï¿½ï¿½
+** @retval	u8Res    : SPIï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½É¹ï¿½ï¿½ï¿½?:ï¿½É¹ï¿½ï¿½ï¿½1:Ê§ï¿½ï¿½
 *********************************************************************************************************/
 static uint8_t _JOKER_CmdTransmit(uint8_t u8CMD, uint8_t *pu8Param, uint8_t *pu8ResBuff, uint8_t u8ParamLen, uint32_t u32DelayUs)
 {
@@ -236,7 +237,7 @@ static uint8_t _JOKER_CmdTransmit(uint8_t u8CMD, uint8_t *pu8Param, uint8_t *pu8
 
     uint8_t i = 0x00;
 
-    /* ï¿½ï¿½ä·¢ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    /* ï¿½ï¿½ä·¢ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuffer[0] = u8ParamLen;
     u8CmdBuffer[1] = u8CMD;
 
@@ -264,8 +265,8 @@ static uint8_t _JOKER_CmdTransmit(uint8_t u8CMD, uint8_t *pu8Param, uint8_t *pu8
     JOKER_CSN_1();
 
     /* ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ðµï¿½ï¿½ï¿½Ó¦ï¿½Ç·ï¿½ï¿½ï¿½È· */
-    //if (u8ResBuffer[0] != 0x00)
-	if ((u8ResBuffer[0] > 0) && (u8ResBuffer[0] < 64))
+    // if (u8ResBuffer[0] != 0x00)
+    if ((u8ResBuffer[0] > 0) && (u8ResBuffer[0] < 64))
     {
         if (u8ResBuffer[u8ResBuffer[0]] == _JOKER_Crc8Algorithm(u8ResBuffer, u8ResBuffer[0]))
         {
@@ -286,7 +287,6 @@ static uint8_t _JOKER_CmdTransmit(uint8_t u8CMD, uint8_t *pu8Param, uint8_t *pu8
     }
     return u8Err;
 }
-
 
 /*--------------------------------------------------------------------------------------------------------
     General Commands
@@ -432,7 +432,7 @@ stat_t JOKER_ClearPorStatus(uint8_t u8ProC)
     uint8_t i;
 
     i = 0x00;
-    u8CmdBuff[0] = u8ProC & 0x7F; /**< \brief ï¿½ï¿½Ö¾Î»È«ï¿½ï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[0] = u8ProC & 0x7F; /**< \brief ï¿½ï¿½Ö¾Î»È«ï¿½ï¿½ï¿½ï¿½ï¿½?*/
 
     while (_JOKER_CmdTransmit(CLEAR_POR_STATUS_CMD, u8CmdBuff, u8ResBuff, 0x03, 300) != 0)
     {
@@ -499,19 +499,12 @@ stat_t JOKER_StartSleepForced(void)
 *********************************************************************************************************/
 void JOKER_WakeUp(void)
 {
-#if 1
-    uint8_t u8CmdBuff[1] = {0}; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?*/
-    _JOKER_SpiWrite(u8CmdBuff, 0);
-    delay_ms(1);
+    uint8_t u8CmdBuff[1] = {0}; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?*/
 
-	JOKER_StartSleepForced();
-#else
-  JOKER_CSN_0();
-  Njj29c0_Delay(200);
-  JOKER_CSN_1();
-    
-  //JOKER_StopLfTransmit();
-#endif
+    JOKER_CSN_0();
+    _JOKER_SpiWrite(u8CmdBuff, 0);
+    JOKER_CSN_1();
+    delay_ms(1);
 }
 
 /*--------------------------------------------------------------------------------------------------------
@@ -544,92 +537,6 @@ stat_t JOKER_ConfigBoost(void)
     return (stat_t)u8ResBuff[2];
 }
 
-#if 1
-/*--------------------------------------------------------------------------------------------------------
-	LF Antenna Driver
- *-------------------------------------------------------------------------------------------------------*/
-/*********************************************************************************************************
-** @brief	JOKER_ConfigLfDriver
-** @note	SPI_CMD:CONFIG_LF_DRIVER
-** @param	none
-** @retval	stat_t Status flags
-*********************************************************************************************************/
-//stat_t JOKER_ConfigLfDriver(void)
-stat_t JOKER_ConfigLfDriver(uint8_t ch2_CURSi, uint8_t ch3_CURSi, uint8_t ch4_CURSi)
-
-{
-    uint8_t u8CmdBuff[36];	 /**< \brief SPIÃüÁî²ÎÊý»º³åÇø */
-    uint8_t u8ResBuff[5];   /**< \brief SPIÏìÓ¦²ÎÊý»º³åÇø */
-    uint8_t i;
-
-    i = 0x00;
-    // DRPARi
-    // [7:6] | 5        | 4       | [3:2]         | 1   | 0
-    // RFU   | PHINV    | OPNLOOP | BDRATE        | RFU | MOD
-    // 00    | 0 =   0¡ã | 0 = DIS | 00 = 2 kbit/s | 0   | 0 = with mid level
-    //       | 1 = 180¡ã | 1 = EN  | 01 = 4 kbit/s |     | 1 = without mid level
-    //       |          |         | 10 = 8 kbit/s |     |
-
-    // DITHRi
-    // [7:2]  | [1:0]
-    // RFU    | DITHR
-    // 000000 | 00 = Dithering off
-    //        | 01 = Minimum range
-    //        | 10 = Medium range
-    //        | 10 = Maximum range
-
-    u8CmdBuff[0]  = DRID1;		/**< \brief DRIDi  : LF·¢ÉäÍ¨µÀ1 */
-    u8CmdBuff[1]  = 0x04;		/**< \brief DRPARi : LFÍ¨ÐÅ²¨ÌØÂÊ4kbit/s */
-    u8CmdBuff[2]  = 0x0f;		/**< \brief CURSi  : µ¥Í¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[3]  = 0x0f;		/**< \brief CURMi  : ¶àÍ¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[4]  = 0x40;		/**< \brief FREQi  : ÆµÆ« */
-    u8CmdBuff[5]  = 0x00;		/**< \brief DITHRi : ¶¶¶¯·¶Î§ */
-
-    u8CmdBuff[6]  = DRID2;		/**< \brief DRIDi  : LF·¢ÉäÍ¨µÀ2 */
-    u8CmdBuff[7]  = 0x04;		/**< \brief DRPARi : LFÍ¨ÐÅ²¨ÌØÂÊ4kbit/s */
-    u8CmdBuff[8]  = ch2_CURSi;		/**< \brief CURSi  : µ¥Í¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[9]  = ch2_CURSi;		/**< \brief CURMi  : ¶àÍ¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[10] = 0x40;		/**< \brief FREQi  : ÆµÆ« */
-    u8CmdBuff[11] = 0x00;		/**< \brief DITHRi : ¶¶¶¯·¶Î§ */
-
-    u8CmdBuff[12] = DRID3;		/**< \brief DRIDi  : LF·¢ÉäÍ¨µÀ3 */
-    u8CmdBuff[13] = 0x04;		/**< \brief DRPARi : LFÍ¨ÐÅ²¨ÌØÂÊ4kbit/s */
-    u8CmdBuff[14] = ch3_CURSi;		/**< \brief CURSi  : µ¥Í¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[15] = ch3_CURSi;		/**< \brief CURMi  : ¶àÍ¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[16] = 0x40;		/**< \brief FREQi  : ÆµÆ« */
-    u8CmdBuff[17] = 0x00;		/**< \brief DITHRi : ¶¶¶¯·¶Î§ */
-
-    u8CmdBuff[18] = DRID4;		/**< \brief DRIDi  : LF·¢ÉäÍ¨µÀ4 */
-    u8CmdBuff[19] = 0x04;		/**< \brief DRPARi : LFÍ¨ÐÅ²¨ÌØÂÊ4kbit/s */
-    u8CmdBuff[20] = ch4_CURSi;		/**< \brief CURSi  : µ¥Í¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[21] = ch4_CURSi;		/**< \brief CURMi  : ¶àÍ¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[22] = 0x40;		/**< \brief FREQi  : ÆµÆ« */
-    u8CmdBuff[23] = 0x00;		/**< \brief DITHRi : ¶¶¶¯·¶Î§ */
-
-    u8CmdBuff[24] = DRID5;		/**< \brief DRIDi  : LF·¢ÉäÍ¨µÀ5 */
-    u8CmdBuff[25] = 0x04;		/**< \brief DRPARi : LFÍ¨ÐÅ²¨ÌØÂÊ4kbit/s */
-    u8CmdBuff[26] = 0x0f;		/**< \brief CURSi  : µ¥Í¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[27] = 0x0f;		/**< \brief CURMi  : ¶àÍ¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[28] = 0x40;		/**< \brief FREQi  : ÆµÆ« */
-    u8CmdBuff[29] = 0x00;		/**< \brief DITHRi : ¶¶¶¯·¶Î§ */
-
-    u8CmdBuff[30] = DRID6;		/**< \brief DRIDi  : LF·¢ÉäÍ¨µÀ6 */
-    u8CmdBuff[31] = 0x04;		/**< \brief DRPARi : LFÍ¨ÐÅ²¨ÌØÂÊ4kbit/s */
-    u8CmdBuff[32] = 0x0f;		/**< \brief CURSi  : µ¥Í¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[33] = 0x0f;		/**< \brief CURMi  : ¶àÍ¨µÀLFÇý¶¯µçÁ÷Öµ */
-    u8CmdBuff[34] = 0x40;		/**< \brief FREQi  : ÆµÆ« */
-    u8CmdBuff[35] = 0x00;		/**< \brief DITHRi : ¶¶¶¯·¶Î§ */
-
-	while(_JOKER_CmdTransmit(CONFIG_LF_DRIVER_CMD, u8CmdBuff, u8ResBuff, 38, 2000) != 0)
-    {
-        i++;
-        if (i == 3) return SF_SPI;
-    }
-
-    return (stat_t)u8ResBuff[2];
-}
-
-#else
 /*--------------------------------------------------------------------------------------------------------
     LF Antenna Driver
  *-------------------------------------------------------------------------------------------------------*/
@@ -641,8 +548,11 @@ stat_t JOKER_ConfigLfDriver(uint8_t ch2_CURSi, uint8_t ch3_CURSi, uint8_t ch4_CU
 *********************************************************************************************************/
 stat_t JOKER_ConfigLfDriver(uint8_t ch2_CURSi, uint8_t ch3_CURSi, uint8_t ch4_CURSi)
 {
-    uint8_t i = 0;
-	
+    uint8_t u8CmdBuff[36]; /**< \brief SPIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½? */
+    uint8_t u8ResBuff[5];  /**< \brief SPIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+    uint8_t i;
+
+    i = 0x00;
     // DRPARi
     // [7:6] | 5        | 4       | [3:2]         | 1   | 0
     // RFU   | PHINV    | OPNLOOP | BDRATE        | RFU | MOD
@@ -659,26 +569,27 @@ stat_t JOKER_ConfigLfDriver(uint8_t ch2_CURSi, uint8_t ch3_CURSi, uint8_t ch4_CU
     //        | 10 = Maximum range
 
     u8CmdBuff[0] = DRID2;     /**< \brief DRIDi  : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½1 */
-    u8CmdBuff[1]  = 0x08;		/**< \brief DRPARi : LFÍ¨ÐÅ²¨ÌØÂÊ4kbit/s */
+    u8CmdBuff[1] = 0x04;      /**< \brief DRPARi : LFÍ¨ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½4kbit/s */
     u8CmdBuff[2] = ch2_CURSi; /**< \brief CURSi  : ï¿½ï¿½Í¨ï¿½ï¿½LFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
     u8CmdBuff[3] = ch2_CURSi; /**< \brief CURMi  : ï¿½ï¿½Í¨ï¿½ï¿½LFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
     u8CmdBuff[4] = 0x40;      /**< \brief FREQi  : ÆµÆ« */
     u8CmdBuff[5] = 0x00;      /**< \brief DITHRi : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ */
 
     u8CmdBuff[6] = DRID3;     /**< \brief DRIDi  : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½2 */
-    u8CmdBuff[7]  = 0x08;		/**< \brief DRPARi : LFÍ¨ÐÅ²¨ÌØÂÊ4kbit/s */
+    u8CmdBuff[7] = 0x04;      /**< \brief DRPARi : LFÍ¨ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½4kbit/s */
     u8CmdBuff[8] = ch3_CURSi; /**< \brief CURSi  : ï¿½ï¿½Í¨ï¿½ï¿½LFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
     u8CmdBuff[9] = ch3_CURSi; /**< \brief CURMi  : ï¿½ï¿½Í¨ï¿½ï¿½LFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
     u8CmdBuff[10] = 0x40;     /**< \brief FREQi  : ÆµÆ« */
     u8CmdBuff[11] = 0x00;     /**< \brief DITHRi : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ */
 
     u8CmdBuff[12] = DRID4;     /**< \brief DRIDi  : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½3 */
-    u8CmdBuff[13] = 0x08;		/**< \brief DRPARi : LFÍ¨ÐÅ²¨ÌØÂÊ4kbit/s */
+    u8CmdBuff[13] = 0x04;      /**< \brief DRPARi : LFÍ¨ï¿½Å²ï¿½ï¿½ï¿½ï¿½ï¿½4kbit/s */
     u8CmdBuff[14] = ch4_CURSi; /**< \brief CURSi  : ï¿½ï¿½Í¨ï¿½ï¿½LFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
     u8CmdBuff[15] = ch4_CURSi; /**< \brief CURMi  : ï¿½ï¿½Í¨ï¿½ï¿½LFï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ */
     u8CmdBuff[16] = 0x40;      /**< \brief FREQi  : ÆµÆ« */
     u8CmdBuff[17] = 0x00;      /**< \brief DITHRi : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î§ */
 
+    // while(_JOKER_CmdTransmit(CONFIG_LF_DRIVER_CMD, u8CmdBuff, u8ResBuff, 26, 1500) != 0)
     while (_JOKER_CmdTransmit(CONFIG_LF_DRIVER_CMD, u8CmdBuff, u8ResBuff, 20, 600) != 0)
     {
         i++;
@@ -688,9 +599,6 @@ stat_t JOKER_ConfigLfDriver(uint8_t ch2_CURSi, uint8_t ch3_CURSi, uint8_t ch4_CU
 
     return (stat_t)u8ResBuff[2];
 }
-#endif
-
-
 
 /*--------------------------------------------------------------------------------------------------------
     Parallel Low Current Driver
@@ -766,11 +674,13 @@ stat_t JOKER_SetLfData(uint8_t u8DataIndex, uint8_t u8BytesLen, uint8_t *pu8Data
     }
 
     i = 0x00;
-    while (_JOKER_CmdTransmit(SET_LF_DATA_CMD, u8CmdBuff, u8ResBuff, 0x05 + u8BytesLen, 100) != 0)
+    while (_JOKER_CmdTransmit(SET_LF_DATA_CMD, u8CmdBuff, u8ResBuff, 0x05 + u8BytesLen, 200) != 0)
     {
         i++;
         if (i == 3)
+        {
             return SF_SPI;
+        }
     }
 
     return (stat_t)u8ResBuff[2];
@@ -792,11 +702,13 @@ stat_t JOKER_SetLfNrz(uint8_t u8DataIndex, uint8_t u8BytesLen, uint8_t *pu8DataB
     }
 
     i = 0x00;
-    while (_JOKER_CmdTransmit(SET_LF_DATA_CMD, u8CmdBuff, u8ResBuff, 0x05 + u8BytesLen, 100) != 0)
+    while (_JOKER_CmdTransmit(SET_LF_DATA_CMD, u8CmdBuff, u8ResBuff, 0x05 + u8BytesLen, 300) != 0)
     {
         i++;
         if (i == 3)
+        {
             return SF_SPI;
+        }
     }
 
     return (stat_t)u8ResBuff[2];
@@ -823,7 +735,9 @@ stat_t JOKER_SetLfCarrier(uint8_t u8Index, carrier_t sCarrier, uint8_t u8Time)
     {
         i++;
         if (i == 3)
+        {
             return SF_SPI;
+        }
     }
 
     return (stat_t)u8ResBuff[2];
@@ -857,7 +771,7 @@ stat_t JOKER_StartLfTransmit(drpi_t sLfDRPi, drpi_t sLcDRPi, uint8_t u8BuffLen, 
     while (_JOKER_CmdTransmit(START_LF_TRANSMIT_CMD, u8CmdBuff, u8ResBuff, 0x07 + u8BuffLen, 600) != 0)
     {
         i++;
-        if (i == 1)
+        if (i == 3)
             return SF_SPI;
     }
 
@@ -1210,31 +1124,31 @@ stat_t JOKER_SetAntImp(void)
     uint8_t i;
 
     u8CmdBuff[0] = DRID1; /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½1 */
-    u8CmdBuff[1] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[1] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[2] = 0x12;  /**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[3] = 0x80;  /**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
 
     u8CmdBuff[4] = DRID2; /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½2 */
-    u8CmdBuff[5] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[5] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[6] = 0x12;  /**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[7] = 0x80;  /**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
 
     u8CmdBuff[8] = DRID3; /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½3 */
-    u8CmdBuff[9] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[9] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[10] = 0x12; /**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[11] = 0x80; /**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
 
     u8CmdBuff[12] = DRID4; /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½4 */
-    u8CmdBuff[13] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[13] = 0x23;  /**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[14] = 0x12;  /**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[15] = 0x80;  /**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
 #if 0	
     u8CmdBuff[16] = DRID5;	  /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½5 */
-    u8CmdBuff[17] = 0x23;		/**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[17] = 0x23;		/**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[18] = 0x12;		/**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[19] = 0x80;		/**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
     u8CmdBuff[20] = DRID6;	  /**< \brief DRIDi : LFï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½6 */
-    u8CmdBuff[21] = 0x23;		/**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[21] = 0x23;		/**< \brief Li    : ï¿½ï¿½ï¿½ßµï¿½ï¿½ï¿½ï¿½?*/
     u8CmdBuff[22] = 0x12;		/**< \brief Qi    : ï¿½ï¿½ï¿½ï¿½QÖµ */
     u8CmdBuff[23] = 0x80;		/**< \brief DETi  : ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½Î§ */
 #endif
@@ -1730,7 +1644,7 @@ stat_t JOKER_ConfigTimerPolling(void)
     u8CmdBuff[9] = DATA_ID_CC_5;    /**< \brief DATAIDik   : 5msï¿½ï¿½ï¿½Ø²ï¿½ */
 
     i = 0x00;
-    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, 0x0C, 2100) != 0)
+    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, 0x0C, 600) != 0)
     {
         i++;
         if (i == 3)
@@ -1760,7 +1674,7 @@ stat_t NJJ29C0_ConfigTimerPolling(uint8_t drpi, uint16_t ptime, uint8_t len, uin
     // u8CmdBuff[9] = DATA_ID_CC_5;			/**< \brief DATAIDik   : 5msï¿½ï¿½ï¿½Ø²ï¿½ */
 
     i = 0x00;
-    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, 9 + len, 2100) != 0)
+    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, 9 + len, 600) != 0)
     {
         i++;
         if (i == 3)
@@ -1771,177 +1685,186 @@ stat_t NJJ29C0_ConfigTimerPolling(uint8_t drpi, uint16_t ptime, uint8_t len, uin
     return (stat_t)u8ResBuff[2];
 }
 
-stat_t Peps_Cfg_Joker_Tx_Message(uint8_t Ant1,uint8_t DataId_Len1, uint8_t *Lf_Ant1_DataIdx,
-											  uint8_t Ant2,uint8_t DataId_Len2, uint8_t *Lf_Ant2_DataIdx,
-											  uint8_t Ant3,uint8_t DataId_Len3, uint8_t *Lf_Ant3_DataIdx)
+stat_t Peps_Cfg_Joker_Tx_Message(uint8_t Ant1, uint8_t DataId_Len1, uint8_t *Lf_Ant1_DataIdx,
+                                 uint8_t Ant2, uint8_t DataId_Len2, uint8_t *Lf_Ant2_DataIdx,
+                                 uint8_t Ant3, uint8_t DataId_Len3, uint8_t *Lf_Ant3_DataIdx)
 {
-	uint8_t i = 0;
+    uint8_t i = 0;
     uint8_t txlen = 0;
 
-	if(Ant1 != DRP_NULL)
-	{
-		u8CmdBuff[txlen++]  = Ant1;		/**< \brief DRPi       : LF Driver */
-	    u8CmdBuff[txlen++]  = 0x00;		/**< \brief RFU        : */
-	    u8CmdBuff[txlen++]  = DRP_NULL;	/**< \brief LCDRPi     : µÍ¹¦ºÄLF Driver */
-	    u8CmdBuff[txlen++]  = 0x00;		/**< \brief RFU        : */
-	    u8CmdBuff[txlen++]  = DataId_Len1;    /**< \brief LENDATAIDi : Êý¾Ý¶ÎÊý */
+    if (Ant1 != DRP_NULL)
+    {
+        u8CmdBuff[txlen++] = Ant1;        /**< \brief DRPi       : LF Driver */
+        u8CmdBuff[txlen++] = 0x00;        /**< \brief RFU        : */
+        u8CmdBuff[txlen++] = DRP_NULL;    /**< \brief LCDRPi     : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+        u8CmdBuff[txlen++] = 0x00;        /**< \brief RFU        : */
+        u8CmdBuff[txlen++] = DataId_Len1; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
 
-	    for(i = 0; i < DataId_Len1; i++)
-	    {
-	        u8CmdBuff[txlen++]  = Lf_Ant1_DataIdx[i];	/**< \brief DATAIDik   : */
-	    }
-	}
-	
-	if(Ant2 != DRP_NULL)
-	{
-		u8CmdBuff[txlen++]  = Ant2;		/**< \brief DRPi       : LF Driver */
-	    u8CmdBuff[txlen++]  = 0x00;		/**< \brief RFU        : */
-	    u8CmdBuff[txlen++]  = DRP_NULL;	/**< \brief LCDRPi     : µÍ¹¦ºÄLF Driver */
-	    u8CmdBuff[txlen++]  = 0x00;		/**< \brief RFU        : */
-	    u8CmdBuff[txlen++]  = DataId_Len2;    /**< \brief LENDATAIDi : Êý¾Ý¶ÎÊý */
+        for (i = 0; i < DataId_Len1; i++)
+        {
+            u8CmdBuff[txlen++] = Lf_Ant1_DataIdx[i]; /**< \brief DATAIDik   : */
+        }
+    }
 
-	    for(i = 0; i < DataId_Len2; i++)
-	    {
-	        u8CmdBuff[txlen++]  = Lf_Ant2_DataIdx[i];	/**< \brief DATAIDik   : */
-	    }
-	}
-	
-	if(Ant3 != DRP_NULL)
-	{
-		u8CmdBuff[txlen++]  = Ant3;		/**< \brief DRPi	   : LF Driver */
-		u8CmdBuff[txlen++]  = 0x00;		/**< \brief RFU 	   : */
-		u8CmdBuff[txlen++]  = DRP_NULL;	/**< \brief LCDRPi	   : µÍ¹¦ºÄLF Driver */
-		u8CmdBuff[txlen++]  = 0x00;		/**< \brief RFU 	   : */
-		u8CmdBuff[txlen++]  = DataId_Len3;	/**< \brief LENDATAIDi : Êý¾Ý¶ÎÊý */
+    if (Ant2 != DRP_NULL)
+    {
+        u8CmdBuff[txlen++] = Ant2;        /**< \brief DRPi       : LF Driver */
+        u8CmdBuff[txlen++] = 0x00;        /**< \brief RFU        : */
+        u8CmdBuff[txlen++] = DRP_NULL;    /**< \brief LCDRPi     : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+        u8CmdBuff[txlen++] = 0x00;        /**< \brief RFU        : */
+        u8CmdBuff[txlen++] = DataId_Len2; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
 
-		for(i = 0; i < DataId_Len3; i++)
-		{
-			u8CmdBuff[txlen++]  = Lf_Ant3_DataIdx[i]; /**< \brief DATAIDik   : */
-		}
-	}
+        for (i = 0; i < DataId_Len2; i++)
+        {
+            u8CmdBuff[txlen++] = Lf_Ant2_DataIdx[i]; /**< \brief DATAIDik   : */
+        }
+    }
 
-	_JOKER_CmdTransmit(START_LF_TRANSMIT_CMD, u8CmdBuff, u8ResBuff, txlen + 2, 600);
-	
+    if (Ant3 != DRP_NULL)
+    {
+        u8CmdBuff[txlen++] = Ant3;        /**< \brief DRPi	   : LF Driver */
+        u8CmdBuff[txlen++] = 0x00;        /**< \brief RFU 	   : */
+        u8CmdBuff[txlen++] = DRP_NULL;    /**< \brief LCDRPi	   : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+        u8CmdBuff[txlen++] = 0x00;        /**< \brief RFU 	   : */
+        u8CmdBuff[txlen++] = DataId_Len3; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
+
+        for (i = 0; i < DataId_Len3; i++)
+        {
+            u8CmdBuff[txlen++] = Lf_Ant3_DataIdx[i]; /**< \brief DATAIDik   : */
+        }
+    }
+
+    i = 0x00;
+    while (_JOKER_CmdTransmit(START_LF_TRANSMIT_CMD, u8CmdBuff, u8ResBuff, txlen + 2, 600) != 0)
+    {
+        i++;
+        if (i == 3)
+        {
+            return SF_SPI;
+        }
+    }
+    //_JOKER_CmdTransmit(START_LF_TRANSMIT_CMD, u8CmdBuff, u8ResBuff, txlen + 2, 600);
+
     return (stat_t)u8ResBuff[2];
 }
 
 stat_t Peps_Fun_ConfigTimerPolling(uint8_t Cmd, uint8_t Incar_Ant, uint16_t ptime0, uint8_t LfDoor_Ant, uint16_t ptime1, uint8_t RfDoor_Ant, uint16_t ptime2)
 {
     uint8_t i;
-	uint8_t txlen = 0;
+    uint8_t txlen = 0;
 
-	if((Cmd == 0x10)||(Cmd == 0x00))
-	{
-		u8CmdBuff[0] = Incar_Ant;					/**< \brief DRPi       : LF Driver */
-	    u8CmdBuff[1] = 0x00;					/**< \brief DRNi       : */
-	    u8CmdBuff[2] = 0x00;					/**< \brief LCDRPi     : µÍ¹¦ºÄLF Driver */
-	    u8CmdBuff[3] = 0x00;					/**< \brief LCDRNi     : */
-	    u8CmdBuff[4] = (uint8_t)ptime0;         /**< \brief PTIME_Li   : pollingÊ±¼ä£¬µ¥Î»Îª1ms */
-	    u8CmdBuff[5] = (uint8_t)(ptime0>>8);
-	    u8CmdBuff[6] = 5;					    /**< \brief LENDATAIDi : Êý¾Ý¶ÎÊý */
-		u8CmdBuff[7] = DATA_ID_PREMABLE;
-		u8CmdBuff[8] = DATA_ID_CV;
-		u8CmdBuff[9] = DATA_ID_WUP1;
-		u8CmdBuff[10] = DATA_ID_DATA_PE;
-		u8CmdBuff[11] = DATA_ID_DATA_RSSI;
+    if ((Cmd == 0x10) || (Cmd == 0x00))
+    {
+        u8CmdBuff[0] = Incar_Ant;       /**< \brief DRPi       : LF Driver */
+        u8CmdBuff[1] = 0x00;            /**< \brief DRNi       : */
+        u8CmdBuff[2] = 0x00;            /**< \brief LCDRPi     : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+        u8CmdBuff[3] = 0x00;            /**< \brief LCDRNi     : */
+        u8CmdBuff[4] = (uint8_t)ptime0; /**< \brief PTIME_Li   : pollingÊ±ï¿½ä£¬ï¿½ï¿½Î»Îª1ms */
+        u8CmdBuff[5] = (uint8_t)(ptime0 >> 8);
+        u8CmdBuff[6] = 5; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
+        u8CmdBuff[7] = DATA_ID_PREMABLE;
+        u8CmdBuff[8] = DATA_ID_CV;
+        u8CmdBuff[9] = DATA_ID_WUP1;
+        u8CmdBuff[10] = DATA_ID_DATA_PE;
+        u8CmdBuff[11] = DATA_ID_DATA_RSSI;
 
-		u8CmdBuff[12] = LfDoor_Ant;					/**< \brief DRPi	   : LF Driver */
-		u8CmdBuff[13] = 0x00;					/**< \brief DRNi	   : */
-		u8CmdBuff[14] = 0x00;					/**< \brief LCDRPi	   : µÍ¹¦ºÄLF Driver */
-		u8CmdBuff[15] = 0x00;					/**< \brief LCDRNi	   : */
-		u8CmdBuff[16] = (uint8_t)ptime1; 		/**< \brief PTIME_Li   : pollingÊ±¼ä£¬µ¥Î»Îª1ms */
-		u8CmdBuff[17] = (uint8_t)(ptime1>>8);
-		u8CmdBuff[18] = 1;						/**< \brief LENDATAIDi : Êý¾Ý¶ÎÊý */
-		u8CmdBuff[19] = DATA_ID_DATA_RSSI;
+        u8CmdBuff[12] = LfDoor_Ant;      /**< \brief DRPi	   : LF Driver */
+        u8CmdBuff[13] = 0x00;            /**< \brief DRNi	   : */
+        u8CmdBuff[14] = 0x00;            /**< \brief LCDRPi	   : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+        u8CmdBuff[15] = 0x00;            /**< \brief LCDRNi	   : */
+        u8CmdBuff[16] = (uint8_t)ptime1; /**< \brief PTIME_Li   : pollingÊ±ï¿½ä£¬ï¿½ï¿½Î»Îª1ms */
+        u8CmdBuff[17] = (uint8_t)(ptime1 >> 8);
+        u8CmdBuff[18] = 1; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
+        u8CmdBuff[19] = DATA_ID_DATA_RSSI;
 
-		u8CmdBuff[20] = RfDoor_Ant;				/**< \brief DRPi	   : LF Driver */
-		u8CmdBuff[21] = 0x00;					/**< \brief DRNi	   : */
-		u8CmdBuff[22] = 0x00;					/**< \brief LCDRPi	   : µÍ¹¦ºÄLF Driver */
-		u8CmdBuff[23] = 0x00;					/**< \brief LCDRNi	   : */
-		u8CmdBuff[24] = (uint8_t)ptime2; 		/**< \brief PTIME_Li   : pollingÊ±¼ä£¬µ¥Î»Îª1ms */
-		u8CmdBuff[25] = (uint8_t)(ptime2>>8);
-		u8CmdBuff[26] = 1;						/**< \brief LENDATAIDi : Êý¾Ý¶ÎÊý */
-		u8CmdBuff[27] = DATA_ID_DATA_RSSI;
+        u8CmdBuff[20] = RfDoor_Ant;      /**< \brief DRPi	   : LF Driver */
+        u8CmdBuff[21] = 0x00;            /**< \brief DRNi	   : */
+        u8CmdBuff[22] = 0x00;            /**< \brief LCDRPi	   : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+        u8CmdBuff[23] = 0x00;            /**< \brief LCDRNi	   : */
+        u8CmdBuff[24] = (uint8_t)ptime2; /**< \brief PTIME_Li   : pollingÊ±ï¿½ä£¬ï¿½ï¿½Î»Îª1ms */
+        u8CmdBuff[25] = (uint8_t)(ptime2 >> 8);
+        u8CmdBuff[26] = 1; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
+        u8CmdBuff[27] = DATA_ID_DATA_RSSI;
 
-		txlen = 28;
-	}
-	else if((Cmd == 0x11)||(Cmd == 0x12))
-	{
-		if(Cmd == 0x11)
-		{
-			u8CmdBuff[0] = LfDoor_Ant;				/**< \brief DRPi       : LF Driver */
-		}
-		else
-		{
-			u8CmdBuff[0] = RfDoor_Ant;				/**< \brief DRPi       : LF Driver */
-		}
-	    u8CmdBuff[1] = 0x00;					/**< \brief DRNi       : */
-	    u8CmdBuff[2] = 0x00;					/**< \brief LCDRPi     : µÍ¹¦ºÄLF Driver */
-	    u8CmdBuff[3] = 0x00;					/**< \brief LCDRNi     : */
-	    u8CmdBuff[4] = (uint8_t)ptime1;         /**< \brief PTIME_Li   : pollingÊ±¼ä£¬µ¥Î»Îª1ms */
-	    u8CmdBuff[5] = (uint8_t)(ptime1>>8);
-	    u8CmdBuff[6] = 5;					    /**< \brief LENDATAIDi : Êý¾Ý¶ÎÊý */
-		u8CmdBuff[7] = DATA_ID_PREMABLE;
-		u8CmdBuff[8] = DATA_ID_CV;
-		u8CmdBuff[9] = DATA_ID_WUP1;
-		u8CmdBuff[10] = DATA_ID_DATA_PE;
-		u8CmdBuff[11] = DATA_ID_DATA_RSSI;
+        txlen = 28;
+    }
+    else if ((Cmd == 0x11) || (Cmd == 0x12))
+    {
+        if (Cmd == 0x11)
+        {
+            u8CmdBuff[0] = LfDoor_Ant; /**< \brief DRPi       : LF Driver */
+        }
+        else
+        {
+            u8CmdBuff[0] = RfDoor_Ant; /**< \brief DRPi       : LF Driver */
+        }
+        u8CmdBuff[1] = 0x00;            /**< \brief DRNi       : */
+        u8CmdBuff[2] = 0x00;            /**< \brief LCDRPi     : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+        u8CmdBuff[3] = 0x00;            /**< \brief LCDRNi     : */
+        u8CmdBuff[4] = (uint8_t)ptime1; /**< \brief PTIME_Li   : pollingÊ±ï¿½ä£¬ï¿½ï¿½Î»Îª1ms */
+        u8CmdBuff[5] = (uint8_t)(ptime1 >> 8);
+        u8CmdBuff[6] = 5; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
+        u8CmdBuff[7] = DATA_ID_PREMABLE;
+        u8CmdBuff[8] = DATA_ID_CV;
+        u8CmdBuff[9] = DATA_ID_WUP1;
+        u8CmdBuff[10] = DATA_ID_DATA_PE;
+        u8CmdBuff[11] = DATA_ID_DATA_RSSI;
 
-		u8CmdBuff[12] = Incar_Ant;				/**< \brief DRPi	   : LF Driver */
-		u8CmdBuff[13] = 0x00;					/**< \brief DRNi	   : */
-		u8CmdBuff[14] = 0x00;					/**< \brief LCDRPi	   : µÍ¹¦ºÄLF Driver */
-		u8CmdBuff[15] = 0x00;					/**< \brief LCDRNi	   : */
-		u8CmdBuff[16] = (uint8_t)ptime0; 		/**< \brief PTIME_Li   : pollingÊ±¼ä£¬µ¥Î»Îª1ms */
-		u8CmdBuff[17] = (uint8_t)(ptime0>>8);
-		u8CmdBuff[18] = 1;						/**< \brief LENDATAIDi : Êý¾Ý¶ÎÊý */
-		u8CmdBuff[19] = DATA_ID_DATA_RSSI;
+        u8CmdBuff[12] = Incar_Ant;       /**< \brief DRPi	   : LF Driver */
+        u8CmdBuff[13] = 0x00;            /**< \brief DRNi	   : */
+        u8CmdBuff[14] = 0x00;            /**< \brief LCDRPi	   : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+        u8CmdBuff[15] = 0x00;            /**< \brief LCDRNi	   : */
+        u8CmdBuff[16] = (uint8_t)ptime0; /**< \brief PTIME_Li   : pollingÊ±ï¿½ä£¬ï¿½ï¿½Î»Îª1ms */
+        u8CmdBuff[17] = (uint8_t)(ptime0 >> 8);
+        u8CmdBuff[18] = 1; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
+        u8CmdBuff[19] = DATA_ID_DATA_RSSI;
 
-		txlen = 20;
-	}
-	else if(Cmd == 0x13)
-	{
-		u8CmdBuff[0] = LfDoor_Ant|RfDoor_Ant;	/**< \brief DRPi       : LF Driver */
-	    u8CmdBuff[1] = 0x00;					/**< \brief DRNi       : */
-	    u8CmdBuff[2] = 0x00;					/**< \brief LCDRPi     : µÍ¹¦ºÄLF Driver */
-	    u8CmdBuff[3] = 0x00;					/**< \brief LCDRNi     : */
-	    u8CmdBuff[4] = (uint8_t)ptime1;         /**< \brief PTIME_Li   : pollingÊ±¼ä£¬µ¥Î»Îª1ms */
-	    u8CmdBuff[5] = (uint8_t)(ptime1>>8);
-	    u8CmdBuff[6] = 5;					    /**< \brief LENDATAIDi : Êý¾Ý¶ÎÊý */
-		u8CmdBuff[7] = DATA_ID_PREMABLE;
-		u8CmdBuff[8] = DATA_ID_CV;
-		u8CmdBuff[9] = DATA_ID_WUP1;
-		u8CmdBuff[10] = DATA_ID_DATA_PE;
-		u8CmdBuff[11] = DATA_ID_DATA_RSSI;
-		txlen = 12;
-	}
-	else if(Cmd == 0x14)
-	{
-		u8CmdBuff[0] = LfDoor_Ant|RfDoor_Ant;	/**< \brief DRPi       : LF Driver */
-	    u8CmdBuff[1] = 0x00;					/**< \brief DRNi       : */
-	    u8CmdBuff[2] = 0x00;					/**< \brief LCDRPi     : µÍ¹¦ºÄLF Driver */
-	    u8CmdBuff[3] = 0x00;					/**< \brief LCDRNi     : */
-	    u8CmdBuff[4] = (uint8_t)ptime1;         /**< \brief PTIME_Li   : pollingÊ±¼ä£¬µ¥Î»Îª1ms */
-	    u8CmdBuff[5] = (uint8_t)(ptime1>>8);
-	    u8CmdBuff[6] = 4;					    /**< \brief LENDATAIDi : Êý¾Ý¶ÎÊý */
-		u8CmdBuff[7] = DATA_ID_PREMABLE;
-		u8CmdBuff[8] = DATA_ID_CV;
-		u8CmdBuff[9] = DATA_ID_WUP1;
-		u8CmdBuff[10] = DATA_ID_DATA_PE;
+        txlen = 20;
+    }
+    else if (Cmd == 0x13)
+    {
+        u8CmdBuff[0] = LfDoor_Ant | RfDoor_Ant; /**< \brief DRPi       : LF Driver */
+        u8CmdBuff[1] = 0x00;                    /**< \brief DRNi       : */
+        u8CmdBuff[2] = 0x00;                    /**< \brief LCDRPi     : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+        u8CmdBuff[3] = 0x00;                    /**< \brief LCDRNi     : */
+        u8CmdBuff[4] = (uint8_t)ptime1;         /**< \brief PTIME_Li   : pollingÊ±ï¿½ä£¬ï¿½ï¿½Î»Îª1ms */
+        u8CmdBuff[5] = (uint8_t)(ptime1 >> 8);
+        u8CmdBuff[6] = 5; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
+        u8CmdBuff[7] = DATA_ID_PREMABLE;
+        u8CmdBuff[8] = DATA_ID_CV;
+        u8CmdBuff[9] = DATA_ID_WUP1;
+        u8CmdBuff[10] = DATA_ID_DATA_PE;
+        u8CmdBuff[11] = DATA_ID_DATA_RSSI;
+        txlen = 12;
+    }
+    else if (Cmd == 0x14)
+    {
+        u8CmdBuff[0] = LfDoor_Ant | RfDoor_Ant; /**< \brief DRPi       : LF Driver */
+        u8CmdBuff[1] = 0x00;                    /**< \brief DRNi       : */
+        u8CmdBuff[2] = 0x00;                    /**< \brief LCDRPi     : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+        u8CmdBuff[3] = 0x00;                    /**< \brief LCDRNi     : */
+        u8CmdBuff[4] = (uint8_t)ptime1;         /**< \brief PTIME_Li   : pollingÊ±ï¿½ä£¬ï¿½ï¿½Î»Îª1ms */
+        u8CmdBuff[5] = (uint8_t)(ptime1 >> 8);
+        u8CmdBuff[6] = 4; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
+        u8CmdBuff[7] = DATA_ID_PREMABLE;
+        u8CmdBuff[8] = DATA_ID_CV;
+        u8CmdBuff[9] = DATA_ID_WUP1;
+        u8CmdBuff[10] = DATA_ID_DATA_PE;
 
-		txlen = 11;
-	}
-	else
-	{
-		return SF_LAST_OP;
-	}
+        txlen = 11;
+    }
+    else
+    {
+        return SF_LAST_OP;
+    }
 
     i = 0x00;
-    while(_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, txlen + 2, 100) != 0)
+    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, txlen + 2, 600) != 0)
     {
         i++;
-        if (i == 3) 
-		{
-			return SF_SPI;
+        if (i == 3)
+        {
+            return SF_SPI;
         }
     }
     return (stat_t)u8ResBuff[2];
@@ -1958,7 +1881,7 @@ stat_t WelcomeGuest_ConfigTimerPollingOne(uint8_t Incar_Ant, uint16_t ptime0, ui
     u8CmdBuff[3] = 0x00;            /**< \brief LCDRNi     : */
     u8CmdBuff[4] = (uint8_t)ptime0; /**< \brief PTIME_Li   : pollingÊ±ï¿½ä£¬ï¿½ï¿½Î»Îª1ms */
     u8CmdBuff[5] = (uint8_t)(ptime0 >> 8);
-    u8CmdBuff[6] = 5; /**< \brief LENDATAIDi : æ•°æ®æ®µæ•° */
+    u8CmdBuff[6] = 5; /**< \brief LENDATAIDi : æ•°æ®æ®µæ•° */
 
     u8CmdBuff[7] = DATA_ID_PREMABLE;
     u8CmdBuff[8] = DATA_ID_CV;
@@ -1971,22 +1894,22 @@ stat_t WelcomeGuest_ConfigTimerPollingOne(uint8_t Incar_Ant, uint16_t ptime0, ui
     u8CmdBuff[13] = 0x00;            /**< \brief LCDRPi	  : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
     u8CmdBuff[14] = 0x00;            /**< \brief LCDRNi	  : */
     u8CmdBuff[15] = 0x00;            /**< \brief LCDRNi	   : */
-    u8CmdBuff[16] = (uint8_t)ptime1; /**< \brief PTIME_Li   : pollingæ—¶é—´ï¼Œå•ä½ä¸º1ms */
+    u8CmdBuff[16] = (uint8_t)ptime1; /**< \brief PTIME_Li   : pollingæ—¶é—´ï¼Œå•ä½ä¸º1ms */
     u8CmdBuff[17] = (uint8_t)(ptime1 >> 8);
-    u8CmdBuff[18] = 1; /**< \brief LENDATAIDi : æ•°æ®æ®µæ•° */
+    u8CmdBuff[18] = 1; /**< \brief LENDATAIDi : æ•°æ®æ®µæ•° */
     u8CmdBuff[19] = DATA_ID_DATA_RSSI;
 
     u8CmdBuff[20] = RfDoor_Ant;      /**< \brief DRPi	   : LF Driver */
     u8CmdBuff[21] = 0x00;            /**< \brief DRNi	   : */
     u8CmdBuff[22] = 0x00;            /**< \brief LCDRPi	   : ä½ŽåŠŸè€—LF Driver */
     u8CmdBuff[23] = 0x00;            /**< \brief LCDRNi	   : */
-    u8CmdBuff[24] = (uint8_t)ptime2; /**< \brief PTIME_Li   : pollingæ—¶é—´ï¼Œå•ä½ä¸º1ms */
+    u8CmdBuff[24] = (uint8_t)ptime2; /**< \brief PTIME_Li   : pollingæ—¶é—´ï¼Œå•ä½ä¸º1ms */
     u8CmdBuff[25] = (uint8_t)(ptime2 >> 8);
-    u8CmdBuff[26] = 1; /**< \brief LENDATAIDi : æ•°æ®æ®µæ•° */
+    u8CmdBuff[26] = 1; /**< \brief LENDATAIDi : æ•°æ®æ®µæ•° */
     u8CmdBuff[27] = DATA_ID_DATA_RSSI;
 
     i = 0x00;
-    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, 30, 100) != 0)
+    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, 30, 600) != 0)
     {
         i++;
         if (i == 3)
@@ -2098,7 +2021,7 @@ stat_t WelcomeGuest_ConfigTimerPollingTwo(uint8_t wakeid_num, uint8_t drpi0, uin
     }
 
     i = 0x00;
-    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, txlen, 100) != 0)
+    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, txlen, 600) != 0)
     {
         i++;
         if (i == 3)
@@ -2109,31 +2032,77 @@ stat_t WelcomeGuest_ConfigTimerPollingTwo(uint8_t wakeid_num, uint8_t drpi0, uin
     return (stat_t)u8ResBuff[2];
 }
 
-stat_t WelcomeGuest_ConfigTimerPollingWakeUp(uint8_t drpi,uint16_t ptime)
+stat_t WelcomeGuest_ConfigTimerPollingWakeUp(uint8_t drpi, uint16_t ptime)
 {
     uint8_t i;
-	uint8_t txlen = 0;
+    uint8_t txlen = 0;
 
-	u8CmdBuff[0] = drpi;				   /**< \brief DRPi 	  : LF Driver */
-	u8CmdBuff[1] = 0x00; 				   /**< \brief DRNi 	  : */
-	u8CmdBuff[2] = 0x00; 				   /**< \brief LCDRPi	  : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
-	u8CmdBuff[3] = 0x00; 				   /**< \brief LCDRNi	  : */
-	u8CmdBuff[4] = (uint8_t)ptime;		   /**< \brief PTIME_Li   : pollingÊ±ï¿½ä£¬ï¿½ï¿½Î»Îª1ms */
-	u8CmdBuff[5] = (uint8_t)(ptime>>8);
-	u8CmdBuff[6] = 4;						/**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
-	u8CmdBuff[7] = DATA_ID_PREMABLE;
-	u8CmdBuff[8] = DATA_ID_CV;
-	u8CmdBuff[9] = DATA_ID_WUP1;
-	u8CmdBuff[10] = DATA_ID_DATA_PE;
-	txlen = 13;
-	
+    u8CmdBuff[0] = drpi;           /**< \brief DRPi 	  : LF Driver */
+    u8CmdBuff[1] = 0x00;           /**< \brief DRNi 	  : */
+    u8CmdBuff[2] = 0x00;           /**< \brief LCDRPi	  : ï¿½Í¹ï¿½ï¿½ï¿½LF Driver */
+    u8CmdBuff[3] = 0x00;           /**< \brief LCDRNi	  : */
+    u8CmdBuff[4] = (uint8_t)ptime; /**< \brief PTIME_Li   : pollingÊ±ï¿½ä£¬ï¿½ï¿½Î»Îª1ms */
+    u8CmdBuff[5] = (uint8_t)(ptime >> 8);
+    u8CmdBuff[6] = 4; /**< \brief LENDATAIDi : ï¿½ï¿½ï¿½Ý¶ï¿½ï¿½ï¿½ */
+    u8CmdBuff[7] = DATA_ID_PREMABLE;
+    u8CmdBuff[8] = DATA_ID_CV;
+    u8CmdBuff[9] = DATA_ID_WUP1;
+    u8CmdBuff[10] = DATA_ID_DATA_PE;
+    txlen = 13;
+
     i = 0x00;
-    while(_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, txlen, 100) != 0)
+    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, txlen, 600) != 0)
     {
         i++;
-        if (i == 3) 
-		{
-			return SF_SPI;
+        if (i == 3)
+        {
+            return SF_SPI;
+        }
+    }
+    return (stat_t)u8ResBuff[2];
+}
+
+stat_t WelcomeGuest_Unlock_PollingWakeUp(uint8_t drpi0, uint8_t drpi1, uint16_t ptime)
+{
+    uint8_t i;
+    uint8_t txlen = 0;
+
+    u8CmdBuff[0] = drpi0; /**< \brief DRPi 	  : LF Driver */
+    u8CmdBuff[1] = 0x00;  /**< \brief DRNi 	  : */
+    u8CmdBuff[2] = 0x00;  /**< \brief LCDRPi	  : Ã¯Â¿Â½ÃÂ¹Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½LF Driver */
+    u8CmdBuff[3] = 0x00;  /**< \brief LCDRNi	  : */
+    u8CmdBuff[4] = 4;     /**< \brief PTIME_Li   : pollingÃŠÂ±Ã¯Â¿Â½Ã¤Â£Â¬Ã¯Â¿Â½Ã¯Â¿Â½ÃŽÂ»ÃŽÂª1ms */
+    u8CmdBuff[5] = 0;
+    u8CmdBuff[6] = 4; /**< \brief LENDATAIDi : Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ÃÂ¶Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ */
+    u8CmdBuff[7] = DATA_ID_PREMABLE;
+    u8CmdBuff[8] = DATA_ID_CV;
+    u8CmdBuff[9] = DATA_ID_WUP1;
+    u8CmdBuff[10] = DATA_ID_DATA_PE;
+    txlen = 13;
+
+    if (drpi1 > 0)
+    {
+        u8CmdBuff[11] = drpi1;          /**< \brief DRPi 	  : LF Driver */
+        u8CmdBuff[12] = 0x00;           /**< \brief DRNi 	  : */
+        u8CmdBuff[13] = 0x00;           /**< \brief LCDRPi	  : Ã¯Â¿Â½ÃÂ¹Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½LF Driver */
+        u8CmdBuff[14] = 0x00;           /**< \brief LCDRNi	  : */
+        u8CmdBuff[15] = (uint8_t)ptime; /**< \brief PTIME_Li   : pollingÃŠÂ±Ã¯Â¿Â½Ã¤Â£Â¬Ã¯Â¿Â½Ã¯Â¿Â½ÃŽÂ»ÃŽÂª1ms */
+        u8CmdBuff[16] = (uint8_t)(ptime >> 8);
+        u8CmdBuff[17] = 4; /**< \brief LENDATAIDi : Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ÃÂ¶Ã¯Â¿Â½Ã¯Â¿Â½Ã¯Â¿Â½ */
+        u8CmdBuff[18] = DATA_ID_PREMABLE;
+        u8CmdBuff[19] = DATA_ID_CV;
+        u8CmdBuff[20] = DATA_ID_WUP1;
+        u8CmdBuff[21] = DATA_ID_DATA_PE;
+
+        txlen = 24;
+    }
+    i = 0x00;
+    while (_JOKER_CmdTransmit(CONFIG_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, txlen, 600) != 0)
+    {
+        i++;
+        if (i == 3)
+        {
+            return SF_SPI;
         }
     }
     return (stat_t)u8ResBuff[2];
@@ -2150,7 +2119,7 @@ stat_t JOKER_StartTimerPolling(void)
     uint8_t i;
 
     i = 0x00;
-    while (_JOKER_CmdTransmit(START_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, 0x02, 100) != 0)
+    while (_JOKER_CmdTransmit(START_TIMER_POLLING_CMD, u8CmdBuff, u8ResBuff, 0x02, 300) != 0)
     {
         i++;
         if (i == 3)
@@ -2373,7 +2342,7 @@ stat_t JOKER_SetCodeViolation(void)
     u8CmdBuff[2] = 0x12;       /**< \brief DATALEN : ï¿½ï¿½ï¿½Ý³ï¿½ï¿½È£ï¿½18(bit) */
     u8CmdBuff[3] = 0xE2;       /**< \brief DATA0   : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½Î»ï¿½È·ï¿½ */
     u8CmdBuff[4] = 0xCC;       /**< \brief DATA1   : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½Î»ï¿½È·ï¿½ */
-    u8CmdBuff[5] = 0x80;       /**< \brief DATA2   : ï¿½ï¿½Î»ï¿½È·ï¿½ï¿½ï¿½Ê£ï¿½ï¿½Äµï¿½Î»ï¿½ï¿½ï¿½ï¿?*/
+    u8CmdBuff[5] = 0x80;       /**< \brief DATA2   : ï¿½ï¿½Î»ï¿½È·ï¿½ï¿½ï¿½Ê£ï¿½ï¿½Äµï¿½Î»ï¿½ï¿½ï¿½ï¿½?*/
 
     while (_JOKER_CmdTransmit(SET_LF_DATA_CMD, u8CmdBuff, u8ResBuff, 0x08, 500) != 0)
     {
@@ -2392,34 +2361,34 @@ void JOKER_Init(void)
     static uint8_t u8InitWaitMaxTimeCnt = 0;
     static uint8_t u8InitMaxCnt = 0;
 
-	static uint8_t u8Time10msCnt = 0;
+    static uint8_t u8Time10msCnt = 0;
 
-	u8Time10msCnt++;
-	if(u8Time10msCnt < 5)
-	{
-		return;
-	}
-	
-	u8Time10msCnt = 0;
+    u8Time10msCnt++;
+    if (u8Time10msCnt < 5)
+    {
+        return;
+    }
+
+    u8Time10msCnt = 0;
     if (0 == u8NJJ29c0InitStep)
     {
-    	Joker_Init_Status = 0xff;
+        Joker_Init_Status = 0xff;
         JOKER_RESET_0(); // ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½
         JOKER_CSN_1();
         u8NJJ29c0InitStep++;
     }
     else if (1 == u8NJJ29c0InitStep)
     {
-    	JOKER_RESET_1();
-		u8NJJ29c0InitStep++;
+        JOKER_RESET_1();
+        u8NJJ29c0InitStep++;
     }
     else if (2 == u8NJJ29c0InitStep)
     {
         status = JOKER_ClearPorStatus(PORFC_ALL);
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2431,8 +2400,8 @@ void JOKER_Init(void)
         status = JOKER_ConfigDevice();
         if (status != 0)
         {
-       		Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2444,8 +2413,8 @@ void JOKER_Init(void)
         status = JOKER_ClearProtStatus(PROTFCM_ALL, DRPFCM_ALL);
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2457,8 +2426,8 @@ void JOKER_Init(void)
         status = JOKER_ClearOpStatus(OPFCM_ALL);
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2470,8 +2439,8 @@ void JOKER_Init(void)
         status = JOKER_SetOpMask(OPFCM_ALL);
         if (status != 0)
         {
-      		Joker_Init_Fail_Num = u8NJJ29c0InitStep;	
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2483,8 +2452,8 @@ void JOKER_Init(void)
         status = JOKER_ConfigBoost();
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2496,8 +2465,8 @@ void JOKER_Init(void)
         status = JOKER_ConfigLfDriver(u8JokerInitLfAntDrvCur, u8JokerInitRfAntDrvCur, u8JokerInitInCarAntDrvCur);
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2509,8 +2478,8 @@ void JOKER_Init(void)
         status = JOKER_ConfigImmoDriver();
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2522,8 +2491,8 @@ void JOKER_Init(void)
         status = JOKER_ConfigImmoBPLM();
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2535,8 +2504,8 @@ void JOKER_Init(void)
         status = JOKER_ConfigImmoReceiver();
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2548,8 +2517,8 @@ void JOKER_Init(void)
         status = JOKER_SetImmoMask();
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2562,8 +2531,8 @@ void JOKER_Init(void)
         status = JOKER_MeasAntImp((drpi_t)(DR2P | DR3P | DR4P)); //(DRP_ALL);
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
@@ -2586,8 +2555,8 @@ void JOKER_Init(void)
         }
         else
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
     }
     else if (15 == u8NJJ29c0InitStep)
@@ -2600,26 +2569,33 @@ void JOKER_Init(void)
         status = JOKER_ClearOpStatus(OPFCM_ALL);
         if (status != 0)
         {
-        	Joker_Init_Fail_Num = u8NJJ29c0InitStep;
-            u8NJJ29c0InitStep = 0xff;
+            Joker_Init_Fail_Num = u8NJJ29c0InitStep;
+            u8NJJ29c0InitStep += 0xA0;
         }
         else
         {
-             u8NJJ29c0InitStep++;
+            u8NJJ29c0InitStep++;
         }
     }
-	else if (17 == u8NJJ29c0InitStep)
+    else if (17 == u8NJJ29c0InitStep)
     {
-        JOKER_StartSleep();
-		
-		u8InitMaxCnt = 0;
+        u8InitMaxCnt = 0;
         u8NJJ29c0InitStep = 0;
         Joker_Init_Status = 1;
     }
     else
     {
-    	u8NJJ29c0InitStep = 0;
-		u8InitMaxCnt++;
+        // zch debug
+        /*memset(g_datCan1Tx_0x330,0,8);
+        g_datCan1Tx_0x330[0] = 0x80;
+        g_datCan1Tx_0x330[1] = 0x00;
+        g_datCan1Tx_0x330[2] = 0x01;
+        g_datCan1Tx_0x330[3] = u8NJJ29c0InitStep;
+
+        BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);*/
+
+        u8NJJ29c0InitStep = 0;
+        u8InitMaxCnt++;
         if (u8InitMaxCnt >= 3)
         {
             u8InitMaxCnt = 0;
@@ -2655,7 +2631,7 @@ uint8_t cb_crccount(uint8_t *ptr, uint8_t len)
  */
 void njj29c0_set_datacontent_cb(uint8_t coordinate)
 {
-     uint8_t i;
+    uint8_t i;
 
     i = 0x00;
     u8CmdBuff[0] = DATA_ID_DATA_CB; /**< \brief DATAID  : ï¿½ï¿½ï¿½Ý¶Î±ï¿½Ê¶(LF DATA) */

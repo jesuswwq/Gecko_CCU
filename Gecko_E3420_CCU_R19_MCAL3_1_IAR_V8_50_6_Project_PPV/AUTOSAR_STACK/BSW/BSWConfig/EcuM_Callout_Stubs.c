@@ -291,6 +291,8 @@ EcuM_AL_DriverInitBswM(
         NvM_Init(pbCfg->nvmPbCfg);
         CanTp_Init(pbCfg->canTpPbCfg);
         Dcm_Init(pbCfg->dcmPbCfg);
+        //--------------------read rtc ram---------------------
+        Get_PEPSstatus_WkFromRTC();
     }
     /********Initialize read important data*******/
     NvM_RequestResultType l_BlockStatus = NVM_REQ_PENDING;
@@ -311,7 +313,6 @@ EcuM_AL_DriverInitBswM(
         NvMCounter--;
     }
     /*Enter in RUN after initialized all BSW mode.*/
-
     //NvmTmsBlockReadData();
     PEPS_NVMRead();
     EcuMRunData.State = ECUM_STATE_RUN;
@@ -411,6 +412,8 @@ EcuM_AL_SwitchOff(
     Set_TCA1043_To_GoToSleep(TCA6424_CHIP_A);
     IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_A, IOEXP_TCA6424_P20, STD_LOW);
     HW_NM_Check_BeforeRTC();
+    PEPS_Module_EnterSleep();
+    Set_PEPSstatus_BeforeRTC();
     Mcu_SetMode(MCU_MODE_RTC);
     /***********************Delay power down in capacitance*******************************/
     for (DelayTemp1 = 600; DelayTemp1 > 0; DelayTemp1--)

@@ -42,7 +42,7 @@
 *****************************************************************************************/
 #define  DCM_CHANNEL_NUM                            (2u)     /*number of configuration Channel*/
 #define  DCM_CHANNEL_LENGTH                         (4096u)   /*the total length of channel*/
-#define  DCM_TEMP_BUFFER_LENGTH                     (30u)
+#define  DCM_TEMP_BUFFER_LENGTH                     (54u)
 #define  DCM_DSLPROTOCOLROW_NUM_MAX                 (2u)     /*number of configuration protocol*/
 #define  DCM_MAINCONNECTION_NUM                     (2u)
 #define  DCM_PERIODICCONNECTION_NUM                 (1u)
@@ -131,10 +131,10 @@
  ********************************DcmDsp container*****************************
  ******************************************************************************/
 #define  DCM_DSP_DID_FUNC_ENABLED                    (STD_ON)        /*Enable/disable DID function*/
-#define  DCM_DSP_DID_FOR_2F_NUM                     (8u)            /*DID for 2F Number*/
+#define  DCM_DSP_DID_FOR_2F_NUM                     (15u)            /*DID for 2F Number*/
 #define  DCM_DSP_DATA_FUNC_ENABLED                  (STD_ON)
 #define  DCM_DDDID_STORAGE                          (STD_OFF)       /*Enable/disable DDDID function*/
-#define  DCM_DSP_DDDID_MAX_NUMBER                   (107u)            /*max number of the DDDID for 0x2C*/
+#define  DCM_DSP_DDDID_MAX_NUMBER                   (95u)            /*max number of the DDDID for 0x2C*/
 #define  DCM_DSP_DDDID_ELEMENTS_MAX                 (5u)            /*One DDDID can contain max number of elements */
 /**=======================================================**/
 #define  DCM_DSP_ECU_RESET_FUNC_ENABLED                (STD_ON)           /*Enable/disable EcuReset function,corresponding UDS protocol 0x11 Service*/

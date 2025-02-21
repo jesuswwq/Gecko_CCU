@@ -26,7 +26,6 @@
 #include "Os_Cfg.h"
 #include "Os_Internal.h"
 #include "Os_Processor.h"
-
 /*=======[V E R S I O N   I N F O R M A T I O N]===============================*/
 #define OS_VECTOR_C_AR_MAJOR_VERSION     4U
 #define OS_VECTOR_C_AR_MINOR_VERSION     2U
@@ -214,12 +213,12 @@ FUNC(void, OS_CODE) Os_ArchInitIntPrio(void)
         case 0:
                     Os_InterruptInstall(MB_SEMAPHORE_LOCK_FAIL, 1U, 0, Os_ISR_REMOTECALL0);
                     Os_InterruptInstall(BTM1_O_BTM, 10U, 0, Os_SysTick_Handler0);
-                    Os_InterruptInstall(CANFD3_CANFD, 5U, 0, Os_ISR_CANFD3_CANFD);
-                    Os_InterruptInstall(CANFD4_CANFD, 5U, 0, Os_ISR_CANFD4_CANFD);
-                    Os_InterruptInstall(CANFD5_CANFD, 5U, 0, Os_ISR_CANFD5_CANFD);
-                    Os_InterruptInstall(CANFD6_CANFD, 5U, 0, Os_ISR_CANFD6_CANFD);
-                    Os_InterruptInstall(CANFD7_CANFD, 5U, 0, Os_ISR_CANFD7_CANFD);
-                    Os_InterruptInstall(CANFD8_CANFD, 5U, 0, Os_ISR_CANFD8_CANFD);
+                    Os_InterruptInstall(CANFD3_CANFD, 6U, 0, Os_ISR_CANFD3_CANFD);
+                    Os_InterruptInstall(CANFD4_CANFD, 6U, 0, Os_ISR_CANFD4_CANFD);
+                    Os_InterruptInstall(CANFD5_CANFD, 6U, 0, Os_ISR_CANFD5_CANFD);
+                    Os_InterruptInstall(CANFD6_CANFD, 6U, 0, Os_ISR_CANFD6_CANFD);
+                    Os_InterruptInstall(CANFD7_CANFD, 6U, 0, Os_ISR_CANFD7_CANFD);
+                    Os_InterruptInstall(CANFD8_CANFD, 6U, 0, Os_ISR_CANFD8_CANFD);
                     Os_InterruptInstall(ETMR2_CHN_B, 4U, 0, Os_ISR_ETMR2_CHN_B);
                     Os_InterruptInstall(GPIO_AP_SYNC_DGPIO, 5U, 0, Os_ISR_GPIO_AP_SYNC_DGPIO);
                     Os_InterruptInstall(SADC1_O_SADC, 5U, 0, Os_ISR_SADC1_O_SADC);
@@ -228,7 +227,7 @@ FUNC(void, OS_CODE) Os_ArchInitIntPrio(void)
                     Os_InterruptInstall(UART3, 5U, 0, Os_ISR_UART3);
                     Os_InterruptInstall(UART11, 5U, 0, Os_ISR_UART11);
                     Os_InterruptInstall(UART14, 5U, 0, Os_ISR_UART14);
-                    Os_InterruptInstall(WDT1_WDT, 6U, 0, Os_ISR_WDT1_WDT);
+                    Os_InterruptInstall(WDT1_WDT, 5U, 0, Os_ISR_WDT1_WDT);
         break;
         case 1:
                     Os_InterruptInstall(MB_SEMAPHORE_LOCK_FAIL, 1U, 0, Os_ISR_REMOTECALL1);

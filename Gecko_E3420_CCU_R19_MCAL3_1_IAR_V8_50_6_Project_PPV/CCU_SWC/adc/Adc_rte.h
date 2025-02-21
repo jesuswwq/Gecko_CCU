@@ -13,7 +13,7 @@
 #define buffersizeAdc1 10  // MCU
 #define buffersizeAdc2 5 // 扩展芯片
 #define adsize_4067A 11
-#define adsize_4067B 4
+#define adsize_4067B 6
 #define adsize_4067C 1
 #define adsize_4067D 10 //移除掉4,5,6channel；
 #define adsize_4067E 10

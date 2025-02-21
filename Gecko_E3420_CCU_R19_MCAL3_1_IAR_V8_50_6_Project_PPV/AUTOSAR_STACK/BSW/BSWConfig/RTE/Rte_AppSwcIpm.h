@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-11-13 17:39:59>
+ *  @date       <2025-02-19 14:27:08>
  */
 /*============================================================================*/
 
@@ -43,6 +43,7 @@ typedef struct
     P2VAR(Rte_DE_BMS_5_BatTemp_EPT_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT;
     P2VAR(Rte_DE_BMS_9_BattInfo_EPT_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_BMS_9_BattInfo_EPT_BMS_9_BattInfo_EPT;
     P2VAR(Rte_DE_COMP_AC_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD;
+    P2VAR(Rte_DE_FCM_A_CHA_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA;
     P2VAR(Rte_DE_HU_B_BAC_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC;
     P2VAR(Rte_DE_HVCH_Status1_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD;
     P2VAR(Rte_DE_HVCH_Status2_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD;
@@ -81,6 +82,7 @@ typedef struct
     P2VAR(Rte_DE_DT_IPM_BMS_5_BatTemp_EPT_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_BMS_5_BatTemp_EPT_IPM_BMS_5_BatTemp_EPT;
     P2VAR(Rte_DE_DT_IPM_BMS_9_BattInfo_EPT_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_BMS_9_BattInfo_EPT_IPM_BMS_9_BattInfo_EPT;
     P2VAR(Rte_DE_DT_IPM_COMP_AC_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD;
+    P2VAR(Rte_DE_DT_IPM_FCM_A_CHA_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA;
     P2VAR(Rte_DE_DT_IPM_HU_B_BAC_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC;
     P2VAR(Rte_DE_DT_IPM_HVCH_Status1_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD;
     P2VAR(Rte_DE_DT_IPM_HVCH_Status2_BOD_status, AUTOMATIC, RTE_DATA)  Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD;
@@ -157,6 +159,8 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcIpm, AUTOMATIC, RTE_CONST) Rte_Instance;
 
 #define Rte_IRead_Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD->value)
 
+#define Rte_IRead_Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA->value)
+
 #define Rte_IRead_Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC->value)
 
 #define Rte_IRead_Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD->value)
@@ -192,6 +196,10 @@ typedef CONSTP2CONST(Rte_CDS_AppSwcIpm, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IWrite_Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD(data) (Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD->value = *(data))
 
 #define Rte_IWriteRef_Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD->value)
+
+#define Rte_IWrite_Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA(data) (Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA->value = *(data))
+
+#define Rte_IWriteRef_Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA() (&Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA->value)
 
 #define Rte_IWrite_Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC(data) (Rte_Inst_AppSwcIpm.Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC->value = *(data))
 
@@ -436,6 +444,8 @@ Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_
 Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_BMS_9_BattInfo_EPT_BMS_9_BattInfo_EPT(void);
 
 Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD(void);
+
+Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA(void);
 
 Std_ReturnType Rte_IStatus_Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC(void);
 

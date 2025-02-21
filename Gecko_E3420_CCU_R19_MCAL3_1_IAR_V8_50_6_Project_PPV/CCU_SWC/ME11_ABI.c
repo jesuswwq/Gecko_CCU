@@ -8,6 +8,9 @@
 #include "TLE75242_Api.h"
 #include "Icu.h"
 #include "RegBase.h"
+#include "Pke_Pks_App.h"
+#include "RegHelper.h"
+#include "Rtc_Reg.h"
 #define VCC 2600.0
 #define  DataLength_BCM_IMM_NVMData 128u
 #define  DataLength_BCM_PD_NVMData  10u
@@ -39,6 +42,7 @@ extern uint8 App_ComMReqFlag;
 extern uint8 App_SleepReqFlag ;
 extern Mcu_ResetType ResetReason;
 uint8 bcm_old_data[128];
+extern lf_handle_state lfapp_work_sta;
 
 
 uint16 ABIRTC_Timer = 0;
@@ -46,9 +50,10 @@ TLE8108EM_Data_T TLE8108EM_TX_Buffer;
 uint8 u8Key_Match_flg;
 uint8 key_word[256] = {0};
 boolean INV_IMMO_Req_EPT_RevFlag =0;
+boolean HV_Pwr_flag = FALSE;
 //================BSWversion============================
-uint8  VBSW_BswVer0_cnt = 25;
-uint8  VBSW_BswVer1_cnt = 2;
+uint8  VBSW_BswVer0_cnt = 26;
+uint8  VBSW_BswVer1_cnt = 0;
 //======================================================
 
 /*新增高压互锁电压20241025*/
@@ -939,11 +944,13 @@ void set_PwrHVPart(uint8 u)
 	if (u == 1)
 	{
 		tca6424B[1] = (1 << 5) | tca6424B[1];
+		HV_Pwr_flag = TRUE;
 		// BTS7120_CtrlOutputChannelOn(BTS7120_CHIP_C, BTS7120_OUT0);
 	}
 	else
 	{
 		tca6424B[1] = ((1 << 5) ^ 0xFF) & tca6424B[1];
+		HV_Pwr_flag = FALSE;
 		// BTS7120_CtrlOutputChannelOff(BTS7120_CHIP_C, BTS7120_OUT0);
 	}
 }
@@ -1174,7 +1181,8 @@ uint16 GetHw_PsgWinSwResis(void) //IN_IAN11 主驾驶的副驾车窗开关
 {
     uint16 AD_R =0;
     float  AD_V =0.0;
-    AD_V = ((float)AD4067Evalue[8]/4095.0*3300.0*6.0/5.0);
+    // AD_V = ((float)AD4067Evalue[8]/4095.0*3300.0*6.0/5.0);
+	AD_V = ((float)AD4067Avalue[8]/4095.0*3300.0*6.0/5.0);//fujia,chechuang
     if(AD_V >2400)
     {
         AD_R =0xFFFF;
@@ -1191,7 +1199,8 @@ uint16 GetHw_DrvPsgWinSwResis(void) //IN_IAN50 副驾侧副驾车窗开关
   
     uint16 AD_R =0;
     float  AD_V =0.0;
-    AD_V = ((float)AD4067Avalue[8]/4095.0*3300.0*6.0/5.0);
+    // AD_V = ((float)AD4067Avalue[8]/4095.0*3300.0*6.0/5.0);
+	AD_V = ((float)AD4067Evalue[8]/4095.0*3300.0*6.0/5.0);//zhujia chechuang
     if(AD_V >2400)
     {
         AD_R =0xFFFF;
@@ -1242,7 +1251,17 @@ void SetHw_BoxLampSta(uint8 Sts)
 }
 uint16 GetHw_LowBatValtage()//BAT 电源检测
 {
-    return (uint16)((float)AD4067Bvalue[3]/4095*3300*6 +300);
+	uint16 Ret_ad = 0;
+	Ret_ad = (uint16)((float)AD4067Bvalue[3]/4095*3300*6 +300);
+	if(Ret_ad > 12000)
+	{
+		Ret_ad  = Ret_ad + 500;
+	}
+	else
+	{
+
+	}
+    return Ret_ad;
 }
 
 
@@ -1284,6 +1303,41 @@ void SetHw_DrvSeatHeat(uint8 frq,uint8 duty)  // 座椅加热PWM驱动
 	 Pwm_SetDutyCycle(PWM_CONFIG_CHANNEL_PwmChannel_BTS7012_A_IN0,duty_pect);
 }
 
+void SetHw_DrvTurnLo_Tr(uint8 frq,uint8 duty)
+{
+	uint32 Frq_A = 0;
+	uint32 duty_pect = 0;
+	Frq_A = (uint32)1000000000 / frq;
+	duty_pect = (uint32)duty * (0x8000) / 100;
+	Pwm_SetDutyCycle(PWM_CONFIG_CHANNEL_PwmChannel_BTS7012_A_IN0,duty_pect);
+}
+
+void SetHw_DrvTurnRo_Tr(uint8 frq,uint8 duty)
+{
+	uint32 Frq_A = 0;
+	uint32 duty_pect = 0;
+	Frq_A = (uint32)1000000000 / frq;
+	duty_pect = (uint32)duty * (0x8000) / 100;
+	Pwm_SetDutyCycle(PWM_CONFIG_CHANNEL_PwmChannel_BTS7012_A_IN1,duty_pect);
+}
+
+void SetHw_DrvSeatHeat_TR(uint8 frq,uint8 duty)
+{
+	uint32 Frq_A = 0;
+	uint32 duty_pect = 0;
+	Frq_A = (uint32)1000000000 / frq;
+	duty_pect = (uint32)duty * (0x8000) / 100;
+	Pwm_SetDutyCycle(PWM_CONFIG_CHANNEL_PwmChannel_BTS7012_B_IN1,duty_pect);
+}
+
+void SetHw_DrvPwrOut(uint8 frq,uint8 duty)
+{
+	uint32 Frq_A = 0;
+	uint32 duty_pect = 0;
+	Frq_A = (uint32)1000000000 / frq;
+	duty_pect = (uint32)duty * (0x8000) / 100;
+	Pwm_SetDutyCycle(PWM_CONFIG_CHANNEL_PwmChannel_7120_B_IN1,duty_pect);
+}
 
 //V1.9 -ADD NVM BLOCK Options
 Std_ReturnType NvmVcuBlock01ReadData(uint8 *data, uint8 Length)
@@ -1342,7 +1396,7 @@ Std_ReturnType NvmBCmBlock_Imm_ReadData(uint8 *data, uint8 Length)
         for(index = 0;index < Length;index++)
         {
             data[index] = *(NvM_BlockDescriptor[NvMBlock_Swc_BCM_IMM_20 - 1].NvmRamBlockDataAddress + index);
-			bcm_old_data[index] = *(NvM_BlockDescriptor[NvMBlock_Swc_BCM_IMM_20 - 1].NvmRamBlockDataAddress + index);
+            bcm_old_data[index] = *(NvM_BlockDescriptor[NvMBlock_Swc_BCM_IMM_20 - 1].NvmRamBlockDataAddress + index);
         }
     	return E_OK;
 //    }
@@ -1374,7 +1428,6 @@ Std_ReturnType  NvmBcmBlock_Imm_WriteData(uint8 *data, uint8 Length)//即时存
 		{
 			flag = TRUE;
 			*(NvM_BlockDescriptor[NvMBlock_Swc_BCM_IMM_20 - 1].NvmRamBlockDataAddress + index) = data[index];
-			bcm_old_data[index] = data[index];
 		}
     }
 	if(flag == TRUE)
@@ -1730,6 +1783,9 @@ void Rte_DIDReadData(uint8 data,uint8 didId)
     case DID_0xF282:
         Buffer_DcmDspData_F282H[0]=data;
         break;
+	
+	case DID_0xF286:
+		Buffer_DcmDspData_F286H[0]=data;
     default:
         break;
     }
@@ -1831,4 +1887,202 @@ uint8 GetHw_LoBeamDigSts(void)
 {
 	return 0;
 }
+void Set_FunOff_Appjumpboot(void)
+{
+	//turn off ig
+	#if 0
+	HS_Ctrl_75242_A_HS_OUT7_Off();
+	HS_Ctrl_75242_B_HS_OUT4_Off();
+	HS_Ctrl_75242_B_LS_OUT2_Off();
+	#endif
+	IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_D,IOEXP_TCA6424_P05,STD_LOW);
+	IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_B,IOEXP_TCA6424_P14,STD_LOW);
+}
 #endif
+uint8 Get_Diag7x_CV(HS_Diag_Chip Chipselect,uint8 channel)
+{
+
+	if(channel == 0)
+	{
+		IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E, IOEXP_TCA6424_P07, STD_HIGH);//diag on state
+		IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E, IOEXP_TCA6424_P10, STD_LOW);
+	}
+	else if(channel == 1)
+	{
+		IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E, IOEXP_TCA6424_P07, STD_HIGH);//diag on state
+		IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E, IOEXP_TCA6424_P10, STD_HIGH);
+	}
+	else{
+		return 5;
+		
+	}
+	switch(Chipselect)
+	{
+		case Chip_7012:
+			if(AD4067Bvalue[5] >= 0 && AD4067Bvalue[5] < 5)
+			{
+				return 3; //open load
+				break;
+			}
+			else if (AD4067Bvalue[5] >= 2500 && AD4067Bvalue[5] <= 15000)
+			{
+				return 1; //short circuit to gnd
+				break;
+			}
+			else if(AD4067Bvalue[5] >= 5 && AD4067Bvalue[5] < 100)
+			{
+				return 2; //short circuit to vcc
+				break;
+			}
+			else{
+				return 0; //normal
+				break;
+			}
+			break;
+		case Chip_7012_A:
+			if(AD4067Bvalue[4] >= 0 && AD4067Bvalue[4] < 5)
+			{
+				return 3; //open load
+				break;
+			}
+			else if (AD4067Bvalue[4] >= 2500 && AD4067Bvalue[4] <= 15000)
+			{
+				return 1; //short circuit to gnd
+				break;
+			}
+			else if(AD4067Bvalue[4] >= 5 && AD4067Bvalue[4] < 100)
+			{
+				return 2; //short circuit to vcc
+				break;
+			}
+			else{
+				return 0; //normal
+				break;
+			}
+			break;
+		case Chip_7012_C:
+			if(AD4067Bvalue[0] >= 0 && AD4067Bvalue[0] < 5)
+			{
+				return 3; //open load
+				break;
+			}
+			else if (AD4067Bvalue[0] >= 2500 && AD4067Bvalue[0] <= 15000)
+			{
+				return 1; //short circuit to gnd
+				break;
+			}
+			else if(AD4067Bvalue[0] >= 5 && AD4067Bvalue[0] < 100)
+			{
+				return 2; //short circuit to vcc
+				break;
+			}
+			else{
+				return 0; //normal
+				break;
+			}
+			break;
+
+		default:
+			break;
+
+	}
+	
+}
+/*Diag Antenna CV*/
+uint8 Get_DiagAnt_CV(AntType channel)
+{
+	uint8 Ret = 0;
+	uint8 Diag_ant = Ecu_Read_LfAnt_DiagStatus();
+	switch(channel)
+	{
+		case Ant1:
+			Diag_ant = Diag_ant & 0x03;
+			if(Diag_ant == 0)
+			{
+				Ret = 0; //normal
+			}
+			else if(Diag_ant == 1)
+			{
+				Ret = 1; //open load
+			}
+			else if(Diag_ant == 2)
+			{
+				Ret = 2; //short circuit
+			}
+			break;
+		case Ant2: //Front Antenna in room
+			Diag_ant = (Diag_ant & 0x0C) >> 2;
+			if(Diag_ant == 0)
+			{
+				Ret = 0; //normal
+			}
+			else if(Diag_ant == 1)
+			{
+				Ret = 1; //open load
+			}
+			else if(Diag_ant == 2)
+			{
+				Ret = 2; //short circuit
+			}
+			break;
+		case Ant3: //left front Antenna 
+			Diag_ant = (Diag_ant & 0x30) >> 4;
+			if(Diag_ant == 0)
+			{
+				Ret = 0; //normal
+			}
+			else if(Diag_ant == 1)
+			{
+				Ret = 1; //open load
+			}
+			else if(Diag_ant == 2)
+			{
+				Ret = 2; //short circuit
+			}
+			break;
+		case Ant4: //right front Antenna
+			Diag_ant = (Diag_ant & 0xC0) >> 6;
+			if(Diag_ant == 0)
+			{
+				Ret = 0; //normal
+			}
+			else if(Diag_ant == 1)
+			{
+				Ret = 1; //open load
+			}
+			else if(Diag_ant == 2)
+			{
+				Ret = 2; //short circuit
+			}
+			break;
+		default:
+			break;
+
+	}
+
+	return Ret;
+}
+
+void Set_PEPSstatus_BeforeRTC(void)
+{
+	uint32 pepswork_sta = 0x0U;
+	uint32 pepspolling_unlock = 0x0U;
+	uint32 pesppolling_lock = 0x0U;
+	pepswork_sta = (uint32)lfapp_work_sta;
+	pepspolling_unlock = (uint32)u8PollingUnlockStep;
+	pesppolling_lock =  (uint32)u8PollingLockStep;
+        writel(0,APB_RTC1_BASE + RTC_GP0); // write to RTC GP0 register
+	writel(0,APB_RTC1_BASE + RTC_GP1); // write to RTC GP1 register
+	writel(0,APB_RTC1_BASE + RTC_GP2); 
+	writel(pepswork_sta,APB_RTC1_BASE + RTC_GP0); // write to RTC GP0 register
+	writel(pepspolling_unlock,APB_RTC1_BASE + RTC_GP1); // write to RTC GP1 register
+	writel(pesppolling_lock,APB_RTC1_BASE + RTC_GP2); // write to RTC GP2 register
+
+}
+
+void Get_PEPSstatus_WkFromRTC(void)
+{
+	lfapp_work_sta = (uint8)readl(APB_RTC1_BASE + RTC_GP0); // read from RTC GP0 register
+	u8PollingUnlockStep = (uint8)readl(APB_RTC1_BASE + RTC_GP1); // read from RTC GP1 register
+	u8PollingLockStep = (uint8)readl(APB_RTC1_BASE + RTC_GP2); // read from RTC GP2 register
+}

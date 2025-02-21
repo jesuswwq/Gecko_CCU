@@ -3,9 +3,9 @@
  *
  * Code generated for Simulink model 'AppSwcVcu'.
  *
- * Model version                  : 9.715
+ * Model version                  : 9.746
  * Simulink Coder version         : 9.8 (R2022b) 13-May-2022
- * C/C++ source code generated on : Tue Dec 31 15:16:54 2024
+ * C/C++ source code generated on : Thu Feb 20 15:34:25 2025
  *
  * Target selection: autosar.tlc
  * Embedded hardware selection: NXP->Cortex-M4
@@ -562,20 +562,22 @@ typedef struct {
 
 #endif
 
-#ifndef DEFINED_TYPEDEF_FOR_struct_4t2rZ1ShKYtehtDWB50ACH_
-#define DEFINED_TYPEDEF_FOR_struct_4t2rZ1ShKYtehtDWB50ACH_
+#ifndef DEFINED_TYPEDEF_FOR_struct_9RRE9HrxndLN61GWqWy63F_
+#define DEFINED_TYPEDEF_FOR_struct_9RRE9HrxndLN61GWqWy63F_
 
 typedef struct {
   float32 VDAG_LVBatActVolt_V;
   boolean HW_KL15_flg;
   boolean OBC_WakeUp_flg;
   boolean BMS_WakeUp_flg;
-  boolean VDAG_HWWakeUp_flg;
+  boolean VDAG_HwWakeUp_flg;
   boolean VDAG_WakeUp_flg;
+  boolean VDAG_KL15orNM_flg;
+  boolean VDAG_PwrHVPart_flg;
   boolean VDAG_StandStillPN_flg;
   boolean VDAG_VehSpdLo_flg;
   boolean VDAG_ClrDTCReq_flg;
-} struct_4t2rZ1ShKYtehtDWB50ACH;
+} struct_9RRE9HrxndLN61GWqWy63F;
 
 #endif
 #endif                                 /* RTW_HEADER_AppSwcVcu_types_h_ */

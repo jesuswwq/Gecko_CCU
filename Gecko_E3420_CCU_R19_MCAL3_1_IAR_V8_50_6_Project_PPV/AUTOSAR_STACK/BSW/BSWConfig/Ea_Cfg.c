@@ -12,7 +12,7 @@
 **                                                                            **
 **  FILENAME    : Ea_Cfg.c                                                    **
 **                                                                            **
-**  Created on  : 2024/12/20 11:40:58                                         **
+**  Created on  : 2025/02/06 18:31:54                                         **
 **  Author      : tao.yu                                                      **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Ea globle data define                                       **
@@ -545,13 +545,13 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
     {
         5312U,
         1088U,
-        736U,
+        928U,
         FALSE,
         0u,
         0u
     },
     {
-        6048U,
+        6240U,
         1120U,
         96U,
         FALSE,
@@ -559,7 +559,7 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
         0u
     },
     {
-        6144U,
+        6336U,
         1136U,
         288U,
         FALSE,
@@ -567,41 +567,41 @@ static CONST(Ea_BlockConfigurationType, EA_PRIVATE_CONST) Ea_BlockConfiguration[
         0u
     },
     {
-        6432U,
-        1152U,
+        6624U,
+        1148U,
         160U,
         FALSE,
         0u,
         0u
     },
     {
-        6592U,
-        1168U,
+        6784U,
+        1164U,
         32U,
         FALSE,
         0u,
         0u
     },
     {
-        6624U,
-        1184U,
+        6816U,
+        1180U,
         288U,
         FALSE,
         0u,
         0u
     },
     {
-        6912U,
-        1200U,
-        160U,
+        7104U,
+        1196U,
+        32U,
         FALSE,
         0u,
         0u
     },
     {
-        7072U,
-        1216U,
-        32U,
+        7136U,
+        1212U,
+        160U,
         FALSE,
         0u,
         0u

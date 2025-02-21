@@ -18,7 +18,8 @@ Joker_Work_State u8Njj29c0_WorkStatus = JOKER_INIT;
 
 // Globals
 static uint8 u8PepsStep = 0;
-static uint8 u8PepsTxCnt = 0;
+static uint8 u8PepsTxCnt = PEPS_TX_MAX_COUNT;
+
 lf_handle_state lfapp_work_sta = lf_ide;
 
 uint8 u8ButtonTrigFlag = 0;
@@ -31,10 +32,12 @@ uint8 u8Lf_Ant_Code[3] =
 uint8 u8FobKeyInDoorInd = 0; //???????????
 uint8 u8HitagAuthPass = 0;	 //?????????
 
-// 锟斤拷锟斤拷ID锟斤拷锟斤拷锟斤拷通锟斤拷锟斤拷频钥锟斤拷学习
+uint8 u8WelcomeGuestWakeUpInd = 0; //?????????
+
+// ����ID������ͨ����ƵԿ��ѧϰ
 struct LF_Auth_Buff sLf_Auth_TransmitterInfo;
 struct LF_FobLocate_Buff sLf_FobLocate_TransmitterInfo;
-static uint8 u8Lf_Tx_Cnt = 0; // 锟斤拷锟节碉拷频锟斤拷锟竭猴�?
+static uint8 u8Lf_Tx_Cnt = 0; // 锟斤拷锟节碉拷频锟斤拷锟竭猴�?
 static uint8 u8Arr_Mac[2];
 
 BITBYTE tsLfAntDiagStatus;
@@ -49,9 +52,9 @@ FLOAT_UNION InCar_CurRssiCalcVal;
 FLOAT_UNION Lf_Door_CurRssiCalcVal;
 FLOAT_UNION Rf_Door_CurRssiCalcVal;
 
-uint8 u8JokerInitInCarAntDrvCur = 2; 	// 47ma
-uint8 u8JokerInitLfAntDrvCur = 31;	// 500ma
-uint8 u8JokerInitRfAntDrvCur = 31;	// 500ma
+uint8 u8JokerInitInCarAntDrvCur = 5; // 47ma
+uint8 u8JokerInitLfAntDrvCur = 31;	 // 500ma
+uint8 u8JokerInitRfAntDrvCur = 31;	 // 500ma
 
 float Lf_DoorAnt_Rssi_Limit = PE_L_DOORANT_RSSI_LIMIT;
 float Rf_DoorAnt_Rssi_Limit = PE_R_DOORANT_RSSI_LIMIT;
@@ -76,6 +79,7 @@ static uint8 Ecu_PowerOn_Mode = 0;
 
 static boolean bStartImmoAuthFlag = false;
 
+static boolean bStartWelcomeGuestLockFlag = false;
 static uint32_t u32Lf_Door_CurRssi[LF_RSSI_CACHE_LEN] =
 	{
 		0};
@@ -95,10 +99,16 @@ uint16 Vehicle_Calibration_Num = 0;
 uint16 u16LfRunTimingCnt = 0;
 
 uint8_t u8_Auth_KeyTest_Feedback = 0;
+static float Key_A_next_target_value;
+static float Key_B_next_target_value;
+
+static uint8_t u8Key_A_Check_Thread = 0;
+static uint8_t u8Key_B_Check_Thread = 0;
+
+static uint8_t u8Welcome_Function_Request_Bak = 0; //???????????????
 
 uint8_t g_datCan1Tx_0x330[8] = {
-	0xcc
-};
+	0xcc};
 
 uint8 Vehicle_Calibration_Ant = 0;
 
@@ -106,6 +116,9 @@ static uint8 u8waitcantxtimecnt = 0;
 
 uint8 u8LearnFobkey = 0;
 
+uint8 u8Rssi_Can_Tx = 0;
+
+uint8 u8PollingFuncRequest_Qn = 0;
 
 void Change_Njj29c0_WorkStatus(lf_handle_state sta)
 {
@@ -178,10 +191,16 @@ uint8 GetEcuPowerOnMode(void)
 	return Ecu_PowerOn_Mode;
 }
 
+// ID = 0X338
 void SetVehicleCalibrationPara(uint8 *para)
 {
 	LONG_UNION Rand_Val;
-        
+
+	// para[0] = message->INV_LrngSubID;
+	// para[1] = message->INV_LrngSts;
+	// para[2] = message->INV_LrngData02;
+	// para[3] = message->INV_LrngData03;
+
 	if (para[0] == 0x51)
 	{
 		para[0] = 0;
@@ -213,84 +232,103 @@ void SetVehicleCalibrationPara(uint8 *para)
 				{
 					Vehicle_Calibration_AutoWork = 0;
 				}
-
-				/*if (Vehicle_Calibration_Work == 0)
-				{
-					JOKER_WakeUp();
-				}
-
-				Vehicle_Calibration_Num = para[2] *256 + para[3];*/
 			}
 		}
 		else if (para[1] == 0xA2)
 		{
 			// 遥控学习
 			u8FobKeyEnterWorkState = 1; // 遥锟斤拷学习
-
-			u8LearnFobkey = 1;
-
-#ifdef QN_DEBUG
-			Rand_Val.Value = GetSysRandTimeCount();
-
-			u8Universal_Key[0] = 127 ^ Rand_Val.CHAR_BYTE.High_byte;  // 0x7f
-			u8Universal_Key[1] = 102 ^ Rand_Val.CHAR_BYTE.Mhigh_byte; // 0x66
-			u8Universal_Key[2] = 182 ^ Rand_Val.CHAR_BYTE.Mlow_byte;  // 0xb6
-			u8Universal_Key[3] = 141 ^ Rand_Val.CHAR_BYTE.Low_byte;	  // 0x8d
-			u8Universal_Key[4] = 238 ^ Rand_Val.CHAR_BYTE.Mlow_byte;  // 0xee
-			u8Universal_Key[5] = 34 ^ Rand_Val.CHAR_BYTE.Low_byte;	  // 0x22
-			u8Universal_Key[6] = 203 ^ Rand_Val.CHAR_BYTE.High_byte;  // 0xcb
-			u8Universal_Key[7] = 213 ^ Rand_Val.CHAR_BYTE.Mhigh_byte; // 0xd5
-			u8Universal_Key[8] = u8Universal_Key[2] ^ u8Universal_Key[0];
-			u8Universal_Key[9] = u8Universal_Key[1] ^ u8Universal_Key[0];
-			u8Universal_Key[10] = u8Universal_Key[5] ^ u8Universal_Key[3];
-			u8Universal_Key[11] = u8Universal_Key[7] ^ u8Universal_Key[3];
-
-			u8Universal_Key[12] = u8Universal_Key[3] ^ u8Universal_Key[0];
-			u8Universal_Key[13] = u8Universal_Key[4] ^ u8Universal_Key[0];
-			u8Universal_Key[14] = u8Universal_Key[2] ^ u8Universal_Key[3];
-			u8Universal_Key[15] = u8Universal_Key[1] ^ u8Universal_Key[3];
-#endif
+										// u8LearnFobkey = 1;
 		}
 		else if (para[1] == 0xA3)
 		{
-			// 遥控信息擦除
-			//u8FobKeyEnterWorkState = 2;
-			//Vehicle_Calibration_Ant = 2;
-
 			Vehicle_Calibration_Ant++;
-			if(Vehicle_Calibration_Ant >= 3)
+			if (Vehicle_Calibration_Ant >= 3)
 			{
 				Vehicle_Calibration_Ant = 0;
 			}
 #ifdef CALIBRATION_DEBUG
-				g_datCan1Tx_0x330[0] = 11;
-			    g_datCan1Tx_0x330[1] = Vehicle_Calibration_Ant;
-				BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+			g_datCan1Tx_0x330[0] = 11;
+			g_datCan1Tx_0x330[1] = Vehicle_Calibration_Ant;
+			BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 #endif
 		}
 		else if (para[1] == 0xA4)
 		{
-			// 复位控制�?
-#ifdef DEBUG
-
-			// VeKYM_KeySrhReq_enum = 4;
-			bStartImmoAuthFlag = TRUE;
-#endif
+			u8PollingFuncRequest_Qn = 2;
 		}
 		else if (para[1] == 0xA5)
 		{
-			// 复位控制�?
-#ifdef DEBUG
-			VeKYM_KeySrhReq_enum = 6;
-#endif
-
-			if (tnNck2910WorkStatus == NCK2910_NORMAL)
+			u8PollingFuncRequest_Qn = 3;
+		}
+		else if (para[1] == 0xA6)
+		{
+			u8PE_Auth_KeyPosReq = 1;
+		}
+		else if (para[1] == 0xA7)
+		{
+			u8PE_Auth_KeyPosReq = 2;
+		}
+		else if (para[1] == 0xA8)
+		{
+			u8PS_Auth_KeyPosReq = 1;
+		}
+		else if (para[1] == 0xA9)
+		{
+			u8PS_Auth_KeyPosReq = 2;
+		}
+		else if (para[1] == 0xAA)
+		{
+			u8PS_Auth_KeyPosReq = 3;
+		}
+		else if (para[1] == 0xAB)
+		{
+			memset(g_datCan1Tx_0x330, 0, 8);
+			if (para[2] == 0x01)
 			{
-
-				Vehicle_Calibration_Work = 0x01;
-
-				Vehicle_Calibration_Num = para[2] * 256 + para[3];
+				Rand_Val.Value = tsTransmitters[0].SerialNo;
 			}
+			else if (para[2] == 0x02)
+			{
+				Rand_Val.Value = tsTransmitters[1].SerialNo;
+			}
+			else if (para[2] == 0x03)
+			{
+				Rand_Val.Value = tsTransmitters[2].SerialNo;
+			}
+			else
+			{
+				Rand_Val.Value = tsTransmitters[3].SerialNo;
+			}
+
+			g_datCan1Tx_0x330[4] = Rand_Val.CHAR_BYTE.Low_byte;
+			g_datCan1Tx_0x330[5] = Rand_Val.CHAR_BYTE.Mlow_byte;
+			g_datCan1Tx_0x330[6] = Rand_Val.CHAR_BYTE.Mhigh_byte;
+			g_datCan1Tx_0x330[7] = Rand_Val.CHAR_BYTE.High_byte;
+
+			BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+		}
+		else if (para[1] == 0xAC)
+		{
+			Rand_Val.Value = u16UhfFrameRkeAuthOkCount;
+			// zch debug
+			memset(g_datCan1Tx_0x330, 0, 8);
+			g_datCan1Tx_0x330[7] = Rand_Val.CHAR_BYTE.Low_byte;
+			g_datCan1Tx_0x330[6] = Rand_Val.CHAR_BYTE.Mlow_byte;
+			g_datCan1Tx_0x330[5] = Rand_Val.CHAR_BYTE.Mhigh_byte;
+			g_datCan1Tx_0x330[4] = u8FobKey_Disable_Status_Feedback; // Rand_Val.CHAR_BYTE.High_byte;
+
+			BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+		}
+		else if (para[1] == 0xAD)
+		{
+		}
+		else if (para[1] == 0xAE)
+		{
+		}
+		else if (para[1] == 0xAF)
+		{
+			u8FobKeyEnterWorkState = 2;
 		}
 
 		para[1] = 0;
@@ -339,7 +377,7 @@ static void App_Monitor_Lf_Work_Status(void)
 			u32calc;
 	}
 
-	if (u16LPEAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
+	if (u16LPEAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
 	{
 		u32calc = (uint32_t)(Lf_DoorAnt_Rssi_Limit * 1000.0);
 
@@ -347,7 +385,7 @@ static void App_Monitor_Lf_Work_Status(void)
 			u32calc;
 	}
 
-	if (u16RPEAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
+	if (u16RPEAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
 	{
 		u32calc = (uint32_t)(Rf_DoorAnt_Rssi_Limit * 1000.0);
 
@@ -355,7 +393,7 @@ static void App_Monitor_Lf_Work_Status(void)
 			u32calc;
 	}
 
-	if (u16PSAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
+	if (u16PSAntRssiLimitRead == 1) // 锟斤拷锟絇E锟斤拷锟竭筹拷强锟斤拷值锟斤拷�?
 	{
 		u32calc = (uint32_t)(Ps_Ant_Rssi_Limit * 1000.0);
 
@@ -449,10 +487,10 @@ static void App_Monitor_Lf_Work_Status(void)
 }
 
 /*******************************************************************************
- * 锟斤拷锟斤拷锟斤�? : LfAuthTransmitterInfoInit
- * 锟斤拷锟斤拷	 : 锟斤拷频锟斤拷锟斤拷锟斤拷息锟侥筹拷�?
+ * 锟斤拷锟斤拷锟斤�? : LfAuthTransmitterInfoInit
+ * 锟斤拷锟斤拷	 : 锟斤拷频锟斤拷锟斤拷锟斤拷息锟侥筹拷�?
 	�锟斤拷
- * 锟斤拷锟斤拷	 : cmd:锟斤拷频锟斤拷锟酵碉拷锟斤拷锟斤�?
+ * 锟斤拷锟斤拷	 : cmd:锟斤拷频锟斤拷锟酵碉拷锟斤拷锟斤�?
  * 锟斤拷锟斤拷	 : NONE
  *******************************************************************************/
 static void LfAuthTransmitterInfoInit(uint8 cmd, uint32 Uid)
@@ -495,10 +533,10 @@ static void LfAuthTransmitterInfoInit(uint8 cmd, uint32 Uid)
 }
 
 /*******************************************************************************
- * 锟斤拷锟斤拷锟斤�? : LFGetRssiTransmitterInfoInit
- * 锟斤拷锟斤拷	 : 锟斤拷频锟斤拷贸锟角恐碉拷锟接︼拷锟�?
-	�拷锟斤拷锟较拷某锟绞硷拷�?
- * 锟斤拷锟斤拷	 : cmd:锟斤拷频锟斤拷锟酵碉拷锟斤拷锟斤�?
+ * 锟斤拷锟斤拷锟斤�? : LFGetRssiTransmitterInfoInit
+ * 锟斤拷锟斤拷	 : 锟斤拷频锟斤拷贸锟角恐碉拷锟接︼拷锟�?
+	�拷锟斤拷锟较拷某锟绞硷拷�?
+ * 锟斤拷锟斤拷	 : cmd:锟斤拷频锟斤拷锟酵碉拷锟斤拷锟斤�?
  * 锟斤拷锟斤拷	 : NONE
  *******************************************************************************/
 static void LFGetRssiTransmitterInfoInit(uint8 cmd)
@@ -519,7 +557,7 @@ static void Lf_Ant_ShortOpenCircuit_Diag(void)
 	static uint16_t u16RunMaxTimeCnt = 0;
 
 	u16RunMaxTimeCnt++;
-	if(u16RunMaxTimeCnt >= 30)
+	if (u16RunMaxTimeCnt >= 30)
 	{
 		u16RunMaxTimeCnt = 0;
 		Change_Njj29c0_WorkStatus(lf_ide);
@@ -590,11 +628,10 @@ static void Lf_Ant_ShortOpenCircuit_Diag(void)
 	{
 		u16RunMaxTimeCnt = 0;
 		JOKER_ClearDiagStatus();
-		JOKER_StartSleepForced();
+		// JOKER_StartSleepForced();
 		Change_Njj29c0_WorkStatus(lf_ide);
 	}
 }
-
 
 static void NJJ29C0_Pilot_Pe_Process(void)
 {
@@ -610,15 +647,15 @@ static void NJJ29C0_Pilot_Pe_Process(void)
 
 		JOKER_SetLfCarrier(DATA_ID_DATA_RSSI, CARRIER_OFF, RSSI_CARRIER_OFF_LEN);
 		JOKER_SetLfCarrier(DATA_ID_DATA_CB, CARRIER_CON, RSSI_CARRIER_ON_LEN);
+
+		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
+		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
 		u8PepsStep++;
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 	}
 	else if (1 == u8PepsStep)
 	{
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,1);
-		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
-		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
-
 		u8LfTx_DATAIDx[0][0] = DATA_ID_PREMABLE;
 		u8LfTx_DATAIDx[0][1] = DATA_ID_CV;
 		u8LfTx_DATAIDx[0][2] = DATA_ID_WUP1;
@@ -634,20 +671,16 @@ static void NJJ29C0_Pilot_Pe_Process(void)
 
 		Peps_Cfg_Joker_Tx_Message(DR2P, 6, &u8LfTx_DATAIDx[0][0], DR4P, 2, &u8LfTx_DATAIDx[1][0], DRP_NULL, 0, &u8LfTx_DATAIDx[2][0]);
 		u16waitmaxcnt = PE_LF_TX_MAX_PERIOD;
-		u16LfRunTimingCnt = 0;
 		u8HitagAuthPass = 0;
 		u8PepsStep++;
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 	}
 	else if (2 == u8PepsStep)
 	{
-		u16LfRunTimingCnt++;
 		u16waitmaxcnt--;
 		if (u16waitmaxcnt == 0)
 		{
 			JOKER_StopLfTransmit();
-
-			JOKER_StartSleep();
 			// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 
 			u8PepsTxCnt--;
@@ -658,19 +691,31 @@ static void NJJ29C0_Pilot_Pe_Process(void)
 				if (1 == tsTransmitters[u8PlanUseFobKeyUid_Index[1]].FobKeyEn)
 				{
 					SetPe_AuthFobStatus(2);
+					// JOKER_StartSleepForced();
 					Change_Njj29c0_WorkStatus(lf_ide);
 					return;
 				}
 
 				if (GetTransmitterCountVal() == 0)
 				{
+					// JOKER_StartSleepForced();
 					Change_Njj29c0_WorkStatus(lf_ide);
 					return;
 				}
 				else if (GetTransmitterCountVal() == 1)
 				{
 					SetPe_AuthFobStatus(2);
+					// JOKER_StartSleepForced();
 					Change_Njj29c0_WorkStatus(lf_ide);
+
+					// zch debug
+					memset(g_datCan1Tx_0x330, 0, 8);
+					g_datCan1Tx_0x330[0] = 0x80;
+					g_datCan1Tx_0x330[1] = 0x01;
+					g_datCan1Tx_0x330[2] = 0x01;
+
+					BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+
 					return;
 				}
 				else
@@ -689,8 +734,8 @@ static void NJJ29C0_Pilot_Pe_Process(void)
 			{
 				u8HitagAuthPass = 0;
 				JOKER_StopLfTransmit();
-				JOKER_StartSleep();
-				// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
+				// JOKER_StartSleepForced();
+				//  sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 				Change_Njj29c0_WorkStatus(lf_ide);
 			}
 		}
@@ -704,15 +749,15 @@ static void NJJ29C0_Pilot_Pe_Process(void)
 
 		JOKER_SetLfCarrier(DATA_ID_DATA_RSSI, CARRIER_OFF, RSSI_CARRIER_OFF_LEN);
 		JOKER_SetLfCarrier(DATA_ID_DATA_CB, CARRIER_CON, RSSI_CARRIER_ON_LEN);
+
+		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
+		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
 		u8PepsStep++;
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 	}
 	else if (4 == u8PepsStep)
 	{
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,1);
-		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
-		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
-
 		u8LfTx_DATAIDx[0][0] = DATA_ID_PREMABLE;
 		u8LfTx_DATAIDx[0][1] = DATA_ID_CV;
 		u8LfTx_DATAIDx[0][2] = DATA_ID_WUP1;
@@ -738,7 +783,6 @@ static void NJJ29C0_Pilot_Pe_Process(void)
 		if (u16waitmaxcnt == 0)
 		{
 			JOKER_StopLfTransmit();
-			JOKER_StartSleep();
 			// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 			u8PepsTxCnt--;
 			if (u8PepsTxCnt == 0)
@@ -746,7 +790,15 @@ static void NJJ29C0_Pilot_Pe_Process(void)
 				u8PepsTxCnt = PEPS_TX_MAX_COUNT;
 
 				SetPe_AuthFobStatus(2);
+				// JOKER_StartSleepForced();
 				Change_Njj29c0_WorkStatus(lf_ide);
+				// zch debug
+				memset(g_datCan1Tx_0x330, 0, 8);
+				g_datCan1Tx_0x330[0] = 0x80;
+				g_datCan1Tx_0x330[1] = 0x01;
+				g_datCan1Tx_0x330[2] = 0x02;
+
+				BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 			}
 			else
 			{
@@ -759,8 +811,8 @@ static void NJJ29C0_Pilot_Pe_Process(void)
 			{
 				u8HitagAuthPass = 0;
 				JOKER_StopLfTransmit();
-				JOKER_StartSleep();
-				// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
+				// JOKER_StartSleepForced();
+				//  sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 				Change_Njj29c0_WorkStatus(lf_ide);
 			}
 		}
@@ -774,21 +826,26 @@ static void NJJ29C0_Copilot_Pe_Process(void)
 
 	if (0 == u8PepsStep)
 	{
-		// sdrv_gpio_set_pin_output_level(GPIO_D22,1);
+		// Dio_WriteChannel(175, 0);
+		//  sdrv_gpio_set_pin_output_level(GPIO_D22,1);
 		LfAuthTransmitterInfoInit(PE_COPILOT_LF_CMD, tsTransmitters[u8PlanUseFobKeyUid_Index[0]].SerialNo);
+
 		JOKER_SetLfData(DATA_ID_PREMABLE, 1, (uint8 *)&Lf_Preamble_CodeViolation[0]);
 		JOKER_SetLfNrz(DATA_ID_CV, 3, (uint8 *)&Lf_Preamble_CodeViolation[1]);
 
 		JOKER_SetLfCarrier(DATA_ID_DATA_RSSI, CARRIER_OFF, RSSI_CARRIER_OFF_LEN);
 		JOKER_SetLfCarrier(DATA_ID_DATA_CB, CARRIER_CON, RSSI_CARRIER_ON_LEN);
+
+		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
+		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
 		u8PepsStep++;
-		// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
+		// Dio_WriteChannel(175, 1);
+		// Change_Njj29c0_WorkStatus(lf_ide);
+		//  sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 	}
 	else if (1 == u8PepsStep)
 	{
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,1);
-		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
-		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
 
 		u8LfTx_DATAIDx[0][0] = DATA_ID_PREMABLE;
 		u8LfTx_DATAIDx[0][1] = DATA_ID_CV;
@@ -805,19 +862,16 @@ static void NJJ29C0_Copilot_Pe_Process(void)
 
 		Peps_Cfg_Joker_Tx_Message(DR3P, 6, &u8LfTx_DATAIDx[0][0], DR4P, 2, &u8LfTx_DATAIDx[1][0], DRP_NULL, 0, &u8LfTx_DATAIDx[2][0]);
 		u16waitmaxcnt = PE_LF_TX_MAX_PERIOD;
-		u16LfRunTimingCnt = 0;
 		u8HitagAuthPass = 0;
 		u8PepsStep++;
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 	}
 	else if (2 == u8PepsStep)
 	{
-		u16LfRunTimingCnt++;
 		u16waitmaxcnt--;
 		if (u16waitmaxcnt == 0)
 		{
 			JOKER_StopLfTransmit();
-			JOKER_StartSleep();
 			// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 
 			u8PepsTxCnt--;
@@ -828,19 +882,29 @@ static void NJJ29C0_Copilot_Pe_Process(void)
 				if (1 == tsTransmitters[u8PlanUseFobKeyUid_Index[1]].FobKeyEn)
 				{
 					SetPe_AuthFobStatus(2);
+					// JOKER_StartSleepForced();
 					Change_Njj29c0_WorkStatus(lf_ide);
 					return;
 				}
 
 				if (GetTransmitterCountVal() == 0)
 				{
+					// JOKER_StartSleepForced();
 					Change_Njj29c0_WorkStatus(lf_ide);
 					return;
 				}
 				else if (GetTransmitterCountVal() == 1)
 				{
 					SetPe_AuthFobStatus(2);
+					// JOKER_StartSleepForced();
 					Change_Njj29c0_WorkStatus(lf_ide);
+					// zch debug
+					memset(g_datCan1Tx_0x330, 0, 8);
+					g_datCan1Tx_0x330[0] = 0x80;
+					g_datCan1Tx_0x330[1] = 0x01;
+					g_datCan1Tx_0x330[2] = 0x03;
+
+					BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 					return;
 				}
 				else
@@ -859,8 +923,8 @@ static void NJJ29C0_Copilot_Pe_Process(void)
 			{
 				u8HitagAuthPass = 0;
 				JOKER_StopLfTransmit();
-				JOKER_StartSleep();
-				// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
+				// JOKER_StartSleepForced();
+				//   sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 				Change_Njj29c0_WorkStatus(lf_ide);
 			}
 		}
@@ -874,14 +938,15 @@ static void NJJ29C0_Copilot_Pe_Process(void)
 
 		JOKER_SetLfCarrier(DATA_ID_DATA_RSSI, CARRIER_OFF, RSSI_CARRIER_OFF_LEN);
 		JOKER_SetLfCarrier(DATA_ID_DATA_CB, CARRIER_CON, RSSI_CARRIER_ON_LEN);
+
+		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
+		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
 		u8PepsStep++;
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 	}
 	else if (4 == u8PepsStep)
 	{
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,1);
-		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
-		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
 
 		u8LfTx_DATAIDx[0][0] = DATA_ID_PREMABLE;
 		u8LfTx_DATAIDx[0][1] = DATA_ID_CV;
@@ -908,7 +973,6 @@ static void NJJ29C0_Copilot_Pe_Process(void)
 		if (u16waitmaxcnt == 0)
 		{
 			JOKER_StopLfTransmit();
-			JOKER_StartSleep();
 			// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 			u8PepsTxCnt--;
 			if (u8PepsTxCnt == 0)
@@ -916,7 +980,14 @@ static void NJJ29C0_Copilot_Pe_Process(void)
 				u8PepsTxCnt = PEPS_TX_MAX_COUNT;
 
 				SetPe_AuthFobStatus(2);
+				// JOKER_StartSleepForced();
 				Change_Njj29c0_WorkStatus(lf_ide);
+				// zch debug
+				memset(g_datCan1Tx_0x330, 0, 8);
+				g_datCan1Tx_0x330[0] = 0x80;
+				g_datCan1Tx_0x330[1] = 0x01;
+				g_datCan1Tx_0x330[2] = 0x04;
+				BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 			}
 			else
 			{
@@ -929,8 +1000,8 @@ static void NJJ29C0_Copilot_Pe_Process(void)
 			{
 				u8HitagAuthPass = 0;
 				JOKER_StopLfTransmit();
-				JOKER_StartSleep();
-				// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
+				// JOKER_StartSleepForced();
+				//  sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 				Change_Njj29c0_WorkStatus(lf_ide);
 			}
 		}
@@ -951,16 +1022,15 @@ static void NJJ29C0_Ps_Process(void)
 
 		JOKER_SetLfCarrier(DATA_ID_DATA_RSSI, CARRIER_OFF, RSSI_CARRIER_OFF_LEN);
 		JOKER_SetLfCarrier(DATA_ID_DATA_CB, CARRIER_CON, RSSI_CARRIER_ON_LEN);
+
+		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
+		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
 		u8PepsStep++;
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 	}
 	else if (1 == u8PepsStep)
 	{
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,1);
-
-		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
-		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
-
 		u8LfTx_DATAIDx[0][0] = DATA_ID_PREMABLE;
 		u8LfTx_DATAIDx[0][1] = DATA_ID_CV;
 		u8LfTx_DATAIDx[0][2] = DATA_ID_WUP1;
@@ -976,19 +1046,16 @@ static void NJJ29C0_Ps_Process(void)
 
 		Peps_Cfg_Joker_Tx_Message(DR4P, 6, &u8LfTx_DATAIDx[0][0], DR2P, 2, &u8LfTx_DATAIDx[1][0], DR3P, 2, &u8LfTx_DATAIDx[2][0]);
 		u16waitmaxcnt = PE_LF_TX_MAX_PERIOD;
-		u16LfRunTimingCnt = 0;
 		u8HitagAuthPass = 0;
 		u8PepsStep++;
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 	}
 	else if (2 == u8PepsStep)
 	{
-		u16LfRunTimingCnt++;
 		u16waitmaxcnt--;
 		if (u16waitmaxcnt == 0)
 		{
 			JOKER_StopLfTransmit();
-			JOKER_StartSleep();
 			// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 			u8PepsTxCnt--;
 			if (u8PepsTxCnt == 0)
@@ -1004,6 +1071,7 @@ static void NJJ29C0_Ps_Process(void)
 
 				if (GetTransmitterCountVal() == 0)
 				{
+					// JOKER_StartSleepForced();
 					Change_Njj29c0_WorkStatus(lf_ide);
 					return;
 				}
@@ -1029,8 +1097,8 @@ static void NJJ29C0_Ps_Process(void)
 			{
 				u8HitagAuthPass = 0;
 				JOKER_StopLfTransmit();
-				JOKER_StartSleep();
-				// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
+				// JOKER_StartSleepForced();
+				//  sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 				Change_Njj29c0_WorkStatus(lf_ide);
 			}
 		}
@@ -1045,15 +1113,15 @@ static void NJJ29C0_Ps_Process(void)
 		JOKER_SetLfCarrier(DATA_ID_DATA_RSSI, CARRIER_OFF, RSSI_CARRIER_OFF_LEN);
 		JOKER_SetLfCarrier(DATA_ID_DATA_CB, CARRIER_CON, RSSI_CARRIER_ON_LEN);
 
+		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
+		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
+
 		u8PepsStep++;
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 	}
 	else if (4 == u8PepsStep)
 	{
 		// sdrv_gpio_set_pin_output_level(GPIO_D22,1);
-		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
-		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
-
 		u8LfTx_DATAIDx[0][0] = DATA_ID_PREMABLE;
 		u8LfTx_DATAIDx[0][1] = DATA_ID_CV;
 		u8LfTx_DATAIDx[0][2] = DATA_ID_WUP1;
@@ -1079,14 +1147,13 @@ static void NJJ29C0_Ps_Process(void)
 		if (u16waitmaxcnt == 0)
 		{
 			JOKER_StopLfTransmit();
-			JOKER_StartSleep();
 			// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 			u8PepsTxCnt--;
 			if (u8PepsTxCnt == 0)
 			{
 				u8PepsTxCnt = PEPS_TX_MAX_COUNT;
 
-				bStartImmoAuthFlag = true;
+				// bStartImmoAuthFlag = true;
 				Change_Njj29c0_WorkStatus(lf_ide);
 			}
 			else
@@ -1100,8 +1167,8 @@ static void NJJ29C0_Ps_Process(void)
 			{
 				u8HitagAuthPass = 0;
 				JOKER_StopLfTransmit();
-				JOKER_StartSleep();
-				// sdrv_gpio_set_pin_output_level(GPIO_D22,0);
+				// JOKER_StartSleepForced();
+				//  sdrv_gpio_set_pin_output_level(GPIO_D22,0);
 				Change_Njj29c0_WorkStatus(lf_ide);
 			}
 		}
@@ -1121,13 +1188,13 @@ static void NJJ29C0_Prohibit_Process(void)
 
 		JOKER_SetLfCarrier(DATA_ID_DATA_RSSI, CARRIER_OFF, RSSI_CARRIER_OFF_LEN);
 		JOKER_SetLfCarrier(DATA_ID_DATA_CB, CARRIER_CON, RSSI_CARRIER_ON_LEN);
+
+		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
+		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
 		u8PepsStep++;
 	}
 	else if (1 == u8PepsStep)
 	{
-		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
-		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
-
 		u8LfTx_DATAIDx[0][0] = DATA_ID_PREMABLE;
 		u8LfTx_DATAIDx[0][1] = DATA_ID_CV;
 		u8LfTx_DATAIDx[0][2] = DATA_ID_WUP1;
@@ -1143,19 +1210,23 @@ static void NJJ29C0_Prohibit_Process(void)
 
 		Peps_Cfg_Joker_Tx_Message(DR4P, 6, &u8LfTx_DATAIDx[0][0], DR2P, 2, &u8LfTx_DATAIDx[1][0], DR3P, 2, &u8LfTx_DATAIDx[2][0]);
 		u16waitmaxcnt = PE_LF_TX_MAX_PERIOD;
-		u16LfRunTimingCnt = 0;
 		u8HitagAuthPass = 0;
 		u8PepsStep++;
 	}
-	else if (2 == u8PepsStep)
+	else // if (2 == u8PepsStep)
 	{
-		u16LfRunTimingCnt++;
+		if (u8HitagAuthPass == 1)
+		{
+			// Quickly jump to the next remote search
+			u8HitagAuthPass = 0;
+			u16waitmaxcnt = 1;
+			u8PepsTxCnt = 1;
+		}
+
 		u16waitmaxcnt--;
 		if (u16waitmaxcnt == 0)
 		{
 			JOKER_StopLfTransmit();
-			JOKER_StartSleep();
-
 			u8PepsTxCnt--;
 			if (u8PepsTxCnt == 0)
 			{
@@ -1164,6 +1235,7 @@ static void NJJ29C0_Prohibit_Process(void)
 				u8FobKeyIndex++;
 				if (u8FobKeyIndex >= GetTransmitterCountVal())
 				{
+					// JOKER_StartSleepForced();
 					Change_Njj29c0_WorkStatus(lf_ide);
 					return;
 				}
@@ -1180,6 +1252,82 @@ static void NJJ29C0_Prohibit_Process(void)
 	}
 }
 
+static void NJJ29C0_Prohibit_WelcomeGuest_Process(void)
+{
+	static uint16 u16waitmaxcnt = 0;
+	uint8 u8LfTx_DATAIDx[3][8] = {0};
+
+	if (0 == u8PepsStep)
+	{
+		LfAuthTransmitterInfoInit(0x10, tsTransmitters[u8PlanUseFobKeyUid_Index[u8FobKeyIndex]].SerialNo);
+		JOKER_SetLfData(DATA_ID_PREMABLE, 1, (uint8 *)&Lf_Preamble_CodeViolation[0]);
+		JOKER_SetLfNrz(DATA_ID_CV, 3, (uint8 *)&Lf_Preamble_CodeViolation[1]);
+
+		JOKER_SetLfCarrier(DATA_ID_DATA_RSSI, CARRIER_OFF, RSSI_CARRIER_OFF_LEN);
+		JOKER_SetLfCarrier(DATA_ID_DATA_CB, CARRIER_CON, RSSI_CARRIER_ON_LEN);
+
+		JOKER_SetLfData(DATA_ID_WUP1, 4, sLf_Auth_TransmitterInfo.Id);
+		JOKER_SetLfData(DATA_ID_DATA_PE, 6, &sLf_Auth_TransmitterInfo.Command);
+
+		u8PepsStep++;
+	}
+	else if (1 == u8PepsStep)
+	{
+		u8LfTx_DATAIDx[0][0] = DATA_ID_PREMABLE;
+		u8LfTx_DATAIDx[0][1] = DATA_ID_CV;
+		u8LfTx_DATAIDx[0][2] = DATA_ID_WUP1;
+		u8LfTx_DATAIDx[0][3] = DATA_ID_DATA_PE;
+		u8LfTx_DATAIDx[0][4] = DATA_ID_DATA_RSSI;
+		u8LfTx_DATAIDx[0][5] = DATA_ID_DATA_CB;
+
+		u8LfTx_DATAIDx[1][0] = DATA_ID_DATA_RSSI;
+		u8LfTx_DATAIDx[1][1] = DATA_ID_DATA_CB;
+
+		u8LfTx_DATAIDx[2][0] = DATA_ID_DATA_RSSI;
+		u8LfTx_DATAIDx[2][1] = DATA_ID_DATA_CB;
+
+		Peps_Cfg_Joker_Tx_Message(DR4P, 6, &u8LfTx_DATAIDx[0][0], DR2P, 2, &u8LfTx_DATAIDx[1][0], DR3P, 2, &u8LfTx_DATAIDx[2][0]);
+		u16waitmaxcnt = PE_LF_TX_MAX_PERIOD;
+		u8HitagAuthPass = 0;
+		u8PepsStep++;
+	}
+	else if (2 == u8PepsStep)
+	{
+		if (u8HitagAuthPass == 1)
+		{
+			// Quickly jump to the next remote search
+			u8HitagAuthPass = 0;
+			u16waitmaxcnt = 1;
+			u8PepsTxCnt = 1;
+		}
+
+		u16waitmaxcnt--;
+		if (u16waitmaxcnt == 0)
+		{
+			JOKER_StopLfTransmit();
+			u8PepsTxCnt--;
+			if (u8PepsTxCnt == 0)
+			{
+				u8PepsTxCnt = PEPS_TX_MAX_COUNT;
+				u8FobKeyIndex++;
+				if (u8FobKeyIndex >= 2)
+				{
+					// JOKER_StartSleepForced();
+					Change_Njj29c0_WorkStatus(lf_ide);
+					return;
+				}
+				else
+				{
+					u8PepsStep = 0;
+				}
+			}
+			else
+			{
+				u8PepsStep = 0;
+			}
+		}
+	}
+}
 static int8_t WelcomeGuest_Auth(uint8 use_fobkey_num)
 {
 	uint8 spitxFrame[32] =
@@ -1204,7 +1352,7 @@ static int8_t WelcomeGuest_Auth(uint8 use_fobkey_num)
 	}
 	else
 	{
-		Peps_Fun_ConfigTimerPolling(WELCOMEGUEST_AUTH_LF_CMD, NULL, NULL, DR2P, PS_FUN_POLLING_CYCYE, DR3P, PS_FUN_POLLING_CYCYE);
+		Peps_Fun_ConfigTimerPolling(WELCOMEGUEST_AUTH_LF_CMD, NULL, NULL, DR2P, (PS_FUN_POLLING_CYCYE + PS_FUN_POLLING_CYCYE), DR3P, (PS_FUN_POLLING_CYCYE + PS_FUN_POLLING_CYCYE));
 		JOKER_StartTimerPolling();
 		u8WelcomeGuest01_Set_Step = 0;
 		u8HitagAuthPass = 0;
@@ -1214,18 +1362,123 @@ static int8_t WelcomeGuest_Auth(uint8 use_fobkey_num)
 	return fun_sta;
 }
 
+static int8_t NJJ29C0_WelcomeGuest_Unlock_SearchTrack_Key(uint8_t Carrier_En, uint16_t cycle) // Ô¿ï¿½×¹ì¼£ï¿½ï¿½ï¿½ï¿½
+{
+	uint8 spitxFrame[32] = {0};
+	LONG_UNION Rand_Val;
+	static uint8 u8WelcomeGuest1_Set_Step = 0;
+	static uint8 u8WecomeGuestWakeUpFobKeyUidInd = 0;
+	int8_t fun_sta = 0;
+
+	u8WelcomeGuest1_Set_Step++;
+
+	if (1 == u8WelcomeGuest1_Set_Step)
+	{
+		if (u8WelcomeGuestWakeUpInd == 0)
+		{
+			u8WelcomeGuest1_Set_Step = 0;
+			fun_sta = -1;
+		}
+	}
+	else if (2 == u8WelcomeGuest1_Set_Step)
+	{
+		if (u8WelcomeGuestWakeUpInd >= 0x03)
+		{
+			Rand_Val.Value = tsTransmitters[u8PlanUseFobKeyUid_Index[0]].SerialNo;
+			spitxFrame[0] = Rand_Val.CHAR_BYTE.High_byte;
+			spitxFrame[1] = Rand_Val.CHAR_BYTE.Mhigh_byte;
+			spitxFrame[2] = Rand_Val.CHAR_BYTE.Mlow_byte;
+			spitxFrame[3] = (uint8)((Rand_Val.CHAR_BYTE.Low_byte & 0x0Fu) << 4) | 0x0Fu;
+			JOKER_SetLfData(DATA_ID_WUP1, 4, spitxFrame);
+
+			Rand_Val.Value = tsTransmitters[u8PlanUseFobKeyUid_Index[1]].SerialNo;
+			spitxFrame[0] = Rand_Val.CHAR_BYTE.High_byte;
+			spitxFrame[1] = Rand_Val.CHAR_BYTE.Mhigh_byte;
+			spitxFrame[2] = Rand_Val.CHAR_BYTE.Mlow_byte;
+			spitxFrame[3] = (uint8)((Rand_Val.CHAR_BYTE.Low_byte & 0x0Fu) << 4) | 0x0Fu;
+			JOKER_SetLfData(DATA_ID_WUP2, 4, spitxFrame);
+		}
+		else
+		{
+			if (u8WelcomeGuestWakeUpInd == 0x01)
+			{
+				Rand_Val.Value = tsTransmitters[u8PlanUseFobKeyUid_Index[0]].SerialNo;
+			}
+			else
+			{
+				Rand_Val.Value = tsTransmitters[u8PlanUseFobKeyUid_Index[1]].SerialNo;
+			}
+
+			spitxFrame[0] = Rand_Val.CHAR_BYTE.High_byte;
+			spitxFrame[1] = Rand_Val.CHAR_BYTE.Mhigh_byte;
+			spitxFrame[2] = Rand_Val.CHAR_BYTE.Mlow_byte;
+			spitxFrame[3] = (uint8)((Rand_Val.CHAR_BYTE.Low_byte & 0x0Fu) << 4) | 0x0Fu;
+			JOKER_SetLfData(DATA_ID_WUP1, 4, spitxFrame);
+		}
+	}
+	else if (3 == u8WelcomeGuest1_Set_Step)
+	{
+		if (u8WelcomeGuestWakeUpInd == 3)
+		{
+			LFGetRssiTransmitterInfoInit(0x15);
+			JOKER_SetLfData(DATA_ID_DATA_PE, 2, &sLf_FobLocate_TransmitterInfo.Command);
+
+			LFGetRssiTransmitterInfoInit(0x16);
+			JOKER_SetLfData(DATA_ID_CC_5, 2, &sLf_FobLocate_TransmitterInfo.Command);
+		}
+		else
+		{
+			if (u8WelcomeGuestWakeUpInd == 1)
+			{
+				LFGetRssiTransmitterInfoInit(0x15);
+			}
+			else
+			{
+				LFGetRssiTransmitterInfoInit(0x16);
+			}
+
+			JOKER_SetLfData(DATA_ID_DATA_PE, 2, &sLf_FobLocate_TransmitterInfo.Command);
+		}
+	}
+	else if (4 == u8WelcomeGuest1_Set_Step)
+	{
+		JOKER_SetLfData(DATA_ID_PREMABLE, 1, (uint8 *)&Lf_Preamble_CodeViolation[0]);
+		JOKER_SetLfNrz(DATA_ID_CV, 3, (uint8 *)&Lf_Preamble_CodeViolation[1]);
+		JOKER_SetLfCarrier(DATA_ID_DATA_RSSI, CARRIER_CON, RSSI_CARRIER_ON_LEN);
+	}
+	else if (5 == u8WelcomeGuest1_Set_Step)
+	{
+		if (u8WelcomeGuestWakeUpInd == 3)
+		{
+			WelcomeGuest_ConfigTimerPollingTwo(2, DR2P | DR3P, 30, DR2P | DR3P, cycle, Carrier_En);
+		}
+		else
+		{
+			WelcomeGuest_ConfigTimerPollingTwo(1, DR2P | DR3P, cycle, 0, 0, Carrier_En);
+		}
+		JOKER_StartTimerPolling();
+		u8WelcomeGuest1_Set_Step = 0;
+		fun_sta = 1;
+	}
+	else
+	{
+		u8WelcomeGuest1_Set_Step = 0;
+	}
+
+	return fun_sta;
+}
+
 static int8_t NJJ29C2_PollingWakeUpFobkey_Process(uint16_t cycle)
 {
-	uint8 spitxFrame[32] ={0};
-	LONG_UNION	Rand_Val;
+	uint8 spitxFrame[32] = {0};
 	static uint8 u8WelcomeGuest1_Set_Step = 0;
+	LONG_UNION Rand_Val;
 	int8_t fun_sta = 0;
 
 	if (0 == u8WelcomeGuest1_Set_Step)
-	{	
-		JOKER_SetLfData(DATA_ID_PREMABLE, 1, (uint8 *) &Lf_Preamble_CodeViolation[0]);
-		JOKER_SetLfNrz(DATA_ID_CV, 3, (uint8 *) &Lf_Preamble_CodeViolation[1]);
-		
+	{
+		JOKER_SetLfData(DATA_ID_PREMABLE, 1, (uint8 *)&Lf_Preamble_CodeViolation[0]);
+		JOKER_SetLfNrz(DATA_ID_CV, 3, (uint8 *)&Lf_Preamble_CodeViolation[1]);
 		u8WelcomeGuest1_Set_Step++;
 	}
 	else if (1 == u8WelcomeGuest1_Set_Step)
@@ -1236,30 +1489,29 @@ static int8_t NJJ29C2_PollingWakeUpFobkey_Process(uint16_t cycle)
 		spitxFrame[2] = Rand_Val.CHAR_BYTE.Mlow_byte;
 		spitxFrame[3] = Rand_Val.CHAR_BYTE.Low_byte;
 		JOKER_SetLfData(DATA_ID_WUP1, 4, spitxFrame);
-	
+
 		spitxFrame[0] = 0x09;
 		spitxFrame[1] = u8WelcomeGuestPollingWakeUpUid[0];
 		spitxFrame[2] = u8WelcomeGuestPollingWakeUpUid[1];
 		JOKER_SetLfData(DATA_ID_DATA_PE, 3, &spitxFrame[0]);
-		
-		WelcomeGuest_ConfigTimerPollingWakeUp(DR2P|DR3P,cycle);
-		JOKER_StartTimerPolling();
-		u8HitagAuthPass 	= 0;
-		u8WelcomeGuest1_Set_Step = 0;
-		fun_sta = 1;
- 	}
+
+		u8WelcomeGuest1_Set_Step++;
+	}
 	else
 	{
-
+		WelcomeGuest_ConfigTimerPollingWakeUp(DR2P | DR3P, cycle);
+		// WelcomeGuest_Unlock_PollingWakeUp(DR2P,DR3P,cycle);
+		JOKER_StartTimerPolling();
+		u8WelcomeGuestWakeUpInd = 0;
+		u8WelcomeGuest1_Set_Step = 0;
+		fun_sta = 1;
 	}
 	return fun_sta;
 }
 
-static int8_t NJJ29C0_WelcomeGuest_SearchTrack_Key(uint8_t Carrier_En, uint16_t cycle) // 钥锟阶轨迹锟斤拷锟斤�?
+static int8_t NJJ29C0_WelcomeGuest_Lock_SearchTrack_Key(uint8_t Carrier_En, uint16_t cycle)
 {
-	uint8 spitxFrame[32] =
-		{
-			0};
+	uint8 spitxFrame[32] = {0};
 	LONG_UNION Rand_Val;
 	static uint8 u8WelcomeGuest1_Set_Step = 0;
 	static uint8 u8WecomeGuestWakeUpFobKeyUidInd = 0;
@@ -1269,16 +1521,13 @@ static int8_t NJJ29C0_WelcomeGuest_SearchTrack_Key(uint8_t Carrier_En, uint16_t 
 
 	if (1 == u8WelcomeGuest1_Set_Step)
 	{
-		if ((1 == tsTransmitters[u8PlanUseFobKeyUid_Index[0]].FobKeyEn) &&
-			(1 == tsTransmitters[u8PlanUseFobKeyUid_Index[1]].FobKeyEn))
+		if ((1 == tsTransmitters[u8PlanUseFobKeyUid_Index[0]].FobKeyEn) && (1 == tsTransmitters[u8PlanUseFobKeyUid_Index[1]].FobKeyEn))
 		{
-			Change_Njj29c0_WorkStatus(lf_ide);
 			u8WelcomeGuest1_Set_Step = 0;
-			fun_sta = 0;
+			fun_sta = -1;
 		}
 
 		u8WecomeGuestWakeUpFobKeyUidInd = 0;
-
 		if (0 == tsTransmitters[u8PlanUseFobKeyUid_Index[0]].FobKeyEn)
 		{
 			u8WecomeGuestWakeUpFobKeyUidInd |= 0x01;
@@ -1286,8 +1535,13 @@ static int8_t NJJ29C0_WelcomeGuest_SearchTrack_Key(uint8_t Carrier_En, uint16_t 
 
 		if (0 == tsTransmitters[u8PlanUseFobKeyUid_Index[1]].FobKeyEn)
 		{
-			u8WecomeGuestWakeUpFobKeyUidInd |= 0x02;
+			if (u8TransmitterCount > 1)
+			{
+				u8WecomeGuestWakeUpFobKeyUidInd |= 0x02;
+			}
 		}
+
+		u8WelcomeGuestWakeUpInd = u8WecomeGuestWakeUpFobKeyUidInd;
 	}
 	else if (2 == u8WelcomeGuest1_Set_Step)
 	{
@@ -1329,21 +1583,21 @@ static int8_t NJJ29C0_WelcomeGuest_SearchTrack_Key(uint8_t Carrier_En, uint16_t 
 	{
 		if (u8WecomeGuestWakeUpFobKeyUidInd == 3)
 		{
-			LFGetRssiTransmitterInfoInit(WELCOMEGUEST_PILOT_RSSI_LF_CMD);
+			LFGetRssiTransmitterInfoInit(0x15);
 			JOKER_SetLfData(DATA_ID_DATA_PE, 2, &sLf_FobLocate_TransmitterInfo.Command);
 
-			LFGetRssiTransmitterInfoInit(WELCOMEGUEST_COPILOT_RSSI_LF_CMD);
+			LFGetRssiTransmitterInfoInit(0x16);
 			JOKER_SetLfData(DATA_ID_CC_5, 2, &sLf_FobLocate_TransmitterInfo.Command);
 		}
 		else
 		{
 			if (u8WecomeGuestWakeUpFobKeyUidInd == 1)
 			{
-				LFGetRssiTransmitterInfoInit(WELCOMEGUEST_PILOT_RSSI_LF_CMD);
+				LFGetRssiTransmitterInfoInit(0x15);
 			}
 			else
 			{
-				LFGetRssiTransmitterInfoInit(WELCOMEGUEST_COPILOT_RSSI_LF_CMD);
+				LFGetRssiTransmitterInfoInit(0x16);
 			}
 
 			JOKER_SetLfData(DATA_ID_DATA_PE, 2, &sLf_FobLocate_TransmitterInfo.Command);
@@ -1355,20 +1609,23 @@ static int8_t NJJ29C0_WelcomeGuest_SearchTrack_Key(uint8_t Carrier_En, uint16_t 
 		JOKER_SetLfNrz(DATA_ID_CV, 3, (uint8 *)&Lf_Preamble_CodeViolation[1]);
 		JOKER_SetLfCarrier(DATA_ID_DATA_RSSI, CARRIER_CON, RSSI_CARRIER_ON_LEN);
 	}
-	else
+	else if (5 == u8WelcomeGuest1_Set_Step)
 	{
 		if (u8WecomeGuestWakeUpFobKeyUidInd == 3)
 		{
-			WelcomeGuest_ConfigTimerPollingTwo(2, DR2P | DR3P, 4, DR2P | DR3P, cycle, Carrier_En);
+			WelcomeGuest_ConfigTimerPollingTwo(2, DR2P | DR3P, 30, DR2P | DR3P, cycle, Carrier_En);
 		}
 		else
 		{
 			WelcomeGuest_ConfigTimerPollingTwo(1, DR2P | DR3P, cycle, 0, 0, Carrier_En);
 		}
-
 		JOKER_StartTimerPolling();
 		u8WelcomeGuest1_Set_Step = 0;
 		fun_sta = 1;
+	}
+	else
+	{
+		u8WelcomeGuest1_Set_Step = 0;
 	}
 
 	return fun_sta;
@@ -1378,29 +1635,35 @@ void NJJ29C0_PollingUnlock_Process(void)
 {
 	static uint16_t u16PollingUnlockWaitMaxTime = 0;
 	static uint8_t u8WakeUpFobsIndex = 0;
+	int8_t s8TmpStatus = 0;
 
-	if ((1 == u8PollingFuncRequest)||(u8PE_Auth_KeyPosReq > 0)||(u8PS_Auth_KeyPosReq > 0))
+	if ((u8PollingFuncRequest > 0) || (u8PE_Auth_KeyPosReq > 0) || (u8PS_Auth_KeyPosReq > 0))
 	{
 		JOKER_WakeUp();
+		// JOKER_StartSleepForced();
 		Change_Njj29c0_WorkStatus(lf_ide);
-		u8Lf_Polling_Work_State = 0;
 		return;
 	}
 
-	u8Lf_Polling_Work_State = 1;
-		
+	if (u8PollingFuncRequestBak == 0)
+	{
+		u8Lf_Polling_Work_State = 2;
+	}
+	else
+	{
+		u8Lf_Polling_Work_State = 3;
+	}
+
 	switch (u8PollingUnlockStep)
 	{
 	case 0:
 		if (u8PollingFuncRequestBak == 0)
 		{
 			u16PollingUnlockWaitMaxTime = WELCOMEGUEST_POLLING_CYCLE02;
-			u8Lf_Polling_Work_State = 2;
 		}
 		else
 		{
 			u16PollingUnlockWaitMaxTime = WELCOMEGUEST_POLLING_CYCLE03;
-			u8Lf_Polling_Work_State = 3;
 		}
 
 		if (NJJ29C2_PollingWakeUpFobkey_Process(u16PollingUnlockWaitMaxTime) == 1)
@@ -1409,73 +1672,52 @@ void NJJ29C0_PollingUnlock_Process(void)
 			bWaitAllFobKey_B_WakeUp = 0;
 			Lf_Door_CurRssiCalcVal.value = 0;
 			Rf_Door_CurRssiCalcVal.value = 0;
-			u32Lf_CurRssi_Index = 0;
-			u32Rf_CurRssi_Index = 0;
+			// u32Lf_CurRssi_Index = 0;
+			// u32Rf_CurRssi_Index = 0;
 			u16PollingUnlockWaitMaxTime = 0;
 			u8PollingUnlockStep++;
 		}
-
 		break;
 
 	case 1:
-		if (u8HitagAuthPass > 0)
+		if (u8WelcomeGuestWakeUpInd > 0)
 		{
 			JOKER_WakeUp();
-			u8HitagAuthPass = 0;
 			u8PollingUnlockStep++;
+			u8WakeUpFobsIndex = 0;
 		}
 		break;
 
 	case 2:
-		if (NJJ29C0_WelcomeGuest_SearchTrack_Key(1, WELCOMEGUEST_POLLING_CYCLE01) == 1)
+		u16PollingUnlockWaitMaxTime++;
+		if ((u16PollingUnlockWaitMaxTime >= 90) || (u8WelcomeGuestWakeUpInd >= 0x03)) // 180ms
+		{
+			u16PollingUnlockWaitMaxTime = 0;
+			u8PollingUnlockStep++;
+		}
+		break;
+
+	case 3:
+		s8TmpStatus = NJJ29C0_WelcomeGuest_Unlock_SearchTrack_Key(1, WELCOMEGUEST_POLLING_CYCLE01);
+
+		if (s8TmpStatus == -1)
+		{
+			JOKER_WakeUp();
+			u8PollingUnlockStep = 0;
+		}
+		else if (s8TmpStatus == 1)
 		{
 			bWaitAllFobKey_A_WakeUp = 0;
 			bWaitAllFobKey_B_WakeUp = 0;
+			u8Welcome_Function_Request_Bak = 0;
 			Lf_Door_CurRssiCalcVal.value = 0;
 			Rf_Door_CurRssiCalcVal.value = 0;
 			u16PollingUnlockWaitMaxTime = 0;
 			u8PollingUnlockStep++;
+			u8Key_A_Check_Thread = 0;
+			u8Key_B_Check_Thread = 0;
 		}
 
-		break;
-
-	case 3:
-		if ((bWaitAllFobKey_A_WakeUp == 0) && (bWaitAllFobKey_B_WakeUp == 0))
-		{
-			u16PollingUnlockWaitMaxTime++;
-
-			if (u16PollingUnlockWaitMaxTime >= 250)
-			{
-				// 500ms未锟斤拷锟秸碉拷强锟饺凤拷锟斤拷值锟斤拷钥锟斤拷锟斤拷失锟斤拷Z4锟斤拷锟津，伙拷钥锟斤拷一直锟斤拷锟斤拷锟脚ｏ拷锟斤拷锟斤拷失锟斤�?
-				JOKER_WakeUp();
-				u8PollingUnlockStep = 0; // 锟斤拷锟铰斤拷锟斤拷却锟?
-				return;
-			}
-		}
-		else
-		{
-			u16PollingUnlockWaitMaxTime = 0;
-		}
-
-	   if (Lf_Door_CurRssiCalcVal.value >= L_DOORANT_RSSI_Z3_LIMIT)
-	   {
-	   		bWaitAllFobKey_A_WakeUp = 0;
-			bWaitAllFobKey_B_WakeUp = 0;
-	   		Lf_Door_CurRssiCalcVal.value = 0;
-			u8Welcome_Function_Request = 1; // Polling light Request
-			u8PollingUnlockStep++;
-			return;
-	   }
-	   else if (Rf_Door_CurRssiCalcVal.value >= R_DOORANT_RSSI_Z3_LIMIT)
-	   {
-	   		bWaitAllFobKey_A_WakeUp = 0;
-			bWaitAllFobKey_B_WakeUp = 0;
-	   		Rf_Door_CurRssiCalcVal.value = 0;
-			u8Welcome_Function_Request = 1; // Polling light Request
-			u8PollingUnlockStep++;
-			return;
-	   }
-	   
 		break;
 
 	case 4:
@@ -1483,11 +1725,11 @@ void NJJ29C0_PollingUnlock_Process(void)
 		{
 			u16PollingUnlockWaitMaxTime++;
 
-			if (u16PollingUnlockWaitMaxTime >= 250)
+			if (u16PollingUnlockWaitMaxTime >= 1000)
 			{
-				// 500ms未锟斤拷锟秸碉拷强锟饺凤拷锟斤拷值锟斤拷钥锟斤拷锟斤拷失锟斤拷Z4锟斤拷锟津，伙拷钥锟斤拷一直锟斤拷锟斤拷锟脚ｏ拷锟斤拷锟斤拷失锟斤�?
+				// Neither of the 2 remote control keys awakened is a matching remote control.
 				JOKER_WakeUp();
-				u8PollingUnlockStep = 0; // 锟斤拷锟铰斤拷锟斤拷却锟?
+				u8PollingUnlockStep = 0;
 				return;
 			}
 		}
@@ -1496,121 +1738,157 @@ void NJJ29C0_PollingUnlock_Process(void)
 			u16PollingUnlockWaitMaxTime = 0;
 		}
 
-		if (bWaitAllFobKey_A_WakeUp == 1)
+		switch (u8Key_A_Check_Thread)
 		{
-			bWaitAllFobKey_A_WakeUp = 0;
+		case 0:
+			if (bWaitAllFobKey_A_WakeUp == 1)
+			{
+				bWaitAllFobKey_A_WakeUp = 0;
 
-			if (u32Lf_CurRssi_Index >= LF_RSSI_CACHE_LEN)
-			{
-				u32Lf_Door_CurRssi[0] = u32Lf_Door_CurRssi[1];
-				u32Lf_Door_CurRssi[1] = u32Lf_Door_CurRssi[2];
-				u32Lf_Door_CurRssi[2] = u32Lf_Door_CurRssi[3];
-				u32Lf_Door_CurRssi[3] = u32Lf_Door_CurRssi[4];
-				u32Lf_Door_CurRssi[4] = u32Lf_Door_CurRssi[5];
-				u32Lf_Door_CurRssi[5] = u32Lf_Door_CurRssi[6];
-				u32Lf_Door_CurRssi[6] = u32Lf_Door_CurRssi[7];
-				u32Lf_Door_CurRssi[7] = u32Lf_Door_CurRssi[8];
-				u32Lf_Door_CurRssi[8] = u32Lf_Door_CurRssi[9];
-				u32Lf_Door_CurRssi[9] = u32Lf_Door_CurRssi[10];
-				u32Lf_Door_CurRssi[10] = u32Lf_Door_CurRssi[11];
-				u32Lf_Door_CurRssi[11] = u32Lf_Door_CurRssi[12];
-				u32Lf_Door_CurRssi[12] = u32Lf_Door_CurRssi[13];
-				u32Lf_Door_CurRssi[13] = u32Lf_Door_CurRssi[14];
-				u32Lf_Door_CurRssi[14] = u32Lf_Door_CurRssi[15];
-				u32Lf_Door_CurRssi[15] = (uint32_t)(Lf_Door_CurRssiCalcVal.value * 1000.0);
-			}
-			else
-			{
-				u32Lf_Door_CurRssi[u32Lf_CurRssi_Index++] = (uint32_t)(Lf_Door_CurRssiCalcVal.value * 1000.0);
-			}
-
-			if (Lf_Door_CurRssiCalcVal.value >= L_DOORANT_RSSI_Z1_LIMIT)
-			{
-				if (FobKey_Tracking_Positioning_Algorithm(u32Lf_Door_CurRssi, u32Lf_CurRssi_Index, 200) == UPWARD)
+				if (Lf_Door_CurRssiCalcVal.value >= DOORANT_RSSI_Z1_LIMIT)
 				{
-					// 强锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤�?
+					// u8Welcome_Function_Request_Bak = 1;
+					//  Key_A_next_target_value = Lf_Door_CurRssiCalcVal.value + 860000;
+				}
+				else if (Lf_Door_CurRssiCalcVal.value >= DOORANT_RSSI_Z2_LIMIT)
+				{
+					u8Key_A_Check_Thread++;
+					Key_A_next_target_value = Lf_Door_CurRssiCalcVal.value + 0.38;
+				}
+				else
+				{
+					if (u8Welcome_Function_Request_Bak == 0)
+					{
+						u8Welcome_Function_Request = 1; // Polling light Request
+
+						// zch debug
+						memset(g_datCan1Tx_0x330, 0, 8);
+						g_datCan1Tx_0x330[0] = 0x80;
+						g_datCan1Tx_0x330[1] = 0x03;
+						g_datCan1Tx_0x330[2] = 0x06;
+						BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+					}
+					u8Key_A_Check_Thread++;
+					Key_A_next_target_value = Lf_Door_CurRssiCalcVal.value + 0.5;
+				}
+
+				Lf_Door_CurRssiCalcVal.value = 0;
+			}
+			break;
+
+		case 1:
+			if (bWaitAllFobKey_A_WakeUp == 1)
+			{
+				bWaitAllFobKey_A_WakeUp = 0;
+
+				if (Lf_Door_CurRssiCalcVal.value >= Key_A_next_target_value)
+				{
 					JOKER_WakeUp();
 					u8PollingUnlockStep++;
-					u8WakeUpFobsIndex = 0;
+					u8Key_A_Check_Thread = 0;
+					u8WakeUpFobsIndex = u8PlanUseFobKeyUid_Index[0];
 				}
-			}
 
-			Lf_Door_CurRssiCalcVal.value = 0;
+				Lf_Door_CurRssiCalcVal.value = 0;
+			}
+			break;
+
+		default:
+			u8Key_A_Check_Thread = 0;
+			break;
 		}
 
-		if (bWaitAllFobKey_B_WakeUp == 1)
+		switch (u8Key_B_Check_Thread)
 		{
-			bWaitAllFobKey_B_WakeUp = 0;
-
-			if (u32Rf_CurRssi_Index >= LF_RSSI_CACHE_LEN)
+		case 0:
+			if (bWaitAllFobKey_B_WakeUp == 1)
 			{
-				u32Rf_Door_CurRssi[0] = u32Rf_Door_CurRssi[1];
-				u32Rf_Door_CurRssi[1] = u32Rf_Door_CurRssi[2];
-				u32Rf_Door_CurRssi[2] = u32Rf_Door_CurRssi[3];
-				u32Rf_Door_CurRssi[3] = u32Rf_Door_CurRssi[4];
-				u32Rf_Door_CurRssi[4] = u32Rf_Door_CurRssi[5];
-				u32Rf_Door_CurRssi[5] = u32Rf_Door_CurRssi[6];
-				u32Rf_Door_CurRssi[6] = u32Rf_Door_CurRssi[7];
-				u32Rf_Door_CurRssi[7] = u32Rf_Door_CurRssi[8];
-				u32Rf_Door_CurRssi[8] = u32Rf_Door_CurRssi[9];
-				u32Rf_Door_CurRssi[9] = u32Rf_Door_CurRssi[10];
-				u32Rf_Door_CurRssi[10] = u32Rf_Door_CurRssi[11];
-				u32Rf_Door_CurRssi[11] = u32Rf_Door_CurRssi[12];
-				u32Rf_Door_CurRssi[12] = u32Rf_Door_CurRssi[13];
-				u32Rf_Door_CurRssi[13] = u32Rf_Door_CurRssi[14];
-				u32Rf_Door_CurRssi[14] = u32Rf_Door_CurRssi[15];
-				u32Rf_Door_CurRssi[15] = (uint32_t)(Rf_Door_CurRssiCalcVal.value * 1000.0);
-			}
-			else
-			{
-				u32Rf_Door_CurRssi[u32Rf_CurRssi_Index++] = (uint32_t)(Rf_Door_CurRssiCalcVal.value * 1000.0);
-			}
-
-			if (Rf_Door_CurRssiCalcVal.value >= R_DOORANT_RSSI_Z1_LIMIT)
-			{
-				if (FobKey_Tracking_Positioning_Algorithm(u32Rf_Door_CurRssi, u32Rf_CurRssi_Index, 200) == UPWARD)
+				bWaitAllFobKey_B_WakeUp = 0;
+				if (Rf_Door_CurRssiCalcVal.value >= DOORANT_RSSI_Z1_LIMIT)
 				{
-					// 强锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤�?
+					// u8Welcome_Function_Request_Bak = 1;
+					//  Key_B_next_target_value = Rf_Door_CurRssiCalcVal.value + 860000.0;
+				}
+				else if (Rf_Door_CurRssiCalcVal.value >= DOORANT_RSSI_Z2_LIMIT)
+				{
+					u8Key_B_Check_Thread++;
+					Key_B_next_target_value = Rf_Door_CurRssiCalcVal.value + 0.38;
+				}
+				else
+				{
+					if (u8Welcome_Function_Request_Bak == 0)
+					{
+						u8Welcome_Function_Request = 1; // Polling light Request
+					}
+					u8Key_B_Check_Thread++;
+					Key_B_next_target_value = Rf_Door_CurRssiCalcVal.value + 0.5;
+				}
+
+				Rf_Door_CurRssiCalcVal.value = 0;
+			}
+			break;
+
+		case 1:
+			if (bWaitAllFobKey_B_WakeUp == 1)
+			{
+				bWaitAllFobKey_B_WakeUp = 0;
+
+				if (Rf_Door_CurRssiCalcVal.value >= Key_B_next_target_value)
+				{
 					JOKER_WakeUp();
 					u8PollingUnlockStep++;
-					u8WakeUpFobsIndex = 1;
+					u8Key_B_Check_Thread = 0;
+					u8WakeUpFobsIndex = u8PlanUseFobKeyUid_Index[1];
 				}
-			}
 
-			Rf_Door_CurRssiCalcVal.value = 0;
+				Rf_Door_CurRssiCalcVal.value = 0;
+			}
+			break;
+
+		default:
+			u8Key_B_Check_Thread = 0;
+			break;
 		}
 
 		break;
 
 	case 5:
-		// 锟斤拷证锟斤拷锟斤拷
 		if (WelcomeGuest_Auth(u8WakeUpFobsIndex) == 1)
 		{
 			u16PollingUnlockWaitMaxTime = 0;
 			u8PollingUnlockStep++;
 		}
-
 		break;
 
 	case 6:
 		u16PollingUnlockWaitMaxTime++;
-
-		if (u16PollingUnlockWaitMaxTime >= 150)
+		if (u16PollingUnlockWaitMaxTime >= 300)
 		{
-			// JOKER_WakeUp();
-			// u8PollingUnlockStep = 0;  //锟斤拷锟铰斤拷锟斤拷却锟?
+			JOKER_WakeUp();
 			u8PollingUnlockStep++;
-			return;
 		}
 		else
 		{
 			if (u8HitagAuthPass == 1)
 			{
-				// 锟斤拷锟斤拷Z1锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷证锟缴癸拷
 				JOKER_WakeUp();
-				u8Welcome_Function_Request = 2; // Polling light Request
-				u8PollingUnlockStep = 0;
 				Change_Njj29c0_WorkStatus(lf_ide);
+
+				u8Welcome_Function_Request = 2; // Polling light Request
+				// zch debug
+				memset(g_datCan1Tx_0x330, 0, 8);
+				g_datCan1Tx_0x330[0] = 0x80;
+				g_datCan1Tx_0x330[1] = 0x03;
+				g_datCan1Tx_0x330[2] = 0x07;
+				BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+
+				if (u8PlanUseFobKeyUid_Index[0] != u8WakeUpFobsIndex)
+				{
+					uint8_t tmpreg = u8PlanUseFobKeyUid_Index[0];
+					u8PlanUseFobKeyUid_Index[0] = FOBKEY_NUM;
+					u8PlanUseFobKeyUid_Index[1] = tmpreg;
+					Rke_Flash_Write(TRANSMITTER_ID_SAVE_ADDR, u8PlanUseFobKeyUid_Index, 2);
+				}
 			}
 		}
 
@@ -1625,150 +1903,201 @@ void NJJ29C0_PollingUnlock_Process(void)
 void NJJ29C0_PollingLock_Process(void)
 {
 	static uint16_t u16PollingLockWaitMaxTime = 0;
+	static uint16_t u16PollingLockNeedTime = 0;
 	static uint8_t u8WakeUpFobsIndex = 0;
+	int8_t sTmpStatus = 0;
 
-	if ((1 == u8PollingFuncRequest)||(u8PE_Auth_KeyPosReq > 0)||(u8PS_Auth_KeyPosReq > 0))
+	if ((u8PollingFuncRequest > 0) || (u8PE_Auth_KeyPosReq > 0) || (u8PS_Auth_KeyPosReq > 0))
 	{
 		JOKER_WakeUp();
+		// JOKER_StartSleepForced();
 		Change_Njj29c0_WorkStatus(lf_ide);
-		u8Lf_Polling_Work_State = 0;
 		return;
 	}
-	
+
 	u8Lf_Polling_Work_State = 1;
 
 	switch (u8PollingLockStep)
 	{
 	case 0:
-		if (NJJ29C0_WelcomeGuest_SearchTrack_Key(1, WELCOMEGUEST_POLLING_CYCLE01) == 1)
+		if (NJJ29C2_PollingWakeUpFobkey_Process(WELCOMEGUEST_POLLING_CYCLE01) == 1)
 		{
-			bWaitAllFobKey_A_WakeUp = 0;
-			bWaitAllFobKey_B_WakeUp = 0;
-			Lf_Door_CurRssiCalcVal.value = 0;
-			Rf_Door_CurRssiCalcVal.value = 0;
-			u32Lf_CurRssi_Index = 0;
-			u32Rf_CurRssi_Index = 0;
+			u16PollingLockWaitMaxTime = 0;
 			u8PollingLockStep++;
 		}
-
 		break;
 
 	case 1:
-		if (bWaitAllFobKey_A_WakeUp == 1)
+		u16PollingLockWaitMaxTime++;
+		if (u16PollingLockWaitMaxTime >= 25)
 		{
+			JOKER_WakeUp();
+			u16PollingLockNeedTime = WELCOMEGUEST_POLLING_CYCLE01;
+			u8PollingLockStep++;
+		}
+		break;
+
+	case 2:
+		sTmpStatus = NJJ29C0_WelcomeGuest_Lock_SearchTrack_Key(1, u16PollingLockNeedTime);
+		if (sTmpStatus == -1)
+		{
+			// The two recently used remote controls are both in the car and are disabled.
+			tsTransmitters[u8PlanUseFobKeyUid_Index[0]].FobKeyEn = 0;
+			tsTransmitters[u8PlanUseFobKeyUid_Index[1]].FobKeyEn = 0;
+			JOKER_WakeUp();
+			Change_Njj29c0_WorkStatus(lf_ide);
+		}
+		else if (sTmpStatus == 1)
+		{
+			tsTransmitters[u8PlanUseFobKeyUid_Index[0]].FobKeyEn = 0;
+			tsTransmitters[u8PlanUseFobKeyUid_Index[1]].FobKeyEn = 0;
 			bWaitAllFobKey_A_WakeUp = 0;
+			bWaitAllFobKey_B_WakeUp = 0;
+			Lf_Door_CurRssiCalcVal.value = 0;
+			Rf_Door_CurRssiCalcVal.value = 0;
+			// u32Lf_CurRssi_Index = 0;
+			// u32Rf_CurRssi_Index = 0;
+			u16PollingLockWaitMaxTime = 0;
+			u8PollingLockStep++;
+			u8Key_A_Check_Thread = 0;
+			u8Key_B_Check_Thread = 0;
+			u8WakeUpFobsIndex = 0;
+		}
+		break;
 
-			if (u32Lf_CurRssi_Index >= LF_RSSI_CACHE_LEN)
+	case 3:
+		if ((u8WelcomeGuestWakeUpInd & 0x01) > 0)
+		{
+			if (bWaitAllFobKey_A_WakeUp == 1)
 			{
-				u32Lf_Door_CurRssi[0] = u32Lf_Door_CurRssi[1];
-				u32Lf_Door_CurRssi[1] = u32Lf_Door_CurRssi[2];
-				u32Lf_Door_CurRssi[2] = u32Lf_Door_CurRssi[3];
-				u32Lf_Door_CurRssi[3] = u32Lf_Door_CurRssi[4];
-				u32Lf_Door_CurRssi[4] = u32Lf_Door_CurRssi[5];
-				u32Lf_Door_CurRssi[5] = u32Lf_Door_CurRssi[6];
-				u32Lf_Door_CurRssi[6] = u32Lf_Door_CurRssi[7];
-				u32Lf_Door_CurRssi[7] = u32Lf_Door_CurRssi[8];
-				u32Lf_Door_CurRssi[8] = u32Lf_Door_CurRssi[9];
-				u32Lf_Door_CurRssi[9] = u32Lf_Door_CurRssi[10];
-				u32Lf_Door_CurRssi[10] = u32Lf_Door_CurRssi[11];
-				u32Lf_Door_CurRssi[11] = u32Lf_Door_CurRssi[12];
-				u32Lf_Door_CurRssi[12] = u32Lf_Door_CurRssi[13];
-				u32Lf_Door_CurRssi[13] = u32Lf_Door_CurRssi[14];
-				u32Lf_Door_CurRssi[14] = u32Lf_Door_CurRssi[15];
-				u32Lf_Door_CurRssi[15] = (uint32_t)(Lf_Door_CurRssiCalcVal.value * 1000.0);
-			}
-			else
-			{
-				u32Lf_Door_CurRssi[u32Lf_CurRssi_Index++] = (uint32_t)(Lf_Door_CurRssiCalcVal.value * 1000.0);
-			}
-
-			if (Lf_Door_CurRssiCalcVal.value <= L_DOORANT_RSSI_Z2_LIMIT)
-			{
-				if (FobKey_Tracking_Positioning_Algorithm(u32Lf_Door_CurRssi, u32Lf_CurRssi_Index, 200) ==
-					DOWNWARD)
+				bWaitAllFobKey_A_WakeUp = 0;
+				if (Lf_Door_CurRssiCalcVal.value < DOORANT_RSSI_Z2_LIMIT)
 				{
-					// 强锟斤拷锟斤拷锟铰斤拷锟斤拷锟斤�?
-					JOKER_WakeUp();
-					u8PollingLockStep++;
-					u8WakeUpFobsIndex = 0;
+					Lf_Door_CurRssiCalcVal.value = 0;
+					if ((u8WelcomeGuestWakeUpInd & 0x02) > 0)
+					{
+						u8PollingLockStep = 4;
+					}
+					else
+					{
+						u8PollingLockStep = 6;
+					}
+					u16PollingLockWaitMaxTime = 0;
+
+					return;
 				}
 			}
-
-			Lf_Door_CurRssiCalcVal.value = 0;
 		}
 
+		if ((u8WelcomeGuestWakeUpInd & 0x02) > 0)
+		{
+			if (bWaitAllFobKey_B_WakeUp == 1)
+			{
+				bWaitAllFobKey_B_WakeUp = 0;
+				if (Rf_Door_CurRssiCalcVal.value < DOORANT_RSSI_Z2_LIMIT)
+				{
+					Rf_Door_CurRssiCalcVal.value = 0;
+					if ((u8WelcomeGuestWakeUpInd & 0x01) > 0)
+					{
+						u8PollingLockStep = 5;
+					}
+					else
+					{
+						u8PollingLockStep = 6;
+					}
+					u16PollingLockWaitMaxTime = 0;
+
+					return;
+				}
+			}
+		}
+		break;
+
+	case 4:
 		if (bWaitAllFobKey_B_WakeUp == 1)
 		{
 			bWaitAllFobKey_B_WakeUp = 0;
-
-			if (u32Rf_CurRssi_Index >= LF_RSSI_CACHE_LEN)
+			if (Rf_Door_CurRssiCalcVal.value < DOORANT_RSSI_Z2_LIMIT)
 			{
-				u32Rf_Door_CurRssi[0] = u32Rf_Door_CurRssi[1];
-				u32Rf_Door_CurRssi[1] = u32Rf_Door_CurRssi[2];
-				u32Rf_Door_CurRssi[2] = u32Rf_Door_CurRssi[3];
-				u32Rf_Door_CurRssi[3] = u32Rf_Door_CurRssi[4];
-				u32Rf_Door_CurRssi[4] = u32Rf_Door_CurRssi[5];
-				u32Rf_Door_CurRssi[5] = u32Rf_Door_CurRssi[6];
-				u32Rf_Door_CurRssi[6] = u32Rf_Door_CurRssi[7];
-				u32Rf_Door_CurRssi[7] = u32Rf_Door_CurRssi[8];
-				u32Rf_Door_CurRssi[8] = u32Rf_Door_CurRssi[9];
-				u32Rf_Door_CurRssi[9] = u32Rf_Door_CurRssi[10];
-				u32Rf_Door_CurRssi[10] = u32Rf_Door_CurRssi[11];
-				u32Rf_Door_CurRssi[11] = u32Rf_Door_CurRssi[12];
-				u32Rf_Door_CurRssi[12] = u32Rf_Door_CurRssi[13];
-				u32Rf_Door_CurRssi[13] = u32Rf_Door_CurRssi[14];
-				u32Rf_Door_CurRssi[14] = u32Rf_Door_CurRssi[15];
-				u32Rf_Door_CurRssi[15] = (uint32_t)(Rf_Door_CurRssiCalcVal.value * 1000.0);
-			}
-			else
-			{
-				u32Rf_Door_CurRssi[u32Rf_CurRssi_Index++] = (uint32_t)(Rf_Door_CurRssiCalcVal.value * 1000.0);
-			}
-
-			if (Rf_Door_CurRssiCalcVal.value <= R_DOORANT_RSSI_Z2_LIMIT)
-			{
-				if (FobKey_Tracking_Positioning_Algorithm(u32Rf_Door_CurRssi, u32Rf_CurRssi_Index, 200) ==
-					DOWNWARD)
-				{
-					// 强锟斤拷锟斤拷锟铰斤拷锟斤拷锟斤�?
-					JOKER_WakeUp();
-					u8PollingLockStep++;
-					u8WakeUpFobsIndex = 1;
-				}
+				JOKER_WakeUp();
+				u8PollingLockStep = 6;
+				u8WakeUpFobsIndex = u8PlanUseFobKeyUid_Index[1];
 			}
 
 			Rf_Door_CurRssiCalcVal.value = 0;
 		}
-
+		else
+		{
+			u16PollingLockWaitMaxTime++;
+			if (u16PollingLockWaitMaxTime >= 300) // If the feedback of the B key has not been received for more than 600ms, the B key may suddenly disappear or the power is insufficient.
+			{
+				u8PollingLockStep = 6;
+				u8WakeUpFobsIndex = u8PlanUseFobKeyUid_Index[0];
+			}
+		}
 		break;
 
-	case 2:
+	case 5:
+		if (bWaitAllFobKey_A_WakeUp == 1)
+		{
+			bWaitAllFobKey_A_WakeUp = 0;
+			if (Lf_Door_CurRssiCalcVal.value < DOORANT_RSSI_Z2_LIMIT)
+			{
+				JOKER_WakeUp();
+				u8PollingLockStep = 6;
+				u8WakeUpFobsIndex = u8PlanUseFobKeyUid_Index[0];
+			}
+
+			Lf_Door_CurRssiCalcVal.value = 0;
+		}
+		else
+		{
+			u16PollingLockWaitMaxTime++;
+			if (u16PollingLockWaitMaxTime >= 300) // If the feedback of the A key has not been received for more than 600ms, the A key may suddenly disappear or the power is insufficient.
+			{
+				u8PollingLockStep = 6;
+				u8WakeUpFobsIndex = u8PlanUseFobKeyUid_Index[1];
+			}
+		}
+		break;
+
+	case 6:
 		if (WelcomeGuest_Auth(u8WakeUpFobsIndex) == 1)
 		{
 			u16PollingLockWaitMaxTime = 0;
 			u8PollingLockStep++;
 		}
-
 		break;
 
-	case 3:
+	case 7:
 		u16PollingLockWaitMaxTime++;
-
-		if (u16PollingLockWaitMaxTime >= 150)
+		if (u16PollingLockWaitMaxTime >= 300)
 		{
 			JOKER_WakeUp();
 			u8PollingLockStep = 0;
-			return;
 		}
 		else
 		{
 			if (u8HitagAuthPass == 1)
 			{
-				// 锟斤拷锟斤拷Z3锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷证锟缴癸拷
-				JOKER_WakeUp();
 				u8Welcome_Function_Request = 3; // Polling Lock Reques
-				u8PollingLockStep = 0;
+				JOKER_WakeUp();
 				Change_Njj29c0_WorkStatus(lf_ide);
+
+				// zch debug
+				memset(g_datCan1Tx_0x330, 0, 8);
+				g_datCan1Tx_0x330[0] = 0x80;
+				g_datCan1Tx_0x330[1] = 0x03;
+				g_datCan1Tx_0x330[2] = 0x08;
+				BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+
+				if (u8PlanUseFobKeyUid_Index[0] != u8WakeUpFobsIndex)
+				{
+					uint8_t tmpreg = u8PlanUseFobKeyUid_Index[0];
+					u8PlanUseFobKeyUid_Index[0] = FOBKEY_NUM;
+					u8PlanUseFobKeyUid_Index[1] = tmpreg;
+					Rke_Flash_Write(TRANSMITTER_ID_SAVE_ADDR, u8PlanUseFobKeyUid_Index, 2);
+				}
 			}
 		}
 
@@ -1805,7 +2134,6 @@ static void NJJ29C0_Calibration_Process(void)
 
 		JOKER_SetLfData(DATA_ID_DATA_PE, 3, sLf_Auth_TransmitterInfo.Random);
 
-		
 		u8LfTx_DATAIDx[0][0] = DATA_ID_PREMABLE;
 		u8LfTx_DATAIDx[0][1] = DATA_ID_CV;
 		u8LfTx_DATAIDx[0][2] = DATA_ID_WUP1;
@@ -1819,11 +2147,11 @@ static void NJJ29C0_Calibration_Process(void)
 		u8LfTx_DATAIDx[2][0] = DATA_ID_DATA_CB;
 		u8LfTx_DATAIDx[2][1] = DATA_ID_DATA_RSSI;
 
-		if(Vehicle_Calibration_Ant == 0)
+		if (Vehicle_Calibration_Ant == 0)
 		{
 			Peps_Cfg_Joker_Tx_Message(DR4P, 6, &u8LfTx_DATAIDx[0][0], DR2P, 2, &u8LfTx_DATAIDx[1][0], DR3P, 2, &u8LfTx_DATAIDx[2][0]);
 		}
-		else if(Vehicle_Calibration_Ant == 1)
+		else if (Vehicle_Calibration_Ant == 1)
 		{
 			Peps_Cfg_Joker_Tx_Message(DR2P, 6, &u8LfTx_DATAIDx[0][0], DR3P, 2, &u8LfTx_DATAIDx[1][0], DR4P, 2, &u8LfTx_DATAIDx[2][0]);
 		}
@@ -1847,10 +2175,11 @@ static void NJJ29C0_Calibration_Process(void)
 	}
 }
 
-
 void NJJ29C0_Task(void)
 {
 	static uint16 u16WaitMaxTimingCnt = 0;
+
+	static lf_handle_state lfapp_work_sta_last = 0;
 
 	switch (u8Njj29c0_WorkStatus)
 	{
@@ -1883,6 +2212,13 @@ void NJJ29C0_Task(void)
 			if (bStartImmoAuthFlag == true)
 			{
 				Change_Njj29c0_WorkStatus(immo_ps);
+				bStartImmoAuthFlag = false;
+				u16DiagCycleTime = LF_DIAG_CYCYE;
+			}
+			else if (bStartWelcomeGuestLockFlag == true)
+			{
+				Change_Njj29c0_WorkStatus(lf_polling_lock);
+				bStartWelcomeGuestLockFlag = false;
 				u16DiagCycleTime = LF_DIAG_CYCYE;
 			}
 			else if (1 == u8PE_Auth_KeyPosReq)
@@ -1892,7 +2228,6 @@ void NJJ29C0_Task(void)
 			}
 			else if (2 == u8PE_Auth_KeyPosReq)
 			{
-
 				Change_Njj29c0_WorkStatus(lf_copilot_pe);
 				u16DiagCycleTime = LF_DIAG_CYCYE;
 			}
@@ -1910,29 +2245,40 @@ void NJJ29C0_Task(void)
 			{
 				All_FobKey_Lift_En();
 			}
-			else if (2 == u8PollingFuncRequest)
+			else if (1 == u8PollingFuncRequest)
 			{
-				Change_Njj29c0_WorkStatus(lf_polling_lock);
-				u16DiagCycleTime = LF_DIAG_CYCYE;
+				JOKER_WakeUp();
+				u8PollingFuncRequest = 0;
+				u8Lf_Polling_Work_State = 0;
 			}
-			else if (3 == u8PollingFuncRequest)
+			else if ((2 == u8PollingFuncRequest) || (u8PollingFuncRequest_Qn == 2))
+			{
+				// Change_Njj29c0_WorkStatus(lf_polling_lock);
+				Change_Njj29c0_WorkStatus(lf_prohibit_WelcomeGuest_key);
+				bStartWelcomeGuestLockFlag = true;
+				u16DiagCycleTime = LF_DIAG_CYCYE;
+				u8PollingFuncRequest = 0;
+			}
+			else if ((3 == u8PollingFuncRequest) || (u8PollingFuncRequest_Qn == 3))
 			{
 				Change_Njj29c0_WorkStatus(lf_polling_unlock);
-				u8PollingFuncRequestBak = 0; // 锟斤拷锟?锟斤�?
+				u8PollingFuncRequestBak = 0; // 锟斤拷锟?锟斤�?
 				u16DiagCycleTime = LF_DIAG_CYCYE;
+				u8PollingFuncRequest = 0;
 			}
 			else if (4 == u8PollingFuncRequest)
 			{
 				Change_Njj29c0_WorkStatus(lf_polling_unlock);
 				u16DiagCycleTime = LF_DIAG_CYCYE;
-				u8PollingFuncRequestBak = 1; // 锟斤�?锟斤�?
+				u8PollingFuncRequestBak = 1; // 锟斤�?锟斤�?
+				u8PollingFuncRequest = 0;
 			}
 			else if (1 == u8_Auth_KeyTestReq)
 			{
 				Change_Njj29c0_WorkStatus(immo_diag_uid);
 				u16DiagCycleTime = LF_DIAG_CYCYE;
 			}
-			else if ((1 == u8FobKeyEnterWorkState)||(1 == u8LearnFobkey))
+			else if (1 == u8FobKeyEnterWorkState)
 			{
 				u8FobKeyEnterWorkState = 0;
 				u8LearnFobkey = 0;
@@ -1956,19 +2302,19 @@ void NJJ29C0_Task(void)
 				if (u16DiagCycleTime == 0)
 				{
 					u16DiagCycleTime = LF_DIAG_CYCYE;
-					Change_Njj29c0_WorkStatus(lf_diag);
+					// Change_Njj29c0_WorkStatus(lf_diag);
 				}
 			}
+			u8PollingFuncRequest_Qn = 0;
 
 			u8PE_Auth_KeyPosReq = 0;
 			u8PS_Auth_KeyPosReq = 0;
-			u8PollingFuncRequest = 0;
-			u8Lf_Polling_Work_State = 0;
-			u8_Auth_KeyTestReq = 0; 
-			
+			// u8PollingFuncRequest = 0;
+			// u8Lf_Polling_Work_State = 0;
+			u8_Auth_KeyTestReq = 0;
+
 			Vehicle_Calibration_Work = 0;
 			u8ImmoLearnWorkCnt = 0;
-			bStartImmoAuthFlag = false;
 			u32Rf_CurRssi_Index = 0;
 			u32Lf_CurRssi_Index = 0;
 			u8FobKeyIndex = 0;
@@ -1996,6 +2342,10 @@ void NJJ29C0_Task(void)
 			NJJ29C0_Prohibit_Process();
 			break;
 
+		case lf_prohibit_WelcomeGuest_key:
+			NJJ29C0_Prohibit_WelcomeGuest_Process();
+			break;
+
 		case lf_polling_lock:
 			NJJ29C0_PollingLock_Process();
 			break;
@@ -2007,7 +2357,7 @@ void NJJ29C0_Task(void)
 		case lf_diag:
 			Lf_Ant_ShortOpenCircuit_Diag();
 			break;
-		
+
 		case immo_diag_uid:
 			NJJ29C0_Immo_Check_Uid();
 			break;
@@ -2037,15 +2387,32 @@ void NJJ29C0_Task(void)
 		break;
 	}
 
+	if (lfapp_work_sta_last != lfapp_work_sta)
+	{
+		Vehicle_Calibration_AutoWork = 0xC9;
+	}
+
+	lfapp_work_sta_last = lfapp_work_sta;
+
 	App_Monitor_Lf_Work_Status();
 
-	if (Vehicle_Calibration_AutoWork == 0xc9)
+	if (Vehicle_Calibration_AutoWork == 0xC9)
 	{
 		u16WaitMaxTimingCnt++;
-		if (u16WaitMaxTimingCnt >= 250)
+		if (u16WaitMaxTimingCnt >= 50)
 		{
-            u16WaitMaxTimingCnt = 0;
-			Vehicle_Calibration_Work = 1;
+
+			// u16WaitMaxTimingCnt = 0;
+			// Vehicle_Calibration_Work = 1;
+			//  zch debug
+			Vehicle_Calibration_AutoWork = 0;
+			memset(g_datCan1Tx_0x330, 0, 8);
+			g_datCan1Tx_0x330[0] = 0x80;
+			g_datCan1Tx_0x330[1] = 0x00;
+			g_datCan1Tx_0x330[2] = 0x02;
+			g_datCan1Tx_0x330[3] = lfapp_work_sta;
+
+			BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 		}
 	}
 	else
@@ -2057,7 +2424,8 @@ void NJJ29C0_Task(void)
 void Nck2910_Task(void)
 {
 	static uint8_t u8Dostep = 0;
-	
+	static uint8_t u8Fobkey_Cur_RkeCmd_Last = 0;
+
 	switch (tnNck2910WorkStatus)
 	{
 	case NCK2910_INIT:
@@ -2077,11 +2445,26 @@ void Nck2910_Task(void)
 	}
 
 	UhfRxHandler();
+
+	if (u8Fobkey_Cur_RkeCmd_Last != u8Fobkey_Cur_RkeCmd)
+	{
+		// zch debug
+		memset(g_datCan1Tx_0x330, 0, 8);
+		g_datCan1Tx_0x330[0] = 0x80;
+		g_datCan1Tx_0x330[1] = 0x00;
+		g_datCan1Tx_0x330[2] = 0x04;
+		g_datCan1Tx_0x330[3] = u8Fobkey_Cur_RkeCmd;
+
+		BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+	}
+
+	u8Fobkey_Cur_RkeCmd_Last = u8Fobkey_Cur_RkeCmd;
+
 #ifdef CALIBRATION_DEBUG
-	if(u8HitagAuthPass == 11)
+	if (u8HitagAuthPass == 11)
 	{
 		u8Dostep++;
-		if(u8Dostep == 1)
+		if (u8Dostep == 1)
 		{
 			g_datCan1Tx_0x330[0] = 1;
 			g_datCan1Tx_0x330[1] = u32InCarAntRssi.CHAR_BYTE.Low_byte;
@@ -2090,7 +2473,7 @@ void Nck2910_Task(void)
 			g_datCan1Tx_0x330[4] = u32InCarAntRssi.CHAR_BYTE.High_byte;
 			BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
 		}
-		else if(u8Dostep == 2)
+		else if (u8Dostep == 2)
 		{
 			g_datCan1Tx_0x330[0] = 2;
 			g_datCan1Tx_0x330[1] = u32LfAntRssi.CHAR_BYTE.Low_byte;
@@ -2118,12 +2501,20 @@ void Nck2910_Task(void)
 #endif
 }
 
-// RKE_PKE模锟斤拷锟绞硷拷�?
+// RKE_PKE模锟斤拷锟绞硷拷�?
 void PEPS_Module_Init(void)
 {
 	_NCK2910_Hal_Init();
 
 	InitFobKeyEepromMessage();
+}
+
+void PEPS_Module_EnterSleep(void)
+{
+	if (0 == u8Lf_Polling_Work_State)
+	{
+		JOKER_StartSleepForced();
+	}
 }
 
 void Spi2_Test(void)

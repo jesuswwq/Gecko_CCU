@@ -13,7 +13,7 @@
 **                                                                            **
 **  FILENAME    : NvM_Cfg.c                                                   **
 **                                                                            **
-**  Created on  : 2024/12/20 11:41:24                                 **
+**  Created on  : 2025/02/10 13:54:33                                 **
 **  Author      : <>                                                          **
 **  Vendor      :                                                             **
 **  DESCRIPTION : Post-build configuration parameter of NvM                   **
@@ -46,7 +46,7 @@ CONST(NvM_MultiBlockCallbackType, NVM_CONST) NvmMultiBlockCallback = NULL_PTR;
 /* PRQA S 1504++ */ /* MISRA Rule 8.7 */
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer1[2];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer2[17];
-VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer3[30];
+VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer3[33];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer4[16];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer5[16];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer6[9];
@@ -107,13 +107,13 @@ VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer60[52];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer61[52];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer62[52];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer63[52];
-VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer64[704];
+VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer64[900];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer65[64];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer66[256];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer67[128];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer68[10];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer69[256];
-VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[10];
+VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[16];
 VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer71[128];
 /* PRQA S 1504-- */ /* MISRA Rule 8.7 */
 #define NVM_STOP_SEC_VAR_CLEARED_8
@@ -234,7 +234,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
          */    
         NVM_CRC16,    /*NvmBlockCRCType*/
         12,    /*NvmNvBlockBaseNumber*/
-        30,    /*NvmNvBlockLength*/
+        33,    /*NvmNvBlockLength*/
         1,    /*NvmNvBlockNum*/
         0,    /*NvmRomBlockNum*/
         3,    /*NvMMaxNumOfReadRetries*/
@@ -329,7 +329,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         NULL_PTR,    /*NvM_ReadRamBlockFromNvmCallbackType*/
         NULL_PTR,       /*NvM_WriteRamBlockToNvmCallbackType*/
     },
-    /*NvMBlock5_DID_F086*/
+    /*NvMBlock5_DID_F16E*/
     {
         0,    /*NvMNvramDeviceId*/
         NVM_BLOCK_NATIVE,    /*NvmBlockManagementType*/
@@ -2674,7 +2674,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
          */    
         NVM_CRC16,    /*NvmBlockCRCType*/
         272,    /*NvmNvBlockBaseNumber*/
-        704,    /*NvmNvBlockLength*/
+        900,    /*NvmNvBlockLength*/
         1,    /*NvmNvBlockNum*/
         0,    /*NvmRomBlockNum*/
         3,    /*NvMMaxNumOfReadRetries*/
@@ -2793,7 +2793,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
          * Bit 12:NvMBswMBlockStatusInformation
          */    
         NVM_CRC16,    /*NvmBlockCRCType*/
-        288,    /*NvmNvBlockBaseNumber*/
+        287,    /*NvmNvBlockBaseNumber*/
         128,    /*NvmNvBlockLength*/
         1,    /*NvmNvBlockNum*/
         0,    /*NvmRomBlockNum*/
@@ -2833,7 +2833,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
          * Bit 12:NvMBswMBlockStatusInformation
          */    
         NVM_CRC16,    /*NvmBlockCRCType*/
-        292,    /*NvmNvBlockBaseNumber*/
+        291,    /*NvmNvBlockBaseNumber*/
         10,    /*NvmNvBlockLength*/
         1,    /*NvmNvBlockNum*/
         0,    /*NvmRomBlockNum*/
@@ -2873,7 +2873,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
          * Bit 12:NvMBswMBlockStatusInformation
          */    
         NVM_CRC16,    /*NvmBlockCRCType*/
-        296,    /*NvmNvBlockBaseNumber*/
+        295,    /*NvmNvBlockBaseNumber*/
         256,    /*NvmNvBlockLength*/
         1,    /*NvmNvBlockNum*/
         0,    /*NvmRomBlockNum*/
@@ -2896,7 +2896,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
         #if ((NVM_API_CONFIG_CLASS_1!=NVM_API_CONFIG_CLASS)&&(STD_ON==NVM_JOB_PRIORITIZATION))
         1,      /*NvmBlockJobPriority*/
         #endif
-        0x0,
+        0x204,
         /*
          * Bit 0:NvmWriteBlockOnce
          * Bit 1:NvmBlockWriteProt 
@@ -2913,8 +2913,8 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
          * Bit 12:NvMBswMBlockStatusInformation
          */    
         NVM_CRC16,    /*NvmBlockCRCType*/
-        304,    /*NvmNvBlockBaseNumber*/
-        10,    /*NvmNvBlockLength*/
+        299,    /*NvmNvBlockBaseNumber*/
+        16,    /*NvmNvBlockLength*/
         1,    /*NvmNvBlockNum*/
         0,    /*NvmRomBlockNum*/
         3,    /*NvMMaxNumOfReadRetries*/
@@ -2953,7 +2953,7 @@ CONST(NvM_BlockDescriptorType, NVM_CONST) NvM_BlockDescriptor[NVM_BLOCK_NUM_ALL]
          * Bit 12:NvMBswMBlockStatusInformation
          */    
         NVM_CRC16,    /*NvmBlockCRCType*/
-        300,    /*NvmNvBlockBaseNumber*/
+        303,    /*NvmNvBlockBaseNumber*/
         128,    /*NvmNvBlockLength*/
         1,    /*NvmNvBlockNum*/
         0,    /*NvmRomBlockNum*/

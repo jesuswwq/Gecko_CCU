@@ -422,7 +422,7 @@ Dem_TriggerOnEventStatus(Dem_EventIdType IntId, Dem_UdsStatusByteType OldStatus,
 #include "Dem_MemMap.h"
 static FUNC(void, DEM_CODE) Dem_ClearAllDTC(uint8 memDest)
 {
-    uint8 iloop = 0;
+    uint16 iloop = 0;
     uint16 dtcRef;
     P2VAR(Dem_EventRelateInformationType, AUTOMATIC, DEM_VAR) pEvent; /* PRQA S 3432 */        /* MISRA Rule 20.7 */
     P2VAR(Dem_ClearDTCInfoType, AUTOMATIC, DEM_VAR) pClr = &DemClearDTCInfo; /* PRQA S 3432 */ /* MISRA Rule 20.7 */
@@ -517,7 +517,7 @@ static FUNC(void, DEM_CODE) Dem_ClearAllDTC(uint8 memDest)
 #include "Dem_MemMap.h"
 static FUNC(void, DEM_CODE) Dem_ClearGroupDTC(uint8 memDest, uint8 GroupIndex)
 {
-    uint8 iloop = 0;
+    uint16 iloop = 0;
     uint16 Ref;
     P2VAR(Dem_EventRelateInformationType, AUTOMATIC, DEM_VAR) pEvent; /* PRQA S 3432 */ /* MISRA Rule 20.7 */
 

@@ -1023,11 +1023,9 @@ FUNC(void, DEM_CODE) Dem_OperationCycleStart(uint8 OpId, boolean IsRestart) /* P
     P2VAR(Dem_EventRelateInformationType, AUTOMATIC, DEM_VAR) pEvent = DemEventRelateInformation;
     /* PRQA S 3432-- */ /* MISRA Rule 20.7 */
     uint16 iloop = 0;
-
     while (iloop < DEM_EVENT_PARAMETER_NUM)
     {
         Dem_EventHealingProcess(pEvent, OpId); /*SWS_Dem_00506*/
-
         if (IsRestart == TRUE)
         {
             Dem_ClearUdsStatusOfPDTC(pEvent);
@@ -2500,7 +2498,7 @@ static FUNC(void, DEM_CODE) Dem_EventStatusProcessByDTC(
     uint16 iloop,
     P2VAR(Dem_EventRelateInformationType, AUTOMATIC, DEM_VAR) pEvent) /* PRQA S 3432 */ /* MISRA Rule 20.7 */
 {
-    uint8 index = 0;
+    uint16 index = 0;
 
     if (DEM_DTC_REF_INVALID != dtcIndex)
     {
