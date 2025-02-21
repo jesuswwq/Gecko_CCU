@@ -580,8 +580,8 @@ Dem_DcmGetNumberOfFilteredDTC(P2VAR(uint16, AUTOMATIC, DEM_APPL_DATA) NumberOfFi
     /* PRQA S 3432++ */                                                                 /* MISRA Rule 20.7 */
     P2VAR(Dem_DTCFilterInfoType, AUTOMATIC, DEM_VAR) pFilter = &DemDTCFilterInfo;
     /* PRQA S 3432-- */                                                                 /* MISRA Rule 20.7 */
-    uint8 iloop = 0u;
-    uint8 entryNum = DEM_DTC_NUM;
+    uint16 iloop = 0u;
+    uint16 entryNum = DEM_DTC_NUM;
     uint16 dtcRef;
     sint8 FDC = 0;
 

@@ -6,7 +6,7 @@
 #include "I2c_Cfg.h"
 
 
-boolean Tca9539_IOValue[CHANNEL_NUM][CHIP_PIN_ID] ={{0,0}};
+uint8 Tca9539_IOValue[CHANNEL_NUM][CHIP_PIN_ID] ={{0,0}};
 
 extern unsigned char NACK;
 I2c_adap_dev_t *I2c_adap_dev_TCA9539[TCA9539_CHIP_NUM];
@@ -448,31 +448,36 @@ void Gpio_TCA9539_ReadValue()
 	uint8 channel_id =0;//only for input chip 
 	uint8  pin_id=0;
     uint8  pin_id_post =0;
-	uint8 regVal_u8[2] = {0};
-    uint8 retrytimes = 2;
-    uint8 retrytimes1 = 2;
+	uint8 regVal_u8[2] = {(uint8)0,(uint8)0};
+    uint8 retrytimes = 3;
+    uint8 retrytimes1 = 3;
 	Std_ReturnType ret = E_NOT_OK;
 	for(channel_id = 0; channel_id < CHANNEL_NUM; channel_id ++)
 	{
         //ret = IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP0,&regVal_u8[0]);
         #if 1 
-        while(IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP0,&regVal_u8[0])!= E_OK)
+        while(IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP0,(uint8*)(&regVal_u8[0]))!= E_OK)
         {
-            retrytimes--;
+            
             if(retrytimes == 0)
             {
                 break;
+            }
+            else{
+                retrytimes--;
             }
         }
         #endif
         //ret|= IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP1,&regVal_u8[1]);
        #if 1
-        while(IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP1,&regVal_u8[1]) != E_OK)
+        while(IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP1,(uint8*)(&regVal_u8[1])) != E_OK)
         {
-            retrytimes1--;
             if(retrytimes1 == 0)
             {
                 break;
+            }
+            else{
+                retrytimes1--;
             }
         }
         #endif

@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-12-19 16:43:51>
+ *  @date       <2025-02-19 14:25:38>
  */
 /*============================================================================*/
 
@@ -31,6 +31,12 @@
  **                        Include Section                                    **
 ******************************************************************************/
 #include "Rte_Type.h"
+
+typedef struct
+{
+    DT_IPM_TBOX_BJS_Time_BAC value;
+    Std_ReturnType status;
+} Rte_DE_DT_IPM_TBOX_BJS_Time_BAC_status;
 
 typedef struct
 {
@@ -124,6 +130,12 @@ typedef struct
 
 typedef struct
 {
+    DT_IPM_FCM_A_CHA value;
+    Std_ReturnType status;
+} Rte_DE_DT_IPM_FCM_A_CHA_status;
+
+typedef struct
+{
     DT_IPM_INV_IMMO_Req_EPT value;
     Std_ReturnType status;
 } Rte_DE_DT_IPM_INV_IMMO_Req_EPT_status;
@@ -157,6 +169,12 @@ typedef struct
     COMP_AC_BOD value;
     Std_ReturnType status;
 } Rte_DE_COMP_AC_BOD_status;
+
+typedef struct
+{
+    FCM_A_CHA value;
+    Std_ReturnType status;
+} Rte_DE_FCM_A_CHA_status;
 
 typedef struct
 {
@@ -283,12 +301,6 @@ typedef struct
     DT_IPM_IPU_OBC_2_Inlet_EPT value;
     Std_ReturnType status;
 } Rte_DE_DT_IPM_IPU_OBC_2_Inlet_EPT_status;
-
-typedef struct
-{
-    DT_IPM_TBOX_BJS_Time_BAC value;
-    Std_ReturnType status;
-} Rte_DE_DT_IPM_TBOX_BJS_Time_BAC_status;
 
 typedef struct
 {

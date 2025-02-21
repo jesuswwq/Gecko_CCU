@@ -23,6 +23,10 @@
 #include "ComStack_Types.h"
 #include "Com_Cfg_Cbk.h"
 #include "DIAG_ABI.h"
+#include "Dem.h"
+
+boolean SysPwrModeChangeFlag = FALSE;
+extern uint8 NvM_InitReadAll_Flag;
 //#include "Wdg_Ip.h"
 
 /* *************************************************************************************** */
@@ -425,7 +429,7 @@ boolean IPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
     #endif
     return TRUE;
 }
-boolean IPDU_COM_VCU_10_Torque_BAC_TxCallout(
+boolean IPDU_COM_TX_VCU_10_Torque_BAC_CANFD8_BAC_CAN1_TxCallout(
     PduIdType PduId,
     PduInfoType* PduInfoPtr
 )
@@ -558,6 +562,21 @@ boolean IPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
+    boolean SysPwrModeFlag = FALSE;
+    uint8 SysPwrModetmp = PduInfoPtr -> SduDataPtr[3];
+    uint8 SysPwrModeMask = 0x6;
+    uint8 SysPwrMode = SysPwrModetmp & SysPwrModeMask;
+    if (SysPwrMode == 0x4 && SysPwrModeChangeFlag == FALSE && NvM_InitReadAll_Flag) /****System Power Mode is ON   Operation cycle ON  *****/
+    {
+        Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, (uint8)DEM_CYCLE_STATE_START);
+        SysPwrModeChangeFlag = TRUE;
+    }
+    else if (SysPwrMode == 0x0 && SysPwrModeChangeFlag == TRUE)/****System Power Mode is OFF   Operation cycle OFF *****/
+    {
+        Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, (uint8)DEM_CYCLE_STATE_END);
+        SysPwrModeChangeFlag = FALSE;
+    }
+
     uint8 ChksumAtByte[] = CCU_VehInfo_BAC_ChksumByte;
     uint8* AliveCntPtr = &CCU_VehInfo_BAC_AliveCnt[0];
     uint8 ChksumLen = sizeof(ChksumAtByte);
@@ -1000,7 +1019,7 @@ boolean ret = TRUE;
 return ret;
 }
 
-boolean IPDU_COM_HU_C_BAC_RxCallout(
+boolean IPDU_COM_RX_HU_C_BAC_CANFD8_BAC_CAN1_RxCallout(
     PduIdType PduId,
     const PduInfoType* PduInfoPtr
 )
@@ -1186,3 +1205,54 @@ boolean ret = TRUE;
 return ret;
 }
 
+boolean IPDU_COM_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5_RxCallout(
+    PduIdType PduId,
+    const PduInfoType* PduInfoPtr
+)
+{
+boolean ret = TRUE;
+return ret;
+}
+
+boolean IPDU_COM_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5_RxCallout(
+    PduIdType PduId,
+    const PduInfoType* PduInfoPtr
+)
+{
+boolean ret = TRUE;
+return ret;
+}
+boolean IPDU_COM_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2_RxCallout(
+    PduIdType PduId,
+    const PduInfoType* PduInfoPtr
+)
+{
+boolean ret = TRUE;
+return ret;
+}
+
+boolean IPDU_COM_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2_RxCallout(
+    PduIdType PduId,
+    const PduInfoType* PduInfoPtr
+)
+{
+boolean ret = TRUE;
+return ret;
+}
+boolean IPDU_COM_RX_BMS_BST_EPT_CANFD6_EPT_CAN2_RxCallout(
+    PduIdType PduId,
+    const PduInfoType* PduInfoPtr
+)
+{
+boolean ret = TRUE;
+return ret;
+}
+
+boolean IPDU_COM_RX_BMS_CST_EPT_CANFD6_EPT_CAN2_RxCallout(
+    PduIdType PduId,
+    const PduInfoType* PduInfoPtr
+)
+{
+boolean ret = TRUE;
+return ret;
+}

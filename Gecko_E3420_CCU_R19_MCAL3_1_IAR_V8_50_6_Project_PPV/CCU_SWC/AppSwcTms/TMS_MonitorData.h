@@ -6,6 +6,9 @@
 
 #include "XcpTest_types.h"
 
+extern MONPRM volatile uint8 ACCAN_TBOX_BJS_Time_Day;
+extern MONPRM volatile uint8 ACCAN_TBOX_BJS_Time_Hour;
+extern MONPRM volatile uint8 ACCAN_TBOX_BJS_Time_Min;
 extern MONPRM volatile float32 ACCCtl_sACCabinPreSetByEnv;
 extern MONPRM volatile float32 ACCCtl_sACCabinPreSetByEnvECO;
 extern MONPRM volatile float32 ACCCtl_sBlowerFanSpd;
@@ -97,6 +100,7 @@ extern MONPRM volatile float32 ACCtl_tRightDuct;
 extern MONPRM volatile float32 ACCtl_tRightSetPointModeCor;
 extern MONPRM volatile float32 ACCtl_tSetPointEvap;
 extern MONPRM volatile float32 ACCtl_tSetPointPTC;
+extern MONPRM volatile boolean ACDIA_bFltVal;
 extern MONPRM volatile uint8 ACDIA_eFltNum;
 extern MONPRM volatile uint8 ACDIA_eFltSortVal;
 extern MONPRM volatile float32 ACDVTPreSetSolarCor;

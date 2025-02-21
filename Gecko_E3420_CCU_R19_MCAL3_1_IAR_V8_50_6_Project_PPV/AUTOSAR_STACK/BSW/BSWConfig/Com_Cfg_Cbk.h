@@ -87,7 +87,7 @@ boolean IPDU_COM_TX_VCU_4_ChrgCmd_EPT_CANFD6_EPT_CAN2_TxCallout(PduIdType PduId,
 
 boolean IPDU_COM_TX_CCU_VehInfo_EPT_CANFD6_EPT_CAN2_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
-boolean IPDU_COM_VCU_10_Torque_BAC_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
+boolean IPDU_COM_TX_VCU_10_Torque_BAC_CANFD8_BAC_CAN1_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_TX_VCU_DispInfo_BAC_CANFD8_BAC_CAN1_TxCallout(PduIdType PduId, PduInfoType* PduInfoPtr);
 
@@ -217,7 +217,9 @@ boolean IPDU_COM_RX_BMS_8_TempVoltLimit_EPT_CANFD6_EPT_CAN2_RxCallout(PduIdType 
 
 boolean IPDU_COM_RX_HU_A_BAC_CANFD8_BAC_CAN1_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
-boolean IPDU_COM_HU_C_BAC_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+boolean IPDU_COM_RX_HU_C_BAC_CANFD8_BAC_CAN1_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
 boolean IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
@@ -225,7 +227,17 @@ boolean IPDU_COM_RX_ESC_A_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const P
 
 boolean IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 
-boolean IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+boolean IPDU_COM_RX_CRRR_OBJ12_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_RX_CRRL_OBJ12_CHA_CANFD3_CHA_CAN5_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_RX_BMS_BEM_EPT_CANFD6_EPT_CAN2_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_RX_BMS_CEM_EPT_CANFD6_EPT_CAN2_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_RX_BMS_BST_EPT_CANFD6_EPT_CAN2_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
+
+boolean IPDU_COM_RX_BMS_CST_EPT_CANFD6_EPT_CAN2_RxCallout(PduIdType PduId, const PduInfoType* PduInfoPtr);
 /* *************************************************************************************** */
 //#define HU_A_BAC_ChksumByte    {0,8,16,24,32,40,48}
 #define HU_B_BAC_ChksumByte    {0,8,16}

@@ -37,6 +37,7 @@
 #include "CanTp_Internal.h"
 #include "CanTp_Cbk.h"
 
+extern boolean Diag_Init2s_Flag;
 /*=======[V E R S I O N  C H E C K]===========================================*/
 /*check version information with CanTp*/
 #if (                                                                                                           \
@@ -848,6 +849,8 @@ CanTp_GetVersionInfo(P2VAR(Std_VersionInfoType, AUTOMATIC, CANTP_APPL_DATA) vers
 FUNC(void, CANTP_APPL_CODE)
 CanTp_RxIndication(PduIdType RxPduId, P2CONST(PduInfoType, AUTOMATIC, CANTP_APPL_CONST) PduInfoPtr)
 {
+    uint16 BatteryVoltage; 
+    BatteryVoltage = GetHw_LowBatValtage();
 #if (STD_ON == CANTP_DEV_ERROR_DETECT)
     /*check module state, handle the reception indication only when module started*/
     if (CANTP_ON != CanTp_ModuleState)
@@ -863,8 +866,16 @@ CanTp_RxIndication(PduIdType RxPduId, P2CONST(PduInfoType, AUTOMATIC, CANTP_APPL
     else
 #endif /* STD_ON == CANTP_DEV_ERROR_DETECT */
     {
+        if((BatteryVoltage >= 9000) && (BatteryVoltage <= 16000) && (Diag_Init2s_Flag == TRUE))
+        {
+            CanTp_RxSubDeal(RxPduId, PduInfoPtr);
+        }
         /*fill the received NPDU into channel*/
-        CanTp_RxSubDeal(RxPduId, PduInfoPtr);
+        else
+        {
+            
+        }
+        
     }
 }
 #define CANTP_STOP_SEC_CANTPRXINDICATION_CALLBACK_CODE

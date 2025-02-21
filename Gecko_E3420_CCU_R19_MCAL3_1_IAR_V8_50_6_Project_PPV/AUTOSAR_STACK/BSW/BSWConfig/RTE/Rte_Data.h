@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-12-31 16:13:29>
+ *  @date       <2025-02-19 14:27:08>
  */
 /*============================================================================*/
 
@@ -391,6 +391,8 @@ extern DT_IPM_ESC_A_CHA Irv_AppSwcVcu_Runbl_VCU_10ms_IPM_ESC_A_CHA;
 
 extern DT_IPM_ESC_A_CHA Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_ESC_A_CHA;
 
+extern DT_IPM_FCM_A_CHA Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA;
+
 extern DT_IPM_FCM_B_CHA Rte_Buf_Runbl_OpmCanTx_10ms_IPM_FCM_B_CHA_IPM_FCM_B_CHA;
 
 extern DT_IPM_FCM_B_CHA Rte_Buf_Runbl_VcuRx_10ms_IPM_FCM_B_CHA_IPM_FCM_B_CHA;
@@ -412,8 +414,6 @@ extern DT_IPM_HU_B_BAC Rte_Buf_Runbl_VcuRx_10ms_IPM_HU_B_BAC_IPM_HU_B_BAC;
 extern DT_IPM_HU_B_BAC Irv_AppSwcBcm_IPM_HU_B_BAC;
 
 extern DT_IPM_HU_B_BAC Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_IPM_HU_B_BAC;
-
-extern DT_IPM_HU_B_BAC Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_IPM_HU_B_BAC;
 
 extern DT_IPM_HU_B_BAC Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_IPM_HU_B_BAC;
 
@@ -543,6 +543,10 @@ extern DT_IPM_SRS_1_Status_CHA Irv_AppSwcVcu_Runbl_VCU_20ms_IPM_SRS_1_Status_CHA
 
 extern DT_IPM_SRS_1_Status_CHA Irv_AppSwcVcu_Runbl_VcuRx_10ms_IPM_SRS_1_Status_CHA;
 
+extern DT_IPM_TBOX_BJS_Time_BAC Rte_Buf_Runbl_AppSwcBcm_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC;
+
+extern DT_IPM_TBOX_BJS_Time_BAC Rte_Buf_Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC;
+
 extern DT_IPM_TBOX_BJS_Time_BAC Rte_Buf_Runbl_VCU_20ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC;
 
 extern DT_MsgActv Rte_Buf_Runbl_VcuRx_10ms_MsgActv_outputs_MsgActv_outputs;
@@ -641,6 +645,10 @@ extern EEReadCtl Irv_AppSwcBcm_EEReadCtl_Bus;
 
 extern EEReadCtl Irv_AppSwcBcm_AppSwcBcm_Init_EEReadCtl_Bus;
 
+extern EEReadCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_EEReadCtl_Bus;
+
+extern EEReadCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_EEReadCtl_Bus;
+
 extern EEReadCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_EEReadCtl_Bus;
 
 extern EEReadCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_50ms_EEReadCtl_Bus;
@@ -674,6 +682,8 @@ extern ESCL_ESCLStatus_BOD Rte_Buf_Runbl_IpmCanRx_50ms_ESCL_ESCLStatus_BOD_ESCL_
 extern ESC_7_FuncStatus_CHA Rte_Buf_Runbl_IpmCanRx_10ms_ESC_7_FuncStatus_CHA_ESC_7_FuncStatus_CHA;
 
 extern ESC_A_CHA Rte_Buf_Runbl_IpmCanRx_10ms_ESC_A_CHA_ESC_A_CHA;
+
+extern FCM_A_CHA Rte_Buf_Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA;
 
 extern FCM_B_CHA Rte_Buf_Runbl_IpmCanRx_20ms_FCM_B_CHA_FCM_B_CHA;
 
@@ -793,6 +803,8 @@ extern NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VCU_20ms_NVM_Imdt_outputs;
 
 extern NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VcuRx_10ms_NVM_Imdt_outputs;
 
+extern NVM_Imdt_outputs Irv_AppSwcVcu_Runbl_VcuTx_10ms_NVM_Imdt_outputs;
+
 extern NVM_outputs Irv_AppSwcVcu_NVM_outputs;
 
 extern NVM_outputs Irv_AppSwcVcu_AppSwcVcu_Init_NVM_outputs;
@@ -851,6 +863,8 @@ extern SeatCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_SeatCtl_Bus;
 
 extern SeatCtl Irv_AppSwcBcm_Runbl_AppSwcBcm_20ms_SeatCtl_Bus;
 
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC_ibuffer_status;
+
 extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA_ibuffer_status;
@@ -875,6 +889,8 @@ extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_EHB_B_CHA_IPM_EHB_B_CHA_i
 
 extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_ESCL_ESCLStatus_BOD_IPM_ESCL_ESCLStatus_BOD_ibuffer_status;
 
+extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_FCM_A_CHA_IPM_FCM_A_CHA_ibuffer_status;
+
 extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_Bcm_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA_ibuffer_status;
@@ -886,6 +902,8 @@ extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_5_BatTemp_EPT_BMS_5_BatTe
 extern Std_ReturnType Rte_swComponentPrototype_Ipm_BMS_9_BattInfo_EPT_BMS_9_BattInfo_EPT_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_Ipm_COMP_AC_BOD_COMP_AC_BOD_ibuffer_status;
+
+extern Std_ReturnType Rte_swComponentPrototype_Ipm_FCM_A_CHA_FCM_A_CHA_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_Ipm_HU_B_BAC_HU_B_BAC_ibuffer_status;
 
@@ -1173,6 +1191,8 @@ extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_INV_2_Value_EPT_IPM_INV_2
 
 extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT_ibuffer_status;
 
+extern Std_ReturnType Rte_swComponentPrototype_Tms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC_ibuffer_status;
+
 extern Std_ReturnType Rte_swComponentPrototype_Tms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta_ibuffer_status;
 
 extern Std_ReturnType Rte_swComponentPrototype_Tms_MotPMP_PumpInputVolt_MotPMP_PumpInputVolt_ibuffer_status;
@@ -1325,7 +1345,23 @@ extern TMS2VCU_TMS_LINTestData2_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_TMS
 
 extern TMS2VCU_TMS_LINTestData3_Outputs Rte_Buf_Runbl_OpmCanTx_100ms_TMS2VCU_TMS_LINTestData3_Outputs_TMS2VCU_TMS_LINTestData3_Outputs;
 
-extern Tms2Vcu_Info Rte_Buf_Runbl_VcuTx_10ms_Tms2Vcu_Info_Tms2Vcu_Info;
+extern TboxTim Irv_AppSwcBcm_TboxTim_Bus;
+
+extern TboxTim Irv_AppSwcBcm_AppSwcBcm_Init_TboxTim_Bus;
+
+extern TboxTim Irv_AppSwcBcm_Runbl_AppSwcBcm_100ms_TboxTim_Bus;
+
+extern TboxTim Irv_AppSwcBcm_Runbl_AppSwcBcm_10ms_TboxTim_Bus;
+
+extern Tms2Vcu_Info Rte_Buf_Runbl_VcuRx_10ms_Tms2Vcu_Info_Tms2Vcu_Info;
+
+extern Tms2Vcu_Info Irv_AppSwcVcu_Tms2Vcu_Info;
+
+extern Tms2Vcu_Info Irv_AppSwcVcu_Runbl_VCU_20ms_Tms2Vcu_Info;
+
+extern Tms2Vcu_Info Irv_AppSwcVcu_Runbl_VcuRx_10ms_Tms2Vcu_Info;
+
+extern Tms2Vcu_Info Irv_AppSwcVcu_Runbl_VcuTx_10ms_Tms2Vcu_Info;
 
 extern UInt16 Rte_Buf_Task_100ms_BAT_EXV_CurrentPosition_B_BAT_EXV_CurrentPosition_B;
 
@@ -1542,6 +1578,8 @@ void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_BMS_5_BatTemp_EPT_IPM_BMS_
 void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_BMS_9_BattInfo_EPT_IPM_BMS_9_BattInfo_EPT(DT_IPM_BMS_9_BattInfo_EPT value);
 
 void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD(DT_IPM_COMP_AC_BOD value);
+
+void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA(DT_IPM_FCM_A_CHA value);
 
 void Rte_WriteBuffer_Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC(DT_IPM_HU_B_BAC value);
 

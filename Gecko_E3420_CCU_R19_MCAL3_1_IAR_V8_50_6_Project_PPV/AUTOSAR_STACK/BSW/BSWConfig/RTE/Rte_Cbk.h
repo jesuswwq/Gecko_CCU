@@ -42,7 +42,19 @@
  **                        Global Function Definitions                        **
 ******************************************************************************/
 
+void Rte_COMCbkRxTOut_AIL_FromInterlock_Payload5_Frm_InterlockToVehicle_LIN3(void);
+
+void Rte_COMCbkRxTOut_AcPMP_RealRPM_AcPMP_Sts_LIN2(void);
+
+void Rte_COMCbkRxTOut_BAT_EXV_CurrentPosition_B_BAT_EXV_Rsp_LIN2(void);
+
 void Rte_COMCbkRxTOut_BMS_2_BatState_EPT_IPDU_COM_BMS_2_BatState_EPT(void);
+
+void Rte_COMCbkRxTOut_BatPMP_RealRPM_BatPMP_Sts_LIN2(void);
+
+void Rte_COMCbkRxTOut_C3WV_VoltSts_C3WV_Sts_LIN2(void);
+
+void Rte_COMCbkRxTOut_C5WVVoltSts_C5WV_Sts_LIN2(void);
 
 void Rte_COMCbkRxTOut_CCP_PanelStatus_BOD_IPDU_COM_CCP_PanelStatus_BOD(void);
 
@@ -58,11 +70,19 @@ void Rte_COMCbkRxTOut_EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA(void);
 
 void Rte_COMCbkRxTOut_ESC_7_FuncStatus_CHA_IPDU_COM_RX_ESC_7_FuncStatus_CHA_CANFD3_CHA_CAN5(void);
 
+void Rte_COMCbkRxTOut_EXV_CurrentPosition_AC_EXV_Rsp_LIN2(void);
+
+void Rte_COMCbkRxTOut_FCLL_DrlLightSt_FCLL_Status_LIN3(void);
+
+void Rte_COMCbkRxTOut_FCLR_DrlLightSt_FCLR_Status_LIN3(void);
+
 void Rte_COMCbkRxTOut_FCM_23_Obj0109_CHA_IPDU_COM_FCM_23_Obj0109_CHA(void);
 
 void Rte_COMCbkRxTOut_FCM_25_Line123_CHA_IPDU_COM_RX_FCM_25_Line123_CHA_CANFD3_CHA_CAN5(void);
 
 void Rte_COMCbkRxTOut_FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5(void);
+
+void Rte_COMCbkRxTOut_HP_EXV_CurrentPosition_B_HP_EXV_Rsp_LIN2(void);
 
 void Rte_COMCbkRxTOut_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1(void);
 
@@ -78,6 +98,8 @@ void Rte_COMCbkRxTOut_IPU_DCC_1_State_EPT_IPDU_COM_IPU_DCC_1_State_EPT(void);
 
 void Rte_COMCbkRxTOut_IPU_OBC_1_State_EPT_IPDU_COM_IPU_OBC_1_State_EPT(void);
 
+void Rte_COMCbkRxTOut_MotPMP_RealRPM_MotPMP_Sts_LIN2(void);
+
 void Rte_COMCbkRxTOut_PP_InformAndStatus_CHA_IPDU_COM_RX_PP_InformAndStatus_CHA_CANFD3_CHA_CAN5(void);
 
 void Rte_COMCbkRxTOut_SCS_LeSwitchSts_BOD_IPDU_COM_SCS_LeSwitchSts_BOD(void);
@@ -90,9 +112,15 @@ void Rte_COMCbkRxTOut_SRS_2_YRSOriginalSts_CHA_IPDU_COM_SRS_2_YRSOriginalSts_CHA
 
 void Rte_COMCbkRxTOut_TBOX_BJS_Time_BAC_IPDU_COM_TBOX_BJS_Time_BAC(void);
 
+void Rte_COMCbkTAck_CCU_VehInfo_BAC_IPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1(void);
+
+void Rte_COMCbkTAck_CCU_VehInfo_EPT_IPDU_COM_TX_CCU_VehInfo_EPT_CANFD6_EPT_CAN2(void);
+
 void Rte_COMCbkTxTOut_VCU_1_InvCmd_EPT_IPDU_COM_VCU_1_InvCmd_EPT(void);
 
 void Rte_COMCbk_ACCM_Version_BOD_IPDU_COM_ACCM_Version_BOD(void);
+
+void Rte_COMCbk_AIL_FromInterlock_Payload5_Frm_InterlockToVehicle_LIN3(void);
 
 void Rte_COMCbk_AcPMP_HWVersion_AcPMP_Version_LIN1(void);
 
@@ -334,7 +362,11 @@ void Rte_COMCbk_EXV_VoltageState_AC_EXV_Rsp_LIN2(void);
 
 void Rte_COMCbk_ErrRespC5WV_C5WV_Sts_LIN2(void);
 
+void Rte_COMCbk_FCLL_DrlLightSt_FCLL_Status_LIN3(void);
+
 void Rte_COMCbk_FCLL_TiWngSt_FCLL_Status_LIN3(void);
+
+void Rte_COMCbk_FCLR_DrlLightSt_FCLR_Status_LIN3(void);
 
 void Rte_COMCbk_FCLR_TiWngSt_FCLR_Status_LIN3(void);
 

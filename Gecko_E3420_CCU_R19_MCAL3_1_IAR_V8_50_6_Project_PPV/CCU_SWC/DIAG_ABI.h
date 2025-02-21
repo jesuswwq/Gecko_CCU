@@ -3,8 +3,11 @@
 
 #include "Platform_Types.h"
 #include "Dem_Cfg.h"
+#include "CanNm.h"
 //#include "NvM_Cfg.h"
+extern uint8 UDS0x14ClrDTCReq;
 extern uint8 CCU_DiagTesterOnlineFlag;
+extern uint8 u8AntDigRequest;  
 /* 动态数据DID */
 #define DID_0xF201    2U
 #define DID_0xF202    3U
@@ -110,6 +113,7 @@ extern boolean F1B1_31SE_Routine_Flag;
 /*IO_DID*/
 extern uint8 Buffer_DcmDspData_3231[2];
 extern uint8 Buffer_DcmDspData_3232[1];
+extern uint8 Buffer_DcmDspData_3233[2];
 /* 20241025新增DTC设置 */
 extern void App_Call_Event_DTC_0x10A796_SetEventStatus(uint8 FaultStatus);  //ESC 1级故障
 extern void App_Call_Event_DTC_0x10A896_SetEventStatus(uint8 FaultStatus);  //ESC 2级故障
@@ -284,6 +288,7 @@ extern uint8 GetVehCfg_CreepControl(void);    //蠕行控制
 extern uint8 GetVehCfg_KeylessEntry(void);    //无钥匙进入配置
 extern uint8 GetVehCfg_FrontFogLamp(void);    //前雾灯配置
 extern uint8 GetVehCfg_IlluminatedEntrySys(void);    //迎宾功能配置
+extern uint8 GetVehCfg_HMACfg(void);    //Intelligent High Beam Control
 
 
 /* 动态数据DID */
@@ -306,4 +311,14 @@ extern Std_ReturnType Com_TxChksumAliveCnt_Calc(uint16 MsgID, uint8 *MsgDataPtr,
 
 /*1126,routine check*/
 extern void App_Call_Routine_F1B1_Check(uint8 *data);
+
+/* 网络唤醒 */
+extern uint8 Get_NetWorkWakeup(void);
+
+/* 获取14服务操作 */
+extern uint8 Get_SrvClrDTCReq(void);
+
+/* 复位14服务操作 */
+extern void Set_RstSrvClrDTCReq(void);
+
 #endif

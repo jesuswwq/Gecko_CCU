@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-10-10 14:07:58>
+ *  @date       <2025-01-09 15:36:13>
  */
 /*============================================================================*/
 
@@ -129,6 +129,7 @@ typedef struct
     P2VAR(Rte_DE_DT_IPM_HVCH_Status2_BOD_status, AUTOMATIC, RTE_DATA)  Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD;
     P2VAR(Rte_DE_DT_IPM_INV_2_Value_EPT_status, AUTOMATIC, RTE_DATA)  Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT;
     P2VAR(Rte_DE_DT_IPM_IPU_OBC_2_Inlet_EPT_status, AUTOMATIC, RTE_DATA)  Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT;
+    P2VAR(Rte_DE_DT_IPM_TBOX_BJS_Time_BAC_status, AUTOMATIC, RTE_DATA)  Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC;
     P2VAR(Rte_DE_Boolean_status, AUTOMATIC, RTE_DATA)  Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta;
     P2VAR(Rte_DE_UInt8_status, AUTOMATIC, RTE_DATA)  Task_100ms_MotPMP_PumpInputVolt_MotPMP_PumpInputVolt;
     P2VAR(Rte_DE_UInt8_status, AUTOMATIC, RTE_DATA)  Task_100ms_MotPMP_PumpMotorSta_MotPMP_PumpMotorSta;
@@ -358,6 +359,8 @@ typedef CONSTP2CONST(Rte_CDS_ME11, AUTOMATIC, RTE_CONST) Rte_Instance;
 #define Rte_IRead_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT() (&Rte_Inst_ME11.Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT->value)
 
 #define Rte_IRead_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT() (&Rte_Inst_ME11.Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT->value)
+
+#define Rte_IRead_Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC() (&Rte_Inst_ME11.Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC->value)
 
 #define Rte_IRead_Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta() (Rte_Inst_ME11.Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta->value)
 
@@ -686,6 +689,8 @@ Std_ReturnType Rte_IStatus_Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD(
 Std_ReturnType Rte_IStatus_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT(void);
 
 Std_ReturnType Rte_IStatus_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT(void);
+
+Std_ReturnType Rte_IStatus_Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC(void);
 
 Std_ReturnType Rte_IStatus_Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta(void);
 

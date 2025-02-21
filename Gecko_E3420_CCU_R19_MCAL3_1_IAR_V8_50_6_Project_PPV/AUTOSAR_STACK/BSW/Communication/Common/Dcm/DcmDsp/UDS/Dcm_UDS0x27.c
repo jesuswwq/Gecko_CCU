@@ -716,9 +716,10 @@ Dcm_UDS0x27(
     }
 #else
     /*if the delay timer is active and a request is transmitted,send NRC 0x37*/
-    if ((E_OK == ret) && (DCM_SECTIMER_ON == Dcm_SecCtrl.Dcm_RunDlyCtrl.Dcm_SecTimerState[SecCfgIndex])
-        && (Dcm_SecCtrl.Dcm_FalseAcessCount[SecCfgIndex]
-            >= Dcm_DspCfg.pDcm_DspSecurity->pDcm_DspSecurityRow[SecCfgIndex].DcmDspSecurityNumAttDelay))
+    if ((E_OK == ret) && (DCM_SECTIMER_ON == Dcm_SecCtrl.Dcm_RunDlyCtrl.Dcm_SecTimerState[SecCfgIndex]))
+        // && (Dcm_SecCtrl.Dcm_FalseAcessCount[SecCfgIndex]
+        //     >= Dcm_DspCfg.pDcm_DspSecurity->pDcm_DspSecurityRow[SecCfgIndex].DcmDspSecurityNumAttDelay))
+        /*Add for GECKO*/
     {
         *ErrorCode = DCM_E_REQUIREDTIMEDELAYNOTEXPIRED;
         ret = E_NOT_OK;

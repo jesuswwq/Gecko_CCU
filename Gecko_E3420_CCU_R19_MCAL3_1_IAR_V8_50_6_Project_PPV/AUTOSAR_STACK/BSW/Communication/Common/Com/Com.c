@@ -74,6 +74,15 @@
 #if (STD_ON == COM_DEV_ERROR_DETECT)
 #include "Det.h"
 #endif
+#include "ME11_ABI.h"
+extern boolean VIPM_HwKL15A_flg;
+extern boolean VIPM_HwKL15B_flg;
+extern boolean VIPM_HwOBCWakeup_flg;
+extern boolean VIPM_HwBMSWakeup_flg;
+extern boolean VIBS_NMReq_flg;
+extern boolean INV_IMMO_Req_EPT_RevFlag;
+extern boolean HV_Pwr_flag;
+uint16 FirstimeoutFlag[COM_RXSIGNAL_NUMBER + COM_RXSIGNALGROUP_NUMBER];
 /*******************************************************************************
 **                      Imported Compiler Switch Check                        **
 *******************************************************************************/
@@ -3613,9 +3622,11 @@ static FUNC(void, COM_CODE) Com_RxSignalGroupTimeOutHandle(PduIdType rxIpduId)
     Com_SignalIdType groupSignalNumber;
     Com_SignalIdType counter;
     Com_SignalIdType groupSignalId;
+    static uint16 First_2Sec_Cnt[COM_RXSIGNAL_NUMBER + COM_RXSIGNALGROUP_NUMBER];
 #if (STD_ON == COM_ENABLE_SIGNAL_GROUP_ARRAY_API)
     uint16 iPduStartBufferId;
     uint16 signalGroupArrayLength;
+    
 #endif /*STD_ON == COM_ENABLE_SIGNAL_GROUP_ARRAY_API*/
 #if (COM_RXSIGNALMASKNEWDIFFERMASKOLD_NUMBER > 0u)
     Com_SignalIdType maskNewDifferMaskOldId;
@@ -3632,7 +3643,139 @@ static FUNC(void, COM_CODE) Com_RxSignalGroupTimeOutHandle(PduIdType rxIpduId)
         timeCntIndex = rxSignalGroupPtr->ComTimeoutCntIndex;
         if (Com_TimeOutCnt[timeCntIndex] > 0u)
         {
-            (Com_TimeOutCnt[timeCntIndex]) -= 1u;
+            if(FirstimeoutFlag[timeCntIndex] == 0)
+            {
+
+                if(First_2Sec_Cnt[timeCntIndex] >= 400)
+                {
+                    FirstimeoutFlag[timeCntIndex] = 1;
+                    Com_TimeOutCnt[timeCntIndex] = rxSignalGroupPtr->ComTimeout;
+                    First_2Sec_Cnt[timeCntIndex] = 0;
+                }
+                else
+                {
+                    First_2Sec_Cnt[timeCntIndex]++;
+                }
+            }
+            else
+            {
+                switch (timeCntIndex)
+                {
+                    case 272:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;
+                    } //Rte_COMCbkRxTOut_EHB_B_CHA_IPDU_COM_RX_EHB_B_CHA_CANFD3_CHA_CAN5
+                    break;
+
+                    case 270:
+                    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE)) && (NvMBlockRamBuffer3[28] & 0x1))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u; //Rte_COMCbkRxTOut_FCM_B_CHA_IPDU_COM_RX_FCM_B_CHA_CANFD3_CHA_CAN5
+                    }
+                    break;
+                    case 269:
+                    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1)) && \
+                    (((NvMBlockRamBuffer3[23] & 0x20) == 0x20) ? 1 : 0 || ((NvMBlockRamBuffer3[23] & 0x30) == 0x30) ? 1 : 0))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u; //Rte_COMCbkRxTOut_HU_B_BAC_IPDU_COM_RX_HU_B_BAC_CANFD8_BAC_CAN1
+                    }
+                    break;
+                    case 259:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_PP_InformAndStatus_CHA_IPDU_COM_RX_PP_InformAndStatus_CHA_CANFD3_CHA_CAN5
+                    }
+                    break;
+                    case 258:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_SRS_1_Status_CHA_IPDU_COM_RX_SRS_1_Status_CHA_CANFD3_CHA_CAN5
+                    }
+                    break;
+                    case 257:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1))
+                    {
+                                (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_SRS_2_Status_CHA_IPDU_COM_RX_SRS_2_Status_CHA_CANFD3_CHA_CAN5
+                    }
+                    break;
+                    case 256:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_SCS_RiSwitchSts_BOD_IPDU_COM_RX_SCS_RiSwitchSts_BOD_CANFD4_BOD_CAN4
+                    }
+                    break;
+                    case 255:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_TBOX_BJS_Time_BAC_IPDU_COM_TBOX_BJS_Time_BAC
+                    }
+                    break;
+                    case 253:
+                    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1)) && \
+                    (((NvMBlockRamBuffer3[23] & 0x10) == 0x10 ? 1 : 0) && ((NvMBlockRamBuffer3[23] & 0x30) == 0x30 ? 0 : 1)))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_ICU_Info_BAC_IPDU_COM_ICU_Info_BAC
+                    }
+                    break;
+                    case 247:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (VIPM_HwOBCWakeup_flg == TRUE) || \
+                    (VIPM_HwBMSWakeup_flg == TRUE) || (Get_NetWorkWakeup() == 1))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_INV_1_Value_EPT_IPDU_COM_INV_1_Value_EPT
+                    }
+                    break;
+                    case 242:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (VIPM_HwOBCWakeup_flg == TRUE) || \
+                    (VIPM_HwBMSWakeup_flg == TRUE) || (Get_NetWorkWakeup() == 1))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_IPU_DCC_1_State_EPT_IPDU_COM_IPU_DCC_1_State_EPT
+                    }
+                    break;
+                    case 230:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (VIPM_HwOBCWakeup_flg == TRUE) || \
+                    (VIPM_HwBMSWakeup_flg == TRUE) || (Get_NetWorkWakeup() == 1))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_BMS_2_BatState_EPT_IPDU_COM_BMS_2_BatState_EPT
+                    }
+                    break;
+                    case 228:
+                    if(HV_Pwr_flag == TRUE)
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_HVCH_Status1_BOD_IPDU_COM_HVCH_Status1_BOD
+                    }
+                    break;
+                    case 226:
+                    if(HV_Pwr_flag == TRUE)
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_COMP_AC_BOD_IPDU_COM_COMP_AC_BOD
+                    }
+                    break;
+                    case 221:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE) || (Get_NetWorkWakeup() == 1))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_CCP_PanelStatus_BOD_IPDU_COM_CCP_PanelStatus_BOD
+                    }
+                    break;
+                    case 219:
+                    if(((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE)) && ((NvMBlockRamBuffer3[30] >> 4) & 0x01) == 1 ? 1 : 0)
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_CRRR_A_CHA_IPDU_COM_CRRR_A_CHA
+                    }
+                    break;
+                    case 217:
+                    if((VIPM_HwKL15A_flg == TRUE) || (VIPM_HwKL15B_flg == TRUE))
+                    {
+                        (Com_TimeOutCnt[timeCntIndex]) -= 1u;//Rte_COMCbkRxTOut_EPS_2_StrWhlAng_CHA_IPDU_COM_EPS_2_StrWhlAng_CHA
+                    }
+                    break;
+                    default:
+                    break;
+
+                }
+            }
+            
+            //(Com_TimeOutCnt[timeCntIndex]) -= 1u;
             if (0u == Com_TimeOutCnt[timeCntIndex])
             {
                 groupSignalNumber = rxSignalGroupPtr->ComGroupSignalNumber;

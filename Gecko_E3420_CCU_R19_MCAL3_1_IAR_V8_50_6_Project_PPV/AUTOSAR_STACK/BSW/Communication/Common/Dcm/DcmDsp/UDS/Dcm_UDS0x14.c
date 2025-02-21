@@ -35,6 +35,7 @@ static VAR(boolean, DCM_VAR_POWER_ON_INIT) Clear_process = FALSE;
 /********************************/
 #define DCM_START_SEC_CODE
 #include "Dcm_MemMap.h"
+uint8 UDS0x14ClrDTCReq = 0;
 static FUNC(Std_ReturnType, DCM_CODE) Dcm_UDS0x14_ConditionCheck(
     Dcm_OpStatusType OpStatus,
     uint8 ProtocolCtrlId,
@@ -191,6 +192,7 @@ Dcm_UDS0x14(
         switch (returnClearDTC)
         {
         case DEM_CLEAR_OK:
+        UDS0x14ClrDTCReq = 1;
             /*clear is successful,assemble and send the positive response*/
             /* check tx data length */
             if ((0x01u) > (Dcm_DslCfg.pDcmChannelCfg[TxChannelCfgIndex].Dcm_DslBufferSize))

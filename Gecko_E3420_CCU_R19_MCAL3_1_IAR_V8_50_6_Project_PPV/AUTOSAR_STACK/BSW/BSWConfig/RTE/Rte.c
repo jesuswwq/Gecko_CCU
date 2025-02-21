@@ -10,7 +10,7 @@
  *  <MCU:E3420>
  *  
  *  @author     <>
- *  @date       <2024-12-19 16:42:29>
+ *  @date       <2025-02-19 14:24:12>
  */
 /*============================================================================*/
 
@@ -56,6 +56,12 @@ Rte_InitStatusType RteInitState;
 /*******************************************************************************
  **                        Global Function Definitions                        **
 ******************************************************************************/
+
+#define RTE_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+static Rte_DE_DT_IPM_TBOX_BJS_Time_BAC_status Rte_Buf_Runbl_AppSwcBcm_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC_ibuffer = {.value = {0,0,0,0,0,0,0,0,0,0,0,0}, .status = RTE_E_OK};
+#define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
@@ -131,6 +137,12 @@ static Rte_DE_DT_IPM_ESCL_ESCLStatus_BOD_status Rte_Buf_Runbl_AppSwcBcm_50ms_IPM
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
+static Rte_DE_DT_IPM_FCM_A_CHA_status Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA_ibuffer = {.value = {0,0,0,0}, .status = RTE_E_OK};
+#define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+
+#define RTE_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
 static Rte_DE_DT_IPM_INV_IMMO_Req_EPT_status Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT_ibuffer = {.value = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, .status = RTE_E_OK};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
@@ -199,6 +211,7 @@ static Rte_DE_UInt8_status Rte_Buf_Runbl_AppSwcBcm_20ms_Sig_Cmd_TiWngFBSt_Sig_Cm
 #include "Rte_MemMap.h"
 CONST(Rte_CDS_AppSwcBcm, RTE_CONST) Rte_Inst_AppSwcBcm =
 {
+    .Runbl_AppSwcBcm_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC = &Rte_Buf_Runbl_AppSwcBcm_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC_ibuffer,
     .Runbl_AppSwcBcm_20ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD = &Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_CCP_PanelStatus_BOD_IPM_CCP_PanelStatus_BOD_ibuffer,
     .Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA = &Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_ESC_7_FuncStatus_CHA_IPM_ESC_7_FuncStatus_CHA_ibuffer,
     .Runbl_AppSwcBcm_20ms_IPM_HU_B_BAC_IPM_HU_B_BAC = &Rte_Buf_Runbl_AppSwcBcm_20ms_IPM_HU_B_BAC_IPM_HU_B_BAC_ibuffer,
@@ -211,6 +224,7 @@ CONST(Rte_CDS_AppSwcBcm, RTE_CONST) Rte_Inst_AppSwcBcm =
     .Runbl_AppSwcBcm_50ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA = &Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_EHB_A_CHA_IPM_EHB_A_CHA_ibuffer,
     .Runbl_AppSwcBcm_50ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA = &Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_EHB_B_CHA_IPM_EHB_B_CHA_ibuffer,
     .Runbl_AppSwcBcm_50ms_IPM_ESCL_ESCLStatus_BOD_IPM_ESCL_ESCLStatus_BOD = &Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_ESCL_ESCLStatus_BOD_IPM_ESCL_ESCLStatus_BOD_ibuffer,
+    .Runbl_AppSwcBcm_50ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA = &Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA_ibuffer,
     .Runbl_AppSwcBcm_50ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT = &Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_INV_IMMO_Req_EPT_IPM_INV_IMMO_Req_EPT_ibuffer,
     .Runbl_AppSwcBcm_50ms_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA = &Rte_Buf_Runbl_AppSwcBcm_50ms_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA_ibuffer,
     .Runbl_AppSwcBcm_20ms_Bcm2OpmBAC_outputs_Bcm2OpmBAC_outputs = &Rte_Buf_Runbl_AppSwcBcm_20ms_Bcm2OpmBAC_outputs_Bcm2OpmBAC_outputs_ibuffer,
@@ -247,6 +261,12 @@ static Rte_DE_BMS_9_BattInfo_EPT_status Rte_Buf_Runbl_IpmCanRx_100ms_BMS_9_BattI
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 static Rte_DE_COMP_AC_BOD_status Rte_Buf_Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD_ibuffer = {.value = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, .status = RTE_E_OK};
+#define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+
+#define RTE_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+static Rte_DE_FCM_A_CHA_status Rte_Buf_Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA_ibuffer = {.value = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, .status = RTE_E_OK};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -480,6 +500,12 @@ static Rte_DE_DT_IPM_COMP_AC_BOD_status Rte_Buf_Runbl_IpmCanRx_100ms_IPM_COMP_AC
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
+static Rte_DE_DT_IPM_FCM_A_CHA_status Rte_Buf_Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA_ibuffer = {.value = {0,0,0,0}, .status = RTE_E_OK};
+#define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+
+#define RTE_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
 static Rte_DE_DT_IPM_HU_B_BAC_status Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC_ibuffer = {.value = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, .status = RTE_E_OK};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
@@ -702,6 +728,7 @@ CONST(Rte_CDS_AppSwcIpm, RTE_CONST) Rte_Inst_AppSwcIpm =
     .Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT = &Rte_Buf_Runbl_IpmCanRx_100ms_BMS_5_BatTemp_EPT_BMS_5_BatTemp_EPT_ibuffer,
     .Runbl_IpmCanRx_100ms_BMS_9_BattInfo_EPT_BMS_9_BattInfo_EPT = &Rte_Buf_Runbl_IpmCanRx_100ms_BMS_9_BattInfo_EPT_BMS_9_BattInfo_EPT_ibuffer,
     .Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD = &Rte_Buf_Runbl_IpmCanRx_100ms_COMP_AC_BOD_COMP_AC_BOD_ibuffer,
+    .Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA = &Rte_Buf_Runbl_IpmCanRx_100ms_FCM_A_CHA_FCM_A_CHA_ibuffer,
     .Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC = &Rte_Buf_Runbl_IpmCanRx_100ms_HU_B_BAC_HU_B_BAC_ibuffer,
     .Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD = &Rte_Buf_Runbl_IpmCanRx_100ms_HVCH_Status1_BOD_HVCH_Status1_BOD_ibuffer,
     .Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD = &Rte_Buf_Runbl_IpmCanRx_100ms_HVCH_Status2_BOD_HVCH_Status2_BOD_ibuffer,
@@ -740,6 +767,7 @@ CONST(Rte_CDS_AppSwcIpm, RTE_CONST) Rte_Inst_AppSwcIpm =
     .Runbl_IpmCanRx_100ms_IPM_BMS_5_BatTemp_EPT_IPM_BMS_5_BatTemp_EPT = &Rte_Buf_Runbl_IpmCanRx_100ms_IPM_BMS_5_BatTemp_EPT_IPM_BMS_5_BatTemp_EPT_ibuffer,
     .Runbl_IpmCanRx_100ms_IPM_BMS_9_BattInfo_EPT_IPM_BMS_9_BattInfo_EPT = &Rte_Buf_Runbl_IpmCanRx_100ms_IPM_BMS_9_BattInfo_EPT_IPM_BMS_9_BattInfo_EPT_ibuffer,
     .Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD = &Rte_Buf_Runbl_IpmCanRx_100ms_IPM_COMP_AC_BOD_IPM_COMP_AC_BOD_ibuffer,
+    .Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA = &Rte_Buf_Runbl_IpmCanRx_100ms_IPM_FCM_A_CHA_IPM_FCM_A_CHA_ibuffer,
     .Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC = &Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HU_B_BAC_IPM_HU_B_BAC_ibuffer,
     .Runbl_IpmCanRx_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD = &Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HVCH_Status1_BOD_IPM_HVCH_Status1_BOD_ibuffer,
     .Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD = &Rte_Buf_Runbl_IpmCanRx_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD_ibuffer,
@@ -1631,6 +1659,12 @@ static Rte_DE_DT_IPM_IPU_OBC_2_Inlet_EPT_status Rte_Buf_Task_100ms_IPM_IPU_OBC_2
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
+static Rte_DE_DT_IPM_TBOX_BJS_Time_BAC_status Rte_Buf_Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC_ibuffer = {.value = {0,0,0,0,0,0,0,0,0,0,0,0}, .status = RTE_E_OK};
+#define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
+
+#define RTE_START_SEC_VAR_INIT_UNSPECIFIED
+#include "Rte_MemMap.h"
 static Rte_DE_Boolean_status Rte_Buf_Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta_ibuffer = {.value = 0, .status = RTE_E_OK};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
@@ -1853,7 +1887,7 @@ static Rte_DE_TMS2VCU_TMS_LINTestData3_Outputs_status Rte_Buf_Task_100ms_TMS2VCU
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-static Rte_DE_Tms2Vcu_Info_status Rte_Buf_Task_100ms_Tms2Vcu_Info_Tms2Vcu_Info_ibuffer = {.value = {0,0,0}, .status = RTE_E_OK};
+static Rte_DE_Tms2Vcu_Info_status Rte_Buf_Task_100ms_Tms2Vcu_Info_Tms2Vcu_Info_ibuffer = {.value = {0,0,0,0}, .status = RTE_E_OK};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -1951,6 +1985,7 @@ CONST(Rte_CDS_ME11, RTE_CONST) Rte_Inst_ME11 =
     .Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD = &Rte_Buf_Task_100ms_IPM_HVCH_Status2_BOD_IPM_HVCH_Status2_BOD_ibuffer,
     .Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT = &Rte_Buf_Task_100ms_IPM_INV_2_Value_EPT_IPM_INV_2_Value_EPT_ibuffer,
     .Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT = &Rte_Buf_Task_100ms_IPM_IPU_OBC_2_Inlet_EPT_IPM_IPU_OBC_2_Inlet_EPT_ibuffer,
+    .Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC = &Rte_Buf_Task_100ms_IPM_TBOX_BJS_Time_BAC_IPM_TBOX_BJS_Time_BAC_ibuffer,
     .Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta = &Rte_Buf_Task_100ms_MotPMP_PumpDryRunningSta_MotPMP_PumpDryRunningSta_ibuffer,
     .Task_100ms_MotPMP_PumpInputVolt_MotPMP_PumpInputVolt = &Rte_Buf_Task_100ms_MotPMP_PumpInputVolt_MotPMP_PumpInputVolt_ibuffer,
     .Task_100ms_MotPMP_PumpMotorSta_MotPMP_PumpMotorSta = &Rte_Buf_Task_100ms_MotPMP_PumpMotorSta_MotPMP_PumpMotorSta_ibuffer,
@@ -2211,7 +2246,7 @@ static Rte_DE_TMS2VCU_AC_2_State_Outputs_status Rte_Buf_Runbl_VcuRx_10ms_TMS2VCU
 
 #define RTE_START_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
-static Rte_DE_Tms2Vcu_Info_status Rte_Buf_Runbl_VcuTx_10ms_Tms2Vcu_Info_Tms2Vcu_Info_ibuffer = {.value = {0,0,0}, .status = RTE_E_OK};
+static Rte_DE_Tms2Vcu_Info_status Rte_Buf_Runbl_VcuRx_10ms_Tms2Vcu_Info_Tms2Vcu_Info_ibuffer = {.value = {0,0,0,0}, .status = RTE_E_OK};
 #define RTE_STOP_SEC_VAR_INIT_UNSPECIFIED
 #include "Rte_MemMap.h"
 
@@ -2285,7 +2320,7 @@ CONST(Rte_CDS_AppSwcVcu, RTE_CONST) Rte_Inst_AppSwcVcu =
     .Runbl_VcuRx_10ms_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA = &Rte_Buf_Runbl_VcuRx_10ms_IPM_SRS_1_Status_CHA_IPM_SRS_1_Status_CHA_ibuffer,
     .Runbl_VcuRx_10ms_MsgActv_outputs_MsgActv_outputs = &Rte_Buf_Runbl_VcuRx_10ms_MsgActv_outputs_MsgActv_outputs_ibuffer,
     .Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs = &Rte_Buf_Runbl_VcuRx_10ms_TMS2VCU_AC_2_State_Outputs_TMS2VCU_AC_2_State_Outputs_ibuffer,
-    .Runbl_VcuTx_10ms_Tms2Vcu_Info_Tms2Vcu_Info = &Rte_Buf_Runbl_VcuTx_10ms_Tms2Vcu_Info_Tms2Vcu_Info_ibuffer,
+    .Runbl_VcuRx_10ms_Tms2Vcu_Info_Tms2Vcu_Info = &Rte_Buf_Runbl_VcuRx_10ms_Tms2Vcu_Info_Tms2Vcu_Info_ibuffer,
     .Runbl_VcuTx_10ms_DAG_Comm_outputs_DAG_Comm_outputs = &Rte_Buf_Runbl_VcuTx_10ms_DAG_Comm_outputs_DAG_Comm_outputs_ibuffer,
     .Runbl_VcuTx_10ms_Vcu2BcmTms_outputs_Vcu2BcmTms_outputs = &Rte_Buf_Runbl_VcuTx_10ms_Vcu2BcmTms_outputs_Vcu2BcmTms_outputs_ibuffer,
     .Runbl_VcuTx_10ms_Vcu2OpmBAC_outputs_Vcu2OpmBAC_outputs = &Rte_Buf_Runbl_VcuTx_10ms_Vcu2OpmBAC_outputs_Vcu2OpmBAC_outputs_ibuffer,

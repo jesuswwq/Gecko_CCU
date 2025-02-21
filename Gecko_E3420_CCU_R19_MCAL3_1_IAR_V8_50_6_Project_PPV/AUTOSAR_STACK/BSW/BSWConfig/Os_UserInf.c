@@ -71,6 +71,12 @@ ComM_ModeType new_LinSM0_State = COMM_NO_COMMUNICATION;
 Dio_LevelType iolevel = STD_LOW;
 static uint8 wdg_passcnt = 0;
 uint8 NvM_InitReadAll_Flag ;
+extern boolean VIPM_HwKL15A_flg;
+extern boolean VIPM_HwKL15B_flg;
+boolean Diag_Init2s_Flag = FALSE;
+uint16 Diag_inittime = 0;
+uint32 RTC_SleepTime;
+extern Mcu_ResetType ResetReason;
 //extern uint8 Counter1ms;
 //Mcu_ResetType Resetreason;
 /*=======[V E R S I O N   I N F O R M A T I O N]===============================*/
@@ -112,14 +118,15 @@ boolean APP_TASK_20MS_Flag = FALSE;
 boolean APP_TASK_50MS_Flag = FALSE;
 TASK(OsTask__Core0_100ms)
 {
-    /* please insert your code here ... */
+    /* please insert your code here ... */ 
     #if TEST_Periodic_Time_swtich 
         Test_100ms_count++;
         if(Test_100ms_count >= 200)
         {
             Test_100ms_count = 0;
         }
-    #endif   
+    #endif 
+     
     Xcp_EventIndication(3);
     Os_TaskEntry_Rte_OsTask__Core0_100ms();
     APP_TASK_100MS_Flag = TRUE;
@@ -210,6 +217,23 @@ TASK(OsTask__Core0_1ms)
 {
     //Counter1ms++;
     CanSM_MainFunction();
+    if(VIPM_HwKL15A_flg == 1 || VIPM_HwKL15B_flg == 1 || Get_NetWorkWakeup() == 1)
+    {
+        Diag_inittime++;
+        if(Diag_inittime >= 1960)
+        {
+            Diag_Init2s_Flag = TRUE;   
+            Diag_inittime = 1960; 
+        }
+        else
+        {
+            Diag_Init2s_Flag = FALSE;
+        }
+    }
+    else{
+        Diag_inittime = 0;
+        Diag_Init2s_Flag = FALSE;
+    }
 
     /* please insert your code here ... */
     if (E_OK != TerminateTask())
@@ -263,7 +287,7 @@ TASK(OsTask__Core0_20ms)
             Test_20ms_count = 0;
         }
     #endif 
-  
+    
     ADC2_ReadGroup0();
     ADC2_ReadGroup1();
     Gpio_TCA9539_ReadValue();
@@ -273,9 +297,9 @@ TASK(OsTask__Core0_20ms)
    // iolevel = IoExp_TCA9539_GetChannelInputLevel(TCA9539_CHIP_B,tmpchannel);
     Xcp_EventIndication(1);
     NM_UserDataPackup();
-    //ME11_TMSADCSampleFunc();
-    //ME11_TMSIODriverFunc();
+    ME11_TMSIODriverFunc();
         Os_TaskEntry_Rte_OsTask__Core0_20ms();
+    
     APP_TASK_20MS_Flag = TRUE;
     if (E_OK != TerminateTask())
     {
@@ -307,7 +331,6 @@ TASK(OsTask__Core0_2ms)
 }
 TASK(OsTask__Core0_50ms)
 {
-
 #if TEST_Periodic_Time_swtich 
         Test_50ms_count++;
         if(Test_50ms_count >= 200)
@@ -319,6 +342,7 @@ TASK(OsTask__Core0_50ms)
     
 	Xcp_EventIndication(2);
     Os_TaskEntry_Rte_OsTask__Core0_50ms();
+   
 	APP_TASK_50MS_Flag = TRUE;
     if (E_OK != TerminateTask())
     {
@@ -348,19 +372,22 @@ TASK(OsTask__Core0_5ms)
   }
 
     /* please insert your code here ... */
+    
     CanTp_MainFunction();
-    CanNm_MainFunction();
     LinSM_MainFunction();
     LinIf_MainFunction();
-    if((APP_TASK_10MS_Flag == TRUE) && (APP_TASK_20MS_Flag == TRUE) && (APP_TASK_50MS_Flag == TRUE) &&(APP_TASK_100MS_Flag == TRUE))
+    if((APP_TASK_10MS_Flag == TRUE) && (APP_TASK_20MS_Flag == TRUE) && (APP_TASK_50MS_Flag == TRUE) &&(APP_TASK_100MS_Flag == TRUE) && (ResetReason == MCU_WATCHDOG_RESET))
     {
-        
+        CanNm_MainFunction();
+        Com_MainFunctionTx();
+    }
+    else{
+        CanNm_MainFunction();
         Com_MainFunctionTx();
     }
     Com_MainFunctionRx();
     ADC2_ReadGroup2_4067();
     Xcp_MainFunction(); 
-
     if (E_OK != TerminateTask())
     {
         while (1)
@@ -376,7 +403,7 @@ TASK(OsTask_Core0_Init)
     EcuM_StartupTwo();
     
     NvM_InitReadAll_Flag = 0;
-  
+    RTC_SleepTime = Get_RTC_SleepTime();
     //Resetreason = Mcu_GetResetReason();
 /*CDD initial start*/
     Dio_WriteChannel(DioConf_DioChannel_DioChannel_GPIO_D3_SYSERR_EN,1);//add system_err_EN
@@ -400,11 +427,11 @@ TASK(OsTask_Core0_Init)
     VNQ7E100_Init();
     Wdg_140_Instance1_Wdt_Init(&Wdg_Config1);
 
-    
 /*CDD initial end**/
 
     Rte_Start();
     Os_TaskEntry_Rte_OsTask_Core0_Init();
+
     SetRelAlarm(OsAlarm_Core0_1ms, 1, 1);
     SetRelAlarm(OsAlarm_Core0_2ms, 3, 2);
     SetRelAlarm(OsAlarm_Core0_5ms, 5, 5);

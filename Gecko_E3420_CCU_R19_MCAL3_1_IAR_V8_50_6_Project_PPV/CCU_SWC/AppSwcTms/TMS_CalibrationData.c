@@ -3,6 +3,7 @@
 
 #include "XcpTest_types.h"
 
+CALDATA const volatile uint8 ACAuto = 7U;
 CALDATA const volatile uint8 ACDefog = 15U;
 CALDATA const volatile uint8 ACOff = 8U;
 CALDATA const volatile uint8 AC_ColdStart = 1U;
@@ -1144,6 +1145,10 @@ CALDATA const volatile float32 cal_BetwT1AndT2UpMCV_1X[6] = { -4.0F, -2.0F, 0.0F
 CALDATA const volatile uint8 cal_BetwT1AndT2UpMCV_CUR[6] = { 12U, 12U, 8U, 8U,
   5U, 5U } ;
 
+CALDATA const volatile float32 cal_BlowerFanEnvLmtTmpOff = -13.0F;
+CALDATA const volatile float32 cal_BlowerFanEnvLmtTmpOn = -15.0F;
+CALDATA const volatile uint8 cal_BlowerFanMaxLowTmp = 59U;
+CALDATA const volatile uint8 cal_BlowerFanMaxNormal = 73U;
 CALDATA const volatile uint8 cal_BlowerFanSpdLL = 0U;
 CALDATA const volatile uint8 cal_BlowerFanSpdVentUL = 78U;
 CALDATA const volatile uint8 cal_BlwFanData = 0U;
@@ -1225,6 +1230,7 @@ CALDATA const volatile float32 cal_COMPFanLevelLmt_CUR[9] = { 0.0F, 1500.0F,
 
 CALDATA const volatile uint8 cal_COMPFanSpdLmt[3] = { 40U, 50U, 60U } ;
 
+CALDATA const volatile float32 cal_COMPNoPTCLmtSpd = 4000.0F;
 CALDATA const volatile float32 cal_COMPONMinSpd = 1000.0F;
 CALDATA const volatile float32 cal_COMPOffMaxSpd = 750.0F;
 CALDATA const volatile float32 cal_COMPPwrMaxLmt = 10.0F;
@@ -2114,6 +2120,7 @@ CALDATA const volatile uint16 cal_MixDoorVolAmend_1X[2] = { 0U, 5000U } ;
 
 CALDATA const volatile sint16 cal_MixDoorVolAmend_CUR[2] = { 0, 0 } ;
 
+CALDATA const volatile boolean cal_MixIODrvNotChgFlg = false;
 CALDATA const volatile uint8 cal_MixWarmTrgPos = 94U;
 CALDATA const volatile uint16 cal_ModeDoorVolAmend_1X[2] = { 0U, 5000U } ;
 
@@ -2131,6 +2138,7 @@ CALDATA const volatile uint8 cal_ModeMotorTrgPos_1X[5] = { 1U, 2U, 3U, 4U, 5U } 
 CALDATA const volatile float32 cal_ModeMotorTrgPos_CUR[5] = { 0.5F, 2.5F, 1.65F,
   3.4F, 4.5F } ;
 
+CALDATA const volatile boolean cal_MotIODrvNotChgFlg = false;
 CALDATA const volatile uint16 cal_MotInletTempVolAmend_1X[2] = { 0U, 5000U } ;
 
 CALDATA const volatile sint16 cal_MotInletTempVolAmend_CUR[2] = { 0, 0 } ;
@@ -2409,6 +2417,7 @@ CALDATA const volatile float32 cal_RFloor2FaceFloorByEnv_CUR[14] = { 26.0F,
   26.0F, 26.0F, 26.0F, 26.0F, 26.0F, 26.0F, 26.0F, 26.0F, 26.0F, 30.0F, 30.0F,
   30.0F, 30.0F } ;
 
+CALDATA const volatile boolean cal_RecIODrvNotChgFlg = false;
 CALDATA const volatile float32 cal_RecirActVal_1X[2] = { 1.42F, 4.68F } ;
 
 CALDATA const volatile uint8 cal_RecirActVal_CUR[2] = { 100U, 0U } ;
