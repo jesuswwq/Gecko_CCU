@@ -449,6 +449,7 @@ void Gpio_TCA9539_ReadValue()
 	uint8  pin_id=0;
     uint8  pin_id_post =0;
 	uint8 regVal_u8[2] = {(uint8)0,(uint8)0};
+    static uint8 Old_Regval[2] = {(uint8)0,(uint8)0};
     uint8 retrytimes = 3;
     uint8 retrytimes1 = 3;
 	Std_ReturnType ret = E_NOT_OK;
@@ -456,29 +457,39 @@ void Gpio_TCA9539_ReadValue()
 	{
         //ret = IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP0,&regVal_u8[0]);
         #if 1 
-        while(IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP0,(uint8*)(&regVal_u8[0]))!= E_OK)
+        while( (ret = IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP0,(uint8*)(&regVal_u8[0])))!= E_OK)
         {
             
             if(retrytimes == 0)
             {
+                regVal_u8[0] = Old_Regval[0];
                 break;
             }
             else{
                 retrytimes--;
             }
         }
+        if(ret == E_OK)
+        {
+            Old_Regval[0] = regVal_u8[0];
+        }  
         #endif
         //ret|= IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP1,&regVal_u8[1]);
        #if 1
-        while(IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP1,(uint8*)(&regVal_u8[1])) != E_OK)
+        while((ret = IoExp_TCA9539_GetPortInputValue(channel_id,TCA9539_PORTGROUP1,(uint8*)(&regVal_u8[1]))) != E_OK)
         {
             if(retrytimes1 == 0)
             {
+                regVal_u8[1] = Old_Regval[1];
                 break;
             }
             else{
                 retrytimes1--;
             }
+        }
+        if(ret == E_OK)
+        {
+            Old_Regval[1] = regVal_u8[1];
         }
         #endif
 		//if(E_NOT_OK== ret) return ;
