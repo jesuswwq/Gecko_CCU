@@ -20,6 +20,7 @@
 // #define RTC_TEST   /*for test RTC wakeup*/
 #define SWCTimer_Min 0U 
 #define SWCTimer_Max 65535U
+boolean Set_6424E_Io_SetFlg;
 extern uint32 AD4067Avalue[adsize_4067A];
 extern uint32 AD4067Bvalue[adsize_4067B];
 extern uint32 AD4067Cvalue[adsize_4067C];
@@ -1062,16 +1063,18 @@ uint8 Get_RKEReq(void)
 }
 uint16 GetHw_TurnIndcrVol(uint8 Sts)
 {
-
+	Gpio_TCA6424E_GetAllPort_OutRegVal();
 	tca6424E[1] = (1 << 7) | tca6424E[1];
 	if (Sts == 1)
 	{
 		tca6424E[2] = (1) | tca6424E[2];
+		//IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E, IOEXP_TCA6424_P10, 1);
 	}
 	else
 	{
-		tca6424E[2] = (1 ^ 0xFF) & tca6424E[2];
+		tca6424E[2] = (0xFE) & tca6424E[2];
 	}
+	Set_6424E_Io_SetFlg = TRUE;
 	return (uint16)(((float)AD4067Bvalue[0] / 4095.0 * 3300.0)* 4800.0 /1500);
 }
 
@@ -1658,6 +1661,7 @@ void SetHw_SteerWhlHeat(uint8 Sts)//方向盘加热驱动
 // 20240605
 void SetHw_PwrBlower(uint8 state)//blower
 {
+	Gpio_TCA6424E_GetAllPort_OutRegVal();
 	if (state == 1)
 	{
 		/*pwr on*/
@@ -1670,6 +1674,7 @@ void SetHw_PwrBlower(uint8 state)//blower
 		TLE75242_OUT2_3_Switch(TLE75242_CHIP_B,STD_LOW,TLE75242_CH_OUT2);
 		tca6424E[3] = ((1 << 4) ^ 0xff) & tca6424E[3];
 	}
+	Set_6424E_Io_SetFlg = TRUE;
 }
 
 

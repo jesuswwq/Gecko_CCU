@@ -25,6 +25,7 @@ extern void Gpio_TLE75004_DataWrite(void);
 extern Std_ReturnType Gpio_TLE75242A_8bitDataWrite(void);
 extern Std_ReturnType Gpio_TLE75242B_8bitDataWrite(void);
 extern void Gpio_TLE8108_Datawrite(void);
+extern Std_ReturnType Gpio_TCA6424E_GetAllPort_OutRegVal(void);
 
 
 #endif

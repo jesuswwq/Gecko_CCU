@@ -10,7 +10,7 @@ uint8 tca6424B[4] = {0x00, 0x00, 0x1F, 0xF8};
 uint8 tca6424C[4] = {0x00, 0xFF, 0xFF, 0xFF};
 uint8 tca6424D[4] = {0x00, 0x00, 0xE0, 0x00};
 uint8 tca6424E[4] = {0x00, 0x00, 0x00, 0x00};
-
+extern boolean Set_6424E_Io_SetFlg;
 // 75242
 uint8 tle75242A = 0;
 uint8 tle75242B = 0;
@@ -102,18 +102,45 @@ Std_ReturnType Gpio_TCA6424D_SetAllPortVal(void)
     return ret;
 }
 
+Std_ReturnType Gpio_TCA6424E_GetAllPort_OutRegVal(void)
+{
+    uint8 reg_val[3] = {0};
+    uint8 i = 0;
+    for(i = 0; i < 3; i++)
+    {
+        while(I2c_read_reg(I2c_adap_dev_tca6424[TCA6424_CHIP_E], TCA6424_CrtlList[TCA6424_CHIP_E].Device_Addr, (TCA6424A_OUTPUT_REG0 + i), &reg_val[i]) != E_OK)
+        {
+
+        }
+        tca6424E[1] = reg_val[0];
+        tca6424E[2] = reg_val[1];   
+        tca6424E[3] = reg_val[2];
+    }
+    
+}
 Std_ReturnType Gpio_TCA6424E_SetAllPortVal(void)
 {
     Std_ReturnType ret = E_OK;
-    static uint8 param_tca6424E1 = 0x00, param_tca6424E2 = 0x00, param_tca6424E3 = 0x00;
-    if (tca6424E[1] != param_tca6424E1 || tca6424E[2] != param_tca6424E2 || tca6424E[3] != param_tca6424E3)
+    static uint8 param_tca6424E[3];
+    uint8 i = 0;
+    uint8 wirte_wf[2] = {0};
+    //ret = I2c_read_reg(I2c_adap_dev_tca6424[TCA6424_CHIP_E], TCA6424_CrtlList[TCA6424_CHIP_E].Device_Addr, &reg_val);
+    for(i = 0; i < 3; i++)
     {
-        tca6424E[0] = TCA6424A_OUTPUT_REG0 | TCA6424_CMD_WRIRE;
-        ret = I2c_write(I2c_adap_dev_tca6424[TCA6424_CHIP_E], TCA6424_CrtlList[TCA6424_CHIP_E].Device_Addr, tca6424E, 4);
-        param_tca6424E1 = tca6424E[1];
-        param_tca6424E2 = tca6424E[2];
-        param_tca6424E3 = tca6424E[3];
+        if(tca6424E[i] != param_tca6424E[i] && Set_6424E_Io_SetFlg == TRUE)
+        {
+            wirte_wf[0] = (TCA6424A_OUTPUT_REG0 + i) | TCA6424_CMD_WRIRE;
+            wirte_wf[1] = tca6424E[1+i];
+            while(I2c_write(I2c_adap_dev_tca6424[TCA6424_CHIP_E], TCA6424_CrtlList[TCA6424_CHIP_E].Device_Addr, wirte_wf, 2) != E_OK)
+            {
+
+            }
+            param_tca6424E[i] = tca6424E[1+i];
+        }
+        
+
     }
+    Set_6424E_Io_SetFlg = FALSE;
     return ret;
 }
 
