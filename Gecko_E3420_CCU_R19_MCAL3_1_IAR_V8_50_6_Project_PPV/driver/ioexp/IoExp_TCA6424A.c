@@ -460,9 +460,22 @@ Std_ReturnType AD4067_IoExp_TCA6424_SetPort0(TCA6424_ChipID_e_ ChipID, uint8 Cha
     uint8 regAddr_u8 = TCA6424A_OUTPUT_REG0;
     uint8 regbuf_w[2] = {0};
     uint8 channel_pos = Channel;
+    uint8 retrytimes = 0;
 
-    I2c_read_reg(I2c_adap_dev_tca6424[ChipID],
-                    TCA6424_CrtlList[ChipID].Device_Addr,regAddr_u8, &regVal_u8);
+    while((ret = I2c_read_reg(I2c_adap_dev_tca6424[ChipID],
+        TCA6424_CrtlList[ChipID].Device_Addr,regAddr_u8, &regVal_u8)) != E_OK)
+    {
+            retrytimes++;
+            if(retrytimes == 3)
+            {
+                retrytimes = 0;
+                break;
+            }
+    }
+    if(ret != E_OK)
+    {
+        return ret;
+    }
     regVal_u8 &= ~(0xf << 1);
     switch (channel_pos)
     {
@@ -521,7 +534,18 @@ Std_ReturnType AD4067_IoExp_TCA6424_SetPort0(TCA6424_ChipID_e_ ChipID, uint8 Cha
     regbuf_w[0] = regAddr_u8 | TCA6424_CMD_WRIRE;
     regbuf_w[1] = regVal_u8;
 
-    ret = I2c_write(I2c_adap_dev_tca6424[ChipID], TCA6424_CrtlList[ChipID].Device_Addr, regbuf_w, 2);
+    while((ret = I2c_write(I2c_adap_dev_tca6424[ChipID], TCA6424_CrtlList[ChipID].Device_Addr, regbuf_w, 2)) != E_OK)
+    {
+        retrytimes++;
+        if(retrytimes == 3)
+        {
+            break;
+        }
+    }
+    if(ret != E_OK)
+    {
+        return 1;
+    }
 
     return ret;
 }
@@ -534,16 +558,45 @@ Std_ReturnType AD4067_IoExp_TCA6424_SetPort2(TCA6424_ChipID_e_ ChipID, uint8 Cha
     uint8 regAddr_u8 = TCA6424A_OUTPUT_REG2;
     uint8 regbuf_w[2] = {0};
     uint8 channel_pos = Channel;
+    uint8 retrytimes = 0;
 
-    I2c_read_reg(I2c_adap_dev_tca6424[ChipID],
-                    TCA6424_CrtlList[ChipID].Device_Addr,regAddr_u8, &regVal_u8);
-    regVal_u8 &= ~(0xf);
+
+    while((ret = I2c_read_reg(I2c_adap_dev_tca6424[ChipID],
+        TCA6424_CrtlList[ChipID].Device_Addr,regAddr_u8, &regVal_u8)) != E_OK)
+    {
+            retrytimes++;
+            Mcu_udelay(50);
+            if(retrytimes == 3)
+            {   retrytimes = 0;
+                break;
+            }
+    }
+    if(ret != E_OK)
+    {
+        //return ret;
+        IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E,IOEXP_TCA6424_P20,(channel_pos & 0x1));
+        IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E,IOEXP_TCA6424_P21,((channel_pos & 0x2) >> 1));
+        IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E,IOEXP_TCA6424_P20,(channel_pos & 0x4) >> 2);
+        IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E,IOEXP_TCA6424_P20,(channel_pos & 0x8) >> 3);
+        return -1;
+    }
+    regVal_u8 &= 0xf0;
     regVal_u8 |= channel_pos;
     regbuf_w[0] = regAddr_u8 | TCA6424_CMD_WRIRE;
     regbuf_w[1] = regVal_u8;
 
-    ret = I2c_write(I2c_adap_dev_tca6424[ChipID], TCA6424_CrtlList[ChipID].Device_Addr, regbuf_w, 2);
-
+       while((ret = I2c_write(I2c_adap_dev_tca6424[ChipID], TCA6424_CrtlList[ChipID].Device_Addr, regbuf_w, 2)) != E_OK)
+       {
+           retrytimes++;
+           if(retrytimes == 3)
+           {
+               break;
+           }
+       }
+       if(ret != E_OK)
+       {
+        return 1;
+       }
     return ret;
 }
 

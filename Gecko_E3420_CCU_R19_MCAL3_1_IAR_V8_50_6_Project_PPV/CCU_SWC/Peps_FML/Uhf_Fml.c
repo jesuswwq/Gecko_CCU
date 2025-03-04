@@ -669,6 +669,7 @@ static void UhfPkePkgProcess(void)
 						else
 						{
 							SetPs_AuthFobStatus(2);
+						#if 0
 							// zch debug
 							memset(g_datCan1Tx_0x330, 0, 8);
 							g_datCan1Tx_0x330[0] = 0x80;
@@ -680,6 +681,12 @@ static void UhfPkePkgProcess(void)
 							g_datCan1Tx_0x330[6] = u32InCarAntRssi.CHAR_BYTE.High_byte;
 
 							BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+						#else
+							if (Print_Fifo_IsFull(&PrintFifo) != True)
+							{
+								Print_Fifo_Write(&PrintFifo, 16);
+							}
+						#endif
 						}
 
 #else
@@ -735,6 +742,7 @@ static void UhfPkePkgProcess(void)
 					if (InCar_CurRssiCalcVal.value >= Ps_Ant_Rssi_Limit)
 					{
 						SetPe_AuthFobStatus(3);
+				#if 0
 						// zch debug
 						memset(g_datCan1Tx_0x330, 0, 8);
 						g_datCan1Tx_0x330[0] = 0x80;
@@ -744,7 +752,13 @@ static void UhfPkePkgProcess(void)
 						g_datCan1Tx_0x330[4] = u32InCarAntRssi.CHAR_BYTE.Mlow_byte;
 						g_datCan1Tx_0x330[5] = u32InCarAntRssi.CHAR_BYTE.Mhigh_byte;
 						g_datCan1Tx_0x330[6] = u32InCarAntRssi.CHAR_BYTE.High_byte;
-						BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+						BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);\
+				#else
+						if (Fifo_IsFull(&PrintFifo) != True)
+						{
+							Print_Fifo_Write(&PrintFifo, 17);
+						}
+				#endif
 					}
 					else
 					{
@@ -755,6 +769,7 @@ static void UhfPkePkgProcess(void)
 						else
 						{
 							SetPe_AuthFobStatus(2);
+						#if 0
 							// zch debug
 							memset(g_datCan1Tx_0x330, 0, 8);
 							g_datCan1Tx_0x330[0] = 0x80;
@@ -766,6 +781,12 @@ static void UhfPkePkgProcess(void)
 							g_datCan1Tx_0x330[5] = u32LfAntRssi.CHAR_BYTE.Mhigh_byte;
 							g_datCan1Tx_0x330[6] = u32LfAntRssi.CHAR_BYTE.High_byte;
 							BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+						#else
+							if (Print_Fifo_IsFull(&PrintFifo) != True)
+							{
+								Print_Fifo_Write(&PrintFifo, 18);
+							}
+						#endif
 						}
 					}
 #else
@@ -812,6 +833,7 @@ static void UhfPkePkgProcess(void)
 					if (InCar_CurRssiCalcVal.value >= Ps_Ant_Rssi_Limit)
 					{
 						SetPe_AuthFobStatus(3);
+					#if 0
 						// zch debug
 						memset(g_datCan1Tx_0x330, 0, 8);
 						g_datCan1Tx_0x330[0] = 0x80;
@@ -822,6 +844,12 @@ static void UhfPkePkgProcess(void)
 						g_datCan1Tx_0x330[5] = u32InCarAntRssi.CHAR_BYTE.Mhigh_byte;
 						g_datCan1Tx_0x330[6] = u32InCarAntRssi.CHAR_BYTE.High_byte;
 						BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+					#else
+						if (Print_Fifo_IsFull(&PrintFifo) != True)
+						{
+							Print_Fifo_Write(&PrintFifo, 19);
+						}
+					#endif
 					}
 					else
 					{
@@ -832,6 +860,7 @@ static void UhfPkePkgProcess(void)
 						else
 						{
 							SetPe_AuthFobStatus(2);
+					#if 0
 							// zch debug
 							memset(g_datCan1Tx_0x330, 0, 8);
 							g_datCan1Tx_0x330[0] = 0x80;
@@ -842,6 +871,12 @@ static void UhfPkePkgProcess(void)
 							g_datCan1Tx_0x330[5] = u32RfAntRssi.CHAR_BYTE.Mhigh_byte;
 							g_datCan1Tx_0x330[6] = u32RfAntRssi.CHAR_BYTE.High_byte;
 							BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+					#else
+							if (Print_Fifo_IsFull(&PrintFifo) != True)
+							{
+								Print_Fifo_Write(&PrintFifo, 20);
+							}
+					#endif
 						}
 					}
 #else
@@ -878,12 +913,19 @@ static void UhfPkePkgProcess(void)
 			}
 			else
 			{
+			#if 0
 				// zch debug
 				memset(g_datCan1Tx_0x330, 0, 8);
 				g_datCan1Tx_0x330[0] = 0x80;
 				g_datCan1Tx_0x330[1] = 0x03;
 				g_datCan1Tx_0x330[2] = 0x00;
 				BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+			#else
+				if (Print_Fifo_IsFull(&PrintFifo) != True)
+				{
+					Print_Fifo_Write(&PrintFifo, 21);
+				}
+			#endif
 			}
 		}
 		else if (FRAME_LF_CMD == 0x15)
@@ -894,6 +936,7 @@ static void UhfPkePkgProcess(void)
 			u32LfAntRssi.Value = (uint32_t)(Lf_Door_CurRssiCalcVal.value * 1000.0);
 			u32RfAntRssi.Value = 0;
 
+		#if 0
 			// zch debug
 			memset(g_datCan1Tx_0x330, 0, 8);
 			g_datCan1Tx_0x330[0] = 0x80;
@@ -903,6 +946,12 @@ static void UhfPkePkgProcess(void)
 			g_datCan1Tx_0x330[4] = u32LfAntRssi.CHAR_BYTE.Mhigh_byte;
 			g_datCan1Tx_0x330[5] = u32LfAntRssi.CHAR_BYTE.High_byte;
 			BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+		#else
+			if (Print_Fifo_IsFull(&PrintFifo) != True)
+			{
+				Print_Fifo_Write(&PrintFifo, 22);
+			}
+		#endif
 		}
 		else if (FRAME_LF_CMD == 0x16)
 		{
@@ -912,6 +961,7 @@ static void UhfPkePkgProcess(void)
 			u32LfAntRssi.Value = 0;
 			u32RfAntRssi.Value = (uint32_t)(Rf_Door_CurRssiCalcVal.value * 1000.0);
 
+		#if 0
 			// zch debug
 			memset(g_datCan1Tx_0x330, 0, 8);
 			g_datCan1Tx_0x330[0] = 0x80;
@@ -921,6 +971,12 @@ static void UhfPkePkgProcess(void)
 			g_datCan1Tx_0x330[4] = u32RfAntRssi.CHAR_BYTE.Mhigh_byte;
 			g_datCan1Tx_0x330[5] = u32RfAntRssi.CHAR_BYTE.High_byte;
 			BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+		#else
+			if (Print_Fifo_IsFull(&PrintFifo) != True)
+			{
+				Print_Fifo_Write(&PrintFifo, 23);
+			}
+		#endif
 		}
 		else if (FRAME_LF_CMD == 0x09)
 		{
@@ -966,12 +1022,19 @@ static void UhfPkePkgProcess(void)
 	}
 	else
 	{
+	#if 0
 		// zch debug
 		memset(g_datCan1Tx_0x330, 0, 8);
 		g_datCan1Tx_0x330[0] = 0x80;
 		g_datCan1Tx_0x330[1] = 0x03;
 		g_datCan1Tx_0x330[2] = 0x01;
 		BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+	#else
+		if (Print_Fifo_IsFull(&PrintFifo) != True)
+		{
+			Print_Fifo_Write(&PrintFifo, 24);
+		}
+	#endif
 	}
 }
 

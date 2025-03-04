@@ -13,6 +13,7 @@
 #include <types.h>
 #include "UHF_FML.h"
 #include "Platform_cfg.h"
+#include "LoopFifo.h"
 
 #define WUPA_ID (uint32)0X35C9872E
 
@@ -164,6 +165,11 @@ extern uint8 u8Rssi_Can_Tx;
 extern uint8_t g_datCan1Tx_0x330[8];
 extern uint8_t u8_Auth_KeyTest_Feedback;
 extern uint8 u8WelcomeGuestWakeUpInd;
+
+extern uint8_t u8Print_Num_Buf[8];
+
+extern PrintFifo_TypeDef PrintFifo;
+
 void Change_Njj29c0_WorkStatus(lf_handle_state sta);
 lf_handle_state Get_Njj29c0_WorkStatus(void);
 uint8 GetNJJ29C0InitCompleteStatus(void);

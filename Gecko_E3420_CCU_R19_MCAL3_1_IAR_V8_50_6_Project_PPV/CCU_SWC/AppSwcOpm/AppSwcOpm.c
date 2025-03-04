@@ -14126,7 +14126,7 @@ static void Runbl_Opm50ms(void)
   AppSwcOpm_ARID_DEF.CCU_VehInfo_BAC_i.VCU_PrstlsStaFb = VOPM_PrstlsStaFb_enum;
   AppSwcOpm_ARID_DEF.CCU_VehInfo_BAC_i.VCU_VehActDrvMod1 =
       VOPM_VehActDrvMod1_enum;
-  AppSwcOpm_ARID_DEF.CCU_VehInfo_BAC_i.CCU_DiagTesterOnline = false;
+  AppSwcOpm_ARID_DEF.CCU_VehInfo_BAC_i.CCU_DiagTesterOnline = CCU_DiagTesterOnlineFlag;
   AppSwcOpm_ARID_DEF.CCU_VehInfo_BAC_i.VCU_HDCStatus = VOPM_HDCStat_enum;
   AppSwcOpm_ARID_DEF.CCU_VehInfo_BAC_i.BCM_HazardLampSts =
       VOPM_BCMHazardLampSts_flg;

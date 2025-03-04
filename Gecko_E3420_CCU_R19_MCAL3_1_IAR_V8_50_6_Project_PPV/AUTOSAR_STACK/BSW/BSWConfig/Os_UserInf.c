@@ -77,6 +77,9 @@ boolean Diag_Init2s_Flag = FALSE;
 uint16 Diag_inittime = 0;
 uint32 RTC_SleepTime;
 extern Mcu_ResetType ResetReason;
+extern boolean BAT_check_flg;
+uint8 BAT_CNT;
+boolean turn_off_flg = FALSE;
 //extern uint8 Counter1ms;
 //Mcu_ResetType Resetreason;
 /*=======[V E R S I O N   I N F O R M A T I O N]===============================*/
@@ -157,7 +160,35 @@ TASK(OsTask__Core0_10ms)
             }
     }
     /* please insert your code here ... */
-    
+    if(VIPM_HwKL15A_flg == 1 || VIPM_HwKL15B_flg == 1 || Get_NetWorkWakeup() == 1)
+    {
+        Diag_inittime++;
+        if(Diag_inittime >= 196)
+        {
+            Diag_Init2s_Flag = TRUE;   
+            Diag_inittime = 196; 
+        }
+        else
+        {
+            Diag_Init2s_Flag = FALSE;
+        }
+    }
+    else{
+        Diag_inittime = 0;
+        Diag_Init2s_Flag = FALSE;
+    }
+    if(BAT_check_flg == FALSE)
+    {
+        BAT_CNT++;
+        if(BAT_CNT == 10)
+        {
+            turn_off_flg = TRUE;
+        }
+    }
+    else{
+        BAT_CNT = 0;
+        turn_off_flg = FALSE;
+    }
     Cycle_HW_NM_Check();
     Cycle_ComM_Manage();
     ComM_MainFunction_Channel_CANFD3();
@@ -217,24 +248,7 @@ TASK(OsTask__Core0_1ms)
 {
     //Counter1ms++;
     CanSM_MainFunction();
-    if(VIPM_HwKL15A_flg == 1 || VIPM_HwKL15B_flg == 1 || Get_NetWorkWakeup() == 1)
-    {
-        Diag_inittime++;
-        if(Diag_inittime >= 1960)
-        {
-            Diag_Init2s_Flag = TRUE;   
-            Diag_inittime = 1960; 
-        }
-        else
-        {
-            Diag_Init2s_Flag = FALSE;
-        }
-    }
-    else{
-        Diag_inittime = 0;
-        Diag_Init2s_Flag = FALSE;
-    }
-
+    CanTp_MainFunction();
     /* please insert your code here ... */
     if (E_OK != TerminateTask())
     {
@@ -287,7 +301,6 @@ TASK(OsTask__Core0_20ms)
             Test_20ms_count = 0;
         }
     #endif 
-    
     ADC2_ReadGroup0();
     ADC2_ReadGroup1();
     Gpio_TCA9539_ReadValue();
@@ -298,6 +311,7 @@ TASK(OsTask__Core0_20ms)
     Xcp_EventIndication(1);
     NM_UserDataPackup();
     ME11_TMSIODriverFunc();
+    GetHw_LowBatValtage();
         Os_TaskEntry_Rte_OsTask__Core0_20ms();
     
     APP_TASK_20MS_Flag = TRUE;
@@ -373,7 +387,7 @@ TASK(OsTask__Core0_5ms)
 
     /* please insert your code here ... */
     
-    CanTp_MainFunction();
+
     LinSM_MainFunction();
     LinIf_MainFunction();
     if((APP_TASK_10MS_Flag == TRUE) && (APP_TASK_20MS_Flag == TRUE) && (APP_TASK_50MS_Flag == TRUE) &&(APP_TASK_100MS_Flag == TRUE) && (ResetReason == MCU_WATCHDOG_RESET))

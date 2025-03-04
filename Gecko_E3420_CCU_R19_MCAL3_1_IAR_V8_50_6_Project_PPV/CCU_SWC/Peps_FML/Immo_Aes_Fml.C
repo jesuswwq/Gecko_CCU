@@ -5,6 +5,7 @@
 #include "uhf_fml.h"
 #include "Immo_Aes_Fml.h"
 #include "Pke_Pks_APP.h"
+#include "LoopFifo.h"
 
 struct Immo_Auth_Buff sImmo_Auth_Message;
 
@@ -24,6 +25,8 @@ const uint8_t u8ImmoPage_Rd_Cmd[5][2]={{0xc9,0x80},{0xd1,0x40},{0xd9,0x00},{0xe0
 uint8 u8ImmoLearnWorkCnt = 0;
 
 extern uint8_t g_datCan1Tx_0x330[8];
+
+extern PrintFifo_TypeDef PrintFifo;
 
 extern void Rke_Flash_Write(uint32_t addr,void *buf,uint32_t len);
 
@@ -211,7 +214,7 @@ void NJJ29C0_Immo_Auth(void)
 				sphscaCendricCadsUCImmoState = IMMO_AUTH_OK;
 
 				SetPs_AuthFobStatus(3);
-				JOKER_StartSleepForced();
+				//JOKER_StartSleepForced();
 				Change_Njj29c0_WorkStatus(lf_ide);
 
 				#ifdef QN_DEBUG
@@ -228,15 +231,21 @@ void NJJ29C0_Immo_Auth(void)
 			{
 				sphscaCendricCadsUCImmoState = IMMO_AUTH_FAIL;
 				SetPs_AuthFobStatus(2);
-				JOKER_StartSleepForced();
+				//JOKER_StartSleepForced();
 				Change_Njj29c0_WorkStatus(lf_ide);
-
+			#if 0
 				//zch debug
 				memset(g_datCan1Tx_0x330,0,8);
 				g_datCan1Tx_0x330[0] = 0x80;
 				g_datCan1Tx_0x330[1] = 0x02;
 				g_datCan1Tx_0x330[2] = 0x02;
 				BCM_IMMOAuthResp1_EPT_Send_Notication(g_datCan1Tx_0x330);
+			#else
+				if (Print_Fifo_IsFull(&PrintFifo) != True)
+				{
+					Print_Fifo_Write(&PrintFifo, 1);
+				}
+			#endif
 			}
 			else
 			{
@@ -325,7 +334,7 @@ void NJJ29C0_Immo_Check_Uid(void)
 						u8_Auth_KeyTest_Feedback = 2;
 					}
 					JOKER_StopImmo();
-					JOKER_StartSleepForced();
+					//JOKER_StartSleepForced();
 					Change_Njj29c0_WorkStatus(lf_ide);
 				}
 				else
@@ -342,7 +351,7 @@ void NJJ29C0_Immo_Check_Uid(void)
 			if(u8ImmoLearnWorkCnt >= 3)
 			{
 				u8_Auth_KeyTest_Feedback = 3;
-				JOKER_StartSleepForced();
+				//JOKER_StartSleepForced();
 				Change_Njj29c0_WorkStatus(lf_ide);
 			}
 			else
@@ -447,7 +456,7 @@ void FobKey_Immo_Learn_Process(void)
 							JOKER_StopImmo();
 							teFobKey_Learn_Feedback_Status = IMMO_LEARN_MAX_NUM_LIMIT;
 							u8FobKey_Information_Management_Feedback = 3;//Keys  Full
-							JOKER_StartSleepForced();
+							//JOKER_StartSleepForced();
 							Change_Njj29c0_WorkStatus(lf_ide);
 							return;
 						}
@@ -469,7 +478,7 @@ void FobKey_Immo_Learn_Process(void)
 						u8ImmoUseCnt = 0;
 						teFobKey_Learn_Feedback_Status = IMMO_LEARN_GET_IDE_FAIL;
 						u8FobKey_Information_Management_Feedback = 2;//
-						JOKER_StartSleepForced();
+						//JOKER_StartSleepForced();
 						Change_Njj29c0_WorkStatus(lf_ide);
 					}
 					else
@@ -833,7 +842,7 @@ void FobKey_Immo_Learn_Process(void)
 				JOKER_StopImmo();
 				UhfFobKeyLearnRxProcess();
 				u8FobKey_Information_Management_Feedback = 1;//Success
-				JOKER_StartSleepForced();
+				//JOKER_StartSleepForced();
 				Change_Njj29c0_WorkStatus(lf_ide);
 
 			#ifdef QN_DEBUG
@@ -849,8 +858,9 @@ void FobKey_Immo_Learn_Process(void)
 				u8ImmoLearnWorkCnt++;
 				if(u8ImmoLearnWorkCnt >= 5)
 				{
+					JOKER_StopImmo();
 					u8FobKey_Information_Management_Feedback = 2;
-					JOKER_StartSleepForced();
+					//JOKER_StartSleepForced();
 					Change_Njj29c0_WorkStatus(lf_ide);
 				}
 				else

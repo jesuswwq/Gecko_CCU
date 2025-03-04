@@ -12,6 +12,7 @@
 #define __IMMO_AES_FML_H
 
 #include <types.h>
+#include "LoopFifo.h"
 
 #define IMMO_WAIT_MAX_PERIOD	(uint8)(20/2)
 

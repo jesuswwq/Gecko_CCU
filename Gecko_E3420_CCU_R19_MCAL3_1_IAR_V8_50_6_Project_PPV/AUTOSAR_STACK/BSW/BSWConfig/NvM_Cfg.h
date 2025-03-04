@@ -129,9 +129,10 @@
 #define NvMBlock_Swc_BCM_PEPS_256               69U
 #define NvMBlock_OBD_InternalData               70U
 #define NvMBlock_Swc_Vcu_2_128               71U
+#define NvMBlock_PePs_Sts               72U
 
 /*The total number of user configured*/
-#define NVM_BLOCK_NUM_ALL                                 71
+#define NVM_BLOCK_NUM_ALL                                 72
 #define NVM_REDUNDANT_ALL                                  1
 
 #define NVM_MAX_LENGTH_CONFIGED_RAM_MIRROR                0U
@@ -220,6 +221,7 @@ extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer68[10];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer69[256];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer70[16];
 extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer71[128];
+extern VAR(uint8, NVM_VAR_NOINIT) NvMBlockRamBuffer72[16];
 
 #endif /* End of NVM_CFG_H*/
 /*******************************************************************************

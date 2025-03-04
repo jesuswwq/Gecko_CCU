@@ -70,7 +70,7 @@ int I2c_get_initstate(I2c_adap_dev_t *adap)
 int I2c_transfer(I2c_adap_dev_t *adap, struct I2c_msg *msgs, int num)
 {
 
-    int ret = 1, try = 0;
+    int ret = 0, try = 0;
     boolean busyFlag = FALSE;
 
     if ((NULL_PTR == adap) || (NULL_PTR == msgs) || (num < 1) || (num > SDRV_I2C_MSG_NUM_MAX)) {
@@ -99,7 +99,7 @@ int I2c_transfer(I2c_adap_dev_t *adap, struct I2c_msg *msgs, int num)
         if (adap->trans_state == I2C_IDLE_STATE) {
             do {
                 ret = adap->ops->I2c_xfer(adap, msgs, num);
-                if (!ret)
+                if (ret == 0)
                     break;
             } while (++try < adap->retry);
         }
@@ -108,11 +108,10 @@ int I2c_transfer(I2c_adap_dev_t *adap, struct I2c_msg *msgs, int num)
         adap->adap_State = I2C_ADAP_IDLE;
         SchM_Exit_I2c_I2C_EXCLUSIVE_AREA_00();
     }
-            else
-        {
-            //while(adap->adap_State == I2C_ADAP_BUSY)
-            ret = 1;
-        }
+    else{
+        ret = 1;
+    }
+
     return ret;
 }
 
@@ -127,11 +126,13 @@ int I2c_write(I2c_adap_dev_t *adap, uint16 addr,
 #endif /* I2C_DEV_ERROR_DETECT */
         ret = -1;
     } else {
+        SuspendAllInterrupts();
         msgs[0].addr = addr;
         msgs[0].buf = (uint8 *)wbuf;
         msgs[0].len = wlen;
         msgs[0].rw_flag = I2C_M_W;
         ret = I2c_transfer(adap, msgs, 1);
+        ResumeAllInterrupts();
     }
 
     return ret;
@@ -148,11 +149,13 @@ int I2c_read(I2c_adap_dev_t *adap, uint16 addr,
 #endif /* I2C_DEV_ERROR_DETECT */
         ret = -1;
     } else {
+        SuspendAllInterrupts();
         msgs[0].addr = addr;
         msgs[0].buf = rbuf;
         msgs[0].len = rlen;
         msgs[0].rw_flag = I2C_M_R;
         ret = I2c_transfer(adap, msgs, 1);
+        ResumeAllInterrupts();
     }
 
     return ret;
@@ -169,6 +172,7 @@ int I2c_write_read(I2c_adap_dev_t *adap, uint16 addr,
 #endif /* I2C_DEV_ERROR_DETECT */
         ret = -1;
     } else {
+        SuspendAllInterrupts();
         msgs[0].addr = addr;
         msgs[0].buf = (uint8 *)wbuf;
         msgs[0].len = wlen;
@@ -179,6 +183,7 @@ int I2c_write_read(I2c_adap_dev_t *adap, uint16 addr,
         msgs[1].len = rlen;
         msgs[1].rw_flag = I2C_M_R;
         ret = I2c_transfer(adap, msgs, 2);
+        ResumeAllInterrupts();
     }
 
     return ret;

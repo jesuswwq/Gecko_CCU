@@ -320,7 +320,9 @@ void Cycle_HW_NM_Check(void)
 						//Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, DEM_CYCLE_STATE_END);
                         //Dem_Shutdown();
 						Dem_IntWriteNvRAM();
+						Dem_Shutdown();
                         PEPS_NVMWrite();
+                        Set_PEPSstatus_BeforeRTC();
                         NvM_WriteAll();
                         NvM_WriteAllFlag = TRUE;
                         BswM_RequestMode(NVM_TIMER_START, 0x55);
@@ -338,7 +340,7 @@ void Cycle_HW_NM_Check(void)
                 {
                         BswM_RequestMode(NVM_TIMER_START, 0xAA);
                         NvM_CancelWriteAll();
-                        //Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, DEM_CYCLE_STATE_START);
+                        Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, DEM_CYCLE_STATE_START);
                         NvM_WriteAllFlag = FALSE;
                 }
                 // if((NM_STATE_PREPARE_BUS_SLEEP == CanNm_ChRunTime[0].canNmState)&&(NM_STATE_PREPARE_BUS_SLEEP == CanNm_ChRunTime[1].canNmState)
@@ -587,14 +589,14 @@ void BSWM_EnterShutDown(void)
 void BswM_ReadAllFinish_CallOut(void)
 {
         Dem_Init(&DemPbCfg);
-        //Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, DEM_CYCLE_STATE_START);
+        Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, DEM_CYCLE_STATE_START);
         NvM_InitReadAll_Flag = 1;
 }
 
 void BswM_WriteAllFinish_CallOut(void)
 {
         NvM_CancelWriteAll();
-        //Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, DEM_CYCLE_STATE_START);
+        Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, DEM_CYCLE_STATE_START);
         NvM_WriteAllFlag = FALSE;
         BswM_RequestMode(NVM_TIMER_START, 0xAA);
 }
