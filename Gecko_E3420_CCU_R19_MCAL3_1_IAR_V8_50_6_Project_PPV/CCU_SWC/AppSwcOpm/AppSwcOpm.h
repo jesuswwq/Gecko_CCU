@@ -30,7 +30,7 @@
 
 /* user code (top of header file) */
 #include"ME11_ABI.h"
-
+extern uint8 CCU_DiagTesterOnlineFlag;
 /* PublicStructure Variables for Internal Data, for system '<Root>' */
 typedef struct {
   BCM_B_Package_BAC BCM_B_Package_BAC_f;/* '<S343>/BusCreator' */

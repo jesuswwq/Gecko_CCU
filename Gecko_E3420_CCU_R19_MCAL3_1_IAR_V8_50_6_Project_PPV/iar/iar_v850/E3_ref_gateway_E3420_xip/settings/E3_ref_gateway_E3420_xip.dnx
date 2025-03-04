@@ -21,7 +21,7 @@
         <LeaveTargetRunning>_ 0</LeaveTargetRunning>
     </JLinkDriver>
     <DebugChecksum>
-        <Checksum>528524437</Checksum>
+        <Checksum>1360629801</Checksum>
     </DebugChecksum>
     <Exceptions>
         <StopOnUncaught>_ 0</StopOnUncaught>
@@ -132,17 +132,6 @@
         <Fmt10>DT_Bcm2VcuTms_outputs-BCM_SysPwrModeV	4	0</Fmt10>
         <Fmt11>NvM_BlockDescriptorType-NvMMaxNumOfWriteRetries	4	0</Fmt11>
         <Fmt12>NvM_BlockDescriptorType-NvmRamBlockDataAddress	4	0</Fmt12>
-        <Fmt13>struct &lt;Unnamed 1413&gt;-lr	4	0</Fmt13>
-        <Fmt14>struct &lt;Unnamed 1413&gt;-lr_saved	4	0</Fmt14>
-        <Fmt15>struct &lt;Unnamed 1413&gt;-r0	4	0</Fmt15>
-        <Fmt16>struct &lt;Unnamed 1413&gt;-r1	4	0</Fmt16>
-        <Fmt17>struct &lt;Unnamed 1413&gt;-r11	4	0</Fmt17>
-        <Fmt18>struct &lt;Unnamed 1413&gt;-r12	4	0</Fmt18>
-        <Fmt19>struct &lt;Unnamed 1413&gt;-r2	4	0</Fmt19>
-        <Fmt20>struct &lt;Unnamed 1413&gt;-r3	4	0</Fmt20>
-        <Fmt21>struct &lt;Unnamed 1413&gt;-r4	4	0</Fmt21>
-        <Fmt22>struct &lt;Unnamed 1413&gt;-r5	4	0</Fmt22>
-        <Fmt23>struct &lt;Unnamed 1413&gt;-spsr	4	0</Fmt23>
     </struct_types>
     <array_types>
         <Fmt0>uint32[4]	4	0</Fmt0>
@@ -176,11 +165,7 @@
         <mode>0</mode>
     </DisassembleMode>
     <Breakpoints2>
-        <Bp0>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\AUTOSAR_STACK\BSW\Communication\Common\Xcp\Xcp_Daq.c}.284.5" 0 0 1 "" 0 "" 0</Bp0>
-        <Bp1>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\AUTOSAR_STACK\BSW\Communication\Common\Xcp\Xcp_Daq.c}.421.12" 0 0 1 "" 0 "" 0</Bp1>
-        <Bp2>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\AUTOSAR_STACK\BSW\Communication\Common\Xcp\Xcp_Daq.c}.481.48" 0 0 1 "" 0 "" 0</Bp2>
-        <Bp3>_ 1 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\AUTOSAR_STACK\BSW\Communication\Common\Xcp\Xcp_Daq.c}.364.5" 0 0 1 "" 0 "" 0</Bp3>
-        <Count>4</Count>
+        <Count>0</Count>
     </Breakpoints2>
     <Aliases>
         <A0>_ "C:\Users\Lenovo\Desktop\BiHu_E3420_FBL_IAR_8_50_6_Project\src\mcal\Can_TS_T01D20M1I4R0\src\Can_IP.c" ""</A0>

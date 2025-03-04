@@ -44,6 +44,7 @@ extern uint8 App_SleepReqFlag ;
 extern Mcu_ResetType ResetReason;
 uint8 bcm_old_data[128];
 extern lf_handle_state lfapp_work_sta;
+boolean BAT_check_flg = 1;
 
 
 uint16 ABIRTC_Timer = 0;
@@ -54,7 +55,7 @@ boolean INV_IMMO_Req_EPT_RevFlag =0;
 boolean HV_Pwr_flag = FALSE;
 //================BSWversion============================
 uint8  VBSW_BswVer0_cnt = 26;
-uint8  VBSW_BswVer1_cnt = 0;
+uint8  VBSW_BswVer1_cnt = 3;
 //======================================================
 
 /*新增高压互锁电压20241025*/
@@ -1068,11 +1069,11 @@ uint16 GetHw_TurnIndcrVol(uint8 Sts)
 	if (Sts == 1)
 	{
 		tca6424E[2] = (1) | tca6424E[2];
-		//IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E, IOEXP_TCA6424_P10, 1);
+		IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E, IOEXP_TCA6424_P10, 1);
 	}
 	else
 	{
-		tca6424E[2] = (0xFE) & tca6424E[2];
+		tca6424E[2] = (1 ^ 0xFF) & tca6424E[2];
 	}
 	Set_6424E_Io_SetFlg = TRUE;
 	return (uint16)(((float)AD4067Bvalue[0] / 4095.0 * 3300.0)* 4800.0 /1500);
@@ -1255,14 +1256,13 @@ void SetHw_BoxLampSta(uint8 Sts)
 uint16 GetHw_LowBatValtage()//BAT 电源检测
 {
 	uint16 Ret_ad = 0;
-	Ret_ad = (uint16)((float)AD4067Bvalue[3]/4095*3300*6 +300);
-	if(Ret_ad > 12000)
+	Ret_ad = (uint16)((float)AD4067Bvalue[3]/4095 * 3300 * 6 * 1.03);
+	if(Ret_ad < 9000 || Ret_ad > 16000)
 	{
-		Ret_ad  = Ret_ad + 500;
+		BAT_check_flg = FALSE;
 	}
-	else
-	{
-
+	else{
+		BAT_check_flg = TRUE;
 	}
     return Ret_ad;
 }
@@ -1666,13 +1666,15 @@ void SetHw_PwrBlower(uint8 state)//blower
 	{
 		/*pwr on*/
 		TLE75242_OUT2_3_Switch(TLE75242_CHIP_B,STD_HIGH,TLE75242_CH_OUT2);
+		IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E, IOEXP_TCA6424_P24, STD_HIGH);
 		tca6424E[3] = (1 << 4) | tca6424E[3];
 	}
 	else
 	{
 		/*off*/
 		TLE75242_OUT2_3_Switch(TLE75242_CHIP_B,STD_LOW,TLE75242_CH_OUT2);
-		tca6424E[3] = ((1 << 4) ^ 0xff) & tca6424E[3];
+		IoExp_TCA6424_SetChannelOutLevel(TCA6424_CHIP_E, IOEXP_TCA6424_P24, STD_LOW);
+		//tca6424E[3] = ((1 << 4) ^ 0xff) & tca6424E[3];
 	}
 	Set_6424E_Io_SetFlg = TRUE;
 }
@@ -1834,11 +1836,11 @@ boolean GetHw_CrashSig_Flag(void)//Crash signal flag
 	uint32 Duty_value;
 	Icu_GetDutyCycleValues(IcuConf_IcuChannel_IcuChannel_Crash_sig,&Crash_sig);
 	Duty_value = ((uint64)Crash_sig.ActiveTime * 100) / Crash_sig.PeriodTime;
-	if((Duty_value > 82) && (Duty_value < 84))
+	if((Duty_value >= 82) && (Duty_value <= 84))
 	{
 		return FALSE;
 	}
-	else if ((Duty_value > 16) && (Duty_value < 18))
+	else if ((Duty_value >= 16) && (Duty_value <= 18))
 	{
 		return TRUE;
 	}
@@ -1924,17 +1926,17 @@ uint8 Get_Diag7x_CV(HS_Diag_Chip Chipselect,uint8 channel)
 	switch(Chipselect)
 	{
 		case Chip_7012:
-			if(AD4067Bvalue[5] >= 0 && AD4067Bvalue[5] < 5)
+			if((AD4067Bvalue[5] / 4095 * 3300) >= 0 && (AD4067Bvalue[5] / 4095 * 3300) < 5)
 			{
 				return 3; //open load
 				break;
 			}
-			else if (AD4067Bvalue[5] >= 2500 && AD4067Bvalue[5] <= 15000)
+			else if ((AD4067Bvalue[5] / 4095 * 3300) >= 2500 && (AD4067Bvalue[5] / 4095 * 3300) <= 15000)
 			{
 				return 1; //short circuit to gnd
 				break;
 			}
-			else if(AD4067Bvalue[5] >= 5 && AD4067Bvalue[5] < 100)
+			else if((AD4067Bvalue[5] / 4095 * 3300) >= 5 && (AD4067Bvalue[5] / 4095 * 3300) < 100)
 			{
 				return 2; //short circuit to vcc
 				break;
@@ -1945,17 +1947,17 @@ uint8 Get_Diag7x_CV(HS_Diag_Chip Chipselect,uint8 channel)
 			}
 			break;
 		case Chip_7012_A:
-			if(AD4067Bvalue[4] >= 0 && AD4067Bvalue[4] < 5)
+			if((AD4067Bvalue[4] / 4095 * 3300) >= 0 && (AD4067Bvalue[4] / 4095 * 3300) < 5)
 			{
 				return 3; //open load
 				break;
 			}
-			else if (AD4067Bvalue[4] >= 2500 && AD4067Bvalue[4] <= 15000)
+			else if ((AD4067Bvalue[4] / 4095 * 3300) >= 2500 && (AD4067Bvalue[4] / 4095 * 3300) <= 15000)
 			{
 				return 1; //short circuit to gnd
 				break;
 			}
-			else if(AD4067Bvalue[4] >= 5 && AD4067Bvalue[4] < 100)
+			else if((AD4067Bvalue[4] / 4095 * 3300) >= 5 && (AD4067Bvalue[4] / 4095 * 3300) < 100)
 			{
 				return 2; //short circuit to vcc
 				break;
@@ -1966,17 +1968,17 @@ uint8 Get_Diag7x_CV(HS_Diag_Chip Chipselect,uint8 channel)
 			}
 			break;
 		case Chip_7012_C:
-			if(AD4067Bvalue[0] >= 0 && AD4067Bvalue[0] < 5)
+			if((AD4067Bvalue[0] / 4095 * 3300) >= 0 && (AD4067Bvalue[0] / 4095 * 3300) < 5)
 			{
 				return 3; //open load
 				break;
 			}
-			else if (AD4067Bvalue[0] >= 2500 && AD4067Bvalue[0] <= 15000)
+			else if ((AD4067Bvalue[0] / 4095 * 3300) >= 2500 && (AD4067Bvalue[0] / 4095 * 3300) <= 15000)
 			{
 				return 1; //short circuit to gnd
 				break;
 			}
-			else if(AD4067Bvalue[0] >= 5 && AD4067Bvalue[0] < 100)
+			else if((AD4067Bvalue[0] / 4095 * 3300) >= 5 && (AD4067Bvalue[0] / 4095 * 3300) < 100)
 			{
 				return 2; //short circuit to vcc
 				break;
@@ -2015,7 +2017,7 @@ uint8 Get_DiagAnt_CV(AntType channel)
 				Ret = 2; //short circuit
 			}
 			break;
-		case Ant2: //Front Antenna in room
+		case Ant2: // left Front Antenna 
 			Diag_ant = (Diag_ant & 0x0C) >> 2;
 			if(Diag_ant == 0)
 			{
@@ -2030,7 +2032,7 @@ uint8 Get_DiagAnt_CV(AntType channel)
 				Ret = 2; //short circuit
 			}
 			break;
-		case Ant3: //left front Antenna 
+		case Ant3: //right front Antenna 
 			Diag_ant = (Diag_ant & 0x30) >> 4;
 			if(Diag_ant == 0)
 			{
@@ -2045,7 +2047,7 @@ uint8 Get_DiagAnt_CV(AntType channel)
 				Ret = 2; //short circuit
 			}
 			break;
-		case Ant4: //right front Antenna
+		case Ant4: // front Antenna in room
 			Diag_ant = (Diag_ant & 0xC0) >> 6;
 			if(Diag_ant == 0)
 			{
@@ -2070,24 +2072,15 @@ uint8 Get_DiagAnt_CV(AntType channel)
 
 void Set_PEPSstatus_BeforeRTC(void)
 {
-	uint32 pepswork_sta = 0x0U;
-	uint32 pepspolling_unlock = 0x0U;
-	uint32 pesppolling_lock = 0x0U;
-	pepswork_sta = (uint32)lfapp_work_sta;
-	pepspolling_unlock = (uint32)u8PollingUnlockStep;
-	pesppolling_lock =  (uint32)u8PollingLockStep;
-        writel(0,APB_RTC1_BASE + RTC_GP0); // write to RTC GP0 register
-	writel(0,APB_RTC1_BASE + RTC_GP1); // write to RTC GP1 register
-	writel(0,APB_RTC1_BASE + RTC_GP2); 
-	writel(pepswork_sta,APB_RTC1_BASE + RTC_GP0); // write to RTC GP0 register
-	writel(pepspolling_unlock,APB_RTC1_BASE + RTC_GP1); // write to RTC GP1 register
-	writel(pesppolling_lock,APB_RTC1_BASE + RTC_GP2); // write to RTC GP2 register
-
+	*(NvM_BlockDescriptor[NvMBlock_PePs_Sts - 1].NvmRamBlockDataAddress) = lfapp_work_sta;
+	*(NvM_BlockDescriptor[NvMBlock_PePs_Sts - 1].NvmRamBlockDataAddress + 1) = 	u8PollingUnlockStep;
+	*(NvM_BlockDescriptor[NvMBlock_PePs_Sts - 1].NvmRamBlockDataAddress + 2) = u8PollingLockStep;
 }
 
 void Get_PEPSstatus_WkFromRTC(void)
 {
-	lfapp_work_sta = (uint8)readl(APB_RTC1_BASE + RTC_GP0); // read from RTC GP0 register
-	u8PollingUnlockStep = (uint8)readl(APB_RTC1_BASE + RTC_GP1); // read from RTC GP1 register
-	u8PollingLockStep = (uint8)readl(APB_RTC1_BASE + RTC_GP2); // read from RTC GP2 register
+	/*----------------------------read from NVM----------------------------------------*/
+	lfapp_work_sta = *(NvM_BlockDescriptor[NvMBlock_PePs_Sts - 1].NvmRamBlockDataAddress);
+	u8PollingUnlockStep = *(NvM_BlockDescriptor[NvMBlock_PePs_Sts - 1].NvmRamBlockDataAddress + 1); 
+	u8PollingLockStep = *(NvM_BlockDescriptor[NvMBlock_PePs_Sts - 1].NvmRamBlockDataAddress + 2); 
 }

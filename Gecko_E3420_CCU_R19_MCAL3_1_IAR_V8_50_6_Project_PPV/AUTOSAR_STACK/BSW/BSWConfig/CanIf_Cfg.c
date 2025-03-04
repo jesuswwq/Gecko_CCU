@@ -2267,7 +2267,7 @@ static CONST(CanIfHthCfgType,CANIF_CONST) CanIf_HthCfgData[CANIF_HTH_NUMBER] =
         &CanIf_HthRef[4],
     },
     {
-        CANIF_CANDRV_0_CANIF_CTR_DRV_CANFD4_BOD,
+        CANIF_CANDRV_0_CANIF_CTR_DRV_CANFD7_OBD,
         &CanIf_HthRef[5],
     },
     {
@@ -3398,7 +3398,7 @@ static CONST(CanIf_RxPduConfigType,CANIF_CONST) CanIf_RxPduConfigData[CANIF_RXPD
         0x701u,
         0x7ffu,
         CANIF_RX_STANDARD_FD_CAN,
-        64u,
+        8u,
         CANIF_HOH0_HRH_51,
         FALSE,
         &CanTp_RxIndication,

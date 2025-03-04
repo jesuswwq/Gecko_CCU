@@ -47,7 +47,7 @@
 /*The size in bytes to which logical blocks shall be aligned.*/
 #define EA_VIRTUAL_PAGE_SIZE                                 (32u)
 
-#define EA_NUMBER_OF_BLOCKS                                  (0x48u)
+#define EA_NUMBER_OF_BLOCKS                                  (0x49u)
 
 /*Management overhead per logical block in bytes.*/
 #define EA_BLOCK_OVER_HEAD                                   (14U)

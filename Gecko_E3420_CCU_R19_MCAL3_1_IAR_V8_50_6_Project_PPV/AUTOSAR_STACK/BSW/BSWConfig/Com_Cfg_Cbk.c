@@ -562,6 +562,7 @@ boolean IPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
     PduInfoType* PduInfoPtr
 )
 {
+    #if 0
     boolean SysPwrModeFlag = FALSE;
     uint8 SysPwrModetmp = PduInfoPtr -> SduDataPtr[3];
     uint8 SysPwrModeMask = 0x6;
@@ -576,7 +577,7 @@ boolean IPDU_COM_TX_CCU_VehInfo_BAC_CANFD8_BAC_CAN1_TxCallout(
         Dem_SetOperationCycleState((uint8)DemOperationCycle_ID, (uint8)DEM_CYCLE_STATE_END);
         SysPwrModeChangeFlag = FALSE;
     }
-
+    #endif
     uint8 ChksumAtByte[] = CCU_VehInfo_BAC_ChksumByte;
     uint8* AliveCntPtr = &CCU_VehInfo_BAC_AliveCnt[0];
     uint8 ChksumLen = sizeof(ChksumAtByte);

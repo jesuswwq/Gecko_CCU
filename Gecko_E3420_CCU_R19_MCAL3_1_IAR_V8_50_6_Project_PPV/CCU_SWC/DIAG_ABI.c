@@ -83,8 +83,8 @@ void App_Call_Event_DTC_0x10AB96_SetEventStatus(uint8 FaultStatus)  //ESC 5çº§æ•
 		}
 		else
 		{
-			
-		}Dem_SetEventStatus(DemEventParameter_0x10AB96,DEM_EVENT_STATUS_FAILED);
+			Dem_SetEventStatus(DemEventParameter_0x10AB96,DEM_EVENT_STATUS_FAILED);
+		}
 	}
 }
 

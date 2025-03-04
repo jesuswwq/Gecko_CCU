@@ -106,11 +106,16 @@ Std_ReturnType Gpio_TCA6424E_GetAllPort_OutRegVal(void)
 {
     uint8 reg_val[3] = {0};
     uint8 i = 0;
+    uint8 retrytimes = 0;
     for(i = 0; i < 3; i++)
     {
         while(I2c_read_reg(I2c_adap_dev_tca6424[TCA6424_CHIP_E], TCA6424_CrtlList[TCA6424_CHIP_E].Device_Addr, (TCA6424A_OUTPUT_REG0 + i), &reg_val[i]) != E_OK)
         {
-
+            retrytimes++;
+            if(retrytimes == 3)
+            {
+                break;
+            }
         }
         tca6424E[1] = reg_val[0];
         tca6424E[2] = reg_val[1];   
@@ -124,6 +129,7 @@ Std_ReturnType Gpio_TCA6424E_SetAllPortVal(void)
     static uint8 param_tca6424E[3];
     uint8 i = 0;
     uint8 wirte_wf[2] = {0};
+    uint8 retrytimes = 0;
     //ret = I2c_read_reg(I2c_adap_dev_tca6424[TCA6424_CHIP_E], TCA6424_CrtlList[TCA6424_CHIP_E].Device_Addr, &reg_val);
     for(i = 0; i < 3; i++)
     {
@@ -133,7 +139,11 @@ Std_ReturnType Gpio_TCA6424E_SetAllPortVal(void)
             wirte_wf[1] = tca6424E[1+i];
             while(I2c_write(I2c_adap_dev_tca6424[TCA6424_CHIP_E], TCA6424_CrtlList[TCA6424_CHIP_E].Device_Addr, wirte_wf, 2) != E_OK)
             {
-
+                retrytimes++;
+                if(retrytimes == 3)
+                {
+                    break;
+                }
             }
             param_tca6424E[i] = tca6424E[1+i];
         }
