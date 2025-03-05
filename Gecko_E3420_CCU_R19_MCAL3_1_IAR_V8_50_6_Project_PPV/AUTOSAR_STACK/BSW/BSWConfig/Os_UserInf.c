@@ -390,10 +390,13 @@ TASK(OsTask__Core0_5ms)
 
     LinSM_MainFunction();
     LinIf_MainFunction();
-    if((APP_TASK_10MS_Flag == TRUE) && (APP_TASK_20MS_Flag == TRUE) && (APP_TASK_50MS_Flag == TRUE) &&(APP_TASK_100MS_Flag == TRUE) && (ResetReason == MCU_WATCHDOG_RESET))
+    if(ResetReason == MCU_WATCHDOG_RESET)
     {
-        CanNm_MainFunction();
-        Com_MainFunctionTx();
+        if((APP_TASK_10MS_Flag == TRUE) && (APP_TASK_20MS_Flag == TRUE) && (APP_TASK_50MS_Flag == TRUE) &&(APP_TASK_100MS_Flag == TRUE))
+        {
+            CanNm_MainFunction();
+            Com_MainFunctionTx();
+        }
     }
     else{
         CanNm_MainFunction();
