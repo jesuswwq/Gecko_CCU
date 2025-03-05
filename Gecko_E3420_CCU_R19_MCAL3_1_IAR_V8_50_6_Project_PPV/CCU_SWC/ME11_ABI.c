@@ -55,7 +55,7 @@ boolean INV_IMMO_Req_EPT_RevFlag =0;
 boolean HV_Pwr_flag = FALSE;
 //================BSWversion============================
 uint8  VBSW_BswVer0_cnt = 26;
-uint8  VBSW_BswVer1_cnt = 3;
+uint8  VBSW_BswVer1_cnt = 4;
 //======================================================
 
 /*新增高压互锁电压20241025*/
